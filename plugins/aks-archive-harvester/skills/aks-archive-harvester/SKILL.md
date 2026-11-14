@@ -61,12 +61,12 @@ python3 studio.py edit --work WORK --theme <id> [--count 9]
 python3 studio.py edit --work WORK --person 송준길 --types 고신,유서 --years 1650-1680 --title "송준길의 관직 생애" --id songjungil
 ```
 
-This picks representative documents spread across time and types, skips dark covers and blank pages, and keeps only one document per shared album. Single documents inside an album (첩) all get the album's full image set from the server, so the page for each cannot be known. Their captions say so (`공유이미지` column); never pair such a page with a specific document as if confirmed. It writes `WORK/edit/<id>/` with `selection.csv`, `images/` and `contact_sheet.jpg`.
+Use `--all` to select from every document whose images were downloaded (after `download --match`). This picks representative documents spread across time and types, skips dark covers and blank pages, and keeps only one document per shared album. Single documents inside an album (첩) all get the album's full image set from the server, so the page for each cannot be known. Their captions say so (`공유이미지` column); never pair such a page with a specific document as if confirmed. It writes `WORK/edit/<id>/` with `selection.csv`, `images/` and `contact_sheet.jpg`.
 
 Then edit as a curator:
 
 1. Open `contact_sheet.jpg` and the selected images with Read. Swap documents that are weak or duplicated (re-run with other filters or `--count`).
-2. In `selection.csv`, rewrite `캡션` and fill `이야기`: one or two sentences linking each document to the theme's story, in plain Korean for non-specialists.
+2. In `selection.csv`, rewrite `캡션` and fill `이야기`: one or two sentences linking each document to the theme's story, in plain Korean for non-specialists. When the documents carry a narrative (a person's career, a lost and recovered land, a petition repeated for generations), tell it as a story: open with a question, follow the documents in time order, and close with one line on what the record means. Reorder rows to follow the story.
 3. Use only what the title, document type and visible image support. Do not present a transcription, translation or a person's biography as fact unless the user supplies or checks it.
 4. Put `확인` in `검토` only for rows the user has confirmed. Unchecked rows are marked as drafts in every output.
 

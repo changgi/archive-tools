@@ -18,6 +18,8 @@
 |---|---|---|---|
 | [![](examples/jikjisa-temple/cards/00_표지.jpg)](examples/jikjisa-temple/) | [![](examples/susanri-village/cards/00_표지.jpg)](examples/susanri-village/) | [![](examples/namgye-seowon/cards/00_표지.jpg)](examples/namgye-seowon/) | [![](examples/myeongseong-letters/cards/00_표지.jpg)](examples/myeongseong-letters/) |
 
+📖 **이야기가 있는 기록 10편 (EP.7–EP.16):** 왕실 가족의 편지 · 운조루의 시간 · 되찾은 제사 땅 · 섬마을의 호소 · 윤음에서 금융조합까지 · 기도와 살림의 기록 · 200년의 상소 · 나아가지 않은 선비 · 서원을 움직인 사람들 · 학자의 벼슬길 → [보기](https://changgi.github.io/archive-tools/examples/)
+
 명령을 하나씩 따라 하는 예제는 [`examples/README.md`](examples/README.md)에 있습니다.
 
 🎬 **홍보 영상:** [EP.1 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4) · [EP.2 만든 것 보기(48초)](https://changgi.github.io/archive-tools/examples/media/promo-reel-ep2.mp4) · EP.3–EP.6 예시 세트 영상은 [예시 README](examples/README.md#예시-세트-영상-ep3ep6) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)

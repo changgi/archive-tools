@@ -92,13 +92,14 @@ def is_cover(path):
 
 
 def best_page(work, r):
-    """표지·빈 면을 피해 글씨가 가장 많은 면(밝기 편차가 큰 면)을 고른다."""
+    """대표 면: 앞에서부터 보아 표지·빈 면(뒷면)이 아닌 첫 면. 없으면 글씨가 가장 많은 면."""
     ims = doc_images(work, r)
     best, score = None, -1
     for p in ims[:8]:
         im = Image.open(p); im.draft('L', (300, 300)); im = im.convert('L'); im.thumbnail((240, 240))
         st = ImageStat.Stat(im)
         if st.mean[0] < 140: continue  # 어두운 표지·장정
+        if st.stddev[0] >= 30: return p  # 글씨가 충분한 첫 면
         if st.stddev[0] > score: best, score = p, st.stddev[0]
     return best or (ims[0] if ims else None)
 
@@ -184,7 +185,7 @@ def cmd_edit(a):
         if not th: sys.exit('themes.json에 없는 테마입니다. studio.py themes 로 목록을 확인하세요.')
         f, title, tid = th['filter'], a.title or th['title'], th['id']
     else:
-        f = dict(person=a.person, types=a.types.split(',') if a.types else None, years=a.years, query=a.query)
+        f = {} if a.all else dict(person=a.person, types=a.types.split(',') if a.types else None, years=a.years, query=a.query)
         title = a.title or '사용자 테마'; tid = a.id or 'custom'
     cand = [r for r in filter_rows(rows, f) if doc_images(a.work, r)]
     if not cand: sys.exit('조건에 맞고 이미지가 받아진 문서가 없습니다.')
@@ -437,14 +438,14 @@ def main():
     sp = ap.add_subparsers(dest='cmd', required=True)
     t = sp.add_parser('themes'); t.add_argument('--work', required=True)
     e = sp.add_parser('edit'); e.add_argument('--work', required=True); e.add_argument('--theme'); e.add_argument('--count', type=int, default=9)
-    e.add_argument('--person'); e.add_argument('--types'); e.add_argument('--years', help='1650-1700'); e.add_argument('--query'); e.add_argument('--title'); e.add_argument('--id')
+    e.add_argument('--all', action='store_true', help='이미지를 받은 문서 전체에서 선별 (download --match 와 함께)'); e.add_argument('--person'); e.add_argument('--types'); e.add_argument('--years', help='1650-1700'); e.add_argument('--query'); e.add_argument('--title'); e.add_argument('--id')
     m = sp.add_parser('mediate'); m.add_argument('--work', required=True); m.add_argument('--theme', required=True)
     m.add_argument('--title'); m.add_argument('--lead', help='도입 문장'); m.add_argument('--collection'); m.add_argument('--font', help='한글 글꼴 파일 경로')
     m.add_argument('--placeholder', action='store_true', help='원본 이미지 대신 "뷰어에서 보기" 자리 표시 (이미지 이용 동의 전 공개용)')
     m.add_argument('--img-max', type=int, default=1400, help='웹페이지에 넣는 이미지 최대 픽셀')
     r = sp.add_parser('report'); r.add_argument('--root', required=True); r.add_argument('--top', type=int, default=12)
     a = ap.parse_args()
-    if a.cmd == 'edit' and not a.theme and not any([a.person, a.types, a.years, a.query]):
+    if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
     {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'report': cmd_report}[a.cmd](a)
 

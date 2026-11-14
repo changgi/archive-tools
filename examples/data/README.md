@@ -8,3 +8,5 @@
 
 `dongchundang` = 동춘당 송준길 후손가(497건), `yuhoedang` = 유회당 권이진 종가(601건), `jikjisa` = 김천 직지사(50건), `susanri` = 제주 애월 수산리(24건), `namgye` = 함양 남계서원(42건), `myeongseong` = 명성황후기념관(15건).
 값은 문서명에서 자동으로 뽑은 초안이라 검토가 필요합니다. 출처: 한국학중앙연구원 한국고문서자료관.
+
+EP.7–EP.16 소장처는 `<예시폴더>_metadata.csv`, `<예시폴더>_summary.md` (예: `royal-letters_metadata.csv` = 오죽헌·시립박물관).

@@ -14,6 +14,23 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
+## 이야기가 있는 기록 (EP.7–EP.16)
+
+질문으로 시작해 문서로 따라가고, 한 문장으로 맺는 10편입니다. 각 폴더 README에 내레이션 전문이 있습니다.
+
+| 이야기 | 소장처 | 첫 질문 | 영상·홍보 글 |
+|---|---|---|---|
+| [**EP.7 왕실 가족의 편지**](royal-letters/) | 오죽헌·시립박물관 (박물관) | 임금도 할머니에게 편지를 썼을까요? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep7-royal-letters_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep7-royal-letters_wide.mp4) · [홍보 글](royal-letters/promo.md) |
+| [**EP.8 운조루의 시간**](unjoru/) | 구례 오미 문화류씨 운조루 (문중) | 운조루를 지은 유이주, 그는 어떤 길을 걸어왔을까요? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep8-unjoru_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep8-unjoru_wide.mp4) · [홍보 글](unjoru/promo.md) |
+| [**EP.9 되찾은 제사 땅**](jeongon/) | 거창 동계 정온 종가 (문중) | 조상의 제사 땅이 남의 장부에 들어가 버렸다면? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep9-jeongon_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep9-jeongon_wide.mp4) · [홍보 글](jeongon/promo.md) |
+| [**EP.10 섬마을의 호소**](gujora/) | 거제 일운 구조라리 (마을) | 섬마을 사람들은 무엇을 호소했을까요? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep10-gujora_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep10-gujora_wide.mp4) · [홍보 글](gujora/promo.md) |
+| [**EP.11 윤음에서 금융조합까지**](hagari/) | 제주 애월 하가리 (마을) | 왕의 말씀에서 은행까지, 한 마을이 걸어온 길은? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep11-hagari_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep11-hagari_wide.mp4) · [홍보 글](hagari/promo.md) |
+| [**EP.12 기도와 살림의 기록**](yongmunsa/) | 예천 용문사 (사찰) | 불상 안에는 무엇이 들어 있을까요? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep12-yongmunsa_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep12-yongmunsa_wide.mp4) · [홍보 글](yongmunsa/promo.md) |
+| [**EP.13 200년의 상소**](deokcheon/) | 산청 덕천서원 (서원) | 한 스승을 높이기 위해, 200년 동안 상소를 올린 사람들이 있습니다. | [릴스](https://changgi.github.io/archive-tools/examples/media/ep13-deokcheon_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep13-deokcheon_wide.mp4) · [홍보 글](deokcheon/promo.md) |
+| [**EP.14 나아가지 않은 선비**](yunjeung/) | 논산 명재 윤증 종가 (문중) | 임금이 수십 번 불러도, 나아가지 않은 선비가 있습니다. | [릴스](https://changgi.github.io/archive-tools/examples/media/ep14-yunjeung_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep14-yunjeung_wide.mp4) · [홍보 글](yunjeung/promo.md) |
+| [**EP.15 서원을 움직인 사람들**](byeongsan/) | 안동 병산서원 (서원) | 서원을 움직인 사람들은 누구였을까요? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep15-byeongsan_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep15-byeongsan_wide.mp4) · [홍보 글](byeongsan/promo.md) |
+| [**EP.16 학자의 벼슬길**](anjeongbok/) | 광주 순암 안정복 종가 (문중) | 『동사강목』을 쓴 학자는 어떤 벼슬길을 걸었을까요? | [릴스](https://changgi.github.io/archive-tools/examples/media/ep16-anjeongbok_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep16-anjeongbok_wide.mp4) · [홍보 글](anjeongbok/promo.md) |
+
 ## 예시 세트 영상 (EP.3–EP.6)
 
 | | 릴스 9:16 | 가로 16:9 | 홍보 글 |
@@ -34,7 +51,7 @@
 | [**섬마을에 내려온 약속**](susanri-village/) | 제주 애월 수산리 (마을) | 정조 윤음·향약·절목 | 영상(릴스·가로) + 홍보 글 세트 |
 | [**서원을 지키고 꾸린 기록**](namgye-seowon/) | 함양 남계서원 (서원) | 양안·완문·상량문·건치도 | 영상(릴스·가로) + 홍보 글 세트, `download --match`로 필요한 문서만 수집 |
 | [**왕비의 편지**](myeongseong-letters/) | 명성황후기념관 (박물관) | 명성황후가 민영소에게 보낸 한글 편지 | 영상(릴스·가로) + 홍보 글 세트 |
-| [**소장처 비교**](compare/) | 6곳 1,229건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
+| [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
 
