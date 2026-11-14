@@ -175,7 +175,7 @@ def cmd_edit(a):
         out.append({'순서': i, '자료ID': r['자료ID'], '문서명': r['문서명'], '연도': r['_y'] or '', '문서유형': r['문서유형'],
                     '인물': '; '.join(e.split('(')[0] for e in r['_ents']), '유형설명': glossary(r['문서유형']),
                     '대표장': os.path.basename(src), '이미지': f'images/{fn}', '원본경로': os.path.relpath(src, a.work),
-                    '캡션': draft_caption(r), '이야기': '', '검토': ''})
+                    '캡션': draft_caption(r), '이야기': '', '검토': '', '뷰어링크': r.get('뷰어링크', '')})
     with open(os.path.join(od, 'selection.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.DictWriter(fh, fieldnames=list(out[0].keys())); w.writeheader(); w.writerows(out)
     json.dump(dict(id=tid, title=title, filter=f, candidates=len(cand), selected=len(out)), open(os.path.join(od, 'theme.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
@@ -228,9 +228,24 @@ def wrap(d, text, f, width):
 # ---------------------------------------------------------------- mediate (매개)
 INK = (24, 20, 15); PAPER = (244, 238, 226); GOLD = (196, 150, 70)
 
-def card(img_path, title, sub, body, foot, out, size=(1080, 1350)):
+def placeholder_img(title, ident, w=980, h=740):
+    """원본 이미지 대신 넣는 자리 표시 — 이미지 이용 동의 전 공개용."""
+    im = Image.new('RGB', (w, h), (236, 228, 210)); d = ImageDraw.Draw(im)
+    for i in range(0, w + h, 28): d.line((i, 0, i - h, h), fill=(228, 219, 199), width=10)
+    d.rounded_rectangle((24, 24, w - 24, h - 24), 18, outline=(176, 150, 104), width=4)
+    d.text((w / 2, h / 2 - 70), '원본 이미지 자리', font=font(44, 'bold'), fill=(120, 95, 55), anchor='ms')
+    for k, ln in enumerate(wrap(d, title, font(36, 'serif'), w - 140)[:2]):
+        d.text((w / 2, h / 2 + k * 48), ln, font=font(36, 'serif'), fill=INK, anchor='ms')
+    d.text((w / 2, h / 2 + 120), '한국고문서자료관 뷰어에서 보기', font=font(30, 'bold'), fill=(150, 110, 50), anchor='ms')
+    d.text((w / 2, h - 60), ident[:70], font=font(20), fill=(140, 125, 100), anchor='ms')
+    return im
+
+
+def card(img_path, title, sub, body, foot, out, size=(1080, 1350), ph=None):
     W, H = size; c = Image.new('RGB', size, (22, 19, 15)); d = ImageDraw.Draw(c)
-    if img_path:
+    if ph is not None:
+        c.paste(ph, ((W - ph.width) // 2, 80))
+    elif img_path:
         im = Image.open(img_path).convert('RGB'); im.thumbnail((W - 100, 760))
         c.paste(im, ((W - im.width) // 2, 70 + (760 - im.height) // 2))
     y = 870
@@ -248,13 +263,27 @@ def card(img_path, title, sub, body, foot, out, size=(1080, 1350)):
     c.save(out, quality=92)
 
 
-def b64(path, maxw=1400):
-    im = Image.open(path).convert('RGB'); im.thumbnail((maxw, maxw)); bio = io.BytesIO(); im.save(bio, 'JPEG', quality=82)
+IMG_MAX = [1400]
+
+def b64(path, maxw=None):
+    maxw = min(maxw or IMG_MAX[0], IMG_MAX[0])
+    im = path if isinstance(path, Image.Image) else Image.open(path).convert('RGB')
+    im = im.copy(); im.thumbnail((maxw, maxw)); bio = io.BytesIO(); im.save(bio, 'JPEG', quality=82)
     return 'data:image/jpeg;base64,' + base64.b64encode(bio.getvalue()).decode()
 
 
 def cmd_mediate(a):
     if a.font: FONT_OVERRIDE.update(regular=a.font, bold=a.font)
+    IMG_MAX[0] = a.img_max
+    PH = a.placeholder
+    def pic(s):  # 이미지 경로 또는 자리 표시
+        return placeholder_img(s['문서명'], s['자료ID']) if PH else os.path.join(ed, s['이미지'])
+    def fig(s, maxw=None):
+        if PH:
+            link = s.get('뷰어링크') or 'https://archive.aks.ac.kr'
+            return (f'<a class="ph" href="{html.escape(link)}" target="_blank" rel="noopener"><span>원본 이미지 자리</span>'
+                    f'<b>{html.escape(s["문서명"])}</b><em>한국고문서자료관 뷰어에서 보기 ↗</em></a>')
+        return f'<img src="{b64(os.path.join(ed, s["이미지"]), maxw)}" alt="{html.escape(s["문서명"])}">'
     ed = os.path.join(a.work, 'edit', a.theme)
     sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
     th = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8'))
@@ -273,10 +302,12 @@ def cmd_mediate(a):
 
     # 1) 카드뉴스
     first = os.path.join(ed, sel[0]['이미지'])
-    card(first, title, f'{coll} · {span}', a.lead or f'흩어져 있던 집안 문서 {len(sel)}점으로 따라가는 이야기', src_line, os.path.join(od, 'cards', '00_표지.png'))
+    card(first, title, f'{coll} · {span}', a.lead or f'흩어져 있던 집안 문서 {len(sel)}점으로 따라가는 이야기', src_line, os.path.join(od, 'cards', '00_표지.png'),
+         ph=(placeholder_img(sel[0]['문서명'], sel[0]['자료ID']) if PH else None))
     for s in sel:
         body = (s['이야기'] or s['캡션'])
-        card(os.path.join(ed, s['이미지']), f"{s['연도']} {s['문서유형']}".strip(), s['인물'], body, f"{s['문서명']} · {src_line}", os.path.join(od, 'cards', f"{int(s['순서']):02d}.png"))
+        card(os.path.join(ed, s['이미지']), f"{s['연도']} {s['문서유형']}".strip(), s['인물'], body, f"{s['문서명']} · {src_line}", os.path.join(od, 'cards', f"{int(s['순서']):02d}.png"),
+             ph=(placeholder_img(s['문서명'], s['자료ID']) if PH else None))
     end = Image.new('RGB', (1080, 1350), (22, 19, 15)); d = ImageDraw.Draw(end)
     d.text((540, 560), '흩어진 기록을,', font=font(72, 'serif'), fill=PAPER, anchor='ms')
     d.text((540, 670), '다시 이야기로.', font=font(72, 'serif'), fill=GOLD, anchor='ms')
@@ -288,10 +319,10 @@ def cmd_mediate(a):
     items = []
     for s in sel:
         items.append(f"""<section class="panel"><div class="yr">{html.escape(str(s['연도']) or '연도 미상')}</div>
-<figure><img src="{b64(os.path.join(ed, s['이미지']))}" alt="{html.escape(s['문서명'])}"></figure>
+<figure>{fig(s)}</figure>
 <div class="txt"><h2>{html.escape(s['문서유형'])}{(' · ' + html.escape(s['인물'])) if s['인물'] else ''}</h2>
 <p class="cap">{html.escape(s['이야기'] or s['캡션'])}</p>
-<p class="meta">{html.escape(s['문서명'])}<br>{html.escape(s['자료ID'])}</p>{'' if s.get('검토') else '<p class="draft">캡션 초안 — 원문 확인 전</p>'}</div></section>""")
+<p class="meta">{html.escape(s['문서명'])}<br>{html.escape(s['자료ID'])}{(' · <a href="' + html.escape(s['뷰어링크']) + '" target="_blank" rel="noopener">원본 보기 ↗</a>') if s.get('뷰어링크') else ''}</p>{'' if s.get('검토') else '<p class="draft">캡션 초안 — 원문 확인 전</p>'}</div></section>""")
     page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><style>
 body{{margin:0;background:#16130f;color:#efe6d4;font-family:'Noto Serif KR','Batang',serif}}
@@ -300,7 +331,10 @@ header small{{color:#c4964a;letter-spacing:.2em}} header h1{{font-size:clamp(34p
 .line{{position:relative;padding:4vw 6vw}} .line:before{{content:'';position:absolute;left:calc(6vw + 38px);top:0;bottom:0;width:2px;background:#c4964a55}}
 .panel{{display:grid;grid-template-columns:90px 1fr 1fr;gap:28px;align-items:center;margin:0 0 9vh}}
 .yr{{font-size:26px;color:#c4964a;font-weight:700;background:#16130f;position:relative;z-index:1}}
-figure{{margin:0}} figure img{{width:100%;border:8px solid #efe6d4;box-shadow:0 20px 40px #0008}}
+figure{{margin:0}} figure img{{width:100%;border:8px solid #efe6d4;box-shadow:0 20px 40px #0008}} .meta a{{color:#c4964a}}
+.ph{{display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;padding:24px;box-sizing:border-box;text-decoration:none;color:#3a2e1e;
+background:repeating-linear-gradient(135deg,#ece4d2 0 14px,#e4dbc7 14px 28px);border:8px solid #efe6d4;box-shadow:0 20px 40px #0008}}
+.ph span{{font:700 15px sans-serif;letter-spacing:.15em;color:#7a5f37}} .ph b{{font-size:22px}} .ph em{{font:700 15px sans-serif;color:#9a6e2e;font-style:normal}}
 h2{{font-size:28px;margin:0 0 .4em}} .cap{{font-size:19px;line-height:1.8}} .meta{{font-size:14px;color:#9d917c;font-family:sans-serif}}
 .draft{{display:inline-block;font:13px sans-serif;color:#16130f;background:#c4964a;padding:3px 10px;border-radius:12px}}
 footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid #3a3225}}
@@ -315,14 +349,14 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
     # 3) 수업 활동지 (인쇄용 HTML)
     qs = []
     for s in sel:
-        qs.append(f"""<div class="q"><img src="{b64(os.path.join(ed, s['이미지']), 900)}"><div><h3>{s['순서']}. {html.escape(str(s['연도']))} {html.escape(s['문서유형'])}</h3>
+        qs.append(f"""<div class="q">{fig(s, 900)}<div><h3>{s['순서']}. {html.escape(str(s['연도']))} {html.escape(s['문서유형'])}</h3>
 <p><b>어떤 문서?</b> {html.escape(s['유형설명'] or '—')}</p>
 <p><b>찾아보기</b> ① 문서를 받은 사람(또는 쓴 사람)의 이름을 찾아 표시해 보세요. ② 날짜가 적힌 곳을 찾아보세요. ③ 도장(인장)이 있나요?</p>
 <p><b>생각해 보기</b> 이 문서는 왜 지금까지 집안에 남아 있었을까요?</p></div></div>""")
     hand = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>활동지 — {html.escape(title)}</title><style>
 @page{{size:A4;margin:16mm}} body{{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;color:#222;font-size:14px}}
 h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:grid;grid-template-columns:42% 1fr;gap:14px;border-top:1px solid #ccc;padding:12px 0;page-break-inside:avoid}}
-.q img{{width:100%}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
+.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
 </style></head><body><h1>고문서로 읽는 이야기: {html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 이름: ________ </p>{''.join(qs)}
 <h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다.</p></body></html>"""
@@ -372,6 +406,8 @@ def main():
     e.add_argument('--person'); e.add_argument('--types'); e.add_argument('--years', help='1650-1700'); e.add_argument('--query'); e.add_argument('--title'); e.add_argument('--id')
     m = sp.add_parser('mediate'); m.add_argument('--work', required=True); m.add_argument('--theme', required=True)
     m.add_argument('--title'); m.add_argument('--lead', help='도입 문장'); m.add_argument('--collection'); m.add_argument('--font', help='한글 글꼴 파일 경로')
+    m.add_argument('--placeholder', action='store_true', help='원본 이미지 대신 "뷰어에서 보기" 자리 표시 (이미지 이용 동의 전 공개용)')
+    m.add_argument('--img-max', type=int, default=1400, help='웹페이지에 넣는 이미지 최대 픽셀')
     r = sp.add_parser('report'); r.add_argument('--root', required=True); r.add_argument('--top', type=int, default=12)
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not any([a.person, a.types, a.years, a.query]):

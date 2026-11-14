@@ -6,6 +6,16 @@
 |---|---|
 | [aks-archive-harvester](plugins/aks-archive-harvester) | 한국고문서자료관 고문서 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개(전시 웹페이지·카드뉴스·수업 활동지) ⑤ 연구 패키지·여러 문중 비교 연구 |
 
+## 예시 보기
+
+▶ **https://changgi.github.io/archive-tools/examples/** — 실제로 만든 전시 웹페이지·카드뉴스·수업 활동지·비교 리포트
+
+| 혼인과 호적 (에디팅 후) | 송준길의 생애 (에디팅 전) | 땅과 관청 사이 (다른 소장처) |
+|---|---|---|
+| [![](examples/dongchundang-marriage/cards/00_표지.jpg)](examples/dongchundang-marriage/) | [![](examples/dongchundang-songjungil/cards/00_표지.jpg)](examples/dongchundang-songjungil/) | [![](examples/yuhoedang-land/cards/00_표지.jpg)](examples/yuhoedang-land/) |
+
+명령을 하나씩 따라 하는 예제는 [`examples/README.md`](examples/README.md)에 있습니다. 공개 예시에는 원본 이미지 대신 자리 표시를 넣었습니다(소장처 동의 필요). 자리 표시를 누르면 자료관 뷰어로 연결됩니다.
+
 ## 설치
 
 ### Claude Code / Cowork (권장, 업데이트 자동 반영)

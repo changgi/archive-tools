@@ -82,6 +82,11 @@ This writes `WORK/mediate/<id>/`:
 - `handout.html`: an A4 lesson worksheet with "what is this document", "find it" and "think about it" prompts, plus a summary box.
 - `sns.txt`: a post draft with hashtags.
 
+The archive states that image use needs the collection owner's consent through its staff (031-730-8873, 8876).
+- For anything the user will post publicly, offer `--placeholder`. It replaces each image with a box that links to the document in the archive viewer.
+- Without it, outputs embed the downloaded images, which is fine for the user's own work.
+- Examples: https://changgi.github.io/archive-tools/examples/
+
 After it runs:
 
 - Look at a few cards and screenshot `exhibit.html` before handing them over.

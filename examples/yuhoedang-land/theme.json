@@ -1,0 +1,19 @@
+{
+ "id": "land",
+ "title": "땅과 관청 사이 — 문서로 보는 집안 살림",
+ "filter": {
+  "person": null,
+  "types": [
+   "명문",
+   "고목",
+   "첩정",
+   "이관",
+   "자문",
+   "완문"
+  ],
+  "years": null,
+  "query": null
+ },
+ "candidates": 40,
+ "selected": 8
+}

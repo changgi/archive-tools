@@ -1,5 +1,11 @@
 # 변경 기록
 
+## aks-archive-harvester 0.3.1 (2026-11-14)
+- `mediate --placeholder`: 원본 이미지 대신 "원본 이미지 자리 + 자료관 뷰어에서 보기" — 이미지 이용 동의 전 공개용
+- `mediate --img-max`: 웹페이지에 넣는 이미지 크기 제한
+- metadata.csv·수집현황.csv·selection.csv에 `뷰어링크`(문서를 바로 여는 주소) 추가
+- `examples/`: 실제 결과물 예시 3종 + 소장처 비교 + 데이터 + 단계별 예제, GitHub Pages 갤러리
+
 ## aks-archive-harvester 0.3.0 (2026-11-14)
 - ① 수집: `find`(이름으로 소장처 찾기, 172곳 카탈로그 캐시), `catalog`(그룹·지역별 목록 → batch용 TSV)
 - ② 큐레이션: `studio.py themes` — 인물 생애·생활사(혼인·호적)·관직·세기·문서유형 입문 테마 자동 제안

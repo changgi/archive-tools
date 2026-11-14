@@ -29,6 +29,11 @@ from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 SITE = 'https://archive.aks.ac.kr'
 VIEWER = SITE + '/viewer/'
+
+
+def viewer_link(q):
+    """문서 하나를 바로 여는 뷰어 주소 (해시 라우트)."""
+    return SITE + '/viewer/viewer.do#imgnode.do' + q
 # 주의: X-Requested-With 헤더를 넣으면 사이트 웹방화벽이 차단한다.
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/130',
            'Referer': SITE + '/viewer/viewer.do'}
@@ -217,12 +222,12 @@ def cmd_report(a):
     part = {l[0]: l[1] for l in rd('partial.txt')}
     with open(a.out, 'w', newline='', encoding='utf-8-sig') as f:
         w = csv.writer(f)
-        w.writerow(['분류', '폴더', '문서명', '자료ID(UCI)', '전체장수', '받은장수', '서버에없는장', '저해상도장'])
+        w.writerow(['분류', '폴더', '문서명', '자료ID(UCI)', '전체장수', '받은장수', '서버에없는장', '저해상도장', '뷰어링크'])
         for d in docs:
             ps = [os.path.join(a.work, 'out', d['category'], d['folder'], f'{k:03d}.jpg') for k in range(1, len(d['imgs']) + 1)]
             w.writerow([d['category'], d['folder'], d['name'], d['id'], len(ps), sum(os.path.exists(p) for p in ps),
                         ' '.join(os.path.basename(p) for p in ps if p in miss),
-                        ' '.join(os.path.basename(p) for p in ps if p in part)])
+                        ' '.join(os.path.basename(p) for p in ps if p in part), viewer_link(d['q'])])
     print('→', a.out)
 
 
@@ -274,7 +279,7 @@ def curate_rows(work, collection=None):
         ys, ye, typ, ents = parse_title(d['name'])
         rows.append({'소장처': collection or os.path.basename(os.path.abspath(work)), '분류': d['category'], '폴더': d['folder'],
                      '문서명': d['name'], '시작연도': ys or '', '끝연도': ye or '', '세기': (f'{(ys-1)//100+1}세기' if ys else ''),
-                     '문서유형': typ, '인명·기관': '; '.join(ents), '장수': len(d['imgs']), '자료ID': d['id']})
+                     '문서유형': typ, '인명·기관': '; '.join(ents), '장수': len(d['imgs']), '자료ID': d['id'], '뷰어링크': viewer_link(d['q'])})
     return rows
 
 
