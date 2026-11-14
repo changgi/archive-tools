@@ -1,0 +1,22 @@
+{
+ "id": "seowon",
+ "title": "서원을 지키고 꾸린 기록",
+ "filter": {
+  "person": null,
+  "types": [
+   "건치도",
+   "상량문",
+   "양안",
+   "추수기",
+   "완문",
+   "원규",
+   "중수기",
+   "소작계약서",
+   "상량시집사록"
+  ],
+  "years": null,
+  "query": ""
+ },
+ "candidates": 15,
+ "selected": 8
+}

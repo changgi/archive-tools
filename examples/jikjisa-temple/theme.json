@@ -1,0 +1,21 @@
+{
+ "id": "temple",
+ "title": "절을 짓고 다시 세운 기록",
+ "filter": {
+  "person": null,
+  "types": [
+   "사적",
+   "중창기",
+   "중건기",
+   "상량문",
+   "신건문",
+   "헌답기",
+   "공덕문",
+   "축원문"
+  ],
+  "years": null,
+  "query": null
+ },
+ "candidates": 16,
+ "selected": 8
+}

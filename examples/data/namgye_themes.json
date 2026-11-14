@@ -1,0 +1,28 @@
+[
+ {
+  "id": "century-20",
+  "title": "20세기의 집안 문서",
+  "kind": "시대",
+  "filter": {
+   "years": "1900-1999"
+  },
+  "count": 23,
+  "span": "1900–1999",
+  "note": ""
+ },
+ {
+  "id": "primer-1",
+  "title": "문서 유형별 대표 한 점 — 고문서 입문",
+  "kind": "교육",
+  "filter": {
+   "one_per_type": true,
+   "types": [
+    "경임안",
+    "추수기"
+   ]
+  },
+  "count": 2,
+  "span": "",
+  "note": "경임안, 추수기"
+ }
+]

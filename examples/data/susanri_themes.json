@@ -1,0 +1,25 @@
+[
+ {
+  "id": "century-19",
+  "title": "19세기의 집안 문서",
+  "kind": "시대",
+  "filter": {
+   "years": "1800-1899"
+  },
+  "count": 18,
+  "span": "1800–1899",
+  "note": ""
+ },
+ {
+  "id": "primer-1",
+  "title": "문서 유형별 대표 한 점 — 고문서 입문",
+  "kind": "교육",
+  "filter": {
+   "one_per_type": true,
+   "types": []
+  },
+  "count": 0,
+  "span": "",
+  "note": ""
+ }
+]

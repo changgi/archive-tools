@@ -37,6 +37,7 @@ python3 harvest.py download --work WORK [--category 교령류] --time 540
 - Report documents and pages per category. Estimate about 3MB and 2–4s per page at original size.
 - Before a large download, confirm with AskUserQuestion whether to take all pages or start with one category.
 - Re-run `download` until it prints `STATUS: DONE`. Saved pages are skipped.
+- For a large collection where the user wants one theme, download only matching documents: `download --work WORK --match "상량문|양안|완문"`.
 - Keep the defaults (`--tile-workers 16 --page-workers 2`). Never raise concurrency or add an `X-Requested-With` header; the site has a web firewall and is a public research archive.
 - Exit 137 means out of memory on long scrolls. Re-run it, and use `--page-workers 1` if it happens again.
 - Pages in `missing.txt` do not exist on the server. Pages in `partial.txt` were saved from a lower zoom level. Report both.

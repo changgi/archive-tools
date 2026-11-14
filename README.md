@@ -14,9 +14,13 @@
 |---|---|---|
 | [![](examples/dongchundang-marriage/cards/00_표지.jpg)](examples/dongchundang-marriage/) | [![](examples/dongchundang-songjungil/cards/00_표지.jpg)](examples/dongchundang-songjungil/) | [![](examples/yuhoedang-land/cards/00_표지.jpg)](examples/yuhoedang-land/) |
 
+| 절을 짓고 다시 세운 기록 (사찰) | 섬마을에 내려온 약속 (마을) | 서원을 지키고 꾸린 기록 (서원) | 왕비의 편지 (박물관) |
+|---|---|---|---|
+| [![](examples/jikjisa-temple/cards/00_표지.jpg)](examples/jikjisa-temple/) | [![](examples/susanri-village/cards/00_표지.jpg)](examples/susanri-village/) | [![](examples/namgye-seowon/cards/00_표지.jpg)](examples/namgye-seowon/) | [![](examples/myeongseong-letters/cards/00_표지.jpg)](examples/myeongseong-letters/) |
+
 명령을 하나씩 따라 하는 예제는 [`examples/README.md`](examples/README.md)에 있습니다.
 
-🎬 **홍보 영상:** [EP.1 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4) · [EP.2 만든 것 보기(48초)](https://changgi.github.io/archive-tools/examples/media/promo-reel-ep2.mp4) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)
+🎬 **홍보 영상:** [EP.1 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4) · [EP.2 만든 것 보기(48초)](https://changgi.github.io/archive-tools/examples/media/promo-reel-ep2.mp4) · EP.3–EP.6 예시 세트 영상은 [예시 README](examples/README.md#예시-세트-영상-ep3ep6) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)
 
 ## 설치
 

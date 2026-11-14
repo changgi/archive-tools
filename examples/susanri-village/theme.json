@@ -1,0 +1,22 @@
+{
+ "id": "village",
+ "title": "섬마을에 내려온 약속",
+ "filter": {
+  "person": null,
+  "types": [
+   "윤음",
+   "절목",
+   "호적",
+   "향약문",
+   "혼례홀기",
+   "이행기",
+   "효유책",
+   "훈민편",
+   "외적"
+  ],
+  "years": null,
+  "query": null
+ },
+ "candidates": 23,
+ "selected": 8
+}

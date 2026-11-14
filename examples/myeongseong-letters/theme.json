@@ -1,0 +1,12 @@
+{
+ "id": "letters",
+ "title": "왕비의 편지",
+ "filter": {
+  "person": null,
+  "types": null,
+  "years": null,
+  "query": "편지"
+ },
+ "candidates": 15,
+ "selected": 8
+}

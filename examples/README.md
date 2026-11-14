@@ -14,6 +14,15 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
+## 예시 세트 영상 (EP.3–EP.6)
+
+| | 릴스 9:16 | 가로 16:9 | 홍보 글 |
+|---|---|---|---|
+| EP.3 김천 직지사 | [보기](https://changgi.github.io/archive-tools/examples/media/ep3-jikjisa_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep3-jikjisa_wide.mp4) | [promo.md](jikjisa-temple/promo.md) |
+| EP.4 제주 애월 수산리 | [보기](https://changgi.github.io/archive-tools/examples/media/ep4-susanri_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep4-susanri_wide.mp4) | [promo.md](susanri-village/promo.md) |
+| EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
+| EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
+
 ## 예시 (결과물 갤러리)
 
 | 예시 | 소장처 | 테마 | 보여 주는 것 |
@@ -21,7 +30,11 @@
 | [**혼인과 호적**](dongchundang-marriage/) | 대전 회덕 은진송씨 동춘당 송준길 후손가 | 혼인과 호적으로 보는 집안의 생활사 | **③ 에디팅 후**: Claude가 다듬은 이야기 문장 |
 | [**송준길의 생애**](dongchundang-songjungil/) | 같은 소장처 | 송준길의 기록으로 본 생애 | **③ 에디팅 전**: 자동 캡션 초안 그대로 · 첩 이미지 중복 제거 |
 | [**땅과 관청 사이**](yuhoedang-land/) | 대전 무수동 안동권씨 유회당 권이진 종가 | 사용자 지정 테마(문서유형 필터) | 다른 소장처에도 같은 방식이 통함 |
-| [**소장처 비교**](compare/) | 동춘당 497건 × 유회당 601건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
+| [**절을 짓고 다시 세운 기록**](jikjisa-temple/) | 김천 직지사 (사찰) | 사적·중건기·상량문·헌답기 | 영상(릴스·가로) + 홍보 글 세트 |
+| [**섬마을에 내려온 약속**](susanri-village/) | 제주 애월 수산리 (마을) | 정조 윤음·향약·절목 | 영상(릴스·가로) + 홍보 글 세트 |
+| [**서원을 지키고 꾸린 기록**](namgye-seowon/) | 함양 남계서원 (서원) | 양안·완문·상량문·건치도 | 영상(릴스·가로) + 홍보 글 세트, `download --match`로 필요한 문서만 수집 |
+| [**왕비의 편지**](myeongseong-letters/) | 명성황후기념관 (박물관) | 명성황후가 민영소에게 보낸 한글 편지 | 영상(릴스·가로) + 홍보 글 세트 |
+| [**소장처 비교**](compare/) | 6곳 1,229건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
 

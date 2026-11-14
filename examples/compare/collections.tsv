@@ -1,2 +1,7 @@
-동춘당	?itemId=book&gubun=booktree&depth=3&upPath=01%5E0130&dataId=L013001&itemType=
-유회당	?itemId=book&gubun=booktree&depth=3&upPath=01%5E0130&dataId=L013003&itemType=
+# 소장처이름<TAB>data-url  (harvest.py catalog --tsv 로 만들 수 있음)
+동춘당 송준길 후손가	?itemId=book&gubun=booktree&depth=3&upPath=01%5E0130&dataId=L013001&itemType=
+유회당 권이진 종가	?itemId=book&gubun=booktree&depth=3&upPath=01%5E0130&dataId=L013003&itemType=
+김천 직지사	?itemId=book&gubun=booktree&depth=3&upPath=05%5E0549&dataId=L054904&itemType=
+제주 애월 수산리	?itemId=book&gubun=booktree&depth=3&upPath=07%5E0747&dataId=L074702&itemType=
+함양 남계서원	?itemId=book&gubun=booktree&depth=3&upPath=02%5E0248&dataId=L024803&itemType=
+명성황후기념관	?itemId=book&gubun=booktree&depth=3&upPath=03%5E0377&dataId=L037705&itemType=

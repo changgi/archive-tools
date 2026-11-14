@@ -156,6 +156,8 @@ def jobs_of(a):
     for d in docs:
         if a.category and d['category'] != a.category:
             continue
+        if getattr(a, 'match', None) and not re.search(a.match, d['name']):
+            continue
         for k, im in enumerate(d['imgs'], 1):
             jobs.append((os.path.join(a.work, 'out', d['category'], d['folder'], f'{k:03d}.jpg'), im['dzi']))
     return jobs
@@ -267,7 +269,11 @@ def parse_title(t):
     ys = int(y[0][0]) if y else None
     ye = int(y[0][1]) if y and y[0][1] else ys
     toks = TOK.findall(re.sub(r'[－-]\s*\d+$', '', t))
-    typ = toks[-1][0] if toks else re.sub(r'[\[\]]', '', t).split('(')[0].strip()
+    if toks:
+        typ = toks[-1][0]
+    else:  # 한자 병기가 없는 제목: 마지막 낱말(번호 제외)을 유형으로
+        words = re.sub(r'[\[\]]', '', re.sub(r'[－-]\s*\d+$', '', t)).split()
+        typ = words[-1] if words else t
     ents = [f'{a}({b})' for a, b in toks[:-1] if 2 <= len(a) <= 5 and re.fullmatch(r'[一-鿿]{2,5}', b)]
     return ys, ye, typ, ents
 
@@ -378,7 +384,7 @@ def cmd_batch(a):
             if os.path.exists(os.path.join(work, 'docs.json')) and not a.force: print('  이미 있음'); continue
             cmd_manifest(argparse.Namespace(work=work, data_url=url, name=None))
         elif a.step == 'download':
-            cmd_download(argparse.Namespace(work=work, category=None, time=a.time, tile_workers=16, page_workers=2, quality=92))
+            cmd_download(argparse.Namespace(work=work, category=None, match=None, time=a.time, tile_workers=16, page_workers=2, quality=92))
             if time.time() > a._t0 + a.time: print('시간 제한 도달 — 다시 실행하면 이어서 진행'); break
         elif a.step == 'curate':
             cmd_curate(argparse.Namespace(work=work, collection=name))
@@ -475,6 +481,7 @@ def main():
     m.add_argument('--data-url', required=True, help="시작 노드의 data-url (?itemId=book&gubun=...&dataId=...)")
     m.add_argument('--name', help='시작 노드 바로 아래 문서들의 분류명(기본: dataId)')
     d = sp.add_parser('download'); d.add_argument('--work', required=True); d.add_argument('--category')
+    d.add_argument('--match', help='문서명 정규식 — 맞는 문서만 받기 (예: "상량문|건치도")')
     d.add_argument('--time', type=float, default=540, help='이 시간(초)이 지나면 새 페이지를 시작하지 않음')
     d.add_argument('--tile-workers', type=int, default=16); d.add_argument('--page-workers', type=int, default=2)
     d.add_argument('--quality', type=int, default=92)
