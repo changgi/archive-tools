@@ -1,0 +1,23 @@
+{
+  "name": "changgi-archive-tools",
+  "owner": {
+    "name": "Song Chang-gi",
+    "email": "chgsong@naver.com",
+    "url": "https://github.com/changgi"
+  },
+  "metadata": {
+    "description": "기록·고문서 아카이브 조사와 수집을 위한 Claude 플러그인 모음",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "aks-archive-harvester",
+      "source": "./plugins/aks-archive-harvester",
+      "description": "한국고문서자료관(archive.aks.ac.kr) 소장처·분류 하위 문서 전체를 원본 해상도 JPG로 일괄 수집하고 목록 CSV·분할 ZIP으로 정리",
+      "version": "0.1.0",
+      "author": { "name": "Song Chang-gi" },
+      "keywords": ["archive", "고문서", "한국학중앙연구원", "DZI"],
+      "category": "research"
+    }
+  ]
+}
