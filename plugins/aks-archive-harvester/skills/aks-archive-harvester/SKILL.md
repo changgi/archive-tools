@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to collect, curate, edit, mediate (exhibit web page, card news, lesson handout, SNS post) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
+description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
 ---
 
 # AKS 한국고문서자료관: 수집 → 큐레이션 → 에디팅 → 매개 → 패키징
@@ -10,7 +10,7 @@ Two scripts live in `${CLAUDE_PLUGIN_ROOT}/skills/aks-archive-harvester/scripts/
 - `harvest.py` (needs `requests`, `Pillow`) handles finding, collecting, curation metadata, packaging and batch comparison.
 - `studio.py` (needs `Pillow` only, works offline) handles curation themes, editing selections, mediation outputs and the comparison report.
 
-Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`.
+Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents: `references/reading-aid.md`. Reels copy template: `references/reels-caption.md`.
 
 Tell the user which stage you are in, using the five stage names, so the flow matches what they expect.
 
@@ -67,8 +67,14 @@ Then edit as a curator:
 
 1. Open `contact_sheet.jpg` and the selected images with Read. Swap documents that are weak or duplicated (re-run with other filters or `--count`).
 2. In `selection.csv`, rewrite `캡션` and fill `이야기`: one or two sentences linking each document to the theme's story, in plain Korean for non-specialists. When the documents carry a narrative (a person's career, a lost and recovered land, a petition repeated for generations), tell it as a story: open with a question, follow the documents in time order, and close with one line on what the record means. Reorder rows to follow the story.
-3. Use only what the title, document type and visible image support. Do not present a transcription, translation or a person's biography as fact unless the user supplies or checks it.
-4. Put `확인` in `검토` only for rows the user has confirmed. Unchecked rows are marked as drafts in every output.
+3. Fill the reading aid for every row, because most viewers cannot read old hanja, idu, cursive script (초서) or old Korean letters (언간). Read each image with Read (crop or zoom where the text is small), then write:
+   - `판독`: the key characters you actually read (heading, name, office, date, seal text). Use □ for characters you cannot read and add "(판독 불확실)" when unsure. If nothing is legible, write a note in parentheses such as "(흘림 글씨 — 판독 필요)".
+   - `해제`: when, who, to whom, what kind of document, and how to read its format. `edit` pre-fills a draft from the document type; correct it with what the image shows (era name → Western year, issuer, idu words).
+   - `요약`: the content in plain modern Korean, a few sentences. For formulaic documents (고신, 교지, 유지, 홍패, 추증교지, 명문, 고목) translate the formula fully; for long texts summarize only what you read and say what needs reading.
+   - Point out where the image contradicts the title (e.g. a different recipient on the envelope) instead of hiding it.
+   See `references/reading-aid.md` for document formats, idu words and examples.
+4. Use only what the title, document type and visible image support. Do not present a transcription, translation or a person's biography as fact unless the user supplies or checks it.
+5. Put `확인` in `검토` only for rows the user has confirmed. Unchecked rows are marked as drafts in every output.
 
 ## ④ 매개 (Mediate)
 
@@ -78,15 +84,23 @@ python3 studio.py mediate --work WORK --theme <id> [--lead "도입 문장"] [--f
 
 This writes `WORK/mediate/<id>/`:
 
-- `exhibit.html`: a single-file exhibition page with a timeline, images, captions and source. It prints as panels.
+- `exhibit.html`: a single-file exhibition page with a timeline, images, captions, a 「읽기 도움」 box (해제 · 원문 읽기 · 내용 요약) and source. It prints as panels.
 - `cards/`: card-news PNGs at 1080×1350 (cover, one per document, closing card).
-- `handout.html`: an A4 lesson worksheet with "what is this document", "find it" and "think about it" prompts, plus a summary box.
+- `handout.html`: an A4 lesson worksheet with 해제 ("what is this document"), 내용 요약, the characters to find in the image (from `판독`), "find it" and "think about it" prompts, plus a summary box.
 - `sns.txt`: a post draft with hashtags.
 
 The archive states that image use needs the collection owner's consent through its staff (031-730-8873, 8876).
 - For anything the user will post publicly, offer `--placeholder`. It replaces each image with a box that links to the document in the archive viewer.
 - Without it, outputs embed the downloaded images, which is fine for the user's own work.
 - Examples: https://changgi.github.io/archive-tools/examples/
+
+**Reels promo copy (「고문서 한 장」 format).** When the user wants a post for Reels/Shorts/Instagram:
+
+```bash
+python3 studio.py promo --work WORK --theme <id> --ep <번호> --url <전시 웹페이지 주소>
+```
+
+This writes `mediate/<id>/promo.md` with the fixed lines filled in and [bracketed] slots. Fill the slots from `selection.csv` (이야기·해제·요약), keep one blank line between blocks exactly as in `references/reels-caption.md`, and never claim more than the documents show.
 
 After it runs:
 
@@ -130,6 +144,6 @@ python3 studio.py report --root ROOT                                           #
 WORK/docs.json  out/<분류>/<NNN>_<문서명>/<NNN>.jpg  missing.txt  partial.txt   # ① 수집
 WORK/metadata.csv  metadata.jsonl  summary.md  themes.json                     # ② 큐레이션
 WORK/edit/<id>/selection.csv  images/  contact_sheet.jpg  theme.json           # ③ 에디팅
-WORK/mediate/<id>/exhibit.html  cards/*.png  handout.html  sns.txt             # ④ 매개
+WORK/mediate/<id>/exhibit.html  cards/*.png  handout.html  sns.txt  promo.md   # ④ 매개
 OUT/<약칭>_연구패키지/   ROOT/compare_*.csv|md|html                              # ⑤ 패키징·비교
 ```

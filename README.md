@@ -18,6 +18,8 @@
 |---|---|---|---|
 | [![](examples/jikjisa-temple/cards/00_표지.jpg)](examples/jikjisa-temple/) | [![](examples/susanri-village/cards/00_표지.jpg)](examples/susanri-village/) | [![](examples/namgye-seowon/cards/00_표지.jpg)](examples/namgye-seowon/) | [![](examples/myeongseong-letters/cards/00_표지.jpg)](examples/myeongseong-letters/) |
 
+🔎 **읽기 도움:** 옛 한자·이두·흘림 글씨·한글 편지를 현대인이 읽을 수 있게, 문서마다 **판독 · 해제 · 내용 요약**을 전시 웹페이지와 수업 활동지에 넣습니다.
+
 📖 **이야기가 있는 기록 10편 (EP.7–EP.16):** 왕실 가족의 편지 · 운조루의 시간 · 되찾은 제사 땅 · 섬마을의 호소 · 윤음에서 금융조합까지 · 기도와 살림의 기록 · 200년의 상소 · 나아가지 않은 선비 · 서원을 움직인 사람들 · 학자의 벼슬길 → [보기](https://changgi.github.io/archive-tools/examples/)
 
 명령을 하나씩 따라 하는 예제는 [`examples/README.md`](examples/README.md)에 있습니다.
