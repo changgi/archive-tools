@@ -47,19 +47,29 @@ footer{padding:40px 7vw;color:var(--dim);font-size:14px;border-top:1px solid #3a
   <p><a href="https://github.com/changgi/archive-tools">github.com/changgi/archive-tools</a> · <a href="https://github.com/changgi/archive-tools/tree/main/examples">따라하기(예제) 보기</a></p>
 </header>
 <main>
-  <p class="note">원본 이미지 자리 — 한국고문서자료관은 "이미지 사용은 담당자(031-730-8873, 8876)를 통한 소장처의 동의가 필요"하다고 안내합니다. 그래서 공개 예시에는 원본 대신 자리 표시를 넣었고, 누르면 자료관 뷰어에서 그 문서가 열립니다. 직접 실행하면 받은 원본 이미지가 그대로 들어갑니다.</p>
+  <p class="note">이미지 출처 — 예시의 고문서 사진은 한국학중앙연구원 한국고문서자료관 소장·제공 자료이며, 각 문서에 자료관 뷰어 원본 링크를 달았습니다. 자료관은 이미지 사용에 소장처 동의가 필요하다고 안내합니다(031-730-8873, 8876). 이 이미지를 다시 쓰려면 자료관에 문의하세요. 게재에 문제가 있으면 <a href="https://github.com/changgi/archive-tools/issues">이슈</a>나 chgsong@naver.com으로 알려 주시면 바로 내리겠습니다.</p>
+
+  <h2>홍보 영상</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
+    <video controls playsinline preload="metadata" poster="media/promo-reel-poster.jpg" style="width:min(360px,100%);border-radius:14px;border:1px solid #3a3225;background:#000">
+      <source src="media/promo-reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/promo-reel.ko.vtt" default>
+    </video>
+    <div style="max-width:30em"><p>1862년 정월 초나흘, 송영로가 받은 임명장 한 장. 160년 뒤 화면 속 192개의 조각으로 흩어진 그 종이를 다시 맞추는 데서 이야기가 시작됩니다.</p>
+    <p>① 수집 → ② 큐레이션 → ③ 에디팅 → ④ 매개 → ⑤ 패키징 · 83초 · 9:16</p>
+    <p><a href="media/promo-reel.mp4" download>영상 내려받기</a> · <a href="media/promo-reel.ko.srt">자막(SRT)</a></p></div>
+  </div>
 
   <h2>예시 세 가지</h2>
   <div class="grid">
-    <article class="ex"><img src="dongchundang-marriage/cards/00_표지.jpg" alt="혼인과 호적 카드뉴스 표지">
+    <article class="ex"><img src="dongchundang-marriage/cards/00_표지.jpg" alt="혼인과 호적 카드뉴스 표지" loading="lazy">
       <div class="b"><span class="tag">③ 에디팅 후</span><h3>혼인과 호적으로 보는 집안의 생활사</h3>
       <div class="who">대전 회덕 은진송씨 동춘당 송준길 후손가 · 1660–1825 · 8점</div>
       <div>Claude가 다듬은 이야기 문장으로 만든 전시·카드뉴스·활동지</div>
       <div class="links"><a href="dongchundang-marriage/exhibit.html">전시 웹페이지</a><a href="dongchundang-marriage/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/dongchundang-marriage/cards">카드뉴스</a><a href="dongchundang-marriage/sns.txt">SNS 글</a><a href="dongchundang-marriage/selection.csv">selection.csv</a></div></div></article>
     <article class="ex"><img src="dongchundang-songjungil/cards/00_표지.jpg" alt="송준길 생애 카드뉴스 표지">
       <div class="b"><span class="tag">③ 에디팅 전</span><h3>송준길의 기록으로 본 생애</h3>
-      <div class="who">같은 소장처 · 1593–1666 · 8점</div>
-      <div>자동 선별·자동 캡션 초안 그대로 — 에디팅 전 상태를 비교해 보세요</div>
+      <div class="who">같은 소장처 · 1593–1671 · 6점</div>
+      <div>자동 선별·자동 캡션 초안 그대로 — 에디팅 전 상태. 같은 첩 이미지를 공유하는 낱장 문서는 하나만 골랐습니다</div>
       <div class="links"><a href="dongchundang-songjungil/exhibit.html">전시 웹페이지</a><a href="dongchundang-songjungil/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/dongchundang-songjungil/cards">카드뉴스</a><a href="dongchundang-songjungil/sns.txt">SNS 글</a></div></div></article>
     <article class="ex"><img src="yuhoedang-land/cards/00_표지.jpg" alt="땅과 관청 사이 카드뉴스 표지">
       <div class="b"><span class="tag">다른 소장처</span><h3>땅과 관청 사이 — 문서로 보는 집안 살림</h3>

@@ -60,7 +60,7 @@ python3 studio.py edit --work WORK --theme <id> [--count 9]
 python3 studio.py edit --work WORK --person 송준길 --types 고신,유서 --years 1650-1680 --title "송준길의 관직 생애" --id songjungil
 ```
 
-This picks representative documents spread across time and types and skips dark covers. It writes `WORK/edit/<id>/` with `selection.csv`, `images/` and `contact_sheet.jpg`.
+This picks representative documents spread across time and types, skips dark covers and blank pages, and keeps only one document per shared album. Single documents inside an album (첩) all get the album's full image set from the server, so the page for each cannot be known. Their captions say so (`공유이미지` column); never pair such a page with a specific document as if confirmed. It writes `WORK/edit/<id>/` with `selection.csv`, `images/` and `contact_sheet.jpg`.
 
 Then edit as a curator:
 

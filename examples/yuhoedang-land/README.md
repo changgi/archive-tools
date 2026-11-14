@@ -9,7 +9,7 @@
 |---|---|---|
 | ![](cards/00_표지.jpg) | ![](cards/01.jpg) | ![](cards/99_마무리.jpg) |
 
-## 선별 문서
+## 선별 문서 (8점)
 
 | # | 연도 | 유형 | 문서명 | 원본 |
 |---|---|---|---|---|
@@ -22,4 +22,4 @@
 | 7 | 1843 | 노비매매명문 | 1843년 남유희(南有羲) 노비매매명문(奴婢賣買明文) | [원본 보기](https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0130%5EL013003%5EL013003F02%5EL013003F0205&dataId=G002%2BAKS%2BKSM-XE.1843.0000-20101008.B059a_085_00386_XXX&itemType=) |
 | 8 | — | 고목 | 이봉휘(李鳳輝) 고목(告目) | [원본 보기](https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0130%5EL013003%5EL013003F02%5EL013003F0203&dataId=G002%2BAKS%2BKSM-XC.0000.0000-20101008.B059a_085_00345_XXX&itemType=) |
 
-원본 이미지는 소장처 동의가 필요해 자리 표시로 대신했습니다. 링크를 누르면 한국고문서자료관 뷰어에서 문서가 열립니다.
+이미지: 한국학중앙연구원 한국고문서자료관 소장·제공. "원본" 링크를 누르면 자료관 뷰어에서 그 문서가 열립니다. 이미지를 다시 쓰려면 자료관에 문의하세요(소장처 동의 필요).

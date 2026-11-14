@@ -51,6 +51,16 @@ NON_PERSON = {'제신', '호노', '노비', '사노', '승', '현감', '군수',
 OFFICE = ['고신', '교지', '추증교지', '유서', '유지', '비답', '녹패', '차첩', '백패', '홍패', '시권', '정사', '포폄단자']
 
 
+def image_groups(work):
+    """자료ID → (이미지 묶음 서명, 같은 이미지를 공유하는 문서 수). 첩(帖)에 든 낱장 문서들은 서버가 첩 전체 이미지를 똑같이 준다."""
+    p = os.path.join(work, 'docs.json')
+    if not os.path.exists(p): return {}
+    docs = json.load(open(p, encoding='utf-8'))
+    sig = {d['id']: tuple(i['dzi'] for i in d.get('imgs', [])) for d in docs}
+    cnt = Counter(v for v in sig.values() if v)
+    return {k: (v, cnt[v]) for k, v in sig.items()}
+
+
 def load_rows(work):
     p = os.path.join(work, 'metadata.csv')
     if not os.path.exists(p):
@@ -74,10 +84,15 @@ def is_cover(path):
 
 
 def best_page(work, r):
+    """표지·빈 면을 피해 글씨가 가장 많은 면(밝기 편차가 큰 면)을 고른다."""
     ims = doc_images(work, r)
-    for p in ims[:6]:
-        if not is_cover(p): return p
-    return ims[0] if ims else None
+    best, score = None, -1
+    for p in ims[:8]:
+        im = Image.open(p); im.draft('L', (300, 300)); im = im.convert('L'); im.thumbnail((240, 240))
+        st = ImageStat.Stat(im)
+        if st.mean[0] < 140: continue  # 어두운 표지·장정
+        if st.stddev[0] > score: best, score = p, st.stddev[0]
+    return best or (ims[0] if ims else None)
 
 
 # ---------------------------------------------------------------- themes (큐레이션)
@@ -165,17 +180,28 @@ def cmd_edit(a):
         title = a.title or '사용자 테마'; tid = a.id or 'custom'
     cand = [r for r in filter_rows(rows, f) if doc_images(a.work, r)]
     if not cand: sys.exit('조건에 맞고 이미지가 받아진 문서가 없습니다.')
-    sel = pick(cand, a.count, f.get('one_per_type', False))
+    grp = image_groups(a.work)
+    # 같은 첩 이미지를 공유하는 문서는 하나만 (첩 문서 자체를 우선)
+    seen, uniq = {}, []
+    for r in sorted(cand, key=lambda r: (0 if '첩' in r['문서유형'] else 1, r['_y'] or 9999)):
+        g = grp.get(r['자료ID'], (None, 1))
+        if g[1] > 1:
+            if g[0] in seen: continue
+            seen[g[0]] = True
+        uniq.append(r)
+    sel = pick(uniq, a.count, f.get('one_per_type', False))
     od = os.path.join(a.work, 'edit', tid); os.makedirs(os.path.join(od, 'images'), exist_ok=True)
     out = []
     for i, r in enumerate(sel, 1):
         src = best_page(a.work, r)
+        shared = grp.get(r['자료ID'], (None, 1))[1]
         im = Image.open(src).convert('RGB'); im.thumbnail((1600, 1600))
         fn = f'{i:02d}.jpg'; im.save(os.path.join(od, 'images', fn), quality=88)
         out.append({'순서': i, '자료ID': r['자료ID'], '문서명': r['문서명'], '연도': r['_y'] or '', '문서유형': r['문서유형'],
                     '인물': '; '.join(e.split('(')[0] for e in r['_ents']), '유형설명': glossary(r['문서유형']),
                     '대표장': os.path.basename(src), '이미지': f'images/{fn}', '원본경로': os.path.relpath(src, a.work),
-                    '캡션': draft_caption(r), '이야기': '', '검토': '', '뷰어링크': r.get('뷰어링크', '')})
+                    '캡션': draft_caption(r) + (f' (첩 이미지 {len(doc_images(a.work, r))}면 중 한 면 — 해당 면은 원문 확인 필요)' if shared > 1 else ''),
+                    '이야기': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else '')})
     with open(os.path.join(od, 'selection.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.DictWriter(fh, fieldnames=list(out[0].keys())); w.writeheader(); w.writerows(out)
     json.dump(dict(id=tid, title=title, filter=f, candidates=len(cand), selected=len(out)), open(os.path.join(od, 'theme.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

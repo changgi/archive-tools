@@ -4,14 +4,20 @@
 
 ▶ **웹에서 바로 보기:** https://changgi.github.io/archive-tools/examples/
 
-> **원본 이미지에 대하여** — 한국고문서자료관은 "이미지 사용은 담당자(031-730-8873, 8876)를 통한 소장처의 동의가 필요"하다고 안내합니다. 그래서 이 예시들은 원본 이미지 대신 **"원본 이미지 자리"** 상자를 넣었고, 상자를 누르면 자료관 뷰어에서 그 문서가 바로 열립니다. 직접 실행하면 받은 원본 이미지가 그대로 들어갑니다(`mediate`에서 `--placeholder`를 빼면 됨).
+> **이미지 출처** — 예시에 쓴 고문서 사진은 한국학중앙연구원 한국고문서자료관 소장·제공 자료입니다. 각 문서에는 자료관 뷰어에서 원본을 여는 링크를 달았습니다. 자료관은 이미지 사용에 소장처 동의가 필요하다고 안내하고 있으니(031-730-8873, 8876), 이 예시의 이미지를 다시 쓰려면 자료관에 문의하세요. 게재에 문제가 있으면 [이슈](https://github.com/changgi/archive-tools/issues)나 chgsong@naver.com으로 알려 주시면 바로 내리겠습니다.
+
+## 홍보 영상 (83초)
+
+[![홍보 영상](media/promo-reel-poster.jpg)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4)
+
+1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 보여 줍니다. 파일: [`media/promo-reel.mp4`](media/promo-reel.mp4), 자막: [`media/promo-reel.ko.srt`](media/promo-reel.ko.srt)
 
 ## 예시 (결과물 갤러리)
 
 | 예시 | 소장처 | 테마 | 보여 주는 것 |
 |---|---|---|---|
 | [**혼인과 호적**](dongchundang-marriage/) | 대전 회덕 은진송씨 동춘당 송준길 후손가 | 혼인과 호적으로 보는 집안의 생활사 | **③ 에디팅 후**: Claude가 다듬은 이야기 문장 |
-| [**송준길의 생애**](dongchundang-songjungil/) | 같은 소장처 | 송준길의 기록으로 본 생애 | **③ 에디팅 전**: 자동 생성 캡션 초안 그대로 |
+| [**송준길의 생애**](dongchundang-songjungil/) | 같은 소장처 | 송준길의 기록으로 본 생애 | **③ 에디팅 전**: 자동 캡션 초안 그대로 · 첩 이미지 중복 제거 |
 | [**땅과 관청 사이**](yuhoedang-land/) | 대전 무수동 안동권씨 유회당 권이진 종가 | 사용자 지정 테마(문서유형 필터) | 다른 소장처에도 같은 방식이 통함 |
 | [**소장처 비교**](compare/) | 동춘당 497건 × 유회당 601건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
@@ -130,15 +136,15 @@ python3 $S/studio.py edit --work W --types 명문,고목,첩정,이관,자문,�
   ...
 ```
 
-`W/edit/land/`에 `selection.csv`, 대표 이미지, 밀착인화가 생깁니다. Claude가 이미지를 보고 `이야기` 칸을 채우고, 사람이 원문을 확인한 줄에 `검토`=`확인`을 넣습니다.
+`W/edit/land/`에 `selection.csv`, 대표 이미지, 밀착인화가 생깁니다. 첩(帖)에 든 낱장 문서들은 자료관 서버가 첩 전체 이미지를 똑같이 주기 때문에 첩당 하나만 고르고, 캡션에 "해당 면은 원문 확인 필요"를 붙입니다. Claude가 이미지를 보고 `이야기` 칸을 채우고, 사람이 원문을 확인한 줄에 `검토`=`확인`을 넣습니다.
 
 ### ④ 매개: 전시·카드뉴스·활동지·SNS 글
 
 > 💬 "이걸로 전시 웹페이지랑 카드뉴스, 수업 활동지 만들어줘"
 
 ```bash
-python3 $S/studio.py mediate --work W --theme land            # 원본 이미지 포함 (내 컴퓨터용)
-python3 $S/studio.py mediate --work W --theme land --placeholder   # 공개용: 이미지 자리 + 뷰어 링크
+python3 $S/studio.py mediate --work W --theme land                 # 받은 원본 이미지 포함
+python3 $S/studio.py mediate --work W --theme land --placeholder   # 이미지 대신 자리 표시 + 뷰어 링크
 ```
 ```
 → W/mediate/land
