@@ -1,11 +1,17 @@
 {
   "name": "aks-archive-harvester",
-  "version": "0.1.0",
-  "description": "한국학중앙연구원 한국고문서자료관(archive.aks.ac.kr) 소장처·분류 하위 문서 전체를 DZI 타일 스티칭으로 원본 해상도 JPG로 일괄 수집하고, 목록 CSV와 용량 분할 ZIP으로 정리",
+  "version": "0.2.0",
+  "description": "한국고문서자료관(archive.aks.ac.kr) 고문서 수집 → 큐레이션 → 에디팅 → 매개 → 연구 패키지, 여러 소장처 일괄·비교 연구",
   "author": {
     "name": "Song Chang-gi",
     "email": "chgsong@naver.com",
     "url": "https://github.com/changgi"
   },
-  "keywords": ["archive", "고문서", "한국학중앙연구원", "DZI", "harvest"]
+  "keywords": [
+    "archive",
+    "고문서",
+    "한국학중앙연구원",
+    "DZI",
+    "harvest"
+  ]
 }

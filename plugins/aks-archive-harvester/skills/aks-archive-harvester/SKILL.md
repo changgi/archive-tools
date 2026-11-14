@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to bulk-download every document image under a collection, family archive (문중·후손가), or category on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr). Trigger phrases include "한국고문서자료관 다운로드", "archive.aks.ac.kr 전부 받아줘", "OO 후손가 하위 문서 모두 다운로드", "고문서 이미지 일괄 수집", "AKS 뷰어 원본 이미지 저장". Rebuilds original-resolution JPGs from DZI tiles, resumable, with missing/low-res logging and size-limited ZIP packing.
+description: This skill should be used when the user wants to bulk-download, curate, edit, mediate (exhibit/education/card-news) or package for comparative research every document image under a collection, family archive (문중·후손가), or category on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), including several collections at once. Trigger phrases include "한국고문서자료관 다운로드", "문중 고문서 큐레이션", "여러 소장처 비교 연구", "고문서 연구 패키지", "archive.aks.ac.kr 전부 받아줘", "OO 후손가 하위 문서 모두 다운로드", "고문서 이미지 일괄 수집", "AKS 뷰어 원본 이미지 저장". Rebuilds original-resolution JPGs from DZI tiles, resumable, with missing/low-res logging and size-limited ZIP packing.
 ---
 
 # AKS 한국고문서자료관 일괄 수집
@@ -56,10 +56,53 @@ python3 harvest.py pack --work WORK --dest /mnt/user-data/outputs --prefix <소�
 
 Include a table of category, documents, and pages received / total. Name the pages missing on the server (`missing.txt`) and the pages saved below original resolution (`partial.txt`). Missing pages do not exist on the server: they are not download failures, and the user can confirm them in the viewer.
 
+### 6. Curate (큐레이션)
+
+```bash
+python3 harvest.py curate --work WORK --collection "<소장처 이름>"
+```
+
+This writes `metadata.csv` / `metadata.jsonl` (year, document type, people and offices, page count, ID per document) and `summary.md` (distribution by type and half-century, top people, a timeline per person). The values are parsed from document titles, so present them as a draft. Read `summary.md` and propose two or three curation themes from the actual distribution (e.g. one person's career through 고신, family life through 납폐서·호구단자).
+
+### 7. Edit (에디팅)
+
+For the theme the user picks:
+- Select representative documents from `metadata.csv` and open the images with Read to confirm what they show.
+- Correct wrong parsed values in `metadata.csv` and mark the rows checked.
+- Write captions: title, date, what the document is, and one line on why it matters. Never present a transcription or translation as verified unless the user checks it.
+
+### 8. Mediate (매개)
+
+Turn the edited selection into the form the audience needs: an exhibit storyline and panel text, card news, a lesson handout, or a talk. Use the user's own content skills when listed (e.g. archive-fullpackage), otherwise the matching artifact type. Cite the source as 한국학중앙연구원 한국고문서자료관, and tell the user that reuse of the images follows the archive's terms.
+
+### 9. Package (연구 패키지)
+
+```bash
+python3 harvest.py bundle --work WORK --dest OUT --prefix <소장처약칭> [--no-images]
+```
+
+This builds one folder: metadata, collection status, `CITATION.txt`, README and the image ZIPs, so another researcher can reproduce or extend the work.
+
+## Batch and comparative research (대량 유사 연구)
+
+Write `collections.tsv`, one collection per line: `이름<TAB>data-url`. Then:
+
+```bash
+python3 harvest.py batch --list collections.tsv --root ROOT --step manifest   # 목록·규모
+python3 harvest.py batch --list collections.tsv --root ROOT --step download   # 반복 실행 (이어받기)
+python3 harvest.py batch --list collections.tsv --root ROOT --step curate
+python3 harvest.py compare --list collections.tsv --root ROOT                 # compare_metadata.csv, compare_summary.md
+```
+
+Confirm the total page count across all collections with the user before `download`. `compare` cross-tabulates document type and century by collection. Use it to propose comparative questions (e.g. how 고신 and 호구단자 compare between two 문중 by century), and say that the counts come from titles.
+
 ## Output layout
 
 ```
 WORK/docs.json                      # documents, pages, DZI paths
 WORK/out/<분류>/<NNN>_<문서명>/<NNN>.jpg
 WORK/missing.txt  WORK/partial.txt
+WORK/metadata.csv  WORK/metadata.jsonl  WORK/summary.md   # curate
+OUT/<약칭>_연구패키지/                                       # bundle
+ROOT/compare_metadata.csv  ROOT/compare_summary.md         # compare
 ```

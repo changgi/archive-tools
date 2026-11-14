@@ -6,6 +6,10 @@ AKS 한국고문서자료관(archive.aks.ac.kr) 소장처 일괄 수집기.
   download : DZI 타일을 받아 원본 해상도 JPG로 이어붙이기 (이어받기 지원, 시간제한 실행)
   report   : 문서목록 CSV (서버에 없는 장 / 저해상도 장 표시)
   pack     : 분류별 ZIP, 지정 용량(MB) 이하로 분할
+  curate   : 큐레이션 — 연도·문서유형·인명 자동 추출 → metadata.csv/jsonl, summary.md(분포·인물 연표)
+  bundle   : 연구 패키지 — 메타데이터 + 수집현황 + 인용정보 + 이미지 ZIP을 한 폴더로
+  batch    : 여러 소장처(collections.tsv)를 차례로 manifest/download/curate
+  compare  : 소장처 간 비교표(문서유형·세기) — 대량 유사 연구용
 
 예)
   python3 harvest.py manifest --work W --data-url '?itemId=book&gubun=booktree&depth=3&upPath=01%5E0130&dataId=L013001&itemType='
@@ -28,10 +32,40 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/130',
 _tl = threading.local()
 
 
+class _Adapter(requests.adapters.HTTPAdapter):
+    """시스템 인증서 저장소(Windows/macOS/Linux) + certifi를 함께 신뢰 — 중간 인증서 누락 사이트 대비."""
+    @staticmethod
+    def _ctx():
+        import ssl
+        ctx = ssl.create_default_context(); ctx.load_default_certs()
+        for extra in [os.environ.get('REQUESTS_CA_BUNDLE'), os.environ.get('SSL_CERT_FILE')]:
+            if extra and os.path.exists(extra):
+                ctx.load_verify_locations(extra)
+        try:
+            import certifi; ctx.load_verify_locations(certifi.where())
+        except Exception:
+            pass
+        return ctx
+
+    def init_poolmanager(self, *a, **kw):
+        kw['ssl_context'] = self._ctx()
+        return super().init_poolmanager(*a, **kw)
+
+    def proxy_manager_for(self, proxy, **kw):
+        kw['ssl_context'] = self._ctx()
+        return super().proxy_manager_for(proxy, **kw)
+
+    def cert_verify(self, conn, url, verify, cert):
+        # ssl_context가 검증을 맡으므로 requests의 기본 CA 경로 덮어쓰기를 막는다
+        super().cert_verify(conn, url, verify, cert)
+        if hasattr(conn, 'ca_certs'):
+            conn.ca_certs = None; conn.ca_cert_dir = None
+
+
 def sess():
     if not hasattr(_tl, 's'):
-        s = requests.Session(); s.headers.update(HEADERS)
-        s.mount('https://', requests.adapters.HTTPAdapter(pool_connections=4, pool_maxsize=4))
+        s = requests.Session(); s.headers.update(HEADERS); s.trust_env = True
+        s.mount('https://', _Adapter(pool_connections=4, pool_maxsize=4))
         _tl.s = s
     return _tl.s
 
@@ -215,6 +249,137 @@ def cmd_pack(a):
             print(f'{fn}\t{os.path.getsize(os.path.join(a.dest, fn))//2**20}MB')
 
 
+# ---------------------------------------------------------------- curate (큐레이션)
+TOK = re.compile(r'([가-힣]{1,10})\(([^()]+)\)')
+
+
+def parse_title(t):
+    """문서명에서 연도·문서유형·인명/기관을 자동 추출 (초안: 사람이 검토할 것)."""
+    y = re.findall(r'(\d{4})(?:〜|~)?(\d{4})?년', t)
+    ys = int(y[0][0]) if y else None
+    ye = int(y[0][1]) if y and y[0][1] else ys
+    toks = TOK.findall(re.sub(r'[－-]\s*\d+$', '', t))
+    typ = toks[-1][0] if toks else re.sub(r'[\[\]]', '', t).split('(')[0].strip()
+    ents = [f'{a}({b})' for a, b in toks[:-1] if 2 <= len(a) <= 5 and re.fullmatch(r'[一-鿿]{2,5}', b)]
+    return ys, ye, typ, ents
+
+
+def curate_rows(work, collection=None):
+    docs = json.load(open(os.path.join(work, 'docs.json')))
+    rows = []
+    for d in docs:
+        ys, ye, typ, ents = parse_title(d['name'])
+        rows.append({'소장처': collection or os.path.basename(os.path.abspath(work)), '분류': d['category'], '폴더': d['folder'],
+                     '문서명': d['name'], '시작연도': ys or '', '끝연도': ye or '', '세기': (f'{(ys-1)//100+1}세기' if ys else ''),
+                     '문서유형': typ, '인명·기관': '; '.join(ents), '장수': len(d['imgs']), '자료ID': d['id']})
+    return rows
+
+
+def write_summary(rows, path, title):
+    from collections import Counter, defaultdict
+    L = [f'# {title} — 큐레이션 요약 (자동 생성 초안)', '',
+         f'- 문서 {len(rows)}건 / {sum(r["장수"] for r in rows)}장', '- 연도·유형·인명은 문서명에서 자동 추출한 값이라 검토가 필요함', '']
+    def table(head, cnt, n=20):
+        L.extend([f'## {head}', '', '| 항목 | 건수 |', '|---|---|'] + [f'| {k} | {v} |' for k, v in cnt.most_common(n)] + [''])
+    table('문서 유형', Counter(r['문서유형'] for r in rows))
+    table('분류', Counter(r['분류'] for r in rows))
+    half = Counter(f'{r["시작연도"]//50*50}년대 후반' if r['시작연도'] and r['시작연도'] % 100 >= 50 else (f'{r["시작연도"]//50*50}년대 전반' if r['시작연도'] else '연도 미상') for r in rows)
+    L.extend(['## 50년 단위 분포', '', '| 시기 | 건수 |', '|---|---|'] + [f'| {k} | {v} |' for k, v in sorted(half.items())] + [''])
+    ent = Counter(e for r in rows for e in r['인명·기관'].split('; ') if e)
+    table('인명·기관 상위', ent)
+    tl = defaultdict(list)
+    for r in rows:
+        for e in r['인명·기관'].split('; '):
+            if e and ent[e] >= 5:
+                tl[e].append((r['시작연도'] or 9999, r['문서유형']))
+    L.extend(['## 인물별 연표 (5건 이상)', ''])
+    for e, v in sorted(tl.items(), key=lambda kv: -len(kv[1])):
+        v.sort(); L.append(f'- **{e}** ({len(v)}건): ' + ', '.join(f'{y if y != 9999 else "?"} {t}' for y, t in v[:25]) + (' …' if len(v) > 25 else ''))
+    L.extend(['', '## 에디팅·매개 아이디어 (Claude에게 요청)', '',
+              '- 인물 한 명의 관직 생애를 고신·교지로 따라가는 전시 스토리라인',
+              '- 혼인(납폐서·허혼서)·호적(호구단자)으로 보는 집안의 생활사 카드뉴스',
+              '- 문서 유형별 대표 1점씩 고른 수업용 고문서 입문 교재', ''])
+    open(path, 'w', encoding='utf-8').write('\n'.join(L))
+
+
+def write_rows(rows, path):
+    with open(path, 'w', newline='', encoding='utf-8-sig') as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+
+
+def cmd_curate(a):
+    rows = curate_rows(a.work, a.collection)
+    write_rows(rows, os.path.join(a.work, 'metadata.csv'))
+    with open(os.path.join(a.work, 'metadata.jsonl'), 'w', encoding='utf-8') as f:
+        for r in rows: f.write(json.dumps(r, ensure_ascii=False) + '\n')
+    write_summary(rows, os.path.join(a.work, 'summary.md'), a.collection or os.path.basename(os.path.abspath(a.work)))
+    print('→', os.path.join(a.work, 'metadata.csv'), '/ metadata.jsonl / summary.md')
+
+
+# ---------------------------------------------------------------- bundle (연구 패키지)
+def cmd_bundle(a):
+    import shutil
+    if not os.path.exists(os.path.join(a.work, 'metadata.csv')):
+        cmd_curate(argparse.Namespace(work=a.work, collection=a.prefix))
+    dest = os.path.join(a.dest, f'{a.prefix}_연구패키지'); os.makedirs(dest, exist_ok=True)
+    for f in ['metadata.csv', 'metadata.jsonl', 'summary.md', 'missing.txt', 'partial.txt']:
+        if os.path.exists(os.path.join(a.work, f)): shutil.copy(os.path.join(a.work, f), dest)
+    cmd_report(argparse.Namespace(work=a.work, out=os.path.join(dest, '수집현황.csv')))
+    today = time.strftime('%Y-%m-%d')
+    open(os.path.join(dest, 'CITATION.txt'), 'w', encoding='utf-8').write(
+        f'자료 출처: 한국학중앙연구원 한국고문서자료관 (https://archive.aks.ac.kr), {a.prefix}\n수집일: {today}\n'
+        '수집 도구: aks-archive-harvester (https://github.com/changgi/archive-tools)\n'
+        '이미지의 이용·재배포는 한국고문서자료관 이용 조건을 따른다.\n')
+    open(os.path.join(dest, 'README.md'), 'w', encoding='utf-8').write(
+        f'# {a.prefix} 연구 패키지\n\n- `metadata.csv` / `metadata.jsonl`: 문서별 연도·유형·인명(자동 추출 초안)·장수·자료ID\n'
+        '- `summary.md`: 유형·시기·인물 분포와 인물별 연표\n- `수집현황.csv`: 장별 수집 결과(서버 누락·저해상도 표시)\n'
+        '- `images/`: 분류별 ZIP (같은 분류 part는 한 폴더에 풀 것)\n- `CITATION.txt`: 인용 정보\n')
+    if not a.no_images:
+        cmd_pack(argparse.Namespace(work=a.work, dest=os.path.join(dest, 'images'), prefix=a.prefix, category=None, max_mb=a.max_mb))
+    print('→', dest)
+
+
+# ---------------------------------------------------------------- batch / compare (대량 유사 연구)
+def read_list(path):
+    out = []
+    for line in open(path, encoding='utf-8'):
+        line = line.strip()
+        if line and not line.startswith('#'):
+            name, url = line.split('\t', 1) if '\t' in line else line.split(None, 1)
+            out.append((name.strip(), url.strip()))
+    return out
+
+
+def cmd_batch(a):
+    """collections.tsv: 한 줄에 '소장처이름<TAB>data-url'. step을 소장처마다 차례로 실행."""
+    for name, url in read_list(a.list):
+        work = os.path.join(a.root, safe(name)); print(f'=== {name} ({a.step})')
+        if a.step == 'manifest':
+            if os.path.exists(os.path.join(work, 'docs.json')) and not a.force: print('  이미 있음'); continue
+            cmd_manifest(argparse.Namespace(work=work, data_url=url, name=None))
+        elif a.step == 'download':
+            cmd_download(argparse.Namespace(work=work, category=None, time=a.time, tile_workers=16, page_workers=2, quality=92))
+            if time.time() > a._t0 + a.time: print('시간 제한 도달 — 다시 실행하면 이어서 진행'); break
+        elif a.step == 'curate':
+            cmd_curate(argparse.Namespace(work=work, collection=name))
+
+
+def cmd_compare(a):
+    from collections import Counter
+    rows = []
+    for name, _ in read_list(a.list):
+        work = os.path.join(a.root, safe(name))
+        if os.path.exists(os.path.join(work, 'docs.json')): rows += curate_rows(work, name)
+    write_rows(rows, os.path.join(a.root, 'compare_metadata.csv'))
+    cols = sorted({r['소장처'] for r in rows}); types = [t for t, _ in Counter(r['문서유형'] for r in rows).most_common(25)]
+    L = ['# 소장처 비교 (자동 생성 초안)', '', '| 문서유형 | ' + ' | '.join(cols) + ' |', '|---|' + '---|' * len(cols)]
+    for t in types: L.append(f'| {t} | ' + ' | '.join(str(sum(1 for r in rows if r['소장처'] == c and r['문서유형'] == t)) for c in cols) + ' |')
+    L += ['', '| 세기 | ' + ' | '.join(cols) + ' |', '|---|' + '---|' * len(cols)]
+    for cent in sorted({r['세기'] for r in rows if r['세기']}): L.append(f'| {cent} | ' + ' | '.join(str(sum(1 for r in rows if r['소장처'] == c and r['세기'] == cent)) for c in cols) + ' |')
+    open(os.path.join(a.root, 'compare_summary.md'), 'w', encoding='utf-8').write('\n'.join(L) + '\n')
+    print('→', os.path.join(a.root, 'compare_metadata.csv'), '/ compare_summary.md', f'({len(rows)}건, 소장처 {len(cols)}곳)')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest='cmd', required=True)
@@ -228,8 +393,15 @@ def main():
     r = sp.add_parser('report'); r.add_argument('--work', required=True); r.add_argument('--out', required=True)
     p = sp.add_parser('pack'); p.add_argument('--work', required=True); p.add_argument('--dest', required=True)
     p.add_argument('--prefix', default='AKS'); p.add_argument('--category'); p.add_argument('--max-mb', type=int, default=350)
-    a = ap.parse_args()
-    {'manifest': cmd_manifest, 'download': cmd_download, 'report': cmd_report, 'pack': cmd_pack}[a.cmd](a)
+    c = sp.add_parser('curate'); c.add_argument('--work', required=True); c.add_argument('--collection')
+    b = sp.add_parser('bundle'); b.add_argument('--work', required=True); b.add_argument('--dest', required=True)
+    b.add_argument('--prefix', required=True); b.add_argument('--max-mb', type=int, default=350); b.add_argument('--no-images', action='store_true')
+    bt = sp.add_parser('batch'); bt.add_argument('--list', required=True); bt.add_argument('--root', required=True)
+    bt.add_argument('--step', choices=['manifest', 'download', 'curate'], required=True); bt.add_argument('--time', type=float, default=540); bt.add_argument('--force', action='store_true')
+    cp = sp.add_parser('compare'); cp.add_argument('--list', required=True); cp.add_argument('--root', required=True)
+    a = ap.parse_args(); a._t0 = time.time()
+    {'manifest': cmd_manifest, 'download': cmd_download, 'report': cmd_report, 'pack': cmd_pack, 'curate': cmd_curate,
+     'bundle': cmd_bundle, 'batch': cmd_batch, 'compare': cmd_compare}[a.cmd](a)
 
 
 if __name__ == '__main__':

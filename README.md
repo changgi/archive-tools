@@ -4,7 +4,7 @@
 
 | 플러그인 | 하는 일 |
 |---|---|
-| [aks-archive-harvester](plugins/aks-archive-harvester) | 한국고문서자료관(archive.aks.ac.kr) 소장처·분류 아래 문서 전체를 원본 해상도로 받아 목록 CSV와 분할 ZIP으로 정리 |
+| [aks-archive-harvester](plugins/aks-archive-harvester) | 한국고문서자료관(archive.aks.ac.kr) 고문서를 원본 해상도로 수집 → 큐레이션 → 에디팅 → 매개 → 연구 패키지. 여러 소장처 일괄·비교 연구 |
 
 ## 설치
 
