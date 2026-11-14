@@ -9,6 +9,7 @@ aks-archive-harvester 스튜디오 — 수집한 고문서로 큐레이션 테�
             → WORK/edit/<테마>/selection.csv, images/, contact_sheet.jpg
   mediate : selection.csv(사람·Claude가 다듬은 캡션 반영)로
             전시 웹페이지(exhibit.html) · 카드뉴스(cards/*.png, 1080×1350) · 수업 활동지(handout.html) · SNS 글(sns.txt)
+  zoom    : 판독용 확대 조각(원본 해상도, 오른쪽부터) → edit/<테마>/zoom/
   promo   : 릴스 홍보 문구 틀(「고문서 한 장」 형식) → mediate/<테마>/promo.md
   report  : compare_metadata.csv → 소장처 비교 리포트(compare_report.html, 막대그래프)
 
@@ -297,7 +298,7 @@ def cmd_edit(a):
                     '인물': '; '.join(e.split('(')[0] for e in r['_ents']), '유형설명': glossary(r['문서유형']),
                     '대표장': os.path.basename(src), '이미지': f'images/{fn}', '원본경로': os.path.relpath(src, a.work),
                     '캡션': draft_caption(r) + (f' (첩 이미지 {len(doc_images(a.work, r))}면 중 한 면 — 해당 면은 원문 확인 필요)' if shared > 1 else ''),
-                    '이야기': '', '판독': '', '해제': draft_haeje(r), '요약': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else '')})
+                    '이야기': '', '판독': '', '원문': '', '해제': draft_haeje(r), '요약': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else '')})
     with open(os.path.join(od, 'selection.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.DictWriter(fh, fieldnames=list(out[0].keys())); w.writeheader(); w.writerows(out)
     json.dump(dict(id=tid, title=title, filter=f, candidates=len(cand), selected=len(out)), open(os.path.join(od, 'theme.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
@@ -405,6 +406,10 @@ def aid_html(s):
     if s.get('해제'): parts.append(f"<p><b>해제</b>{html.escape(s['해제'])}</p>")
     if has_reading(s): parts.append(f"<p><b>원문 읽기</b><span class=\"orig\">{html.escape(s['판독'])}</span></p>")
     if s.get('요약'): parts.append(f"<p><b>내용 요약</b>{html.escape(s['요약'])}</p>")
+    if (s.get('원문') or '').strip():
+        n = len([l for l in s['원문'].splitlines() if l.strip()])
+        parts.append(f"<details class=\"full\"><summary>원문 판독 전문 ({n}줄 · 오른쪽 첫 줄부터)</summary><pre class=\"tr\">{html.escape(s['원문'].strip())}</pre>"
+                     "<small>□ 읽지 못한 글자 · (?) 불확실 · [ ] 덧붙인 풀이 · 줄 바꿈은 원문의 줄(세로줄)을 따름</small></details>")
     if not parts: return ''
     flag = '' if s.get('검토') else '<small>초안 — 문서명·이미지에 근거했으며 원문 판독 확인 전입니다</small>'
     return f'<details class="aid" open><summary>읽기 도움</summary>{"".join(parts)}{flag}</details>'
@@ -478,7 +483,9 @@ h2{{font-size:28px;margin:0 0 .4em}}
 .aid{{background:#211b14;border:1px solid #4a3e2c;border-radius:10px;padding:12px 16px;margin:10px 0 14px;font:15.5px/1.75 'Noto Sans KR','Malgun Gothic',sans-serif;color:#e4d9c3}}
 .aid summary{{cursor:pointer;color:#c4964a;font-weight:700;letter-spacing:.05em}} .aid p{{margin:.55em 0}}
 .aid b{{display:inline-block;min-width:5.2em;color:#c4964a;margin-right:.4em}} .aid .orig{{font-family:'Noto Serif KR','Batang',serif;color:#f3ead8}}
-.aid small{{display:block;color:#9d917c;font-size:12.5px;margin-top:6px}} .cap{{font-size:19px;line-height:1.8}} .meta{{font-size:14px;color:#9d917c;font-family:sans-serif}}
+.aid small{{display:block;color:#9d917c;font-size:12.5px;margin-top:6px}}
+.aid .full{{margin-top:8px;border-top:1px dashed #4a3e2c;padding-top:6px}} .aid .full summary{{font-weight:600;color:#d9b77a}}
+.aid pre.tr{{white-space:pre-wrap;font:16px/1.9 'Noto Serif KR','Batang',serif;color:#f3ead8;background:#16130f;border-radius:8px;padding:12px 14px;margin:8px 0 4px;max-height:28em;overflow:auto}} .cap{{font-size:19px;line-height:1.8}} .meta{{font-size:14px;color:#9d917c;font-family:sans-serif}}
 .draft{{display:inline-block;font:13px sans-serif;color:#16130f;background:#c4964a;padding:3px 10px;border-radius:12px}}
 footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid #3a3225}}
 @media(max-width:800px){{.panel{{grid-template-columns:1fr}} .line:before{{display:none}}}}
@@ -496,12 +503,13 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
 <p><b>어떤 문서? (해제)</b> {html.escape(s.get('해제') or s['유형설명'] or '—')}</p>
 {('<p><b>무슨 내용? (내용 요약)</b> ' + html.escape(s['요약']) + '</p>') if s.get('요약') else ''}
 {('<p class="orig"><b>원문 속 글자</b> ' + html.escape(s['판독']) + '</p>') if has_reading(s) else ''}
+{('<p><b>원문 판독</b> (오른쪽 첫 줄부터 · □ 못 읽은 글자)</p><pre class="tr">' + html.escape(s['원문'].strip()) + '</pre>') if (s.get('원문') or '').strip() else ''}
 <p><b>찾아보기</b> {('① 위 「원문 속 글자」를 이미지에서 찾아 동그라미 해 보세요. ' if has_reading(s) else '① 문서를 받은 사람(또는 쓴 사람)의 이름을 찾아 표시해 보세요. ')}② 날짜가 적힌 곳을 찾아보세요. ③ 도장(인장)이 있나요?</p>
 <p><b>생각해 보기</b> 이 문서는 왜 지금까지 집안에 남아 있었을까요?</p></div></div>""")
     hand = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>활동지 — {html.escape(title)}</title><style>
 @page{{size:A4;margin:16mm}} body{{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;color:#222;font-size:14px}}
 h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:grid;grid-template-columns:42% 1fr;gap:14px;border-top:1px solid #ccc;padding:12px 0;page-break-inside:avoid}}
-.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
+.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} pre.tr{{white-space:pre-wrap;font:12.5px/1.6 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
 </style></head><body><h1>고문서로 읽는 이야기: {html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 이름: ________ </p>{''.join(qs)}
 <h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다. 해제·요약은 문서명과 이미지에 근거한 초안이며 판독이 어려운 글자는 □로 표시했습니다.</p></body></html>"""
@@ -541,6 +549,30 @@ def cmd_report(a):
 <h1>소장처 비교 리포트</h1><p class="n">한국고문서자료관 · 소장처 {len(cols)}곳 · 문서 {len(rows)}건 · 연도·유형은 문서명에서 자동 추출한 초안</p><p>{legend}</p>
 {bars(types, '문서유형', f'문서 유형 상위 {len(types)}')}{bars(cents, '세기', '세기별 분포')}</body></html>"""
     out = os.path.join(a.root, 'compare_report.html'); open(out, 'w', encoding='utf-8').write(page); print('→', out)
+
+# ---------------------------------------------------------------- zoom (판독용 확대 조각)
+def cmd_zoom(a):
+    """대표 이미지의 원본(최대 해상도)을 겹치게 잘라 판독용 조각을 만든다. 세로쓰기라 오른쪽 위 조각이 c1."""
+    ed = os.path.join(a.work, 'edit', a.theme)
+    sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
+    od = os.path.join(ed, 'zoom'); os.makedirs(od, exist_ok=True)
+    only = {int(x) for x in a.only.split(',')} if a.only else None
+    for s in sel:
+        n = int(s['순서'])
+        if only and n not in only: continue
+        src = os.path.join(a.work, s['원본경로']) if s.get('원본경로') and os.path.exists(os.path.join(a.work, s['원본경로'])) else os.path.join(ed, s['이미지'])
+        im = Image.open(src).convert('RGB'); W, H = im.size
+        cols = a.cols or max(1, round(W / a.tile)); rows = a.rows or max(1, round(H / a.tile))
+        tw, th = W / cols, H / rows; ov = a.overlap
+        made = []
+        for r in range(rows):
+            for c in range(cols):
+                x1 = W - (c + 1) * tw; y0 = r * th          # 오른쪽부터
+                box = (int(max(0, x1 - ov * tw)), int(max(0, y0 - ov * th)), int(min(W, x1 + tw + ov * tw)), int(min(H, y0 + th + ov * th)))
+                t = im.crop(box); t.thumbnail((a.max, a.max))
+                fn = f'{n:02d}_r{r+1}c{c+1}.jpg'; t.save(os.path.join(od, fn), quality=90); made.append(fn)
+        print(f"{n:02d} {s['문서명'][:30]} ({W}×{H}) → {len(made)}조각: {', '.join(made)}")
+    print('→', od, '(c1이 오른쪽 — 세로쓰기는 c1 → c2 … 순서로 읽기)')
 
 # ---------------------------------------------------------------- promo (릴스 홍보 문구)
 PROMO_TEMPLATE = """📜 {series} EP.{ep} 〈{title}〉
@@ -598,13 +630,16 @@ def main():
     m.add_argument('--title'); m.add_argument('--lead', help='도입 문장'); m.add_argument('--collection'); m.add_argument('--font', help='한글 글꼴 파일 경로')
     m.add_argument('--placeholder', action='store_true', help='원본 이미지 대신 "뷰어에서 보기" 자리 표시 (이미지 이용 동의 전 공개용)')
     m.add_argument('--img-max', type=int, default=1400, help='웹페이지에 넣는 이미지 최대 픽셀')
+    z = sp.add_parser('zoom', help='판독용 확대 조각 → edit/<테마>/zoom/'); z.add_argument('--work', required=True); z.add_argument('--theme', required=True)
+    z.add_argument('--only', help='순서 번호 (예: 2,5)'); z.add_argument('--rows', type=int); z.add_argument('--cols', type=int)
+    z.add_argument('--tile', type=int, default=1100, help='조각 하나의 원본 픽셀 크기(자동 분할 기준)'); z.add_argument('--overlap', type=float, default=0.08); z.add_argument('--max', type=int, default=1400)
     pr = sp.add_parser('promo', help='릴스 홍보 문구 틀(「고문서 한 장」 형식) → mediate/<테마>/promo.md'); pr.add_argument('--work', required=True); pr.add_argument('--theme', required=True)
     pr.add_argument('--ep', type=int, default=1); pr.add_argument('--series', default='고문서 한 장'); pr.add_argument('--title'); pr.add_argument('--collection'); pr.add_argument('--url', help='전시 웹페이지 주소')
     r = sp.add_parser('report'); r.add_argument('--root', required=True); r.add_argument('--top', type=int, default=12)
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'report': cmd_report}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report}[a.cmd](a)
 
 
 if __name__ == '__main__':

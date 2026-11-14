@@ -10,7 +10,7 @@ Two scripts live in `${CLAUDE_PLUGIN_ROOT}/skills/aks-archive-harvester/scripts/
 - `harvest.py` (needs `requests`, `Pillow`) handles finding, collecting, curation metadata, packaging and batch comparison.
 - `studio.py` (needs `Pillow` only, works offline) handles curation themes, editing selections, mediation outputs and the comparison report.
 
-Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents: `references/reading-aid.md`. Reels copy template: `references/reels-caption.md`.
+Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Reels copy template: `references/reels-caption.md`.
 
 Tell the user which stage you are in, using the five stage names, so the flow matches what they expect.
 
@@ -68,6 +68,7 @@ Then edit as a curator:
 1. Open `contact_sheet.jpg` and the selected images with Read. Swap documents that are weak or duplicated (re-run with other filters or `--count`).
 2. In `selection.csv`, rewrite `캡션` and fill `이야기`: one or two sentences linking each document to the theme's story, in plain Korean for non-specialists. When the documents carry a narrative (a person's career, a lost and recovered land, a petition repeated for generations), tell it as a story: open with a question, follow the documents in time order, and close with one line on what the record means. Reorder rows to follow the story.
 3. Fill the reading aid for every row, because most viewers cannot read old hanja, idu, cursive script (초서) or old Korean letters (언간). Read each image with Read (crop or zoom where the text is small), then write:
+   - `원문`: the **full transcription**, line by line in the original column order (right to left for vertical text), one source line per output line. Transcribe everything legible, not a summary: heading, body, date, names, small notes beside the date, seals, endorsements (題辭), envelope. Run `python3 studio.py zoom --work WORK --theme <id>` first and read every tile in order (`c1` is the rightmost); for small or cursive text crop further with PIL until each character is clear. Use □ per unreadable character, (?) after an uncertain one, (…) where the line runs off the image or is cut, and (괄호) for notes like (도장), (작은 글씨), (겉봉). For 언간 keep the old spelling (ᄒᆞ, ᄋᆞ) and do not modernize. If only part of a long book page can be read, say which part, e.g. "(오른쪽 면만 판독)".
    - `판독`: the key characters you actually read (heading, name, office, date, seal text). Use □ for characters you cannot read and add "(판독 불확실)" when unsure. If nothing is legible, write a note in parentheses such as "(흘림 글씨 — 판독 필요)".
    - `해제`: when, who, to whom, what kind of document, and how to read its format. `edit` pre-fills a draft from the document type; correct it with what the image shows (era name → Western year, issuer, idu words).
    - `요약`: the content in plain modern Korean, a few sentences. For formulaic documents (고신, 교지, 유지, 홍패, 추증교지, 명문, 고목) translate the formula fully; for long texts summarize only what you read and say what needs reading.
