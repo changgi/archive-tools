@@ -14,6 +14,8 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.16)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
 질문으로 시작해 문서로 따라가고, 한 문장으로 맺는 10편입니다. 각 폴더 README에 내레이션 전문이 있습니다.
