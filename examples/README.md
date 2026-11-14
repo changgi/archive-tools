@@ -14,7 +14,24 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.16)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.26)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+
+## 원문으로 읽는 이야기 (EP.17–EP.26)
+
+문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
+
+| 이야기 | 소장처 | 첫 문서의 원문 인용 | 영상·홍보 글 |
+|---|---|---|---|
+| [**EP.17 임금이 부르고, 아들이 지킨 선비**](dongnakdang/) | 경주 옥산 여주이씨 독락당 (문중) | 斯速乘馹上來 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep17-dongnakdang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep17-dongnakdang_wide.mp4) · [홍보 글](dongnakdang/promo.md) |
+| [**EP.18 "경은 나를 버리고 쉬려는가" — 전쟁의 재상 류성룡**](hahoe-ryu/) | 안동 하회 풍산류씨 (문중) | 議政府領議政 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep18-hahoe_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep18-hahoe_wide.mp4) · [홍보 글](hahoe-ryu/promo.md) |
+| [**EP.19 공신의 교서에서 증손의 답안지까지 — 양동 경주손씨 170년**](yangdong-son/) | 경주 양동 경주손씨 종가 송첨 (문중) | 履險冒危 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep19-yangdong_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep19-yangdong_wide.mp4) · [홍보 글](yangdong-son/promo.md) |
+| [**EP.20 임청각, 귀거래의 집이 지켜 온 것**](imcheonggak/) | 안동 법흥 고성이씨 종가 임청각 (문중) | 文科丙科第一人 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep20-imcheonggak_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep20-imcheonggak_wide.mp4) · [홍보 글](imcheonggak/promo.md) |
+| [**EP.21 학봉 종가의 안채 — 혼서와 한글 편지**](hakbong/) | 안동 금계 의성김씨 학봉 김성일 종가 (문중) | 許以令從侄女貺室 僕之長子基洛 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep21-hakbong_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep21-hakbong_wide.mp4) · [홍보 글](hakbong/promo.md) |
+| [**EP.22 부름을 사양한 학자, 서계 박세당**](segye/) | 의정부 장암 반남박씨 서계 박세당 종가 (문중) | 行弘文館校理知製敎 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep22-segye_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep22-segye_wide.mp4) · [홍보 글](segye/promo.md) |
+| [**EP.23 "병이 나았다니, 서둘러 올라오라" — 우복 종가 300년**](ubok/) | 상주 우산 진주정씨 우복 정경세 종가 (문중) | 鄭經世爲宣敎郞行弘文館正字 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep23-ubok_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep23-ubok_wide.mp4) · [홍보 글](ubok/promo.md) |
+| [**EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안**](hwangyunseok/) | 고창 흥덕 평해황씨 이재 황윤석 종가 (문중) | 後所生幷永永許給 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep24-hwangyunseok_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep24-hwangyunseok_wide.mp4) · [홍보 글](hwangyunseok/promo.md) |
+| [**EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년**](geochang-hyanggyo/) | 거창 거창향교 (향교) | 風雨漏瀉 榱桷推朽 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep25-geochang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep25-geochang_wide.mp4) · [홍보 글](geochang-hyanggyo/promo.md) |
+| [**EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들**](queen-min-letters-2/) | 국립고궁박물관 (박물관) | 福壽 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep26-gogung_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep26-gogung_wide.mp4) · [홍보 글](queen-min-letters-2/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -42,7 +59,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 17개
+## 예시 (결과물 갤러리) — 27개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -63,6 +80,16 @@
 | [**EP.14 나아가지 않은 선비**](yunjeung/) | 논산 명재 윤증 종가 (문중) | 임명장 36장, 부름 18번 | [전시](yunjeung/exhibit.html) · [활동지](yunjeung/handout.html) · [카드](yunjeung/cards/) · [selection.csv](yunjeung/selection.csv) |
 | [**EP.15 서원을 움직인 사람들**](byeongsan/) | 안동 병산서원 (서원) | 모시고, 모이고, 지키고, 다시 짓고, 공경한 사람들 | [전시](byeongsan/exhibit.html) · [활동지](byeongsan/handout.html) · [카드](byeongsan/cards/) · [selection.csv](byeongsan/selection.csv) |
 | [**EP.16 학자의 벼슬길**](anjeongbok/) | 광주 순암 안정복 종가 (문중) | 첫 벼슬 후릉 참봉에서 가선대부까지, 40여 년 | [전시](anjeongbok/exhibit.html) · [활동지](anjeongbok/handout.html) · [카드](anjeongbok/cards/) · [selection.csv](anjeongbok/selection.csv) |
+| [**EP.17 임금이 부르고, 아들이 지킨 선비**](dongnakdang/) | 경주 옥산 여주이씨 독락당 (문중) | "속히 역마를 타고 올라오라"던 임금의 부름에서 서자에게 남긴 노비 문서까지 | [전시](dongnakdang/exhibit.html) · [활동지](dongnakdang/handout.html) · [카드](dongnakdang/cards/) · [selection.csv](dongnakdang/selection.csv) |
+| [**EP.18 "경은 나를 버리고 쉬려는가" — 전쟁의 재상 류성룡**](hahoe-ryu/) | 안동 하회 풍산류씨 (문중) | 임진왜란 한가운데 받은 임명장, 물러나려는 재상을 붙잡은 임금의 글, 그리고 시호까지 | [전시](hahoe-ryu/exhibit.html) · [활동지](hahoe-ryu/handout.html) · [카드](hahoe-ryu/cards/) · [selection.csv](hahoe-ryu/selection.csv) |
+| [**EP.19 공신의 교서에서 증손의 답안지까지 — 양동 경주손씨 170년**](yangdong-son/) | 경주 양동 경주손씨 종가 송첨 (문중) | 이시애의 난을 평정한 공신 손소, 도승지 손중돈, 장손에게 땅을 남긴 계조모, 과거 답안을 쓴 6대손 | [전시](yangdong-son/exhibit.html) · [활동지](yangdong-son/handout.html) · [카드](yangdong-son/cards/) · [selection.csv](yangdong-son/selection.csv) |
+| [**EP.20 임청각, 귀거래의 집이 지켜 온 것**](imcheonggak/) | 안동 법흥 고성이씨 종가 임청각 (문중) | 도연명의 「귀거래사」에서 이름을 딴 집 | [전시](imcheonggak/exhibit.html) · [활동지](imcheonggak/handout.html) · [카드](imcheonggak/cards/) · [selection.csv](imcheonggak/selection.csv) |
+| [**EP.21 학봉 종가의 안채 — 혼서와 한글 편지**](hakbong/) | 안동 금계 의성김씨 학봉 김성일 종가 (문중) | 맏아들의 혼사를 알리는 납폐서, 남편이 아내에게 보낸 답장, 그리고 계집종이 상전에게 올린 한글 편지 | [전시](hakbong/exhibit.html) · [활동지](hakbong/handout.html) · [카드](hakbong/cards/) · [selection.csv](hakbong/selection.csv) |
+| [**EP.22 부름을 사양한 학자, 서계 박세당**](segye/) | 의정부 장암 반남박씨 서계 박세당 종가 (문중) | 홍문관 교리에서 "속히 올라오라"는 부제학 부름까지, 그리고 세상을 떠난 뒤 받은 시호 | [전시](segye/exhibit.html) · [활동지](segye/handout.html) · [카드](segye/cards/) · [selection.csv](segye/selection.csv) |
+| [**EP.23 "병이 나았다니, 서둘러 올라오라" — 우복 종가 300년**](ubok/) | 상주 우산 진주정씨 우복 정경세 종가 (문중) | 스물일곱 정경세의 첫 벼슬에서 병든 그를 부르는 임금의 유지, 6대손 정종로를 부르는 유지, 그리고 대한제국기 종의 소지까지 | [전시](ubok/exhibit.html) · [활동지](ubok/handout.html) · [카드](ubok/cards/) · [selection.csv](ubok/selection.csv) |
+| [**EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안**](hwangyunseok/) | 고창 흥덕 평해황씨 이재 황윤석 종가 (문중) | "흉년이 거듭되어 살림이 거덜 나" 밭을 판 농민의 명문, 둘째 아들에게 여종을 준 어머니, 그리고 실학자 황윤석이 옛 전서로 쓴 혼서 | [전시](hwangyunseok/exhibit.html) · [활동지](hwangyunseok/handout.html) · [카드](hwangyunseok/cards/) · [selection.csv](hwangyunseok/selection.csv) |
+| [**EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년**](geochang-hyanggyo/) | 거창 거창향교 (향교) | 전쟁 뒤 무너진 문을 고친 1636년의 기록, 젊은 선비를 기르는 양현재, 문루의 건립 연혁, 그리고 일제강점기의 중수 의연록 | [전시](geochang-hyanggyo/exhibit.html) · [활동지](geochang-hyanggyo/handout.html) · [카드](geochang-hyanggyo/cards/) · [selection.csv](geochang-hyanggyo/selection.csv) |
+| [**EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들**](queen-min-letters-2/) | 국립고궁박물관 (박물관) | 매화와 새, 대나무, 바둑판이 찍힌 편지지 | [전시](queen-min-letters-2/exhibit.html) · [활동지](queen-min-letters-2/handout.html) · [카드](queen-min-letters-2/cards/) · [selection.csv](queen-min-letters-2/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -79,6 +106,7 @@
 
 | 칸 | 무엇을 쓰나 | 예 (예천 용문사 교지) |
 |---|---|---|
+| `번역` (원문 해석) | 원문 전문을 문장 순서대로 현대어로 | 경상도 예천 땅 용문사는, 감사와 수령이 일찍이 내린 전지를 다시 살펴 더욱 잘 보호하고 여러 잡역을 덜어 줄 것 |
 | `원문` (원문 판독 전문) | 이미지에 보이는 글자를 원문의 줄 순서대로 전부. 전시 웹페이지에서 「원문 판독 전문」을 펼치면 보임 | 敎旨 ↵ 慶尙道醴泉地龍門 ↵ 寺乙良監司守令曾 ↵ … ↵ 天順九年八月十四日 |
 | `판독` (원문 읽기) | 이미지에서 실제로 읽은 핵심 글자. 못 읽은 글자는 □ | 敎旨 / 慶尙道醴泉地龍門寺乙良 … 雜役減除者 / 天順九年八月十四日 |
 | `해제` | 언제·누가·누구에게·어떤 서식의 문서인지, 읽는 법 | 1465년(세조 11) 세조가 용문사에 내린 교지. '乙良'은 이두… |
@@ -86,7 +114,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 17개
+### 카드뉴스 미리보기 — 27개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -107,8 +135,18 @@
 | EP.14 나아가지 않은 선비 | ![](yunjeung/cards/00_표지.jpg) | ![](yunjeung/cards/01.jpg) | ![](yunjeung/cards/02.jpg) |
 | EP.15 서원을 움직인 사람들 | ![](byeongsan/cards/00_표지.jpg) | ![](byeongsan/cards/01.jpg) | ![](byeongsan/cards/02.jpg) |
 | EP.16 학자의 벼슬길 | ![](anjeongbok/cards/00_표지.jpg) | ![](anjeongbok/cards/01.jpg) | ![](anjeongbok/cards/02.jpg) |
+| EP.17 임금이 부르고, 아들이 지킨 선비 | ![](dongnakdang/cards/00_표지.jpg) | ![](dongnakdang/cards/01.jpg) | ![](dongnakdang/cards/02.jpg) |
+| EP.18 "경은 나를 버리고 쉬려는가" — 전쟁의 재상 류성룡 | ![](hahoe-ryu/cards/00_표지.jpg) | ![](hahoe-ryu/cards/01.jpg) | ![](hahoe-ryu/cards/02.jpg) |
+| EP.19 공신의 교서에서 증손의 답안지까지 — 양동 경주손씨 170년 | ![](yangdong-son/cards/00_표지.jpg) | ![](yangdong-son/cards/01.jpg) | ![](yangdong-son/cards/02.jpg) |
+| EP.20 임청각, 귀거래의 집이 지켜 온 것 | ![](imcheonggak/cards/00_표지.jpg) | ![](imcheonggak/cards/01.jpg) | ![](imcheonggak/cards/02.jpg) |
+| EP.21 학봉 종가의 안채 — 혼서와 한글 편지 | ![](hakbong/cards/00_표지.jpg) | ![](hakbong/cards/01.jpg) | ![](hakbong/cards/02.jpg) |
+| EP.22 부름을 사양한 학자, 서계 박세당 | ![](segye/cards/00_표지.jpg) | ![](segye/cards/01.jpg) | ![](segye/cards/02.jpg) |
+| EP.23 "병이 나았다니, 서둘러 올라오라" — 우복 종가 300년 | ![](ubok/cards/00_표지.jpg) | ![](ubok/cards/01.jpg) | ![](ubok/cards/02.jpg) |
+| EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안 | ![](hwangyunseok/cards/00_표지.jpg) | ![](hwangyunseok/cards/01.jpg) | ![](hwangyunseok/cards/02.jpg) |
+| EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년 | ![](geochang-hyanggyo/cards/00_표지.jpg) | ![](geochang-hyanggyo/cards/01.jpg) | ![](geochang-hyanggyo/cards/02.jpg) |
+| EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | ![](queen-min-letters-2/cards/00_표지.jpg) | ![](queen-min-letters-2/cards/01.jpg) | ![](queen-min-letters-2/cards/02.jpg) |
 
-### 에디팅 전과 후 — 17개 (예시마다 첫 문서)
+### 에디팅 전과 후 — 27개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -131,6 +169,16 @@
 | EP.14 나아가지 않은 선비 | 1654년 윤증(尹拯) 화회문기(和會文記) | 1654년 윤증의 화회문기. | 1654년 화회문기. 형제가 의논해 집안 재산을 나눈 문서에 윤증의 이름이 보인다. | 윤씨 집안 형제들이 조상 제사를 위한 재산을 정하고 노비와 땅을 나눈 문서이며, 끝부분 서명자 가운데 윤증(당시 유학, 26세)의 이름이 보입니다. 누가 무엇을 받았는지는 본문 판독이 필요합니다. |
 | EP.15 서원을 움직인 사람들 | 1610〜1614년 병산서원(屛山書院) 봉안록(奉安錄) | 1610년 병산서원의 봉안록. | 1610~1614년 봉안록. 서원에 위패를 모신 일을 적었다. | 표지에 '屛山書院奉安錄'이라 적힌 책으로, 이어지는 면에 봉안에 관한 글이 한문으로 빽빽이 적혀 있습니다. 누구를 어떤 절차로 모셨는지는 본문 판독으로 확인해야 합니다. |
 | EP.16 학자의 벼슬길 | 1607년 안응원(安應元) 추증교지(追贈敎旨) | 1607년 안응원의 추증교지 — 죽은 이에게 관직을 높여 내린 교지. | 1607년 안응원 추증교지. 집안의 기록은 17세기 초 조상에게서 시작한다. | 임금이 안응원에게 가선대부(종2품) □조참판 겸 동지경연·의금부·춘추관·성균관사, 홍문관 제학, 세자좌부빈객과 '□원군'의 칭호를 추증한다는 내용입니다. 왼쪽 작은 글씨로 보아 임진왜란 때 임금을 호종한 공신(扈聖原從功臣 3등)의 공으로 내린 추증으로 보입니다(□는 판독 불확실). |
+| EP.17 임금이 부르고, 아들이 지킨 선비 | 1539년 이언적(李彦迪) 유지(有旨) | 1539년 이언적의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1539년 겨울, 임금의 명령서가 경주에 닿는다. "경을 병조참판으로 삼으니 교대를 기다리지 말고 서둘러 역마를 타고 올라오라(斯速乘馹上來)." 이 해 이언적은 임금에게 「일강십목소」라는 긴 상소를 올렸고, 조정은 그를 곁으로 불러들였다. | 지방에 있던 이언적을 병조참판(국방 담당 부서의 차관) 겸 세자의 스승(우부빈객)으로 임명하며, 후임자를 기다리지 말고 곧장 역마로 올라오라고 재촉한 명령서입니다. |
+| EP.18 "경은 나를 버리고 쉬려는가" — 전쟁의 재상 류성룡 | 1592년 유성룡(柳成龍) 고신(告身) | 1592년 유성룡의 고신 — 국왕이 관직·품계를 내린 임명장. | 1592년 5월 2일, 전쟁이 터진 지 스무 날. 피란길의 임금이 류성룡을 영의정으로 삼는다. 임명장에는 그의 칭호가 길게 늘어선다. "수충익모광국공신 대광보국숭록대부 의정부 영의정(議政府領議政)." | 전쟁이 터진 지 20일 만에, 피란길의 임금이 류성룡을 정승의 맨 윗자리인 영의정으로 삼은 임명장입니다. |
+| EP.19 공신의 교서에서 증손의 답안지까지 — 양동 경주손씨 170년 | 1467년 손소(孫昭) 적개공신교서(敵愾功臣敎書) | 1467년 손소의 적개공신교서. | 1467년, 함경도에서 이시애가 난을 일으킨다. 진압군 막부에서 군무를 맡은 젊은 관원이 있었다. 반란이 끝나자 세조의 교서가 그에게 온다. "험한 곳을 지나고 위험을 무릅쓰며(履險冒危) 적의 형편을 보고했다… 너를 적개 2등 공신으로 삼는다." 같은 교서의 1등 명단에는 남이(南怡)의 이름도 있다. | 세조는 이시애의 난 때 평로장군 박중선의 막부에서 군무를 맡아 적의 정황을 보고하고 작전을 도운 손소를 2등 공신으로 삼고, 초상과 비석, 부모·처자의 품계, 자손의 죄 용서, 노비 10구·토지 100결·은 25냥·말 1필 등을 내렸습니다. |
+| EP.20 임청각, 귀거래의 집이 지켜 온 것 | 1684년 이후영(李後榮) 문과 홍패(文科紅牌) | 1684년 이후영의 홍패 — 문과·무과 합격 증서. | 임청각에서 가장 붉은 문서는 1684년의 홍패다. "통덕랑 이후영, 문과 병과 제1인(文科丙科第一人)." 이 집안의 벼슬길은 이렇게 다시 열렸다. | 임청각 집안의 이후영이 1684년 문과에 급제했음을 증명하는 문서입니다. 이 뒤로 그는 여러 고을과 관직을 거칩니다. |
+| EP.21 학봉 종가의 안채 — 혼서와 한글 편지 | 1841년 김진화(金鎭華) 혼서(婚書)－납폐서(納幣書) | 1841년 김진화, 혼서의 납폐서 — 혼인 때 신랑 집이 예물과 함께 보낸 편지. | 1841년 가을, 학봉 김성일의 종가에서 혼서가 나간다. 원주목 판관 김진화가 맏아들의 혼인을 알린다. "저의 맏아들 기락에게 귀댁 종질녀를 허락하시니(許以令從侄女貺室 僕之長子基洛)… 삼가 사람을 보내 납징의 예를 행합니다." | 원주목 판관 김진화가 맏아들 기락과 이 생원 댁 종질녀의 혼인이 정해지자, 예법대로 예물을 보내며 쓴 편지입니다. |
+| EP.22 부름을 사양한 학자, 서계 박세당 | 1668년 박세당(朴世堂) 고신(告身)－01 | 1668년 박세당의 고신 — 국왕이 관직·품계를 내린 임명장. | 1668년, 마흔의 박세당은 홍문관 교리가 된다. "박세당을 행 홍문관 교리 지제교 겸 경연시독관으로 삼는다(行弘文館校理知製敎)." 그러나 그는 얼마 뒤 벼슬을 내려놓고 수락산 아래 석천동으로 들어간다. | 40세의 박세당을 학문 기관인 홍문관의 교리로 삼고, 임금의 교서 작성·경연·역사 기록을 함께 맡긴 임명장입니다. |
+| EP.23 "병이 나았다니, 서둘러 올라오라" — 우복 종가 300년 | 1589년 정경세(鄭經世) 고신(告身) | 1589년 정경세의 고신 — 국왕이 관직·품계를 내린 임명장. | 1589년 겨울, 스물일곱의 정경세는 홍문관 정자다. 이조의 임명장이 그의 품계를 한 단계 올린다. "정경세를 선교랑 행 홍문관 정자로 삼는다(鄭經世爲宣敎郞行弘文館正字)." 3년 뒤 임진왜란이 일어나고, 그는 고향 상주에서 의병을 일으킨다. | 홍문관의 젊은 관원 정경세의 품계를 한 단계 올려 준 이조의 임명장입니다. 그의 관직 생활 초기 기록입니다. |
+| EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안 | 1686년 모(母) 이씨(李氏) 분재기(分財記) | 1686년 이씨의 분재기 — 재산 상속을 기록한 문서. | 1686년 겨울, 한 어머니가 둘째 아들에게 문서를 써 준다. 큰아들에게 이미 몫을 주었으니 둘째에게도 주지 않을 수 없다는 것이다. "뒤에 낳을 자식까지 아울러 영원히 준다(後所生幷永永許給)." 증인과 붓을 잡은 사람은 남편 쪽 친척들이었다. | 어머니가 큰아들에게 이미 재산을 따로 준 만큼, 어렵게 자라 가정을 꾸린 둘째 아들에게도 여종 한 명과 그 자식을 영원히 물려준다는 문서입니다. |
+| EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년 | 1636년 서재신문 중수기(西齋神門重修記) | 1636년 중수기. | 1636년 봄, 거창향교의 선비들이 공사 기록을 남긴다. "세월이 오래되어 비바람에 새고, 서까래가 썩고 기와가 무너져(風雨漏瀉 榱桷推朽) 고을의 선비들이 탄식했다." 새로 온 원님과 선비들이 힘을 모아 학교의 문을 다시 세웠다. 그해 겨울, 병자호란이 일어난다. | 비바람에 썩고 무너진 향교의 서재와 문을 두고 선비들이 오래 안타까워하던 중, 새로 온 현감이 수리를 의논했고, 나라의 상중에도 제사 비용을 아껴 고쳐 냈다는 기록입니다. |
+| EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | 1886년 명성황후가 민영소에게 보낸 편지 | 1886년 편지 — 편지. | 1886년, 왕비가 조카에게 편지를 쓴다. 봉투에는 초록 글씨로 '복과 장수(福壽)'가 찍혀 있고, 편지지에는 매화 가지에 앉은 새가 눌러 찍혀 있다. 첫 줄은 늘 같다. "글시 보고 야간 잘 잇던 일 든든ᄒᆞ며(편지 보고 밤사이 잘 지낸 일 든든하며)." | 늘 그렇듯 '편지 보고 든든하다, 임금과 세자는 평안하시다, 나는 그대로다'라는 안부로 시작해, 날씨와 몇 가지 일을 짧게 묻는 편지입니다. '福壽'라고 찍힌 봉투와 매화·새 무늬 편지지가 함께 남았습니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 

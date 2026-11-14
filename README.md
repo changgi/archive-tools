@@ -18,7 +18,9 @@
 |---|---|---|---|
 | [![](examples/jikjisa-temple/cards/00_표지.jpg)](examples/jikjisa-temple/) | [![](examples/susanri-village/cards/00_표지.jpg)](examples/susanri-village/) | [![](examples/namgye-seowon/cards/00_표지.jpg)](examples/namgye-seowon/) | [![](examples/myeongseong-letters/cards/00_표지.jpg)](examples/myeongseong-letters/) |
 
-🔎 **읽기 도움:** 옛 한자·이두·흘림 글씨·한글 편지를 현대인이 읽을 수 있게, 문서마다 **판독 · 해제 · 내용 요약**을 전시 웹페이지와 수업 활동지에 넣습니다.
+🔎 **읽기 도움:** 옛 한자·이두·흘림 글씨·한글 편지를 현대인이 읽을 수 있게, 문서마다 **원문 전문 판독(한자 위 한글 독음) · 원문 해석 · 해제 · 내용 요약**을 전시 웹페이지와 수업 활동지에 넣습니다.
+
+📜 **원문으로 읽는 이야기 10편 (EP.17–EP.26):** 회재 이언적 · 류성룡의 비답 · 양동 손소 공신교서 · 임청각과 정약용 편지 · 학봉 종가 한글 편지 · 서계 박세당 · 우복 정경세 · 황윤석 집안의 흉년 문서 · 거창향교 · 명성황후의 꽃 편지지 — 원문 전문 판독 + 해석 + 원문 인용 스토리텔링 → [보기](https://changgi.github.io/archive-tools/examples/)
 
 📖 **이야기가 있는 기록 10편 (EP.7–EP.16):** 왕실 가족의 편지 · 운조루의 시간 · 되찾은 제사 땅 · 섬마을의 호소 · 윤음에서 금융조합까지 · 기도와 살림의 기록 · 200년의 상소 · 나아가지 않은 선비 · 서원을 움직인 사람들 · 학자의 벼슬길 → [보기](https://changgi.github.io/archive-tools/examples/)
 

@@ -159,6 +159,7 @@ def jobs_of(a):
         if getattr(a, 'match', None) and not re.search(a.match, d['name']):
             continue
         for k, im in enumerate(d['imgs'], 1):
+            if getattr(a, 'pages', None) and k > a.pages: break
             jobs.append((os.path.join(a.work, 'out', d['category'], d['folder'], f'{k:03d}.jpg'), im['dzi']))
     return jobs
 
@@ -481,6 +482,7 @@ def main():
     m.add_argument('--data-url', required=True, help="시작 노드의 data-url (?itemId=book&gubun=...&dataId=...)")
     m.add_argument('--name', help='시작 노드 바로 아래 문서들의 분류명(기본: dataId)')
     d = sp.add_parser('download'); d.add_argument('--work', required=True); d.add_argument('--category')
+    d.add_argument('--pages', type=int, help='문서마다 앞에서 N장만 받기 (긴 책을 표지·첫 장만 볼 때)')
     d.add_argument('--match', help='문서명 정규식 — 맞는 문서만 받기 (예: "상량문|건치도")')
     d.add_argument('--time', type=float, default=540, help='이 시간(초)이 지나면 새 페이지를 시작하지 않음')
     d.add_argument('--tile-workers', type=int, default=16); d.add_argument('--page-workers', type=int, default=2)

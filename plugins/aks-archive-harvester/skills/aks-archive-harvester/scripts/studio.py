@@ -20,7 +20,7 @@ aks-archive-harvester 스튜디오 — 수집한 고문서로 큐레이션 테�
   python3 studio.py mediate --work W --theme person-1
   python3 studio.py report  --root ROOT
 """
-import argparse, base64, csv, html, io, json, os, re, sys
+import argparse, base64, csv, glob, html, io, json, os, re, sys
 from collections import Counter, defaultdict
 from PIL import Image, ImageDraw, ImageFont, ImageStat
 
@@ -298,7 +298,7 @@ def cmd_edit(a):
                     '인물': '; '.join(e.split('(')[0] for e in r['_ents']), '유형설명': glossary(r['문서유형']),
                     '대표장': os.path.basename(src), '이미지': f'images/{fn}', '원본경로': os.path.relpath(src, a.work),
                     '캡션': draft_caption(r) + (f' (첩 이미지 {len(doc_images(a.work, r))}면 중 한 면 — 해당 면은 원문 확인 필요)' if shared > 1 else ''),
-                    '이야기': '', '판독': '', '원문': '', '해제': draft_haeje(r), '요약': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else '')})
+                    '이야기': '', '판독': '', '원문': '', '번역': '', '해제': draft_haeje(r), '요약': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else '')})
     with open(os.path.join(od, 'selection.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.DictWriter(fh, fieldnames=list(out[0].keys())); w.writeheader(); w.writerows(out)
     json.dump(dict(id=tid, title=title, filter=f, candidates=len(cand), selected=len(out)), open(os.path.join(od, 'theme.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
@@ -400,6 +400,43 @@ def has_reading(s):
     t = re.sub(r'\([^)]*\)', '', s.get('판독') or '')
     return len(re.findall(r'[\u4e00-\u9fff\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]', t)) >= 2
 
+# ---------------------------------------------------------------- 한자 독음 (ruby)
+try:
+    import hanja as _hanja          # pip install hanja (없으면 독음 없이 표시)
+except Exception:
+    _hanja = None
+READ_FIX = {'拾': '십', '什': '십', '參': '삼', '敎': '교', '乙良': '을랑', '是白乎': '이삷온', '爲白乎': '하삷온', '爲只爲': '하기삼', '敎是': '이시',
+            '矣身': '의몸', '爲去乎': '하거온', '爲白去乎': '하삷거온', '是乎': '이온', '爲乎': '하온', '段': '단'}
+_HAN = re.compile(r'[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]+')
+
+def reading_of(run):
+    """한자 연속 구간의 한글 독음 (글자 수와 같은 길이). 이두 관용구는 READ_FIX로 덮어쓴다."""
+    if not _hanja: return None
+    try: r = list(_hanja.translate(run, 'substitution'))
+    except Exception: return None
+    if len(r) != len(run): return None
+    for k, v in READ_FIX.items():
+        i = run.find(k)
+        while i >= 0:
+            if len(v) == len(k): r[i:i + len(k)] = list(v)
+            i = run.find(k, i + 1)
+    return r
+
+def ruby_html(text):
+    """원문 줄을 한자 위에 한글 독음을 단 HTML로 (줄 바꿈 유지)"""
+    out = []
+    for line in text.strip().splitlines():
+        buf, last = [], 0
+        for m in _HAN.finditer(line):
+            buf.append(html.escape(line[last:m.start()]))
+            rd = reading_of(m.group())
+            if rd: buf.append(''.join(f'<ruby>{html.escape(c)}<rt>{r}</rt></ruby>' for c, r in zip(m.group(), rd)))
+            else: buf.append(html.escape(m.group()))
+            last = m.end()
+        buf.append(html.escape(line[last:]))
+        out.append(''.join(buf))
+    return '<br>'.join(out)
+
 def aid_html(s):
     """해제·원문 읽기·내용 요약 블록 (비어 있으면 생략)"""
     parts = []
@@ -408,8 +445,10 @@ def aid_html(s):
     if s.get('요약'): parts.append(f"<p><b>내용 요약</b>{html.escape(s['요약'])}</p>")
     if (s.get('원문') or '').strip():
         n = len([l for l in s['원문'].splitlines() if l.strip()])
-        parts.append(f"<details class=\"full\"><summary>원문 판독 전문 ({n}줄 · 오른쪽 첫 줄부터)</summary><pre class=\"tr\">{html.escape(s['원문'].strip())}</pre>"
-                     "<small>□ 읽지 못한 글자 · (?) 불확실 · [ ] 덧붙인 풀이 · 줄 바꿈은 원문의 줄(세로줄)을 따름</small></details>")
+        tr = f"<div class=\"tr\">{ruby_html(s['원문'])}</div>"
+        tl = f"<p class=\"tl\"><b>원문 해석</b>{html.escape(s['번역'])}</p>" if (s.get('번역') or '').strip() else ''
+        parts.append(f"<details class=\"full\" open><summary>원문 판독 전문 ({n}줄 · 오른쪽 첫 줄부터 · 한자 위 한글 독음)</summary>{tr}{tl}"
+                     "<small>□ 읽지 못한 글자 · (?) 불확실 · (…) 잘림 · [ ] 서식상 확실한 보충 · 독음은 자동(이두·인명은 다를 수 있음)</small></details>")
     if not parts: return ''
     flag = '' if s.get('검토') else '<small>초안 — 문서명·이미지에 근거했으며 원문 판독 확인 전입니다</small>'
     return f'<details class="aid" open><summary>읽기 도움</summary>{"".join(parts)}{flag}</details>'
@@ -485,7 +524,8 @@ h2{{font-size:28px;margin:0 0 .4em}}
 .aid b{{display:inline-block;min-width:5.2em;color:#c4964a;margin-right:.4em}} .aid .orig{{font-family:'Noto Serif KR','Batang',serif;color:#f3ead8}}
 .aid small{{display:block;color:#9d917c;font-size:12.5px;margin-top:6px}}
 .aid .full{{margin-top:8px;border-top:1px dashed #4a3e2c;padding-top:6px}} .aid .full summary{{font-weight:600;color:#d9b77a}}
-.aid pre.tr{{white-space:pre-wrap;font:16px/1.9 'Noto Serif KR','Batang',serif;color:#f3ead8;background:#16130f;border-radius:8px;padding:12px 14px;margin:8px 0 4px;max-height:28em;overflow:auto}} .cap{{font-size:19px;line-height:1.8}} .meta{{font-size:14px;color:#9d917c;font-family:sans-serif}}
+.aid .tr{{font:18px/2.5 'Noto Serif KR','Batang',serif;color:#f3ead8;background:#16130f;border-radius:8px;padding:10px 14px;margin:8px 0 4px;max-height:34em;overflow:auto;word-break:keep-all}}
+.aid ruby rt{{font:11px 'Noto Sans KR',sans-serif;color:#c4964a;letter-spacing:0}} .aid .tl{{background:#2a2219;border-radius:8px;padding:10px 14px;line-height:1.8}} .cap{{font-size:19px;line-height:1.8}} .meta{{font-size:14px;color:#9d917c;font-family:sans-serif}}
 .draft{{display:inline-block;font:13px sans-serif;color:#16130f;background:#c4964a;padding:3px 10px;border-radius:12px}}
 footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid #3a3225}}
 @media(max-width:800px){{.panel{{grid-template-columns:1fr}} .line:before{{display:none}}}}
@@ -503,13 +543,14 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
 <p><b>어떤 문서? (해제)</b> {html.escape(s.get('해제') or s['유형설명'] or '—')}</p>
 {('<p><b>무슨 내용? (내용 요약)</b> ' + html.escape(s['요약']) + '</p>') if s.get('요약') else ''}
 {('<p class="orig"><b>원문 속 글자</b> ' + html.escape(s['판독']) + '</p>') if has_reading(s) else ''}
-{('<p><b>원문 판독</b> (오른쪽 첫 줄부터 · □ 못 읽은 글자)</p><pre class="tr">' + html.escape(s['원문'].strip()) + '</pre>') if (s.get('원문') or '').strip() else ''}
+{('<p><b>원문 판독</b> (오른쪽 첫 줄부터 · 한자 위 한글 독음 · □ 못 읽은 글자)</p><div class="tr">' + ruby_html(s['원문']) + '</div>') if (s.get('원문') or '').strip() else ''}
+{('<p><b>원문 해석</b> ' + html.escape(s['번역']) + '</p>') if (s.get('번역') or '').strip() else ''}
 <p><b>찾아보기</b> {('① 위 「원문 속 글자」를 이미지에서 찾아 동그라미 해 보세요. ' if has_reading(s) else '① 문서를 받은 사람(또는 쓴 사람)의 이름을 찾아 표시해 보세요. ')}② 날짜가 적힌 곳을 찾아보세요. ③ 도장(인장)이 있나요?</p>
 <p><b>생각해 보기</b> 이 문서는 왜 지금까지 집안에 남아 있었을까요?</p></div></div>""")
     hand = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>활동지 — {html.escape(title)}</title><style>
 @page{{size:A4;margin:16mm}} body{{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;color:#222;font-size:14px}}
 h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:grid;grid-template-columns:42% 1fr;gap:14px;border-top:1px solid #ccc;padding:12px 0;page-break-inside:avoid}}
-.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} pre.tr{{white-space:pre-wrap;font:12.5px/1.6 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
+.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} div.tr{{font:13.5px/2.3 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} ruby rt{{font-size:8.5px;color:#8a6a2e}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
 </style></head><body><h1>고문서로 읽는 이야기: {html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 이름: ________ </p>{''.join(qs)}
 <h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다. 해제·요약은 문서명과 이미지에 근거한 초안이며 판독이 어려운 글자는 □로 표시했습니다.</p></body></html>"""
@@ -561,6 +602,12 @@ def cmd_zoom(a):
         n = int(s['순서'])
         if only and n not in only: continue
         src = os.path.join(a.work, s['원본경로']) if s.get('원본경로') and os.path.exists(os.path.join(a.work, s['원본경로'])) else os.path.join(ed, s['이미지'])
+        pages = sorted(glob.glob(os.path.join(os.path.dirname(src), '*.jpg'))) if a.all_pages else [src]
+        for pi, src in enumerate(pages, 1):
+            zoom_one(a, od, n, s, src, pi if a.all_pages else 0)
+    print('→', od, '(c1이 오른쪽 — 세로쓰기는 c1 → c2 … 순서로 읽기)')
+
+def zoom_one(a, od, n, s, src, pi):
         im = Image.open(src).convert('RGB'); W, H = im.size
         cols = a.cols or max(1, round(W / a.tile)); rows = a.rows or max(1, round(H / a.tile))
         tw, th = W / cols, H / rows; ov = a.overlap
@@ -570,9 +617,8 @@ def cmd_zoom(a):
                 x1 = W - (c + 1) * tw; y0 = r * th          # 오른쪽부터
                 box = (int(max(0, x1 - ov * tw)), int(max(0, y0 - ov * th)), int(min(W, x1 + tw + ov * tw)), int(min(H, y0 + th + ov * th)))
                 t = im.crop(box); t.thumbnail((a.max, a.max))
-                fn = f'{n:02d}_r{r+1}c{c+1}.jpg'; t.save(os.path.join(od, fn), quality=90); made.append(fn)
-        print(f"{n:02d} {s['문서명'][:30]} ({W}×{H}) → {len(made)}조각: {', '.join(made)}")
-    print('→', od, '(c1이 오른쪽 — 세로쓰기는 c1 → c2 … 순서로 읽기)')
+                fn = f"{n:02d}{f'_p{pi}' if pi else ''}_r{r+1}c{c+1}.jpg"; t.save(os.path.join(od, fn), quality=90); made.append(fn)
+        print(f"{n:02d}{f' p{pi}' if pi else ''} {s['문서명'][:30]} ({W}×{H}) → {len(made)}조각: {', '.join(made)}")
 
 # ---------------------------------------------------------------- promo (릴스 홍보 문구)
 PROMO_TEMPLATE = """📜 {series} EP.{ep} 〈{title}〉
@@ -631,7 +677,7 @@ def main():
     m.add_argument('--placeholder', action='store_true', help='원본 이미지 대신 "뷰어에서 보기" 자리 표시 (이미지 이용 동의 전 공개용)')
     m.add_argument('--img-max', type=int, default=1400, help='웹페이지에 넣는 이미지 최대 픽셀')
     z = sp.add_parser('zoom', help='판독용 확대 조각 → edit/<테마>/zoom/'); z.add_argument('--work', required=True); z.add_argument('--theme', required=True)
-    z.add_argument('--only', help='순서 번호 (예: 2,5)'); z.add_argument('--rows', type=int); z.add_argument('--cols', type=int)
+    z.add_argument('--only', help='순서 번호 (예: 2,5)'); z.add_argument('--all-pages', action='store_true', help='대표 면만이 아니라 받은 모든 면'); z.add_argument('--rows', type=int); z.add_argument('--cols', type=int)
     z.add_argument('--tile', type=int, default=1100, help='조각 하나의 원본 픽셀 크기(자동 분할 기준)'); z.add_argument('--overlap', type=float, default=0.08); z.add_argument('--max', type=int, default=1400)
     pr = sp.add_parser('promo', help='릴스 홍보 문구 틀(「고문서 한 장」 형식) → mediate/<테마>/promo.md'); pr.add_argument('--work', required=True); pr.add_argument('--theme', required=True)
     pr.add_argument('--ep', type=int, default=1); pr.add_argument('--series', default='고문서 한 장'); pr.add_argument('--title'); pr.add_argument('--collection'); pr.add_argument('--url', help='전시 웹페이지 주소')
