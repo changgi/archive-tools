@@ -6,11 +6,13 @@
 
 > **이미지 출처** — 예시에 쓴 고문서 사진은 한국학중앙연구원 한국고문서자료관 소장·제공 자료입니다. 각 문서에는 자료관 뷰어에서 원본을 여는 링크를 달았습니다. 자료관은 이미지 사용에 소장처 동의가 필요하다고 안내하고 있으니(031-730-8873, 8876), 이 예시의 이미지를 다시 쓰려면 자료관에 문의하세요. 게재에 문제가 있으면 [이슈](https://github.com/changgi/archive-tools/issues)나 chgsong@naver.com으로 알려 주시면 바로 내리겠습니다.
 
-## 홍보 영상 (83초)
+## 홍보 영상
 
-[![홍보 영상](media/promo-reel-poster.jpg)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4)
-
-1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 보여 줍니다. 파일: [`media/promo-reel.mp4`](media/promo-reel.mp4), 자막: [`media/promo-reel.ko.srt`](media/promo-reel.ko.srt)
+| EP.1 흩어진 기록을, 다시 이야기로 (83초) | EP.2 만든 것 보기 (48초) |
+|---|---|
+| [![EP.1](media/promo-reel-poster.jpg)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4) | [![EP.2](media/promo-reel-ep2-poster.jpg)](https://changgi.github.io/archive-tools/examples/media/promo-reel-ep2.mp4) |
+| 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
+| [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
 ## 예시 (결과물 갤러리)
 

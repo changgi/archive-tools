@@ -50,13 +50,21 @@ footer{padding:40px 7vw;color:var(--dim);font-size:14px;border-top:1px solid #3a
   <p class="note">이미지 출처 — 예시의 고문서 사진은 한국학중앙연구원 한국고문서자료관 소장·제공 자료이며, 각 문서에 자료관 뷰어 원본 링크를 달았습니다. 자료관은 이미지 사용에 소장처 동의가 필요하다고 안내합니다(031-730-8873, 8876). 이 이미지를 다시 쓰려면 자료관에 문의하세요. 게재에 문제가 있으면 <a href="https://github.com/changgi/archive-tools/issues">이슈</a>나 chgsong@naver.com으로 알려 주시면 바로 내리겠습니다.</p>
 
   <h2>홍보 영상</h2>
-  <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
-    <video controls playsinline preload="metadata" poster="media/promo-reel-poster.jpg" style="width:min(360px,100%);border-radius:14px;border:1px solid #3a3225;background:#000">
-      <source src="media/promo-reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/promo-reel.ko.vtt" default>
-    </video>
-    <div style="max-width:30em"><p>1862년 정월 초나흘, 송영로가 받은 임명장 한 장. 160년 뒤 화면 속 192개의 조각으로 흩어진 그 종이를 다시 맞추는 데서 이야기가 시작됩니다.</p>
-    <p>① 수집 → ② 큐레이션 → ③ 에디팅 → ④ 매개 → ⑤ 패키징 · 83초 · 9:16</p>
-    <p><a href="media/promo-reel.mp4" download>영상 내려받기</a> · <a href="media/promo-reel.ko.srt">자막(SRT)</a></p></div>
+  <style>.reels{display:flex;flex-wrap:wrap;gap:28px}.reel{margin:0;width:min(340px,100%)}.reel video{width:100%;border-radius:14px;border:1px solid #3a3225;background:#000}
+  .reel figcaption{display:flex;flex-direction:column;gap:4px;margin-top:10px}.reel b{font-size:18px}.reel span{color:#d5cab4;font-size:15px}.reel small{color:#a09480;font-size:13px}</style>
+  <div class="reels">
+    <figure class="reel">
+      <video controls playsinline preload="metadata" poster="media/promo-reel-poster.jpg">
+        <source src="media/promo-reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/promo-reel.ko.vtt" default>
+      </video>
+      <figcaption><b>EP.1 흩어진 기록을, 다시 이야기로</b><span>1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지</span><small>83초 · 9:16 · <a href="media/promo-reel.mp4" download>내려받기</a> · <a href="media/promo-reel.ko.srt">자막</a></small></figcaption>
+    </figure>
+    <figure class="reel">
+      <video controls playsinline preload="metadata" poster="media/promo-reel-ep2-poster.jpg">
+        <source src="media/promo-reel-ep2.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/promo-reel-ep2.ko.vtt" default>
+      </video>
+      <figcaption><b>EP.2 만든 것 보기</b><span>말 한마디로 만들어진 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교</span><small>48초 · 9:16 · <a href="media/promo-reel-ep2.mp4" download>내려받기</a> · <a href="media/promo-reel-ep2.ko.srt">자막</a></small></figcaption>
+    </figure>
   </div>
 
   <h2>예시 세 가지</h2>
