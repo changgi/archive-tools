@@ -10,6 +10,9 @@ AKS 한국고문서자료관(archive.aks.ac.kr) 소장처 일괄 수집기.
   bundle   : 연구 패키지 — 메타데이터 + 수집현황 + 인용정보 + 이미지 ZIP을 한 폴더로
   batch    : 여러 소장처(collections.tsv)를 차례로 manifest/download/curate
   compare  : 소장처 간 비교표(문서유형·세기) — 대량 유사 연구용
+  catalog  : 사이트 전체 소장처 목록(문중·서원향교·…), --tsv 로 batch 목록 생성
+  find     : 이름으로 소장처 찾기 ("동춘당 송준길"), --manifest WORK 로 바로 목록 수집
+  (에디팅·매개는 studio.py: themes / edit / mediate / report)
 
 예)
   python3 harvest.py manifest --work W --data-url '?itemId=book&gubun=booktree&depth=3&upPath=01%5E0130&dataId=L013001&itemType='
@@ -333,7 +336,19 @@ def cmd_bundle(a):
     open(os.path.join(dest, 'README.md'), 'w', encoding='utf-8').write(
         f'# {a.prefix} 연구 패키지\n\n- `metadata.csv` / `metadata.jsonl`: 문서별 연도·유형·인명(자동 추출 초안)·장수·자료ID\n'
         '- `summary.md`: 유형·시기·인물 분포와 인물별 연표\n- `수집현황.csv`: 장별 수집 결과(서버 누락·저해상도 표시)\n'
-        '- `images/`: 분류별 ZIP (같은 분류 part는 한 폴더에 풀 것)\n- `CITATION.txt`: 인용 정보\n')
+        '- `images/`: 분류별 ZIP (같은 분류 part는 한 폴더에 풀 것)\n- `CITATION.txt`: 인용 정보\n'
+        '- `datapackage.json`: 데이터 설명서(Frictionless Data) — 다른 소장처 패키지와 같은 구조로 합쳐 분석\n'
+        '- `edit/`, `mediate/`: 에디팅(선별·캡션)과 매개(전시·카드뉴스·수업자료) 결과가 있으면 함께 포함\n')
+    for sub in ['edit', 'mediate']:
+        src = os.path.join(a.work, sub)
+        if os.path.isdir(src):
+            shutil.copytree(src, os.path.join(dest, sub), dirs_exist_ok=True)
+    rows = list(csv.DictReader(open(os.path.join(a.work, 'metadata.csv'), encoding='utf-8-sig')))
+    json.dump({'name': re.sub(r'[^a-z0-9-]', '-', 'aks-' + str(abs(hash(a.prefix)) % 10**8)), 'title': f'{a.prefix} 연구 패키지',
+               'sources': [{'title': '한국학중앙연구원 한국고문서자료관', 'path': 'https://archive.aks.ac.kr'}],
+               'created': today, 'resources': [{'name': 'metadata', 'path': 'metadata.csv', 'format': 'csv', 'encoding': 'utf-8-sig',
+                                                'schema': {'fields': [{'name': k, 'type': 'integer' if k in ('시작연도', '끝연도', '장수') else 'string'} for k in rows[0].keys()]}}]},
+              open(os.path.join(dest, 'datapackage.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     if not a.no_images:
         cmd_pack(argparse.Namespace(work=a.work, dest=os.path.join(dest, 'images'), prefix=a.prefix, category=None, max_mb=a.max_mb))
     print('→', dest)
@@ -380,6 +395,74 @@ def cmd_compare(a):
     print('→', os.path.join(a.root, 'compare_metadata.csv'), '/ compare_summary.md', f'({len(rows)}건, 소장처 {len(cols)}곳)')
 
 
+# ---------------------------------------------------------------- catalog / find (이름으로 소장처 찾기)
+ROOT_Q = '?itemId=book&gubun=booktree&depth=0&upPath=&dataId=&itemType='
+CACHE = os.path.join(os.path.expanduser('~'), '.aks-archive-catalog.json')
+
+
+def build_catalog(levels=2, refresh=False):
+    """최상위(문중·서원향교·…) → 지역 → 소장처까지 훑어 소장처 목록을 캐시."""
+    if os.path.exists(CACHE) and not refresh:
+        return json.load(open(CACHE, encoding='utf-8'))
+    out = []
+
+    def kids(q):
+        t = get(VIEWER + 'treeAjax.do' + q).decode('utf-8', 'replace')
+        return [(d, html.unescape(u), html.unescape(n)) for d, u, n in NODE_RE.findall(t)]
+    for gid, gq, gname in kids(ROOT_Q):
+        for rid, rq, rname in kids(gq):
+            subs = kids(rq)
+            if subs and all(not d.startswith('G002') for d, _, _ in subs):
+                for cid, cq, cname in subs:
+                    if not cid.startswith('G002'):
+                        out.append(dict(id=cid, name=cname, path=[gname, rname], data_url=cq))
+            else:  # 지역 단계 없이 바로 소장처인 그룹
+                out.append(dict(id=rid, name=rname, path=[gname], data_url=rq))
+        print(f'  {gname}: 누적 {len(out)}곳', file=sys.stderr)
+    json.dump(out, open(CACHE, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    return out
+
+
+def find_collections(query, refresh=False):
+    cat = build_catalog(refresh=refresh)
+    toks = [t for t in re.split(r'\s+', query.strip()) if t]
+    def score(c):
+        hay = ' '.join(c['path'] + [c['name']])
+        return sum(1 for t in toks if t in hay)
+    hits = sorted((c for c in cat if score(c) > 0), key=lambda c: (-score(c), c['name']))
+    full = [c for c in hits if score(c) == len(toks)]
+    return full or hits[:10]
+
+
+def cmd_catalog(a):
+    cat = build_catalog(refresh=a.refresh)
+    rows = [c for c in cat if not a.group or a.group in c['path'][0]]
+    if a.region: rows = [c for c in rows if any(a.region in p for p in c['path'][1:])]
+    if a.tsv:
+        with open(a.tsv, 'w', encoding='utf-8') as f:
+            f.write('# 이름\tdata-url  (필요 없는 줄은 지우세요)\n')
+            for c in rows: f.write(f"{safe(c['name'])}\t{c['data_url']}\n")
+        print(f'→ {a.tsv} ({len(rows)}곳) — batch --list 로 바로 사용')
+    else:
+        for c in rows: print(' > '.join(c['path']), '>', c['name'], f"[{c['id']}]")
+        print(f'{len(rows)}곳')
+
+
+def cmd_find(a):
+    hits = find_collections(a.query, a.refresh)
+    if not hits:
+        print('찾지 못했습니다. 지역명·성씨·인물명 등 다른 단어로 다시 시도하세요.'); return
+    for i, c in enumerate(hits, 1):
+        print(f"{i}. {' > '.join(c['path'])} > {c['name']}  [{c['id']}]\n   --data-url '{c['data_url']}'")
+    if a.manifest:
+        if len(hits) > 1 and not a.first:
+            print('\n여러 곳이 맞습니다. 하나만 고르려면 검색어를 더 구체적으로 쓰거나 --first 를 붙이세요.'); return
+        c = hits[0]
+        cmd_manifest(argparse.Namespace(work=a.manifest, data_url=c['data_url'], name=None))
+        meta = os.path.join(a.manifest, 'collection.json')
+        json.dump(c, open(meta, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest='cmd', required=True)
@@ -393,6 +476,10 @@ def main():
     r = sp.add_parser('report'); r.add_argument('--work', required=True); r.add_argument('--out', required=True)
     p = sp.add_parser('pack'); p.add_argument('--work', required=True); p.add_argument('--dest', required=True)
     p.add_argument('--prefix', default='AKS'); p.add_argument('--category'); p.add_argument('--max-mb', type=int, default=350)
+    ct = sp.add_parser('catalog'); ct.add_argument('--group', help='문중/서원향교/박물관도서관/…'); ct.add_argument('--region')
+    ct.add_argument('--tsv', help='batch용 목록 파일로 저장'); ct.add_argument('--refresh', action='store_true')
+    fd = sp.add_parser('find'); fd.add_argument('query'); fd.add_argument('--manifest', metavar='WORK', help='찾은 소장처로 바로 manifest')
+    fd.add_argument('--first', action='store_true'); fd.add_argument('--refresh', action='store_true')
     c = sp.add_parser('curate'); c.add_argument('--work', required=True); c.add_argument('--collection')
     b = sp.add_parser('bundle'); b.add_argument('--work', required=True); b.add_argument('--dest', required=True)
     b.add_argument('--prefix', required=True); b.add_argument('--max-mb', type=int, default=350); b.add_argument('--no-images', action='store_true')
@@ -401,7 +488,7 @@ def main():
     cp = sp.add_parser('compare'); cp.add_argument('--list', required=True); cp.add_argument('--root', required=True)
     a = ap.parse_args(); a._t0 = time.time()
     {'manifest': cmd_manifest, 'download': cmd_download, 'report': cmd_report, 'pack': cmd_pack, 'curate': cmd_curate,
-     'bundle': cmd_bundle, 'batch': cmd_batch, 'compare': cmd_compare}[a.cmd](a)
+     'bundle': cmd_bundle, 'batch': cmd_batch, 'compare': cmd_compare, 'catalog': cmd_catalog, 'find': cmd_find}[a.cmd](a)
 
 
 if __name__ == '__main__':

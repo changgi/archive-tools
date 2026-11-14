@@ -4,7 +4,7 @@
 
 | 플러그인 | 하는 일 |
 |---|---|
-| [aks-archive-harvester](plugins/aks-archive-harvester) | 한국고문서자료관(archive.aks.ac.kr) 고문서를 원본 해상도로 수집 → 큐레이션 → 에디팅 → 매개 → 연구 패키지. 여러 소장처 일괄·비교 연구 |
+| [aks-archive-harvester](plugins/aks-archive-harvester) | 한국고문서자료관 고문서 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개(전시 웹페이지·카드뉴스·수업 활동지) ⑤ 연구 패키지·여러 문중 비교 연구 |
 
 ## 설치
 
@@ -33,11 +33,16 @@
 ```bash
 pip install requests pillow
 python3 plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/harvest.py --help
+python3 plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/studio.py --help
 ```
 
 ## 사용 예
 
-> 한국고문서자료관에서 대전 회덕 은진송씨 동춘당 송준길 후손가 하위 문서 전부 받아줘
+> 한국고문서자료관에서 동춘당 송준길 후손가 문서 전부 받아줘
+>
+> 혼인과 호적 테마로 전시 웹페이지랑 카드뉴스 만들어줘
+>
+> 충청도 문중들을 비교 연구할 수 있게 패키지로 묶어줘
 
 ## 이용 시 유의
 

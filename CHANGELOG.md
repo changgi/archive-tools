@@ -1,5 +1,13 @@
 # 변경 기록
 
+## aks-archive-harvester 0.3.0 (2026-11-14)
+- ① 수집: `find`(이름으로 소장처 찾기, 172곳 카탈로그 캐시), `catalog`(그룹·지역별 목록 → batch용 TSV)
+- ② 큐레이션: `studio.py themes` — 인물 생애·생활사(혼인·호적)·관직·세기·문서유형 입문 테마 자동 제안
+- ③ 에디팅: `studio.py edit` — 시기·유형을 고르게 대표 문서 선별, 표지 제외, 캡션 초안·유형 풀이, 밀착인화
+- ④ 매개: `studio.py mediate` — 전시 웹페이지(단일 HTML), 카드뉴스 PNG, A4 수업 활동지, SNS 글. 검토 전 캡션은 "초안" 표시
+- ⑤ 패키징: bundle에 datapackage.json·에디팅/매개 결과 포함, `studio.py report` 소장처 비교 그래프 리포트
+- 스킬을 5단계 흐름으로 재작성
+
 ## aks-archive-harvester 0.2.0 (2026-11-14)
 - curate: 문서명에서 연도·문서유형·인명/기관 자동 추출 → metadata.csv/jsonl, summary.md(유형·시기 분포, 인물별 연표)
 - bundle: 연구 패키지(메타데이터·수집현황·CITATION·README·이미지 ZIP)

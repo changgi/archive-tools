@@ -10,6 +10,9 @@
 | `partial.txt`의 `level a/b` | 최고 레벨 타일 일부가 서버에 없음 | 아래 레벨로 저장됨. 해상도를 함께 안내 |
 | SendUserFile이 "exceeds the 400 MiB upload limit" | 첨부 용량 상한 | `pack --max-mb 350`으로 다시 분할 |
 | 디스크 부족 | JPG 장당 약 3MB, ZIP 사본이 한 벌 더 생김 | 분류별로 ZIP 전달 후 `WORK/out/<분류>` 삭제 |
+| `find`가 아무것도 못 찾음 | 검색어가 사이트 표기와 다름 | 지역명·성씨·인물명 하나만 넣어 보기, `catalog`로 전체 목록 확인, `--refresh` |
+| 카드뉴스 글자가 네모로 나옴 | 한글 글꼴을 못 찾음 | `mediate --font C:/Windows/Fonts/malgun.ttf`처럼 글꼴 지정 |
+| SSL 인증서 오류 | 회사·학교 프록시, 오래된 certifi | 스크립트는 시스템 인증서 저장소도 사용. `REQUESTS_CA_BUNDLE`로 기관 인증서 지정 |
 | 동시 요청을 올리는 명령이 거부됨 | 과도한 요청으로 판단 | 우회하지 말고 기본값으로 진행, 사용자에게 예상 시간 안내 |
 
 ## 규모 참고 (동춘당 송준길 후손가, 2026-11)
