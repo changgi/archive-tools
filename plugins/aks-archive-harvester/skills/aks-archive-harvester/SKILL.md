@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
+description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
 ---
 
 # AKS 한국고문서자료관: 수집 → 큐레이션 → 에디팅 → 매개 → 패키징
@@ -38,7 +38,7 @@ python3 harvest.py download --work WORK [--category 교령류] --time 540
 - Before a large download, confirm with AskUserQuestion whether to take all pages or start with one category.
 - Re-run `download` until it prints `STATUS: DONE`. Saved pages are skipped.
 - For a large collection (thousands of documents), fetch names first and page lists only for what you need: `find "이름" --manifest WORK --tree-only` (names only, fast), look at the names, then `manifest --work WORK --data-url '<data-url>' --match "유지|소지|명문"` fetches page lists only for matching documents (earlier ones are kept). If every sampled document returns no images, the collection has no published images; pick another.
-- For a large collection where the user wants one theme, download only matching documents: `download --work WORK --match "상량문|양안|완문"`. Add `--pages 3` to take only the first pages of each document (enough to find where the text starts in a book).
+- For a large collection where the user wants one theme, download only matching documents: `download --work WORK --match "상량문|양안|완문"`. Add `--pages 3` to take only the first pages of each document (enough to find where the text starts in a book). Without `--pages`, `download` takes **every page** of each matching document; to fill in the rest later for the documents you selected, use `studio.py originals --full` (below).
 - Keep the defaults (`--tile-workers 16 --page-workers 2`). Never raise concurrency or add an `X-Requested-With` header; the site has a web firewall and is a public research archive.
 - Exit 137 means out of memory on long scrolls. Re-run it, and use `--page-workers 1` if it happens again.
 - Pages in `missing.txt` do not exist on the server. Pages in `partial.txt` were saved from a lower zoom level. Report both.
@@ -114,6 +114,20 @@ After it runs:
 - Every output cites 한국학중앙연구원 한국고문서자료관. Tell the user that reuse of the images follows the archive's terms.
 - If the user has their own content skills (e.g. archive-fullpackage), offer them for a richer version built on `selection.csv`.
 
+**Originals for the user (원본 묶음 — 문서 전체 + 원본 영상).** When the user asks for the high-resolution originals, the photos of each record, or the whole document (문서 전체), not only the pages shown in the outputs:
+
+```bash
+python3 studio.py originals --work WORK --theme <id> --full --dry-run          # 문서별 전체 면 수 먼저 확인
+python3 studio.py originals --work WORK --theme <id> --full [--videos 영상폴더] [--max-mb 380]
+```
+
+- `--full` downloads every page of each selected document (already saved pages are skipped; it runs `manifest --match` first if the page list is missing, then `download --match` round after round until `STATUS: DONE`). It keeps the default connection counts; never raise them, and never run two manifests at once.
+- Use `--dry-run` first and tell the user the page count when a document is a long book (e.g. a 90-page 녹권), then ask whether to take all of it or `--only 1,3`.
+- `--videos` adds the original-resolution videos and subtitles (mp4 · srt · vtt) from a folder — the files before any web compression.
+- It writes `WORK/originals/<id>/<소장처>_원본[_partNNofMM].zip`, stored (not recompressed), each under `--max-mb`: `기록사진/NN_문서명/001.jpg…`, `기록사진/출처.csv` (문서명 · 받은 면 · 전체 면 · 자료관 원본 뷰어 링크), `영상/…`, and `읽어보기_출처와이용조건.txt` (credit line, the consent-needed notice with the archive's phone numbers, and "문제가 있으면 바로 내림").
+- Without `--full` it bundles only the pages already downloaded and says how many pages are missing.
+- Deliver the ZIPs as they are, and repeat the reuse terms in your reply: the images may be redistributed only with the holding institution's consent through the archive.
+
 ## ⑤ 패키징 (Package) + 대량 유사 연구
 
 **One collection:**
@@ -149,6 +163,7 @@ python3 studio.py report --root ROOT                                           #
 WORK/docs.json  out/<분류>/<NNN>_<문서명>/<NNN>.jpg  missing.txt  partial.txt   # ① 수집
 WORK/metadata.csv  metadata.jsonl  summary.md  themes.json                     # ② 큐레이션
 WORK/edit/<id>/selection.csv  images/  contact_sheet.jpg  theme.json           # ③ 에디팅
-WORK/mediate/<id>/exhibit.html  cards/*.png  handout.html  sns.txt  promo.md   # ④ 매개
+WORK/mediate/<id>/index.html  exhibit.html  cards/*.png  handout.html  sns.txt  promo.md   # ④ 매개
+WORK/originals/<id>/<소장처>_원본*.zip   # 원본 묶음(문서 전체 면 · 원본 영상 · 출처.csv)
 OUT/<약칭>_연구패키지/   ROOT/compare_*.csv|md|html                              # ⑤ 패키징·비교
 ```

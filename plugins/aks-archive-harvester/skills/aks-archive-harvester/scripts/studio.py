@@ -589,6 +589,91 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
     if unchecked: print(f'  ※ 검토 칸이 비어 있는 캡션 {len(unchecked)}건은 "초안" 표시가 붙습니다.')
 
 
+# ---------------------------------------------------------------- originals (원본 묶음: 문서 전체 면 + 원본 영상)
+ORIG_NOTE = """원본 자료 묶음 — {title}
+소장처: {coll}
+
+■ 기록 사진 (원본 해상도 JPG · 문서마다 폴더)
+- 소장·제공: 한국학중앙연구원 한국고문서자료관(archive.aks.ac.kr) · {coll}
+- 자료관 안내에 따라 이미지를 다시 쓰려면 소장처 동의가 필요합니다(문의 031-730-8873, 8876).
+- 게시·배포할 때는 "이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · {coll}"를 표기하세요.
+- 「출처.csv」: 문서명 · 받은 면 수 / 전체 면 수 · 자료관 원본 뷰어 링크.
+- 문제가 있으면 알려 주시면 바로 내리겠습니다.
+{video}
+※ 판독·해석은 이미지에 근거한 초안이며, 정확한 판독은 원문 확인이 필요합니다.
+"""
+
+
+def cmd_originals(a):
+    import subprocess, zipfile
+    HV = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'harvest.py')
+    ed = os.path.join(a.work, 'edit', a.theme)
+    sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
+    if a.only: sel = [s for s in sel if s['순서'] in a.only.split(',')]
+    docs = json.load(open(os.path.join(a.work, 'docs.json'), encoding='utf-8'))
+    byid = {d['id']: d for d in docs}
+    picked = [(s, byid.get(s['자료ID'])) for s in sel]
+    rx = '^(' + '|'.join(re.escape(d['name']) for _, d in picked if d) + ')$'
+    coll = a.collection or (json.load(open(os.path.join(a.work, 'collection.json'), encoding='utf-8'))['name'] if os.path.exists(os.path.join(a.work, 'collection.json')) else os.path.basename(os.path.abspath(a.work)))
+    if a.full:  # 문서 전체 면 받기 — 기본 동시 접속 수 그대로, manifest는 한 번에 하나
+        if any(d is not None and not d.get('imgs') for _, d in picked):
+            du = a.data_url or json.load(open(os.path.join(a.work, 'collection.json'), encoding='utf-8'))['data_url']
+            print('면 목록 수집(manifest --match)…', flush=True)
+            subprocess.run([sys.executable, HV, 'manifest', '--work', a.work, '--data-url', du, '--match', rx], check=True)
+            docs = json.load(open(os.path.join(a.work, 'docs.json'), encoding='utf-8')); byid = {d['id']: d for d in docs}
+            picked = [(s, byid.get(s['자료ID'])) for s in sel]
+        total = sum(len(d.get('imgs') or []) for _, d in picked if d)
+        print(f'선별 문서 {len(picked)}건 · 전체 {total}면' + (' — 미리 보기(--dry-run)라 받지 않음' if a.dry_run else ''))
+        for s, d in picked:
+            print(f"  {s['순서']:>2}. {s['문서명'][:40]} — {len(d.get('imgs') or []) if d else '?'}면")
+        if a.dry_run: return
+        for k in range(a.rounds):  # download는 --time마다 끊기므로 DONE까지 이어 받기
+            r = subprocess.run([sys.executable, HV, 'download', '--work', a.work, '--match', rx, '--time', str(a.time)], capture_output=True, text=True)
+            print(r.stdout.strip().splitlines()[-2] if r.stdout.strip() else r.stderr[-300:], flush=True)
+            if 'STATUS: DONE' in r.stdout: break
+        else:
+            print('※ 아직 남은 면이 있습니다. 같은 명령을 다시 실행하면 이어 받습니다.')
+    # 문서별 받은 면 모으기
+    items = []
+    for s, d in picked:
+        dd = os.path.dirname(os.path.join(a.work, s['원본경로']))
+        pages = sorted(glob.glob(os.path.join(dd, '*.jpg')))
+        nm = re.sub(r'[\\/:*?"<>|]', '_', f"{int(s['순서']):02d}_{s['문서명']}")[:90]
+        items.append((nm, pages, [s['순서'], s['문서명'], len(pages), len(d.get('imgs') or []) if d else '', s.get('뷰어링크', '')]))
+    vids = []
+    if a.videos:
+        for v in sorted(glob.glob(os.path.join(a.videos, '*'))):
+            if v.lower().endswith(('.mp4', '.mov', '.srt', '.vtt')): vids.append(v)
+    dest = a.dest or os.path.join(a.work, 'originals', a.theme); os.makedirs(dest, exist_ok=True)
+    prefix = a.prefix or re.sub(r'\s+', '', coll)[:30]
+    vnote = ('\n■ 원본 영상\n- 웹용으로 줄이기 전의 원본 해상도 영상과 자막입니다. 영상 속 문서 이미지에도 위 출처·이용 조건이 적용됩니다.\n' if vids else '')
+    note = ORIG_NOTE.format(title=a.title or a.theme, coll=coll, video=vnote)
+    srcs = io.StringIO(); w = csv.writer(srcs); w.writerow(['순서', '문서명', '받은 면', '전체 면', '자료관 원본 뷰어']); w.writerows(it[2] for it in items)
+    srccsv = '﻿' + srcs.getvalue() + f'\n이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · {coll}\n'
+    lim = a.max_mb * 1024 * 1024
+    units = [('사진', nm, [(p, f'기록사진/{nm}/{os.path.basename(p)}') for p in pages]) for nm, pages, _ in items if pages]
+    units += [('영상', os.path.basename(v), [(v, f'영상/{os.path.basename(v)}')]) for v in vids]
+    parts, cur, sz = [], [], 0
+    for u in units:
+        n = sum(os.path.getsize(f) for f, _ in u[2])
+        if cur and sz + n > lim: parts.append(cur); cur, sz = [], 0
+        cur.append(u); sz += n
+    if cur: parts.append(cur)
+    out = []
+    for i, P in enumerate(parts, 1):
+        fn = os.path.join(dest, f'{prefix}_원본' + (f'_part{i:02d}of{len(parts):02d}' if len(parts) > 1 else '') + '.zip')
+        with zipfile.ZipFile(fn, 'w', zipfile.ZIP_STORED) as z:  # JPG·MP4는 이미 압축됨
+            z.writestr('읽어보기_출처와이용조건.txt', note); z.writestr('기록사진/출처.csv', srccsv)
+            for u in P:
+                for f, arc in u[2]: z.write(f, arc)
+        out.append(fn)
+        print(f'{os.path.basename(fn)}\t{os.path.getsize(fn) // 2**20}MB')
+    got = sum(len(p) for _, p, _ in items); want = sum((it[2][3] or 0) for it in items)
+    print(f'→ {dest}  사진 {got}면' + (f' / 전체 {want}면' if want else '') + (f' · 영상 {len(vids)}개' if vids else ''))
+    if want and got < want and not a.full:
+        print('  ※ 일부 면만 받은 문서가 있습니다. --full 을 붙이면 문서 전체 면을 받아 묶습니다(--dry-run 으로 면 수 먼저 확인).')
+
+
 # ---------------------------------------------------------------- report (비교 리포트)
 def cmd_report(a):
     p = os.path.join(a.root, 'compare_metadata.csv')
@@ -705,10 +790,17 @@ def main():
     pr = sp.add_parser('promo', help='릴스 홍보 문구 틀(「고문서 한 장」 형식) → mediate/<테마>/promo.md'); pr.add_argument('--work', required=True); pr.add_argument('--theme', required=True)
     pr.add_argument('--ep', type=int, default=1); pr.add_argument('--series', default='고문서 한 장'); pr.add_argument('--title'); pr.add_argument('--collection'); pr.add_argument('--url', help='전시 웹페이지 주소')
     r = sp.add_parser('report'); r.add_argument('--root', required=True); r.add_argument('--top', type=int, default=12)
+    og = sp.add_parser('originals', help='원본 묶음: 선별 문서의 원본 해상도 사진(--full 이면 문서 전체 면) + 원본 영상 → 분할 ZIP')
+    og.add_argument('--work', required=True); og.add_argument('--theme', required=True)
+    og.add_argument('--full', action='store_true', help='선별 문서의 모든 면을 받아서 묶기 (이미 받은 면은 건너뜀)')
+    og.add_argument('--dry-run', action='store_true', help='--full 과 함께: 받지 않고 문서별 전체 면 수만 보기')
+    og.add_argument('--only', help='순서 번호만 (예: 1,3)'); og.add_argument('--videos', help='원본 영상·자막 폴더 (mp4/srt/vtt)')
+    og.add_argument('--dest'); og.add_argument('--prefix'); og.add_argument('--title'); og.add_argument('--collection'); og.add_argument('--data-url')
+    og.add_argument('--max-mb', type=int, default=380, help='ZIP 하나의 최대 크기(MB)'); og.add_argument('--time', type=float, default=540); og.add_argument('--rounds', type=int, default=20)
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals}[a.cmd](a)
 
 
 if __name__ == '__main__':

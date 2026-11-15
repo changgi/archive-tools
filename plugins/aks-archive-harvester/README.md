@@ -7,7 +7,8 @@
 | ① 수집 | 이름으로 소장처 찾기 → 확대 조각(DZI)을 이어 원본 해상도 JPG로. 이어받기 지원 | `harvest.py find` · `manifest` · `download` |
 | ② 큐레이션 | 문서명에서 연도·문서유형·인물 자동 정리, 분포·인물 연표, 테마 후보 제안 | `harvest.py curate` · `studio.py themes` |
 | ③ 에디팅 | 테마에 맞는 대표 문서 선별(시기·유형 고르게, 표지 제외), 캡션 초안·밀착인화 → Claude와 다듬기 | `studio.py edit` |
-| ④ 매개 | 전시 웹페이지 · 카드뉴스(1080×1350) · 수업 활동지(A4) · SNS 글 | `studio.py mediate` |
+| ④ 매개 | 결과물 첫 페이지(index.html) · 전시 웹페이지 · 카드뉴스(1080×1350) · 수업 활동지(A4) · SNS 글 · 릴스 문구 | `studio.py mediate` · `promo` |
+| 원본 묶음 | 선별 문서의 **문서 전체 면**(원본 해상도) + 원본 영상 + 출처.csv → 400MB 이하 분할 ZIP | `studio.py originals --full` |
 | ⑤ 패키징 | 연구 패키지(메타데이터·수집현황·인용·datapackage.json·이미지), 여러 문중 일괄 수집·비교표·그래프 | `harvest.py bundle` · `catalog` · `batch` · `compare` · `studio.py report` |
 
 ## 사용 예 (Claude에게)
@@ -15,6 +16,7 @@
 > 한국고문서자료관에서 동춘당 송준길 후손가 문서 전부 받아줘
 > 혼인과 호적 테마로 전시 웹페이지랑 카드뉴스 만들어줘
 > 충청도 문중들을 비교 연구할 수 있게 패키지로 묶어줘
+> 이 전시에 쓴 문서들 원본 사진을 문서 전체로 받아서 묶어줘 (영상 원본도 같이)
 
 ## 직접 실행
 
@@ -27,6 +29,8 @@ python3 $S/harvest.py curate --work W --collection "동춘당 송준길 후손�
 python3 $S/studio.py themes --work W
 python3 $S/studio.py edit --work W --theme life-1               # ③ selection.csv 다듬기
 python3 $S/studio.py mediate --work W --theme life-1            # ④
+python3 $S/studio.py originals --work W --theme life-1 --full --dry-run   # 문서별 전체 면 수 확인
+python3 $S/studio.py originals --work W --theme life-1 --full [--videos 영상폴더]  # 원본 묶음 ZIP
 python3 $S/harvest.py bundle --work W --dest pkg --prefix 동춘당  # ⑤
 
 # 여러 소장처
