@@ -315,7 +315,9 @@ def cmd_edit(a):
     for o in out: print(f"  {o['순서']:02d}. {o['연도']} {o['문서유형']} — {o['문서명']}")
     if not os.path.exists(os.path.join(od, 'curator.md')):
         open(os.path.join(od, 'curator.md'), 'w', encoding='utf-8').write(curator_template(title))
-    print('→', od, '(selection.csv의 캡션·이야기를 다듬고, 이미지를 읽어 판독·해제·요약을 채운 뒤 curator.md(큐레이터 노트)를 쓰고 mediate)')
+    if not os.path.exists(os.path.join(od, 'delivery.md')):
+        open(os.path.join(od, 'delivery.md'), 'w', encoding='utf-8').write(delivery_template(title, delivery_draft(out)))
+    print('→', od, '(selection.csv의 캡션·이야기를 다듬고, 이미지를 읽어 판독·해제·요약을 채운 뒤 curator.md(큐레이터 노트)·delivery.md(전달 에디팅)를 다듬고 mediate)')
 
 
 # ---------------------------------------------------------------- fonts
@@ -539,6 +541,7 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
     cur = read_curator(ed); facts = curator_facts(sel, a.work)
     if cur: page = page.replace('</p></header>', '</p><p style="font:15px sans-serif"><a href="#curator" style="color:#c4964a">이 전시를 만든 이유 — 큐레이터 노트 ↓</a></p></header>', 1)
     page = put_curator(page, curator_html(cur, facts, 'exhibit') if cur else '', '</main>')
+    dv = read_delivery(ed); page = put_delivery(page, delivery_html(dv), '</main>')
     open(os.path.join(od, 'exhibit.html'), 'w', encoding='utf-8').write(page)
 
     # 3) 수업 활동지 (인쇄용 HTML)
@@ -599,7 +602,7 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
 .s{{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}} .s img{{height:220px;border-radius:8px;border:1px solid #3a3225}} ol{{padding-left:20px}} li{{margin:3px 0}} .k{{font-size:12.5px;color:#8f826b;margin-top:30px}}
 </style></head><body><main><h1>{html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 문서 {len(sel)}점</p>
 <h2>결과물 바로 가기</h2><div class="g">{tl}</div>
-{curator_html(cur, facts, 'index') if cur else ''}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
+{curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
 <h2>담긴 문서</h2><ol>{''.join(f"<li>{html.escape(str(x['연도']))} {html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
     open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(idx)
@@ -849,6 +852,90 @@ def channel_plan(c, title, coll, url, quote='', ep='', tags=''):
           f'- **광고·브랜드 메시지**: {msg}', '',
           '## 지켜야 할 것', '', '- 이미지: 소장처 동의 없이 상업적 이용·재배포 금지. 공개 전이면 `mediate --placeholder` 결과물로.', '- 판독·번역은 초안: 인용할 때 "초안 · 원문 확인 필요"를 함께.', '- 각색(소설·웹툰·영상)은 사실과 허구를 구분해 밝히기.', '']
     return '\n'.join(L)
+
+
+# ---------------------------------------------------------------- 전달 에디팅 (표현 · 방법 · 물질 · 통로 · 매개)
+DELIVERY_KEYS = [('emotion', '핵심 정서', '보는 사람 마음에 남길 한 가지 감정 (예: 그리움, 경외, 억울함에서 안도로)'),
+                 ('message', '한 문장', '이 묶음이 끝내 전하려는 말'),
+                 ('open', '열기', '첫 장면 — 질문이나 낯선 한 줄로 시작'),
+                 ('unfold', '펼치기', '문서를 어떤 순서·대비로 보여 줄지'),
+                 ('climax', '절정', '가장 힘을 줄 원문 한 줄과 그 순간의 연출'),
+                 ('after', '여운', '마지막 장면 — 무엇을 남기고 끝낼지'),
+                 ('matter', '감각과 물질', '종이·빛·소리·냄새·크기·손으로 만지는 복제 등 물질과 감각의 장치'),
+                 ('path', '통로와 매개', '온라인·오프라인 어떤 통로로, 어떤 순서로 만나게 할지'),
+                 ('linger', '여운 장치', '보는 사람이 참여하고 기억하게 하는 장치 (질문, 쓰기, 남기기)'),
+                 ('before', '전달 에디팅 전', '기록을 그대로 늘어놓았을 때의 모습'),
+                 ('afterd', '전달 에디팅 후', '같은 기록을 설계해 전했을 때의 모습')]
+MATTER = [  # 문서 유형 → 물질·감각 제안
+    (r'홍패', '붉은 종이를 실물 크기로 복제해 벽에 거는 연출'), (r'백패', '흰 종이 한 장에 조명 하나'),
+    (r'고신|교지|칙명|관고|차첩', '어보·관인 탁본 스탬프를 찍어 보는 체험'), (r'유지|유서', '역마 방울·말발굽 소리와 함께 펼치는 두루마리'),
+    (r'교서|녹권', '두루마리를 실제 길이로 펼친 복제'), (r'편지|간찰|언간|엽서|어찰', '손바닥 크기 복제를 직접 들고 읽기, 낭독 음성'),
+    (r'소지|상서|등장|의송|청원', '연명한 이름을 벽에 길게 나열하고 관아 마당처럼 서서 읽는 동선'), (r'분재기|명문|매매|차용|계약', '값(무명·냥·원)을 오늘의 물건으로 바꿔 옆에 놓기, 수결 따라 그리기'),
+    (r'절목|완문|규약|약속|향약|동계', '규약을 판에 새기고 관람객이 자기 규칙을 써 보는 벽'), (r'호적|호구|지패|준호구', '나의 신분증 만들기 체험 카드'),
+    (r'홀기', '집례 목소리로 읽고 동작을 따라 하기'), (r'시권', '시험장 책상과 답안지 체험'), (r'제문|만사|치제', '조명을 낮추고 낭독, 촛불'),
+    (r'초상|영정', '여러 번 다시 그린 얼굴을 투명 레이어로 겹치기'), (r'사전|물명고|책|첩', '책장을 넘기는 소리, 확대 열람대')]
+
+
+def delivery_draft(sel, cur=None, hook='', question='', key=''):
+    """selection.csv와 큐레이터 노트로 전달 설계 초안 — Claude·사용자가 다듬는 출발점"""
+    cur = cur or {}
+    QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
+    qs = [m for s in sel for m in re.finditer(QRX, s.get('이야기') or '')]
+    pick = next((m for m in qs if key and key in m.group(1)), qs[-1] if qs else None)  # key: 강조할 구절(있으면 그 인용)
+    climax = f'"{pick.group(1)}({pick.group(2)})"' if pick else ''
+    types = [s.get('문서유형') or '' for s in sel]
+    mats = list(dict.fromkeys(m for t in types for rx, m in MATTER if re.search(rx, t)))[:3]
+    ys = sorted(int(s['연도']) for s in sel if str(s.get('연도', '')).isdigit())
+    span = f'{ys[0]}–{ys[-1]}년' if len(ys) > 1 and ys[0] != ys[-1] else (f'{ys[0]}년' if ys else '연대 미상')
+    return {'message': cur.get('message', ''),
+            'open': hook or (f'"{qs[0].group(1)}" — 이 한 줄로 질문을 연다' if qs else ''),
+            'unfold': ' → '.join(dict.fromkeys(re.sub(r'\s+', ' ', re.sub(r'\([^)]*\)|^\d{4}[〜~\d년]*\s*', '', s.get('문서명') or '')).strip()[:18] for s in sel)) + f' ({span}) — ' + (cur.get('look') or '시간 순서와 대비로'),
+            'climax': (climax + ' — 화면·공간에서 이 한 줄만 크게, 소리를 줄여 집중') if climax else '',
+            'after': ((cur.get('question') or question) + ' — 질문으로 끝내고 답은 보는 사람에게') if (cur.get('question') or question) else '',
+            'matter': ' · '.join(mats),
+            'path': '온라인: 릴스(열기) → 카드뉴스(펼치기) → 전시 웹페이지(절정·원문) → 비하인드 카드(여운) / 오프라인: 원본 크기 복제·낭독·참여 벽 / 남기기: 활동지·질문 카드',
+            'before': f'{len(sel)}건의 문서를 {span} 연대순으로 놓고 문서명 · 유형 · 해설을 붙인다 — 정확하지만, 지나가면 잊힌다.',
+            'afterd': ''}
+
+
+def delivery_template(title, draft=None):
+    draft = draft or {}
+    out = [f'# 전달 에디팅 — {title}', '', '<!-- 같은 기록도 어떻게 표현하고, 어떤 물질과 통로로 전하느냐에 따라 마음에 남는 정도가 달라집니다. 초안을 다듬으세요. 빈 칸은 결과물에 나오지 않습니다. -->', '']
+    for k, h, g in DELIVERY_KEYS: out += [f'## {h}', f'<!-- {g} -->', draft.get(k, ''), '']
+    return '\n'.join(out)
+
+
+def read_delivery(ed):
+    p = os.path.join(ed, 'delivery.md')
+    if not os.path.exists(p): return {}
+    t = re.sub(r'<!--.*?-->', '', open(p, encoding='utf-8').read(), flags=re.S)
+    rev = {h: k for k, h, _ in DELIVERY_KEYS}; c = {}
+    for m in re.finditer(r'^##\s*(.+?)\s*\n(.*?)(?=^##\s|\Z)', t, flags=re.S | re.M):
+        k = rev.get(m.group(1).strip())
+        if k and m.group(2).strip(): c[k] = m.group(2).strip()
+    return c
+
+
+def delivery_html(dv, mode='exhibit'):
+    if not dv: return ''
+    lab = {k: h for k, h, _ in DELIVERY_KEYS}; e = html.escape
+    flow = ''.join(f'<div class="dv-s"><b>{lab[k]}</b><p>{e(dv[k])}</p></div>' for k in ('open', 'unfold', 'climax', 'after') if dv.get(k))
+    side = ''.join(f'<div class="dv-i"><b>{lab[k]}</b><p>{e(dv[k])}</p></div>' for k in ('matter', 'path', 'linger') if dv.get(k))
+    ba = (f'<div class="dv-ba"><div><b>{lab["before"]}</b><p>{e(dv.get("before", ""))}</p></div><div><b>{lab["afterd"]}</b><p>{e(dv.get("afterd", ""))}</p></div></div>' if dv.get('before') or dv.get('afterd') else '')
+    css = ('<style>.dv{max-width:980px;margin:0 auto 6vh;padding:26px 30px;border:1px solid #4a3e2c;border-radius:16px;background:#191510;font:16px/1.75 "Noto Sans KR","Malgun Gothic",sans-serif;color:#e8dcc4}'
+           '.dv h2{font:700 24px "Noto Serif KR",serif;color:#f3ead8;margin:0 0 6px}.dv .em{color:#c4964a;font-weight:700}.dv-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}'
+           '.dv-s{background:#231d15;border-radius:12px;padding:10px 12px;border-top:3px solid #c4964a}.dv-s b,.dv-i b,.dv-ba b{color:#c4964a;font-size:13.5px}.dv-s p,.dv-i p,.dv-ba p{margin:3px 0 0;font-size:14.5px}'
+           '.dv-i{margin:8px 0}.dv-ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.dv-ba>div{background:#231d15;border-radius:12px;padding:10px 12px}.dv-ba>div:first-child{opacity:.75}'
+           '@media(max-width:700px){.dv-ba{grid-template-columns:1fr}}</style>')
+    head = f'<h2>연출 노트 — 이 기록을 이렇게 전합니다</h2><p>{("핵심 정서 <span class=em>" + e(dv["emotion"]) + "</span>") if dv.get("emotion") else ""}{(" · " + e(dv["message"])) if dv.get("message") else ""}</p>'
+    return f'<!--DELIVERY-->{css}<section class="dv" id="delivery">{head}<div class="dv-flow">{flow}</div>{side}{ba}</section><!--/DELIVERY-->'
+
+
+def put_delivery(page, block, where='</main>'):
+    page = re.sub(r'<!--DELIVERY-->.*?<!--/DELIVERY-->', '', page, flags=re.S)
+    if not block: return page
+    i = page.find(where)
+    return page[:i + len(where)] + block + page[i + len(where):] if i >= 0 else page.replace('</body>', block + '</body>')
 
 # ---------------------------------------------------------------- report (비교 리포트)
 def cmd_report(a):

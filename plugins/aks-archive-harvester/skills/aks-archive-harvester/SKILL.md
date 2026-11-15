@@ -99,6 +99,8 @@ The archive states that image use needs the collection owner's consent through i
 - Without it, outputs embed the downloaded images, which is fine for the user's own work.
 - Examples: https://changgi.github.io/archive-tools/examples/
 
+**Two kinds of editing — 문구 에디팅 and 전달 에디팅.** Editing the captions and stories in `selection.csv` is 문구 에디팅 (what to say). After it, do 전달 에디팅 (how, through what and where to deliver the chosen records): `edit` writes `edit/<id>/delivery.md` with a draft from `delivery_draft` — 핵심 정서 · 한 문장 · 열기 · 펼치기 · 절정(the source line to stop on) · 여운 · 감각과 물질(by document type: 붉은 홍패 실물 크기, 탁본, 낭독, 조명 …) · 통로와 매개 · 여운 장치 · 전달 에디팅 전/후. Refine it so each record leaves a feeling, not only a fact; ask the user about the venue and audience when they matter. `mediate` adds it as 「연출 노트」 to `exhibit.html` and `index.html`. Guide: `references/delivery-editing.md`. Treat sensitive records (famine, slavery, self-sale, punishment) with dignity first.
+
 **Curator note (큐레이터 노트 — 기획 의도 · 비하인드).** `edit` writes `edit/<id>/curator.md` with six headings. Fill it before `mediate`, because people want to know why these documents were chosen and what the work hopes to say, not only what the documents read:
 
 | heading | what to write |
@@ -181,6 +183,7 @@ WORK/docs.json  out/<분류>/<NNN>_<문서명>/<NNN>.jpg  missing.txt  partial.t
 WORK/metadata.csv  metadata.jsonl  summary.md  themes.json                     # ② 큐레이션
 WORK/edit/<id>/selection.csv  images/  contact_sheet.jpg  theme.json           # ③ 에디팅
 WORK/edit/<id>/curator.md   # 큐레이터 노트(기획 의도 · 비하인드)
+WORK/edit/<id>/delivery.md  # 전달 에디팅(정서 · 장면 · 물질 · 통로 · 매개)
 WORK/mediate/<id>/index.html  exhibit.html  channels.md  cards/*.png(b1–b3 비하인드)  handout.html  sns.txt  promo.md   # ④ 매개
 WORK/originals/<id>/<소장처>_원본*.zip   # 원본 묶음(문서 전체 면 · 원본 영상 · 출처.csv)
 OUT/<약칭>_연구패키지/   ROOT/compare_*.csv|md|html                              # ⑤ 패키징·비교

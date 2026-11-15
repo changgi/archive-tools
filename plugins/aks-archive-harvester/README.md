@@ -6,7 +6,7 @@
 |---|---|---|
 | ① 수집 | 이름으로 소장처 찾기 → 확대 조각(DZI)을 이어 원본 해상도 JPG로. 이어받기 지원 | `harvest.py find` · `manifest` · `download` |
 | ② 큐레이션 | 문서명에서 연도·문서유형·인물 자동 정리, 분포·인물 연표, 테마 후보 제안 | `harvest.py curate` · `studio.py themes` |
-| ③ 에디팅 | 테마에 맞는 대표 문서 선별(시기·유형 고르게, 표지 제외), 캡션 초안·밀착인화 → Claude와 다듬기, **큐레이터 노트**(`curator.md`: 왜 골랐나 · 전하고 싶은 것 · 보이길 바란 모습 · 쓰는 법 · 비하인드 · 질문) | `studio.py edit` |
+| ③ 에디팅 | 테마에 맞는 대표 문서 선별(시기·유형 고르게, 표지 제외), 캡션 초안·밀착인화 → Claude와 다듬기, **큐레이터 노트**(`curator.md`), **전달 에디팅**(`delivery.md`: 정서 · 열기→펼치기→절정→여운 · 물질과 감각 · 통로와 매개 · 여운 장치) | `studio.py edit` |
 | ④ 매개 | 결과물 첫 페이지(index.html) · 전시 웹페이지 · 카드뉴스(1080×1350) · 수업 활동지(A4) · SNS 글 · 릴스 문구 | `studio.py mediate` · `promo` |
 | 2차 홍보 | 비하인드 카드 3장 · 채널별 홍보안(`channels.md`: 인스타·유튜브·틱톡·페이스북·스레드·X·전시·책·웹툰·영상·광고) · 활용 안내(`references/package-uses.md`) | `studio.py mediate` (큐레이터 노트가 있을 때) |
 | 원본 묶음 | 선별 문서의 **문서 전체 면**(원본 해상도) + 원본 영상 + 출처.csv → 400MB 이하 분할 ZIP | `studio.py originals --full` |

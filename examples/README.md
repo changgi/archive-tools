@@ -2,6 +2,8 @@
 
 > ✍️ **기획 노트** — 이 시리즈를 만든 이유 · 고른 기준 · 히스토리: [about.html](https://changgi.github.io/archive-tools/examples/about.html) · [CURATOR-NOTE.md](CURATOR-NOTE.md). 편마다의 큐레이터 노트는 각 폴더의 `curator.md`.
 >
+> 🎭 **두 가지 에디팅** — 문구 에디팅 전후(무엇을 말할지)와 전달 에디팅(어떻게 · 무엇으로 · 어디로 전할지). 편마다 `delivery.md`, 전시 웹페이지 「연출 노트」.
+>
 > 📢 **2차 홍보 · 활용** — [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · [패키지 활용 가이드](https://changgi.github.io/archive-tools/examples/use.html) · 시리즈 비하인드 [릴스·카드](series/promo.md) · 편마다 `behind/`(비하인드 카드 3장) · `channels.md`(채널별 홍보안).
 
 **aks-archive-harvester**로 실제로 만든 결과물(예시)과, 같은 결과를 직접 만들어 보는 단계별 따라하기(예제)입니다.
@@ -372,7 +374,7 @@
 | EP.99 "기한이 지났는데도 무덤을 파 가지 않습니다" — 1906년 국한문 소지 | ![](changju/cards/00_표지.jpg) | ![](changju/cards/01.jpg) | ![](changju/cards/99_마무리.jpg) |
 | EP.100 "장맛비 막 개고 녹음은 하늘 같은데" — 1608년 열여섯 소년 하홍도의 편지 | ![](damheon/cards/00_표지.jpg) | ![](damheon/cards/01.jpg) | ![](damheon/cards/99_마무리.jpg) |
 
-### 에디팅 전과 후 — 101개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 101개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 

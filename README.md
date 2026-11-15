@@ -30,6 +30,8 @@
 
 📢 **2차 홍보 · 채널 · 활용:** [시리즈 비하인드 릴스·카드](https://changgi.github.io/archive-tools/examples/#series) · [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · [패키지 활용 가이드](https://changgi.github.io/archive-tools/examples/use.html)
 
+🎭 **문구 에디팅 + 전달 에디팅:** 무엇을 말할지에 더해, 고른 기록을 어떤 정서 · 장면 · 물질 · 통로 · 매개로 전할지 — 갤러리 각 편 「전달 에디팅」 탭 · [기획 노트](https://changgi.github.io/archive-tools/examples/about.html#delivery)
+
 📖 **이야기가 있는 기록 10편 (EP.7–EP.16):** 왕실 가족의 편지 · 운조루의 시간 · 되찾은 제사 땅 · 섬마을의 호소 · 윤음에서 금융조합까지 · 기도와 살림의 기록 · 200년의 상소 · 나아가지 않은 선비 · 서원을 움직인 사람들 · 학자의 벼슬길 → [보기](https://changgi.github.io/archive-tools/examples/)
 
 명령을 하나씩 따라 하는 예제는 [`examples/README.md`](examples/README.md)에 있습니다.
