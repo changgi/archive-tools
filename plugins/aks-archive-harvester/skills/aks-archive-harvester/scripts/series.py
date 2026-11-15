@@ -33,6 +33,7 @@ nav.top{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}nav.top a{background:#
 .cards{display:flex;gap:12px;overflow-x:auto}.cards img{height:340px;border-radius:10px;border:1px solid #3a3225}
 .tl{border-left:2px solid #c4964a66;margin:10px 0 0 6px;padding-left:20px}.tl div{margin:0 0 12px}
 *:focus-visible{outline:2px solid #c4964a;outline-offset:2px}
+@media print{body{background:#fff;color:#111}main{max-width:none;padding:0 8mm}nav.top,.ql,video{display:none}h1,h2,h3,p,li,td,th,span,b,small{color:#111!important}a{color:#111}.box,.ep,.stats div{background:#fff;border:1px solid #bbb;break-inside:avoid}.ep img{max-height:60mm;object-fit:contain}}
 footer{margin-top:6vh;border-top:1px solid #3a3225;padding-top:14px;font-size:13.5px;color:#9d917c}'''
 USE = [('교사', '활동지(끝의 「선생님께」)로 1–2차시 수업 — 원문 한 줄 찾기 → 번역 읽기 → 「남겨 둔 질문」 토론'),
        ('학예사 · 전시기획자', '원본 묶음으로 패널, 전달 에디팅(연출 노트)대로 공간 설계, 비하인드 카드로 기획 의도 벽, 영상 루프'),
@@ -61,7 +62,7 @@ SDESC = ''
 
 def page(path, title, body, back=True, desc=''):
     home = f'<a href="{h(HOME[0])}">{h(HOME[1])}</a>' if HOME else ''
-    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a></nav>'
+    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a><a href="quotes.html">문장</a><a href="timeline.html">연표</a><a href="questions.html">질문 카드</a></nav>'
     html_ = (f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
     name = os.path.basename(path)
     open(path, 'w', encoding='utf-8').write(ST.put_share(html_, ST.share_meta(title, desc or SDESC, (SITE + 'share.jpg') if SITE else '', (SITE + name) if SITE else '')))
@@ -145,6 +146,9 @@ def main():
         ('about.html', '기획 노트', '왜 만들었나 · 고른 기준 · 히스토리 · 편별 메시지'),
         ('promote.html', '홍보 가이드', '채널별 형식과 문구 · 4주 계획'),
         ('use.html', '활용 가이드', '누가 무엇을 할 수 있나 · 지킬 것'),
+        ('quotes.html', '종이에 적힌 문장들', '이야기에 인용한 원문 전체 · 찾기'),
+        ('timeline.html', '전체 연표', '모든 문서를 연도순으로 · 편과 원본으로 바로'),
+        ('questions.html', '남겨 둔 질문 카드', '인쇄해 잘라 쓰는 토론 · 글쓰기 카드'),
         ('#cards', f'시리즈 카드 {len(scards)}장', 'SNS에 바로 쓰는 기획 노트 카드')]) + '</div>')
     smap += '<h2>한눈에 — 자동 요약</h2><ul>' + ''.join(f'<li>{x}</li>' for x in an_sum['insights'][:4]) + '</ul><p><a href="analysis.html">통합 분석 전체 보기 →</a></p>'
     body = f'''<p class="k">SERIES</p><h1>{h(stitle)}</h1>{('<p class="lead">' + h(re.split(r"\n\s*\n", why)[0]) + '</p>') if why else ''}
@@ -171,13 +175,15 @@ def main():
     body = '<p class="k">USE</p><h1>패키지 활용 가이드</h1><p class="lead">원본 사진(원재료) · 판독과 번역(손질된 재료) · 이야기와 큐레이터 노트(레시피) · 카드·영상·전시(차림 예시) — 받는 사람이 자기 자리(수업·전시·책·창작)에 맞게 바로 쓰는 묶음입니다.</p>'
     body += '<div class="g">' + ''.join(f'<div class="box"><h3>{h(a_)}</h3><p>{h(b)}</p></div>' for a_, b in USE) + '</div><h2>지킬 것</h2><div class="box"><ul>' + ''.join(f'<li>{h(x)}</li>' for x in CHECK) + '</ul></div>'
     page(os.path.join(out, 'use.html'), '활용 가이드 — ' + stitle, body)
+    for fn, t, lead, body_ in AN.collections_pages(sorted(AE, key=lambda e: e['ep']), stitle):
+        page(os.path.join(out, fn), f'{t} — {stitle}', f'<p class="k">COLLECTION</p><h1>{h(stitle)} — {h(t)}</h1><p class="lead">{h(lead)}</p><style>{AN.CSS}</style><div class="an">{body_}</div>', desc=lead)
     page(os.path.join(out, 'analysis.html'), '통합 분석 — ' + stitle, f'<p class="k">ANALYSIS</p><h1>{h(stitle)} — 통합 분석</h1><p class="lead">편마다 따로 보던 문서 · 노트 · 결과물을 한데 모아, 전체가 무엇을 담고 있는지 한 장에서 읽습니다.</p><style>{AN.CSS}</style>' + an_body)
     if SITE:  # 검색 엔진용 사이트 지도
         import datetime
         today = datetime.date.today().isoformat()
-        urls = [SITE + f for f in ('', 'analysis.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
+        urls = [SITE + f for f in ('', 'analysis.html', 'quotes.html', 'timeline.html', 'questions.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
         open(os.path.join(out, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{h(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in urls) + '</urlset>\n')
-    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · eps/' + (' · sitemap.xml' if SITE else ''))
+    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · quotes · timeline · questions.html(모아 보기) · eps/' + (' · sitemap.xml' if SITE else ''))
 
 
 if __name__ == '__main__':

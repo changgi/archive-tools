@@ -2,7 +2,7 @@
 """통합 분석 — 여러 편(테마)의 문서 · 노트 · 결과물을 모아 한 장에서 전체를 읽는 분석 페이지.
 
   python3 analysis.py --list series.tsv --out site/analysis.html [--title "시리즈 제목"]
-  (옆에 analysis-data.json(집계) · analysis-episodes.csv(편별 표)도 저장)
+  (옆에 analysis-data.json(집계) · analysis-episodes.csv(편별 표), 모아 보기 quotes.html · timeline.html · questions.html도 저장)
 
   (series.py 가 사이트를 만들 때 analysis.html 도 함께 만듭니다.)
 
@@ -19,7 +19,6 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import studio as ST
 
 h = html.escape
-QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
 HAN = re.compile(r'[㐀-䶿一-鿿豈-﫿]')
 GOLD = '#c4964a'
 STOP = {'않음', '없는', '않는', '속의', '속', '것', '사이', '위와', '아래', '마음', '두', '한'}
@@ -131,6 +130,16 @@ CSS = '''
 .an .toc{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.an .toc a{font-size:13px;border:1px solid #4a3e2c;border-radius:20px;padding:3px 10px;text-decoration:none;color:#d5cab4;background:#231d15}
 .an table.ept td:nth-child(1){white-space:nowrap;color:var(--gold);font-weight:700}
 @media (max-width:600px){.an .hb{grid-template-columns:6.5em 1fr 4em}}
+.col .qq{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}.col .qq blockquote{margin:0;background:#1f1a14;border-left:3px solid var(--gold);border-radius:8px;padding:10px 14px;font-family:'Noto Serif KR',serif;color:#f3ead8;font-size:15.5px}
+.col .qq blockquote em{display:block;font-style:normal;color:var(--dim);font-size:13px;margin-top:2px}.col .qq blockquote small{display:block;font-family:'Noto Sans KR',sans-serif;color:var(--dim);font-size:12.5px;margin-top:6px}.col .qq a{color:var(--gold)}
+.col .tlv{border-left:2px solid #c4964a66;margin:6px 0 0 4px;padding-left:16px}.col .tlv h3{margin:18px 0 6px;color:var(--gold);font-size:18px}.col .tlv div{margin:0 0 8px;font-size:14.5px;color:#e8dcc4}.col .tlv b{color:#f3ead8;margin-right:6px;font-variant-numeric:tabular-nums}.col .tlv small{color:var(--dim)}.col .tlv a{color:var(--gold)}
+.col .qcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.col .qcards div{background:#1f1a14;border:1px solid #4a3e2c;border-radius:14px;padding:14px 16px;break-inside:avoid}.col .qcards b{display:block;font-family:'Noto Serif KR',serif;font-size:17px;color:#f3ead8;line-height:1.55}.col .qcards span{display:block;margin-top:8px;color:var(--dim);font-size:12.8px}
+.col .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 16px}.col input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
+.an input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
+@media print{body{background:#fff!important;color:#111!important}main{max-width:none!important;padding:0 8mm!important}nav,.toc,.tools,input,details.tvw summary,footer a{display:none!important}
+ h1,h2,h3,p,li,td,th,span,b,em,small,blockquote,.hl,.hv{color:#111!important}a{color:#111!important;text-decoration:none}.card,.tile,.ins,.quotes blockquote,.qq blockquote,.qcards div,.box,.ep{background:#fff!important;border:1px solid #bbb!important;break-inside:avoid}
+ .ht{background:#eee!important}.ht i{background:#8a6a33!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.hm td{-webkit-print-color-adjust:exact;print-color-adjust:exact}.strip i{background:#8a6a33!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .qcards{grid-template-columns:1fr 1fr!important}.qcards div{border:1px dashed #888!important;min-height:38mm}}
 '''
 
 
@@ -145,7 +154,7 @@ def build(eps, title, kinds_label='소장처 종류'):
     tr = sum(len(s.get('번역') or '') for _, s in docs)
     unk = sum((s.get('판독') or '').count('□') for _, s in docs); uns = sum((s.get('판독') or '').count('(?)') for _, s in docs)
     read_n = sum(1 for _, s in docs if (s.get('판독') or '').strip()); tr_n = sum(1 for _, s in docs if (s.get('번역') or '').strip())
-    quotes = [(m.group(1), m.group(2), e) for e, s in docs for m in re.finditer(QRX, s.get('이야기') or '')]
+    quotes = [(q[0], q[1], e) for e, s in docs for q in ST.find_quotes(s.get('이야기'))]
     dur = sum(e['dur'] for e in eps); cards = sum(e['cards'] for e in eps)
     C = collections.Counter(cent(y) for y in ys)
     centuries = sorted(C, key=lambda c: int(c[:-2]))
@@ -180,6 +189,7 @@ def build(eps, title, kinds_label='소장처 종류'):
              (f'{han:,}', '판독한 한자'), (len(quotes), '원문 인용'), (f'{dur / 60:.0f}분' if dur else '—', '영상 길이'), (f'{cards:,}', '카드')]
     out = ['<div class="an">',
            '<nav class="toc">' + ''.join(f'<a href="#{i}">{t}</a>' for i, t in [('a-sum', '요약'), ('a-time', '시대'), ('a-type', '문서 유형'), ('a-where', '어디서'), ('a-feel', '정서'), ('a-read', '판독'), ('a-quote', '인용'), ('a-who', '인물'), ('a-q', '질문'), ('a-eps', '편별 표'), ('a-lim', '한계')]) + '</nav>',
+           '<p class="mute">모아 보기: <a href="quotes.html">종이에 적힌 문장 전체</a> · <a href="timeline.html">전체 연표</a> · <a href="questions.html">남겨 둔 질문 카드</a></p>',
            '<div class="tiles">' + ''.join(f'<div class="tile"><b>{v}</b><span>{h(l)}</span></div>' for v, l in tiles) + '</div>',
            '<h2 id="a-sum">한눈에 — 자동 요약</h2><ul class="ins">' + ''.join(f'<li>{x}</li>' for x in ins) + '</ul>']
 
@@ -227,7 +237,7 @@ def build(eps, title, kinds_label='소장처 종류'):
     rd = sorted(((sum((s.get('판독') or '').count('□') for s in e['sel']), sum((s.get('판독') or '').count('(?)') for s in e['sel']), e) for e in eps), key=lambda x: -(x[0] + x[1]))
     rd = [x for x in rd if x[0] + x[1]][:10]
     out.append('<h2 id="a-read">얼마나 읽었나</h2><div class="two">'
-               f'<div class="card"><h3>읽기 진행</h3><p class="q">문서 {len(docs)}건 기준</p>{hbars([("원문 판독", read_n), ("번역", tr_n), ("해제", sum(1 for _, s in docs if (s.get("해제") or "").strip())), ("요약", sum(1 for _, s in docs if (s.get("요약") or "").strip())), ("원문 인용 이야기", sum(1 for _, s in docs if re.search(QRX, s.get("이야기") or ""))), ("검토 표시", sum(1 for _, s in docs if s.get("검토")))], len(docs))}</div>'
+               f'<div class="card"><h3>읽기 진행</h3><p class="q">문서 {len(docs)}건 기준</p>{hbars([("원문 판독", read_n), ("번역", tr_n), ("해제", sum(1 for _, s in docs if (s.get("해제") or "").strip())), ("요약", sum(1 for _, s in docs if (s.get("요약") or "").strip())), ("원문 인용 이야기", sum(1 for _, s in docs if ST.find_quotes(s.get("이야기")))), ("검토 표시", sum(1 for _, s in docs if s.get("검토")))], len(docs))}</div>'
                f'<div class="card"><h3>읽기 어려웠던 편</h3><p class="q">못 읽은 글자 □ + 불확실 (?) 이 많은 순</p>{hbars([(f"{lab(e)} {e['title'][:14]}", a + b) for a, b, e in rd], unit="자") if rd else "<p class=mute>□ · (?) 표시가 없습니다</p>"}</div></div>')
 
     # ---- 인용
@@ -291,6 +301,57 @@ def save_data(folder, summary):
             ys = e['years']; w.writerow([e['episode'], e['title'], e['collection'], e['kind'], e['region'], e['docs'], ys[0] if ys else '', ys[-1] if ys else '', e['emotion'], e['message'], e['question']])
 
 
+SEARCH_JS = ('<script>(function(){var q=document.getElementById("cq"),n=document.getElementById("cn"),it=[].slice.call(document.querySelectorAll("[data-s]"));'
+             'q.addEventListener("input",function(){var v=q.value.trim().toLowerCase(),k=0;it.forEach(function(e){var on=!v||e.getAttribute("data-s").indexOf(v)>=0;e.style.display=on?"":"none";if(on)k++});n.textContent=v?k+"개":""})})()</script>')
+
+
+def dname(s):
+    n, y = (s.get('문서명') or '').strip(), str(s.get('연도') or '').strip()
+    return n if (not y or n.startswith(y)) else f'{y} {n}'
+
+
+def collections_pages(eps, title):
+    """모아 보기 3종 — (파일, 제목, 머리말, 본문). 인용 · 연표 · 질문"""
+    docs = [(e, s) for e in sorted(eps, key=lambda x: (x['ep'] or 0)) for s in e['sel']]
+    link = lambda e: f'<a href="{h(e["link"])}">{h(lab(e))} {h(e["title"])}</a>' if e.get('link') else f'{h(lab(e))} {h(e["title"])}'
+    # 1) 인용
+    qs = [(q, s, e) for e, s in docs for q in ST.find_quotes(s.get('이야기'))]
+    qb = ''.join(f'<blockquote data-s="{h((q[0] + q[1] + e["title"] + e["coll"] + (s.get("문서명") or "")).lower())}">"{h(q[0])}"<em>{h(q[1])}</em><small>{h(dname(s))} · {link(e)}</small></blockquote>' for q, s, e in qs)
+    quotes = (f'<div class="col"><div class="tools"><input id="cq" type="search" placeholder="찾기: 낱말 · 한자 · 편 제목 · 소장처" aria-label="문장 찾기"><span id="cn" class="mute"></span></div><div class="qq">{qb}</div></div>' + SEARCH_JS)
+    # 2) 연표
+    dated = sorted(((int(s['연도']), e, s) for e, s in docs if str(s.get('연도', '')).isdigit()), key=lambda x: (x[0], x[1]['ep'] or 0))
+    rows, cur = [], None
+    for y, e, s in dated:
+        c = cent(y)
+        if c != cur: rows.append(f'<h3>{c}</h3>'); cur = c
+        v = f' · <a href="{h(s["뷰어링크"])}" target="_blank" rel="noopener">원본 ↗</a>' if s.get('뷰어링크') else ''
+        rows.append(f'<div data-s="{h((str(y) + (s.get("문서명") or "") + (s.get("문서유형") or "") + e["title"] + e["coll"]).lower())}"><b>{y}</b>{h(s.get("문서명") or "")} <small>· {h(s.get("문서유형") or "")} · {link(e)}{v}</small></div>')
+    nod = sum(1 for _, s in docs if not str(s.get('연도', '')).isdigit())
+    timeline = (f'<div class="col"><div class="tools"><input id="cq" type="search" placeholder="찾기: 연도 · 문서 유형 · 이름 · 소장처" aria-label="연표 찾기"><span id="cn" class="mute"></span></div>'
+                f'<p class="mute">연대가 적힌 문서 {len(dated)}건(연대 미상 {nod}건 제외) · 연도는 문서명·연호에서 읽은 값</p><div class="tlv">{"".join(rows)}</div></div>' + SEARCH_JS)
+    # 3) 질문
+    qq = [(e['cur']['question'], e) for e in sorted(eps, key=lambda x: (x['ep'] or 0)) if e['cur'].get('question')]
+    questions = ('<div class="col"><p class="mute">인쇄하면 한 장에 두 줄씩 질문 카드가 됩니다 — 잘라서 모둠 토론 · 글쓰기 · 전시 참여 벽에.</p><div class="qcards">'
+                 + ''.join(f'<div><b>{h(q)}</b><span>{h(lab(e))} {h(e["title"])} · {h(e["coll"])}</span></div>' for q, e in qq) + '</div></div>')
+    return [('quotes.html', '종이에 적힌 문장들', f'이야기에 "현대어(原文)"로 인용한 원문 {len(qs)}곳 전체 — 찾아보고, 수업 · 글쓰기 · SNS에 씁니다.', quotes),
+            ('timeline.html', '전체 연표', f'{len(dated)}건의 문서를 한 줄로 — 세기별로 나누고, 편과 원본으로 바로 갑니다.', timeline),
+            ('questions.html', '남겨 둔 질문 카드', f'문서만으로는 답할 수 없어 보는 사람과 나누려는 질문 {len(qq)}개.', questions)]
+
+
+def page_html(title, kicker, h1, lead, body, nav='', foot='', base_css=''):
+    return (f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title>'
+            f'<style>{base_css}{CSS}</style></head><body><main>{nav}<p class="k">{h(kicker)}</p><h1>{h(h1)}</h1><p class="lead">{h(lead)}</p><div class="an">{body}</div>{foot}</main></body></html>')
+
+
+def write_collections(folder, eps, title, nav='', foot='', base_css='', meta_fn=None):
+    out = []
+    for fn, t, lead, body in collections_pages(eps, title):
+        page = page_html(f'{title} — {t}', 'COLLECTION', f'{title} — {t}', lead, body, nav, foot, base_css)
+        if meta_fn: page = ST.put_share(page, meta_fn(fn, f'{title} — {t}', lead))
+        open(os.path.join(folder, fn), 'w', encoding='utf-8').write(page); out.append(fn)
+    return out
+
+
 def write(path, title, body, nav='', foot='', base_css='', meta=''):
     page = (
         f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)} — 통합 분석</title>'
@@ -306,7 +367,8 @@ def main():
     eps = load_series(a.list)
     if not eps: sys.exit('분석할 편이 없습니다.')
     body, s = build(eps, a.title)
-    write(a.out, a.title, body); save_data(os.path.dirname(os.path.abspath(a.out)), s)
+    folder = os.path.dirname(os.path.abspath(a.out)); os.makedirs(folder, exist_ok=True)
+    write(a.out, a.title, body); save_data(folder, s); write_collections(folder, eps, a.title)
     print(f'→ {a.out}  편 {s["eps"]} · 문서 {s["docs"]} · 소장처 {s["colls"]}')
 
 

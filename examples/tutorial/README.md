@@ -150,12 +150,13 @@ W3에서 대표 면을 바꾸기 전에 돌리면 이렇게 나옵니다(실제 
 
 ```bash
 python3 $S/studio.py promo   --work W1 --theme story --ep 1 --series "임금이 보낸 종이" --url <전시 주소>
-python3 $S/studio.py mediate --work W1 --theme story --url <전시 주소>
+python3 $S/studio.py mediate --work W1 --theme story --url <전시 주소> --issues https://github.com/<아이디>/<저장소>
 #   2차 홍보: 비하인드 카드 3장 · channels.md(채널별 홍보안)
 ```
 
 | 결과물 | 예시 |
 |---|---|
+| 전시의 「판독 고침 제보」 | `--issues`를 주면 문서마다 GitHub 이슈 양식으로 연결 |
 | 첫 페이지 `index.html` | ![첫 페이지](img/ep-index.jpg) |
 | 전시 웹페이지 `exhibit.html` | ![전시](img/exhibit.jpg) |
 | 활동지 `handout.html` — 끝에 「선생님께」 | ![활동지](img/handout.jpg) |
@@ -209,7 +210,7 @@ python3 $S/series.py --list series.tsv --note series.md --out site --home ../../
 
 ![시리즈 사이트](img/site.jpg)
 
-결과: [갤러리](site/index.html)(맨 위에 「이 사이트에 있는 것」과 자동 요약) · [통합 분석](site/analysis.html) · [기획 노트](site/about.html) · [홍보 가이드](site/promote.html) · [활용 가이드](site/use.html) · 편마다 [`eps/`](site/eps/).
+결과: [갤러리](site/index.html)(맨 위에 「이 사이트에 있는 것」과 자동 요약) · [통합 분석](site/analysis.html) · 모아 보기 [문장](site/quotes.html) · [연표](site/timeline.html) · [질문 카드](site/questions.html) · [기획 노트](site/about.html) · [홍보 가이드](site/promote.html) · [활용 가이드](site/use.html) · 편마다 [`eps/`](site/eps/).
 
 통합 분석만 따로: `python3 $S/analysis.py --list series.tsv --out 분석.html` — 세기 · 문서 유형 · 유형×세기 · 소장처 종류 · 지역 · 핵심 정서 · 판독 난도 · 원문 인용 · 인물 · 남겨 둔 질문 · 편별 표. `series.tsv`에 4번째 칸 `kind`(문중 · 서원 …)를 쓰면 소장처 종류도 셉니다. 같은 도구로 만든 [예시 101편 통합 분석](https://changgi.github.io/archive-tools/examples/analysis.html).
 

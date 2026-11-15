@@ -19,7 +19,6 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import studio as ST
 from PIL import Image, ImageDraw
 
-QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
 BG = (22, 19, 15)
 
 
@@ -74,8 +73,8 @@ def scenes(work, theme, ep, url, max_docs):
     S.append((None, coll + (f' · {span}' if span else ''), title, f'{coll}에 남은 문서 {len(sel)}건을 원문으로 읽었습니다.'))
     for s in sel[:max_docs]:
         story = (s.get('이야기') or s.get('캡션') or '').strip()
-        m = re.search(QRX, story)
-        big = f'"{m.group(1)}"' if m else (s.get('문서명') or '')
+        fq = ST.find_quotes(story)
+        big = f'"{fq[0][0]}"' if fq else (s.get('문서명') or '')
         sents = re.split(r'(?<=[.?!다])\s+', story); narr = ' '.join(sents[:3])[:220] or s.get('문서명', '')
         S.append((img(s), f"{s.get('연도') or ''} {s.get('문서유형') or ''}".strip(), big, re.sub(r'\([^)]*[一-鿿][^)]*\)', '', narr)))
     if dv.get('climax'):

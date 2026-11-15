@@ -87,13 +87,13 @@ def main():
     run('studio.py page', [S('studio.py'), 'page', '--work', W, '--theme', 't', '--n', '1', '--page', '002.jpg'])
     if a.video and shutil.which('ffmpeg'):
         run('video.py --no-tts', [S('video.py'), '--work', W, '--theme', 't', '--ep', '1', '--no-tts', '--web'], ['W/mediate/t/video/ep01-t_reel.mp4', 'W/mediate/t/video/ep01-t.ko.vtt'])
-    run('studio.py mediate', [S('studio.py'), 'mediate', '--work', W, '--theme', 't', '--url', 'https://example.test/s/eps/01-t/exhibit.html'],
+    run('studio.py mediate', [S('studio.py'), 'mediate', '--work', W, '--theme', 't', '--url', 'https://example.test/s/eps/01-t/exhibit.html', '--issues', 'https://github.com/example/repo'],
         ['W/mediate/t/index.html', 'W/mediate/t/exhibit.html', 'W/mediate/t/handout.html', 'W/mediate/t/channels.md', 'W/mediate/t/share.jpg', 'W/mediate/t/selection.csv'])
     open(os.path.join(root, 'series.tsv'), 'w', encoding='utf-8').write('ep\twork\ttheme\tkind\n1\tW\tt\t문중\n')
     run('series.py', [S('series.py'), '--list', 'series.tsv', '--out', 'site', '--site-url', 'https://example.test/s/'],
-        ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/share.jpg', 'site/eps/01-t/index.html'])
+        ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/quotes.html', 'site/timeline.html', 'site/questions.html', 'site/sitemap.xml', 'site/share.jpg', 'site/eps/01-t/index.html'])
     os.makedirs(os.path.join(root, 'an'), exist_ok=True)
-    run('analysis.py', [S('analysis.py'), '--list', 'series.tsv', '--out', 'an/analysis.html'], ['an/analysis.html', 'an/analysis-episodes.csv'])
+    run('analysis.py', [S('analysis.py'), '--list', 'series.tsv', '--out', 'an/analysis.html'], ['an/analysis.html', 'an/analysis-episodes.csv', 'an/quotes.html'])
     run('studio.py originals', [S('studio.py'), 'originals', '--work', W, '--theme', 't'])
     run('harvest.py report', [S('harvest.py'), 'report', '--work', W, '--out', 'report.csv'], ['report.csv'])
     run('harvest.py bundle', [S('harvest.py'), 'bundle', '--work', W, '--dest', 'pkg', '--prefix', 'test', '--no-images'])

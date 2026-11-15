@@ -62,6 +62,26 @@ GLOSSARY = {
     '제문': '제사 때 읽은 글', '사제문': '국왕이 내린 제문', '간찰': '편지', '서간': '편지', '치부': '재물·출납을 적은 장부',
 }
 
+
+# ---------------------------------------------------------------- 원문 인용 찾기 ("현대어(原文)")
+QUOTE_RX = r'"([^"]{2,240}?)"'
+_ORIG = re.compile(r'[㐀-䶿一-鿿豈-﫿ᄀ-ᇿꥠ-꥿ힰ-퟿ㆍᆞ]')
+
+
+def find_quotes(text):
+    """이야기 속 "현대어(原文)" 인용 → [(현대어, 원문, 따옴표 안 전체)]. 원문은 한자·옛한글이 든 괄호. "(1646)" 같은 연도 괄호는 빼고 셈.
+    원문 괄호가 따옴표 끝이 아니라 가운데 있어도("…하오니(원문), 그 밖에 …"), 원문(현대어) 순서여도 인용으로 본다."""
+    out = []
+    for m in re.finditer(QUOTE_RX, text or ''):
+        inner = m.group(1)
+        for p in re.finditer(r'\(([^()]+)\)', inner):
+            rest = re.sub(r'\([^()]*\)', '', inner[:p.start()] + inner[p.end():]).strip(' ,.')
+            if _ORIG.search(p.group(1)):  # 현대어(原文)
+                if len(rest) >= 2: out.append((rest, p.group(1).strip(), inner)); break
+            elif _ORIG.search(rest) and re.search('[가-힣]', p.group(1)) and len(p.group(1)) >= 4:  # 原文(현대어) — 옛한글 편지 등
+                out.append((p.group(1).strip(), rest, inner)); break
+    return out
+
 def glossary(t):
     if t in GLOSSARY: return GLOSSARY[t]
     for k, v in GLOSSARY.items():
@@ -544,7 +564,7 @@ def cmd_mediate(a):
 <div class="txt"><h2>{html.escape(s['문서유형'])}{(' · ' + html.escape(s['인물'])) if s['인물'] else ''}</h2>
 <p class="cap">{html.escape(s['이야기'] or s['캡션'])}</p>
 {aid_html(s)}
-<p class="meta">{html.escape(s['문서명'])}<br>{html.escape(s['자료ID'])}{(' · <a href="' + html.escape(s['뷰어링크']) + '" target="_blank" rel="noopener">원본 보기 ↗</a>') if s.get('뷰어링크') else ''}</p>{'' if s.get('검토') else '<p class="draft">캡션 초안 — 원문 확인 전</p>'}</div></section>""")
+<p class="meta">{html.escape(s['문서명'])}<br>{html.escape(s['자료ID'])}{(' · <a href="' + html.escape(s['뷰어링크']) + '" target="_blank" rel="noopener">원본 보기 ↗</a>') if s.get('뷰어링크') else ''}{(' · <a href="' + html.escape(issue_url(a.issues, s, title)) + '" target="_blank" rel="noopener">판독 고침 제보 ↗</a>') if a.issues else ''}</p>{'' if s.get('검토') else '<p class="draft">캡션 초안 — 원문 확인 전</p>'}</div></section>""")
     page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><style>
 body{{margin:0;background:#16130f;color:#efe6d4;font-family:'Noto Serif KR','Batang',serif}}
@@ -613,9 +633,8 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
     if cur:
         bimg = os.path.join(ed, sel[0]['이미지']) if sel and not PH else None
         bc = behind_cards(cur, facts, title, src_line, bimg, os.path.join(od, 'cards'), ph=(placeholder_img(sel[0]['문서명'], sel[0]['자료ID']) if PH and sel else None))
-        QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
-        qm = next((re.search(QRX, s.get('이야기') or '') for s in sel if re.search(QRX, s.get('이야기') or '')), None)
-        open(os.path.join(od, 'channels.md'), 'w', encoding='utf-8').write(channel_plan(cur, title, coll, a.url or 'exhibit.html', quote=(f'"{qm.group(1)}({qm.group(2)})"' if qm else '')))
+        qm = next((find_quotes(s.get('이야기'))[0] for s in sel if find_quotes(s.get('이야기'))), None)
+        open(os.path.join(od, 'channels.md'), 'w', encoding='utf-8').write(channel_plan(cur, title, coll, a.url or 'exhibit.html', quote=(f'"{qm[0]}({qm[1]})"' if qm else '')))
         print(f'  2차 홍보: 비하인드 카드 {len(bc)}장 · channels.md(채널별 홍보안)')
 
     # 5) 결과물 한눈에 보기 (첫 페이지) — 처음 온 사람이 무엇이 있는지 바로 알고 열 수 있게
@@ -658,6 +677,16 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
     if unchecked: print(f'  ※ 검토 칸이 비어 있는 캡션 {len(unchecked)}건은 "초안" 표시가 붙습니다.')
 
 
+
+
+def issue_url(base, s, title=''):
+    """문서 하나에 대한 '판독 고침 제보' 주소 — GitHub 이슈 새 글(제목·본문 미리 채움) 또는 그 밖의 주소(그대로)"""
+    from urllib.parse import quote
+    if 'github.com' not in base: return base
+    b = base.rstrip('/'); b = b if b.endswith('/issues') else b + '/issues'
+    body = (f"문서: {s.get('문서명', '')}\n자료 ID: {s.get('자료ID', '')}\n원본 뷰어: {s.get('뷰어링크', '')}\n시리즈·편: {title}\n\n"
+            "고칠 곳(판독 · 번역 · 해제 · 연도 가운데):\n\n바르게 고친 내용:\n\n근거(원본 사진의 줄 · 다른 자료):\n")
+    return f"{b}/new?title={quote('[판독 고침] ' + (s.get('문서명') or ''))}&body={quote(body)}&labels={quote('판독 고침')}"
 
 # ---------------------------------------------------------------- 공유 미리 보기 (카카오톡 · 페이스북 · X 링크 카드)
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E"
@@ -980,16 +1009,15 @@ MATTER = [  # 문서 유형 → 물질·감각 제안
 def delivery_draft(sel, cur=None, hook='', question='', key=''):
     """selection.csv와 큐레이터 노트로 전달 설계 초안 — Claude·사용자가 다듬는 출발점"""
     cur = cur or {}
-    QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
-    qs = [m for s in sel for m in re.finditer(QRX, s.get('이야기') or '')]
-    pick = next((m for m in qs if key and key in m.group(1)), qs[-1] if qs else None)  # key: 강조할 구절(있으면 그 인용)
-    climax = f'"{pick.group(1)}({pick.group(2)})"' if pick else ''
+    qs = [q for s in sel for q in find_quotes(s.get('이야기'))]
+    pick = next((q for q in qs if key and key in q[0]), qs[-1] if qs else None)  # key: 강조할 구절(있으면 그 인용)
+    climax = f'"{pick[0]}({pick[1]})"' if pick else ''
     types = [s.get('문서유형') or '' for s in sel]
     mats = list(dict.fromkeys(m for t in types for rx, m in MATTER if re.search(rx, t)))[:3]
     ys = sorted(int(s['연도']) for s in sel if str(s.get('연도', '')).isdigit())
     span = f'{ys[0]}–{ys[-1]}년' if len(ys) > 1 and ys[0] != ys[-1] else (f'{ys[0]}년' if ys else '연대 미상')
     return {'message': cur.get('message', ''),
-            'open': hook or (f'"{qs[0].group(1)}" — 이 한 줄로 질문을 연다' if qs else ''),
+            'open': hook or (f'"{qs[0][0]}" — 이 한 줄로 질문을 연다' if qs else ''),
             'unfold': ' → '.join(dict.fromkeys(re.sub(r'\s+', ' ', re.sub(r'\([^)]*\)|^\d{4}[〜~\d년]*\s*', '', s.get('문서명') or '')).strip()[:18] for s in sel)) + f' ({span}) — ' + (cur.get('look') or '시간 순서와 대비로'),
             'climax': (climax + ' — 화면·공간에서 이 한 줄만 크게, 소리를 줄여 집중') if climax else '',
             'after': ((cur.get('question') or question) + ' — 질문으로 끝내고 답은 보는 사람에게') if (cur.get('question') or question) else '',
@@ -1076,7 +1104,6 @@ def cmd_check(a):
     sp_ = os.path.join(ed, 'selection.csv')
     if not os.path.exists(sp_): sys.exit(f'{sp_}이(가) 없습니다. 먼저 studio.py edit 를 실행하세요.')
     sel = list(csv.DictReader(open(sp_, encoding='utf-8-sig')))
-    QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
     todo, warn = [], []
     print(f'■ 점검: {a.work}/{a.theme} — 문서 {len(sel)}건')
     print('\n[문구 에디팅]')
@@ -1084,7 +1111,7 @@ def cmd_check(a):
         n = s.get('순서') or '?'; name = (s.get('문서명') or '')[:28]
         miss = [k for k in ('판독', '번역', '해제', '요약', '이야기') if not (s.get(k) or '').strip()]
         story = s.get('이야기') or ''
-        q = len(re.findall(QRX, story)); unk = (s.get('판독') or '').count('□'); unsure = (s.get('판독') or '').count('(?)')
+        q = len(find_quotes(story)); unk = (s.get('판독') or '').count('□'); unsure = (s.get('판독') or '').count('(?)')
         img = os.path.join(ed, s.get('이미지') or '')
         orig = os.path.join(a.work, s.get('원본경로') or '')
         sib = sorted(glob.glob(os.path.join(os.path.dirname(orig), '*.jpg'))) if s.get('원본경로') else []
@@ -1111,7 +1138,7 @@ def cmd_check(a):
     else:
         empty = [h for k, h, _ in DELIVERY_KEYS if not dv.get(k)]
         print('  ' + ('✓ 11칸 모두 채움' if not empty else '빈 칸: ' + ' · '.join(empty)))
-        if not dv.get('climax') and any(re.search(QRX, s.get('이야기') or '') for s in sel):
+        if not dv.get('climax') and any(find_quotes(s.get('이야기')) for s in sel):
             todo.append(f'절정이 비었습니다 → studio.py delivery --work {a.work} --theme {a.theme} (문구 에디팅 뒤 다시 쓰기)')
         for k in ('emotion', 'linger', 'afterd'):
             if not dv.get(k): todo.append(f'전달 에디팅 「{dict((k2, h) for k2, h, _ in DELIVERY_KEYS)[k]}」 — 사람이 정할 칸')
@@ -1250,6 +1277,7 @@ def main():
     m.add_argument('--placeholder', action='store_true', help='원본 이미지 대신 "뷰어에서 보기" 자리 표시 (이미지 이용 동의 전 공개용)')
     m.add_argument('--img-max', type=int, default=1400, help='웹페이지에 넣는 이미지 최대 픽셀')
     m.add_argument('--url', help='공개할 전시 웹페이지 주소(채널별 홍보안에 넣음)')
+    m.add_argument('--issues', help='판독 고침 제보 받을 곳(GitHub 저장소 주소 또는 이슈 주소, 또는 설문·메일 주소) — 문서마다 「판독 고침 제보」 링크')
     z = sp.add_parser('zoom', help='판독용 확대 조각 → edit/<테마>/zoom/'); z.add_argument('--work', required=True); z.add_argument('--theme', required=True)
     z.add_argument('--only', help='순서 번호 (예: 2,5)'); z.add_argument('--all-pages', action='store_true', help='대표 면만이 아니라 받은 모든 면'); z.add_argument('--rows', type=int); z.add_argument('--cols', type=int)
     z.add_argument('--tile', type=int, default=1100, help='조각 하나의 원본 픽셀 크기(자동 분할 기준)'); z.add_argument('--overlap', type=float, default=0.08); z.add_argument('--max', type=int, default=1400)
