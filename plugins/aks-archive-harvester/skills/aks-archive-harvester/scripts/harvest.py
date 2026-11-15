@@ -132,8 +132,22 @@ def cmd_manifest(a):
                 time.sleep(2)
         d['imgs'] = []
         print('  페이지 목록 실패:', d['name'], file=sys.stderr)
+    prev = {}
+    pj = os.path.join(a.work, 'docs.json')
+    if os.path.exists(pj):
+        prev = {d['id']: d for d in json.load(open(pj)) if d.get('imgs')}
+    todo = []
+    for d in docs:
+        if d['id'] in prev:
+            d['title'], d['imgs'] = prev[d['id']].get('title'), prev[d['id']]['imgs']
+        elif getattr(a, 'tree_only', False) or (getattr(a, 'match', None) and not re.search(a.match, d['name'])):
+            d['title'], d['imgs'] = d['name'], []
+        else:
+            todo.append(d)
+    if getattr(a, 'tree_only', False) or getattr(a, 'match', None):
+        print(f'  페이지 목록은 {len(todo)}건만 가져옵니다 (--tree-only / --match)')
     with ThreadPoolExecutor(4) as ex:
-        list(ex.map(info, docs))
+        list(ex.map(info, todo))
     # 분류명 = 문서 바로 위 폴더 이름 (시작 노드 바로 아래 문서면 --name 또는 dataId)
     cnt = {}
     for d in docs:
@@ -470,7 +484,7 @@ def cmd_find(a):
         if len(hits) > 1 and not a.first:
             print('\n여러 곳이 맞습니다. 하나만 고르려면 검색어를 더 구체적으로 쓰거나 --first 를 붙이세요.'); return
         c = hits[0]
-        cmd_manifest(argparse.Namespace(work=a.manifest, data_url=c['data_url'], name=None))
+        cmd_manifest(argparse.Namespace(work=a.manifest, data_url=c['data_url'], name=None, tree_only=a.tree_only, match=a.match))
         meta = os.path.join(a.manifest, 'collection.json')
         json.dump(c, open(meta, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 
@@ -481,6 +495,8 @@ def main():
     m = sp.add_parser('manifest'); m.add_argument('--work', required=True)
     m.add_argument('--data-url', required=True, help="시작 노드의 data-url (?itemId=book&gubun=...&dataId=...)")
     m.add_argument('--name', help='시작 노드 바로 아래 문서들의 분류명(기본: dataId)')
+    m.add_argument('--tree-only', action='store_true', help='문서 목록만 (페이지 목록 생략 — 큰 소장처를 빨리 훑을 때)')
+    m.add_argument('--match', help='문서명 정규식 — 맞는 문서만 페이지 목록 수집 (이미 받은 것은 유지)')
     d = sp.add_parser('download'); d.add_argument('--work', required=True); d.add_argument('--category')
     d.add_argument('--pages', type=int, help='문서마다 앞에서 N장만 받기 (긴 책을 표지·첫 장만 볼 때)')
     d.add_argument('--match', help='문서명 정규식 — 맞는 문서만 받기 (예: "상량문|건치도")')
@@ -494,6 +510,7 @@ def main():
     ct.add_argument('--tsv', help='batch용 목록 파일로 저장'); ct.add_argument('--refresh', action='store_true')
     fd = sp.add_parser('find'); fd.add_argument('query'); fd.add_argument('--manifest', metavar='WORK', help='찾은 소장처로 바로 manifest')
     fd.add_argument('--first', action='store_true'); fd.add_argument('--refresh', action='store_true')
+    fd.add_argument('--tree-only', action='store_true'); fd.add_argument('--match')
     c = sp.add_parser('curate'); c.add_argument('--work', required=True); c.add_argument('--collection')
     b = sp.add_parser('bundle'); b.add_argument('--work', required=True); b.add_argument('--dest', required=True)
     b.add_argument('--prefix', required=True); b.add_argument('--max-mb', type=int, default=350); b.add_argument('--no-images', action='store_true')

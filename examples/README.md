@@ -14,9 +14,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.26)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.50)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.26)
+## 원문으로 읽는 이야기 (EP.17–EP.50)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -32,6 +32,30 @@
 | [**EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안**](hwangyunseok/) | 고창 흥덕 평해황씨 이재 황윤석 종가 (문중) | 後所生幷永永許給 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep24-hwangyunseok_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep24-hwangyunseok_wide.mp4) · [홍보 글](hwangyunseok/promo.md) |
 | [**EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년**](geochang-hyanggyo/) | 거창 거창향교 (향교) | 風雨漏瀉 榱桷推朽 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep25-geochang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep25-geochang_wide.mp4) · [홍보 글](geochang-hyanggyo/promo.md) |
 | [**EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들**](queen-min-letters-2/) | 국립고궁박물관 (박물관) | 福壽 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep26-gogung_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep26-gogung_wide.mp4) · [홍보 글](queen-min-letters-2/promo.md) |
+| [**EP.27 계약서로 쌓은 집, 강릉 선교장 300년**](seongyojang/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 矣身貧寒所致 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep27-seongyojang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep27-seongyojang_wide.mp4) · [홍보 글](seongyojang/promo.md) |
+| [**EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가**](jeompiljae/) | 고령 선산김씨 점필재 김종직 종가 (문중) | 進士二等第十六人入格 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep28-jeompiljae_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep28-jeompiljae_wide.mp4) · [홍보 글](jeompiljae/promo.md) |
+| [**EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남**](yeoheon/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 此乃眞事業也 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep29-yeoheon_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep29-yeoheon_wide.mp4) · [홍보 글](yeoheon/promo.md) |
+| [**EP.30 "할아버지께 올립니다" — 하회 소년의 경성 유학 엽서**](bukchondaek/) | 안동 하회 풍산류씨 북촌댁 화경당 (문중) | 無事通學하오니 心慮하지마시오소서 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep30-bukchondaek_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep30-bukchondaek_wide.mp4) · [홍보 글](bukchondaek/promo.md) |
+| [**EP.31 "전마 한 필을 내린다" — 임진왜란 장수 박의장의 문서들**](uiijang/) | 영덕 도곡 무안박씨 무의공 박의장 종가 (문중) | 校生朴毅長武科丙科 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep31-uiijang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep31-uiijang_wide.mp4) · [홍보 글](uiijang/promo.md) |
+| [**EP.32 "세 사람이 말하면 호랑이가 된다" — 1805년 진주 사창 사건과 일흔 살 진사**](hahyeop/) | 진주 단목 진양하씨 단지 하협 종가 (문중) | 一人傳之 二人傳之 因成三虎之市者耶 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep32-hahyeop_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep32-hahyeop_wide.mp4) · [홍보 글](hahyeop/promo.md) |
+| [**EP.33 "짐의 가엾은 적자들이 칼날에 다치지 않게 하라" — 수당 이남규의 문서**](sudang/) | 예산 한곡 한산이씨 수당 고택 (문중) | 爾其斯速乘馹上來事 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep33-sudang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep33-sudang_wide.mp4) · [홍보 글](sudang/promo.md) |
+| [**EP.34 "진상할 종이를 맡은 절" — 고성 옥천사가 지킨 산**](okcheonsa/) | 고성 옥천사 보장각 (사찰) | 進獻紙地專責之寺刹也 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep34-okcheonsa_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep34-okcheonsa_wide.mp4) · [홍보 글](okcheonsa/promo.md) |
+| [**EP.35 "만 번 죽고 한 번 사는 바다의 여인" — 제주 중엄리가 간직한 절목**](jungeom/) | 제주 애월 중엄리 (마을) | 入海潛泅 萬死一生之浦女 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep35-jungeom_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep35-jungeom_wide.mp4) · [홍보 글](jungeom/promo.md) |
+| [**EP.36 "얼음과 황벽나무 같은 마음" — 병자호란에 쓰러진 장수 최진립**](choi-ijo/) | 경주 이조 경주최씨 (문중) | 武科丙科第二百六十九人 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep36-choi-ijo_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep36-choi-ijo_wide.mp4) · [홍보 글](choi-ijo/promo.md) |
+| [**EP.37 64년 만에 돌아온 이름 — 학주 김홍욱과 손자 김흥경**](hakju/) | 서산 대교 경주김씨 학주 김홍욱 종가 (문중) | 幼學金興慶生員三等第三十三人 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep37-hakju_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep37-hakju_wide.mp4) · [홍보 글](hakju/promo.md) |
+| [**EP.38 세자 호위에서 영의정까지 — 추탄 오윤겸의 네 장**](chutan/) | 용인 해주오씨 추탄 오윤겸 종가 (문중) | 翊衛司侍直吳允謙 爲 … 副率者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep38-chutan_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep38-chutan_wide.mp4) · [홍보 글](chutan/promo.md) |
+| [**EP.39 "이미 술에 취하고 덕에 배불렀네" — 동래정씨 종가의 시험지와 입양 증명**](jeongnanjong/) | 군포 속달 동래정씨 동래부원군 정난종 종가 (문중) | 族兄師夏第三子始復 爲師伋之後 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep39-jeongnanjong_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep39-jeongnanjong_wide.mp4) · [홍보 글](jeongnanjong/promo.md) |
+| [**EP.40 일주일 뒤에 도착한 부름 — 남원 안터 순흥안씨의 교지**](sajedang/) | 남원 안터 순흥안씨 사제당 안처순 후손가 (문중) | 幼學安處順進士一等第五人 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep40-sajedang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep40-sajedang_wide.mp4) · [홍보 글](sajedang/promo.md) |
+| [**EP.41 "약과 숯을 보내 내 마음을 보인다" — 창계 임영과 숙종의 편지**](changgye/) | 나주 회진 나주임씨 창계 임영 후손가 (문중) | 幼學林泳生員一等第一人 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep41-changgye_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep41-changgye_wide.mp4) · [홍보 글](changgye/promo.md) |
+| [**EP.42 "사육신의 조카, 구동" — 하위지 집안을 이은 한 소년의 소지**](hawiji/) | 안동 송파 진주하씨 하위지 후손가 (문중) | 父紹地亦 河緯地犯罪前 身故 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep42-hawiji_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep42-hawiji_wide.mp4) · [홍보 글](hawiji/promo.md) |
+| [**EP.43 "기러기는 사람을 피하고 해오라기는 사람을 따른다" — 단성향교와 장터**](danseong/) | 산청 단성향교 (향교) | 鴻是避人之鳥 … 鷺是依人之鳥 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep43-danseong_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep43-danseong_wide.mp4) · [홍보 글](danseong/promo.md) |
+| [**EP.44 "파는 이도 자손, 사는 이도 자손" — 고려 충신을 모신 덕남서원**](deoknam/) | 밀양 덕남서원 (서원) | 必先以前朝烈臣 克加襃尙之典 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep44-deoknam_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep44-deoknam_wide.mp4) · [홍보 글](deoknam/promo.md) |
+| [**EP.45 "일흔 살 병든 어머니와 떠돌다가" — 굶주림이 남긴 두 장의 명문**](yongsan/) | 경주 용산서원 (서원) | 糊口無路 絶粮 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep45-yongsan_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep45-yongsan_wide.mp4) · [홍보 글](yongsan/promo.md) |
+| [**EP.46 "큰물이 다 쓸어 갔습니다" — 합천 용연서원의 논과 무덤**](yongyeon/) | 합천 용연서원 (서원) | 己亥大水 蕩盡拋荒 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep46-yongyeon_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep46-yongyeon_wide.mp4) · [홍보 글](yongyeon/promo.md) |
+| [**EP.47 "향안은 선배 어른들의 이름이다" — 김해향교가 지킨 명부**](gimhae-hyanggyo/) | 김해 김해향교 (향교) | 一物不取 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep47-gimhae-hyanggyo_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep47-gimhae-hyanggyo_wide.mp4) · [홍보 글](gimhae-hyanggyo/promo.md) |
+| [**EP.48 "술은 석 잔까지" — 경주 방어리 마을의 약속**](bangeori/) | 경주 외동 방어리 (마을) | 酒三盃外 勿爲進 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep48-bangeori_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep48-bangeori_wide.mp4) · [홍보 글](bangeori/promo.md) |
+| [**EP.49 "글월 보고 잘 있다니 기쁘다" — 아버지 효종이 딸의 편지에 써 준 답장**](cheongju-museum/) | 국립청주박물관 (박물관) | 날이 푸오니 더옥 섭섭ᄒᆞᄋᆞ오미 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep49-cheongju-museum_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep49-cheongju-museum_wide.mp4) · [홍보 글](cheongju-museum/promo.md) |
+| [**EP.50 "너희 놈이 공연히 내 집 땅을" — 대사헌 송규렴의 한글 편지**](gyeonggi-museum/) | 경기도박물관 (박물관) | 너 놈이 곤연히 내 집 뎐토ᄅᆞᆯ | [릴스](https://changgi.github.io/archive-tools/examples/media/ep50-gyeonggi-museum_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep50-gyeonggi-museum_wide.mp4) · [홍보 글](gyeonggi-museum/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -59,7 +83,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 27개
+## 예시 (결과물 갤러리) — 51개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -90,6 +114,30 @@
 | [**EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안**](hwangyunseok/) | 고창 흥덕 평해황씨 이재 황윤석 종가 (문중) | "흉년이 거듭되어 살림이 거덜 나" 밭을 판 농민의 명문, 둘째 아들에게 여종을 준 어머니, 그리고 실학자 황윤석이 옛 전서로 쓴 혼서 | [전시](hwangyunseok/exhibit.html) · [활동지](hwangyunseok/handout.html) · [카드](hwangyunseok/cards/) · [selection.csv](hwangyunseok/selection.csv) |
 | [**EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년**](geochang-hyanggyo/) | 거창 거창향교 (향교) | 전쟁 뒤 무너진 문을 고친 1636년의 기록, 젊은 선비를 기르는 양현재, 문루의 건립 연혁, 그리고 일제강점기의 중수 의연록 | [전시](geochang-hyanggyo/exhibit.html) · [활동지](geochang-hyanggyo/handout.html) · [카드](geochang-hyanggyo/cards/) · [selection.csv](geochang-hyanggyo/selection.csv) |
 | [**EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들**](queen-min-letters-2/) | 국립고궁박물관 (박물관) | 매화와 새, 대나무, 바둑판이 찍힌 편지지 | [전시](queen-min-letters-2/exhibit.html) · [활동지](queen-min-letters-2/handout.html) · [카드](queen-min-letters-2/cards/) · [selection.csv](queen-min-letters-2/selection.csv) |
+| [**EP.27 계약서로 쌓은 집, 강릉 선교장 300년**](seongyojang/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 480장의 땅 문서를 남긴 만석꾼의 집 — 1607년 무명 여덟 필로 산 논에서 일제강점기 은행 저당, 해방… | [전시](seongyojang/exhibit.html) · [활동지](seongyojang/handout.html) · [카드](seongyojang/cards/) · [selection.csv](seongyojang/selection.csv) |
+| [**EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가**](jeompiljae/) | 고령 선산김씨 점필재 김종직 종가 (문중) | 무오사화로 무덤까지 파헤쳐진 점필재 김종직 — 그 집안에 남은 진사 합격증, '문충'이라는 시호, 산지기 임… | [전시](jeompiljae/exhibit.html) · [활동지](jeompiljae/handout.html) · [카드](jeompiljae/cards/) · [selection.csv](jeompiljae/selection.csv) |
+| [**EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남**](yeoheon/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 임금이 열 번 넘게 부른 산림의 학자, 그 부름에 답한 것은 종 애남의 소지였다 — 전쟁 중의 편지, 정묘호… | [전시](yeoheon/exhibit.html) · [활동지](yeoheon/handout.html) · [카드](yeoheon/cards/) · [selection.csv](yeoheon/selection.csv) |
+| [**EP.30 "할아버지께 올립니다" — 하회 소년의 경성 유학 엽서**](bukchondaek/) | 안동 하회 풍산류씨 북촌댁 화경당 (문중) | 1923년 경성제일고보에 다니던 하회마을 북촌댁 소년 류시원이 할아버지·아버지께 보낸 엽서, 그리고 학교가 … | [전시](bukchondaek/exhibit.html) · [활동지](bukchondaek/handout.html) · [카드](bukchondaek/cards/) · [selection.csv](bukchondaek/selection.csv) |
+| [**EP.31 "전마 한 필을 내린다" — 임진왜란 장수 박의장의 문서들**](uiijang/) | 영덕 도곡 무안박씨 무의공 박의장 종가 (문중) | 향교 학생으로 무과에 급제한 박의장, 전쟁 통에 굶어 죽어 가던 피란민을 거둔 집안의 소지, 군량 700석을… | [전시](uiijang/exhibit.html) · [활동지](uiijang/handout.html) · [카드](uiijang/cards/) · [selection.csv](uiijang/selection.csv) |
+| [**EP.32 "세 사람이 말하면 호랑이가 된다" — 1805년 진주 사창 사건과 일흔 살 진사**](hahyeop/) | 진주 단목 진양하씨 단지 하협 종가 (문중) | 환곡 폐단을 고발한 소장에 이름이 엮여 병영 옥에 갇힌 일흔 살 진사 하진백, 아버지를 대신해 글을 올린 두… | [전시](hahyeop/exhibit.html) · [활동지](hahyeop/handout.html) · [카드](hahyeop/cards/) · [selection.csv](hahyeop/selection.csv) |
+| [**EP.33 "짐의 가엾은 적자들이 칼날에 다치지 않게 하라" — 수당 이남규의 문서**](sudang/) | 예산 한곡 한산이씨 수당 고택 (문중) | 6대조에게 내려온 '서둘러 올라오라'는 유지, 붉은 홍패, 의병을 달래라는 고종의 칙유, 그리고 근대 법정에… | [전시](sudang/exhibit.html) · [활동지](sudang/handout.html) · [카드](sudang/cards/) · [selection.csv](sudang/selection.csv) |
+| [**EP.34 "진상할 종이를 맡은 절" — 고성 옥천사가 지킨 산**](okcheonsa/) | 고성 옥천사 보장각 (사찰) | 나라에 바칠 종이를 만드는 절이었기에 산을 지켜야 했던 옥천사. 암행어사의 완문, 의정부의 완문, 그리고 대… | [전시](okcheonsa/exhibit.html) · [활동지](okcheonsa/handout.html) · [카드](okcheonsa/cards/) · [selection.csv](okcheonsa/selection.csv) |
+| [**EP.35 "만 번 죽고 한 번 사는 바다의 여인" — 제주 중엄리가 간직한 절목**](jungeom/) | 제주 애월 중엄리 (마을) | 해녀의 미역을 헐값에 빼앗던 폐단을 없앤 1794년 절목, 명절 제사상 전복을 둘러싼 1844년 절목, 그리… | [전시](jungeom/exhibit.html) · [활동지](jungeom/handout.html) · [카드](jungeom/cards/) · [selection.csv](jungeom/selection.csv) |
+| [**EP.36 "얼음과 황벽나무 같은 마음" — 병자호란에 쓰러진 장수 최진립**](choi-ijo/) | 경주 이조 경주최씨 (문중) | 269등으로 무과에 붙은 부장, 임금이 '청렴함이 늙을수록 굳다'고 쓴 교서, 남한산성 아래 전사한 아버지를… | [전시](choi-ijo/exhibit.html) · [활동지](choi-ijo/handout.html) · [카드](choi-ijo/cards/) · [selection.csv](choi-ijo/selection.csv) |
+| [**EP.37 64년 만에 돌아온 이름 — 학주 김홍욱과 손자 김흥경**](hakju/) | 서산 대교 경주김씨 학주 김홍욱 종가 (문중) | 상소 하나로 목숨을 잃은 황해도관찰사 김홍욱. 한 달 사이 생원과 문과에 붙은 손자, 64년 만에 할아버지의… | [전시](hakju/exhibit.html) · [활동지](hakju/handout.html) · [카드](hakju/cards/) · [selection.csv](hakju/selection.csv) |
+| [**EP.38 세자 호위에서 영의정까지 — 추탄 오윤겸의 네 장**](chutan/) | 용인 해주오씨 추탄 오윤겸 종가 (문중) | 전쟁 중 세자를 지키던 하급 무관직, 지중추부사, '서둘러 올라오라'는 우의정 임명 유서, 그리고 영의정의 … | [전시](chutan/exhibit.html) · [활동지](chutan/handout.html) · [카드](chutan/cards/) · [selection.csv](chutan/selection.csv) |
+| [**EP.39 "이미 술에 취하고 덕에 배불렀네" — 동래정씨 종가의 시험지와 입양 증명**](jeongnanjong/) | 군포 속달 동래정씨 동래부원군 정난종 종가 (문중) | 대가 끊긴 공신 집안에 양자를 세워 준 예조의 입안, 서른셋 선비가 『시경』 구절로 써 낸 과거 답안지와 같… | [전시](jeongnanjong/exhibit.html) · [활동지](jeongnanjong/handout.html) · [카드](jeongnanjong/cards/) · [selection.csv](jeongnanjong/selection.csv) |
+| [**EP.40 일주일 뒤에 도착한 부름 — 남원 안터 순흥안씨의 교지**](sajedang/) | 남원 안터 순흥안씨 사제당 안처순 후손가 (문중) | 1513년 진사 백패와 이듬해 문과 홍패를 받은 안처순, 그리고 235년 뒤 후손 안극효에게 차례로 내려온 … | [전시](sajedang/exhibit.html) · [활동지](sajedang/handout.html) · [카드](sajedang/cards/) · [selection.csv](sajedang/selection.csv) |
+| [**EP.41 "약과 숯을 보내 내 마음을 보인다" — 창계 임영과 숙종의 편지**](changgye/) | 나주 회진 나주임씨 창계 임영 후손가 (문중) | 생원시 장원 백패, '동짓날 관문을 닫는다'를 주제로 쓴 답안지와 홍패, 그리고 병든 개성유수에게 임금이 직… | [전시](changgye/exhibit.html) · [활동지](changgye/handout.html) · [카드](changgye/cards/) · [selection.csv](changgye/selection.csv) |
+| [**EP.42 "사육신의 조카, 구동" — 하위지 집안을 이은 한 소년의 소지**](hawiji/) | 안동 송파 진주하씨 하위지 후손가 (문중) | 1456년 사육신 하위지가 처형된 뒤, 그 동생의 어린 아들 구동이 빼앗긴 아버지의 노비를 돌려 달라고 올린… | [전시](hawiji/exhibit.html) · [활동지](hawiji/handout.html) · [카드](hawiji/cards/) · [selection.csv](hawiji/selection.csv) |
+| [**EP.43 "기러기는 사람을 피하고 해오라기는 사람을 따른다" — 단성향교와 장터**](danseong/) | 산청 단성향교 (향교) | 읍내에 장을 열면 고을에 화가 든다 — 풍수를 근거로 장터를 옛 자리로 돌려 달라는 1881년 향회의 품목,… | [전시](danseong/exhibit.html) · [활동지](danseong/handout.html) · [카드](danseong/cards/) · [selection.csv](danseong/selection.csv) |
+| [**EP.44 "파는 이도 자손, 사는 이도 자손" — 고려 충신을 모신 덕남서원**](deoknam/) | 밀양 덕남서원 (서원) | 고려가 망할 때 벼슬을 버린 송은 박익을 기려 달라는 1834년 경상도 유생들의 계초, 그리고 34년 뒤 서… | [전시](deoknam/exhibit.html) · [활동지](deoknam/handout.html) · [카드](deoknam/cards/) · [selection.csv](deoknam/selection.csv) |
+| [**EP.45 "일흔 살 병든 어머니와 떠돌다가" — 굶주림이 남긴 두 장의 명문**](yongsan/) | 경주 용산서원 (서원) | 임진왜란 이듬해 남편을 잃은 여인이 열한 살 딸을 내놓은 1593년 명문, 그리고 215년 뒤 늙은 어머니를… | [전시](yongsan/exhibit.html) · [활동지](yongsan/handout.html) · [카드](yongsan/cards/) · [selection.csv](yongsan/selection.csv) |
+| [**EP.46 "큰물이 다 쓸어 갔습니다" — 합천 용연서원의 논과 무덤**](yongyeon/) | 합천 용연서원 (서원) | 홍수로 서원의 논이 쓸려 간 뒤 둑을 다시 쌓아 달라는 1709년 상서, 그리고 170년 뒤 13대조 무덤 … | [전시](yongyeon/exhibit.html) · [활동지](yongyeon/handout.html) · [카드](yongyeon/cards/) · [selection.csv](yongyeon/selection.csv) |
+| [**EP.47 "향안은 선배 어른들의 이름이다" — 김해향교가 지킨 명부**](gimhae-hyanggyo/) | 김해 김해향교 (향교) | 떠나는 사또의 선정을 기려 달라고 관찰사에게 올린 1622년 상서, 그리고 젊은 향원들이 멋대로 이름을 써넣… | [전시](gimhae-hyanggyo/exhibit.html) · [활동지](gimhae-hyanggyo/handout.html) · [카드](gimhae-hyanggyo/cards/) · [selection.csv](gimhae-hyanggyo/selection.csv) |
+| [**EP.48 "술은 석 잔까지" — 경주 방어리 마을의 약속**](bangeori/) | 경주 외동 방어리 (마을) | 역병과 흉년 뒤에 다시 고쳐 쓴 동계 완의 — 모임에서 술 때문에 다툼이 나니 석 잔만 마시자는 첫 조항, … | [전시](bangeori/exhibit.html) · [활동지](bangeori/handout.html) · [카드](bangeori/cards/) · [selection.csv](bangeori/selection.csv) |
+| [**EP.49 "글월 보고 잘 있다니 기쁘다" — 아버지 효종이 딸의 편지에 써 준 답장**](cheongju-museum/) | 국립청주박물관 (박물관) | 출가한 숙명공주가 아버지 효종께 올린 작은 글씨의 문안 편지, 그 행간에 큰 글씨로 답장을 적어 돌려보낸 임… | [전시](cheongju-museum/exhibit.html) · [활동지](cheongju-museum/handout.html) · [카드](cheongju-museum/cards/) · [selection.csv](cheongju-museum/selection.csv) |
+| [**EP.50 "너희 놈이 공연히 내 집 땅을" — 대사헌 송규렴의 한글 편지**](gyeonggi-museum/) | 경기도박물관 (박물관) | 도지 넉 섬을 두고 남의 집 노비를 꾸짖은 1692년 편지, 딸에게 '네 편지는 상자의 답장으로 보았다'고 … | [전시](gyeonggi-museum/exhibit.html) · [활동지](gyeonggi-museum/handout.html) · [카드](gyeonggi-museum/cards/) · [selection.csv](gyeonggi-museum/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -114,7 +162,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 27개
+### 카드뉴스 미리보기 — 51개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -145,8 +193,32 @@
 | EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안 | ![](hwangyunseok/cards/00_표지.jpg) | ![](hwangyunseok/cards/01.jpg) | ![](hwangyunseok/cards/02.jpg) |
 | EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년 | ![](geochang-hyanggyo/cards/00_표지.jpg) | ![](geochang-hyanggyo/cards/01.jpg) | ![](geochang-hyanggyo/cards/02.jpg) |
 | EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | ![](queen-min-letters-2/cards/00_표지.jpg) | ![](queen-min-letters-2/cards/01.jpg) | ![](queen-min-letters-2/cards/02.jpg) |
+| EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | ![](seongyojang/cards/00_표지.jpg) | ![](seongyojang/cards/01.jpg) | ![](seongyojang/cards/02.jpg) |
+| EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가 | ![](jeompiljae/cards/00_표지.jpg) | ![](jeompiljae/cards/01.jpg) | ![](jeompiljae/cards/02.jpg) |
+| EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남 | ![](yeoheon/cards/00_표지.jpg) | ![](yeoheon/cards/01.jpg) | ![](yeoheon/cards/02.jpg) |
+| EP.30 "할아버지께 올립니다" — 하회 소년의 경성 유학 엽서 | ![](bukchondaek/cards/00_표지.jpg) | ![](bukchondaek/cards/01.jpg) | ![](bukchondaek/cards/02.jpg) |
+| EP.31 "전마 한 필을 내린다" — 임진왜란 장수 박의장의 문서들 | ![](uiijang/cards/00_표지.jpg) | ![](uiijang/cards/01.jpg) | ![](uiijang/cards/02.jpg) |
+| EP.32 "세 사람이 말하면 호랑이가 된다" — 1805년 진주 사창 사건과 일흔 살 진사 | ![](hahyeop/cards/00_표지.jpg) | ![](hahyeop/cards/01.jpg) | ![](hahyeop/cards/02.jpg) |
+| EP.33 "짐의 가엾은 적자들이 칼날에 다치지 않게 하라" — 수당 이남규의 문서 | ![](sudang/cards/00_표지.jpg) | ![](sudang/cards/01.jpg) | ![](sudang/cards/02.jpg) |
+| EP.34 "진상할 종이를 맡은 절" — 고성 옥천사가 지킨 산 | ![](okcheonsa/cards/00_표지.jpg) | ![](okcheonsa/cards/01.jpg) | ![](okcheonsa/cards/02.jpg) |
+| EP.35 "만 번 죽고 한 번 사는 바다의 여인" — 제주 중엄리가 간직한 절목 | ![](jungeom/cards/00_표지.jpg) | ![](jungeom/cards/01.jpg) | ![](jungeom/cards/02.jpg) |
+| EP.36 "얼음과 황벽나무 같은 마음" — 병자호란에 쓰러진 장수 최진립 | ![](choi-ijo/cards/00_표지.jpg) | ![](choi-ijo/cards/01.jpg) | ![](choi-ijo/cards/02.jpg) |
+| EP.37 64년 만에 돌아온 이름 — 학주 김홍욱과 손자 김흥경 | ![](hakju/cards/00_표지.jpg) | ![](hakju/cards/01.jpg) | ![](hakju/cards/02.jpg) |
+| EP.38 세자 호위에서 영의정까지 — 추탄 오윤겸의 네 장 | ![](chutan/cards/00_표지.jpg) | ![](chutan/cards/01.jpg) | ![](chutan/cards/02.jpg) |
+| EP.39 "이미 술에 취하고 덕에 배불렀네" — 동래정씨 종가의 시험지와 입양 증명 | ![](jeongnanjong/cards/00_표지.jpg) | ![](jeongnanjong/cards/01.jpg) | ![](jeongnanjong/cards/02.jpg) |
+| EP.40 일주일 뒤에 도착한 부름 — 남원 안터 순흥안씨의 교지 | ![](sajedang/cards/00_표지.jpg) | ![](sajedang/cards/01.jpg) | ![](sajedang/cards/02.jpg) |
+| EP.41 "약과 숯을 보내 내 마음을 보인다" — 창계 임영과 숙종의 편지 | ![](changgye/cards/00_표지.jpg) | ![](changgye/cards/01.jpg) | ![](changgye/cards/02.jpg) |
+| EP.42 "사육신의 조카, 구동" — 하위지 집안을 이은 한 소년의 소지 | ![](hawiji/cards/00_표지.jpg) | ![](hawiji/cards/01.jpg) | ![](hawiji/cards/02.jpg) |
+| EP.43 "기러기는 사람을 피하고 해오라기는 사람을 따른다" — 단성향교와 장터 | ![](danseong/cards/00_표지.jpg) | ![](danseong/cards/01.jpg) | ![](danseong/cards/02.jpg) |
+| EP.44 "파는 이도 자손, 사는 이도 자손" — 고려 충신을 모신 덕남서원 | ![](deoknam/cards/00_표지.jpg) | ![](deoknam/cards/01.jpg) | ![](deoknam/cards/02.jpg) |
+| EP.45 "일흔 살 병든 어머니와 떠돌다가" — 굶주림이 남긴 두 장의 명문 | ![](yongsan/cards/00_표지.jpg) | ![](yongsan/cards/01.jpg) | ![](yongsan/cards/02.jpg) |
+| EP.46 "큰물이 다 쓸어 갔습니다" — 합천 용연서원의 논과 무덤 | ![](yongyeon/cards/00_표지.jpg) | ![](yongyeon/cards/01.jpg) | ![](yongyeon/cards/02.jpg) |
+| EP.47 "향안은 선배 어른들의 이름이다" — 김해향교가 지킨 명부 | ![](gimhae-hyanggyo/cards/00_표지.jpg) | ![](gimhae-hyanggyo/cards/01.jpg) | ![](gimhae-hyanggyo/cards/02.jpg) |
+| EP.48 "술은 석 잔까지" — 경주 방어리 마을의 약속 | ![](bangeori/cards/00_표지.jpg) | ![](bangeori/cards/01.jpg) | ![](bangeori/cards/02.jpg) |
+| EP.49 "글월 보고 잘 있다니 기쁘다" — 아버지 효종이 딸의 편지에 써 준 답장 | ![](cheongju-museum/cards/00_표지.jpg) | ![](cheongju-museum/cards/01.jpg) | ![](cheongju-museum/cards/02.jpg) |
+| EP.50 "너희 놈이 공연히 내 집 땅을" — 대사헌 송규렴의 한글 편지 | ![](gyeonggi-museum/cards/00_표지.jpg) | ![](gyeonggi-museum/cards/01.jpg) | ![](gyeonggi-museum/cards/02.jpg) |
 
-### 에디팅 전과 후 — 27개 (예시마다 첫 문서)
+### 에디팅 전과 후 — 51개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -179,6 +251,30 @@
 | EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안 | 1686년 모(母) 이씨(李氏) 분재기(分財記) | 1686년 이씨의 분재기 — 재산 상속을 기록한 문서. | 1686년 겨울, 한 어머니가 둘째 아들에게 문서를 써 준다. 큰아들에게 이미 몫을 주었으니 둘째에게도 주지 않을 수 없다는 것이다. "뒤에 낳을 자식까지 아울러 영원히 준다(後所生幷永永許給)." 증인과 붓을 잡은 사람은 남편 쪽 친척들이었다. | 어머니가 큰아들에게 이미 재산을 따로 준 만큼, 어렵게 자라 가정을 꾸린 둘째 아들에게도 여종 한 명과 그 자식을 영원히 물려준다는 문서입니다. |
 | EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년 | 1636년 서재신문 중수기(西齋神門重修記) | 1636년 중수기. | 1636년 봄, 거창향교의 선비들이 공사 기록을 남긴다. "세월이 오래되어 비바람에 새고, 서까래가 썩고 기와가 무너져(風雨漏瀉 榱桷推朽) 고을의 선비들이 탄식했다." 새로 온 원님과 선비들이 힘을 모아 학교의 문을 다시 세웠다. 그해 겨울, 병자호란이 일어난다. | 비바람에 썩고 무너진 향교의 서재와 문을 두고 선비들이 오래 안타까워하던 중, 새로 온 현감이 수리를 의논했고, 나라의 상중에도 제사 비용을 아껴 고쳐 냈다는 기록입니다. |
 | EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | 1886년 명성황후가 민영소에게 보낸 편지 | 1886년 편지 — 편지. | 1886년, 왕비가 조카에게 편지를 쓴다. 봉투에는 초록 글씨로 '복과 장수(福壽)'가 찍혀 있고, 편지지에는 매화 가지에 앉은 새가 눌러 찍혀 있다. 첫 줄은 늘 같다. "글시 보고 야간 잘 잇던 일 든든ᄒᆞ며(편지 보고 밤사이 잘 지낸 일 든든하며)." | 늘 그렇듯 '편지 보고 든든하다, 임금과 세자는 평안하시다, 나는 그대로다'라는 안부로 시작해, 날씨와 몇 가지 일을 짧게 묻는 편지입니다. '福壽'라고 찍힌 봉투와 매화·새 무늬 편지지가 함께 남았습니다. |
+| EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | 매도계약서(賣渡契約書) | 매도계약서. | 그리고 해방 뒤, 이 집은 땅을 판다. "매도 대금 80만 환(賣渡代金八拾萬圜整), 계약금 10만 환은 오늘 받고." 갑과 을, 계약금, 위약금. 1607년의 명문과 같은 일을 하는 문서지만, 이제 우리가 아는 계약서의 모습이다. 땅을 사 모으던 집이, 문서로 남긴 300년이다. | 선교장 집안이 강릉 운정리(?)의 논 약 2,500평을 80만 환에 팔면서, 계약금 10만 환과 잔금 70만 환의 지급 조건을 적은 현대식 매도 계약서입니다. |
+| EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가 | 1568년 김뉴(金紐) 진사 백패(進士白牌) | 1568년 김뉴의 백패 — 소과(생원·진사시) 합격 증서. | 1498년 무오사화. 세상을 떠난 지 6년 된 김종직의 무덤이 파헤쳐진다. 70년 뒤, 그 집안에 흰 종이 한 장이 온다. "유학 김뉴, 진사 2등 제16인 합격(進士二等第十六人入格)." 집안이 다시 과거장에 나선 것이다. | 점필재 집안의 김뉴가 진사시에 2등 16번째로 합격했음을 증명하는 흰 종이의 합격증입니다. |
+| EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남 | 1597년 여헌선생수찰(旅軒先生手札) | 1597년 여헌선생수찰. | 전쟁이 아직 끝나지 않은 봄, 젊은 학자 장현광이 산속의 벗에게 편지를 쓴다. "고요하고 한가한 가운데 책을 읽고, 몸과 집안의 법도를 세우는 것, 이것이 참된 사업입니다(此乃眞事業也)." 그는 평생 그 말대로 살았다. | 전쟁 중 산속에 사는 벗에게 봄 경치와 안부를 묻고, '고요한 가운데 책을 읽고 몸과 집안의 법도를 세우는 것이 참된 사업'이라고 권한 편지입니다. |
+| EP.30 "할아버지께 올립니다" — 하회 소년의 경성 유학 엽서 | 1923년 류시원(柳時元) 엽서(葉書)－01 | 1923년 류시원의 엽서. | 1923년 겨울, 하회마을의 한 소년이 서울에서 엽서를 쓴다. 받는 사람은 할아버지. 옛 편지 서식 그대로 시작해, 한글 토씨로 이어 간다. "12월 2일 서울에 올라와 무사히 학교에 다니오니 걱정하지 마십시오(無事通學하오니 心慮하지마시오소서)." | 서울로 돌아간 손자가 혹한에 할아버지·할머니의 안부를 여쭙고, 자신은 각기병이 조금 나았고 12월 2일 상경해 무사히 학교에 다니니 걱정 마시라고 전한 엽서입니다. |
+| EP.31 "전마 한 필을 내린다" — 임진왜란 장수 박의장의 문서들 | 1577년 박의장(朴毅長) 무과 홍패(武科紅牌) | 1577년 박의장의 홍패 — 문과·무과 합격 증서. | 1577년 가을, 영덕의 향교 학생이 무과에 붙는다. 홍패에는 그의 신분이 그대로 적혀 있다. "교생 박의장을 무과 병과 급제자로 삼는다(校生朴毅長武科丙科)." 15년 뒤 전쟁이 온다. | 향교 학생 박의장이 23세에 무과 병과로 급제했음을 증명하는 홍패입니다. 순위 부분은 훼손되어 '十八'로 일부만 읽힙니다. |
+| EP.32 "세 사람이 말하면 호랑이가 된다" — 1805년 진주 사창 사건과 일흔 살 진사 | 1805년 하진백(河鎭伯) 상서(上書) | 1805년 하진백의 상서. | 1805년 봄, 진주의 일흔 살 진사 하진백이 병마절도사에게 글을 올린다. 환곡 폐단을 고발한 소장 사건에, 대대로 원수였던 최학우가 그의 이름을 엮어 넣었다. 선산 아래 밭을 15냥에 산 것이 의심을 샀다. "한 사람이 전하고 두 사람이 전하여, 세 사람이 말하면 호랑이가 된다는 꼴이 된 것입니까(一人傳之 二人傳之 因成三虎之市者耶)." | 일흔 가까운 진사 하진백이 '나는 환곡을 받지 않으니 이해관계가 없고, 사창은 주자의 옛 제도라 좋다고 말했을 뿐이며, 최학우와는 대대로 산송을 벌인 원수 사이라 한패일 수 없다'고 해명합니다. 최학우가 의송을 지어 달라, 노자를 빌려 달라 했으나 거절했고, 그가 내놓은 선산 아래 밭을 15냥에 산 것이 오해를 불렀다며 '세 사람이 말하면 호랑이가 된다'는 꼴이라고 호소합니다. |
+| EP.33 "짐의 가엾은 적자들이 칼날에 다치지 않게 하라" — 수당 이남규의 문서 | 1756년 이수일(李秀逸) 유지(有旨) | 1756년 이수일의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 예산 한곡의 수당 고택. 이야기는 1756년 한 장의 명령서에서 시작한다. "너를 사헌부 지평으로 삼으니, 서둘러 역마를 타고 올라오라(爾其斯速乘馹上來事)." 이 집안 사람이 나라의 부름에 응한 기록이다. | 이수일을 사헌부 지평에 임명하니 역마를 타고 속히 서울로 올라오라는 임금의 명령서입니다. |
+| EP.34 "진상할 종이를 맡은 절" — 고성 옥천사가 지킨 산 | 1854년 암행어사(暗行御史) 완문(完文) | 1854년 암행어사의 완문 — 권리·특혜를 확인해 준 관의 증명서. | 경남 고성의 옥천사. 1854년, 암행어사가 이 절에 한 권의 완문을 써 준다. 첫 문장이 이 절의 정체를 밝힌다. "옥천사는 진헌하는 종이를 전적으로 맡은 절이다(進獻紙地專責之寺刹也)." 그래서 절은 산을 지켜야 했다. | 옥천사는 진상용 종이를 전담하는 절이니, 처음 정한 사방 산의 경계 안에서 몰래 화전을 일구는 자를 따로 금하고 단속하라는 암행어사의 확인서입니다. |
+| EP.35 "만 번 죽고 한 번 사는 바다의 여인" — 제주 중엄리가 간직한 절목 | 1794년 잠녀무곽잡곽혁파절목(潛女貿藿雜藿革罷節目) | 1794년 잠녀무곽잡곽혁파절목 — 지켜야 할 규정·조항을 정리한 문서. | 제주 애월 중엄리. 마을은 230년 된 절목 한 권을 간직해 왔다. 1794년, 섬에 온 어사는 해녀의 미역을 헐값에 빼앗던 관행을 없애며 이렇게 적었다. "바다에 들어가 자맥질하며, 만 번 죽고 한 번 사는 포구의 여인(入海潛泅 萬死一生之浦女)." | 제주 백성의 여러 폐단 가운데 해녀에게 지우는 부담이 가장 심하다. 바다 세금과 역은 없앨 수 없지만, '사들인다'며 절반 값만 주고 미역을 빼앗아 온갖 수요를 대게 하는 것은 큰 폐단이므로 혁파한다는 어사의 절목입니다. |
+| EP.36 "얼음과 황벽나무 같은 마음" — 병자호란에 쓰러진 장수 최진립 | 1594년 최진립(崔震立) 무과 홍패(武科紅牌) | 1594년 최진립의 홍패 — 문과·무과 합격 증서. | 경주 이조리의 최씨 집안. 첫 문서는 임진왜란 한복판 1594년의 홍패다. 순위가 눈에 띈다. "부장 최진립을 무과 병과 제269인으로 급제한 사람으로 삼는다(武科丙科第二百六十九人)." 전쟁은 장수가 필요했다. | 전쟁 중이던 1594년, 부장 최진립이 무과 병과 269등으로 급제했음을 증명하는 홍패입니다. |
+| EP.37 64년 만에 돌아온 이름 — 학주 김홍욱과 손자 김흥경 | 1699년 김흥경(金興慶) 생원 백패(生員白牌) | 1699년 김흥경의 백패 — 소과(생원·진사시) 합격 증서. | 1699년 봄, 스물셋의 김흥경이 생원시에 붙는다. "유학 김흥경을 생원 3등 제33인으로 합격한 사람으로 삼는다(幼學金興慶生員三等第三十三人)." 그의 할아버지 이름은 아직 죄인의 명부에 있었다. | 선비 김흥경이 생원시에 3등 33인으로 합격했음을 증명하는 백패입니다. |
+| EP.38 세자 호위에서 영의정까지 — 추탄 오윤겸의 네 장 | 1595년 오윤겸(吳允謙) 고신(告身)－1 | 1595년 오윤겸의 고신 — 국왕이 관직·품계를 내린 임명장. | 1595년, 전쟁 4년째. 서른일곱의 오윤겸은 세자를 호위하는 낮은 관직에 있었다. "세자익위사 시직 오윤겸을 부솔로 삼는다(翊衛司侍直吳允謙 爲 … 副率者)." 종7품. 긴 길의 시작이었다. | 세자 호위 관청의 시직(정8품)이던 오윤겸을 한 단계 올려 부솔로 삼는다는 병조의 임명장입니다. |
+| EP.39 "이미 술에 취하고 덕에 배불렀네" — 동래정씨 종가의 시험지와 입양 증명 | 1756년 예조(禮曹) 입안(立案) | 1756년 예조의 입안. | 군포 속달의 동래정씨 종가. 1756년, 대가 끊길 위기가 온다. 예조는 특별한 문서를 써 준다. "족형 사하의 셋째 아들 시복을 사급의 뒤로 삼아(族兄師夏第三子始復 爲師伋之後), 동래군의 제사를 받들게 한다." 종가는 이렇게 이어졌다. | 공신 정난종의 제사를 잇던 정사급이 아들 없이 부부가 모두 죽자, 친척 정사하의 셋째 아들 정시복을 양자로 세워 제사를 잇게 한다는 예조의 공증 문서로 보입니다. |
+| EP.40 일주일 뒤에 도착한 부름 — 남원 안터 순흥안씨의 교지 | 1513년 안처순(安處順) 진사 백패(進士白牌) | 1513년 안처순의 백패 — 소과(생원·진사시) 합격 증서. | 남원 안터의 순흥안씨 집안. 가장 오래된 종이는 500년 전의 백패다. "유학 안처순을 진사 1등 제5인으로 합격한 사람으로 삼는다(幼學安處順進士一等第五人)." 스물한 살이었다. | 선비 안처순이 진사시에 1등 5인으로 합격했음을 증명하는 백패입니다. |
+| EP.41 "약과 숯을 보내 내 마음을 보인다" — 창계 임영과 숙종의 편지 | 1666년 임영(林泳) 생원 백패(生員白牌) | 1666년 임영의 백패 — 소과(생원·진사시) 합격 증서. | 전남 나주 회진의 나주임씨 집안. 1666년, 열여덟 살 소년이 생원시 장원을 한다. "유학 임영을 생원 1등 제1인으로 합격한 사람으로 삼는다(幼學林泳生員一等第一人)." | 열여덟 살 임영이 생원시에 장원(1등 1인)으로 합격했음을 증명하는 백패입니다. |
+| EP.42 "사육신의 조카, 구동" — 하위지 집안을 이은 한 소년의 소지 | 1461년 하원(河源) 소지(所志) | 1461년 하원의 소지 — 관에 올린 청원서. | 1456년, 단종 복위를 꾀한 사육신 하위지가 처형된다. 5년 뒤 1461년, 그의 조카인 어린 구동이 관아에 글을 올린다. "아버지 소지는 하위지가 죄를 짓기 전에 이미 죽었으므로 연좌되지 않았습니다(父紹地亦 河緯地犯罪前 身故)." 그런데 아버지의 노비까지 함께 빼앗겼다. 소년은 그것을 돌려 달라고 했다. | 사육신 하위지의 동생 하소지는 사건 전에 죽어 연좌 대상이 아니었는데, 그 노비까지 하위지의 노비로 몰수되었으니 분재기를 살펴 아들 구동에게 돌려 달라는 청원입니다. 관은 같은 달 입안을 발급했습니다. |
+| EP.43 "기러기는 사람을 피하고 해오라기는 사람을 따른다" — 단성향교와 장터 | 1881년 향회회원(鄕會會員) 품목(稟目) | 1881년 향회회원의 품목 — 관청에 올린 보고·청원. | 경남 산청의 단성. 1881년 가을, 고을 선비 스무 명이 사또에게 글을 올린다. 장터를 읍내 밖으로 내보내 달라는 것이다. 이유는 풍수였다. "기러기는 사람을 피하는 새이니 읍내에 장을 열 수 없고, 해오라기는 사람을 따르는 새이다(鴻是避人之鳥 … 鷺是依人之鳥)." 장이 들어온 뒤 살인과 과거 중단이 잇따랐다고 그들은 적었다. | 단성 고을은 지형이 '기러기가 강에 내려앉는 형국'이라 사람을 피하는 기러기를 놀라게 하지 않으려고 300년 동안 읍내에 장을 열지 않았다. 아전들이 이익 때문에 장을 끌어들이자 재앙이 잇따랐으니, 장터를 옛 규정대로 내보내 달라는 향회의 청원입니다. |
+| EP.44 "파는 이도 자손, 사는 이도 자손" — 고려 충신을 모신 덕남서원 | 1834년 경상도(慶尙道) 유생(儒生) 계초(啓草) | 1834년 경상도, 유생의 계초. | 경남 밀양의 덕남서원은 고려 말 충신 송은 박익과 그 아들들을 모신 곳이다. 1834년, 경상도 유생들이 270cm가 넘는 두루마리에 임금께 올릴 글을 쓴다. 조선을 세운 태조조차 고려 충신을 높였다는 것이다. "반드시 먼저 고려의 열신에게 기리는 은전을 더하셨다(必先以前朝烈臣 克加襃尙之典)." | 충신을 기리는 것은 나라의 법이고, 태조도 고려 충신 정몽주 등을 높였으니, 같은 고려의 충신 박익에게도 은전을 내려 달라는 경상도 유생들의 청원 초안입니다(앞부분만 판독). |
+| EP.45 "일흔 살 병든 어머니와 떠돌다가" — 굶주림이 남긴 두 장의 명문 | 1593년 조광의(趙光義) 소지(所志) | 1593년 조광의의 소지 — 관에 올린 청원서. | 경주 용산서원에 전하는 문서 가운데 가장 무거운 것은 두 장의 명문이다. 1593년, 임진왜란 이듬해. 남편을 잃은 여인이 이름 대신 손마디를 그려 넣는다. "입에 풀칠할 길이 없고 양식이 끊어져(糊口無路 絶粮)." 전쟁은 굶주림이었고, 굶주림은 사람을 팔게 했다. | 전란으로 떠돌다 남편을 잃고 양식이 끊어진 여인이 아이 한 명을 값을 받고 영영 넘긴다는 매매 계약서로 보입니다(판독 불확실). |
+| EP.46 "큰물이 다 쓸어 갔습니다" — 합천 용연서원의 논과 무덤 | 1709년 용연서원(龍淵書院) 상서(上書) | 1709년 용연서원의 상서. | 경남 합천의 용연서원. 1709년, 유생들이 사또에게 서원의 논을 이야기한다. 강가의 논이었다. "기해년 큰물에 다 쓸려 가 황무지가 되었습니다(己亥大水 蕩盡拋荒)." 둑을 쌓고 다시 일군 논이 서원 제사의 밑천이었다. | 용연서원은 박인 선생을 모신 곳인데 재정이 넉넉지 않았고, 서원의 논이 기해년 큰물에 쓸려 갔다가 관의 도움으로 둑을 쌓아 다시 논이 되었으니, 둑과 논을 지켜 달라는 유생들의 청원입니다(뒷부분 판독 필요). |
+| EP.47 "향안은 선배 어른들의 이름이다" — 김해향교가 지킨 명부 | 1622년 조향해(曹享海) 상서(上書) | 1622년 조향해의 상서. | 경남 김해향교. 가장 오래된 문서는 400년 전, 사또를 칭찬하는 글이다. 1622년 겨울, 고을 사람이 관찰사에게 쓴다. "한 물건도 취하지 않았다(一物不取)." 좋은 사또는 고을의 기억이 되었다. | 김해부사가 어질고 청렴하여 농사를 권하고 가난한 백성을 돌보며 한 물건도 받지 않았으니, 그 선정을 관찰사가 살펴 드러내 달라는 고을 사람의 청원으로 보입니다(판독 불확실). |
+| EP.48 "술은 석 잔까지" — 경주 방어리 마을의 약속 | 동계절목책(洞契節目冊) | 동계절목책 — 지켜야 할 규정·조항을 정리한 문서. | 경주 외동의 방어리. 마을 사람들이 스스로 만든 약속 책이 남아 있다. 역병과 흉년을 지나며 다시 고쳐 쓴 규약의 첫 조항은 뜻밖에도 술이다. "모임 때 술 때문에 다툼이 생기니, 지금부터 술은 석 잔 외에는 내지 말 것(酒三盃外 勿爲進)." | 마을 계를 만든 뒤 역병과 흉년으로 규약이 흐트러졌으니 모임에서 절목을 고쳐 정한다. 첫 조항은, 강신회 때 술 때문에 다툼이 잦으니 앞으로 술은 석 잔까지만 낸다는 것입니다. |
+| EP.49 "글월 보고 잘 있다니 기쁘다" — 아버지 효종이 딸의 편지에 써 준 답장 | 숙명공주가 효종에게 보낸 문안 편지 | 편지 — 편지. | 국립청주박물관의 왕실 편지첩. 출가한 숙명공주가 아버지께 작은 글씨로 문안을 쓴다. "날이 풀리니 더욱 섭섭하옵니다(날이 푸오니 더옥 섭섭ᄒᆞᄋᆞ오미)." 임금은 새 종이를 꺼내지 않았다. 딸의 글씨 사이 빈 줄에 큰 글씨로 답했다. "편지 보고 잘 있다니 기쁘구나(글월 보고 됴히 이시니 깃거ᄒᆞ노라)." | 숙명공주가 아버지의 안부를 여쭙고 날이 풀리니 더 그립다고 쓰자, 효종이 그 편지 행간에 '잘 있다니 기쁘다, 어제 보낸 양식은 받았느냐, 면조 등도 보낸다'고 답해 돌려보낸 편지입니다. |
+| EP.50 "너희 놈이 공연히 내 집 땅을" — 대사헌 송규렴의 한글 편지 | 1692년 송규렴이 ‘긔튝이’에게 보낸 편지 | 1692년 편지 — 편지. | 경기도박물관에는 한 양반 집안의 한글 편지가 묶여 있다. 1692년 가을, 대사헌을 지낸 송규렴이 남의 집 노비에게 직접 한글로 편지를 쓴다. 땅을 빌려 주고 받기로 한 곡식 때문이다. "너희 놈이 공연히 내 집 논밭을(너 놈이 곤연히 내 집 뎐토ᄅᆞᆯ) … 넉 섬 도지." 마지막에는 붓으로 크게 '宋'을 쓰고 수결을 쳤다. | 송규렴이 자기 집 논밭을 부치는 남의 집 노비 기축이에게, 약속한 도지 넉 섬 가운데 지난해 몫을 내지 않고 흉악하게 군다며 꾸짖고 경고한 편지입니다(판독 불확실 다수). |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
