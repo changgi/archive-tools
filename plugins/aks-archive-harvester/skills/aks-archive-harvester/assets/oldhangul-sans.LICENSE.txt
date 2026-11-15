@@ -1,0 +1,6 @@
+oldhangul-sans.woff2 — 옛한글 자모(U+1100–11FF, U+A960–A97F, U+D7B0–D7FF, U+318D, U+302E–302F)만 남긴 글꼴 조각
+
+원본: Noto Sans CJK KR (Copyright 2014-2021 Adobe, https://github.com/notofonts/noto-cjk)
+라이선스: SIL Open Font License, Version 1.1 — https://openfontlicense.org
+이 조각은 원본에서 위 글자 범위와 옛한글 조합 기능(ljmo · vjmo · tjmo · ccmp)만 남겨 줄인 것입니다(fontTools subset).
+용도: 웹페이지에서 아래아(ㆍ) 등 옛한글이 어느 기기에서나 같은 모양으로 조합되어 보이게 하기 위함.

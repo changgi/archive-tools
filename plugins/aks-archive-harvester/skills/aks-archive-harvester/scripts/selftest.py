@@ -84,6 +84,8 @@ def main():
     run('studio.py delivery', [S('studio.py'), 'delivery', '--work', W, '--theme', 't'])
     run('studio.py check (할 일 남음 → 1)', [S('studio.py'), 'check', '--work', W, '--theme', 't', '--strict'], ok_codes=(1,))
     run('studio.py promo', [S('studio.py'), 'promo', '--work', W, '--theme', 't', '--ep', '1', '--url', 'https://example.test/s/eps/01-t/exhibit.html'], ['W/mediate/t/promo.md'])
+    run('studio.py fix (미리 보기)', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친']) 
+    run('studio.py fix --apply', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친', '--note', '시험', '--apply'], ['W/edit/t/corrections.csv'])
     run('studio.py page', [S('studio.py'), 'page', '--work', W, '--theme', 't', '--n', '1', '--page', '002.jpg'])
     if a.video and shutil.which('ffmpeg'):
         run('video.py --no-tts', [S('video.py'), '--work', W, '--theme', 't', '--ep', '1', '--no-tts', '--web'], ['W/mediate/t/video/ep01-t_reel.mp4', 'W/mediate/t/video/ep01-t.ko.vtt'])

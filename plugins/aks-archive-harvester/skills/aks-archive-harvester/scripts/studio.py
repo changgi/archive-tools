@@ -428,7 +428,10 @@ def card(img_path, title, sub, body, foot, out, size=(1080, 1350), ph=None):
     for ln in wrap(d, title, font(56, 'bold'), W - 140)[:2]:
         d.text((70, y), ln, font=font(56, 'bold'), fill=PAPER); y += 70
     if sub: d.text((70, y + 6), sub, font=font(34, 'bold'), fill=GOLD); y += 60
-    for ln in wrap(d, body, font(34), W - 140)[:5]:
+    lines = wrap(d, body, font(34), W - 140)
+    if len(lines) > 5 and find_quotes(body):  # 글이 넘치면 종이에 적힌 문장을 앞세운다(카드에서 잘리지 않게)
+        q = find_quotes(body)[0]; lines = wrap(d, f'"{q[0]}({q[1]})" — ' + body, font(34), W - 140)
+    for ln in lines[:5]:
         d.text((70, y + 10), ln, font=font(34), fill=(220, 210, 192)); y += 50
     d.line((70, H - 120, W - 70, H - 120), fill=(80, 70, 55), width=2)
     ff = font(24)
@@ -539,6 +542,7 @@ def cmd_mediate(a):
     burl = base_url(a.url)
     sdesc = (read_curator(ed).get('message') or a.lead or f'{coll} · {span} · 문서 {len(sel)}점을 원문으로 읽은 이야기')
     share_image(None if PH else os.path.join(ed, sel[0]['이미지']), title, f'{coll} · {span} · 문서 {len(sel)}점', os.path.join(od, 'share.jpg'))
+    OHCSS = oldhangul_css(' '.join((x.get('판독') or '') + (x.get('원문') or '') + (x.get('이야기') or '') + (x.get('번역') or '') for x in sel))
     SM = lambda page_name, t: share_meta(t, sdesc, (burl + 'share.jpg') if burl else '', (burl + page_name) if burl else '')
 
     # 1) 카드뉴스
@@ -597,8 +601,11 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
     cur = read_curator(ed); facts = curator_facts(sel, a.work)
     if cur: page = page.replace('</p></header>', '</p><p style="font:15px sans-serif"><a href="#curator" style="color:#c4964a">이 전시를 만든 이유 — 큐레이터 노트 ↓</a></p></header>', 1)
     page = put_curator(page, curator_html(cur, facts, 'exhibit') if cur else '', '</main>')
+    page = re.sub(r'<!--FIXES-->.*?<!--/FIXES-->', '', page, flags=re.S)
+    fx = corrections_html(read_corrections(ed))
+    if fx: page = page.replace('</main>', '</main><!--FIXES-->' + fx + '<!--/FIXES-->', 1)
     dv = read_delivery(ed); page = put_delivery(page, delivery_html(dv), '</main>')
-    open(os.path.join(od, 'exhibit.html'), 'w', encoding='utf-8').write(put_share(page, SM('exhibit.html', title)))
+    open(os.path.join(od, 'exhibit.html'), 'w', encoding='utf-8').write(put_oldhangul(put_share(page, SM('exhibit.html', title)), OHCSS))
 
     # 3) 수업 활동지 (인쇄용 HTML)
     qs = []
@@ -619,7 +626,7 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
 <h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다. 해제·요약은 문서명과 이미지에 근거한 초안이며 판독이 어려운 글자는 □로 표시했습니다.</p></body></html>"""
     hand = put_curator(hand, curator_html(cur, None, 'handout') if cur else '', None)  # 활동지 맨 끝(교사용)
-    open(os.path.join(od, 'handout.html'), 'w', encoding='utf-8').write(put_share(hand, SM('handout.html', '활동지 — ' + title)))
+    open(os.path.join(od, 'handout.html'), 'w', encoding='utf-8').write(put_oldhangul(put_share(hand, SM('handout.html', '활동지 — ' + title)), OHCSS))
 
     # 4) SNS 글
     tags = ['#고문서', '#한국고문서자료관', '#기록', '#한국사'] + [f"#{s['문서유형']}" for s in sel[:3]]
@@ -672,7 +679,7 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
 {vsec}{curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s" tabindex="0" role="region" aria-label="카드뉴스 미리 보기 — 옆으로 넘겨 보기">{strip}</div>
 <h2>담긴 문서</h2><ol>{''.join(f"<li>{'' if str(x['문서명']).startswith(str(x['연도'])) else html.escape(str(x['연도'])) + ' '}{html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
-    open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(put_share(idx, SM('index.html', title + ' — 결과물 한눈에 보기')))
+    open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(put_oldhangul(put_share(idx, SM('index.html', title + ' — 결과물 한눈에 보기')), OHCSS))
     print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(cardfs)}장(카드뉴스)' + (f' · 영상 {len(vids)}개' if vids else '') + f' · handout.html(수업 활동지) · sns.txt')
     if unchecked: print(f'  ※ 검토 칸이 비어 있는 캡션 {len(unchecked)}건은 "초안" 표시가 붙습니다.')
 
@@ -687,6 +694,36 @@ def issue_url(base, s, title=''):
     body = (f"문서: {s.get('문서명', '')}\n자료 ID: {s.get('자료ID', '')}\n원본 뷰어: {s.get('뷰어링크', '')}\n시리즈·편: {title}\n\n"
             "고칠 곳(판독 · 번역 · 해제 · 연도 가운데):\n\n바르게 고친 내용:\n\n근거(원본 사진의 줄 · 다른 자료):\n")
     return f"{b}/new?title={quote('[판독 고침] ' + (s.get('문서명') or ''))}&body={quote(body)}&labels={quote('판독 고침')}"
+
+
+# ---------------------------------------------------------------- 옛한글 글꼴 (아래아 등 조합이 기기마다 다르게 보이지 않게)
+OLD_JAMO = re.compile(r'[ᄀ-ᇿꥠ-꥿ힰ-퟿ㆍ〮〯]')
+OH_RANGE = 'U+1100-11FF,U+A960-A97F,U+D7B0-D7FF,U+318D,U+302E-302F'
+FAMILIES = {"Noto Sans KR": ("Noto Sans KR", "NotoSansKR", "Noto Sans CJK KR", "NotoSansCJKkr"),
+            "Noto Serif KR": ("Noto Serif KR", "NotoSerifKR", "Noto Serif CJK KR", "NotoSerifCJKkr")}
+
+
+def oldhangul_css(text, url=None):
+    """글에 옛한글 자모가 있으면, 페이지 글꼴 목록 맨 앞의 'Noto Sans KR' · 'Noto Serif KR' 이름에 옛한글 글꼴 조각을 그 글자 범위로만 덧붙이는 <style>.
+    설치된 Noto 글꼴은 local()로 그대로 쓰고, 없으면 옛한글만 조각에서, 나머지 글자는 다음 글꼴(맑은 고딕 · 바탕 등)에서 나온다.
+    url을 주면 그 주소의 woff2를, 없으면 플러그인 assets/의 조각을 페이지 안에 넣는다(한 파일 그대로 공유되게). 옛한글이 없으면 ''"""
+    if not OLD_JAMO.search(text or ''): return ''
+    if not url:
+        fp = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'assets', 'oldhangul-sans.woff2')
+        if not os.path.exists(fp): return ''
+        url = 'data:font/woff2;base64,' + base64.b64encode(open(fp, 'rb').read()).decode()
+    rules = []
+    for fam, names in FAMILIES.items():
+        for w, suf in ((400, ('', ' Regular', '-Regular')), (700, (' Bold', '-Bold'))):
+            src = ','.join(f"local('{n}{x}')" for n in names for x in suf)
+            rules.append(f"@font-face{{font-family:'{fam}';font-weight:{w};src:{src}}}")
+        rules.append(f"@font-face{{font-family:'{fam}';src:url({url}) format('woff2');unicode-range:{OH_RANGE}}}")
+    return '<style id="oldhangul">' + ''.join(rules) + '</style>'
+
+
+def put_oldhangul(page, css):
+    page = re.sub(r'<style id="oldhangul">.*?</style>', '', page, flags=re.S)
+    return page.replace('</head>', css + '</head>', 1) if css else page
 
 # ---------------------------------------------------------------- 공유 미리 보기 (카카오톡 · 페이스북 · X 링크 카드)
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E"
@@ -1082,6 +1119,85 @@ def cmd_delivery(a):
     print('→', p); [print(f'  {h}: {dr.get(k, "")[:70]}') for k, h, _ in DELIVERY_KEYS if dr.get(k)]
 
 
+FIELDS = ('판독', '원문', '번역', '해제', '요약', '이야기', '캡션', '연도', '문서유형', '인물', '검토')
+CORR_COLS = ['날짜', '순서', '자료ID', '문서명', '칸', '이전', '이후', '근거', '제보']
+
+
+def read_corrections(ed):
+    p = os.path.join(ed, 'corrections.csv')
+    return list(csv.DictReader(open(p, encoding='utf-8-sig'))) if os.path.exists(p) else []
+
+
+def parse_issue(body):
+    """「판독 고침 제보」 양식 → {자료ID, 문서, 칸, 내용, 근거}"""
+    b = (body or '').replace('\r', '')
+    get = lambda k: (re.search(rf'^{k}\s*:\s*(.*)$', b, re.M) or [None, ''])[1].strip()
+    sec = lambda head, nxt: (re.search(rf'{head}[^\n]*:\s*\n(.*?)(?=\n\s*{nxt}|\Z)', b, re.S) or [None, ''])[1].strip()
+    where = sec('고칠 곳', '바르게 고친 내용')
+    field = next((f for f in FIELDS if f in where), '')
+    return {'자료ID': get('자료 ID'), '문서': get('문서'), '칸': field, '고칠 곳': where, '내용': sec('바르게 고친 내용', '근거'), '근거': sec('근거', '$^')}
+
+
+def cmd_fix(a):
+    """판독 고침 반영 — selection.csv의 한 칸을 고치고 corrections.csv에 이전·이후·근거를 남긴다"""
+    import datetime
+    ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
+    if not os.path.exists(p): sys.exit(f'{p}이(가) 없습니다.')
+    rows = list(csv.DictReader(open(p, encoding='utf-8-sig'))); cols = list(rows[0].keys()) if rows else []
+    log = read_corrections(ed)
+    if a.list:
+        if not log: print('고친 기록이 없습니다.'); return
+        for c in log:
+            o, n = c['이전'], c['이후']; k = next((i for i, (x, y) in enumerate(zip(o, n)) if x != y), min(len(o), len(n)))
+            st = max(0, k - 12); print(f"{c['날짜']} · {c['순서']}. {c['문서명'][:24]} · {c['칸']} · …{o[st:k + 24]!r} → …{n[st:k + 24]!r}" + (f" · {c['제보']}" if c.get('제보') else ''))
+        return
+    issue = {}
+    if a.issue:
+        if not a.repo: sys.exit('--issue 와 함께 --repo 아이디/저장소 를 주세요.')
+        import urllib.request
+        req = urllib.request.Request(f'https://api.github.com/repos/{a.repo}/issues/{a.issue}', headers={'Accept': 'application/vnd.github+json', 'User-Agent': 'aks-archive-harvester'})
+        try: data = json.load(urllib.request.urlopen(req, timeout=20))
+        except Exception as e: sys.exit(f'제보를 읽지 못했습니다({type(e).__name__}): 저장소 · 번호 · 인터넷 연결을 확인하세요.')
+        issue = parse_issue(data.get('body')); issue['url'] = data.get('html_url', '')
+        print(f"제보 #{a.issue}: {data.get('title', '')}\n  문서: {issue['문서']}  ({issue['자료ID']})\n  고칠 곳: {issue['고칠 곳'] or '(비어 있음)'}\n  고친 내용: {issue['내용'] or '(비어 있음)'}\n  근거: {issue['근거'] or '(비어 있음)'}")
+    # 문서 찾기
+    tgt = None
+    if a.n: tgt = next((r for r in rows if str(r.get('순서')) == str(a.n)), None)
+    elif issue.get('자료ID'): tgt = next((r for r in rows if r.get('자료ID') == issue['자료ID']), None)
+    if not tgt: sys.exit('고칠 문서를 찾지 못했습니다 — --n 순서 를 주세요.' if not issue else f"이 테마에 자료 ID {issue.get('자료ID')} 문서가 없습니다 — 다른 --theme 이거나 --n 으로 지정하세요.")
+    field = a.field or issue.get('칸')
+    if field not in FIELDS: sys.exit(f'고칠 칸(--field)을 정하세요: {" · ".join(FIELDS)}')
+    text = a.text if a.text is not None else issue.get('내용', '')
+    if not text: sys.exit('바꿀 내용(--text)이 없습니다.')
+    if a.replace_part:  # 칸 전체가 아니라 일부만: --replace-part "이전 구절"
+        if a.replace_part not in (tgt.get(field) or ''): sys.exit(f'「{a.replace_part}」를 {field} 칸에서 찾지 못했습니다.')
+        new = tgt[field].replace(a.replace_part, text, 1)
+    else: new = text
+    old = tgt.get(field) or ''
+    print(f"\n{tgt['순서']}. {tgt['문서명']} — {field}\n  이전: {old[:200]}\n  이후: {new[:200]}")
+    if not a.replace_part and old and len(new) < len(old) * 0.5:
+        print('  ※ 칸 전체가 이 내용으로 바뀝니다. 일부 구절만 고치려면 --replace-part "이전 구절" 을 함께 주세요.')
+    if not a.apply: print('\n(미리 보기입니다. 반영하려면 --apply)'); return
+    tgt[field] = new
+    with open(p, 'w', newline='', encoding='utf-8-sig') as fh:
+        w = csv.DictWriter(fh, fieldnames=cols); w.writeheader(); w.writerows(rows)
+    log.append({'날짜': datetime.date.today().isoformat(), '순서': tgt['순서'], '자료ID': tgt.get('자료ID', ''), '문서명': tgt['문서명'], '칸': field, '이전': old, '이후': new,
+                '근거': a.note or issue.get('근거', ''), '제보': issue.get('url') or (f'#{a.issue}' if a.issue else '')})
+    with open(os.path.join(ed, 'corrections.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
+        w = csv.DictWriter(fh, fieldnames=CORR_COLS); w.writeheader(); w.writerows(log)
+    print(f'\n→ 반영했습니다. 고친 기록 {len(log)}건: {ed}/corrections.csv · 결과물에 넣으려면 mediate(· promo · video)를 다시 실행하세요.')
+
+
+def corrections_html(log):
+    if not log: return ''
+    e = html.escape
+    items = ''.join(f"<li><b>{e(c['날짜'])}</b> {e(c['문서명'])} — {e(c['칸'])}: <s>{e(c['이전'][:60])}</s> → {e(c['이후'][:60])}"
+                    + (f" <small>(근거: {e(c['근거'][:80])})</small>" if c.get('근거') else '') + (f" <a href=\"{e(c['제보'])}\" target=\"_blank\" rel=\"noopener\">제보 ↗</a>" if c.get('제보', '').startswith('http') else '') + '</li>' for c in log)
+    return (f'<section id="fixes" style="max-width:1100px;margin:40px auto;padding:0 6vw"><h2 style="font-size:20px">함께 고친 곳 — {len(log)}건</h2>'
+            f'<p style="font-size:14px;opacity:.8">보는 분들의 제보와 다시 읽기로 고친 판독 · 번역 기록입니다. 고칠 곳을 보시면 「판독 고침 제보」로 알려 주세요.</p><ul style="font-size:14.5px;line-height:1.8">{items}</ul></section>')
+
+
+
 def cmd_page(a):
     """대표 면 바꾸기 — 두루마리 겉면·표지 대신 글이 있는 면을 카드·전시·영상에 쓰기"""
     ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
@@ -1142,8 +1258,10 @@ def cmd_check(a):
             todo.append(f'절정이 비었습니다 → studio.py delivery --work {a.work} --theme {a.theme} (문구 에디팅 뒤 다시 쓰기)')
         for k in ('emotion', 'linger', 'afterd'):
             if not dv.get(k): todo.append(f'전달 에디팅 「{dict((k2, h) for k2, h, _ in DELIVERY_KEYS)[k]}」 — 사람이 정할 칸')
+    nfix = len(read_corrections(ed))
+    if nfix: print(f'\n[함께 고친 곳] {nfix}건 (corrections.csv · 전시 웹페이지 「함께 고친 곳」)')
     print('\n[결과물]')
-    src_t = max([os.path.getmtime(os.path.join(ed, f)) for f in ('selection.csv', 'curator.md', 'delivery.md', 'theme.json') if os.path.exists(os.path.join(ed, f))])
+    src_t = max([os.path.getmtime(os.path.join(ed, f)) for f in ('selection.csv', 'curator.md', 'delivery.md', 'theme.json', 'corrections.csv') if os.path.exists(os.path.join(ed, f))])
     def st(path, label, cmd):
         if not os.path.exists(path): print(f'  {label}: 없음'); todo.append(cmd); return
         old = os.path.getmtime(path) < src_t
@@ -1287,6 +1405,12 @@ def main():
     pg = sp.add_parser('page', help='대표 면 바꾸기 (예: 두루마리 겉면 → 002.jpg)'); pg.add_argument('--work', required=True); pg.add_argument('--theme', required=True); pg.add_argument('--n', type=int, required=True); pg.add_argument('--page', required=True)
     dl = sp.add_parser('delivery', help='전달 에디팅 초안 다시 만들기(문구 에디팅 뒤) → edit/<테마>/delivery.md'); dl.add_argument('--work', required=True); dl.add_argument('--theme', required=True)
     dl.add_argument('--key', help='절정으로 쓸 구절(이야기 속 인용 가운데 이 말이 든 것)'); dl.add_argument('--force', action='store_true')
+    fx = sp.add_parser('fix', help='판독 고침 반영: selection.csv 한 칸을 고치고 corrections.csv에 이전·이후·근거 기록 (GitHub 제보 읽기 가능)')
+    fx.add_argument('--work', required=True); fx.add_argument('--theme', required=True); fx.add_argument('--n', help='문서 순서')
+    fx.add_argument('--field', help='고칠 칸: ' + ' · '.join(FIELDS)); fx.add_argument('--text', help='새 내용(칸 전체, 또는 --replace-part 와 함께 바꿀 구절)')
+    fx.add_argument('--replace-part', help='칸 전체가 아니라 이 구절만 --text 로 바꾸기'); fx.add_argument('--note', help='근거 · 메모')
+    fx.add_argument('--issue', type=int, help='GitHub 이슈 번호(「판독 고침 제보」 양식을 읽음)'); fx.add_argument('--repo', help='아이디/저장소')
+    fx.add_argument('--apply', action='store_true', help='실제로 반영(없으면 미리 보기)'); fx.add_argument('--list', action='store_true', help='고친 기록 보기')
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
     ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')
     og = sp.add_parser('originals', help='원본 묶음: 선별 문서의 원본 해상도 사진(--full 이면 문서 전체 면) + 원본 영상 → 분할 ZIP')
@@ -1299,7 +1423,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'fix': cmd_fix}[a.cmd](a)
 
 
 if __name__ == '__main__':

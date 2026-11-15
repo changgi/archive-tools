@@ -65,6 +65,7 @@ def page(path, title, body, back=True, desc=''):
     nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a><a href="quotes.html">문장</a><a href="timeline.html">연표</a><a href="questions.html">질문 카드</a></nav>'
     html_ = (f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
     name = os.path.basename(path)
+    html_ = ST.put_oldhangul(html_, ST.oldhangul_css(body))
     open(path, 'w', encoding='utf-8').write(ST.put_share(html_, ST.share_meta(title, desc or SDESC, (SITE + 'share.jpg') if SITE else '', (SITE + name) if SITE else '')))
 
 

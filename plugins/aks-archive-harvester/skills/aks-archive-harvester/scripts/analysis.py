@@ -343,20 +343,22 @@ def page_html(title, kicker, h1, lead, body, nav='', foot='', base_css=''):
             f'<style>{base_css}{CSS}</style></head><body><main>{nav}<p class="k">{h(kicker)}</p><h1>{h(h1)}</h1><p class="lead">{h(lead)}</p><div class="an">{body}</div>{foot}</main></body></html>')
 
 
-def write_collections(folder, eps, title, nav='', foot='', base_css='', meta_fn=None):
+def write_collections(folder, eps, title, nav='', foot='', base_css='', meta_fn=None, oh_url=None):
     out = []
     for fn, t, lead, body in collections_pages(eps, title):
         page = page_html(f'{title} — {t}', 'COLLECTION', f'{title} — {t}', lead, body, nav, foot, base_css)
         if meta_fn: page = ST.put_share(page, meta_fn(fn, f'{title} — {t}', lead))
+        page = ST.put_oldhangul(page, ST.oldhangul_css(body, url=oh_url))
         open(os.path.join(folder, fn), 'w', encoding='utf-8').write(page); out.append(fn)
     return out
 
 
-def write(path, title, body, nav='', foot='', base_css='', meta=''):
+def write(path, title, body, nav='', foot='', base_css='', meta='', oh_url=None):
     page = (
         f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)} — 통합 분석</title>'
         f'<style>{base_css}{CSS}</style></head><body><main>{nav}<p class="k">ANALYSIS</p><h1>{h(title)} — 통합 분석</h1>'
         f'<p class="lead">편마다 따로 보던 문서 · 노트 · 결과물을 한데 모아, 전체가 무엇을 담고 있는지 한 장에서 읽습니다.</p>{body}{foot}</main></body></html>')
+    page = ST.put_oldhangul(page, ST.oldhangul_css(body, url=oh_url))
     open(path, 'w', encoding='utf-8').write(ST.put_share(page, meta) if meta else page)
 
 

@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘", "통합 분석", "전체를 한눈에", "설치 확인", "링크 미리 보기", "연표", "인용 모음", "질문 카드", "판독 고침 제보". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
+description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘", "통합 분석", "전체를 한눈에", "설치 확인", "링크 미리 보기", "연표", "인용 모음", "질문 카드", "판독 고침 제보", "제보 반영", "판독 고쳐줘". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
 ---
 
 # AKS 한국고문서자료관: 수집 → 큐레이션 → 에디팅 → 매개 → 패키징
@@ -128,6 +128,20 @@ The archive states that image use needs the collection owner's consent through i
 
 **Redraft after 문구 에디팅 — `studio.py delivery`.** The first draft is written before the captions exist. Once `selection.csv` has stories with quoted source lines, run `python3 studio.py delivery --work WORK --theme <id> [--key "원문 한 줄"]` to rebuild the draft: the climax becomes the strongest "현대어(原文)" line and the closing becomes the curator note's question. Fields a person already wrote (핵심 정서 · 여운 장치 · 전달 에디팅 후) are kept unless `--force`; with `--force` the old file is saved as `delivery.bak.md`.
 
+**Corrections — `studio.py fix` (판독 고침 반영).** When someone reports a misreading (the 「판독 고침 제보」 issue) or the user rereads a document:
+
+```bash
+python3 studio.py fix --work WORK --theme <id> --issue 12 --repo 아이디/저장소           # 제보 읽기: 문서 · 고칠 곳 · 고친 내용 · 근거
+python3 studio.py fix --work WORK --theme <id> --n 3 --field 번역 --replace-part "초8일" --text "8일" --note "근거"   # 미리 보기
+python3 studio.py fix … --apply        # 반영 → edit/<id>/corrections.csv(날짜 · 이전 · 이후 · 근거 · 제보)
+python3 studio.py fix --work WORK --theme <id> --list
+```
+
+- Without `--apply` it only previews; it warns when the whole field would be replaced by a short text (use `--replace-part`). Check the original image before applying a reported reading; record the reason in `--note`.
+- `mediate` then adds 「함께 고친 곳」 to `exhibit.html`, and `check` counts the corrections and flags outputs older than them.
+
+**Old Hangul (옛한글).** When the texts contain old-Hangul jamo (ᄒᆞ, ᄉᆞ …), `mediate`, `series.py` and `analysis.py` add a small font subset (`assets/oldhangul-sans.woff2`, Noto Sans CJK KR, OFL) only for those characters, so 아래아 and other composed syllables look the same on every device. Card images need Pillow with libraqm for the same shaping.
+
 **Representative page — `studio.py page`.** The first page of a document is sometimes a cover, a wrapper or the outside of a rolled scroll. `edit` already skips pages that are dark, or much smaller and emptier than the document's other pages, and `check` flags a representative page that still looks like one. `python3 studio.py page --work WORK --theme <id> --n <selection 번호> --page 002.jpg` swaps `images/NN.jpg` and the 원본경로 column to another page of the same document; re-run `mediate` and `video.py` afterwards.
 
 **Curator note (큐레이터 노트 — 기획 의도 · 비하인드).** `edit` writes `edit/<id>/curator.md` with six headings. Fill it before `mediate`, because people want to know why these documents were chosen and what the work hopes to say, not only what the documents read:
@@ -244,6 +258,7 @@ WORK/metadata.csv  metadata.jsonl  summary.md  themes.json                     #
 WORK/edit/<id>/selection.csv  images/  contact_sheet.jpg  theme.json           # ③ 에디팅
 WORK/edit/<id>/curator.md   # 큐레이터 노트(기획 의도 · 비하인드)
 WORK/edit/<id>/delivery.md  # 전달 에디팅(정서 · 장면 · 물질 · 통로 · 매개)
+WORK/edit/<id>/corrections.csv  # 함께 고친 곳(fix)
 WORK/mediate/<id>/index.html  exhibit.html  channels.md  cards/*.png(b1–b3 비하인드)  handout.html  sns.txt  promo.md   # ④ 매개
 WORK/mediate/<id>/video/<base>_reel.mp4  _wide.mp4  .ko.srt  (_web.mp4)   # 영상
 WORK/originals/<id>/<소장처>_원본*.zip   # 원본 묶음(문서 전체 면 · 원본 영상 · 출처.csv)

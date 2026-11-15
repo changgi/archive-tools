@@ -146,6 +146,19 @@ W3에서 대표 면을 바꾸기 전에 돌리면 이렇게 나옵니다(실제 
 
 `--strict`를 붙이면 할 일이 남았을 때 종료 코드 1 — 여러 편을 스크립트로 돌릴 때 씁니다. 1.0.1부터는 `edit`가 대표 면을 고를 때도 이런 겉면을 건너뜁니다.
 
+## 6++. 함께 고치기 — 제보를 받아 반영
+
+공개한 뒤 「판독 고침 제보」(GitHub 이슈)가 오면:
+
+```bash
+python3 $S/studio.py fix --work W2 --theme story --issue 12 --repo 아이디/저장소     # 제보 읽기
+python3 $S/studio.py fix --work W2 --theme story --n 1 --field 번역 --replace-part "초8일" --text "8일" --note "제보 #12 · 원본 셋째 줄"   # 미리 보기
+python3 $S/studio.py fix … --apply                                                       # 반영 → corrections.csv
+python3 $S/studio.py mediate --work W2 --theme story --url <전시 주소>                   # 전시에 「함께 고친 곳」
+```
+
+반영하기 전에 원본 사진에서 그 줄을 꼭 확인하세요. 고친 기록(날짜 · 이전 · 이후 · 근거 · 제보)은 지우지 않고 쌓입니다 — 기록을 다루는 일의 기록입니다.
+
 ## 7. 매개 — 전시 · 카드 · 활동지 · 비하인드 · 채널
 
 ```bash
