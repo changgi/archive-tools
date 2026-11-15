@@ -92,6 +92,7 @@ This writes `WORK/mediate/<id>/`:
 - `cards/`: card-news PNGs at 1080×1350 (cover, one per document, closing card).
 - `handout.html`: an A4 lesson worksheet with 해제 ("what is this document"), 내용 요약, the characters to find in the image (from `판독`), "find it" and "think about it" prompts, plus a summary box.
 - `sns.txt`: a post draft with hashtags.
+- `index.html`: the front page — 「결과물 한눈에 보기」. One tile per output (전시 · 활동지 · 카드뉴스 · SNS 글 · CSV · 홍보 문구) with a direct link, a card strip and the document list, so a first-time visitor sees at a glance what exists and opens it in one click. When you publish several themes or episodes together (e.g. a gallery), put the same direct links on the main page too, not only inside detail views.
 
 The archive states that image use needs the collection owner's consent through its staff (031-730-8873, 8876).
 - For anything the user will post publicly, offer `--placeholder`. It replaces each image with a box that links to the document in the archive viewer.

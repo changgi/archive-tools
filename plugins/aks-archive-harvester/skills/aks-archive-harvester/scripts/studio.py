@@ -479,7 +479,7 @@ def cmd_mediate(a):
     od = os.path.join(a.work, 'mediate', a.theme); os.makedirs(os.path.join(od, 'cards'), exist_ok=True)
     src_line = f'자료: 한국학중앙연구원 한국고문서자료관 · {coll}'
     ys = [int(s['연도']) for s in sel if s['연도']]
-    span = f'{min(ys)}–{max(ys)}' if ys else ''
+    span = (f'{min(ys)}–{max(ys)}' if min(ys) != max(ys) else f'{min(ys)}') if ys else ''
     unchecked = [s for s in sel if not s.get('검토')]
 
     # 1) 카드뉴스
@@ -562,7 +562,30 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
     for s in sel: sns.append(f"· {s['연도']} {s['문서유형']} — {(s['이야기'] or s['캡션'])[:60]}")
     sns += ['', src_line, '이미지 이용은 자료관 이용 조건을 따릅니다.', '', ' '.join(dict.fromkeys(tags))]
     open(os.path.join(od, 'sns.txt'), 'w', encoding='utf-8').write('\n'.join(sns))
-    print(f'→ {od}\n  exhibit.html(전시 웹페이지) · cards/ {len(sel)+2}장(카드뉴스) · handout.html(수업 활동지) · sns.txt')
+
+    # 5) 결과물 한눈에 보기 (첫 페이지) — 처음 온 사람이 무엇이 있는지 바로 알고 열 수 있게
+    cardfs = sorted(f for f in os.listdir(os.path.join(od, 'cards')) if f.lower().endswith(('.png', '.jpg')))
+    tiles = [('🖼️', '전시 웹페이지', '문서 이미지 · 이야기 · 읽기 도움을 연표로 넘겨 보는 한 장짜리 전시', 'exhibit.html', '열기'),
+             ('✏️', '수업 활동지', '인쇄해서 바로 쓰는 A4 활동지 (해제 · 요약 · 찾아보기 · 생각해 보기)', 'handout.html', '열기'),
+             ('🗂️', f'카드뉴스 {len(cardfs)}장', '1080×1350 카드 (표지 · 문서별 · 마무리)', 'cards/' + (cardfs[0] if cardfs else ''), '첫 장 보기'),
+             ('📣', 'SNS 글', '해시태그를 붙인 게시 글 초안', 'sns.txt', '열기'),
+             ('📊', '원문 · 번역 표 (CSV)', '문서명 · 연도 · 판독 · 원문 · 번역 · 해제 · 요약 · 원본 링크', os.path.relpath(os.path.join(ed, 'selection.csv'), od), '받기')]
+    if os.path.exists(os.path.join(od, 'promo.md')): tiles.append(('🎬', '릴스 홍보 문구', '「고문서 한 장」 형식 게시 문구', 'promo.md', '열기'))
+    tl = ''.join(f'<a class="t" href="{html.escape(h)}"><span>{i}</span><b>{html.escape(t)}</b><p>{html.escape(d)}</p><em>{b} →</em></a>' for i, t, d, h, b in tiles)
+    strip = ''.join(f'<a href="cards/{html.escape(f)}"><img src="cards/{html.escape(f)}" alt="카드 {k+1}" loading="lazy"></a>' for k, f in enumerate(cardfs))
+    idx = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — 결과물 한눈에 보기</title><style>
+body{{margin:0;background:#16130f;color:#f3ead8;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;line-height:1.6}} main{{max-width:1080px;margin:0 auto;padding:40px 6vw 60px}}
+h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);margin:0 0 6px}} .sub{{color:#b9ab90}} h2{{color:#c4964a;font-size:17px;margin:34px 0 10px}}
+.g{{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}} .t{{display:flex;flex-direction:column;gap:4px;background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:16px;color:inherit;text-decoration:none}}
+.t:hover{{border-color:#c4964a}} .t span{{font-size:24px}} .t b{{font-size:16px}} .t p{{margin:0;color:#b9ab90;font-size:13.5px;flex:1}} .t em{{font-style:normal;color:#c4964a;font-weight:700;font-size:14px}}
+.s{{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}} .s img{{height:220px;border-radius:8px;border:1px solid #3a3225}} ol{{padding-left:20px}} li{{margin:3px 0}} .k{{font-size:12.5px;color:#8f826b;margin-top:30px}}
+</style></head><body><main><h1>{html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 문서 {len(sel)}점</p>
+<h2>결과물 바로 가기</h2><div class="g">{tl}</div>
+<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
+<h2>담긴 문서</h2><ol>{''.join(f"<li>{html.escape(str(x['연도']))} {html.escape(x['문서명'])}</li>" for x in sel)}</ol>
+<p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
+    open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(idx)
+    print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(sel)+2}장(카드뉴스) · handout.html(수업 활동지) · sns.txt')
     if unchecked: print(f'  ※ 검토 칸이 비어 있는 캡션 {len(unchecked)}건은 "초안" 표시가 붙습니다.')
 
 
