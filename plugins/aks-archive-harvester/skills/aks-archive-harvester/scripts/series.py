@@ -3,12 +3,12 @@
 
   python3 series.py --list series.tsv --note series.md --out site [--title "고문서 한 장"]
 
-series.tsv (탭 구분, 첫 줄 머리글):  ep  work  theme  [url]
+series.tsv (탭 구분, 첫 줄 머리글):  ep  work  theme  [url]  [kind(소장처 종류: 문중·서원…)]
    각 편은 먼저 studio.py edit · mediate (· video.py) 를 마친 상태여야 합니다.
 series.md (기획 노트):  # 시리즈 제목  다음에 ## 제목별 문단. 아래 제목을 쓰면 알맞은 자리에 들어갑니다.
    ## 왜 만들었나 / ## 전하고 싶은 것 / ## 고른 기준 / ## 이렇게 보이길 바랐다 / ## 이렇게 써 주세요 /
    ## 지킨 원칙 / ## 부탁 / ## 히스토리   (히스토리는 "- 날짜 · 무엇" 줄)
-결과: site/index.html(갤러리) · about.html · promote.html · use.html · cards/(시리즈 카드) · eps/NN-테마/(각 편 결과물 복사)
+결과: site/index.html(갤러리) · about.html · promote.html · use.html · analysis.html(통합 분석) · cards/(시리즈 카드) · eps/NN-테마/(각 편 결과물 복사)
 """
 import argparse, collections, csv, glob, html, json, os, re, shutil, sys
 
@@ -17,6 +17,7 @@ for _s in (sys.stdout, sys.stderr):  # Windows에서 출력을 파일·파이프
     except Exception: pass
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import studio as ST
+import analysis as AN
 
 h = html.escape
 CSS = '''body{margin:0;background:#16130f;color:#efe6d4;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;line-height:1.8}main{max-width:1100px;margin:0 auto;padding:6vh 5vw}
@@ -57,7 +58,7 @@ HOME = None
 
 def page(path, title, body, back=True):
     home = f'<a href="{h(HOME[0])}">{h(HOME[1])}</a>' if HOME else ''
-    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a></nav>'
+    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a></nav>'
     open(path, 'w', encoding='utf-8').write(f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
 
 
@@ -81,7 +82,7 @@ def main():
     global HOME; HOME = (a.home, a.home_label) if a.home else None
     ntitle, secs = read_note(a.note); stitle = a.title or ntitle or '고문서 시리즈'
     out = a.out; os.makedirs(out, exist_ok=True); os.makedirs(os.path.join(out, 'eps'), exist_ok=True)
-    EPS = []; docs = []
+    EPS = []; docs = []; AE = []
     for r in rows:
         work, theme = r['work'].strip(), r['theme'].strip()
         if not os.path.isdir(work) and os.path.isdir(os.path.join(base, work)): work = os.path.join(base, work)  # series.tsv 기준 상대 경로
@@ -105,6 +106,8 @@ def main():
         if not vids:
             vids = sorted(glob.glob(os.path.join(dst, 'video', '*.mp4')))
             if vids: print(f'  EP.{ep:02d}: 웹용 영상(_web.mp4)이 없어 원본 크기 영상을 복사했습니다(용량 큼) → video.py ... --web 권장')
+        AE.append(AN.episode(ep, th.get('title') or theme, coll, ed, kind=(r.get('kind') or '').strip(), cards=len(cards),
+                             videos=glob.glob(os.path.join(md, 'video', '*_reel*.mp4')), link=f'eps/{slug}/index.html'))
         EPS.append(dict(ep=ep, slug=slug, title=th.get('title') or theme, coll=coll, cover=os.path.relpath(cover, out).replace(os.sep, '/') if cover else '', cur=ST.read_curator(ed), dv=ST.read_delivery(ed),
                         vids=[os.path.relpath(v, out).replace(os.sep, '/') for v in vids], has={f: os.path.exists(os.path.join(dst, f)) for f in ('index.html', 'exhibit.html', 'handout.html', 'channels.md', 'curator.md', 'delivery.md', 'promo.md')}))
     if not EPS: sys.exit('묶을 편이 없습니다. series.tsv의 work·theme 경로와 mediate 결과를 확인하세요.')
@@ -126,11 +129,21 @@ def main():
         return ''.join(f'<a href="{b}{f}">{n}</a>' for n, f in L if e['has'].get(f)) + ''.join(f'<a href="{v}">{"릴스" if "reel" in v else "가로"}</a>' for v in e['vids']) + f'<a href="{b}selection.csv">CSV</a>'
     grid = ''.join(f'<div class="ep"><a href="eps/{e["slug"]}/index.html"><img src="{h(e["cover"])}" alt="" loading="lazy"></a><div class="tx"><small>EP.{e["ep"]:02d}</small><b>{h(e["title"])}</b><span>{h(e["coll"])}</span>{("<p style=font-size:14px>" + h(e["cur"]["message"]) + "</p>") if e["cur"].get("message") else ""}</div><div class="ql">{links(e)}</div></div>' for e in EPS)
     why = sec.get('왜 만들었나') or sec.get('왜') or ''
+    an_body, an_sum = AN.build(sorted(AE, key=lambda e: e['ep']), stitle)
+    smap = ('<h2>이 사이트에 있는 것</h2><div class="g">' + ''.join(f'<div class="box"><h3><a href="{u}">{t}</a></h3><p>{d}</p></div>' for u, t, d in [
+        ('#eps', f'에피소드 {len(EPS)}편', '편마다 첫 페이지 · 전시 · 활동지 · 카드 · 영상 · 노트 · CSV'),
+        ('analysis.html', '통합 분석', '시대 · 문서 유형 · 지역 · 정서 · 판독 · 원문 인용 · 질문을 한 장에'),
+        ('about.html', '기획 노트', '왜 만들었나 · 고른 기준 · 히스토리 · 편별 메시지'),
+        ('promote.html', '홍보 가이드', '채널별 형식과 문구 · 4주 계획'),
+        ('use.html', '활용 가이드', '누가 무엇을 할 수 있나 · 지킬 것'),
+        ('#cards', f'시리즈 카드 {len(scards)}장', 'SNS에 바로 쓰는 기획 노트 카드')]) + '</div>')
+    smap += '<h2>한눈에 — 자동 요약</h2><ul>' + ''.join(f'<li>{x}</li>' for x in an_sum['insights'][:4]) + '</ul><p><a href="analysis.html">통합 분석 전체 보기 →</a></p>'
     body = f'''<p class="k">SERIES</p><h1>{h(stitle)}</h1>{('<p class="lead">' + h(re.split(r"\n\s*\n", why)[0]) + '</p>') if why else ''}
 <div class="stats"><div><b>{len(EPS)}</b><span>편</span></div><div><b>{len(docs)}</b><span>문서</span></div><div><b>{sum(1 for e in EPS if e["vids"])}</b><span>영상 있는 편</span></div><div><b>{len(scards)}</b><span>시리즈 카드</span></div></div>
 <h2>결과물 바로 가기</h2><p>편마다: <b>첫 페이지</b>(모든 결과물) · <b>전시</b> 웹페이지 · <b>활동지</b>(선생님께) · <b>채널</b>별 홍보안 · 큐레이터 <b>노트</b> · <b>전달</b> 에디팅 · <b>홍보 글</b> · 릴스·가로 영상 · 원문·번역 <b>CSV</b></p>
-<h2>에피소드</h2><div class="g">{grid}</div>
-<h2>시리즈 카드</h2><div class="cards">{''.join(f'<img src="cards/{c}" alt="" loading="lazy">' for c in scards)}</div>'''
+{smap}
+<h2 id="eps">에피소드</h2><div class="g">{grid}</div>
+<h2 id="cards">시리즈 카드</h2><div class="cards">{''.join(f'<img src="cards/{c}" alt="" loading="lazy">' for c in scards)}</div>'''
     page(os.path.join(out, 'index.html'), stitle, body)
     # ---- 기획 노트
     hist = sec.get('히스토리', '')
@@ -149,7 +162,8 @@ def main():
     body = '<p class="k">USE</p><h1>패키지 활용 가이드</h1><p class="lead">원본 사진(원재료) · 판독과 번역(손질된 재료) · 이야기와 큐레이터 노트(레시피) · 카드·영상·전시(차림 예시) — 받는 사람이 자기 자리(수업·전시·책·창작)에 맞게 바로 쓰는 묶음입니다.</p>'
     body += '<div class="g">' + ''.join(f'<div class="box"><h3>{h(a_)}</h3><p>{h(b)}</p></div>' for a_, b in USE) + '</div><h2>지킬 것</h2><div class="box"><ul>' + ''.join(f'<li>{h(x)}</li>' for x in CHECK) + '</ul></div>'
     page(os.path.join(out, 'use.html'), '활용 가이드 — ' + stitle, body)
-    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · eps/')
+    page(os.path.join(out, 'analysis.html'), '통합 분석 — ' + stitle, f'<p class="k">ANALYSIS</p><h1>{h(stitle)} — 통합 분석</h1><p class="lead">편마다 따로 보던 문서 · 노트 · 결과물을 한데 모아, 전체가 무엇을 담고 있는지 한 장에서 읽습니다.</p><style>{AN.CSS}</style>' + an_body)
+    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · eps/')
 
 
 if __name__ == '__main__':

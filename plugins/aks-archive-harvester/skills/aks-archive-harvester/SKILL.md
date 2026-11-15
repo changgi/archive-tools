@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
+description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘", "통합 분석", "전체를 한눈에". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
 ---
 
 # AKS 한국고문서자료관: 수집 → 큐레이션 → 에디팅 → 매개 → 패키징
@@ -10,7 +10,8 @@ Two scripts live in `${CLAUDE_PLUGIN_ROOT}/skills/aks-archive-harvester/scripts/
 - `harvest.py` (needs `requests`, `Pillow`) handles finding, collecting, curation metadata, packaging and batch comparison.
 - `studio.py` (needs `Pillow` only, works offline) handles curation themes, editing selections, mediation outputs and the comparison report.
 - `video.py` (needs `ffmpeg`, `Pillow`; optional `edge-tts`) makes a Reels (9:16) and a wide (16:9) video with subtitles from one theme.
-- `series.py` (needs `Pillow`) gathers several themes/episodes into one series site with a series note, promotion and use guides.
+- `series.py` (needs `Pillow`) gathers several themes/episodes into one series site with a series note, promotion and use guides, and an integrated analysis.
+- `analysis.py` (no extra needs) builds the integrated analysis page (통합 분석) of a whole series; `series.py` calls it.
 
 ## Full pipeline checklist (처음부터 끝까지)
 
@@ -194,7 +195,13 @@ python3 series.py --list series.tsv --note series.md --out SITE [--title "시리
 
 - `series.tsv`: a header line, then one line per episode — `ep<TAB>work<TAB>theme[<TAB>url]`. Work folders are found relative to the current folder or to the TSV's folder. Missing episodes are reported and skipped; videos: the `_web.mp4` copies when they exist, otherwise the full-size files (it warns about the size).
 - `series.md`: the series note with headings (왜 만들었나 · 전하고 싶은 것 · 고른 기준 · 이렇게 보이길 바랐다 · 이렇게 써 주세요 · 지킨 원칙 · 히스토리). Same rule as curator notes: facts and the user's own intent only.
-- Writes `SITE/index.html` (stats, 결과물 바로 가기, episode grid with direct links), `about.html` (기획 노트 · per-episode message/emotion/question), `promote.html` (channels, 4-week plan), `use.html` (who can use the package and how, rights checklist), `cards/` (series cards from the note) and `eps/NN-<theme>/` copies (web videos only).
+- Writes `SITE/index.html` (stats, 「이 사이트에 있는 것」 site map, four auto-summary lines, 결과물 바로 가기, episode grid with direct links), `analysis.html` (통합 분석, below), `about.html` (기획 노트 · per-episode message/emotion/question), `promote.html` (channels, 4-week plan), `use.html` (who can use the package and how, rights checklist), `cards/` (series cards from the note) and `eps/NN-<theme>/` copies (web videos only).
+
+**Integrated analysis — `analysis.py` (통합 분석).** When the user wants to see the whole series at a glance ("전체를 통합 분석해줘", "한눈에 전체 콘텐츠"), `series.py` already writes `SITE/analysis.html`; standalone: `python3 analysis.py --list series.tsv --out analysis.html [--title …]` (optional 4th TSV column `kind`: 문중 · 서원 · 향교 · 사찰 · 마을 · 박물관 …).
+
+- Sections: key numbers · auto-summary sentences (only computed facts) · documents by century and a year dot strip · document types and a type×century heatmap · collection kinds and regions (first place name → today's province) · 핵심 정서 words and chips · reading progress and hardest episodes (□ · (?)) · twelve quoted source lines spread across episodes · frequent names · 남겨 둔 질문 · one-line table per episode · limits of the analysis.
+- Every chart has hover titles and a table view. Read the summary before presenting it and keep its caveats: the figures describe the chosen documents, not the whole collection; dates, types and names are drafts extracted from titles.
+- On a main page, show a few summary lines and link the analysis so first-time visitors see the whole at once.
 
 ## ⑤ 패키징 (Package) + 대량 유사 연구
 
@@ -236,6 +243,6 @@ WORK/edit/<id>/delivery.md  # 전달 에디팅(정서 · 장면 · 물질 · 통
 WORK/mediate/<id>/index.html  exhibit.html  channels.md  cards/*.png(b1–b3 비하인드)  handout.html  sns.txt  promo.md   # ④ 매개
 WORK/mediate/<id>/video/<base>_reel.mp4  _wide.mp4  .ko.srt  (_web.mp4)   # 영상
 WORK/originals/<id>/<소장처>_원본*.zip   # 원본 묶음(문서 전체 면 · 원본 영상 · 출처.csv)
-SITE/index.html  about.html  promote.html  use.html  cards/  eps/   # 시리즈 사이트
+SITE/index.html  about.html  promote.html  use.html  analysis.html  cards/  eps/   # 시리즈 사이트 · 통합 분석
 OUT/<약칭>_연구패키지/   ROOT/compare_*.csv|md|html                              # ⑤ 패키징·비교
 ```

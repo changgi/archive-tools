@@ -12,7 +12,8 @@
 | 공개 전 점검 | 빈 칸 · 인용 없는 이야기 · 표지 같은 대표 면 · 노트보다 오래된 결과물을 찾아 다음 할 일을 번호로 | `studio.py check` |
 | 전달 에디팅 다시 | 문구 에디팅 뒤 절정(원문 한 줄)·여운 질문을 채운 초안으로 다시 쓰기(사람이 쓴 칸은 보존) · 대표 면 바꾸기 | `studio.py delivery` · `page` |
 | 영상 | 릴스(9:16)·가로(16:9) 영상 + 자막(.srt), 내레이션(edge-tts 선택), 웹용 540p | `video.py` |
-| 시리즈 | 여러 편을 한 사이트로: 갤러리 · 기획 노트 · 홍보 가이드 · 활용 가이드 · 시리즈 카드 | `series.py` |
+| 시리즈 | 여러 편을 한 사이트로: 갤러리(「이 사이트에 있는 것」 · 자동 요약) · 기획 노트 · 홍보 가이드 · 활용 가이드 · 통합 분석 · 시리즈 카드 | `series.py` |
+| 통합 분석 | 전체 편의 시대 · 문서 유형 · 유형×세기 · 소장처 종류 · 지역 · 핵심 정서 · 판독 난도 · 원문 인용 · 인물 · 남겨 둔 질문 · 편별 표 + 자동 요약 | `analysis.py` (series.py가 함께 만듦) |
 | 원본 묶음 | 선별 문서의 **문서 전체 면**(원본 해상도) + 원본 영상 + 출처.csv → 400MB 이하 분할 ZIP | `studio.py originals --full` |
 | ⑤ 패키징 | 연구 패키지(메타데이터·수집현황·인용·datapackage.json·이미지), 여러 문중 일괄 수집·비교표·그래프 | `harvest.py bundle` · `catalog` · `batch` · `compare` · `studio.py report` |
 
@@ -31,6 +32,7 @@
 > 완석정 유지로 전시·카드·영상까지 처음부터 끝까지 만들어줘
 > 이 편 릴스 영상이랑 가로 영상도 만들어줘
 > 세 편을 묶어서 시리즈 사이트로 만들어줘
+> 전체를 통합 분석해서 한눈에 보여줘
 > 공개해도 되는지 점검해줘
 > 첫 면이 두루마리 겉이니 대표 면을 2면으로 바꿔줘
 > 이 전시에 쓴 문서들 원본 사진을 문서 전체로 받아서 묶어줘 (영상 원본도 같이)
@@ -55,7 +57,8 @@ python3 $S/studio.py originals --work W --theme life-1 --full [--videos 영상�
 python3 $S/harvest.py bundle --work W --dest pkg --prefix 동춘당  # ⑤
 
 # 여러 편 → 시리즈 사이트 (series.tsv: 편<TAB>작업폴더<TAB>테마)
-python3 $S/series.py --list series.tsv --note series.md --out site
+python3 $S/series.py --list series.tsv --note series.md --out site   # analysis.html(통합 분석)도 함께
+python3 $S/analysis.py --list series.tsv --out 분석.html             # 통합 분석만 따로
 
 # 여러 소장처
 python3 $S/harvest.py catalog --group 문중 --region 충청 --tsv list.tsv

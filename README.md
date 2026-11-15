@@ -4,7 +4,19 @@
 
 | 플러그인 | 하는 일 |
 |---|---|
-| [aks-archive-harvester](plugins/aks-archive-harvester) | 한국고문서자료관 고문서 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개(전시 웹페이지·카드뉴스·수업 활동지) ⑤ 연구 패키지·여러 문중 비교 연구 |
+| [aks-archive-harvester](plugins/aks-archive-harvester) | 한국고문서자료관 고문서 ① 수집 ② 큐레이션 ③ 에디팅(문구 · 전달) ④ 매개(전시 웹페이지·카드뉴스·수업 활동지·영상) ⑤ 시리즈 사이트·통합 분석·연구 패키지·여러 문중 비교 연구 |
+
+## 한눈에 보기 — 여기 있는 것 전부
+
+| 하려는 일 | 바로 가기 |
+|---|---|
+| 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 101편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
+| 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 355건 · 소장처 100곳 · 1403–1945년 · 판독 한자 16,299자 · 원문 인용 219곳 |
+| 📜 원문 읽기 | 편마다 판독 · 번역 · 해제 · 요약 · "현대어(原文)" 이야기 (갤러리 각 편 「원문 읽기」) |
+| 🧑‍🏫 수업 · 🏛️ 전시 | 편마다 활동지 · 전시 웹페이지 · 카드뉴스 · CSV — [전체 결과물 표](https://changgi.github.io/archive-tools/examples/#alltable) · [활용 가이드](https://changgi.github.io/archive-tools/examples/use.html) |
+| ✍️ 기획 · 비하인드 | [기획 노트](https://changgi.github.io/archive-tools/examples/about.html) · 편별 큐레이터 노트 · 비하인드 카드 · 전달 에디팅 |
+| 📢 홍보 | [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · 편별 `channels.md` · [시리즈 게시 문구](examples/series/promo.md) |
+| 🛠️ 직접 만들기 | [플러그인 설치](#설치) · [처음부터 끝까지 따라하기](examples/tutorial/README.md) · [완성 사이트](https://changgi.github.io/archive-tools/examples/tutorial/site/index.html) |
 
 ## 예시 보기
 

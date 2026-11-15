@@ -22,7 +22,7 @@ aks-archive-harvester의 **모든 단계**를 실제로 돌려 만든 예제입�
 | 7 매개 | `studio.py promo … --ep 1` → `studio.py mediate --work W1 --theme story --url <주소>` | 도구 | 첫 페이지 · 전시 · 카드 · 활동지 · 비하인드 카드 · `channels.md` · 홍보 글 |
 | 8 영상 | `video.py --work W1 --theme story --ep 1 --url <주소> --web` | 도구 | 릴스 9:16 · 가로 16:9 · 자막 · 웹 압축본 |
 | 9 원본 묶음 | `studio.py originals --work W1 --theme story --full --dry-run` → `--full --videos W1/mediate/story/video` | 도구 | 문서 전체 면 + 원본 영상 + `출처.csv` ZIP |
-| 10 시리즈 | `series.py --list series.tsv --note series.md --out site` | 도구 | 갤러리 · 기획 노트 · 홍보 가이드 · 활용 가이드 · 시리즈 카드 |
+| 10 시리즈 | `series.py --list series.tsv --note series.md --out site` | 도구 | 갤러리 · 통합 분석 · 기획 노트 · 홍보 가이드 · 활용 가이드 · 시리즈 카드 |
 
 Claude에게는 "완석정 유지로 전시랑 영상까지 만들어줘"처럼 말하면 이 순서대로 진행합니다. 터미널에서 직접 할 때는 아래 0단계부터.
 
@@ -199,7 +199,9 @@ python3 $S/series.py --list series.tsv --note series.md --out site --home ../../
 
 ![시리즈 사이트](img/site.jpg)
 
-결과: [갤러리](site/index.html) · [기획 노트](site/about.html) · [홍보 가이드](site/promote.html) · [활용 가이드](site/use.html) · 편마다 [`eps/`](site/eps/).
+결과: [갤러리](site/index.html)(맨 위에 「이 사이트에 있는 것」과 자동 요약) · [통합 분석](site/analysis.html) · [기획 노트](site/about.html) · [홍보 가이드](site/promote.html) · [활용 가이드](site/use.html) · 편마다 [`eps/`](site/eps/).
+
+통합 분석만 따로: `python3 $S/analysis.py --list series.tsv --out 분석.html` — 세기 · 문서 유형 · 유형×세기 · 소장처 종류 · 지역 · 핵심 정서 · 판독 난도 · 원문 인용 · 인물 · 남겨 둔 질문 · 편별 표. `series.tsv`에 4번째 칸 `kind`(문중 · 서원 …)를 쓰면 소장처 종류도 셉니다. 같은 도구로 만든 [예시 101편 통합 분석](https://changgi.github.io/archive-tools/examples/analysis.html).
 
 ---
 
