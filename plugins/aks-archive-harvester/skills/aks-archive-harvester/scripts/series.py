@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+"""시리즈 — 여러 편(테마)을 묶어 한 사이트로: 갤러리 · 기획 노트 · 홍보 가이드 · 활용 가이드 · 시리즈 카드.
+
+  python3 series.py --list series.tsv --note series.md --out site [--title "고문서 한 장"]
+
+series.tsv (탭 구분, 첫 줄 머리글):  ep  work  theme  [url]
+   각 편은 먼저 studio.py edit · mediate (· video.py) 를 마친 상태여야 합니다.
+series.md (기획 노트):  # 시리즈 제목  다음에 ## 제목별 문단. 아래 제목을 쓰면 알맞은 자리에 들어갑니다.
+   ## 왜 만들었나 / ## 전하고 싶은 것 / ## 고른 기준 / ## 이렇게 보이길 바랐다 / ## 이렇게 써 주세요 /
+   ## 지킨 원칙 / ## 부탁 / ## 히스토리   (히스토리는 "- 날짜 · 무엇" 줄)
+결과: site/index.html(갤러리) · about.html · promote.html · use.html · cards/(시리즈 카드) · eps/NN-테마/(각 편 결과물 복사)
+"""
+import argparse, collections, csv, glob, html, json, os, re, shutil, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import studio as ST
+
+h = html.escape
+CSS = '''body{margin:0;background:#16130f;color:#efe6d4;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;line-height:1.8}main{max-width:1100px;margin:0 auto;padding:6vh 5vw}
+a{color:#c4964a}h1{font-family:'Noto Serif KR',serif;font-size:clamp(30px,5vw,52px);line-height:1.25;margin:.2em 0}.k{color:#c4964a;letter-spacing:.18em;font-size:13px}
+h2{font-family:'Noto Serif KR',serif;font-size:25px;margin:2em 0 .5em;color:#f3ead8}h3{margin:0 0 6px;color:#c4964a;font-size:16px}p{color:#d9cfbb}.lead{font-size:18px;color:#e8dcc4}
+nav.top{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}nav.top a{background:#231d15;border:1px solid #4a3e2c;border-radius:30px;padding:5px 13px;text-decoration:none;font-size:14px;color:#efe6d4}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}.box{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:16px 18px}.box p{margin:.3em 0;font-size:15px}
+.ep{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}.ep img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 0;display:block;background:#0d0c0a}
+.ep .tx{padding:12px 14px}.ep .tx small{color:#c4964a;font-weight:700}.ep .tx b{display:block;font-size:16.5px;line-height:1.4;margin:2px 0}.ep .tx span{font-size:13px;color:#b9ab90}
+.ql{display:flex;flex-wrap:wrap;gap:5px;padding:0 14px 14px}.ql a{font-size:12.5px;color:#d5cab4;text-decoration:none;border:1px solid #4a3e2c;border-radius:20px;padding:2px 9px;background:#231d15}.ql a:hover{border-color:#c4964a}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.stats div{background:#1f1a14;border:1px solid #3a3225;border-radius:12px;padding:10px 16px}.stats b{display:block;font:700 26px 'Noto Serif KR',serif;color:#c4964a}.stats span{font-size:13px;color:#b9ab90}
+.tw{overflow-x:auto;border:1px solid #3a3225;border-radius:12px}table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.5px}th,td{padding:8px 10px;border-bottom:1px solid #2c251b;text-align:left;vertical-align:top}th{background:#1f1a14;color:#c4964a}
+.cards{display:flex;gap:12px;overflow-x:auto}.cards img{height:340px;border-radius:10px;border:1px solid #3a3225}
+.tl{border-left:2px solid #c4964a66;margin:10px 0 0 6px;padding-left:20px}.tl div{margin:0 0 12px}
+footer{margin-top:6vh;border-top:1px solid #3a3225;padding-top:14px;font-size:13.5px;color:#9d917c}'''
+USE = [('교사', '활동지(끝의 「선생님께」)로 1–2차시 수업 — 원문 한 줄 찾기 → 번역 읽기 → 「남겨 둔 질문」 토론'),
+       ('학예사 · 전시기획자', '원본 묶음으로 패널, 전달 에디팅(연출 노트)대로 공간 설계, 비하인드 카드로 기획 의도 벽, 영상 루프'),
+       ('연구자', 'selection.csv의 판독·번역을 출발점으로 다시 읽고 고치기, 원본 면으로 검증'),
+       ('기록관리자', '"증거로서의 기록", 출처 표기·메타데이터 실습 사례'),
+       ('문중 · 지자체 · 서원향교', '우리 집안·고장 문서를 이야기로 — 종가 행사·축제 전시, 답사 해설'),
+       ('크리에이터', '편마다 준비된 릴스·카드·채널별 문구로 시리즈 운영'),
+       ('작가(소설·웹툰·시나리오)', '「남겨 둔 질문」에서 시작, 원본 사진으로 고증, 원문 한 줄을 대사로'),
+       ('개발자 · 데이터', '판독 텍스트로 검색·연표·지도(권리 확인 후)')]
+CHECK = ['이미지 재사용·상업 이용은 소장처 동의(한국고문서자료관 031-730-8873, 8876). 공개 전이면 mediate --placeholder 결과물로',
+         '출처 표기: "이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 소장처"', '판독·번역은 초안 — 인용할 때 밝히기', '각색은 사실과 허구를 구분해 밝히기',
+         '민감한 기록(기근·노비·자매·형벌)은 존엄을 먼저', '근대 명부의 실명 등 개인정보 배려']
+
+
+def read_note(p):
+    t = open(p, encoding='utf-8').read() if p and os.path.exists(p) else ''
+    title = (re.search(r'^#\s+(.+)$', t, re.M) or [None, ''])[1].strip()
+    secs = [(m.group(1).strip(), m.group(2).strip()) for m in re.finditer(r'^##\s*(.+?)\s*\n(.*?)(?=^##\s|\Z)', t, re.S | re.M)]
+    return title, secs
+
+
+def page(path, title, body, back=True):
+    nav = '<nav class="top"><a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a></nav>'
+    open(path, 'w', encoding='utf-8').write(f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
+
+
+def bars(data, color='#c4964a'):
+    if not data: return ''
+    mx = max(v for _, v in data) or 1; w = 340; out = [f'<svg viewBox="0 0 {w} {30*len(data)+10}" style="width:100%;max-width:{w}px">']
+    for i, (k, v) in enumerate(data):
+        y = 8 + i * 30; bw = (w - 150) * v / mx
+        out.append(f'<text x="96" y="{y+15}" text-anchor="end" fill="#d5cab4" font-size="13">{h(str(k))}</text><rect x="104" y="{y+2}" width="{bw:.0f}" height="18" rx="3" fill="{color}"/><text x="{110+bw:.0f}" y="{y+15}" fill="#f3ead8" font-size="13">{v}</text>')
+    return ''.join(out) + '</svg>'
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--list', required=True); ap.add_argument('--note'); ap.add_argument('--out', required=True); ap.add_argument('--title')
+    a = ap.parse_args()
+    rows = list(csv.DictReader(open(a.list, encoding='utf-8-sig'), delimiter='\t'))
+    ntitle, secs = read_note(a.note); stitle = a.title or ntitle or '고문서 시리즈'
+    out = a.out; os.makedirs(out, exist_ok=True); os.makedirs(os.path.join(out, 'eps'), exist_ok=True)
+    EPS = []; docs = []
+    for r in rows:
+        work, theme = r['work'], r['theme']; ep = int(r['ep']) if r.get('ep') else len(EPS) + 1
+        md = os.path.join(work, 'mediate', theme); ed = os.path.join(work, 'edit', theme)
+        if not os.path.exists(os.path.join(md, 'exhibit.html')): print(f'건너뜀(먼저 mediate): {work}/{theme}'); continue
+        slug = f'{ep:02d}-{theme}'; dst = os.path.join(out, 'eps', slug)
+        shutil.rmtree(dst, ignore_errors=True)
+        shutil.copytree(md, dst, ignore=shutil.ignore_patterns('.*', '*_reel.mp4', '*_wide.mp4'))  # 영상은 웹 압축본(_web)만
+        shutil.copy(os.path.join(ed, 'selection.csv'), dst)
+        for f in ('curator.md', 'delivery.md'):
+            if os.path.exists(os.path.join(ed, f)): shutil.copy(os.path.join(ed, f), dst)
+        sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig'))); docs += sel
+        th = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')) if os.path.exists(os.path.join(ed, 'theme.json')) else {}
+        cj = os.path.join(work, 'collection.json'); coll = json.load(open(cj, encoding='utf-8'))['name'] if os.path.exists(cj) else os.path.basename(work)
+        cards = sorted(glob.glob(os.path.join(dst, 'cards', '*.png')) + glob.glob(os.path.join(dst, 'cards', '*.jpg')))
+        cover = next((c for c in cards if re.search(r'/0?1\.(png|jpg)$', c)), cards[0] if cards else '')
+        vids = sorted(glob.glob(os.path.join(dst, 'video', '*_web.mp4')))
+        EPS.append(dict(ep=ep, slug=slug, title=th.get('title') or theme, coll=coll, cover=os.path.relpath(cover, out) if cover else '', cur=ST.read_curator(ed), dv=ST.read_delivery(ed),
+                        vids=[os.path.relpath(v, out) for v in vids], has={f: os.path.exists(os.path.join(dst, f)) for f in ('index.html', 'exhibit.html', 'handout.html', 'channels.md', 'curator.md', 'delivery.md', 'promo.md')}))
+    EPS.sort(key=lambda e: e['ep'])
+    # ---- 시리즈 카드
+    cd = os.path.join(out, 'cards'); shutil.rmtree(cd, ignore_errors=True); os.makedirs(cd)
+    foot = f'{stitle} · 이미지: 한국학중앙연구원 한국고문서자료관 소장·제공'
+    ST.note_card('시리즈 기획 노트', stitle, [('담은 것', f'{len(EPS)}편 · 문서 {len(docs)}건')], os.path.join(cd, '00_표지.png'), foot=foot, big_size=70)
+    for i, (t, body) in enumerate([s for s in secs if s[0] != '히스토리'][:8], 1):
+        first = re.split(r'\n\s*\n', body)[0].replace('\n', ' ')
+        ST.note_card(t, first[:90], [], os.path.join(cd, f'{i:02d}_{re.sub(r"[^가-힣A-Za-z0-9]", "", t)[:10]}.png'), foot=foot, big_size=54 if len(first) > 40 else 64)
+    scards = sorted(os.listdir(cd))
+    # ---- 갤러리
+    cent = collections.Counter(f"{(int(s['연도'])-1)//100+1}세기" if str(s.get('연도', '')).isdigit() else '연도 미상' for s in docs)
+    CENT = sorted(cent.items(), key=lambda x: (x[0] == '연도 미상', x[0]))
+    sec = dict(secs)
+    def links(e):
+        b = f"eps/{e['slug']}/"; L = [('첫 페이지', 'index.html'), ('전시', 'exhibit.html'), ('활동지', 'handout.html'), ('채널', 'channels.md'), ('노트', 'curator.md'), ('전달', 'delivery.md'), ('홍보 글', 'promo.md')]
+        return ''.join(f'<a href="{b}{f}">{n}</a>' for n, f in L if e['has'].get(f)) + ''.join(f'<a href="{v}">{"릴스" if "reel" in v else "가로"}</a>' for v in e['vids']) + f'<a href="{b}selection.csv">CSV</a>'
+    grid = ''.join(f'<div class="ep"><a href="eps/{e["slug"]}/index.html"><img src="{h(e["cover"])}" alt="" loading="lazy"></a><div class="tx"><small>EP.{e["ep"]:02d}</small><b>{h(e["title"])}</b><span>{h(e["coll"])}</span>{("<p style=font-size:14px>" + h(e["cur"]["message"]) + "</p>") if e["cur"].get("message") else ""}</div><div class="ql">{links(e)}</div></div>' for e in EPS)
+    why = sec.get('왜 만들었나') or sec.get('왜') or ''
+    body = f'''<p class="k">SERIES</p><h1>{h(stitle)}</h1>{('<p class="lead">' + h(re.split(r"\n\s*\n", why)[0]) + '</p>') if why else ''}
+<div class="stats"><div><b>{len(EPS)}</b><span>편</span></div><div><b>{len(docs)}</b><span>문서</span></div><div><b>{sum(1 for e in EPS if e["vids"])}</b><span>영상 있는 편</span></div><div><b>{len(scards)}</b><span>시리즈 카드</span></div></div>
+<h2>결과물 바로 가기</h2><p>편마다: <b>첫 페이지</b>(모든 결과물) · <b>전시</b> 웹페이지 · <b>활동지</b>(선생님께) · <b>채널</b>별 홍보안 · 큐레이터 <b>노트</b> · <b>전달</b> 에디팅 · <b>홍보 글</b> · 릴스·가로 영상 · 원문·번역 <b>CSV</b></p>
+<h2>에피소드</h2><div class="g">{grid}</div>
+<h2>시리즈 카드</h2><div class="cards">{''.join(f'<img src="cards/{c}" alt="" loading="lazy">' for c in scards)}</div>'''
+    page(os.path.join(out, 'index.html'), stitle, body)
+    # ---- 기획 노트
+    hist = sec.get('히스토리', '')
+    body = f'<p class="k">SERIES NOTE</p><h1>기획 노트 — {h(stitle)}</h1>' + ''.join(f'<h2>{h(t)}</h2>' + ''.join(f'<p>{h(p)}</p>' for p in re.split(r"\n\s*\n", b)) for t, b in secs if t != '히스토리')
+    body += f'<h2>숫자로 본 시리즈</h2><div class="g"><div class="box"><h3>문서의 시대 ({len(docs)}건)</h3>{bars(CENT)}</div><div class="box"><h3>편별 문서 수</h3>{bars([(f"EP.{e["ep"]:02d}", sum(1 for _ in open(os.path.join(out, "eps", e["slug"], "selection.csv"), encoding="utf-8-sig")) - 1) for e in EPS][:12], "#8fae8b")}</div></div>'
+    if hist: body += '<h2>히스토리</h2><div class="tl">' + ''.join(f'<div>{h(l.lstrip("- ").strip())}</div>' for l in hist.splitlines() if l.strip()) + '</div>'
+    body += '<h2>편별 큐레이터 노트 · 전달 에디팅</h2><div class="tw"><table><tr><th>편</th><th>전하고 싶은 것</th><th>핵심 정서</th><th>남겨 둔 질문</th></tr>' + ''.join(f'<tr><td><a href="eps/{e["slug"]}/index.html">EP.{e["ep"]:02d} {h(e["title"])}</a></td><td>{h(e["cur"].get("message", ""))}</td><td>{h(e["dv"].get("emotion", ""))}</td><td>{h(e["cur"].get("question", ""))}</td></tr>' for e in EPS) + '</table></div>'
+    page(os.path.join(out, 'about.html'), '기획 노트 — ' + stitle, body)
+    # ---- 홍보 가이드
+    body = f'<p class="k">PROMOTION</p><h1>채널별 홍보 가이드</h1><p class="lead">한 게시물에 문서 한 장·원문 한 줄, 질문으로 열고 「남겨 둔 질문」으로 닫기, 출처는 언제나, 판독은 초안이라고.</p>'
+    body += '<div class="tw"><table><tr><th>채널</th><th>형식</th><th>쓰는 파일</th><th>요령</th></tr>' + ''.join(f'<tr><td><b>{h(a_)}</b></td><td>{h(b)}</td><td>{h(c)}</td><td>{h(d)}</td></tr>' for a_, b, c, d in ST.CHANNELS) + '</table></div>'
+    body += '<h2>4주 계획</h2><div class="tw"><table><tr><th>주</th><th>무엇을</th></tr><tr><td>1주</td><td>1차 공개 — 릴스 · 카드뉴스 · 전시 링크</td></tr><tr><td>2주</td><td>2차 — 편별 비하인드 카드 ①②③, 「남겨 둔 질문」으로 댓글</td></tr><tr><td>3주</td><td>시리즈 — 기획 노트 카드 · 시리즈 영상 · 유튜브 묶음</td></tr><tr><td>4주</td><td>확장 — 장문 · 지역 커뮤니티 · 수업 · 전시 제안</td></tr></table></div>'
+    body += '<h2>편별 채널 홍보안</h2><ul>' + ''.join(f'<li><a href="eps/{e["slug"]}/channels.md">EP.{e["ep"]:02d} {h(e["title"])}</a></li>' for e in EPS if e['has'].get('channels.md')) + '</ul>'
+    page(os.path.join(out, 'promote.html'), '홍보 가이드 — ' + stitle, body)
+    # ---- 활용 가이드
+    body = '<p class="k">USE</p><h1>패키지 활용 가이드</h1><p class="lead">원본 사진(원재료) · 판독과 번역(손질된 재료) · 이야기와 큐레이터 노트(레시피) · 카드·영상·전시(차림 예시) — 받는 사람이 자기 자리(수업·전시·책·창작)에 맞게 바로 쓰는 묶음입니다.</p>'
+    body += '<div class="g">' + ''.join(f'<div class="box"><h3>{h(a_)}</h3><p>{h(b)}</p></div>' for a_, b in USE) + '</div><h2>지킬 것</h2><div class="box"><ul>' + ''.join(f'<li>{h(x)}</li>' for x in CHECK) + '</ul></div>'
+    page(os.path.join(out, 'use.html'), '활용 가이드 — ' + stitle, body)
+    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · eps/')
+
+
+if __name__ == '__main__':
+    main()

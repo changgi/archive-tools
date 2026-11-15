@@ -20,7 +20,7 @@ aks-archive-harvester 스튜디오 — 수집한 고문서로 큐레이션 테�
   python3 studio.py mediate --work W --theme person-1
   python3 studio.py report  --root ROOT
 """
-import argparse, base64, csv, glob, html, io, json, os, re, sys
+import argparse, base64, csv, glob, html, io, json, os, re, shutil, sys
 from collections import Counter, defaultdict
 from PIL import Image, ImageDraw, ImageFont, ImageStat
 
@@ -603,7 +603,7 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
 </style></head><body><main><h1>{html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 문서 {len(sel)}점</p>
 <h2>결과물 바로 가기</h2><div class="g">{tl}</div>
 {curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
-<h2>담긴 문서</h2><ol>{''.join(f"<li>{html.escape(str(x['연도']))} {html.escape(x['문서명'])}</li>" for x in sel)}</ol>
+<h2>담긴 문서</h2><ol>{''.join(f"<li>{'' if str(x['문서명']).startswith(str(x['연도'])) else html.escape(str(x['연도'])) + ' '}{html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
     open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(idx)
     print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(sel)+2}장(카드뉴스) · handout.html(수업 활동지) · sns.txt')
@@ -664,7 +664,7 @@ def cmd_originals(a):
     vids = []
     if a.videos:
         for v in sorted(glob.glob(os.path.join(a.videos, '*'))):
-            if v.lower().endswith(('.mp4', '.mov', '.srt', '.vtt')): vids.append(v)
+            if v.lower().endswith(('.mp4', '.mov', '.srt', '.vtt')) and '_web.' not in v: vids.append(v)  # 웹 압축본은 빼고 원본만
     dest = a.dest or os.path.join(a.work, 'originals', a.theme); os.makedirs(dest, exist_ok=True)
     prefix = a.prefix or re.sub(r'\s+', '', coll)[:30]
     vnote = ('\n■ 원본 영상\n- 웹용으로 줄이기 전의 원본 해상도 영상과 자막입니다. 영상 속 문서 이미지에도 위 출처·이용 조건이 적용됩니다.\n' if vids else '')
@@ -937,6 +937,36 @@ def put_delivery(page, block, where='</main>'):
     i = page.find(where)
     return page[:i + len(where)] + block + page[i + len(where):] if i >= 0 else page.replace('</body>', block + '</body>')
 
+
+def cmd_delivery(a):
+    """문구 에디팅을 마친 뒤 전달 에디팅 초안을 다시 만들기 (절정 원문 후보·여운 질문이 채워짐)"""
+    ed = os.path.join(a.work, 'edit', a.theme)
+    sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
+    th = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')) if os.path.exists(os.path.join(ed, 'theme.json')) else {}
+    p = os.path.join(ed, 'delivery.md'); old = read_delivery(ed)
+    filled = {k for k in old if k in ('emotion', 'linger', 'afterd')}  # 사람이 쓰는 칸이 차 있으면 보호
+    if filled and not a.force:
+        sys.exit(f'delivery.md에 이미 쓴 칸이 있습니다({", ".join(sorted(filled))}). 덮어쓰려면 --force (기존 파일은 delivery.bak.md로 보관)')
+    if os.path.exists(p): shutil.copy(p, os.path.join(ed, 'delivery.bak.md'))
+    dr = delivery_draft(sel, read_curator(ed), key=a.key or '')
+    open(p, 'w', encoding='utf-8').write(delivery_template(th.get('title') or a.theme, dr))
+    print('→', p); [print(f'  {h}: {dr.get(k, "")[:70]}') for k, h, _ in DELIVERY_KEYS if dr.get(k)]
+
+
+def cmd_page(a):
+    """대표 면 바꾸기 — 두루마리 겉면·표지 대신 글이 있는 면을 카드·전시·영상에 쓰기"""
+    ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
+    rows = list(csv.DictReader(open(p, encoding='utf-8-sig'))); cols = list(rows[0].keys()); done = 0
+    for r in rows:
+        if r['순서'] == str(a.n):
+            src = os.path.join(a.work, os.path.dirname(r['원본경로']), a.page)
+            if not os.path.exists(src): sys.exit(f'면이 없습니다: {src} (download로 그 면을 먼저 받으세요)')
+            r['대표장'] = a.page; r['원본경로'] = os.path.relpath(src, a.work)
+            im = Image.open(src).convert('RGB'); im.thumbnail((1600, 1600)); im.save(os.path.join(ed, r['이미지']), quality=90); done = 1
+    if not done: sys.exit(f'순서 {a.n}이 없습니다')
+    w = csv.DictWriter(open(p, 'w', newline='', encoding='utf-8-sig'), fieldnames=cols); w.writeheader(); w.writerows(rows)
+    print(f'순서 {a.n} 대표 면 → {a.page} (mediate · video를 다시 실행하세요)')
+
 # ---------------------------------------------------------------- report (비교 리포트)
 def cmd_report(a):
     p = os.path.join(a.root, 'compare_metadata.csv')
@@ -1055,6 +1085,9 @@ def main():
     pr = sp.add_parser('promo', help='릴스 홍보 문구 틀(「고문서 한 장」 형식) → mediate/<테마>/promo.md'); pr.add_argument('--work', required=True); pr.add_argument('--theme', required=True)
     pr.add_argument('--ep', type=int, default=1); pr.add_argument('--series', default='고문서 한 장'); pr.add_argument('--title'); pr.add_argument('--collection'); pr.add_argument('--url', help='전시 웹페이지 주소')
     r = sp.add_parser('report'); r.add_argument('--root', required=True); r.add_argument('--top', type=int, default=12)
+    pg = sp.add_parser('page', help='대표 면 바꾸기 (예: 두루마리 겉면 → 002.jpg)'); pg.add_argument('--work', required=True); pg.add_argument('--theme', required=True); pg.add_argument('--n', type=int, required=True); pg.add_argument('--page', required=True)
+    dl = sp.add_parser('delivery', help='전달 에디팅 초안 다시 만들기(문구 에디팅 뒤) → edit/<테마>/delivery.md'); dl.add_argument('--work', required=True); dl.add_argument('--theme', required=True)
+    dl.add_argument('--key', help='절정으로 쓸 구절(이야기 속 인용 가운데 이 말이 든 것)'); dl.add_argument('--force', action='store_true')
     og = sp.add_parser('originals', help='원본 묶음: 선별 문서의 원본 해상도 사진(--full 이면 문서 전체 면) + 원본 영상 → 분할 ZIP')
     og.add_argument('--work', required=True); og.add_argument('--theme', required=True)
     og.add_argument('--full', action='store_true', help='선별 문서의 모든 면을 받아서 묶기 (이미 받은 면은 건너뜀)')
@@ -1065,7 +1098,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page}[a.cmd](a)
 
 
 if __name__ == '__main__':

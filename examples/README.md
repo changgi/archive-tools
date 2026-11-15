@@ -2,6 +2,8 @@
 
 > ✍️ **기획 노트** — 이 시리즈를 만든 이유 · 고른 기준 · 히스토리: [about.html](https://changgi.github.io/archive-tools/examples/about.html) · [CURATOR-NOTE.md](CURATOR-NOTE.md). 편마다의 큐레이터 노트는 각 폴더의 `curator.md`.
 >
+> 🧭 **처음부터 끝까지 따라하기** — 세 소장처 문서 네 건으로 전 과정을 실제로 돌린 예제: [tutorial/README.md](tutorial/README.md) · [완성된 시리즈 사이트](https://changgi.github.io/archive-tools/examples/tutorial/site/index.html)
+>
 > 🎭 **두 가지 에디팅** — 문구 에디팅 전후(무엇을 말할지)와 전달 에디팅(어떻게 · 무엇으로 · 어디로 전할지). 편마다 `delivery.md`, 전시 웹페이지 「연출 노트」.
 >
 > 📢 **2차 홍보 · 활용** — [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · [패키지 활용 가이드](https://changgi.github.io/archive-tools/examples/use.html) · 시리즈 비하인드 [릴스·카드](series/promo.md) · 편마다 `behind/`(비하인드 카드 3장) · `channels.md`(채널별 홍보안).
@@ -497,6 +499,8 @@
 ---
 
 ## 예제 (따라하기)
+
+> 전 과정(문구 에디팅 · 큐레이터 노트 · 전달 에디팅 · 영상 · 원본 묶음 · 시리즈 사이트)을 한 번에 보려면 **[tutorial/README.md](tutorial/README.md)**.
 
 아래는 위 예시를 만든 명령 그대로입니다. Claude에게 말로 시켜도 되고, 터미널에서 직접 실행해도 됩니다.
 

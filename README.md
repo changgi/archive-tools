@@ -26,6 +26,8 @@
 
 📜 **원문으로 읽는 이야기 50편 더 (EP.51–EP.100):** 귀화 일본 장수 사여모 · 유희의 『물명고』 · 제주의 종이 신분증 지패 · 공명첩 · 사또의 성적표 포폄 · 밀부 제34부 · 험천의 김홍익 · 1919년 만일계 · 1592년 안동 의병 일지 · 이완용 서명의 관고 · 농암 이현보의 양로연 · 류성룡 증손녀의 호적 · 몰래 무덤 산송 · 1904년 향교 완문 · 하홍도의 여름 편지 외 — 문중 · 서원 · 향교 · 사찰 · 제주 문서까지 → [보기](https://changgi.github.io/archive-tools/examples/) · 첫 화면 「결과물 한눈에 보기」에서 영상 · 전시 · 활동지 · 카드뉴스 · CSV · 홍보 글로 바로 가기
 
+🧭 **처음부터 끝까지 따라하기 (실제 예제):** 「임금이 보낸 종이 세 장」 — 찾기 → 받기 → 문구 에디팅 → 큐레이터 노트 → 전달 에디팅 → 전시·카드·활동지·비하인드 → 릴스·가로 영상 → 원본 묶음 → 시리즈 사이트까지, 단계마다 자동 초안과 다듬은 결과를 나란히 → [따라하기](examples/tutorial/README.md) · [완성된 사이트](https://changgi.github.io/archive-tools/examples/tutorial/site/index.html)
+
 ✍️ **큐레이터 노트 · 기획 노트:** 편마다 왜 골랐고 무엇을 전하려 했는지, 만들며 있었던 일까지 — [기획 노트](https://changgi.github.io/archive-tools/examples/about.html) · 갤러리 각 편 「비하인드」 탭
 
 📢 **2차 홍보 · 채널 · 활용:** [시리즈 비하인드 릴스·카드](https://changgi.github.io/archive-tools/examples/#series) · [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · [패키지 활용 가이드](https://changgi.github.io/archive-tools/examples/use.html)
@@ -34,7 +36,7 @@
 
 📖 **이야기가 있는 기록 10편 (EP.7–EP.16):** 왕실 가족의 편지 · 운조루의 시간 · 되찾은 제사 땅 · 섬마을의 호소 · 윤음에서 금융조합까지 · 기도와 살림의 기록 · 200년의 상소 · 나아가지 않은 선비 · 서원을 움직인 사람들 · 학자의 벼슬길 → [보기](https://changgi.github.io/archive-tools/examples/)
 
-명령을 하나씩 따라 하는 예제는 [`examples/README.md`](examples/README.md)에 있습니다.
+명령을 하나씩 따라 하는 예제는 [`examples/tutorial/README.md`](examples/tutorial/README.md)(전 과정)와 [`examples/README.md`](examples/README.md)에 있습니다.
 
 🎬 **홍보 영상:** [EP.1 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4) · [EP.2 만든 것 보기(48초)](https://changgi.github.io/archive-tools/examples/media/promo-reel-ep2.mp4) · EP.3–EP.6 예시 세트 영상은 [예시 README](examples/README.md#예시-세트-영상-ep3ep6) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)
 
