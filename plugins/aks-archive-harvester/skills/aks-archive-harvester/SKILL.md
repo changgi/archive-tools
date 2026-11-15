@@ -33,7 +33,7 @@ A worked example of every step, with the auto drafts and the edited results side
 | 9 | originals | `studio.py originals … --full --dry-run` → `--full --videos W/mediate/<id>/video` | tool |
 | 10 | series | `series.py --list series.tsv --note series.md --out site` | tool |
 
-Run `studio.py check` before steps 7–10 and again before handing anything over; follow its 다음 할 일 list. Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Pass the public address (`mediate --url`, `series.py --site-url`) so every page carries link-preview tags and a 1200×630 `share.jpg` — what KakaoTalk, Facebook, X and Threads show when the link is pasted. Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
+Run `studio.py check` before steps 7–10 and again before handing anything over; follow its 다음 할 일 list. Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Pass the public address (`mediate --url`, `series.py --site-url`) so every page carries link-preview tags and a 1200×630 `share.jpg` — what KakaoTalk, Facebook, X and Threads show when the link is pasted. With `--site-url`, `series.py` also writes `sitemap.xml` for search engines (submit it in Google Search Console / Naver Search Advisor). Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
 
 Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Storytelling from the sources: `references/storytelling.md`. Reels copy template: `references/reels-caption.md`. Channel-by-channel promotion and second-wave (behind) materials: `references/channels.md`. What people can do with the package: `references/package-uses.md`.
 
@@ -186,6 +186,7 @@ python3 video.py --work WORK --theme <id> [--ep 7] [--url 전시주소] [--forma
 - Narration uses edge-tts when installed (`--voice ko-KR-SunHiNeural`); otherwise a silent video timed by text length. Behind a proxy with its own certificate, set `AKS_CA_BUNDLE=<ca file>`.
 - Writes `WORK/mediate/<id>/video/<base>_reel.mp4` · `_wide.mp4` · `.ko.srt` · `.ko.vtt`; `--web` adds 540p `_web.mp4` copies for web pages. Hand the full-resolution files to `originals --videos`. Run `mediate` again afterwards: the front page then gets video players with Korean subtitles (web copies preferred).
 - Look at one frame of each format before handing it over.
+- Generated pages pass an automated WCAG 2 A/AA check (axe-core): keyboard-focusable scroll areas, visible focus, alt text on linked images, chart labels. Keep these when editing the templates.
 - If narration fails it stops with a message instead of a traceback; retry with `--no-tts` or set `AKS_CA_BUNDLE`.
 
 **Series site — `series.py`.** For several episodes:

@@ -563,6 +563,7 @@ h2{{font-size:28px;margin:0 0 .4em}}
 .aid b{{display:inline-block;min-width:5.2em;color:#c4964a;margin-right:.4em}} .aid .orig{{font-family:'Noto Serif KR','Batang',serif;color:#f3ead8}}
 .aid small{{display:block;color:#9d917c;font-size:12.5px;margin-top:6px}}
 .aid .full{{margin-top:8px;border-top:1px dashed #4a3e2c;padding-top:6px}} .aid .full summary{{font-weight:600;color:#d9b77a}}
+:focus-visible{{outline:2px solid #c4964a;outline-offset:2px}}
 .aid .tr{{font:18px/2.5 'Noto Serif KR','Batang',serif;color:#f3ead8;background:#16130f;border-radius:8px;padding:10px 14px;margin:8px 0 4px;max-height:34em;overflow:auto;word-break:keep-all}}
 .aid ruby rt{{font:11px 'Noto Sans KR',sans-serif;color:#c4964a;letter-spacing:0}} .aid .tl{{background:#2a2219;border-radius:8px;padding:10px 14px;line-height:1.8}} .cap{{font-size:19px;line-height:1.8}} .meta{{font-size:14px;color:#9d917c;font-family:sans-serif}}
 .draft{{display:inline-block;font:13px sans-serif;color:#16130f;background:#c4964a;padding:3px 10px;border-radius:12px}}
@@ -586,14 +587,14 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
 <p><b>어떤 문서? (해제)</b> {html.escape(s.get('해제') or s['유형설명'] or '—')}</p>
 {('<p><b>무슨 내용? (내용 요약)</b> ' + html.escape(s['요약']) + '</p>') if s.get('요약') else ''}
 {('<p class="orig"><b>원문 속 글자</b> ' + html.escape(s['판독']) + '</p>') if has_reading(s) else ''}
-{('<p><b>원문 판독</b> (오른쪽 첫 줄부터 · 한자 위 한글 독음 · □ 못 읽은 글자)</p><div class="tr">' + ruby_html(s['원문']) + '</div>') if (s.get('원문') or '').strip() else ''}
+{('<p><b>원문 판독</b> (오른쪽 첫 줄부터 · 한자 위 한글 독음 · □ 못 읽은 글자)</p><div class="tr" tabindex="0" role="region" aria-label="원문 판독">' + ruby_html(s['원문']) + '</div>') if (s.get('원문') or '').strip() else ''}
 {('<p><b>원문 해석</b> ' + html.escape(s['번역']) + '</p>') if (s.get('번역') or '').strip() else ''}
 <p><b>찾아보기</b> {('① 위 「원문 속 글자」를 이미지에서 찾아 동그라미 해 보세요. ' if has_reading(s) else '① 문서를 받은 사람(또는 쓴 사람)의 이름을 찾아 표시해 보세요. ')}② 날짜가 적힌 곳을 찾아보세요. ③ 도장(인장)이 있나요?</p>
 <p><b>생각해 보기</b> 이 문서는 왜 지금까지 집안에 남아 있었을까요?</p></div></div>""")
     hand = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>활동지 — {html.escape(title)}</title><style>
 @page{{size:A4;margin:16mm}} body{{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;color:#222;font-size:14px}}
 h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:grid;grid-template-columns:42% 1fr;gap:14px;border-top:1px solid #ccc;padding:12px 0;page-break-inside:avoid}}
-.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} div.tr{{font:13.5px/2.3 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} ruby rt{{font-size:8.5px;color:#8a6a2e}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
+.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} div.tr{{font:13.5px/2.3 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} ruby rt{{font-size:8.5px;color:#8a6a2e}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#666}}
 </style></head><body><h1>고문서로 읽는 이야기: {html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 이름: ________ </p>{''.join(qs)}
 <h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다. 해제·요약은 문서명과 이미지에 근거한 초안이며 판독이 어려운 글자는 □로 표시했습니다.</p></body></html>"""
@@ -646,10 +647,10 @@ body{{margin:0;background:#16130f;color:#f3ead8;font-family:'Noto Sans KR','Malg
 h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);margin:0 0 6px}} .sub{{color:#b9ab90}} h2{{color:#c4964a;font-size:17px;margin:34px 0 10px}}
 .g{{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}} .t{{display:flex;flex-direction:column;gap:4px;background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:16px;color:inherit;text-decoration:none}}
 .t:hover{{border-color:#c4964a}} .t span{{font-size:24px}} .t b{{font-size:16px}} .t p{{margin:0;color:#b9ab90;font-size:13.5px;flex:1}} .t em{{font-style:normal;color:#c4964a;font-weight:700;font-size:14px}}
-.s{{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}} .s img{{height:220px;border-radius:8px;border:1px solid #3a3225}} .v{{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}} .v figure{{margin:0}} .v video{{max-height:520px;max-width:100%;border-radius:10px;background:#000}} .v figcaption{{font-size:13px;color:#b9ab90;margin-top:4px}} .v a{{color:#c4964a}} ol{{padding-left:20px}} li{{margin:3px 0}} .k{{font-size:12.5px;color:#8f826b;margin-top:30px}}
+:focus-visible{{outline:2px solid #c4964a;outline-offset:2px}} .s{{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}} .s img{{height:220px;border-radius:8px;border:1px solid #3a3225}} .v{{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}} .v figure{{margin:0}} .v video{{max-height:520px;max-width:100%;border-radius:10px;background:#000}} .v figcaption{{font-size:13px;color:#b9ab90;margin-top:4px}} .v a{{color:#c4964a}} ol{{padding-left:20px}} li{{margin:3px 0}} .k{{font-size:12.5px;color:#8f826b;margin-top:30px}}
 </style></head><body><main><h1>{html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 문서 {len(sel)}점</p>
 <h2>결과물 바로 가기</h2><div class="g">{tl}</div>
-{vsec}{curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
+{vsec}{curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s" tabindex="0" role="region" aria-label="카드뉴스 미리 보기 — 옆으로 넘겨 보기">{strip}</div>
 <h2>담긴 문서</h2><ol>{''.join(f"<li>{'' if str(x['문서명']).startswith(str(x['연도'])) else html.escape(str(x['연도'])) + ' '}{html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
     open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(put_share(idx, SM('index.html', title + ' — 결과물 한눈에 보기')))
@@ -1025,7 +1026,7 @@ def delivery_html(dv, mode='exhibit'):
     css = ('<style>.dv{max-width:980px;margin:0 auto 6vh;padding:26px 30px;border:1px solid #4a3e2c;border-radius:16px;background:#191510;font:16px/1.75 "Noto Sans KR","Malgun Gothic",sans-serif;color:#e8dcc4}'
            '.dv h2{font:700 24px "Noto Serif KR",serif;color:#f3ead8;margin:0 0 6px}.dv .em{color:#c4964a;font-weight:700}.dv-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:14px 0}'
            '.dv-s{background:#231d15;border-radius:12px;padding:10px 12px;border-top:3px solid #c4964a}.dv-s b,.dv-i b,.dv-ba b{color:#c4964a;font-size:13.5px}.dv-s p,.dv-i p,.dv-ba p{margin:3px 0 0;font-size:14.5px}'
-           '.dv-i{margin:8px 0}.dv-ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.dv-ba>div{background:#231d15;border-radius:12px;padding:10px 12px}.dv-ba>div:first-child{opacity:.75}'
+           '.dv-i{margin:8px 0}.dv-ba{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.dv-ba>div{background:#231d15;border-radius:12px;padding:10px 12px}.dv-ba>div:first-child{border:1px dashed #4a3e2c;background:#1c1712}'
            '@media(max-width:700px){.dv-ba{grid-template-columns:1fr}}</style>')
     head = f'<h2>연출 노트 — 이 기록을 이렇게 전합니다</h2><p>{("핵심 정서 <span class=em>" + e(dv["emotion"]) + "</span>") if dv.get("emotion") else ""}{(" · " + e(dv["message"])) if dv.get("message") else ""}</p>'
     return f'<!--DELIVERY-->{css}<section class="dv" id="delivery">{head}<div class="dv-flow">{flow}</div>{side}{ba}</section><!--/DELIVERY-->'

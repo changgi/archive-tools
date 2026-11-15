@@ -32,6 +32,7 @@ nav.top{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}nav.top a{background:#
 .tw{overflow-x:auto;border:1px solid #3a3225;border-radius:12px}table{border-collapse:collapse;width:100%;min-width:720px;font-size:14.5px}th,td{padding:8px 10px;border-bottom:1px solid #2c251b;text-align:left;vertical-align:top}th{background:#1f1a14;color:#c4964a}
 .cards{display:flex;gap:12px;overflow-x:auto}.cards img{height:340px;border-radius:10px;border:1px solid #3a3225}
 .tl{border-left:2px solid #c4964a66;margin:10px 0 0 6px;padding-left:20px}.tl div{margin:0 0 12px}
+*:focus-visible{outline:2px solid #c4964a;outline-offset:2px}
 footer{margin-top:6vh;border-top:1px solid #3a3225;padding-top:14px;font-size:13.5px;color:#9d917c}'''
 USE = [('교사', '활동지(끝의 「선생님께」)로 1–2차시 수업 — 원문 한 줄 찾기 → 번역 읽기 → 「남겨 둔 질문」 토론'),
        ('학예사 · 전시기획자', '원본 묶음으로 패널, 전달 에디팅(연출 노트)대로 공간 설계, 비하인드 카드로 기획 의도 벽, 영상 루프'),
@@ -132,7 +133,7 @@ def main():
     def links(e):
         b = f"eps/{e['slug']}/"; L = [('첫 페이지', 'index.html'), ('전시', 'exhibit.html'), ('활동지', 'handout.html'), ('채널', 'channels.md'), ('노트', 'curator.md'), ('전달', 'delivery.md'), ('홍보 글', 'promo.md')]
         return ''.join(f'<a href="{b}{f}">{n}</a>' for n, f in L if e['has'].get(f)) + ''.join(f'<a href="{v}">{"릴스" if "reel" in v else "가로"}</a>' for v in e['vids']) + f'<a href="{b}selection.csv">CSV</a>'
-    grid = ''.join(f'<div class="ep"><a href="eps/{e["slug"]}/index.html"><img src="{h(e["cover"])}" alt="" loading="lazy"></a><div class="tx"><small>EP.{e["ep"]:02d}</small><b>{h(e["title"])}</b><span>{h(e["coll"])}</span>{("<p style=font-size:14px>" + h(e["cur"]["message"]) + "</p>") if e["cur"].get("message") else ""}</div><div class="ql">{links(e)}</div></div>' for e in EPS)
+    grid = ''.join(f'<div class="ep"><a href="eps/{e["slug"]}/index.html"><img src="{h(e["cover"])}" alt="EP.{e["ep"]:02d} {h(e["title"])} — 표지" loading="lazy"></a><div class="tx"><small>EP.{e["ep"]:02d}</small><b>{h(e["title"])}</b><span>{h(e["coll"])}</span>{("<p style=font-size:14px>" + h(e["cur"]["message"]) + "</p>") if e["cur"].get("message") else ""}</div><div class="ql">{links(e)}</div></div>' for e in EPS)
     why = sec.get('왜 만들었나') or sec.get('왜') or ''
     global SDESC
     SDESC = re.split(r'\n\s*\n', why)[0] if why else (sec.get('전하고 싶은 것') or f'{len(EPS)}편 · 문서 {len(docs)}건을 원문으로 읽은 시리즈')
@@ -151,19 +152,19 @@ def main():
 <h2>결과물 바로 가기</h2><p>편마다: <b>첫 페이지</b>(모든 결과물) · <b>전시</b> 웹페이지 · <b>활동지</b>(선생님께) · <b>채널</b>별 홍보안 · 큐레이터 <b>노트</b> · <b>전달</b> 에디팅 · <b>홍보 글</b> · 릴스·가로 영상 · 원문·번역 <b>CSV</b></p>
 {smap}
 <h2 id="eps">에피소드</h2><div class="g">{grid}</div>
-<h2 id="cards">시리즈 카드</h2><div class="cards">{''.join(f'<img src="cards/{c}" alt="" loading="lazy">' for c in scards)}</div>'''
+<h2 id="cards">시리즈 카드</h2><div class="cards" tabindex="0" role="region" aria-label="시리즈 카드 — 옆으로 넘겨 보기">{''.join(f'<img src="cards/{c}" alt="시리즈 카드 {k + 1}" loading="lazy">' for k, c in enumerate(scards))}</div>'''
     page(os.path.join(out, 'index.html'), stitle, body)
     # ---- 기획 노트
     hist = sec.get('히스토리', '')
     body = f'<p class="k">SERIES NOTE</p><h1>기획 노트 — {h(stitle)}</h1>' + ''.join(f'<h2>{h(t)}</h2>' + ''.join(f'<p>{h(p)}</p>' for p in re.split(r"\n\s*\n", b)) for t, b in secs if t != '히스토리')
     body += f'<h2>숫자로 본 시리즈</h2><div class="g"><div class="box"><h3>문서의 시대 ({len(docs)}건)</h3>{bars(CENT)}</div><div class="box"><h3>편별 문서 수</h3>{bars([(f"EP.{e["ep"]:02d}", sum(1 for _ in open(os.path.join(out, "eps", e["slug"], "selection.csv"), encoding="utf-8-sig")) - 1) for e in EPS][:12], "#8fae8b")}</div></div>'
     if hist: body += '<h2>히스토리</h2><div class="tl">' + ''.join(f'<div>{h(l.lstrip("- ").strip())}</div>' for l in hist.splitlines() if l.strip()) + '</div>'
-    body += '<h2>편별 큐레이터 노트 · 전달 에디팅</h2><div class="tw"><table><tr><th>편</th><th>전하고 싶은 것</th><th>핵심 정서</th><th>남겨 둔 질문</th></tr>' + ''.join(f'<tr><td><a href="eps/{e["slug"]}/index.html">EP.{e["ep"]:02d} {h(e["title"])}</a></td><td>{h(e["cur"].get("message", ""))}</td><td>{h(e["dv"].get("emotion", ""))}</td><td>{h(e["cur"].get("question", ""))}</td></tr>' for e in EPS) + '</table></div>'
+    body += '<h2>편별 큐레이터 노트 · 전달 에디팅</h2><div class="tw" tabindex="0" role="region" aria-label="표"><table><tr><th>편</th><th>전하고 싶은 것</th><th>핵심 정서</th><th>남겨 둔 질문</th></tr>' + ''.join(f'<tr><td><a href="eps/{e["slug"]}/index.html">EP.{e["ep"]:02d} {h(e["title"])}</a></td><td>{h(e["cur"].get("message", ""))}</td><td>{h(e["dv"].get("emotion", ""))}</td><td>{h(e["cur"].get("question", ""))}</td></tr>' for e in EPS) + '</table></div>'
     page(os.path.join(out, 'about.html'), '기획 노트 — ' + stitle, body)
     # ---- 홍보 가이드
     body = f'<p class="k">PROMOTION</p><h1>채널별 홍보 가이드</h1><p class="lead">한 게시물에 문서 한 장·원문 한 줄, 질문으로 열고 「남겨 둔 질문」으로 닫기, 출처는 언제나, 판독은 초안이라고.</p>'
-    body += '<div class="tw"><table><tr><th>채널</th><th>형식</th><th>쓰는 파일</th><th>요령</th></tr>' + ''.join(f'<tr><td><b>{h(a_)}</b></td><td>{h(b)}</td><td>{h(c)}</td><td>{h(d)}</td></tr>' for a_, b, c, d in ST.CHANNELS) + '</table></div>'
-    body += '<h2>4주 계획</h2><div class="tw"><table><tr><th>주</th><th>무엇을</th></tr><tr><td>1주</td><td>1차 공개 — 릴스 · 카드뉴스 · 전시 링크</td></tr><tr><td>2주</td><td>2차 — 편별 비하인드 카드 ①②③, 「남겨 둔 질문」으로 댓글</td></tr><tr><td>3주</td><td>시리즈 — 기획 노트 카드 · 시리즈 영상 · 유튜브 묶음</td></tr><tr><td>4주</td><td>확장 — 장문 · 지역 커뮤니티 · 수업 · 전시 제안</td></tr></table></div>'
+    body += '<div class="tw" tabindex="0" role="region" aria-label="표"><table><tr><th>채널</th><th>형식</th><th>쓰는 파일</th><th>요령</th></tr>' + ''.join(f'<tr><td><b>{h(a_)}</b></td><td>{h(b)}</td><td>{h(c)}</td><td>{h(d)}</td></tr>' for a_, b, c, d in ST.CHANNELS) + '</table></div>'
+    body += '<h2>4주 계획</h2><div class="tw" tabindex="0" role="region" aria-label="표"><table><tr><th>주</th><th>무엇을</th></tr><tr><td>1주</td><td>1차 공개 — 릴스 · 카드뉴스 · 전시 링크</td></tr><tr><td>2주</td><td>2차 — 편별 비하인드 카드 ①②③, 「남겨 둔 질문」으로 댓글</td></tr><tr><td>3주</td><td>시리즈 — 기획 노트 카드 · 시리즈 영상 · 유튜브 묶음</td></tr><tr><td>4주</td><td>확장 — 장문 · 지역 커뮤니티 · 수업 · 전시 제안</td></tr></table></div>'
     body += '<h2>편별 채널 홍보안</h2><ul>' + ''.join(f'<li><a href="eps/{e["slug"]}/channels.md">EP.{e["ep"]:02d} {h(e["title"])}</a></li>' for e in EPS if e['has'].get('channels.md')) + '</ul>'
     page(os.path.join(out, 'promote.html'), '홍보 가이드 — ' + stitle, body)
     # ---- 활용 가이드
@@ -171,7 +172,12 @@ def main():
     body += '<div class="g">' + ''.join(f'<div class="box"><h3>{h(a_)}</h3><p>{h(b)}</p></div>' for a_, b in USE) + '</div><h2>지킬 것</h2><div class="box"><ul>' + ''.join(f'<li>{h(x)}</li>' for x in CHECK) + '</ul></div>'
     page(os.path.join(out, 'use.html'), '활용 가이드 — ' + stitle, body)
     page(os.path.join(out, 'analysis.html'), '통합 분석 — ' + stitle, f'<p class="k">ANALYSIS</p><h1>{h(stitle)} — 통합 분석</h1><p class="lead">편마다 따로 보던 문서 · 노트 · 결과물을 한데 모아, 전체가 무엇을 담고 있는지 한 장에서 읽습니다.</p><style>{AN.CSS}</style>' + an_body)
-    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · eps/')
+    if SITE:  # 검색 엔진용 사이트 지도
+        import datetime
+        today = datetime.date.today().isoformat()
+        urls = [SITE + f for f in ('', 'analysis.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
+        open(os.path.join(out, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{h(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in urls) + '</urlset>\n')
+    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · eps/' + (' · sitemap.xml' if SITE else ''))
 
 
 if __name__ == '__main__':

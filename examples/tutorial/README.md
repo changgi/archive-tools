@@ -205,6 +205,7 @@ python3 $S/series.py --list series.tsv --note series.md --out site --home ../../
 - `series.tsv`의 작업 폴더는 지금 폴더 또는 `series.tsv`가 있는 폴더 기준 상대 경로로 찾습니다.
 - 영상은 웹용(`_web.mp4`)이 있으면 그것만 복사합니다. 없으면 원본 크기 영상을 복사하고 "용량 큼"이라고 알려 줍니다 → `video.py … --web` 권장.
 - `--home`: 상단 메뉴 맨 앞에 바깥 주소(전체 갤러리 등)로 돌아가는 링크.
+- `--site-url`: 사이트를 올릴 주소. 링크 미리 보기(카카오톡 · SNS 카드)와 `sitemap.xml`(구글 서치 콘솔 · 네이버 서치어드바이저에 등록하면 검색에 잘 잡힙니다)에 씁니다.
 
 ![시리즈 사이트](img/site.jpg)
 

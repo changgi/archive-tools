@@ -103,7 +103,7 @@ def hbars(items, total=None, unit='건', top=None, link=None):
 
 
 def table(head, rows, cls=''):
-    return f'<div class="tw"><table class="{cls}"><thead><tr>' + ''.join(f'<th>{h(x)}</th>' for x in head) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</tbody></table></div>'
+    return f'<div class="tw" tabindex="0" role="region" aria-label="표"><table class="{cls}"><thead><tr>' + ''.join(f'<th>{h(x)}</th>' for x in head) + '</tr></thead><tbody>' + ''.join('<tr>' + ''.join(f'<td>{c}</td>' for c in r) + '</tr>' for r in rows) + '</tbody></table></div>'
 
 
 def tv(items, head=('항목', '수')):
@@ -112,6 +112,7 @@ def tv(items, head=('항목', '수')):
 
 CSS = '''
 .an{--gold:#c4964a;--dim:#b9ab90}
+:focus-visible{outline:2px solid #c4964a;outline-offset:2px}
 .an .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:14px 0}
 .an .tile{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:12px 14px}.an .tile b{display:block;font:700 28px/1.2 'Noto Serif KR',serif;color:#f3ead8}.an .tile span{font-size:13px;color:var(--dim)}
 .an .ins{background:#1f1a14;border:1px solid #4a3e2c;border-radius:16px;padding:14px 20px}.an .ins li{margin:6px 0;color:#e8dcc4}
@@ -202,7 +203,7 @@ def build(eps, title, kinds_label='소장처 종류'):
     if centuries and tt:
         cell = collections.Counter((s.get('문서유형') or '기타', cent(int(s['연도']))) for _, s in docs if str(s.get('연도', '')).isdigit())
         mx = max(cell.values()) if cell else 1
-        hm = '<div class="tw" style="border:0"><table class="hm"><tr><th></th>' + ''.join(f'<th>{c}</th>' for c in centuries) + '</tr>' + ''.join(
+        hm = '<div class="tw" style="border:0" tabindex="0" role="region" aria-label="유형 × 세기 표"><table class="hm"><tr><th></th>' + ''.join(f'<th>{c}</th>' for c in centuries) + '</tr>' + ''.join(
             f'<tr><th class="r">{h(t)}</th>' + ''.join(
                 (f'<td style="background:rgba(196,150,74,{0.18 + 0.82 * cell[(t, c)] / mx:.2f});color:{"#16130f" if cell[(t, c)] / mx > 0.45 else "#f3ead8"}" title="{h(t)} · {c}: {cell[(t, c)]}건">{cell[(t, c)]}</td>' if cell[(t, c)] else f'<td class="z" style="background:#231d15" title="{h(t)} · {c}: 0건">0</td>') for c in centuries) + '</tr>' for t in tt) + '</table></div>'
     out.append('<h2 id="a-type">어떤 문서인가</h2><div class="two">'
