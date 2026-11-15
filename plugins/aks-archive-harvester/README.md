@@ -9,6 +9,7 @@
 | ③ 에디팅 | 테마에 맞는 대표 문서 선별(시기·유형 고르게, 표지 제외), 캡션 초안·밀착인화 → Claude와 다듬기, **큐레이터 노트**(`curator.md`), **전달 에디팅**(`delivery.md`: 정서 · 열기→펼치기→절정→여운 · 물질과 감각 · 통로와 매개 · 여운 장치) | `studio.py edit` |
 | ④ 매개 | 결과물 첫 페이지(index.html) · 전시 웹페이지 · 카드뉴스(1080×1350) · 수업 활동지(A4) · SNS 글 · 릴스 문구 | `studio.py mediate` · `promo` |
 | 2차 홍보 | 비하인드 카드 3장 · 채널별 홍보안(`channels.md`: 인스타·유튜브·틱톡·페이스북·스레드·X·전시·책·웹툰·영상·광고) · 활용 안내(`references/package-uses.md`) | `studio.py mediate` (큐레이터 노트가 있을 때) |
+| 공개 전 점검 | 빈 칸 · 인용 없는 이야기 · 표지 같은 대표 면 · 노트보다 오래된 결과물을 찾아 다음 할 일을 번호로 | `studio.py check` |
 | 전달 에디팅 다시 | 문구 에디팅 뒤 절정(원문 한 줄)·여운 질문을 채운 초안으로 다시 쓰기(사람이 쓴 칸은 보존) · 대표 면 바꾸기 | `studio.py delivery` · `page` |
 | 영상 | 릴스(9:16)·가로(16:9) 영상 + 자막(.srt), 내레이션(edge-tts 선택), 웹용 540p | `video.py` |
 | 시리즈 | 여러 편을 한 사이트로: 갤러리 · 기획 노트 · 홍보 가이드 · 활용 가이드 · 시리즈 카드 | `series.py` |
@@ -30,6 +31,7 @@
 > 완석정 유지로 전시·카드·영상까지 처음부터 끝까지 만들어줘
 > 이 편 릴스 영상이랑 가로 영상도 만들어줘
 > 세 편을 묶어서 시리즈 사이트로 만들어줘
+> 공개해도 되는지 점검해줘
 > 첫 면이 두루마리 겉이니 대표 면을 2면으로 바꿔줘
 > 이 전시에 쓴 문서들 원본 사진을 문서 전체로 받아서 묶어줘 (영상 원본도 같이)
 
@@ -44,6 +46,7 @@ python3 $S/harvest.py curate --work W --collection "동춘당 송준길 후손�
 python3 $S/studio.py themes --work W
 python3 $S/studio.py edit --work W --theme life-1               # ③ selection.csv 다듬기
 python3 $S/studio.py delivery --work W --theme life-1           #    문구 에디팅 뒤 전달 에디팅 초안 다시
+python3 $S/studio.py check --work W --theme life-1              #    공개 전 점검 → 다음 할 일
 python3 $S/studio.py promo --work W --theme life-1 --ep 1 --url <전시 주소>
 python3 $S/studio.py mediate --work W --theme life-1 --url <전시 주소>   # ④
 python3 $S/video.py --work W --theme life-1 --ep 1 --web         # 영상 (ffmpeg, 선택: pip install edge-tts)

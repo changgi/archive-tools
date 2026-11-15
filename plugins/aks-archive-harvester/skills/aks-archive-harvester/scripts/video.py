@@ -51,7 +51,10 @@ def _sub(c, d, text, W, ybot, width):
 
 def scenes(work, theme, ep, url, max_docs):
     ed = os.path.join(work, 'edit', theme)
+    if not os.path.exists(os.path.join(ed, 'selection.csv')):
+        sys.exit(f'{ed}/selection.csv가 없습니다. 테마 이름을 확인하거나 먼저 studio.py edit 를 실행하세요.')
     sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
+    if not sel: sys.exit('selection.csv에 문서가 없습니다.')
     th = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')) if os.path.exists(os.path.join(ed, 'theme.json')) else {}
     cj = os.path.join(work, 'collection.json')
     coll = json.load(open(cj, encoding='utf-8'))['name'] if os.path.exists(cj) else os.path.basename(os.path.abspath(work))
@@ -107,7 +110,9 @@ def build(S, foot, fmt, od, base, voice, tts):
         (reel_frame if fmt == 'reel' else wide_frame)(img, label, big, sub, png, foot)
         os.makedirs(os.path.join(od, '.tts'), exist_ok=True); mp3 = os.path.join(od, '.tts', f's{i:02d}.mp3'); L = max(3.0, len(sub) / 7.5)
         if tts:
-            if not os.path.exists(mp3) or os.path.getsize(mp3) == 0: asyncio.run(_tts(sub, mp3, voice))
+            if not os.path.exists(mp3) or os.path.getsize(mp3) == 0:
+                try: asyncio.run(_tts(sub, mp3, voice))
+                except Exception as e: sys.exit(f'내레이션 생성 실패({type(e).__name__}): 네트워크·인증서를 확인하거나 --no-tts 로 무음 영상을 만드세요. 자체 인증서 환경이면 AKS_CA_BUNDLE=<인증서 파일>.')
             L = dur(mp3) + 0.6
         sc = f'{int(size[0]*1.04)}:{int(size[1]*1.04)}'
         vf = f"[0:v]scale={sc},zoompan=z='min(zoom+0.0003,1.04)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={int(L*30)}:s={size[0]}x{size[1]}:fps=30,format=yuv420p[v]"
@@ -141,6 +146,7 @@ def main():
     if tts:
         try: import edge_tts  # noqa
         except Exception: print('edge-tts가 없어 무음 영상으로 만듭니다 (pip install edge-tts)'); tts = False
+    if not shutil.which('ffprobe') and tts: sys.exit('ffprobe가 필요합니다(ffmpeg과 함께 설치됩니다).')
     S, foot, title = scenes(a.work, a.theme, a.ep, a.url, a.max_docs)
     od = os.path.join(a.work, 'mediate', a.theme, 'video'); os.makedirs(od, exist_ok=True)
     base = (f'ep{a.ep:02d}-' if a.ep else '') + a.theme

@@ -48,8 +48,12 @@ def read_note(p):
     return title, secs
 
 
+HOME = None
+
+
 def page(path, title, body, back=True):
-    nav = '<nav class="top"><a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a></nav>'
+    home = f'<a href="{h(HOME[0])}">{h(HOME[1])}</a>' if HOME else ''
+    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a></nav>'
     open(path, 'w', encoding='utf-8').write(f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
 
 
@@ -65,15 +69,21 @@ def bars(data, color='#c4964a'):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--list', required=True); ap.add_argument('--note'); ap.add_argument('--out', required=True); ap.add_argument('--title')
+    ap.add_argument('--home', help='상단 메뉴 첫 칸에 둘 바깥 주소(예: 전체 갤러리)'); ap.add_argument('--home-label', default='← 처음으로')
     a = ap.parse_args()
     rows = list(csv.DictReader(open(a.list, encoding='utf-8-sig'), delimiter='\t'))
+    if not rows or not {'work', 'theme'} <= set(rows[0]): sys.exit('series.tsv 첫 줄은 머리글이어야 합니다: ep<TAB>work<TAB>theme[<TAB>url]')
+    base = os.path.dirname(os.path.abspath(a.list))
+    global HOME; HOME = (a.home, a.home_label) if a.home else None
     ntitle, secs = read_note(a.note); stitle = a.title or ntitle or '고문서 시리즈'
     out = a.out; os.makedirs(out, exist_ok=True); os.makedirs(os.path.join(out, 'eps'), exist_ok=True)
     EPS = []; docs = []
     for r in rows:
-        work, theme = r['work'], r['theme']; ep = int(r['ep']) if r.get('ep') else len(EPS) + 1
+        work, theme = r['work'].strip(), r['theme'].strip()
+        if not os.path.isdir(work) and os.path.isdir(os.path.join(base, work)): work = os.path.join(base, work)  # series.tsv 기준 상대 경로
+        ep = int(r['ep']) if r.get('ep') else len(EPS) + 1
         md = os.path.join(work, 'mediate', theme); ed = os.path.join(work, 'edit', theme)
-        if not os.path.exists(os.path.join(md, 'exhibit.html')): print(f'건너뜀(먼저 mediate): {work}/{theme}'); continue
+        if not os.path.exists(os.path.join(md, 'exhibit.html')): print(f'건너뜀: {work}/mediate/{theme}/exhibit.html 이 없습니다 (작업 폴더·테마 확인, 또는 먼저 studio.py mediate)'); continue
         slug = f'{ep:02d}-{theme}'; dst = os.path.join(out, 'eps', slug)
         shutil.rmtree(dst, ignore_errors=True)
         shutil.copytree(md, dst, ignore=shutil.ignore_patterns('.*', '*_reel.mp4', '*_wide.mp4'))  # 영상은 웹 압축본(_web)만
@@ -86,8 +96,10 @@ def main():
         cards = sorted(glob.glob(os.path.join(dst, 'cards', '*.png')) + glob.glob(os.path.join(dst, 'cards', '*.jpg')))
         cover = next((c for c in cards if re.search(r'/0?1\.(png|jpg)$', c)), cards[0] if cards else '')
         vids = sorted(glob.glob(os.path.join(dst, 'video', '*_web.mp4')))
+        if not vids and glob.glob(os.path.join(md, 'video', '*.mp4')): print(f'  EP.{ep:02d}: 웹용 영상(_web.mp4)이 없어 영상 링크를 뺐습니다 → video.py ... --web')
         EPS.append(dict(ep=ep, slug=slug, title=th.get('title') or theme, coll=coll, cover=os.path.relpath(cover, out) if cover else '', cur=ST.read_curator(ed), dv=ST.read_delivery(ed),
                         vids=[os.path.relpath(v, out) for v in vids], has={f: os.path.exists(os.path.join(dst, f)) for f in ('index.html', 'exhibit.html', 'handout.html', 'channels.md', 'curator.md', 'delivery.md', 'promo.md')}))
+    if not EPS: sys.exit('묶을 편이 없습니다. series.tsv의 work·theme 경로와 mediate 결과를 확인하세요.')
     EPS.sort(key=lambda e: e['ep'])
     # ---- 시리즈 카드
     cd = os.path.join(out, 'cards'); shutil.rmtree(cd, ignore_errors=True); os.makedirs(cd)

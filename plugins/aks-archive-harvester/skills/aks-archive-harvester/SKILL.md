@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
+description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
 ---
 
 # AKS 한국고문서자료관: 수집 → 큐레이션 → 에디팅 → 매개 → 패키징
@@ -24,13 +24,14 @@ A worked example of every step, with the auto drafts and the edited results side
 | 4 | 문구 에디팅 | read the images; fill 판독 · 번역 · 해제 · 요약 · 이야기("현대어(原文)") in `selection.csv` | Claude + user |
 | 5 | 큐레이터 노트 | fill `curator.md` (six headings) — facts only, intent confirmed by the user | Claude + user |
 | 6 | 전달 에디팅 | `studio.py delivery --work W --theme <id>` (redraft after step 4: climax line, closing question) → refine `delivery.md` | tool → Claude + user |
+| 6b | readiness check | `studio.py check --work W --theme <id>` — empty fields, stories without "현대어(原文)" quotes, cover-like representative pages, outputs older than their notes → numbered next steps (`--strict` exits 1 while anything is left) | tool |
 | 6a | representative page | `studio.py page --work W --theme <id> --n 1 --page 002.jpg` when page 1 is a cover/rolled scroll | user choice |
 | 7 | promo, then mediate | `studio.py promo … --ep N --url <exhibit URL>` → `studio.py mediate --work W --theme <id> --url <exhibit URL>` | tool |
 | 8 | video | `video.py --work W --theme <id> --ep N --url <exhibit URL> --web` | tool |
 | 9 | originals | `studio.py originals … --full --dry-run` → `--full --videos W/mediate/<id>/video` | tool |
 | 10 | series | `series.py --list series.tsv --note series.md --out site` | tool |
 
-Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
+Run `studio.py check` before steps 7–10 and again before handing anything over; follow its 다음 할 일 list. Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
 
 Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Storytelling from the sources: `references/storytelling.md`. Reels copy template: `references/reels-caption.md`. Channel-by-channel promotion and second-wave (behind) materials: `references/channels.md`. What people can do with the package: `references/package-uses.md`.
 
@@ -125,7 +126,7 @@ The archive states that image use needs the collection owner's consent through i
 
 **Redraft after 문구 에디팅 — `studio.py delivery`.** The first draft is written before the captions exist. Once `selection.csv` has stories with quoted source lines, run `python3 studio.py delivery --work WORK --theme <id> [--key "원문 한 줄"]` to rebuild the draft: the climax becomes the strongest "현대어(原文)" line and the closing becomes the curator note's question. Fields a person already wrote (핵심 정서 · 여운 장치 · 전달 에디팅 후) are kept unless `--force`; with `--force` the old file is saved as `delivery.bak.md`.
 
-**Representative page — `studio.py page`.** The first page of a document is sometimes a cover, a wrapper or the outside of a rolled scroll. `python3 studio.py page --work WORK --theme <id> --n <selection 번호> --page 002.jpg` swaps `images/NN.jpg` and the 원본경로 column to another page of the same document; re-run `mediate` and `video.py` afterwards.
+**Representative page — `studio.py page`.** The first page of a document is sometimes a cover, a wrapper or the outside of a rolled scroll. `edit` already skips pages that are dark, or much smaller and emptier than the document's other pages, and `check` flags a representative page that still looks like one. `python3 studio.py page --work WORK --theme <id> --n <selection 번호> --page 002.jpg` swaps `images/NN.jpg` and the 원본경로 column to another page of the same document; re-run `mediate` and `video.py` afterwards.
 
 **Curator note (큐레이터 노트 — 기획 의도 · 비하인드).** `edit` writes `edit/<id>/curator.md` with six headings. Fill it before `mediate`, because people want to know why these documents were chosen and what the work hopes to say, not only what the documents read:
 
@@ -183,14 +184,15 @@ python3 video.py --work WORK --theme <id> [--ep 7] [--url 전시주소] [--forma
 - Narration uses edge-tts when installed (`--voice ko-KR-SunHiNeural`); otherwise a silent video timed by text length. Behind a proxy with its own certificate, set `AKS_CA_BUNDLE=<ca file>`.
 - Writes `WORK/mediate/<id>/video/<base>_reel.mp4` · `_wide.mp4` · `.ko.srt`; `--web` adds 540p `_web.mp4` copies for web pages. Hand the full-resolution files to `originals --videos`.
 - Look at one frame of each format before handing it over.
+- If narration fails it stops with a message instead of a traceback; retry with `--no-tts` or set `AKS_CA_BUNDLE`.
 
 **Series site — `series.py`.** For several episodes:
 
 ```bash
-python3 series.py --list series.tsv --note series.md --out SITE [--title "시리즈 제목"]
+python3 series.py --list series.tsv --note series.md --out SITE [--title "시리즈 제목"] [--home ../index.html --home-label "← 전체 갤러리"]
 ```
 
-- `series.tsv`: one line per episode — `ep<TAB>work<TAB>theme[<TAB>url]`.
+- `series.tsv`: a header line, then one line per episode — `ep<TAB>work<TAB>theme[<TAB>url]`. Work folders are found relative to the current folder or to the TSV's folder. Missing episodes are reported and skipped; only `_web.mp4` videos are copied (it says so when an episode has none).
 - `series.md`: the series note with headings (왜 만들었나 · 전하고 싶은 것 · 고른 기준 · 이렇게 보이길 바랐다 · 이렇게 써 주세요 · 지킨 원칙 · 히스토리). Same rule as curator notes: facts and the user's own intent only.
 - Writes `SITE/index.html` (stats, 결과물 바로 가기, episode grid with direct links), `about.html` (기획 노트 · per-episode message/emotion/question), `promote.html` (channels, 4-week plan), `use.html` (who can use the package and how, rights checklist), `cards/` (series cards from the note) and `eps/NN-<theme>/` copies (web videos only).
 

@@ -179,11 +179,28 @@ def is_cover(path):
     return ImageStat.Stat(im).mean[0] < 140  # 어두운 표지·장정
 
 
+def thin_pages(paths):
+    """같은 문서의 다른 면보다 눈에 띄게 작고(면적) 글씨도 적은(바이트/픽셀) 면 — 두루마리 겉면·싸개·표지일 가능성."""
+    if len(paths) < 2: return set()
+    m = {}
+    for p in paths:
+        try:
+            with Image.open(p) as im: w, h = im.size
+            m[p] = (w * h, os.path.getsize(p) / max(1, w * h))
+        except Exception: pass
+    if len(m) < 2: return set()
+    areas = sorted(v[0] for v in m.values()); bpps = sorted(v[1] for v in m.values())
+    ma, mb = areas[len(areas) // 2], bpps[len(bpps) // 2]
+    return {p for p, (ar, bp) in m.items() if ar < 0.6 * ma and bp < 0.6 * mb}
+
+
 def best_page(work, r):
-    """대표 면: 앞에서부터 보아 표지·빈 면(뒷면)이 아닌 첫 면. 없으면 글씨가 가장 많은 면."""
+    """대표 면: 앞에서부터 보아 표지·빈 면(뒷면)·겉면이 아닌 첫 면. 없으면 글씨가 가장 많은 면."""
     ims = doc_images(work, r)
+    thin = thin_pages(ims[:8])
     best, score = None, -1
     for p in ims[:8]:
+        if p in thin: continue  # 두루마리 겉면·싸개처럼 작고 글씨가 적은 면
         im = Image.open(p); im.draft('L', (300, 300)); im = im.convert('L'); im.thumbnail((240, 240))
         st = ImageStat.Stat(im)
         if st.mean[0] < 140: continue  # 어두운 표지·장정
@@ -963,11 +980,77 @@ def cmd_page(a):
             if not os.path.exists(src): sys.exit(f'면이 없습니다: {src} (download로 그 면을 먼저 받으세요)')
             r['대표장'] = a.page; r['원본경로'] = os.path.relpath(src, a.work)
             im = Image.open(src).convert('RGB'); im.thumbnail((1600, 1600)); im.save(os.path.join(ed, r['이미지']), quality=90); done = 1
-    if not done: sys.exit(f'순서 {a.n}이 없습니다')
+    if not done: sys.exit(f'selection.csv에 {a.n}번 문서가 없습니다 (순서 칸 확인)')
     w = csv.DictWriter(open(p, 'w', newline='', encoding='utf-8-sig'), fieldnames=cols); w.writeheader(); w.writerows(rows)
     print(f'순서 {a.n} 대표 면 → {a.page} (mediate · video를 다시 실행하세요)')
 
 # ---------------------------------------------------------------- report (비교 리포트)
+def cmd_check(a):
+    """공개 전 점검 — 칸이 비었거나 결과물이 원본보다 오래된 곳을 찾아 다음 할 일을 알려 준다."""
+    ed = os.path.join(a.work, 'edit', a.theme); md = os.path.join(a.work, 'mediate', a.theme)
+    sp_ = os.path.join(ed, 'selection.csv')
+    if not os.path.exists(sp_): sys.exit(f'{sp_}이(가) 없습니다. 먼저 studio.py edit 를 실행하세요.')
+    sel = list(csv.DictReader(open(sp_, encoding='utf-8-sig')))
+    QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
+    todo, warn = [], []
+    print(f'■ 점검: {a.work}/{a.theme} — 문서 {len(sel)}건')
+    print('\n[문구 에디팅]')
+    for s in sel:
+        n = s.get('순서') or '?'; name = (s.get('문서명') or '')[:28]
+        miss = [k for k in ('판독', '번역', '해제', '요약', '이야기') if not (s.get(k) or '').strip()]
+        story = s.get('이야기') or ''
+        q = len(re.findall(QRX, story)); unk = (s.get('판독') or '').count('□'); unsure = (s.get('판독') or '').count('(?)')
+        img = os.path.join(ed, s.get('이미지') or '')
+        orig = os.path.join(a.work, s.get('원본경로') or '')
+        sib = sorted(glob.glob(os.path.join(os.path.dirname(orig), '*.jpg'))) if s.get('원본경로') else []
+        dark = (bool(s.get('이미지')) and os.path.exists(img) and is_cover(img)) or (orig in thin_pages(sib[:8]))
+        marks = []
+        if miss: marks.append('빈 칸: ' + '·'.join(miss))
+        if story and not q: marks.append('이야기에 "현대어(原文)" 인용 없음')
+        if unk or unsure: marks.append(f'판독 □ {unk} · (?) {unsure}')
+        if not s.get('검토'): marks.append('검토 칸 비어 있음 → "초안" 표시')
+        if dark: marks.append('대표 면이 표지·겉면 같습니다(어둡거나 다른 면보다 작고 글씨가 적음) → studio.py page')
+        print(f'  {n:>2}. {name} — ' + ('✓' if not marks else ' / '.join(marks)))
+        if miss or (story and not q): todo.append(f'{n}번 문서의 문구 에디팅(판독·번역·해제·요약·이야기)')
+        if dark: todo.append(f'{n}번 대표 면 확인: studio.py page --work {a.work} --theme {a.theme} --n {n} --page 002.jpg')
+    print('\n[큐레이터 노트]')
+    c = read_curator(ed)
+    if not os.path.exists(os.path.join(ed, 'curator.md')): print('  curator.md 없음'); todo.append('curator.md 쓰기(edit가 틀을 만듭니다)')
+    else:
+        empty = [h for k, h, _ in CURATOR_KEYS if not c.get(k)]
+        print('  ' + ('✓ 6칸 모두 채움' if not empty else '빈 칸: ' + ' · '.join(empty)))
+        if 'message' in [k for k, h, _ in CURATOR_KEYS if not c.get(k)]: todo.append('큐레이터 노트 「전하고 싶은 것」 — 비하인드 카드·영상·홍보 글에 쓰입니다')
+    print('\n[전달 에디팅]')
+    dv = read_delivery(ed)
+    if not dv: print('  delivery.md 없음'); todo.append(f'studio.py delivery --work {a.work} --theme {a.theme}')
+    else:
+        empty = [h for k, h, _ in DELIVERY_KEYS if not dv.get(k)]
+        print('  ' + ('✓ 11칸 모두 채움' if not empty else '빈 칸: ' + ' · '.join(empty)))
+        if not dv.get('climax') and any(re.search(QRX, s.get('이야기') or '') for s in sel):
+            todo.append(f'절정이 비었습니다 → studio.py delivery --work {a.work} --theme {a.theme} (문구 에디팅 뒤 다시 쓰기)')
+        for k in ('emotion', 'linger', 'afterd'):
+            if not dv.get(k): todo.append(f'전달 에디팅 「{dict((k2, h) for k2, h, _ in DELIVERY_KEYS)[k]}」 — 사람이 정할 칸')
+    print('\n[결과물]')
+    src_t = max([os.path.getmtime(os.path.join(ed, f)) for f in ('selection.csv', 'curator.md', 'delivery.md', 'theme.json') if os.path.exists(os.path.join(ed, f))])
+    def st(path, label, cmd):
+        if not os.path.exists(path): print(f'  {label}: 없음'); todo.append(cmd); return
+        old = os.path.getmtime(path) < src_t
+        print(f'  {label}: ' + ('있음 — 하지만 노트·CSV보다 오래됨' if old else '✓'))
+        if old: todo.append(cmd + '  (다시 실행해 최신 내용 반영)')
+    st(os.path.join(md, 'promo.md'), '홍보 글 promo.md', f'studio.py promo --work {a.work} --theme {a.theme} --ep N --url <전시 주소>')
+    st(os.path.join(md, 'exhibit.html'), '전시·카드·활동지 (mediate)', f'studio.py mediate --work {a.work} --theme {a.theme} --url <전시 주소>')
+    vids = glob.glob(os.path.join(md, 'video', '*_reel.mp4')) + glob.glob(os.path.join(md, 'video', '*_wide.mp4'))
+    if vids: st(max(vids, key=os.path.getmtime), '영상 (video.py)', f'video.py --work {a.work} --theme {a.theme} --ep N --url <전시 주소> --web')
+    else: print('  영상 (video.py): 없음 (선택)')
+    if os.path.exists(os.path.join(md, 'exhibit.html')) and os.path.exists(os.path.join(md, 'promo.md')) and os.path.getmtime(os.path.join(md, 'promo.md')) > os.path.getmtime(os.path.join(md, 'index.html') if os.path.exists(os.path.join(md, 'index.html')) else os.path.join(md, 'exhibit.html')):
+        todo.append('promo.md가 mediate 뒤에 바뀌었습니다 → mediate 다시(첫 페이지 「홍보 글」 타일)')
+    drafts = sum(1 for s in sel if not s.get('검토'))
+    note = f" 다만 {drafts}건은 '초안' 표시가 남습니다(판독을 확인한 뒤 검토 칸에 확인자·날짜)." if drafts else ''
+    print('\n[다음 할 일]' if todo else f'\n✓ 공개 준비 완료 — 이미지 공개 전 소장처 동의(자료관 031-730-8873, 8876)를 확인하세요.{note}')
+    for i, t in enumerate(dict.fromkeys(todo), 1): print(f'  {i}. {t}')
+    if a.strict and todo: sys.exit(1)
+
+
 def cmd_report(a):
     p = os.path.join(a.root, 'compare_metadata.csv')
     if not os.path.exists(p): sys.exit('compare_metadata.csv가 없습니다. 먼저 harvest.py compare 를 실행하세요.')
@@ -1088,6 +1171,8 @@ def main():
     pg = sp.add_parser('page', help='대표 면 바꾸기 (예: 두루마리 겉면 → 002.jpg)'); pg.add_argument('--work', required=True); pg.add_argument('--theme', required=True); pg.add_argument('--n', type=int, required=True); pg.add_argument('--page', required=True)
     dl = sp.add_parser('delivery', help='전달 에디팅 초안 다시 만들기(문구 에디팅 뒤) → edit/<테마>/delivery.md'); dl.add_argument('--work', required=True); dl.add_argument('--theme', required=True)
     dl.add_argument('--key', help='절정으로 쓸 구절(이야기 속 인용 가운데 이 말이 든 것)'); dl.add_argument('--force', action='store_true')
+    ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
+    ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')
     og = sp.add_parser('originals', help='원본 묶음: 선별 문서의 원본 해상도 사진(--full 이면 문서 전체 면) + 원본 영상 → 분할 ZIP')
     og.add_argument('--work', required=True); og.add_argument('--theme', required=True)
     og.add_argument('--full', action='store_true', help='선별 문서의 모든 면을 받아서 묶기 (이미 받은 면은 건너뜀)')
@@ -1098,7 +1183,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check}[a.cmd](a)
 
 
 if __name__ == '__main__':

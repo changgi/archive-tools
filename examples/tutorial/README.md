@@ -17,22 +17,43 @@ aks-archive-harvester의 **모든 단계**를 실제로 돌려 만든 예제입�
 | 4 문구 에디팅 | 이미지를 읽고 `selection.csv`의 원문·번역·해제·요약·이야기 채우기 | Claude·사람 | "현대어(原文)" 인용 이야기 |
 | 5 큐레이터 노트 | `curator.md` 6칸 | Claude·사람 | 왜 · 전하고 싶은 것 · 보이길 · 쓰는 법 · 비하인드 · 질문 |
 | 6 전달 에디팅 | `studio.py delivery --work W1 --theme story` → 다듬기 | 도구 → 사람 | 정서 · 열기→펼치기→절정→여운 · 물질 · 통로 · 여운 장치 |
+| 6+ 점검 | `studio.py check --work W1 --theme story` | 도구 | 빈 칸 · 인용 없는 이야기 · 표지 같은 대표 면 · 오래된 결과물 → 다음 할 일 |
 | (선택) 대표 면 | `studio.py page --work W3 --theme story --n 1 --page 002.jpg` | 사람 | 두루마리 겉면 대신 글이 있는 면 |
 | 7 매개 | `studio.py promo … --ep 1` → `studio.py mediate --work W1 --theme story --url <주소>` | 도구 | 첫 페이지 · 전시 · 카드 · 활동지 · 비하인드 카드 · `channels.md` · 홍보 글 |
 | 8 영상 | `video.py --work W1 --theme story --ep 1 --url <주소> --web` | 도구 | 릴스 9:16 · 가로 16:9 · 자막 · 웹 압축본 |
 | 9 원본 묶음 | `studio.py originals --work W1 --theme story --full --dry-run` → `--full --videos W1/mediate/story/video` | 도구 | 문서 전체 면 + 원본 영상 + `출처.csv` ZIP |
 | 10 시리즈 | `series.py --list series.tsv --note series.md --out site` | 도구 | 갤러리 · 기획 노트 · 홍보 가이드 · 활용 가이드 · 시리즈 카드 |
 
-명령의 `harvest.py`·`studio.py`·`video.py`·`series.py`는 `plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/`에 있습니다. Claude에게는 "완석정 유지로 전시랑 영상까지 만들어줘"처럼 말하면 이 순서대로 진행합니다.
+Claude에게는 "완석정 유지로 전시랑 영상까지 만들어줘"처럼 말하면 이 순서대로 진행합니다. 터미널에서 직접 할 때는 아래 0단계부터.
+
+## 0. 준비
+
+```bash
+# macOS · Linux (Git Bash 포함)
+pip install requests pillow edge-tts          # edge-tts는 영상 내레이션용(선택)
+git clone https://github.com/changgi/archive-tools
+S="$PWD/archive-tools/plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts"
+mkdir work && cd work                          # 작업 폴더(W1, W2 …)는 여기에 생깁니다
+```
+
+```powershell
+# Windows PowerShell — 아래 명령의 python3 → python, $S/ → $S\ 로 읽으세요
+pip install requests pillow edge-tts
+git clone https://github.com/changgi/archive-tools
+$S = "$PWD\archive-tools\plugins\aks-archive-harvester\skills\aks-archive-harvester\scripts"
+mkdir work; cd work
+```
+
+영상(8단계)에는 ffmpeg이 필요합니다(`ffmpeg -version`으로 확인, Windows는 `winget install ffmpeg`).
 
 ---
 
 ## 1–2. 찾고, 고른 문서만 받기
 
 ```bash
-python3 harvest.py find "완석정" --first --manifest W1 --match "유지"
+python3 $S/harvest.py find "완석정" --first --manifest W1 --match "유지"
 #   → W1/docs.json  (소장처 문서 416건 목록, 면 목록은 '유지'에 맞는 문서만)
-python3 harvest.py download --work W1 --match "유지"
+python3 $S/harvest.py download --work W1 --match "유지"
 ```
 
 큰 소장처는 `--tree-only`로 문서명만 먼저 훑고, `--match "정규식"`으로 필요한 것만 받습니다. 서버 동시 접속 수(기본값)는 올리지 않습니다.
@@ -40,8 +61,8 @@ python3 harvest.py download --work W1 --match "유지"
 ## 3. 큐레이션 — 자동 초안
 
 ```bash
-python3 harvest.py curate --work W2
-python3 studio.py edit --work W2 --all --id story
+python3 $S/harvest.py curate --work W2
+python3 $S/studio.py edit --work W2 --all --id story
 #   01. 1646 백패 — 1646년 신채(申埰) 진사 백패(進士白牌)
 ```
 
@@ -73,7 +94,7 @@ python3 studio.py edit --work W2 --all --id story
 문구 에디팅을 마친 뒤 초안을 다시 만들면 절정 후보(원문 한 줄)와 여운 질문이 채워집니다.
 
 ```bash
-python3 studio.py delivery --work W1 --theme story
+python3 $S/studio.py delivery --work W1 --theme story
 #   절정: "너는 역마를 타고 올라오라(爾其乘馹上來事)" — 화면·공간에서 이 한 줄만 크게…
 ```
 
@@ -88,11 +109,40 @@ python3 studio.py delivery --work W1 --theme story
 
 ![전시 웹페이지의 연출 노트](img/delivery.jpg)
 
+## 6+. 공개 전 점검 — `check`
+
+에디팅이 끝났는지, 결과물이 최신인지 한 번에 봅니다. 의사가 수술 전에 체크리스트를 읽듯, 내보내기 전에 한 번.
+
+```bash
+python3 $S/studio.py check --work W1 --theme story
+#   [문구 에디팅]  1. 1623년 이언영(李彦英) 유지(有旨) — 검토 칸 비어 있음 → "초안" 표시
+#   [큐레이터 노트] ✓ 6칸 모두 채움
+#   [전달 에디팅]  ✓ 11칸 모두 채움
+#   [결과물]      홍보 글 ✓ · 전시·카드·활동지 ✓ · 영상 ✓
+#   ✓ 공개 준비 완료 — … 다만 2건은 '초안' 표시가 남습니다
+```
+
+| 찾아내는 것 | 알려 주는 다음 할 일 |
+|---|---|
+| 판독 · 번역 · 해제 · 요약 · 이야기 빈 칸, "현대어(原文)" 인용 없는 이야기 | 그 문서의 문구 에디팅 |
+| 판독 속 □(못 읽은 글자) · (?)(불확실) 개수 | — (해제에 밝히기) |
+| 대표 면이 표지·두루마리 겉면 같음(어둡거나, 다른 면보다 작고 글씨가 적음) | `studio.py page …` |
+| 큐레이터 노트·전달 에디팅의 빈 칸, 비어 있는 절정 | `studio.py delivery …` 또는 사람이 정할 칸 |
+| 노트·CSV를 고친 뒤 다시 만들지 않은 결과물 | `promo` · `mediate` · `video.py` 다시 |
+
+W3에서 대표 면을 바꾸기 전에 돌리면 이렇게 나옵니다(실제 출력):
+
+```
+   1. 공신교서(功臣敎書) — 검토 칸 비어 있음 → "초안" 표시 / 대표 면이 표지·겉면 같습니다(어둡거나 다른 면보다 작고 글씨가 적음) → studio.py page
+```
+
+`--strict`를 붙이면 할 일이 남았을 때 종료 코드 1 — 여러 편을 스크립트로 돌릴 때 씁니다. 1.0.1부터는 `edit`가 대표 면을 고를 때도 이런 겉면을 건너뜁니다.
+
 ## 7. 매개 — 전시 · 카드 · 활동지 · 비하인드 · 채널
 
 ```bash
-python3 studio.py promo   --work W1 --theme story --ep 1 --series "임금이 보낸 종이" --url <전시 주소>
-python3 studio.py mediate --work W1 --theme story --url <전시 주소>
+python3 $S/studio.py promo   --work W1 --theme story --ep 1 --series "임금이 보낸 종이" --url <전시 주소>
+python3 $S/studio.py mediate --work W1 --theme story --url <전시 주소>
 #   2차 홍보: 비하인드 카드 3장 · channels.md(채널별 홍보안)
 ```
 
@@ -109,7 +159,7 @@ python3 studio.py mediate --work W1 --theme story --url <전시 주소>
 ## 8. 영상 — 릴스와 가로
 
 ```bash
-python3 video.py --work W3 --theme story --ep 3 --url <전시 주소> --web
+python3 $S/video.py --work W3 --theme story --ep 3 --url <전시 주소> --web
 #   ep03-story_reel.mp4  52초  장면 6개
 #   ep03-story_wide.mp4  52초  장면 6개
 ```
@@ -125,9 +175,9 @@ python3 video.py --work W3 --theme story --ep 3 --url <전시 주소> --web
 ## 9. 원본 묶음 — 문서 전체 면 + 원본 영상
 
 ```bash
-python3 studio.py originals --work W3 --theme story --full --dry-run
+python3 $S/studio.py originals --work W3 --theme story --full --dry-run
 #   선별 문서 1건 · 전체 6면
-python3 studio.py originals --work W3 --theme story --full --videos W3/mediate/story/video
+python3 $S/studio.py originals --work W3 --theme story --full --videos W3/mediate/story/video
 #   상주충주박씨충원군박동형종가_원본.zip  18MB
 #   → 사진 6면 / 전체 6면 · 영상 3개
 ```
@@ -139,15 +189,31 @@ ZIP 안 목록: [`steps/W3/originals_list.txt`](steps/W3/originals_list.txt) (�
 [`series.tsv`](series.tsv) (편 · 작업 폴더 · 테마) 와 [`series.md`](series.md) (기획 노트: 왜 만들었나 · 전하고 싶은 것 · 고른 기준 · 이렇게 보이길 바랐다 · 이렇게 써 주세요 · 지킨 원칙 · 히스토리)를 쓰고:
 
 ```bash
-python3 series.py --list series.tsv --note series.md --out site
+python3 $S/series.py --list series.tsv --note series.md --out site --home ../../index.html --home-label "← 고문서 한 장 갤러리"
 #   → site  편 3 · 문서 4 · 시리즈 카드 7장
 ```
+
+- `series.tsv`의 작업 폴더는 지금 폴더 또는 `series.tsv`가 있는 폴더 기준 상대 경로로 찾습니다.
+- 영상은 웹용(`_web.mp4`)만 복사합니다. 없으면 "웹용 영상이 없어 영상 링크를 뺐습니다"라고 알려 줍니다 → `video.py … --web`.
+- `--home`: 상단 메뉴 맨 앞에 바깥 주소(전체 갤러리 등)로 돌아가는 링크.
 
 ![시리즈 사이트](img/site.jpg)
 
 결과: [갤러리](site/index.html) · [기획 노트](site/about.html) · [홍보 가이드](site/promote.html) · [활용 가이드](site/use.html) · 편마다 [`eps/`](site/eps/).
 
 ---
+
+## 막힐 때
+
+| 증상 | 원인 · 해결 |
+|---|---|
+| `ffmpeg이 필요합니다` | ffmpeg 설치(Windows `winget install ffmpeg`, macOS `brew install ffmpeg`) |
+| `내레이션 생성 실패(…)` / `CERTIFICATE_VERIFY_FAILED` | 회사·기관망의 자체 인증서 → `AKS_CA_BUNDLE=<인증서 파일>`을 지정하거나 `--no-tts`(무음 + 자막) |
+| `…/selection.csv가 없습니다` | 테마 이름(`--theme`)이 `edit` 때 `--id`와 같은지 확인 |
+| 카드·영상 첫 장면이 검거나 비어 보임 | 대표 면이 표지·겉면 → `check`로 확인 후 `page` |
+| 첫 페이지에 「홍보 글」 타일이 없음 | `promo`를 `mediate`보다 먼저(또는 `mediate` 다시) |
+| 시리즈 사이트에 영상이 없음 | `video.py … --web`으로 웹용 영상 만들기 |
+| 고친 내용이 결과물에 안 보임 | `check` → 오래된 결과물 다시 만들기(같은 명령을 다시 돌려도 중복되지 않습니다) |
 
 ### 다음은
 
