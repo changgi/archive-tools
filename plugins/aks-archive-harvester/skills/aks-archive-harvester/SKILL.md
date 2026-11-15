@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘", "통합 분석", "전체를 한눈에". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
+description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘", "통합 분석", "전체를 한눈에", "설치 확인", "링크 미리 보기". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
 ---
 
 # AKS 한국고문서자료관: 수집 → 큐레이션 → 에디팅 → 매개 → 패키징
@@ -12,6 +12,7 @@ Two scripts live in `${CLAUDE_PLUGIN_ROOT}/skills/aks-archive-harvester/scripts/
 - `video.py` (needs `ffmpeg`, `Pillow`; optional `edge-tts`) makes a Reels (9:16) and a wide (16:9) video with subtitles from one theme.
 - `series.py` (needs `Pillow`) gathers several themes/episodes into one series site with a series note, promotion and use guides, and an integrated analysis.
 - `analysis.py` (no extra needs) builds the integrated analysis page (통합 분석) of a whole series; `series.py` calls it.
+- `selftest.py` checks an installation offline: it builds three fake documents in a temporary folder and runs every step (`--video` adds video). Run it first when a user reports that something does not work, or after installing on a new computer.
 
 ## Full pipeline checklist (처음부터 끝까지)
 
@@ -32,7 +33,7 @@ A worked example of every step, with the auto drafts and the edited results side
 | 9 | originals | `studio.py originals … --full --dry-run` → `--full --videos W/mediate/<id>/video` | tool |
 | 10 | series | `series.py --list series.tsv --note series.md --out site` | tool |
 
-Run `studio.py check` before steps 7–10 and again before handing anything over; follow its 다음 할 일 list. Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
+Run `studio.py check` before steps 7–10 and again before handing anything over; follow its 다음 할 일 list. Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Pass the public address (`mediate --url`, `series.py --site-url`) so every page carries link-preview tags and a 1200×630 `share.jpg` — what KakaoTalk, Facebook, X and Threads show when the link is pasted. Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
 
 Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Storytelling from the sources: `references/storytelling.md`. Reels copy template: `references/reels-caption.md`. Channel-by-channel promotion and second-wave (behind) materials: `references/channels.md`. What people can do with the package: `references/package-uses.md`.
 
@@ -200,7 +201,7 @@ python3 series.py --list series.tsv --note series.md --out SITE [--title "시리
 **Integrated analysis — `analysis.py` (통합 분석).** When the user wants to see the whole series at a glance ("전체를 통합 분석해줘", "한눈에 전체 콘텐츠"), `series.py` already writes `SITE/analysis.html`; standalone: `python3 analysis.py --list series.tsv --out analysis.html [--title …]` (optional 4th TSV column `kind`: 문중 · 서원 · 향교 · 사찰 · 마을 · 박물관 …).
 
 - Sections: key numbers · auto-summary sentences (only computed facts) · documents by century and a year dot strip · document types and a type×century heatmap · collection kinds and regions (first place name → today's province) · 핵심 정서 words and chips · reading progress and hardest episodes (□ · (?)) · twelve quoted source lines spread across episodes · frequent names · 남겨 둔 질문 · one-line table per episode · limits of the analysis.
-- Every chart has hover titles and a table view. Read the summary before presenting it and keep its caveats: the figures describe the chosen documents, not the whole collection; dates, types and names are drafts extracted from titles.
+- Every chart has hover titles and a table view; the episode table has a search box. `analysis-data.json` (all counts, quotes, episodes) and `analysis-episodes.csv` are saved next to the page for classes and research. Read the summary before presenting it and keep its caveats: the figures describe the chosen documents, not the whole collection; dates, types and names are drafts extracted from titles.
 - On a main page, show a few summary lines and link the analysis so first-time visitors see the whole at once.
 
 ## ⑤ 패키징 (Package) + 대량 유사 연구

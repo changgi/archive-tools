@@ -2,6 +2,7 @@
 """통합 분석 — 여러 편(테마)의 문서 · 노트 · 결과물을 모아 한 장에서 전체를 읽는 분석 페이지.
 
   python3 analysis.py --list series.tsv --out site/analysis.html [--title "시리즈 제목"]
+  (옆에 analysis-data.json(집계) · analysis-episodes.csv(편별 표)도 저장)
 
   (series.py 가 사이트를 만들 때 analysis.html 도 함께 만듭니다.)
 
@@ -255,7 +256,11 @@ def build(eps, title, kinds_label='소장처 종류'):
         sp = (f'{yy[0]}–{yy[-1]}' if yy[0] != yy[-1] else str(yy[0])) if yy else '미상'
         t = f'<a href="{h(e["link"])}">{h(e["title"])}</a>' if e.get('link') else h(e['title'])
         rows.append((f'{lab(e)}', t, h(e['coll']), h(e.get('kind') or ''), sp, len(e['sel']), h(e['dv'].get('emotion') or ''), h(e['cur'].get('message') or '')))
-    out.append(f'<h2 id="a-eps">편별 한 줄 — {len(eps)}편</h2>' + table(['편', '제목', '소장처', '종류', '연대', '문서', '핵심 정서', '전하고 싶은 것'], rows, 'ept'))
+    out.append(f'<h2 id="a-eps">편별 한 줄 — {len(eps)}편</h2><p><input id="aq" type="search" placeholder="찾기: 제목 · 소장처 · 정서 · 문장 (예: 편지, 안동, 그리움)" aria-label="편별 표에서 찾기"> <span id="an" class="mute"></span></p>'
+               + table(['편', '제목', '소장처', '종류', '연대', '문서', '핵심 정서', '전하고 싶은 것'], rows, 'ept')
+               + '<script>(function(){var q=document.getElementById("aq"),n=document.getElementById("an"),rs=[].slice.call(document.querySelectorAll("table.ept tbody tr"));'
+               + 'q.addEventListener("input",function(){var v=q.value.trim().toLowerCase(),k=0;rs.forEach(function(r){var on=!v||r.textContent.toLowerCase().indexOf(v)>=0;r.style.display=on?"":"none";if(on)k++});n.textContent=v?k+"편":""})})()</script>'
+               + '<p class="mute">데이터 내려받기: <a href="analysis-data.json" download>집계 JSON</a> · <a href="analysis-episodes.csv" download>편별 표 CSV</a> — 수업 · 연구 · 다른 도구로 다시 그리기</p>')
 
     # ---- 한계
     out.append('<h2 id="a-lim">이 분석을 읽을 때</h2><ul class="ins">'
@@ -263,15 +268,34 @@ def build(eps, title, kinds_label='소장처 종류'):
                '<li>연도 · 문서 유형 · 인물은 문서명과 연호에서 자동으로 뽑은 초안입니다. 같은 이름이 다른 사람일 수 있습니다.</li>'
                '<li>지역은 소장처 이름의 첫 지명을 지금의 시 · 도로 옮긴 것입니다. 문서가 만들어진 곳과 다를 수 있습니다.</li>'
                '<li>판독 · 번역은 이미지에 근거한 초안입니다. □ · (?)는 그대로 남겼습니다.</li></ul></div>')
-    summary = dict(eps=len(eps), docs=len(docs), colls=len(colls), span=(min(ys), max(ys)) if ys else None, han=han, quotes=len(quotes), insights=ins)
+    plain = [re.sub(r'<[^>]+>', '', x) for x in ins]
+    data = dict(centuries=[[c, C[c]] for c in centuries], undated=nodate, types=T.most_common(), kinds=K.most_common(), regions=R.most_common(),
+                emotion_words=EW.most_common(), persons=P.most_common(50), reading=dict(read=read_n, translated=tr_n, hanja=han, translation_chars=tr, unknown=unk, unsure=uns),
+                quotes=[dict(quote=q, source=src, episode=lab(e), title=e['title']) for q, src, e in quotes],
+                episodes=[dict(episode=lab(e), title=e['title'], collection=e['coll'], kind=e.get('kind') or '', region=region_of(e['coll']), docs=len(e['sel']),
+                               years=sorted(int(x['연도']) for x in e['sel'] if str(x.get('연도', '')).isdigit()), emotion=e['dv'].get('emotion') or '',
+                               message=e['cur'].get('message') or '', question=e['cur'].get('question') or '') for e in sorted(eps, key=lambda x: (x['ep'] or 0))])
+    summary = dict(eps=len(eps), docs=len(docs), colls=len(colls), span=(min(ys), max(ys)) if ys else None, han=han, quotes=len(quotes), insights=ins, summary_text=plain, data=data)
     return '\n'.join(out), summary
 
 
-def write(path, title, body, nav='', foot='', base_css=''):
-    open(path, 'w', encoding='utf-8').write(
+def save_data(folder, summary):
+    """analysis-data.json(집계) · analysis-episodes.csv(편별 표)를 분석 페이지 옆에 저장"""
+    d = summary['data']
+    out = {k: v for k, v in summary.items() if k not in ('data', 'insights')}; out.update(d)
+    json.dump(out, open(os.path.join(folder, 'analysis-data.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    with open(os.path.join(folder, 'analysis-episodes.csv'), 'w', newline='', encoding='utf-8-sig') as f:
+        w = csv.writer(f); w.writerow(['편', '제목', '소장처', '종류', '지역', '문서 수', '처음 연도', '끝 연도', '핵심 정서', '전하고 싶은 것', '남겨 둔 질문'])
+        for e in d['episodes']:
+            ys = e['years']; w.writerow([e['episode'], e['title'], e['collection'], e['kind'], e['region'], e['docs'], ys[0] if ys else '', ys[-1] if ys else '', e['emotion'], e['message'], e['question']])
+
+
+def write(path, title, body, nav='', foot='', base_css='', meta=''):
+    page = (
         f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)} — 통합 분석</title>'
         f'<style>{base_css}{CSS}</style></head><body><main>{nav}<p class="k">ANALYSIS</p><h1>{h(title)} — 통합 분석</h1>'
         f'<p class="lead">편마다 따로 보던 문서 · 노트 · 결과물을 한데 모아, 전체가 무엇을 담고 있는지 한 장에서 읽습니다.</p>{body}{foot}</main></body></html>')
+    open(path, 'w', encoding='utf-8').write(ST.put_share(page, meta) if meta else page)
 
 
 def main():
@@ -281,7 +305,7 @@ def main():
     eps = load_series(a.list)
     if not eps: sys.exit('분석할 편이 없습니다.')
     body, s = build(eps, a.title)
-    write(a.out, a.title, body)
+    write(a.out, a.title, body); save_data(os.path.dirname(os.path.abspath(a.out)), s)
     print(f'→ {a.out}  편 {s["eps"]} · 문서 {s["docs"]} · 소장처 {s["colls"]}')
 
 

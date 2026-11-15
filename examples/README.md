@@ -1,6 +1,6 @@
 # 예시와 예제
 
-> 📊 **통합 분석** — 101편 · 문서 355건 전체를 한 장에(시대 · 문서 유형 · 지역 · 정서 · 판독 · 원문 인용 · 남겨 둔 질문): [analysis.html](https://changgi.github.io/archive-tools/examples/analysis.html) · 갤러리 첫 화면 「한눈에 보기」
+> 📊 **통합 분석** — 101편 · 문서 355건 전체를 한 장에(시대 · 문서 유형 · 지역 · 정서 · 판독 · 원문 인용 · 남겨 둔 질문): [analysis.html](https://changgi.github.io/archive-tools/examples/analysis.html) · 데이터 [JSON](analysis-data.json) · [편별 CSV](analysis-episodes.csv) · 갤러리 첫 화면 「한눈에 보기」
 >
 > ✍️ **기획 노트** — 이 시리즈를 만든 이유 · 고른 기준 · 히스토리: [about.html](https://changgi.github.io/archive-tools/examples/about.html) · [CURATOR-NOTE.md](CURATOR-NOTE.md). 편마다의 큐레이터 노트는 각 폴더의 `curator.md`.
 >

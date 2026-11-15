@@ -54,12 +54,16 @@ def read_note(p):
 
 
 HOME = None
+SITE = ''      # 공개 주소(…/site/) — 링크 미리 보기용
+SDESC = ''
 
 
-def page(path, title, body, back=True):
+def page(path, title, body, back=True, desc=''):
     home = f'<a href="{h(HOME[0])}">{h(HOME[1])}</a>' if HOME else ''
     nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a></nav>'
-    open(path, 'w', encoding='utf-8').write(f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
+    html_ = (f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
+    name = os.path.basename(path)
+    open(path, 'w', encoding='utf-8').write(ST.put_share(html_, ST.share_meta(title, desc or SDESC, (SITE + 'share.jpg') if SITE else '', (SITE + name) if SITE else '')))
 
 
 def bars(data, color='#c4964a'):
@@ -74,15 +78,15 @@ def bars(data, color='#c4964a'):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--list', required=True); ap.add_argument('--note'); ap.add_argument('--out', required=True); ap.add_argument('--title')
-    ap.add_argument('--home', help='상단 메뉴 첫 칸에 둘 바깥 주소(예: 전체 갤러리)'); ap.add_argument('--home-label', default='← 처음으로')
+    ap.add_argument('--site-url', help='사이트를 올릴 주소(예: https://아이디.github.io/저장소/site/) — 카카오톡·SNS 링크 미리 보기 그림에 필요'); ap.add_argument('--home', help='상단 메뉴 첫 칸에 둘 바깥 주소(예: 전체 갤러리)'); ap.add_argument('--home-label', default='← 처음으로')
     a = ap.parse_args()
     rows = list(csv.DictReader(open(a.list, encoding='utf-8-sig'), delimiter='\t'))
     if not rows or not {'work', 'theme'} <= set(rows[0]): sys.exit('series.tsv 첫 줄은 머리글이어야 합니다: ep<TAB>work<TAB>theme[<TAB>url]')
     base = os.path.dirname(os.path.abspath(a.list))
-    global HOME; HOME = (a.home, a.home_label) if a.home else None
+    global HOME, SITE, SDESC; HOME = (a.home, a.home_label) if a.home else None; SITE = ST.base_url(a.site_url) if a.site_url else ''
     ntitle, secs = read_note(a.note); stitle = a.title or ntitle or '고문서 시리즈'
     out = a.out; os.makedirs(out, exist_ok=True); os.makedirs(os.path.join(out, 'eps'), exist_ok=True)
-    EPS = []; docs = []; AE = []
+    EPS = []; docs = []; AE = []; FIRSTIMG = []
     for r in rows:
         work, theme = r['work'].strip(), r['theme'].strip()
         if not os.path.isdir(work) and os.path.isdir(os.path.join(base, work)): work = os.path.join(base, work)  # series.tsv 기준 상대 경로
@@ -98,6 +102,7 @@ def main():
         for f in ('curator.md', 'delivery.md'):
             if os.path.exists(os.path.join(ed, f)): shutil.copy(os.path.join(ed, f), dst)
         sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig'))); docs += sel
+        if sel and not FIRSTIMG and os.path.exists(os.path.join(ed, sel[0].get('이미지') or '-')): FIRSTIMG.append(os.path.join(ed, sel[0]['이미지']))
         th = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')) if os.path.exists(os.path.join(ed, 'theme.json')) else {}
         cj = os.path.join(work, 'collection.json'); coll = json.load(open(cj, encoding='utf-8'))['name'] if os.path.exists(cj) else os.path.basename(work)
         cards = sorted(glob.glob(os.path.join(dst, 'cards', '*.png')) + glob.glob(os.path.join(dst, 'cards', '*.jpg')))
@@ -129,7 +134,10 @@ def main():
         return ''.join(f'<a href="{b}{f}">{n}</a>' for n, f in L if e['has'].get(f)) + ''.join(f'<a href="{v}">{"릴스" if "reel" in v else "가로"}</a>' for v in e['vids']) + f'<a href="{b}selection.csv">CSV</a>'
     grid = ''.join(f'<div class="ep"><a href="eps/{e["slug"]}/index.html"><img src="{h(e["cover"])}" alt="" loading="lazy"></a><div class="tx"><small>EP.{e["ep"]:02d}</small><b>{h(e["title"])}</b><span>{h(e["coll"])}</span>{("<p style=font-size:14px>" + h(e["cur"]["message"]) + "</p>") if e["cur"].get("message") else ""}</div><div class="ql">{links(e)}</div></div>' for e in EPS)
     why = sec.get('왜 만들었나') or sec.get('왜') or ''
-    an_body, an_sum = AN.build(sorted(AE, key=lambda e: e['ep']), stitle)
+    global SDESC
+    SDESC = re.split(r'\n\s*\n', why)[0] if why else (sec.get('전하고 싶은 것') or f'{len(EPS)}편 · 문서 {len(docs)}건을 원문으로 읽은 시리즈')
+    ST.share_image(FIRSTIMG[0] if FIRSTIMG else None, stitle, f'{len(EPS)}편 · 문서 {len(docs)}건 · 전시 · 영상 · 활동지 · 통합 분석', os.path.join(out, 'share.jpg'), tag='SERIES')
+    an_body, an_sum = AN.build(sorted(AE, key=lambda e: e['ep']), stitle); AN.save_data(out, an_sum)
     smap = ('<h2>이 사이트에 있는 것</h2><div class="g">' + ''.join(f'<div class="box"><h3><a href="{u}">{t}</a></h3><p>{d}</p></div>' for u, t, d in [
         ('#eps', f'에피소드 {len(EPS)}편', '편마다 첫 페이지 · 전시 · 활동지 · 카드 · 영상 · 노트 · CSV'),
         ('analysis.html', '통합 분석', '시대 · 문서 유형 · 지역 · 정서 · 판독 · 원문 인용 · 질문을 한 장에'),

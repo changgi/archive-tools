@@ -44,6 +44,14 @@ $S = "$PWD\archive-tools\plugins\aks-archive-harvester\skills\aks-archive-harves
 mkdir work; cd work
 ```
 
+설치가 잘 됐는지 먼저 확인하세요 — 인터넷 없이 가짜 문서 3건으로 전 과정을 돌려 봅니다:
+
+```bash
+python3 $S/selftest.py            # 영상까지: --video
+#   ✓ harvest.py curate … ✓ series.py … ✓ harvest.py bundle
+#   통과 15 / 15
+```
+
 영상(8단계)에는 ffmpeg이 필요합니다(`ffmpeg -version`으로 확인, Windows는 `winget install ffmpeg`).
 
 ---
@@ -189,7 +197,8 @@ ZIP 안 목록: [`steps/W3/originals_list.txt`](steps/W3/originals_list.txt) (�
 [`series.tsv`](series.tsv) (편 · 작업 폴더 · 테마) 와 [`series.md`](series.md) (기획 노트: 왜 만들었나 · 전하고 싶은 것 · 고른 기준 · 이렇게 보이길 바랐다 · 이렇게 써 주세요 · 지킨 원칙 · 히스토리)를 쓰고:
 
 ```bash
-python3 $S/series.py --list series.tsv --note series.md --out site --home ../../index.html --home-label "← 고문서 한 장 갤러리"
+python3 $S/series.py --list series.tsv --note series.md --out site --home ../../index.html --home-label "← 고문서 한 장 갤러리" \
+    --site-url https://changgi.github.io/archive-tools/examples/tutorial/site/
 #   → site  편 3 · 문서 4 · 시리즈 카드 7장
 ```
 
@@ -216,6 +225,8 @@ python3 $S/series.py --list series.tsv --note series.md --out site --home ../../
 | 첫 페이지에 「홍보 글」 타일이 없음 | `promo`를 `mediate`보다 먼저(또는 `mediate` 다시) |
 | 시리즈 사이트 용량이 너무 큼 | 웹용 영상이 없어 원본 크기 영상이 복사됨 → `video.py … --web` |
 | 첫 페이지에 영상이 없음 | 영상을 `mediate` 뒤에 만들었음 → `mediate` 다시(첫 페이지에 자막 달린 플레이어가 들어갑니다) |
+| 무엇이 문제인지 모르겠음 | `selftest.py`로 설치부터 확인 → 실패한 줄의 메시지 |
+| 카카오톡 · SNS에 링크를 붙였는데 그림이 안 나옴 | `mediate --url <공개 주소>` · `series.py --site-url <공개 주소>`로 다시(미리 보기 그림은 절대 주소여야 합니다) |
 | 고친 내용이 결과물에 안 보임 | `check` → 오래된 결과물 다시 만들기(같은 명령을 다시 돌려도 중복되지 않습니다) |
 
 ### 다음은

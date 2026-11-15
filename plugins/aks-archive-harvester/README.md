@@ -13,6 +13,8 @@
 | 전달 에디팅 다시 | 문구 에디팅 뒤 절정(원문 한 줄)·여운 질문을 채운 초안으로 다시 쓰기(사람이 쓴 칸은 보존) · 대표 면 바꾸기 | `studio.py delivery` · `page` |
 | 영상 | 릴스(9:16)·가로(16:9) 영상 + 자막(.srt), 내레이션(edge-tts 선택), 웹용 540p | `video.py` |
 | 시리즈 | 여러 편을 한 사이트로: 갤러리(「이 사이트에 있는 것」 · 자동 요약) · 기획 노트 · 홍보 가이드 · 활용 가이드 · 통합 분석 · 시리즈 카드 | `series.py` |
+| 링크 미리 보기 | 페이지마다 공유 태그(제목 · 설명 · 1200×630 `share.jpg`) — 카카오톡 · 페이스북 · X에 주소를 붙이면 카드로 | `mediate --url` · `series.py --site-url` |
+| 설치 확인 | 인터넷 없이 가짜 문서 3건으로 전 과정을 돌려 통과 · 실패 표 | `selftest.py [--video]` |
 | 통합 분석 | 전체 편의 시대 · 문서 유형 · 유형×세기 · 소장처 종류 · 지역 · 핵심 정서 · 판독 난도 · 원문 인용 · 인물 · 남겨 둔 질문 · 편별 표 + 자동 요약 | `analysis.py` (series.py가 함께 만듦) |
 | 원본 묶음 | 선별 문서의 **문서 전체 면**(원본 해상도) + 원본 영상 + 출처.csv → 400MB 이하 분할 ZIP | `studio.py originals --full` |
 | ⑤ 패키징 | 연구 패키지(메타데이터·수집현황·인용·datapackage.json·이미지), 여러 문중 일괄 수집·비교표·그래프 | `harvest.py bundle` · `catalog` · `batch` · `compare` · `studio.py report` |
@@ -42,6 +44,7 @@
 ```bash
 pip install requests pillow
 S=skills/aks-archive-harvester/scripts
+python3 $S/selftest.py                                           # 설치 확인(인터넷 불필요)
 python3 $S/harvest.py find "동춘당 송준길" --manifest W         # ① 찾기 + 목록
 python3 $S/harvest.py download --work W --time 540              #    STATUS: DONE까지 반복
 python3 $S/harvest.py curate --work W --collection "동춘당 송준길 후손가"   # ②

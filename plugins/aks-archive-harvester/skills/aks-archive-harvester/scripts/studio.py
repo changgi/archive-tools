@@ -515,6 +515,12 @@ def cmd_mediate(a):
     span = (f'{min(ys)}–{max(ys)}' if min(ys) != max(ys) else f'{min(ys)}') if ys else ''
     unchecked = [s for s in sel if not s.get('검토')]
 
+    # 0) 공유 미리 보기(링크 카드) — 카카오톡 · 페이스북 · X 등에 주소를 붙였을 때 보이는 제목 · 설명 · 그림
+    burl = base_url(a.url)
+    sdesc = (read_curator(ed).get('message') or a.lead or f'{coll} · {span} · 문서 {len(sel)}점을 원문으로 읽은 이야기')
+    share_image(None if PH else os.path.join(ed, sel[0]['이미지']), title, f'{coll} · {span} · 문서 {len(sel)}점', os.path.join(od, 'share.jpg'))
+    SM = lambda page_name, t: share_meta(t, sdesc, (burl + 'share.jpg') if burl else '', (burl + page_name) if burl else '')
+
     # 1) 카드뉴스
     first = os.path.join(ed, sel[0]['이미지'])
     card(first, title, f'{coll} · {span}', a.lead or f'흩어져 있던 집안 문서 {len(sel)}점으로 따라가는 이야기', src_line, os.path.join(od, 'cards', '00_표지.png'),
@@ -571,7 +577,7 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
     if cur: page = page.replace('</p></header>', '</p><p style="font:15px sans-serif"><a href="#curator" style="color:#c4964a">이 전시를 만든 이유 — 큐레이터 노트 ↓</a></p></header>', 1)
     page = put_curator(page, curator_html(cur, facts, 'exhibit') if cur else '', '</main>')
     dv = read_delivery(ed); page = put_delivery(page, delivery_html(dv), '</main>')
-    open(os.path.join(od, 'exhibit.html'), 'w', encoding='utf-8').write(page)
+    open(os.path.join(od, 'exhibit.html'), 'w', encoding='utf-8').write(put_share(page, SM('exhibit.html', title)))
 
     # 3) 수업 활동지 (인쇄용 HTML)
     qs = []
@@ -592,7 +598,7 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
 <h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다. 해제·요약은 문서명과 이미지에 근거한 초안이며 판독이 어려운 글자는 □로 표시했습니다.</p></body></html>"""
     hand = put_curator(hand, curator_html(cur, None, 'handout') if cur else '', None)  # 활동지 맨 끝(교사용)
-    open(os.path.join(od, 'handout.html'), 'w', encoding='utf-8').write(hand)
+    open(os.path.join(od, 'handout.html'), 'w', encoding='utf-8').write(put_share(hand, SM('handout.html', '활동지 — ' + title)))
 
     # 4) SNS 글
     tags = ['#고문서', '#한국고문서자료관', '#기록', '#한국사'] + [f"#{s['문서유형']}" for s in sel[:3]]
@@ -646,10 +652,63 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
 {vsec}{curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
 <h2>담긴 문서</h2><ol>{''.join(f"<li>{'' if str(x['문서명']).startswith(str(x['연도'])) else html.escape(str(x['연도'])) + ' '}{html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
-    open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(idx)
+    open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(put_share(idx, SM('index.html', title + ' — 결과물 한눈에 보기')))
     print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(cardfs)}장(카드뉴스)' + (f' · 영상 {len(vids)}개' if vids else '') + f' · handout.html(수업 활동지) · sns.txt')
     if unchecked: print(f'  ※ 검토 칸이 비어 있는 캡션 {len(unchecked)}건은 "초안" 표시가 붙습니다.')
 
+
+
+# ---------------------------------------------------------------- 공유 미리 보기 (카카오톡 · 페이스북 · X 링크 카드)
+FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E"
+           "%3Crect x='14' y='10' width='36' height='44' rx='3' fill='%23efe3c8'/%3E%3Cpath d='M21 20h22M21 28h22M21 36h16' stroke='%23c4964a' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E")
+
+
+def base_url(url):
+    """전시 주소(…/exhibit.html) 또는 폴더 주소 → 끝이 / 인 폴더 주소. 없으면 ''"""
+    if not url: return ''
+    return url if url.endswith('/') else (url.rsplit('/', 1)[0] + '/' if re.search(r'/[^/]+\.[a-z0-9]+$', url) else url + '/')
+
+
+def share_meta(title, desc, image='', url='', kind='website'):
+    e = html.escape; d = re.sub(r'\s+', ' ', desc or '').strip()[:180]
+    m = [f'<meta name="description" content="{e(d)}">', f'<link rel="icon" href="{FAVICON}">',
+         f'<meta property="og:type" content="{kind}">', f'<meta property="og:title" content="{e(title)}">', f'<meta property="og:description" content="{e(d)}">',
+         '<meta property="og:locale" content="ko_KR">', f'<meta name="twitter:card" content="{"summary_large_image" if image else "summary"}">',
+         f'<meta name="twitter:title" content="{e(title)}">', f'<meta name="twitter:description" content="{e(d)}">']
+    if url: m.append(f'<meta property="og:url" content="{e(url)}">')
+    if image and re.match(r'https?://', image):  # 미리 보기 이미지는 절대 주소여야 합니다
+        m += [f'<meta property="og:image" content="{e(image)}">', '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">', f'<meta name="twitter:image" content="{e(image)}">']
+    return '<!--SHARE-->' + ''.join(m) + '<!--/SHARE-->'
+
+
+def put_share(page, meta):
+    """<head>에 공유 미리 보기 태그 넣기 — 다시 실행해도 한 번만"""
+    page = re.sub(r'<!--SHARE-->.*?<!--/SHARE-->', '', page, flags=re.S)
+    m = re.search(r'<meta charset="utf-8">', page)
+    return page[:m.end()] + meta + page[m.end():] if m else page.replace('<head>', '<head>' + meta, 1)
+
+
+def share_image(img, title, sub, out, tag='고문서 한 장'):
+    """1200×630 링크 카드 이미지 — 왼쪽 문서 사진, 오른쪽 제목"""
+    W, H = 1200, 630; c = Image.new('RGB', (W, H), (22, 19, 15)); d = ImageDraw.Draw(c)
+    if img is not None:
+        im = img if isinstance(img, Image.Image) else Image.open(img).convert('RGB')
+        r = max(560 / im.width, H / im.height); im = im.resize((max(1, int(im.width * r)), max(1, int(im.height * r))))
+        x0 = (im.width - 560) // 2; y0 = min(max(0, (im.height - H) // 3), im.height - H)
+        c.paste(im.crop((x0, y0, x0 + 560, y0 + H)), (0, 0))
+        g = Image.new('L', (120, 1)); g.putdata([int(255 * k / 119) for k in range(120)])
+        c.paste(Image.new('RGB', (120, H), (22, 19, 15)), (440, 0), g.resize((120, H)))
+        x = 600
+    else: x = 80
+    tw = W - x - 60
+    d.text((x, 60), tag.upper() if tag.isascii() else tag, font=font(26, 'bold'), fill=(196, 150, 74))
+    fb = font(58 if len(title) < 22 else 46, 'serif'); y = 120
+    for ln in wrap(d, title, fb, tw)[:4]: d.text((x, y), ln, font=fb, fill=(243, 234, 216)); y += int(fb.size * 1.32)
+    fs = font(26); y += 14
+    for ln in wrap(d, sub, fs, tw)[:3]: d.text((x, y), ln, font=fs, fill=(185, 171, 144)); y += 38
+    d.text((x, H - 60), '한국학중앙연구원 한국고문서자료관 소장·제공', font=font(20), fill=(140, 128, 108))
+    c.save(out, quality=85)
+    return out
 
 # ---------------------------------------------------------------- originals (원본 묶음: 문서 전체 면 + 원본 영상)
 ORIG_NOTE = """원본 자료 묶음 — {title}
