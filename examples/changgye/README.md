@@ -6,6 +6,20 @@
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep41-changgye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep41-changgye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
+
+<!-- CURATOR -->
+## 비하인드 — 큐레이터 노트
+
+- **왜 이 문서들인가** — 숙종이 병든 신하에게 약과 숯을 보내며 직접 쓴 어찰이 남아 있었습니다.
+- **전하고 싶은 것** — 임금의 마음이 물건(약과 숯)과 편지로 전해졌다는 것.
+- **이렇게 보이길 바랐다** — 열여덟 소년의 장원 백패 → 답안지의 '三中' → 임금의 어찰로, 한 사람의 생애를 따뜻하게 마무리했습니다.
+- **이렇게 써 주세요** — 군신 관계, 어찰 문화 수업에 쓰세요.
+- **남겨 둔 질문** — 숯을 받은 겨울, 임영은 무엇을 썼을까요?
+- **제작 기록** — 문서 4건 · 1666–1695년 · 원본 사진 9면(문서 전체) · 원문 판독 4건 · 번역 4건 · 못 읽은 글자 □ 1 · 불확실 (?) 1 · 해제에 "확인 필요"를 단 문서 1건
+
+전문: [`curator.md`](curator.md)
+<!-- /CURATOR -->
+
 ## 이야기 — 사료가 말하는 대로
 
 임금이 신하에게 숯을 보냈습니다. 편지 한 장과 함께.

@@ -6,6 +6,20 @@
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep39-jeongnanjong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep39-jeongnanjong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
+
+<!-- CURATOR -->
+## 비하인드 — 큐레이터 노트
+
+- **왜 이 문서들인가** — 채점관이 쓴 점수까지 남은 1861년 과거 시험지가 있었습니다.
+- **전하고 싶은 것** — 과거 시험은 실제 답안과 평가로 이루어진, 오늘의 시험과 닮은 제도였다는 것.
+- **이렇게 보이길 바랐다** — 양자 입안으로 집안을 잇는 이야기를 먼저 하고, 그 집안의 선비가 시험장에 앉는 장면으로 넘어갔습니다.
+- **이렇게 써 주세요** — 과거 시험(답안지·채점), 오늘의 시험 제도와 비교하는 수업에 쓰세요.
+- **남겨 둔 질문** — 그 답안지의 점수에 그는 만족했을까요?
+- **제작 기록** — 문서 4건 · 1756–1891년 · 원본 사진 7면(문서 전체) · 원문 판독 4건 · 번역 4건 · 못 읽은 글자 □ 1 · 불확실 (?) 4 · 해제에 "확인 필요"를 단 문서 1건
+
+전문: [`curator.md`](curator.md)
+<!-- /CURATOR -->
+
 ## 이야기 — 사료가 말하는 대로
 
 과거 시험지가 남아 있습니다. 채점관이 쓴 점수까지.

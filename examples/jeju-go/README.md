@@ -6,6 +6,20 @@
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep90-jeju-go_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep90-jeju-go_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
+
+<!-- CURATOR -->
+## 비하인드 — 큐레이터 노트
+
+- **왜 이 문서들인가** — 고종이 기로소에 든 해, 전국의 여든 넘은 백성에게 품계를 올려 준 칙명이 제주까지 와 있었습니다.
+- **전하고 싶은 것** — 나라는 오래 산 백성을 찾아 경축의 몫을 나누었다는 것.
+- **이렇게 보이길 바랐다** — '나이 여든 된 선비와 백성에게'라는 구절을 중심에 두어 은전의 범위를 보여 주었습니다.
+- **이렇게 써 주세요** — 대한제국의 의례, 노인 공경 정책을 오늘과 비교하는 수업에 쓰세요.
+- **남겨 둔 질문** — 여든을 넘긴 고장흥은 '통정대부'라는 이름을 어떻게 받아들였을까요?
+- **제작 기록** — 문서 1건 · 1902년 · 원본 사진 1면(문서 전체) · 원문 판독 1건 · 번역 1건
+
+전문: [`curator.md`](curator.md)
+<!-- /CURATOR -->
+
 ## 이야기 — 사료가 말하는 대로
 
 여든 살이 되면, 나라가 벼슬을 주던 때가 있었습니다.

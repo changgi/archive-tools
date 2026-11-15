@@ -6,6 +6,21 @@
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep49-cheongju-museum_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep49-cheongju-museum_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
+
+<!-- CURATOR -->
+## 비하인드 — 큐레이터 노트
+
+- **왜 이 문서들인가** — 효종이 딸의 편지 빈 줄에 큰 글씨로 답장을 써 준 편지첩이 있었습니다.
+- **전하고 싶은 것** — 임금도 딸의 편지에 새 종이를 쓰지 않고 바로 답할 만큼 다정한 아버지였다는 것.
+- **이렇게 보이길 바랐다** — 딸의 작은 글씨와 아버지의 큰 글씨를 한 화면에 보여 주는 데 집중했습니다.
+- **이렇게 써 주세요** — 왕실 가족사, 한글 편지 읽기 수업에 쓰세요.
+- **만들며 있었던 일** — 옛 한글 표기는 고치지 않았습니다.
+- **남겨 둔 질문** — 딸은 아버지의 큰 글씨를 몇 번이나 다시 읽었을까요?
+- **제작 기록** — 문서 2건 · 1652년 · 원본 사진 2면(문서 전체) · 원문 판독 2건 · 번역 2건 · 못 읽은 글자 □ 0 · 불확실 (?) 13
+
+전문: [`curator.md`](curator.md)
+<!-- /CURATOR -->
+
 ## 이야기 — 사료가 말하는 대로
 
 임금은 딸의 편지에 새 종이를 쓰지 않았습니다. 딸의 글씨 사이에 답을 썼습니다.

@@ -6,6 +6,20 @@
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep63-jangheung-im_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep63-jangheung-im_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
+
+<!-- CURATOR -->
+## 비하인드 — 큐레이터 노트
+
+- **왜 이 문서들인가** — 1709년과 1915년의 혼서가 206년이 지나도 계절 인사만 빼고 같은 문장이었습니다.
+- **전하고 싶은 것** — 의례의 말은 바뀌지 않음으로써 세대를 이어 주었다는 것.
+- **이렇게 보이길 바랐다** — 두 혼서를 나란히 놓고, 같은 문장과 다른 계절 인사를 대조해 보여 주었습니다.
+- **이렇게 써 주세요** — 혼례 문화, 서식(書式)의 지속성을 다루는 수업과 전시에 쓰세요.
+- **남겨 둔 질문** — 206년 동안 바뀌지 않은 문장 속에서, 바뀐 것은 무엇이었을까요?
+- **제작 기록** — 문서 2건 · 1709–1915년 · 원본 사진 2면(문서 전체) · 원문 판독 2건 · 번역 2건
+
+전문: [`curator.md`](curator.md)
+<!-- /CURATOR -->
+
 ## 이야기 — 사료가 말하는 대로
 
 206년을 사이에 둔 두 장의 혼서. 거의 같은 문장입니다.

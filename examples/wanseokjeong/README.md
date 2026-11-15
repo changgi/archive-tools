@@ -6,6 +6,21 @@
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep76-wanseokjeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep76-wanseokjeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
+
+<!-- CURATOR -->
+## 비하인드 — 큐레이터 노트
+
+- **왜 이 문서들인가** — 인조반정 직후 같은 사람에게 내려온 두 장의 유지가 '역마를 타고 올라오라'는 똑같은 문장으로 끝났습니다.
+- **전하고 싶은 것** — 정권이 바뀌는 순간, 지방의 선비에게도 역사가 문을 두드렸다는 것.
+- **이렇게 보이길 바랐다** — 토씨 하나 다르지 않은 두 문장을 나란히 놓아 반복이 주는 긴장을 살렸습니다.
+- **이렇게 써 주세요** — 인조반정과 조선 정치사, 유지라는 문서 서식 학습에 쓰세요.
+- **만들며 있었던 일** — 승지 이름은 수결로만 남아 성씨만 적었습니다.
+- **남겨 둔 질문** — 두 번 다 길을 떠난 그는, 다시 고향으로 돌아왔을까요?
+- **제작 기록** — 문서 2건 · 1623–1624년 · 원본 사진 4면(문서 전체) · 원문 판독 2건 · 번역 2건
+
+전문: [`curator.md`](curator.md)
+<!-- /CURATOR -->
+
 ## 이야기 — 사료가 말하는 대로
 
 왕이 보낸 쪽지의 마지막 한 마디. "역마를 타고 올라오라."

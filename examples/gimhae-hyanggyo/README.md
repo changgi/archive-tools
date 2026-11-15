@@ -6,6 +6,20 @@
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep47-gimhae-hyanggyo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep47-gimhae-hyanggyo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
+
+<!-- CURATOR -->
+## 비하인드 — 큐레이터 노트
+
+- **왜 이 문서들인가** — '향안은 선배 어른들의 이름이다' — 젊은 향원들이 명부에 멋대로 이름을 써넣자 원로들이 바로잡은 문서가 있었습니다.
+- **전하고 싶은 것** — 명부에 이름을 올리는 일은 공동체의 신뢰를 지키는 일이었다는 것.
+- **이렇게 보이길 바랐다** — 떠나는 사또를 칭찬한 상서('한 물건도 취하지 않았다')로 시작해, 명부를 둘러싼 갈등으로 이어 갔습니다.
+- **이렇게 써 주세요** — 기록의 진본성·무결성, 명부 관리를 다루는 기록관리 교육에 쓰세요.
+- **남겨 둔 질문** — 오늘 우리 조직의 '향안'은 무엇일까요?
+- **제작 기록** — 문서 2건 · 1622–1753년 · 원본 사진 4면(문서 전체) · 원문 판독 2건 · 번역 2건 · 못 읽은 글자 □ 9 · 불확실 (?) 31
+
+전문: [`curator.md`](curator.md)
+<!-- /CURATOR -->
+
 ## 이야기 — 사료가 말하는 대로
 
 이름을 명부에 올리는 일이, 왜 이렇게 엄격했을까요?

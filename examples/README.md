@@ -1,5 +1,7 @@
 # 예시와 예제
 
+> ✍️ **기획 노트** — 이 시리즈를 만든 이유 · 고른 기준 · 히스토리: [about.html](https://changgi.github.io/archive-tools/examples/about.html) · [CURATOR-NOTE.md](CURATOR-NOTE.md). 편마다의 큐레이터 노트는 각 폴더의 `curator.md`.
+
 **aks-archive-harvester**로 실제로 만든 결과물(예시)과, 같은 결과를 직접 만들어 보는 단계별 따라하기(예제)입니다.
 
 ▶ **웹에서 바로 보기:** https://changgi.github.io/archive-tools/examples/

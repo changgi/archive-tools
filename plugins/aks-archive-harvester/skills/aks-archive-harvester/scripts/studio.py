@@ -313,7 +313,9 @@ def cmd_edit(a):
     sheet.save(os.path.join(od, 'contact_sheet.jpg'), quality=85)
     print(f'테마 "{title}": 후보 {len(cand)}건 중 {len(out)}건 선별')
     for o in out: print(f"  {o['순서']:02d}. {o['연도']} {o['문서유형']} — {o['문서명']}")
-    print('→', od, '(selection.csv의 캡션·이야기를 다듬고, 이미지를 읽어 판독·해제·요약을 채운 뒤 mediate)')
+    if not os.path.exists(os.path.join(od, 'curator.md')):
+        open(os.path.join(od, 'curator.md'), 'w', encoding='utf-8').write(curator_template(title))
+    print('→', od, '(selection.csv의 캡션·이야기를 다듬고, 이미지를 읽어 판독·해제·요약을 채운 뒤 curator.md(큐레이터 노트)를 쓰고 mediate)')
 
 
 # ---------------------------------------------------------------- fonts
@@ -534,6 +536,9 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
 <p>{html.escape(a.lead or f'한국고문서자료관에 흩어져 있던 집안 문서 {len(sel)}점을 시간 순서로 엮었습니다.')}</p></header>
 <main class="line">{''.join(items)}</main>
 <footer>{html.escape(src_line)}. 이미지의 이용·재배포는 자료관 이용 조건을 따릅니다.<br>「읽기 도움」의 해제·원문 읽기·내용 요약은 문서명과 이미지에 근거한 초안입니다. 판독이 어려운 글자는 □로 표시했으며, 개별 문서의 판독·해석은 원문 확인이 필요합니다.<br>제작 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></body></html>"""
+    cur = read_curator(ed); facts = curator_facts(sel, a.work)
+    if cur: page = page.replace('</p></header>', '</p><p style="font:15px sans-serif"><a href="#curator" style="color:#c4964a">이 전시를 만든 이유 — 큐레이터 노트 ↓</a></p></header>', 1)
+    page = put_curator(page, curator_html(cur, facts, 'exhibit') if cur else '', '</main>')
     open(os.path.join(od, 'exhibit.html'), 'w', encoding='utf-8').write(page)
 
     # 3) 수업 활동지 (인쇄용 HTML)
@@ -554,6 +559,7 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
 </style></head><body><h1>고문서로 읽는 이야기: {html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 이름: ________ </p>{''.join(qs)}
 <h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다. 해제·요약은 문서명과 이미지에 근거한 초안이며 판독이 어려운 글자는 □로 표시했습니다.</p></body></html>"""
+    hand = put_curator(hand, curator_html(cur, None, 'handout') if cur else '', None)  # 활동지 맨 끝(교사용)
     open(os.path.join(od, 'handout.html'), 'w', encoding='utf-8').write(hand)
 
     # 4) SNS 글
@@ -571,6 +577,7 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
              ('📣', 'SNS 글', '해시태그를 붙인 게시 글 초안', 'sns.txt', '열기'),
              ('📊', '원문 · 번역 표 (CSV)', '문서명 · 연도 · 판독 · 원문 · 번역 · 해제 · 요약 · 원본 링크', os.path.relpath(os.path.join(ed, 'selection.csv'), od), '받기')]
     if os.path.exists(os.path.join(od, 'promo.md')): tiles.append(('🎬', '릴스 홍보 문구', '「고문서 한 장」 형식 게시 문구', 'promo.md', '열기'))
+    if cur: tiles.insert(0, ('✍️', '큐레이터 노트', cur.get('message') or '이 결과물을 만든 이유와 비하인드', '#curator', '읽기'))
     tl = ''.join(f'<a class="t" href="{html.escape(h)}"><span>{i}</span><b>{html.escape(t)}</b><p>{html.escape(d)}</p><em>{b} →</em></a>' for i, t, d, h, b in tiles)
     strip = ''.join(f'<a href="cards/{html.escape(f)}"><img src="cards/{html.escape(f)}" alt="카드 {k+1}" loading="lazy"></a>' for k, f in enumerate(cardfs))
     idx = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — 결과물 한눈에 보기</title><style>
@@ -581,7 +588,7 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
 .s{{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}} .s img{{height:220px;border-radius:8px;border:1px solid #3a3225}} ol{{padding-left:20px}} li{{margin:3px 0}} .k{{font-size:12.5px;color:#8f826b;margin-top:30px}}
 </style></head><body><main><h1>{html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 문서 {len(sel)}점</p>
 <h2>결과물 바로 가기</h2><div class="g">{tl}</div>
-<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
+{curator_html(cur, facts, 'index') if cur else ''}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
 <h2>담긴 문서</h2><ol>{''.join(f"<li>{html.escape(str(x['연도']))} {html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
     open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(idx)
@@ -674,6 +681,74 @@ def cmd_originals(a):
         print('  ※ 일부 면만 받은 문서가 있습니다. --full 을 붙이면 문서 전체 면을 받아 묶습니다(--dry-run 으로 면 수 먼저 확인).')
 
 
+# ---------------------------------------------------------------- 큐레이터 노트 (기획 의도 · 비하인드)
+CURATOR_KEYS = [('why', '왜 이 문서들인가', '수많은 문서 가운데 이것들을 고른 까닭. 무엇이 눈에 걸렸는지'),
+                ('message', '전하고 싶은 것', '보는 사람이 한 가지만 가져간다면 무엇이길 바라는지 (한두 문장)'),
+                ('look', '이렇게 보이길 바랐다', '순서·인용·장면을 어떻게 배치했고, 어떤 느낌으로 다가가길 원했는지'),
+                ('use', '이렇게 써 주세요', '수업·전시·연구·SNS 등에서 이 결과물을 어떻게 쓰면 좋은지'),
+                ('behind', '만들며 있었던 일', '판독이 막힌 곳, 바꾼 결정, 빠진 자료, 확인이 필요한 점 — 있었던 일만'),
+                ('question', '남겨 둔 질문', '문서만으로는 답할 수 없어 보는 사람과 나누고 싶은 질문')]
+
+
+def curator_template(title):
+    out = [f'# 큐레이터 노트 — {title}', '', '<!-- 각 칸을 채우세요. 문서와 작업에서 실제로 확인한 것만 씁니다. 빈 칸은 결과물에 나오지 않습니다. -->', '']
+    for _, h, g in CURATOR_KEYS: out += [f'## {h}', f'<!-- {g} -->', '', '']
+    return '\n'.join(out)
+
+
+def read_curator(ed):
+    p = os.path.join(ed, 'curator.md')
+    if not os.path.exists(p): return {}
+    t = re.sub(r'<!--.*?-->', '', open(p, encoding='utf-8').read(), flags=re.S)
+    rev = {h: k for k, h, _ in CURATOR_KEYS}; c = {}
+    for m in re.finditer(r'^##\s*(.+?)\s*\n(.*?)(?=^##\s|\Z)', t, flags=re.S | re.M):
+        k = rev.get(m.group(1).strip())
+        if k and m.group(2).strip(): c[k] = m.group(2).strip()
+    return c
+
+
+def curator_facts(sel, work=None):
+    """제작 기록 — selection.csv와 받은 면에서 자동으로 세는 사실들"""
+    got = tot = 0
+    for s in sel:
+        if work and s.get('원본경로'):
+            got += len(glob.glob(os.path.join(os.path.dirname(os.path.join(work, s['원본경로'])), '*.jpg')))
+    full = ''.join(s.get('원문') or s.get('판독') or '' for s in sel)
+    ys = sorted(int(s['연도']) for s in sel if str(s.get('연도', '')).isdigit())
+    f = [f"문서 {len(sel)}건" + (f" · {ys[0]}–{ys[-1]}년" if ys and ys[0] != ys[-1] else (f" · {ys[0]}년" if ys else ''))]
+    if got: f.append(f'받은 원본 {got}면')
+    f.append(f"원문 판독 {sum(1 for s in sel if (s.get('원문') or '').strip())}건 · 번역 {sum(1 for s in sel if (s.get('번역') or '').strip())}건")
+    if full.count('□') or full.count('(?)'): f.append(f"못 읽은 글자 □ {full.count('□')} · 불확실 (?) {full.count('(?)')}")
+    chk = sum(1 for s in sel if '확인' in (s.get('해제') or ''))
+    if chk: f.append(f'해제에 "확인 필요"를 단 문서 {chk}건')
+    return f
+
+
+def curator_html(c, facts=None, mode='exhibit'):
+    """mode: exhibit(전시 웹페이지) · handout(활동지, 교사용) · index(첫 페이지)"""
+    if not c and not facts: return ''
+    keys = [k for k, _, _ in CURATOR_KEYS]
+    if mode == 'handout': keys = ['why', 'message', 'use', 'question']
+    lab = {k: h for k, h, _ in CURATOR_KEYS}
+    rows = ''.join(f'<div class="cn-i"><b>{lab[k]}</b><p>{html.escape(c[k]).replace(chr(10), "<br>")}</p></div>' for k in keys if c.get(k))
+    fx = ('<p class="cn-f"><b>제작 기록</b> ' + ' · '.join(html.escape(x) for x in facts) + '</p>') if facts and mode != 'handout' else ''
+    head = {'exhibit': '큐레이터 노트 — 이 전시를 만든 이유', 'handout': '선생님께 — 이 자료를 만든 이유와 쓰는 법', 'index': '큐레이터 노트 — 비하인드'}[mode]
+    css = ('<style>.cn{max-width:980px;margin:0 auto 6vh;padding:26px 30px;border:1px solid #4a3e2c;border-radius:16px;background:#1e1912;font:16px/1.8 "Noto Sans KR","Malgun Gothic",sans-serif;color:#e8dcc4}'
+           '.cn h2{font:700 24px "Noto Serif KR",serif;color:#f3ead8;margin:0 0 14px}.cn-i{margin:0 0 12px}.cn-i b{color:#c4964a;display:block;font-size:14px;letter-spacing:.04em}.cn-i p{margin:2px 0 0}'
+           '.cn-f{border-top:1px dashed #4a3e2c;padding-top:10px;margin:14px 0 0;color:#b9ab90;font-size:14px}.cn-f b{color:#c4964a;margin-right:6px}'
+           '.cn.h{background:#faf6ec;color:#222;border-color:#c9b48a;font-size:13.5px;padding:12px 16px;page-break-inside:avoid}.cn.h h2{color:#222;font-size:17px}.cn.h .cn-i b{color:#8a6a2e}'
+           '@media print{.cn{background:#fff;color:#111}.cn h2{color:#111}}</style>')
+    return f'<!--CURATOR-->{css}<section class="cn{" h" if mode == "handout" else ""}" id="curator"><h2>{head}</h2>{rows}{fx}</section><!--/CURATOR-->'
+
+
+def put_curator(page, block, where='</main>'):
+    """HTML에 큐레이터 노트 넣기(다시 실행해도 하나만)"""
+    page = re.sub(r'<!--CURATOR-->.*?<!--/CURATOR-->', '', page, flags=re.S)
+    if not block: return page
+    i = page.find(where) if where else -1
+    return page[:i + len(where)] + block + page[i + len(where):] if i >= 0 else page.replace('</body>', block + '</body>')
+
+
 # ---------------------------------------------------------------- report (비교 리포트)
 def cmd_report(a):
     p = os.path.join(a.root, 'compare_metadata.csv')
@@ -735,7 +810,7 @@ PROMO_TEMPLATE = """📜 {series} EP.{ep} 〈{title}〉
 
 {body}
 
-{follow} 이 기록을 바탕으로 Claude 플러그인 aks-archive-harvester로 전시 웹페이지, 카드뉴스, 수업 활동지, SNS 게시글을 만들었습니다.
+{note}{follow} 이 기록을 바탕으로 Claude 플러그인 aks-archive-harvester로 전시 웹페이지, 카드뉴스, 수업 활동지, SNS 게시글을 만들었습니다.
 ※ 설명은 문서명과 이미지를 바탕으로 만든 초안입니다. 정확한 판독은 원문 확인이 필요합니다.
 
 {question} 댓글로 남겨주세요.
@@ -766,7 +841,8 @@ def cmd_promo(a):
                 body=f"[{coll}에 무엇이 남아 있는지 → 문서를 시간 순서로 2~4문장 ({ys[0] if ys else '?'}–{ys[-1] if ys else '?'}). 문서명·이미지·판독에서 확인한 사실만]",
                 follow='[이번 릴스에서는 ○○을 따라가 봅니다.]',
                 question=f"[여러분이라면 {(first.get('연도') + '년 ') if first.get('연도') else ''}{first.get('문서유형','A')}와 {(last.get('연도') + '년 ') if last.get('연도') else ''}{last.get('문서유형','B')} 중 어느 쪽을 먼저 펼쳐보고 싶으세요?]",
-                label=f'[{title} 온라인 전시 보기]', tags=' '.join(dict.fromkeys(tags)))
+                label=f'[{title} 온라인 전시 보기]', tags=' '.join(dict.fromkeys(tags)),
+                note=(f"✍️ 큐레이터 노트 — {read_curator(ed)['message']}\n\n" if read_curator(ed).get('message') else ''))
     out = os.path.join(a.work, 'mediate', a.theme); os.makedirs(out, exist_ok=True)
     txt = PROMO_TEMPLATE.format(**fill)
     open(os.path.join(out, 'promo.md'), 'w', encoding='utf-8').write(

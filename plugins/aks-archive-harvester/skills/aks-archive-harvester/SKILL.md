@@ -99,6 +99,21 @@ The archive states that image use needs the collection owner's consent through i
 - Without it, outputs embed the downloaded images, which is fine for the user's own work.
 - Examples: https://changgi.github.io/archive-tools/examples/
 
+**Curator note (큐레이터 노트 — 기획 의도 · 비하인드).** `edit` writes `edit/<id>/curator.md` with six headings. Fill it before `mediate`, because people want to know why these documents were chosen and what the work hopes to say, not only what the documents read:
+
+| heading | what to write |
+|---|---|
+| 왜 이 문서들인가 | why these documents out of the whole collection — the line or fact that caught your eye |
+| 전하고 싶은 것 | the one thing a viewer should take away (one or two sentences) |
+| 이렇게 보이길 바랐다 | how the order, quotations and scenes were arranged, and the feeling you aimed for |
+| 이렇게 써 주세요 | how to use the outputs in class, exhibitions, research or SNS |
+| 만들며 있었던 일 | what actually happened while making it — unread parts, changed decisions, missing images, points that need checking |
+| 남겨 둔 질문 | a question the documents cannot answer, to share with viewers |
+
+- Write only what the documents and the work actually show. Ask the user for their own intent when it is theirs to state; never invent motives, events or facts for the 비하인드. Leave a heading empty rather than pad it.
+- `mediate` then adds 「큐레이터 노트」 to the end of `exhibit.html` (with a link in the header), a 「선생님께」 box (왜 · 전하고 싶은 것 · 쓰는 법 · 질문) to `handout.html`, and a tile and section to `index.html`, plus an automatic 제작 기록 line (문서 수 · 연대 · 받은 면 · 판독/번역 수 · □/(?) 수 · "확인 필요" 수). `promo` adds a "✍️ 큐레이터 노트 — …" block from 전하고 싶은 것.
+- For a series of several themes or episodes, also write one series note (why the series, how documents were chosen, history of versions, principles, how to use, request for corrections) and link it from the main page.
+
 **Reels promo copy (「고문서 한 장」 format).** When the user wants a post for Reels/Shorts/Instagram:
 
 ```bash
@@ -163,6 +178,7 @@ python3 studio.py report --root ROOT                                           #
 WORK/docs.json  out/<분류>/<NNN>_<문서명>/<NNN>.jpg  missing.txt  partial.txt   # ① 수집
 WORK/metadata.csv  metadata.jsonl  summary.md  themes.json                     # ② 큐레이션
 WORK/edit/<id>/selection.csv  images/  contact_sheet.jpg  theme.json           # ③ 에디팅
+WORK/edit/<id>/curator.md   # 큐레이터 노트(기획 의도 · 비하인드)
 WORK/mediate/<id>/index.html  exhibit.html  cards/*.png  handout.html  sns.txt  promo.md   # ④ 매개
 WORK/originals/<id>/<소장처>_원본*.zip   # 원본 묶음(문서 전체 면 · 원본 영상 · 출처.csv)
 OUT/<약칭>_연구패키지/   ROOT/compare_*.csv|md|html                              # ⑤ 패키징·비교
