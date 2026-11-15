@@ -543,6 +543,9 @@ def cmd_mediate(a):
     sdesc = (read_curator(ed).get('message') or a.lead or f'{coll} · {span} · 문서 {len(sel)}점을 원문으로 읽은 이야기')
     share_image(None if PH else os.path.join(ed, sel[0]['이미지']), title, f'{coll} · {span} · 문서 {len(sel)}점', os.path.join(od, 'share.jpg'))
     OHCSS = oldhangul_css(' '.join((x.get('판독') or '') + (x.get('원문') or '') + (x.get('이야기') or '') + (x.get('번역') or '') for x in sel))
+    if OHCSS:
+        from PIL import features
+        if not features.check('raqm'): print('  ※ 옛한글이 있는데 이 Pillow에는 글자 조합(libraqm)이 없어 카드 그림의 옛한글이 풀어져 보일 수 있습니다. 웹페이지는 바르게 보입니다.')
     SM = lambda page_name, t: share_meta(t, sdesc, (burl + 'share.jpg') if burl else '', (burl + page_name) if burl else '')
 
     # 1) 카드뉴스
@@ -1131,6 +1134,11 @@ def read_corrections(ed):
 def parse_issue(body):
     """「판독 고침 제보」 양식 → {자료ID, 문서, 칸, 내용, 근거}"""
     b = (body or '').replace('\r', '')
+    if re.search(r'^###\s', b, re.M):  # GitHub 이슈 양식(.github/ISSUE_TEMPLATE/correction.yml)으로 쓴 글
+        sec = {m.group(1).strip(): m.group(2).strip() for m in re.finditer(r'^###\s*(.+?)\s*\n(.*?)(?=^###\s|\Z)', b, re.S | re.M)}
+        val = lambda k: '' if sec.get(k, '') in ('_No response_', '') else sec[k]
+        where = val('고칠 곳')
+        return {'자료ID': val('자료 ID'), '문서': val('문서'), '칸': next((f for f in FIELDS if f == where or f in where), ''), '고칠 곳': where, '내용': val('바르게 고친 내용'), '근거': val('근거')}
     get = lambda k: (re.search(rf'^{k}\s*:\s*(.*)$', b, re.M) or [None, ''])[1].strip()
     sec = lambda head, nxt: (re.search(rf'{head}[^\n]*:\s*\n(.*?)(?=\n\s*{nxt}|\Z)', b, re.S) or [None, ''])[1].strip()
     where = sec('고칠 곳', '바르게 고친 내용')
@@ -1164,10 +1172,15 @@ def cmd_fix(a):
     tgt = None
     if a.n: tgt = next((r for r in rows if str(r.get('순서')) == str(a.n)), None)
     elif issue.get('자료ID'): tgt = next((r for r in rows if r.get('자료ID') == issue['자료ID']), None)
+    if not tgt and issue.get('문서'):  # 자료 ID가 없으면 문서명으로
+        nm = issue['문서'].strip(); tgt = next((r for r in rows if r.get('문서명') == nm), None) or next((r for r in rows if nm and (nm in r.get('문서명', '') or r.get('문서명', '') in nm)), None)
     if not tgt: sys.exit('고칠 문서를 찾지 못했습니다 — --n 순서 를 주세요.' if not issue else f"이 테마에 자료 ID {issue.get('자료ID')} 문서가 없습니다 — 다른 --theme 이거나 --n 으로 지정하세요.")
     field = a.field or issue.get('칸')
     if field not in FIELDS: sys.exit(f'고칠 칸(--field)을 정하세요: {" · ".join(FIELDS)}')
     text = a.text if a.text is not None else issue.get('내용', '')
+    if a.text is None and not a.replace_part and '→' in text and text.count('→') == 1:  # 제보가 "이전 → 이후" 꼴이면 그 구절만
+        a.replace_part, text = [x.strip() for x in text.split('→')]
+        print(f'  제보의 「{a.replace_part} → {text}」 꼴을 구절 바꾸기로 읽었습니다.')
     if not text: sys.exit('바꿀 내용(--text)이 없습니다.')
     if a.replace_part:  # 칸 전체가 아니라 일부만: --replace-part "이전 구절"
         if a.replace_part not in (tgt.get(field) or ''): sys.exit(f'「{a.replace_part}」를 {field} 칸에서 찾지 못했습니다.')

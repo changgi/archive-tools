@@ -1,5 +1,7 @@
 # archive-tools
 
+[![selftest](https://github.com/changgi/archive-tools/actions/workflows/selftest.yml/badge.svg)](https://github.com/changgi/archive-tools/actions/workflows/selftest.yml)
+
 기록·고문서 아카이브 조사와 수집을 위한 Claude 플러그인 모음입니다.
 
 | 플러그인 | 하는 일 |
@@ -13,7 +15,7 @@
 | 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 101편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
 | 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 355건 · 소장처 100곳 · 1403–1945년 · 판독 한자 16,299자 · 원문 인용 303곳 |
 | 🗂️ 모아 보기 | [종이에 적힌 문장 303곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
-| ✍️ 함께 고치기 | 갤러리 「원문 읽기」 · 전시 웹페이지의 「판독 고침 제보」 → GitHub 이슈 |
+| ✍️ 함께 고치기 | 갤러리 「원문 읽기」 · 전시 웹페이지의 「판독 고침 제보」 → GitHub 이슈 · [기여 안내](CONTRIBUTING.md) |
 | 📜 원문 읽기 | 편마다 판독 · 번역 · 해제 · 요약 · "현대어(原文)" 이야기 (갤러리 각 편 「원문 읽기」) |
 | 🧑‍🏫 수업 · 🏛️ 전시 | 편마다 활동지 · 전시 웹페이지 · 카드뉴스 · CSV — [전체 결과물 표](https://changgi.github.io/archive-tools/examples/#alltable) · [활용 가이드](https://changgi.github.io/archive-tools/examples/use.html) |
 | ✍️ 기획 · 비하인드 | [기획 노트](https://changgi.github.io/archive-tools/examples/about.html) · 편별 큐레이터 노트 · 비하인드 카드 · 전달 에디팅 |

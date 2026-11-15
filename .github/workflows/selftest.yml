@@ -1,0 +1,42 @@
+name: selftest
+
+# 플러그인이 Windows · macOS · Linux에서 끝까지 도는지 — 인터넷 없이 가짜 문서로 전 과정 시험
+on:
+  push:
+    paths: ['plugins/**', 'tools/**', '.github/workflows/selftest.yml', 'examples/**/*.html']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  plugin:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: 설치
+        run: python -m pip install requests pillow
+      - name: 문법 검사
+        run: python -m py_compile plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/harvest.py plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/studio.py plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/video.py plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/series.py plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/analysis.py plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/selftest.py
+      - name: 설치 확인 (selftest)
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/selftest.py
+
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 매니페스트(JSON) 확인
+        run: python -c "import json;json.load(open('.claude-plugin/marketplace.json'));json.load(open('plugins/aks-archive-harvester/.claude-plugin/plugin.json'));print('ok')"
+      - name: 예시 사이트 깨진 링크 확인
+        run: python tools/check_links.py

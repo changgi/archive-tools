@@ -137,6 +137,7 @@ python3 studio.py fix … --apply        # 반영 → edit/<id>/corrections.csv(
 python3 studio.py fix --work WORK --theme <id> --list
 ```
 
+- It reads both the prefilled report from the buttons and the repository's issue form (`.github/ISSUE_TEMPLATE/correction.yml`); it finds the document by 자료 ID or, failing that, by its name, and reads "이전 → 이후" as a phrase replacement.
 - Without `--apply` it only previews; it warns when the whole field would be replaced by a short text (use `--replace-part`). Check the original image before applying a reported reading; record the reason in `--note`.
 - `mediate` then adds 「함께 고친 곳」 to `exhibit.html`, and `check` counts the corrections and flags outputs older than them.
 

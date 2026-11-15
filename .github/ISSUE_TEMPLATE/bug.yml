@@ -1,0 +1,26 @@
+name: 도구가 잘 안 돼요
+description: 플러그인(aks-archive-harvester) 명령이 멈추거나 결과물이 이상할 때
+labels: ["도구"]
+body:
+  - type: markdown
+    attributes:
+      value: 먼저 `python3 selftest.py`(인터넷 불필요)를 돌려 결과를 붙여 주시면 원인을 빨리 찾습니다.
+  - type: input
+    id: cmd
+    attributes:
+      label: 실행한 명령
+      placeholder: python3 studio.py mediate --work W --theme story
+    validations:
+      required: true
+  - type: textarea
+    id: msg
+    attributes:
+      label: 나온 메시지 · selftest 결과
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 컴퓨터 · 파이썬
+      placeholder: Windows 11 · Python 3.12

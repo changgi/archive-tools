@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 「고문서 한 장」 갤러리
+    url: https://changgi.github.io/archive-tools/examples/
+    about: 101편 · 통합 분석 · 모아 보기 — 문서마다 「판독 고침 제보」 버튼이 있습니다
+  - name: 게재 중단 요청(이미지 · 개인정보)
+    url: mailto:chgsong@naver.com
+    about: 문제가 있는 자료는 메일로 알려 주시면 바로 내립니다

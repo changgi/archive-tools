@@ -1,5 +1,14 @@
 # 변경 기록
 
+## aks-archive-harvester 1.4.1 (2026-11-16)
+- **자동 시험(GitHub Actions)** `.github/workflows/selftest.yml`: 푸시 · 풀 리퀘스트마다 Windows · macOS · Linux × Python 3.10 · 3.13에서 문법 검사와 `selftest.py`, 매니페스트(JSON)와 예시 사이트 깨진 링크(`tools/check_links.py`) 확인. README에 상태 배지
+- **이슈 양식** `.github/ISSUE_TEMPLATE/`: 「판독 고침 제보」(문서 · 자료 ID · 고칠 곳 · 고친 내용 · 근거, 라벨 「판독 고침」) · 「도구가 잘 안 돼요」(selftest 결과 첨부) · 갤러리와 게재 중단 메일 안내
+- **`studio.py fix`**: 이슈 양식으로 쓴 제보도 읽음, 자료 ID가 없으면 문서명으로 찾음, "이전 → 이후"를 구절 바꾸기로 읽음
+- `mediate`: 옛한글이 있는데 Pillow에 글자 조합(libraqm)이 없으면 카드 그림에 대해 알림
+- **`CONTRIBUTING.md`**: 제보하는 법 · 반영하는 법(관리자) · 코드 고칠 때 확인할 것 · 지킬 것
+- `tools/check_links.py`: 예시 사이트 링크 검사(`--all`은 101편 전시 · 활동지까지)
+- Windows 기본 인코딩(cp1252 · cp949)을 흉내 낸 환경에서 selftest 17/17 통과
+
 ## aks-archive-harvester 1.4.0 (2026-11-16)
 - **제보 반영 `studio.py fix`**: 「판독 고침 제보」(GitHub 이슈)를 읽어 문서(자료 ID) · 칸 · 고친 내용 · 근거를 뽑고(`--issue N --repo`), 칸 전체 또는 일부 구절(`--replace-part`)을 미리 본 뒤 `--apply`로 `selection.csv`에 반영. 고친 기록은 `corrections.csv`(날짜 · 이전 · 이후 · 근거 · 제보)에 쌓이고 `--list`로 봄. `mediate`가 전시 웹페이지에 「함께 고친 곳」을, `check`가 고친 건수와 다시 만들 결과물을 알려 줌
 - **옛한글 글꼴 조각**: 옛한글 자모가 있는 페이지에만, 그 글자 범위만 담은 글꼴(`assets/oldhangul-sans.woff2`, Noto Sans CJK KR에서 자모와 조합 기능만 남김 · OFL · 97KB)을 덧붙임 — 아래아 등이 기기마다 다르게 깨져 보이지 않게. 설치된 글꼴은 그대로 씀

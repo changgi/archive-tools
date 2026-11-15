@@ -1,0 +1,37 @@
+name: 판독 고침 제보
+description: 판독 · 번역 · 해제 · 연도가 틀린 곳을 알려 주세요. 원본 사진의 줄이나 다른 자료를 근거로 적어 주시면 바로 확인합니다.
+title: "[판독 고침] "
+labels: ["판독 고침"]
+body:
+  - type: input
+    id: doc
+    attributes:
+      label: 문서
+      description: 문서명(전시 웹페이지나 갤러리 「원문 읽기」에 나온 그대로)
+      placeholder: 1646년 신채(申埰) 진사 백패(進士白牌)
+    validations:
+      required: true
+  - type: input
+    id: id
+    attributes:
+      label: 자료 ID
+      description: 알면 적어 주세요(전시 웹페이지 문서 아래 작은 글씨)
+  - type: dropdown
+    id: field
+    attributes:
+      label: 고칠 곳
+      options: [판독, 번역, 해제, 요약, 이야기, 연도, 문서유형, 인물, 그 밖]
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: 바르게 고친 내용
+      description: 틀린 구절과 고친 구절을 함께 적어 주시면 좋습니다(예 — 初八日 → 初九日)
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 근거
+      description: 원본 사진의 몇째 줄인지, 참고한 자료나 사전 등
