@@ -182,7 +182,7 @@ python3 video.py --work WORK --theme <id> [--ep 7] [--url 전시주소] [--forma
 
 - Scenes: opener (전달 에디팅 열기) → introduction → one scene per document with its image and quoted source line → climax → 비하인드 (큐레이터 노트 전하고 싶은 것) → closing question with source.
 - Narration uses edge-tts when installed (`--voice ko-KR-SunHiNeural`); otherwise a silent video timed by text length. Behind a proxy with its own certificate, set `AKS_CA_BUNDLE=<ca file>`.
-- Writes `WORK/mediate/<id>/video/<base>_reel.mp4` · `_wide.mp4` · `.ko.srt`; `--web` adds 540p `_web.mp4` copies for web pages. Hand the full-resolution files to `originals --videos`.
+- Writes `WORK/mediate/<id>/video/<base>_reel.mp4` · `_wide.mp4` · `.ko.srt` · `.ko.vtt`; `--web` adds 540p `_web.mp4` copies for web pages. Hand the full-resolution files to `originals --videos`. Run `mediate` again afterwards: the front page then gets video players with Korean subtitles (web copies preferred).
 - Look at one frame of each format before handing it over.
 - If narration fails it stops with a message instead of a traceback; retry with `--no-tts` or set `AKS_CA_BUNDLE`.
 
@@ -192,7 +192,7 @@ python3 video.py --work WORK --theme <id> [--ep 7] [--url 전시주소] [--forma
 python3 series.py --list series.tsv --note series.md --out SITE [--title "시리즈 제목"] [--home ../index.html --home-label "← 전체 갤러리"]
 ```
 
-- `series.tsv`: a header line, then one line per episode — `ep<TAB>work<TAB>theme[<TAB>url]`. Work folders are found relative to the current folder or to the TSV's folder. Missing episodes are reported and skipped; only `_web.mp4` videos are copied (it says so when an episode has none).
+- `series.tsv`: a header line, then one line per episode — `ep<TAB>work<TAB>theme[<TAB>url]`. Work folders are found relative to the current folder or to the TSV's folder. Missing episodes are reported and skipped; videos: the `_web.mp4` copies when they exist, otherwise the full-size files (it warns about the size).
 - `series.md`: the series note with headings (왜 만들었나 · 전하고 싶은 것 · 고른 기준 · 이렇게 보이길 바랐다 · 이렇게 써 주세요 · 지킨 원칙 · 히스토리). Same rule as curator notes: facts and the user's own intent only.
 - Writes `SITE/index.html` (stats, 결과물 바로 가기, episode grid with direct links), `about.html` (기획 노트 · per-episode message/emotion/question), `promote.html` (channels, 4-week plan), `use.html` (who can use the package and how, rights checklist), `cards/` (series cards from the note) and `eps/NN-<theme>/` copies (web videos only).
 

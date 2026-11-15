@@ -11,6 +11,10 @@ series.md (기획 노트):  # 시리즈 제목  다음에 ## 제목별 문단. �
 결과: site/index.html(갤러리) · about.html · promote.html · use.html · cards/(시리즈 카드) · eps/NN-테마/(각 편 결과물 복사)
 """
 import argparse, collections, csv, glob, html, json, os, re, shutil, sys
+
+for _s in (sys.stdout, sys.stderr):  # Windows에서 출력을 파일·파이프로 보낼 때(cp949) 기호 때문에 멈추지 않게
+    try: _s.reconfigure(errors='replace')
+    except Exception: pass
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import studio as ST
 
@@ -86,7 +90,9 @@ def main():
         if not os.path.exists(os.path.join(md, 'exhibit.html')): print(f'건너뜀: {work}/mediate/{theme}/exhibit.html 이 없습니다 (작업 폴더·테마 확인, 또는 먼저 studio.py mediate)'); continue
         slug = f'{ep:02d}-{theme}'; dst = os.path.join(out, 'eps', slug)
         shutil.rmtree(dst, ignore_errors=True)
-        shutil.copytree(md, dst, ignore=shutil.ignore_patterns('.*', '*_reel.mp4', '*_wide.mp4'))  # 영상은 웹 압축본(_web)만
+        shutil.copytree(md, dst, ignore=shutil.ignore_patterns('.*'))
+        for full in glob.glob(os.path.join(dst, 'video', '*_reel.mp4')) + glob.glob(os.path.join(dst, 'video', '*_wide.mp4')):
+            if os.path.exists(full[:-4] + '_web.mp4'): os.remove(full)  # 웹 압축본이 있으면 원본 크기 영상은 빼기
         shutil.copy(os.path.join(ed, 'selection.csv'), dst)
         for f in ('curator.md', 'delivery.md'):
             if os.path.exists(os.path.join(ed, f)): shutil.copy(os.path.join(ed, f), dst)
@@ -94,11 +100,13 @@ def main():
         th = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')) if os.path.exists(os.path.join(ed, 'theme.json')) else {}
         cj = os.path.join(work, 'collection.json'); coll = json.load(open(cj, encoding='utf-8'))['name'] if os.path.exists(cj) else os.path.basename(work)
         cards = sorted(glob.glob(os.path.join(dst, 'cards', '*.png')) + glob.glob(os.path.join(dst, 'cards', '*.jpg')))
-        cover = next((c for c in cards if re.search(r'/0?1\.(png|jpg)$', c)), cards[0] if cards else '')
+        cover = next((c for c in cards if re.fullmatch(r'0?1\.(png|jpg)', os.path.basename(c))), cards[0] if cards else '')
         vids = sorted(glob.glob(os.path.join(dst, 'video', '*_web.mp4')))
-        if not vids and glob.glob(os.path.join(md, 'video', '*.mp4')): print(f'  EP.{ep:02d}: 웹용 영상(_web.mp4)이 없어 영상 링크를 뺐습니다 → video.py ... --web')
-        EPS.append(dict(ep=ep, slug=slug, title=th.get('title') or theme, coll=coll, cover=os.path.relpath(cover, out) if cover else '', cur=ST.read_curator(ed), dv=ST.read_delivery(ed),
-                        vids=[os.path.relpath(v, out) for v in vids], has={f: os.path.exists(os.path.join(dst, f)) for f in ('index.html', 'exhibit.html', 'handout.html', 'channels.md', 'curator.md', 'delivery.md', 'promo.md')}))
+        if not vids:
+            vids = sorted(glob.glob(os.path.join(dst, 'video', '*.mp4')))
+            if vids: print(f'  EP.{ep:02d}: 웹용 영상(_web.mp4)이 없어 원본 크기 영상을 복사했습니다(용량 큼) → video.py ... --web 권장')
+        EPS.append(dict(ep=ep, slug=slug, title=th.get('title') or theme, coll=coll, cover=os.path.relpath(cover, out).replace(os.sep, '/') if cover else '', cur=ST.read_curator(ed), dv=ST.read_delivery(ed),
+                        vids=[os.path.relpath(v, out).replace(os.sep, '/') for v in vids], has={f: os.path.exists(os.path.join(dst, f)) for f in ('index.html', 'exhibit.html', 'handout.html', 'channels.md', 'curator.md', 'delivery.md', 'promo.md')}))
     if not EPS: sys.exit('묶을 편이 없습니다. series.tsv의 work·theme 경로와 mediate 결과를 확인하세요.')
     EPS.sort(key=lambda e: e['ep'])
     # ---- 시리즈 카드

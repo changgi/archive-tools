@@ -194,7 +194,7 @@ python3 $S/series.py --list series.tsv --note series.md --out site --home ../../
 ```
 
 - `series.tsv`의 작업 폴더는 지금 폴더 또는 `series.tsv`가 있는 폴더 기준 상대 경로로 찾습니다.
-- 영상은 웹용(`_web.mp4`)만 복사합니다. 없으면 "웹용 영상이 없어 영상 링크를 뺐습니다"라고 알려 줍니다 → `video.py … --web`.
+- 영상은 웹용(`_web.mp4`)이 있으면 그것만 복사합니다. 없으면 원본 크기 영상을 복사하고 "용량 큼"이라고 알려 줍니다 → `video.py … --web` 권장.
 - `--home`: 상단 메뉴 맨 앞에 바깥 주소(전체 갤러리 등)로 돌아가는 링크.
 
 ![시리즈 사이트](img/site.jpg)
@@ -212,7 +212,8 @@ python3 $S/series.py --list series.tsv --note series.md --out site --home ../../
 | `…/selection.csv가 없습니다` | 테마 이름(`--theme`)이 `edit` 때 `--id`와 같은지 확인 |
 | 카드·영상 첫 장면이 검거나 비어 보임 | 대표 면이 표지·겉면 → `check`로 확인 후 `page` |
 | 첫 페이지에 「홍보 글」 타일이 없음 | `promo`를 `mediate`보다 먼저(또는 `mediate` 다시) |
-| 시리즈 사이트에 영상이 없음 | `video.py … --web`으로 웹용 영상 만들기 |
+| 시리즈 사이트 용량이 너무 큼 | 웹용 영상이 없어 원본 크기 영상이 복사됨 → `video.py … --web` |
+| 첫 페이지에 영상이 없음 | 영상을 `mediate` 뒤에 만들었음 → `mediate` 다시(첫 페이지에 자막 달린 플레이어가 들어갑니다) |
 | 고친 내용이 결과물에 안 보임 | `check` → 오래된 결과물 다시 만들기(같은 명령을 다시 돌려도 중복되지 않습니다) |
 
 ### 다음은

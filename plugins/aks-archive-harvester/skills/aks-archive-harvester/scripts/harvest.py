@@ -22,6 +22,18 @@ AKS 한국고문서자료관(archive.aks.ac.kr) 소장처 일괄 수집기.
   python3 harvest.py pack --work W --dest OUTDIR --prefix 동춘당 --max-mb 350
 """
 import argparse, csv, html, io, json, math, os, re, sys, threading, time, zipfile
+
+for _s in (sys.stdout, sys.stderr):  # Windows에서 출력을 파일·파이프로 보낼 때(cp949) 기호 때문에 멈추지 않게
+    try: _s.reconfigure(errors='replace')
+    except Exception: pass
+
+
+def jload(p):
+    """UTF-8로 읽고, 예전 버전이 Windows 기본 인코딩(cp949)으로 쓴 파일이면 그것으로 다시 읽는다."""
+    try:
+        with open(p, encoding='utf-8') as f: return json.load(f)
+    except UnicodeDecodeError:
+        with open(p) as f: return json.load(f)
 from concurrent.futures import ThreadPoolExecutor
 import requests
 from PIL import Image
@@ -135,7 +147,7 @@ def cmd_manifest(a):
     prev = {}
     pj = os.path.join(a.work, 'docs.json')
     if os.path.exists(pj):
-        prev = {d['id']: d for d in json.load(open(pj)) if d.get('imgs')}
+        prev = {d['id']: d for d in jload(pj) if d.get('imgs')}
     todo = []
     for d in docs:
         if d['id'] in prev:
@@ -154,7 +166,7 @@ def cmd_manifest(a):
         d['category'] = d['path'][-1] if d['path'] else (a.name or re.search(r'dataId=([^&]+)', q).group(1))
         cnt[d['category']] = cnt.get(d['category'], 0) + 1
         d['folder'] = f"{cnt[d['category']]:03d}_{safe(d['name'])}"
-    json.dump(docs, open(os.path.join(a.work, 'docs.json'), 'w'), ensure_ascii=False, indent=1)
+    json.dump(docs, open(os.path.join(a.work, 'docs.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     by = {}
     for d in docs:
         c = by.setdefault(d['category'], [0, 0]); c[0] += 1; c[1] += len(d['imgs'])
@@ -165,7 +177,7 @@ def cmd_manifest(a):
 
 # ---------------------------------------------------------------- download
 def jobs_of(a):
-    docs = json.load(open(os.path.join(a.work, 'docs.json')))
+    docs = jload(os.path.join(a.work, 'docs.json'))
     jobs = []
     for d in docs:
         if a.category and d['category'] != a.category:
@@ -182,7 +194,7 @@ def cmd_download(a):
     jobs = jobs_of(a)
     deadline = time.time() + a.time
     tex = ThreadPoolExecutor(a.tile_workers)
-    log = lambda name, line: open(os.path.join(a.work, name), 'a').write(line + '\n')
+    log = lambda name, line: open(os.path.join(a.work, name), 'a', encoding='utf-8').write(line + '\n')
 
     def page(job):
         out, dzi = job
@@ -225,7 +237,7 @@ def cmd_download(a):
     miss = set()
     p = os.path.join(a.work, 'missing.txt')
     if os.path.exists(p):
-        miss = {l.split('\t')[0] for l in open(p)}
+        miss = {l.split('\t')[0] for l in open(p, encoding='utf-8')}
     left = len([j for j in jobs if not os.path.exists(j[0]) and j[0] not in miss])
     print(f'이번 실행 {n}장 / {time.time()-t0:.0f}s · 완료 {done}/{len(jobs)} · 서버에 없음 {len(miss & {j[0] for j in jobs})} · 남음 {left}')
     print('STATUS:', 'DONE' if left == 0 else 'CONTINUE')
@@ -233,8 +245,8 @@ def cmd_download(a):
 
 # ---------------------------------------------------------------- report
 def cmd_report(a):
-    docs = json.load(open(os.path.join(a.work, 'docs.json')))
-    rd = lambda n: [l.rstrip('\n').split('\t') for l in open(os.path.join(a.work, n))] if os.path.exists(os.path.join(a.work, n)) else []
+    docs = jload(os.path.join(a.work, 'docs.json'))
+    rd = lambda n: [l.rstrip('\n').split('\t') for l in open(os.path.join(a.work, n), encoding='utf-8')] if os.path.exists(os.path.join(a.work, n)) else []
     miss = {l[0] for l in rd('missing.txt')}
     part = {l[0]: l[1] for l in rd('partial.txt')}
     with open(a.out, 'w', newline='', encoding='utf-8-sig') as f:
@@ -294,7 +306,7 @@ def parse_title(t):
 
 
 def curate_rows(work, collection=None):
-    docs = json.load(open(os.path.join(work, 'docs.json')))
+    docs = jload(os.path.join(work, 'docs.json'))
     rows = []
     for d in docs:
         ys, ye, typ, ents = parse_title(d['name'])
@@ -411,6 +423,8 @@ def cmd_compare(a):
     for name, _ in read_list(a.list):
         work = os.path.join(a.root, safe(name))
         if os.path.exists(os.path.join(work, 'docs.json')): rows += curate_rows(work, name)
+        else: print(f'건너뜀: {work}/docs.json 이 없습니다 (batch --step manifest 먼저)')
+    if not rows: sys.exit('비교할 소장처가 없습니다. 목록 파일과 --root 폴더를 확인하세요.')
     write_rows(rows, os.path.join(a.root, 'compare_metadata.csv'))
     cols = sorted({r['소장처'] for r in rows}); types = [t for t, _ in Counter(r['문서유형'] for r in rows).most_common(25)]
     L = ['# 소장처 비교 (자동 생성 초안)', '', '| 문서유형 | ' + ' | '.join(cols) + ' |', '|---|' + '---|' * len(cols)]

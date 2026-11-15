@@ -1,5 +1,14 @@
 # 변경 기록
 
+## aks-archive-harvester 1.0.2 (2026-11-16)
+- **Windows 호환**: 파일 읽기·쓰기를 모두 UTF-8로(예전엔 Windows 기본 인코딩 cp949로 써서 일부 한자 문서명에서 `docs.json` 저장이 멈추거나 `studio.py`가 읽지 못할 수 있었음). 예전 버전이 cp949로 쓴 `docs.json`도 읽음(`jload`). 출력을 파일·파이프로 보낼 때 기호 때문에 멈추지 않게. 영상 이어 붙이기 목록·CSV·HTML 링크의 경로 구분자를 `/`로. cp949 기본 인코딩을 흉내 낸 환경에서 curate → edit → delivery → promo → video → mediate → check → series → originals → report · bundle · compare 전 과정 통과
+- **첫 페이지에 영상**: `mediate`가 `video/`의 영상(웹 압축본 우선)을 자막 달린 플레이어로 첫 페이지에 넣고 타일 추가. `video.py`가 웹 자막 `.ko.vtt`도 만듦. 영상을 mediate 뒤에 만들면 `video.py`와 `check`가 mediate 다시를 안내
+- **CSV 링크 고침**: 첫 페이지의 CSV 링크가 `../../edit/…`를 가리켜, mediate 폴더만 올리거나 시리즈 사이트로 복사하면 끊겼음 → mediate 폴더에 `selection.csv`를 함께 두고 그것을 가리킴(따라하기 사이트 세 편도 고침)
+- `series.py`: 웹 압축본이 없으면 원본 크기 영상을 복사하고 용량 경고(예전엔 영상이 빠졌고 첫 페이지 링크가 끊김)
+- `harvest.py compare`: 맞는 작업 폴더가 없을 때 traceback 대신 빠진 소장처와 안내
+- 활동지·비교 리포트에 모바일 viewport, `mediate` 출력에 카드·영상 수를 실제대로
+- 예시 갤러리·따라하기 사이트 링크 전수 점검(깨진 링크 0)
+
 ## aks-archive-harvester 1.0.1 (2026-11-16)
 - **공개 전 점검 `studio.py check`**: 문서별 빈 칸(판독·번역·해제·요약·이야기) · "현대어(原文)" 인용 없는 이야기 · □/(?) 수 · 검토 표시, 큐레이터 노트·전달 에디팅 빈 칸, 비어 있는 절정, 표지·겉면 같은 대표 면, 노트·CSV보다 오래된 결과물(promo · mediate · 영상)을 찾아 「다음 할 일」을 번호로. `--strict`는 할 일이 남으면 종료 코드 1
 - **대표 면 자동 선택 개선**: 같은 문서의 다른 면보다 눈에 띄게 작고 글씨도 적은 면(두루마리 겉면·싸개)을 건너뜀(`thin_pages`). 기존 작업 폴더 249건 다면 문서에서 시험해 오탐 없이 공신교서 겉면 1건만 걸러 냄

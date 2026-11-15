@@ -21,6 +21,18 @@ aks-archive-harvester 스튜디오 — 수집한 고문서로 큐레이션 테�
   python3 studio.py report  --root ROOT
 """
 import argparse, base64, csv, glob, html, io, json, os, re, shutil, sys
+
+for _s in (sys.stdout, sys.stderr):  # Windows에서 출력을 파일·파이프로 보낼 때(cp949) 기호 때문에 멈추지 않게
+    try: _s.reconfigure(errors='replace')
+    except Exception: pass
+
+
+def jload(p):
+    """UTF-8로 읽고, 예전 버전이 Windows 기본 인코딩(cp949)으로 쓴 파일이면 그것으로 다시 읽는다."""
+    try:
+        with open(p, encoding='utf-8') as f: return json.load(f)
+    except UnicodeDecodeError:
+        with open(p) as f: return json.load(f)
 from collections import Counter, defaultdict
 from PIL import Image, ImageDraw, ImageFont, ImageStat
 
@@ -151,7 +163,7 @@ def image_groups(work):
     """자료ID → (이미지 묶음 서명, 같은 이미지를 공유하는 문서 수). 첩(帖)에 든 낱장 문서들은 서버가 첩 전체 이미지를 똑같이 준다."""
     p = os.path.join(work, 'docs.json')
     if not os.path.exists(p): return {}
-    docs = json.load(open(p, encoding='utf-8'))
+    docs = jload(p)
     sig = {d['id']: tuple(i['dzi'] for i in d.get('imgs', [])) for d in docs}
     cnt = Counter(v for v in sig.values() if v)
     return {k: (v, cnt[v]) for k, v in sig.items()}
@@ -313,7 +325,7 @@ def cmd_edit(a):
         fn = f'{i:02d}.jpg'; im.save(os.path.join(od, 'images', fn), quality=88)
         out.append({'순서': i, '자료ID': r['자료ID'], '문서명': r['문서명'], '연도': r['_y'] or '', '문서유형': r['문서유형'],
                     '인물': '; '.join(e.split('(')[0] for e in r['_ents']), '유형설명': glossary(r['문서유형']),
-                    '대표장': os.path.basename(src), '이미지': f'images/{fn}', '원본경로': os.path.relpath(src, a.work),
+                    '대표장': os.path.basename(src), '이미지': f'images/{fn}', '원본경로': os.path.relpath(src, a.work).replace(os.sep, '/'),
                     '캡션': draft_caption(r) + (f' (첩 이미지 {len(doc_images(a.work, r))}면 중 한 면 — 해당 면은 원문 확인 필요)' if shared > 1 else ''),
                     '이야기': '', '판독': '', '원문': '', '번역': '', '해제': draft_haeje(r), '요약': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else '')})
     with open(os.path.join(od, 'selection.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
@@ -572,7 +584,7 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
 {('<p><b>원문 해석</b> ' + html.escape(s['번역']) + '</p>') if (s.get('번역') or '').strip() else ''}
 <p><b>찾아보기</b> {('① 위 「원문 속 글자」를 이미지에서 찾아 동그라미 해 보세요. ' if has_reading(s) else '① 문서를 받은 사람(또는 쓴 사람)의 이름을 찾아 표시해 보세요. ')}② 날짜가 적힌 곳을 찾아보세요. ③ 도장(인장)이 있나요?</p>
 <p><b>생각해 보기</b> 이 문서는 왜 지금까지 집안에 남아 있었을까요?</p></div></div>""")
-    hand = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>활동지 — {html.escape(title)}</title><style>
+    hand = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>활동지 — {html.escape(title)}</title><style>
 @page{{size:A4;margin:16mm}} body{{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;color:#222;font-size:14px}}
 h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:grid;grid-template-columns:42% 1fr;gap:14px;border-top:1px solid #ccc;padding:12px 0;page-break-inside:avoid}}
 .q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} div.tr{{font:13.5px/2.3 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} ruby rt{{font-size:8.5px;color:#8a6a2e}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#999}}
@@ -605,25 +617,37 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
              ('✏️', '수업 활동지', '인쇄해서 바로 쓰는 A4 활동지 (해제 · 요약 · 찾아보기 · 생각해 보기)', 'handout.html', '열기'),
              ('🗂️', f'카드뉴스 {len(cardfs)}장', '1080×1350 카드 (표지 · 문서별 · 마무리)', 'cards/' + (cardfs[0] if cardfs else ''), '첫 장 보기'),
              ('📣', 'SNS 글', '해시태그를 붙인 게시 글 초안', 'sns.txt', '열기'),
-             ('📊', '원문 · 번역 표 (CSV)', '문서명 · 연도 · 판독 · 원문 · 번역 · 해제 · 요약 · 원본 링크', os.path.relpath(os.path.join(ed, 'selection.csv'), od), '받기')]
+             ('📊', '원문 · 번역 표 (CSV)', '문서명 · 연도 · 판독 · 원문 · 번역 · 해제 · 요약 · 원본 링크', 'selection.csv', '받기')]
+    shutil.copy(os.path.join(ed, 'selection.csv'), os.path.join(od, 'selection.csv'))  # mediate 폴더만 올려도 CSV 링크가 살아 있게
     if os.path.exists(os.path.join(od, 'promo.md')): tiles.append(('🎬', '릴스 홍보 문구', '「고문서 한 장」 형식 게시 문구', 'promo.md', '열기'))
     if cur: tiles.insert(0, ('✍️', '큐레이터 노트', cur.get('message') or '이 결과물을 만든 이유와 비하인드', '#curator', '읽기'))
+    vd = os.path.join(od, 'video'); vids = []
+    for fmt, label in (('reel', '릴스 (세로 9:16)'), ('wide', '가로 (16:9)')):
+        c = sorted(glob.glob(os.path.join(vd, f'*_{fmt}_web.mp4'))) or sorted(glob.glob(os.path.join(vd, f'*_{fmt}.mp4')))
+        if c:
+            base = re.sub(r'_(reel|wide)(_web)?\.mp4$', '', os.path.basename(c[-1]))
+            vtt = os.path.join(vd, base + '.ko.vtt')
+            vids.append((label, 'video/' + os.path.basename(c[-1]), ('video/' + os.path.basename(vtt)) if os.path.exists(vtt) else '', fmt))
+    if vids: tiles.insert(1 if cur else 0, ('🎞️', '영상', ' · '.join(v[0] for v in vids) + ' — 자막 포함', '#video', '보기'))
     if os.path.exists(os.path.join(od, 'channels.md')): tiles.append(('📢', '채널별 홍보안', '인스타 · 유튜브 · 틱톡 · 페이스북 · 스레드 · X · 전시 · 책 · 웹툰 · 영상 — 형식과 바로 쓰는 문구', 'channels.md', '열기'))
     tl = ''.join(f'<a class="t" href="{html.escape(h)}"><span>{i}</span><b>{html.escape(t)}</b><p>{html.escape(d)}</p><em>{b} →</em></a>' for i, t, d, h, b in tiles)
     strip = ''.join(f'<a href="cards/{html.escape(f)}"><img src="cards/{html.escape(f)}" alt="카드 {k+1}" loading="lazy"></a>' for k, f in enumerate(cardfs))
+    vsec = ('<h2 id="video">영상</h2><div class="v">' + ''.join(
+        f'<figure><video controls preload="metadata" playsinline src="{html.escape(v)}">' + (f'<track kind="subtitles" srclang="ko" label="한국어" src="{html.escape(t)}" default>' if t else '') +
+        f'</video><figcaption>{html.escape(l)} · <a href="{html.escape(v)}" download>받기</a></figcaption></figure>' for l, v, t, f in vids) + '</div>') if vids else ''
     idx = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — 결과물 한눈에 보기</title><style>
 body{{margin:0;background:#16130f;color:#f3ead8;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;line-height:1.6}} main{{max-width:1080px;margin:0 auto;padding:40px 6vw 60px}}
 h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);margin:0 0 6px}} .sub{{color:#b9ab90}} h2{{color:#c4964a;font-size:17px;margin:34px 0 10px}}
 .g{{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}} .t{{display:flex;flex-direction:column;gap:4px;background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:16px;color:inherit;text-decoration:none}}
 .t:hover{{border-color:#c4964a}} .t span{{font-size:24px}} .t b{{font-size:16px}} .t p{{margin:0;color:#b9ab90;font-size:13.5px;flex:1}} .t em{{font-style:normal;color:#c4964a;font-weight:700;font-size:14px}}
-.s{{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}} .s img{{height:220px;border-radius:8px;border:1px solid #3a3225}} ol{{padding-left:20px}} li{{margin:3px 0}} .k{{font-size:12.5px;color:#8f826b;margin-top:30px}}
+.s{{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}} .s img{{height:220px;border-radius:8px;border:1px solid #3a3225}} .v{{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}} .v figure{{margin:0}} .v video{{max-height:520px;max-width:100%;border-radius:10px;background:#000}} .v figcaption{{font-size:13px;color:#b9ab90;margin-top:4px}} .v a{{color:#c4964a}} ol{{padding-left:20px}} li{{margin:3px 0}} .k{{font-size:12.5px;color:#8f826b;margin-top:30px}}
 </style></head><body><main><h1>{html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 문서 {len(sel)}점</p>
 <h2>결과물 바로 가기</h2><div class="g">{tl}</div>
-{curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
+{vsec}{curator_html(cur, facts, 'index') if cur else ''}{delivery_html(read_delivery(ed))}<h2>카드뉴스 미리 보기</h2><div class="s">{strip}</div>
 <h2>담긴 문서</h2><ol>{''.join(f"<li>{'' if str(x['문서명']).startswith(str(x['연도'])) else html.escape(str(x['연도'])) + ' '}{html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
     open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(idx)
-    print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(sel)+2}장(카드뉴스) · handout.html(수업 활동지) · sns.txt')
+    print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(cardfs)}장(카드뉴스)' + (f' · 영상 {len(vids)}개' if vids else '') + f' · handout.html(수업 활동지) · sns.txt')
     if unchecked: print(f'  ※ 검토 칸이 비어 있는 캡션 {len(unchecked)}건은 "초안" 표시가 붙습니다.')
 
 
@@ -648,7 +672,7 @@ def cmd_originals(a):
     ed = os.path.join(a.work, 'edit', a.theme)
     sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
     if a.only: sel = [s for s in sel if s['순서'] in a.only.split(',')]
-    docs = json.load(open(os.path.join(a.work, 'docs.json'), encoding='utf-8'))
+    docs = jload(os.path.join(a.work, 'docs.json'))
     byid = {d['id']: d for d in docs}
     picked = [(s, byid.get(s['자료ID'])) for s in sel]
     rx = '^(' + '|'.join(re.escape(d['name']) for _, d in picked if d) + ')$'
@@ -658,7 +682,7 @@ def cmd_originals(a):
             du = a.data_url or json.load(open(os.path.join(a.work, 'collection.json'), encoding='utf-8'))['data_url']
             print('면 목록 수집(manifest --match)…', flush=True)
             subprocess.run([sys.executable, HV, 'manifest', '--work', a.work, '--data-url', du, '--match', rx], check=True)
-            docs = json.load(open(os.path.join(a.work, 'docs.json'), encoding='utf-8')); byid = {d['id']: d for d in docs}
+            docs = jload(os.path.join(a.work, 'docs.json')); byid = {d['id']: d for d in docs}
             picked = [(s, byid.get(s['자료ID'])) for s in sel]
         total = sum(len(d.get('imgs') or []) for _, d in picked if d)
         print(f'선별 문서 {len(picked)}건 · 전체 {total}면' + (' — 미리 보기(--dry-run)라 받지 않음' if a.dry_run else ''))
@@ -978,10 +1002,11 @@ def cmd_page(a):
         if r['순서'] == str(a.n):
             src = os.path.join(a.work, os.path.dirname(r['원본경로']), a.page)
             if not os.path.exists(src): sys.exit(f'면이 없습니다: {src} (download로 그 면을 먼저 받으세요)')
-            r['대표장'] = a.page; r['원본경로'] = os.path.relpath(src, a.work)
+            r['대표장'] = a.page; r['원본경로'] = os.path.relpath(src, a.work).replace(os.sep, '/')
             im = Image.open(src).convert('RGB'); im.thumbnail((1600, 1600)); im.save(os.path.join(ed, r['이미지']), quality=90); done = 1
     if not done: sys.exit(f'selection.csv에 {a.n}번 문서가 없습니다 (순서 칸 확인)')
-    w = csv.DictWriter(open(p, 'w', newline='', encoding='utf-8-sig'), fieldnames=cols); w.writeheader(); w.writerows(rows)
+    with open(p, 'w', newline='', encoding='utf-8-sig') as fh:
+        w = csv.DictWriter(fh, fieldnames=cols); w.writeheader(); w.writerows(rows)
     print(f'순서 {a.n} 대표 면 → {a.page} (mediate · video를 다시 실행하세요)')
 
 # ---------------------------------------------------------------- report (비교 리포트)
@@ -1042,6 +1067,9 @@ def cmd_check(a):
     vids = glob.glob(os.path.join(md, 'video', '*_reel.mp4')) + glob.glob(os.path.join(md, 'video', '*_wide.mp4'))
     if vids: st(max(vids, key=os.path.getmtime), '영상 (video.py)', f'video.py --work {a.work} --theme {a.theme} --ep N --url <전시 주소> --web')
     else: print('  영상 (video.py): 없음 (선택)')
+    ix = os.path.join(md, 'index.html')
+    if vids and os.path.exists(ix) and max(os.path.getmtime(v) for v in vids) > os.path.getmtime(ix):
+        todo.append(f'영상을 mediate 뒤에 만들었습니다 → studio.py mediate --work {a.work} --theme {a.theme} 다시(첫 페이지 영상 칸)')
     if os.path.exists(os.path.join(md, 'exhibit.html')) and os.path.exists(os.path.join(md, 'promo.md')) and os.path.getmtime(os.path.join(md, 'promo.md')) > os.path.getmtime(os.path.join(md, 'index.html') if os.path.exists(os.path.join(md, 'index.html')) else os.path.join(md, 'exhibit.html')):
         todo.append('promo.md가 mediate 뒤에 바뀌었습니다 → mediate 다시(첫 페이지 「홍보 글」 타일)')
     drafts = sum(1 for s in sel if not s.get('검토'))
@@ -1070,7 +1098,7 @@ def cmd_report(a):
             y += 16
         return f'<h2>{title}</h2><svg width="720" height="{h}" font-family="sans-serif">{"".join(svg)}</svg>'
     legend = ''.join(f'<span style="display:inline-block;margin-right:16px"><i style="display:inline-block;width:12px;height:12px;background:{pal[j % len(pal)]}"></i> {html.escape(c)} ({sum(1 for r in rows if r["소장처"] == c)}건)</span>' for j, c in enumerate(cols))
-    page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>소장처 비교 리포트</title><style>body{{font-family:sans-serif;max-width:860px;margin:40px auto;color:#222}} h1{{margin-bottom:4px}} .n{{color:#777}}</style></head><body>
+    page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>소장처 비교 리포트</title><style>body{{font-family:sans-serif;max-width:860px;margin:40px auto;color:#222}} h1{{margin-bottom:4px}} .n{{color:#777}}</style></head><body>
 <h1>소장처 비교 리포트</h1><p class="n">한국고문서자료관 · 소장처 {len(cols)}곳 · 문서 {len(rows)}건 · 연도·유형은 문서명에서 자동 추출한 초안</p><p>{legend}</p>
 {bars(types, '문서유형', f'문서 유형 상위 {len(types)}')}{bars(cents, '세기', '세기별 분포')}</body></html>"""
     out = os.path.join(a.root, 'compare_report.html'); open(out, 'w', encoding='utf-8').write(page); print('→', out)

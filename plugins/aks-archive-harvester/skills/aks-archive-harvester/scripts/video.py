@@ -7,10 +7,14 @@
 장면: 열기(전달 에디팅 '열기' 또는 제목) → 소개 → 문서마다 이미지 + 원문 인용 → 절정(원문 한 줄)
       → 비하인드(큐레이터 노트) → 질문 · 출처.  내레이션은 edge-tts(설치되어 있으면), 없으면
       글 길이로 시간을 정한 무음 영상. 자막은 화면에 넣고 .srt로도 저장.
-결과: WORK/mediate/<테마>/video/<id>_reel.mp4 · _wide.mp4 · .ko.srt  (--web: 540p 압축본도)
+결과: WORK/mediate/<테마>/video/<id>_reel.mp4 · _wide.mp4 · .ko.srt · .ko.vtt  (--web: 540p 압축본도)
 필요: ffmpeg, Pillow (+ 선택: pip install edge-tts)
 """
 import argparse, asyncio, csv, glob, json, os, re, shutil, subprocess, sys
+
+for _s in (sys.stdout, sys.stderr):  # Windows에서 출력을 파일·파이프로 보낼 때(cp949) 기호 때문에 멈추지 않게
+    try: _s.reconfigure(errors='replace')
+    except Exception: pass
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import studio as ST
 from PIL import Image, ImageDraw
@@ -122,10 +126,12 @@ def build(S, foot, fmt, od, base, voice, tts):
         cmd += ['-t', f'{L:.2f}', '-c:v', 'libx264', '-preset', 'medium', '-crf', '21', '-c:a', 'aac', '-b:a', '128k', f'{tmp}/s{i:02d}.mp4']
         subprocess.run(cmd, check=True); parts.append(f'{tmp}/s{i:02d}.mp4')
         srt.append(f'{i+1}\n{ts(t)} --> {ts(t+L-0.4)}\n{sub}\n'); t += L
-    open(f'{tmp}/list.txt', 'w').write(''.join(f"file '{os.path.abspath(p)}'\n" for p in parts))
+    open(f'{tmp}/list.txt', 'w', encoding='utf-8').write(''.join("file '" + os.path.abspath(p).replace(os.sep, '/').replace("'", "'\\''") + "'\n" for p in parts))  # Windows 경로·작은따옴표 대비
     out = os.path.join(od, f'{base}_{fmt}.mp4')
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', f'{tmp}/list.txt', '-c', 'copy', '-movflags', '+faststart', out], check=True)
     open(os.path.join(od, f'{base}.ko.srt'), 'w', encoding='utf-8').write('\n'.join(srt))
+    vtt = 'WEBVTT\n\n' + '\n'.join(re.sub(r'(\d\d:\d\d:\d\d),(\d\d\d)', r'\1.\2', x) for x in srt)  # 웹 플레이어·접근성용
+    open(os.path.join(od, f'{base}.ko.vtt'), 'w', encoding='utf-8').write(vtt)
     return out, t
 
 
@@ -159,6 +165,8 @@ def main():
         if not a.keep: shutil.rmtree(os.path.join(od, f'.{fmt}'), ignore_errors=True)
     if not a.keep: shutil.rmtree(os.path.join(od, '.tts'), ignore_errors=True)
     print('→', od)
+    if os.path.exists(os.path.join(a.work, 'mediate', a.theme, 'index.html')):
+        print('  첫 페이지(index.html)에 영상을 넣으려면 studio.py mediate 를 다시 실행하세요.')
 
 
 if __name__ == '__main__':
