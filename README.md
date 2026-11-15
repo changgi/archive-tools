@@ -28,6 +28,8 @@
 
 ✍️ **큐레이터 노트 · 기획 노트:** 편마다 왜 골랐고 무엇을 전하려 했는지, 만들며 있었던 일까지 — [기획 노트](https://changgi.github.io/archive-tools/examples/about.html) · 갤러리 각 편 「비하인드」 탭
 
+📢 **2차 홍보 · 채널 · 활용:** [시리즈 비하인드 릴스·카드](https://changgi.github.io/archive-tools/examples/#series) · [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · [패키지 활용 가이드](https://changgi.github.io/archive-tools/examples/use.html)
+
 📖 **이야기가 있는 기록 10편 (EP.7–EP.16):** 왕실 가족의 편지 · 운조루의 시간 · 되찾은 제사 땅 · 섬마을의 호소 · 윤음에서 금융조합까지 · 기도와 살림의 기록 · 200년의 상소 · 나아가지 않은 선비 · 서원을 움직인 사람들 · 학자의 벼슬길 → [보기](https://changgi.github.io/archive-tools/examples/)
 
 명령을 하나씩 따라 하는 예제는 [`examples/README.md`](examples/README.md)에 있습니다.

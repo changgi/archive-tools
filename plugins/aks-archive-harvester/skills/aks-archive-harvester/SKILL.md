@@ -10,7 +10,7 @@ Two scripts live in `${CLAUDE_PLUGIN_ROOT}/skills/aks-archive-harvester/scripts/
 - `harvest.py` (needs `requests`, `Pillow`) handles finding, collecting, curation metadata, packaging and batch comparison.
 - `studio.py` (needs `Pillow` only, works offline) handles curation themes, editing selections, mediation outputs and the comparison report.
 
-Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Storytelling from the sources: `references/storytelling.md`. Reels copy template: `references/reels-caption.md`.
+Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Storytelling from the sources: `references/storytelling.md`. Reels copy template: `references/reels-caption.md`. Channel-by-channel promotion and second-wave (behind) materials: `references/channels.md`. What people can do with the package: `references/package-uses.md`.
 
 Tell the user which stage you are in, using the five stage names, so the flow matches what they expect.
 
@@ -114,6 +114,8 @@ The archive states that image use needs the collection owner's consent through i
 - `mediate` then adds 「큐레이터 노트」 to the end of `exhibit.html` (with a link in the header), a 「선생님께」 box (왜 · 전하고 싶은 것 · 쓰는 법 · 질문) to `handout.html`, and a tile and section to `index.html`, plus an automatic 제작 기록 line (문서 수 · 연대 · 받은 면 · 판독/번역 수 · □/(?) 수 · "확인 필요" 수). `promo` adds a "✍️ 큐레이터 노트 — …" block from 전하고 싶은 것.
 - For a series of several themes or episodes, also write one series note (why the series, how documents were chosen, history of versions, principles, how to use, request for corrections) and link it from the main page.
 
+**2차 홍보 (비하인드) · 채널별 홍보안 · 활용 안내.** With a filled `curator.md`, `mediate` also writes three behind cards (`cards/b1_전하고싶은것`, `b2_만들며있었던일`, `b3_남겨둔질문`) and `channels.md` — a table of channels (Instagram feed·Reels, YouTube Shorts·long-form, TikTok, Facebook, Threads, X, blog·newsletter, online and offline exhibitions, classes, books, fiction, webtoon, film·drama, ads·brand, podcast) with format, files to use, copy formula and metric, plus ready-to-post drafts and expansion ideas. Pass `--url` so the drafts carry the public link. Polish the drafts with `references/channels.md`. When handing a package to others, include `references/package-uses.md` (who can do what, value-adding paths, rights and ethics checklist). For a series, make series-level behind Reels and cards only from facts in the series note, CHANGELOG and curator notes.
+
 **Reels promo copy (「고문서 한 장」 format).** When the user wants a post for Reels/Shorts/Instagram:
 
 ```bash
@@ -179,7 +181,7 @@ WORK/docs.json  out/<분류>/<NNN>_<문서명>/<NNN>.jpg  missing.txt  partial.t
 WORK/metadata.csv  metadata.jsonl  summary.md  themes.json                     # ② 큐레이션
 WORK/edit/<id>/selection.csv  images/  contact_sheet.jpg  theme.json           # ③ 에디팅
 WORK/edit/<id>/curator.md   # 큐레이터 노트(기획 의도 · 비하인드)
-WORK/mediate/<id>/index.html  exhibit.html  cards/*.png  handout.html  sns.txt  promo.md   # ④ 매개
+WORK/mediate/<id>/index.html  exhibit.html  channels.md  cards/*.png(b1–b3 비하인드)  handout.html  sns.txt  promo.md   # ④ 매개
 WORK/originals/<id>/<소장처>_원본*.zip   # 원본 묶음(문서 전체 면 · 원본 영상 · 출처.csv)
 OUT/<약칭>_연구패키지/   ROOT/compare_*.csv|md|html                              # ⑤ 패키징·비교
 ```

@@ -569,6 +569,16 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
     sns += ['', src_line, '이미지 이용은 자료관 이용 조건을 따릅니다.', '', ' '.join(dict.fromkeys(tags))]
     open(os.path.join(od, 'sns.txt'), 'w', encoding='utf-8').write('\n'.join(sns))
 
+    # 4-2) 2차 홍보: 비하인드 카드 · 채널별 홍보안 (큐레이터 노트가 있으면)
+    cur = read_curator(ed); facts = curator_facts(sel, a.work)
+    if cur:
+        bimg = os.path.join(ed, sel[0]['이미지']) if sel and not PH else None
+        bc = behind_cards(cur, facts, title, src_line, bimg, os.path.join(od, 'cards'), ph=(placeholder_img(sel[0]['문서명'], sel[0]['자료ID']) if PH and sel else None))
+        QRX = r'"([^"(]{2,80})\(([^)]+)\)[.,]?"'
+        qm = next((re.search(QRX, s.get('이야기') or '') for s in sel if re.search(QRX, s.get('이야기') or '')), None)
+        open(os.path.join(od, 'channels.md'), 'w', encoding='utf-8').write(channel_plan(cur, title, coll, a.url or 'exhibit.html', quote=(f'"{qm.group(1)}({qm.group(2)})"' if qm else '')))
+        print(f'  2차 홍보: 비하인드 카드 {len(bc)}장 · channels.md(채널별 홍보안)')
+
     # 5) 결과물 한눈에 보기 (첫 페이지) — 처음 온 사람이 무엇이 있는지 바로 알고 열 수 있게
     cardfs = sorted(f for f in os.listdir(os.path.join(od, 'cards')) if f.lower().endswith(('.png', '.jpg')))
     tiles = [('🖼️', '전시 웹페이지', '문서 이미지 · 이야기 · 읽기 도움을 연표로 넘겨 보는 한 장짜리 전시', 'exhibit.html', '열기'),
@@ -578,6 +588,7 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
              ('📊', '원문 · 번역 표 (CSV)', '문서명 · 연도 · 판독 · 원문 · 번역 · 해제 · 요약 · 원본 링크', os.path.relpath(os.path.join(ed, 'selection.csv'), od), '받기')]
     if os.path.exists(os.path.join(od, 'promo.md')): tiles.append(('🎬', '릴스 홍보 문구', '「고문서 한 장」 형식 게시 문구', 'promo.md', '열기'))
     if cur: tiles.insert(0, ('✍️', '큐레이터 노트', cur.get('message') or '이 결과물을 만든 이유와 비하인드', '#curator', '읽기'))
+    if os.path.exists(os.path.join(od, 'channels.md')): tiles.append(('📢', '채널별 홍보안', '인스타 · 유튜브 · 틱톡 · 페이스북 · 스레드 · X · 전시 · 책 · 웹툰 · 영상 — 형식과 바로 쓰는 문구', 'channels.md', '열기'))
     tl = ''.join(f'<a class="t" href="{html.escape(h)}"><span>{i}</span><b>{html.escape(t)}</b><p>{html.escape(d)}</p><em>{b} →</em></a>' for i, t, d, h, b in tiles)
     strip = ''.join(f'<a href="cards/{html.escape(f)}"><img src="cards/{html.escape(f)}" alt="카드 {k+1}" loading="lazy"></a>' for k, f in enumerate(cardfs))
     idx = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — 결과물 한눈에 보기</title><style>
@@ -749,6 +760,96 @@ def put_curator(page, block, where='</main>'):
     return page[:i + len(where)] + block + page[i + len(where):] if i >= 0 else page.replace('</body>', block + '</body>')
 
 
+
+# ---------------------------------------------------------------- 2차 홍보: 비하인드 카드 · 채널별 홍보안
+def note_card(label, big, blocks, out, img=None, foot='', size=(1080, 1350), big_size=60, ph=None, center=False):
+    """글 중심 카드 — label(작은 금색) · big(큰 글씨, 세리프) · blocks[(소제목, 본문)] · 위쪽에 흐린 문서 이미지(꽉 채움)"""
+    W, H = size; c = Image.new('RGB', size, (22, 19, 15)); d = ImageDraw.Draw(c)
+    src = ph if ph is not None else (Image.open(img).convert('RGB') if img and os.path.exists(img) else None)
+    top = 110
+    if src is not None:
+        bh = 620; r = max(W / src.width, bh / src.height); im = src.resize((int(src.width * r) + 1, int(src.height * r) + 1))
+        im = im.crop(((im.width - W) // 2, max(0, int((im.height - bh) * 0.25)), (im.width - W) // 2 + W, max(0, int((im.height - bh) * 0.25)) + bh))
+        im = Image.blend(im, Image.new('RGB', im.size, (22, 19, 15)), 0.5)
+        mask = Image.linear_gradient('L').resize((W, bh)); c.paste(im, (0, 0)); c.paste(Image.new('RGB', (W, bh), (22, 19, 15)), (0, 0), mask); top = 360
+    fb = font(big_size, 'serif'); bl = wrap(d, big, fb, W - 140)[:5]
+    body = [(h, wrap(d, b, font(32), W - 140)[:5]) for h, b in blocks if b]
+    hgt = 62 + len(bl) * int(big_size * 1.35) + 24 + sum(44 + len(ls) * 46 + 22 for _, ls in body)
+    y = max(top, H - 200 - hgt) if src is not None and not center else max(top, (H - 150 - hgt) // 2)  # 이미지가 있으면 글을 아래쪽에(카드), 영상 프레임은 가운데
+    d.text((70, y), label, font=font(30, 'bold'), fill=GOLD); y += 62
+    for ln in bl: d.text((70, y), ln, font=fb, fill=PAPER); y += int(big_size * 1.35)
+    y += 24
+    for head, ls in body:
+        if y > H - 230: break
+        d.text((70, y), head, font=font(28, 'bold'), fill=GOLD); y += 44
+        for ln in ls:
+            if y > H - 190: break
+            d.text((70, y), ln, font=font(32), fill=(220, 210, 192)); y += 46
+        y += 22
+    d.line((70, H - 130, W - 70, H - 130), fill=(80, 70, 55), width=2); ff = font(24)
+    for k, ln in enumerate(wrap(d, foot, ff, W - 140)[:2]):
+        d.text((70, H - 108 + k * 36), ln, font=ff, fill=(160, 150, 130))
+    c.save(out, quality=92)
+
+
+def behind_cards(c, facts, title, src_line, img, outdir, ph=None, ext='png'):
+    """큐레이터 노트로 비하인드 카드 3장: 전하고 싶은 것 · 만들며 있었던 일 · 남겨 둔 질문"""
+    os.makedirs(outdir, exist_ok=True); out = []
+    foot = f'{title} · {src_line}'
+    if c.get('message'):
+        out.append(os.path.join(outdir, f'b1_전하고싶은것.{ext}'))
+        note_card('비하인드 ① 이 이야기를 만든 이유', c['message'], [('왜 이 문서들인가', c.get('why', '')), ('이렇게 보이길 바랐다', c.get('look', ''))], out[-1], img=img, foot=foot, ph=ph)
+    if c.get('behind') or facts:
+        out.append(os.path.join(outdir, f'b2_만들며있었던일.{ext}'))
+        note_card('비하인드 ② 만들며 있었던 일', c.get('behind') or '원문을 끝까지 읽고, 읽지 못한 글자는 □로 남겼습니다.', [('제작 기록', ' · '.join(facts or [])), ('이렇게 써 주세요', c.get('use', ''))], out[-1], foot=foot, big_size=46)
+    if c.get('question'):
+        out.append(os.path.join(outdir, f'b3_남겨둔질문.{ext}'))
+        note_card('비하인드 ③ 남겨 둔 질문', c['question'], [('여러분의 생각은?', '댓글로 나눠 주세요. 틀린 판독이나 더 아는 이야기도 환영합니다.')], out[-1], img=img, foot=foot, big_size=58)
+    return out
+
+
+CHANNELS = [  # (채널, 형식·길이, 무엇을 쓰나, 톤·요령)
+    ('인스타그램 (피드·릴스)', '카드 4–10장 / 릴스 30–90초', 'cards/ · 비하인드 카드 · 릴스 영상 · promo.md', '첫 장에 원문 한 줄과 질문. 마지막 장에 출처·전시 링크. 해시태그 8–15개'),
+    ('유튜브 (쇼츠·롱폼)', '쇼츠 60초 / 가로 3–8분', '가로 영상 · 자막 srt · 원문 판독·번역', '제목에 원문 인용 + 연도. 설명란에 판독·해제 요약과 원본 링크, 챕터'),
+    ('틱톡', '15–60초', '릴스 영상(세로) · 비하인드 카드', '첫 2초에 "이 종이에 적힌 말" 자막. 질문형 캡션, 이어 보기 시리즈 태그'),
+    ('페이스북', '긴 글 + 카드 묶음', 'promo.md 본문 · 카드 · 전시 웹페이지 링크', '이야기 전체를 들려주는 긴 글. 지역·문중·동문 그룹 공유'),
+    ('스레드 (Threads)', '짧은 글 3–5개 연결', '이야기 · 큐레이터 노트 · 남겨 둔 질문', '한 글에 한 장면. 마지막 글에 질문과 링크'),
+    ('X (트위터)', '280자 · 타래', '원문 인용 한 줄 · 카드 1장', '"현대어(原文)" 한 줄 + 연도 + 링크. 타래로 문서마다 한 트윗'),
+    ('블로그·뉴스레터', '1,500–3,000자', '전시 웹페이지 · 해제 · 큐레이터 노트', '검색 키워드(인물·지역·문서 유형)를 제목에. 원문 이미지 캡션에 출처'),
+    ('온라인 전시', '웹페이지 1개', 'exhibit.html · index.html', '그대로 공개(이미지 공개 전엔 --placeholder). 큐레이터 노트를 끝에'),
+    ('오프라인 전시', '패널 6–12개 · 영상 1대', '카드(인쇄 300dpi 재출력 권장) · 원본 묶음 · 활동지', '원본 사진을 크게, 판독·번역을 옆에. QR로 전시 웹페이지·영상 연결. 소장처 대여·동의 협의'),
+    ('수업·교육', '1–2차시', 'handout.html · 원문 판독·번역 · 큐레이터 노트 「선생님께」', '찾아보기 → 읽기 → 생각하기 순. 남겨 둔 질문으로 토론'),
+    ('책·도록', '꼭지당 4–8쪽', '원본 사진(문서 전체) · 판독·번역·해제 · 이야기', '한 꼭지 = 한 편. 원문 전문과 번역을 마주 보게. 출판 전 소장처 이미지 사용 허가'),
+    ('소설·논픽션', '단편 1편 / 장편의 한 장', '이야기 · 원문 인용 · 남겨 둔 질문', '문서에 적힌 사실을 뼈대로, 빈 곳은 허구임을 밝히고 상상. 남겨 둔 질문이 좋은 출발점'),
+    ('웹툰', '4컷 / 1화 40–60컷', '원본 사진(배경·소품 고증) · 이야기 장면', '문서가 등장하는 장면을 클라이맥스로. 마지막 컷에 실제 문서 사진과 출처'),
+    ('영화·드라마', '로그라인 · 시놉시스 · 씬', '이야기 · 인물·연대 · 원문 대사', '원문 한 줄을 대사로. 문서 속 날짜를 사건의 시계로. 사실과 각색 구분'),
+    ('광고·CF·브랜드', '15–30초', '원문 한 줄 · 카드 이미지 · 큐레이터 노트의 메시지', '"오래 지켜 온 것"의 가치와 연결(예: 기록·신뢰·가족). 상업 이용은 소장처·제작자 허가'),
+    ('팟캐스트·라디오', '10–20분', '이야기 · 판독·번역 낭독 · 비하인드', '원문을 소리 내어 읽고 번역. 만들며 있었던 일로 대화'),
+]
+
+
+def channel_plan(c, title, coll, url, quote='', ep='', tags=''):
+    """채널별 홍보안(초안) — 큐레이터 노트·이야기에서 채널마다 바로 쓸 문구"""
+    msg = c.get('message', '[전하고 싶은 것]'); q = c.get('question', '[남겨 둔 질문]'); why = c.get('why', '')
+    qline = quote or '[원문 한 줄 — 현대어(原文)]'
+    L = [f'# 채널별 홍보안 — {title}', '', f'{coll} · 전시: {url}', '', '> 큐레이터 노트와 이야기에서 뽑은 초안입니다. 이미지를 쓰는 채널은 출처 표기(한국학중앙연구원 한국고문서자료관 · ' + coll + ')와 소장처 이용 조건을 지키세요.', '',
+         '## 한눈에 — 채널별 형식', '', '| 채널 | 형식·길이 | 쓰는 파일 | 요령 |', '|---|---|---|---|'] + [f'| {a} | {b} | {cc} | {d} |' for a, b, cc, d in CHANNELS] + ['']
+    L += ['## 바로 쓰는 문구', '',
+          '### X (280자)', '```', f'{qline}', f'{coll}에 남은 종이 한 장. {msg}'[:200], url, '#고문서한장 ' + ' '.join(tags.split()[:3]), '```', '',
+          '### 스레드 (3개 연결)', '```', f'① {qline}', '', f'② {why}', '', f'③ {q} 여러분 생각은? {url}', '```', '',
+          '### 유튜브', f'- 제목: {title} | 원문으로 읽는 고문서' + (f' (EP.{ep})' if ep else ''), f'- 설명 첫 줄: {msg}', '- 챕터: 00:00 질문 · 00:10 문서 · 원문 판독 · 이야기 · 00:50 비하인드', '',
+          '### 틱톡 / 쇼츠 자막 첫 2초', '```', f'이 종이에 적힌 말: {qline}', '```', '',
+          '### 페이스북 (긴 글 첫 문단)', '```', f'{why} {msg}', '```', '',
+          '### 인스타그램 비하인드 카드 캡션', '```', f'✍️ 비하인드 — {msg}', '', f'💬 {q}', '', f'▶ {url}', '```', '',
+          '## 확장 아이디어 (오프라인 · 원천 스토리)', '',
+          f'- **오프라인 전시 패널 제목**: {title}',
+          f'- **책·도록 꼭지 제목**: {title} — {coll}',
+          f'- **소설·웹툰 출발 질문**: {q}',
+          f'- **영화·드라마 로그라인(초안)**: {why} 그 종이 한 장에서 시작하는 이야기.',
+          f'- **광고·브랜드 메시지**: {msg}', '',
+          '## 지켜야 할 것', '', '- 이미지: 소장처 동의 없이 상업적 이용·재배포 금지. 공개 전이면 `mediate --placeholder` 결과물로.', '- 판독·번역은 초안: 인용할 때 "초안 · 원문 확인 필요"를 함께.', '- 각색(소설·웹툰·영상)은 사실과 허구를 구분해 밝히기.', '']
+    return '\n'.join(L)
+
 # ---------------------------------------------------------------- report (비교 리포트)
 def cmd_report(a):
     p = os.path.join(a.root, 'compare_metadata.csv')
@@ -860,6 +961,7 @@ def main():
     m.add_argument('--title'); m.add_argument('--lead', help='도입 문장'); m.add_argument('--collection'); m.add_argument('--font', help='한글 글꼴 파일 경로')
     m.add_argument('--placeholder', action='store_true', help='원본 이미지 대신 "뷰어에서 보기" 자리 표시 (이미지 이용 동의 전 공개용)')
     m.add_argument('--img-max', type=int, default=1400, help='웹페이지에 넣는 이미지 최대 픽셀')
+    m.add_argument('--url', help='공개할 전시 웹페이지 주소(채널별 홍보안에 넣음)')
     z = sp.add_parser('zoom', help='판독용 확대 조각 → edit/<테마>/zoom/'); z.add_argument('--work', required=True); z.add_argument('--theme', required=True)
     z.add_argument('--only', help='순서 번호 (예: 2,5)'); z.add_argument('--all-pages', action='store_true', help='대표 면만이 아니라 받은 모든 면'); z.add_argument('--rows', type=int); z.add_argument('--cols', type=int)
     z.add_argument('--tile', type=int, default=1100, help='조각 하나의 원본 픽셀 크기(자동 분할 기준)'); z.add_argument('--overlap', type=float, default=0.08); z.add_argument('--max', type=int, default=1400)

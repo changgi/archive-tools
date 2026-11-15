@@ -1,6 +1,8 @@
 # 예시와 예제
 
 > ✍️ **기획 노트** — 이 시리즈를 만든 이유 · 고른 기준 · 히스토리: [about.html](https://changgi.github.io/archive-tools/examples/about.html) · [CURATOR-NOTE.md](CURATOR-NOTE.md). 편마다의 큐레이터 노트는 각 폴더의 `curator.md`.
+>
+> 📢 **2차 홍보 · 활용** — [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · [패키지 활용 가이드](https://changgi.github.io/archive-tools/examples/use.html) · 시리즈 비하인드 [릴스·카드](series/promo.md) · 편마다 `behind/`(비하인드 카드 3장) · `channels.md`(채널별 홍보안).
 
 **aks-archive-harvester**로 실제로 만든 결과물(예시)과, 같은 결과를 직접 만들어 보는 단계별 따라하기(예제)입니다.
 
