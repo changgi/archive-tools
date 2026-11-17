@@ -131,6 +131,19 @@ def download_test(root, res, py, S):
         res.append(('harvest.py download (가짜 DZI 서버)', False, f'{time.time() - t:.1f}s', f'{type(e).__name__}: {e}'))
 
 
+def date_check():
+    """studio.date_issues가 맞는 날짜는 넘기고 틀린 날짜는 잡는지 — 실제 문서에서 본 표기들로"""
+    sys.path.insert(0, HERE); import studio as ST
+    good = [{'연도': '1607', '원문': '萬曆三十五年丁未九月二十日', '해제': '1607년(선조 40, 萬曆 35) 추증교지'},
+            {'연도': '1714', '번역': '순치 12년 을미(1655) 고쳐 그림. 강희 53년 갑오(1714) 거듭 그림.'},
+            {'연도': '1816', '번역': '숭정 189년 병자년(1816) 10월'}, {'연도': '1825', '원문': '崇禎一百九十八年乙酉二月'},
+            {'연도': '1808', '해제': '1808년(순조 8, 戊辰) 자매문기'}, {'연도': '1942', '번역': '쇼와 17년(1942) 4월 30일'}]
+    bad = [{'연도': '1607', '원문': '萬曆三十五年丙午'}, {'연도': '1808', '해제': '1808년(순조 9) 자매문기'},
+           {'연도': '1790', '번역': '건륭 55년 경술(1791)'}, {'연도': '1700', '원문': '康熙二十七年戊辰'}]
+    miss = [r for r in good if ST.date_issues(r)] + [r for r in bad if not ST.date_issues(r)]
+    return (not miss, f'{len(good) + len(bad)}건', '; '.join(str(r) for r in miss[:2]))
+
+
 def a11y_check(root):
     """만든 웹페이지마다: 「본문 바로가기」가 가리키는 곳이 있고, main이 하나이며 그 밖에 본문이 없고, 제목이 한 단계씩 내려가는지"""
     import glob as G, re as RE
@@ -194,6 +207,8 @@ def main():
         ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/search.html', 'site/types.html', 'site/data.zip', 'site/review.html', 'site/quotes.html', 'site/timeline.html', 'site/questions.html', 'site/sitemap.xml', 'site/share.jpg', 'site/eps/01-t/index.html'])
     os.makedirs(os.path.join(root, 'an'), exist_ok=True)
     run('analysis.py', [S('analysis.py'), '--list', 'series.tsv', '--out', 'an/analysis.html'], ['an/analysis.html', 'an/analysis-episodes.csv', 'an/quotes.html'])
+    try: res.append(('날짜 맞춤(연호 · 왕대 · 간지 · 서기)', *date_check()))
+    except Exception as e: res.append(('날짜 맞춤(연호 · 왕대 · 간지 · 서기)', False, '', str(e)))
     try: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', *a11y_check(root)))
     except Exception as e: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', False, '', str(e)))
     run('studio.py originals', [S('studio.py'), 'originals', '--work', W, '--theme', 't'])

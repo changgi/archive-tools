@@ -26,13 +26,15 @@ A worked example of every step, with the auto drafts and the edited results side
 | 4 | 문구 에디팅 | read the images; fill 판독 · 번역 · 해제 · 요약 · 이야기("현대어(原文)") in `selection.csv` | Claude + user |
 | 5 | 큐레이터 노트 | fill `curator.md` (six headings) — facts only, intent confirmed by the user | Claude + user |
 | 6 | 전달 에디팅 | `studio.py delivery --work W --theme <id>` (redraft after step 4: climax line, closing question) → refine `delivery.md` | tool → Claude + user |
-| 6b | readiness check | `studio.py check --work W --theme <id>` — empty fields, stories without "현대어(原文)" quotes, cover-like representative pages, outputs older than their notes → numbered next steps (`--strict` exits 1 while anything is left) | tool |
+| 6b | readiness check | `studio.py check --work W --theme <id>` — empty fields, stories without "현대어(原文)" quotes, cover-like representative pages, dates that disagree (era · king year · 干支 · 서기, `studio.date_issues`), outputs older than their notes → numbered next steps (`--strict` exits 1 while anything is left) | tool |
 | 6c | proof and review | `studio.py proof --work W --theme <id>` → print, compare image with 판독 · 번역 → `studio.py fix` for errors, `studio.py review --n 1,3 --by 이름` for checked documents (removes the 초안 badge) | user (Claude prepares) |
 | 6a | representative page | `studio.py page --work W --theme <id> --n 1 --page 002.jpg` when page 1 is a cover/rolled scroll | user choice |
 | 7 | promo, then mediate | `studio.py promo … --ep N --url <exhibit URL>` → `studio.py mediate --work W --theme <id> --url <exhibit URL>` | tool |
 | 8 | video | `video.py --work W --theme <id> --ep N --url <exhibit URL> --web` | tool |
 | 9 | originals | `studio.py originals … --full --dry-run` → `--full --videos W/mediate/<id>/video` | tool |
 | 10 | series | `series.py --list series.tsv --note series.md --out site` | tool |
+
+**Dates.** When you write 해제 or 번역, give the Western year with the reign and era as the tools expect — `1808년(순조 8, 戊辰)`, `순치 12년 을미(1655)` — so `check`, the proof sheet (「날짜 맞춤」) and the analysis page can verify them: era + N years (萬曆 1573, 康熙 1662, 乾隆 1736 …, 숭정기원후 counts from 1628), Joseon king years (선조 1568, 숙종 1675, 영조 1725 …) and the 60-year 干支 cycle. If the source itself disagrees (e.g. 康熙二十四年 with 甲子), keep the source as written and say so in 해제 ("한 해 어긋남 — 원문 확인 필요"); `check` then marks it as already noted. Never "fix" a date in 원문 to make the check pass.
 
 Run `studio.py check` before steps 7–10 and again before handing anything over; follow its 다음 할 일 list. Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Pass the public address (`mediate --url`, `series.py --site-url`) so every page carries link-preview tags and a 1200×630 `share.jpg` — what KakaoTalk, Facebook, X and Threads show when the link is pasted. With `--site-url`, `series.py` also writes `sitemap.xml` for search engines (submit it in Google Search Console / Naver Search Advisor). Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
 

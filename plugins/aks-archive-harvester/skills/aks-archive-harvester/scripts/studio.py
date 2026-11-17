@@ -1260,7 +1260,8 @@ def proof_html(todo, title, img, scope='(검토 칸이 빈 문서)'):
     pages = ''.join(f"""<section class="sheet"><header><b>{e(r['순서'])}. {e(r['문서명'])}</b><span>{e(r.get('자료ID', ''))}{(' · □ · (?) ' + str(unk(r.get('판독')))) if unk(r.get('판독')) else ''}</span></header>
 <div class="cols"><div class="pic">{img(r)}{('<p class="v">원본 뷰어: ' + e(r['뷰어링크']) + '</p>') if r.get('뷰어링크') else ''}</div>
 <div class="txt"><h3>판독</h3><pre>{e(r.get('원문') or r.get('판독') or '(비어 있음)')}</pre><h3>번역</h3><p>{e(r.get('번역') or '(비어 있음)')}</p>
-<h3>이야기 속 인용</h3><p>{e(' / '.join(f'"{q[0]}({q[1]})"' for q in find_quotes(r.get('이야기'))) or '—')}</p></div></div>
+<h3>이야기 속 인용</h3><p>{e(' / '.join(f'"{q[0]}({q[1]})"' for q in find_quotes(r.get('이야기'))) or '—')}</p>
+<h3>날짜 맞춤</h3><p>{e(' / '.join(f'⚠ {f}: {m}' for f, m in date_issues(r)) or '연호 · 왕대 · 간지 · 서기가 서로 맞습니다(자동 확인)')}</p></div></div>
 <div class="chk"><span>☐ 판독 대조</span><span>☐ 번역 대조</span><span>☐ 연도 · 인물</span><span>☐ 인용 원문 일치</span><span>검토자 ______ 날짜 ______</span></div>
 <div class="memo">고칠 곳 (줄 · 이전 → 이후 · 근거)</div></section>""" for r in todo)
     page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>검토지 — {e(title)}</title><style>
@@ -1328,6 +1329,81 @@ def cmd_page(a):
     print(f'순서 {a.n} 대표 면 → {a.page} (mediate · video를 다시 실행하세요)')
 
 # ---------------------------------------------------------------- report (비교 리포트)
+# ---------------------------------------------------------------- 날짜 맞춤(연호 · 왕대 · 간지 · 서기)
+STEMS, BRANCHES = '甲乙丙丁戊己庚辛壬癸', '子丑寅卯辰巳午未申酉戌亥'
+KSTEMS, KBRANCHES = '갑을병정무기경신임계', '자축인묘진사오미신유술해'
+# 중국 · 대한제국 · 일본 연호: 원년(1년)의 서기. 한글 이름도 함께
+ERAS = {'洪武': 1368, '永樂': 1403, '宣德': 1426, '正統': 1436, '景泰': 1450, '天順': 1457, '成化': 1465, '弘治': 1488, '正德': 1506, '嘉靖': 1522,
+        '隆慶': 1567, '萬曆': 1573, '天啓': 1621, '崇禎': 1628, '順治': 1644, '康熙': 1662, '雍正': 1723, '乾隆': 1736, '嘉慶': 1796, '道光': 1821,
+        '咸豐': 1851, '同治': 1862, '光緖': 1875, '光緒': 1875, '開國': 1392, '建陽': 1896, '光武': 1897, '隆熙': 1907, '明治': 1868, '大正': 1912, '昭和': 1926,
+        '홍무': 1368, '영락': 1403, '선덕': 1426, '정통': 1436, '경태': 1450, '천순': 1457, '성화': 1465, '홍치': 1488, '정덕': 1506, '가정': 1522, '융경': 1567,
+        '만력': 1573, '천계': 1621, '숭정': 1628, '순치': 1644, '강희': 1662, '옹정': 1723, '건륭': 1736, '가경': 1796, '도광': 1821, '함풍': 1851, '동치': 1862,
+        '광서': 1875, '개국': 1392, '건양': 1896, '광무': 1897, '융희': 1907, '메이지': 1868, '다이쇼': 1912, '쇼와': 1926}
+# 조선 왕대: 1년의 서기(실록 · 연표의 관례)
+KINGS = {'태조': 1392, '정종': 1399, '태종': 1401, '세종': 1419, '문종': 1451, '단종': 1453, '세조': 1455, '예종': 1469, '성종': 1470, '연산군': 1495,
+         '중종': 1506, '인종': 1545, '명종': 1546, '선조': 1568, '광해군': 1609, '인조': 1623, '효종': 1650, '현종': 1660, '숙종': 1675, '경종': 1721,
+         '영조': 1725, '정조': 1777, '순조': 1801, '헌종': 1835, '철종': 1850, '고종': 1864, '순종': 1907}
+_CD = {'一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9}
+_GZ = '[甲乙丙丁戊己庚辛壬癸][子丑寅卯辰巳午未申酉戌亥]'
+_KGZ = '[갑을병정무기경신임계][자축인묘진사오미신유술해]'
+
+
+def ganzhi(y, korean=False):
+    """서기 → 그해 간지(예: 1808 → 戊辰 / 무진)"""
+    return (KSTEMS if korean else STEMS)[(y - 4) % 10] + (KBRANCHES if korean else BRANCHES)[(y - 4) % 12]
+
+
+def han_num(t):
+    """한자 수 → 정수: 元 · 正 = 1, 二十八, 卄八, 一百十九 …(못 읽으면 None)"""
+    t = t.replace('廿', '二十').replace('卄', '二十').replace('卅', '三十')
+    if t in ('元', '正'): return 1
+    n = 0
+    for unit, v in (('百', 100), ('十', 10)):
+        if unit in t:
+            a, _, t = t.partition(unit); n += (_CD.get(a, 1) if a else 1) * v
+    if t: n += _CD.get(t, -10 ** 6) if len(t) == 1 else -10 ** 6
+    return n if n > 0 else None
+
+
+def date_mentions(text):
+    """글 속 날짜 표현 → [(원문 조각, 서기, 함께 적힌 간지 또는 '')]"""
+    out = []
+    era = '|'.join(sorted(ERAS, key=len, reverse=True)); king = '|'.join(sorted(KINGS, key=len, reverse=True))
+    for m in re.finditer(rf'({era})\s*(?:紀元後|기원후)?\s*([元正一二三四五六七八九十百廿卄卅]{{1,6}})\s*年\s*({_GZ})?', text):
+        n = han_num(m.group(2))
+        if n: out.append((m.group(0), ERAS[m.group(1)] + n - 1, m.group(3) or ''))
+    for m in re.finditer(rf'(?<![가-힣])({era}|{king})\s*(?:기원후\s*)?(\d{{1,3}})(?:\s*년)?(?:\s*({_KGZ}|{_GZ})(?:년)?)?', text):
+        base = ERAS.get(m.group(1)) or KINGS.get(m.group(1))
+        out.append((m.group(0), base + int(m.group(2)) - 1, m.group(3) or ''))
+    return out
+
+
+def date_issues(row):
+    """한 문서의 날짜가 서로 맞는지 → [(칸, 무엇이 어긋나는지)]
+    ① 연호 · 왕대 N년과 바로 붙은 간지 ② 「1808년(순조 8, 戊辰)」처럼 서기 뒤 괄호 속 왕대 · 연호 · 간지
+    ③ 「순치 12년 을미(1655)」처럼 날짜 뒤 괄호 속 서기 ④ 연도 칸이 문서 속 어느 날짜와도 맞지 않음(경고)"""
+    out, years = [], set()
+    for f in ('원문', '판독', '번역', '해제', '요약', '캡션', '이야기'):
+        t = row.get(f) or ''
+        for frag, y, g in date_mentions(t):
+            years.add(y)
+            if g and g not in (ganzhi(y), ganzhi(y, True)): out.append((f, f'「{frag}」 — {y}년의 간지는 {ganzhi(y)}({ganzhi(y, True)})'))
+        for m in re.finditer(rf'(\S{{1,4}}\s*\d{{1,3}}년?\s*(?:{_KGZ}|{_GZ})?(?:년)?)\s*\((\d{{4}})\)', t):
+            for frag, y, _ in date_mentions(m.group(1)):
+                if y != int(m.group(2)): out.append((f, f'「{m.group(0)}」 — {frag.strip()} = {y}년'))
+        for m in re.finditer(r'(\d{4})년\s*\(([^)]{1,40})\)', t):
+            yy = int(m.group(1)); years.add(yy)
+            for frag, y, _ in date_mentions(m.group(2)):
+                if y != yy: out.append((f, f'「{m.group(0)}」 — {frag.strip()} = {y}년'))
+            for g in re.findall(rf'(?<![가-힣])({_KGZ}|{_GZ})(?![가-힣])', m.group(2)):
+                if g not in (ganzhi(yy), ganzhi(yy, True)): out.append((f, f'「{m.group(0)}」 — {yy}년의 간지는 {ganzhi(yy)}({ganzhi(yy, True)})'))
+        years.update(int(x) for x in re.findall(r'(?<!\d)(1[3-9]\d\d)(?=년|\))', t))
+    y0 = str(row.get('연도') or '').strip()
+    if y0.isdigit() and years and not any(abs(int(y0) - y) <= 1 for y in years):
+        out.append(('연도', f'연도 칸 {y0}이 문서 속 날짜({", ".join(str(y) for y in sorted(years)[:4])})와 다릅니다'))
+    return list(dict.fromkeys(out))
+
+
 def cmd_check(a):
     """공개 전 점검 — 칸이 비었거나 결과물이 원본보다 오래된 곳을 찾아 다음 할 일을 알려 준다."""
     ed = os.path.join(a.work, 'edit', a.theme); md = os.path.join(a.work, 'mediate', a.theme)
@@ -1352,9 +1428,13 @@ def cmd_check(a):
         if unk or unsure: marks.append(f'판독 □ {unk} · (?) {unsure}')
         if not s.get('검토'): marks.append('검토 칸 비어 있음 → "초안" 표시')
         if dark: marks.append('대표 면이 표지·겉면 같습니다(어둡거나 다른 면보다 작고 글씨가 적음) → studio.py page')
+        di = date_issues(s)
+        if di: marks.append('날짜 어긋남 ' + str(len(di)) + ': ' + ' / '.join(f'{f} {m}' for f, m in di[:2]) + (' (문서에 이미 적어 둠)' if '어긋' in ''.join(s.get(k) or '' for k in ('원문', '번역', '해제')) else ''))
         print(f'  {n:>2}. {name} — ' + ('✓' if not marks else ' / '.join(marks)))
         if miss or (story and not q): todo.append(f'{n}번 문서의 문구 에디팅(판독·번역·해제·요약·이야기)')
         if dark: todo.append(f'{n}번 대표 면 확인: studio.py page --work {a.work} --theme {a.theme} --n {n} --page 002.jpg')
+        noted = '어긋' in ''.join(s.get(k) or '' for k in ('원문', '번역', '해제'))  # 원문 자체가 어긋나 이미 적어 둔 경우
+        if di and not noted: todo.append(f'{n}번 날짜 확인 — 연호 · 왕대 · 간지 · 서기가 서로 맞는지 원본과 대조(간지는 60년마다 돌아옵니다)')
     print('\n[큐레이터 노트]')
     c = read_curator(ed)
     if not os.path.exists(os.path.join(ed, 'curator.md')): print('  curator.md 없음'); todo.append('curator.md 쓰기(edit가 틀을 만듭니다)')

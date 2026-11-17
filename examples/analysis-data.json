@@ -3236,7 +3236,11 @@
   "hanja": 16299,
   "translation_chars": 80321,
   "unknown": 32,
-  "unsure": 27
+  "unsure": 27,
+  "date_mentions": 855,
+  "date_issues": [
+   "EP.12 5번"
+  ]
  },
  "episodes": [
   {
