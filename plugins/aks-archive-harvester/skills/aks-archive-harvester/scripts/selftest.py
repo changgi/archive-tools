@@ -84,7 +84,8 @@ def download_test(root, res, py, S):
         d.rectangle((250, 250, 520, 460), outline=(20, 20, 20), width=9)
         make_dzi(root, img, 'ok'); make_dzi(root, img, 'part', drop_top_tile=True)
         D = os.path.join(root, 'D')
-        TREE = {'ROOT': [('F1', '시험분류')], 'F1': [('G002.T1', '시험 문서'), ('G002.T2', '다른 문서')]}
+        TREE = {'': [('L01', '문중')], 'L01': [('L0101', '경상북도')], 'L0101': [('ROOT', '시험 소장처 가문'), ('L0102', '다른 가문')], 'L0102': [('F9', '빈 분류')],
+                'ROOT': [('F1', '시험분류')], 'F1': [('G002.T1', '시험 문서'), ('G002.T2', '다른 문서')]}
         IMGS = {'G002.T1': ['ok', 'part', 'none'], 'G002.T2': ['ok']}
         srvdir = os.path.join(root, 'srv')
 
@@ -106,6 +107,12 @@ def download_test(root, res, py, S):
         m = subprocess.run([py, S('harvest.py'), 'manifest', '--work', 'D', '--data-url', '?itemId=book&dataId=ROOT', '--match', '시험 문서'], cwd=root, env=env, capture_output=True, text=True, encoding='utf-8', errors='replace')
         dj = json.load(open(os.path.join(D, 'docs.json'), encoding='utf-8')) if os.path.exists(os.path.join(D, 'docs.json')) else []
         okm = (m.returncode == 0 and len(dj) == 2 and dj[0]['category'] == '시험분류' and dj[0]['folder'] == '001_시험 문서' and len(dj[0]['imgs']) == 3 and dj[1]['imgs'] == [])
+        env['AKS_CATALOG'] = os.path.join(root, 'catalog.json')  # 내 컴퓨터의 진짜 소장처 목록 캐시는 건드리지 않음
+        fdr = subprocess.run([py, S('harvest.py'), 'find', '시험 소장처', '--first', '--manifest', 'D2', '--match', '시험 문서'], cwd=root, env=env, capture_output=True, text=True, encoding='utf-8', errors='replace')
+        cj = os.path.join(root, 'D2', 'collection.json')
+        okf = (fdr.returncode == 0 and os.path.exists(cj) and json.load(open(cj, encoding='utf-8')).get('name') == '시험 소장처 가문'
+               and os.path.exists(os.path.join(root, 'D2', 'docs.json')) and len(json.load(open(os.path.join(root, 'D2', 'docs.json'), encoding='utf-8'))) == 2)
+        res.append(('harvest.py find → manifest (가짜 소장처 목록)', okf, '', '' if okf else ((fdr.stderr or fdr.stdout).strip().splitlines()[-1:] or ['?'])[0]))
         res.append(('harvest.py manifest (가짜 목록 · --match)', okm, f'{time.time() - t:.1f}s', '' if okm else ((m.stderr or m.stdout).strip().splitlines()[-1:] or [f'문서 {len(dj)}건'])[0]))
         r = subprocess.run([py, S('harvest.py'), 'download', '--work', 'D', '--time', '120'], cwd=root, env=env, capture_output=True, text=True, encoding='utf-8', errors='replace')
         srv.shutdown()

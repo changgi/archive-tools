@@ -437,7 +437,7 @@ def cmd_compare(a):
 
 # ---------------------------------------------------------------- catalog / find (이름으로 소장처 찾기)
 ROOT_Q = '?itemId=book&gubun=booktree&depth=0&upPath=&dataId=&itemType='
-CACHE = os.path.join(os.path.expanduser('~'), '.aks-archive-catalog.json')
+CACHE = os.environ.get('AKS_CATALOG') or os.path.join(os.path.expanduser('~'), '.aks-archive-catalog.json')  # AKS_CATALOG: selftest용(평소엔 쓰지 않음)
 
 
 def build_catalog(levels=2, refresh=False):

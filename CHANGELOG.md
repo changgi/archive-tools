@@ -1,5 +1,9 @@
 # 변경 기록
 
+## aks-archive-harvester 1.6.3 (2026-11-17)
+- **이름으로 찾기까지 시험** (`selftest.py`): 가짜 서버가 자료관 최상위 → 지역 → 소장처 목록도 흉내 — `harvest.py find "이름" --first --manifest --match`가 소장처를 찾아 `collection.json` · `docs.json`을 만드는지. 이제 수집부터 분석까지 모든 명령이 인터넷 없이 시험됨(20단계, `--video` 21단계). 시험 중에는 임시 소장처 목록 캐시를 써서 내 컴퓨터의 진짜 캐시(`~/.aks-archive-catalog.json`)는 건드리지 않음
+- `harvest.py`: 시험용 `AKS_CATALOG` 환경 변수(평소엔 쓰지 않음)
+
 ## aks-archive-harvester 1.6.2 (2026-11-17)
 - **목록 수집 시험** (`selftest.py`): 가짜 서버가 자료관의 목록 트리(treeAjax.do)와 면 목록(imgnode.do)도 흉내 — `harvest.py manifest`가 폴더 → 문서를 따라 내려가 분류 · 폴더 이름 · 면 목록을 만들고 `--match`에 맞는 문서만 면 목록을 가져오는지, 그 docs.json으로 `download`가 도는지까지(시험 19단계, `--video` 20단계)
 - **SKILL.md 가볍게**: 33KB → 25KB. 자세한 안내를 `references/editing-tools.md`(전달 에디팅 다시 쓰기 · 판독 고침 반영 · 옛한글 · 대표 면)와 `references/publishing.md`(원본 묶음 · 영상 · 시리즈 사이트 · 통합 분석 · 모아 보기)로 옮기고, 본문에는 언제 무엇을 읽을지만 — 스킬이 켜질 때 덜 읽고, 필요할 때 펼쳐 봄
