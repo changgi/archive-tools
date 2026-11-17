@@ -102,7 +102,7 @@ def main():
         for full in glob.glob(os.path.join(dst, 'video', '*_reel.mp4')) + glob.glob(os.path.join(dst, 'video', '*_wide.mp4')):
             if os.path.exists(full[:-4] + '_web.mp4'): os.remove(full)  # 웹 압축본이 있으면 원본 크기 영상은 빼기
         shutil.copy(os.path.join(ed, 'selection.csv'), dst)
-        for f in ('curator.md', 'delivery.md'):
+        for f in ('curator.md', 'delivery.md', 'corrections.csv'):
             if os.path.exists(os.path.join(ed, f)): shutil.copy(os.path.join(ed, f), dst)
         sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig'))); docs += sel
         if sel and not FIRSTIMG and os.path.exists(os.path.join(ed, sel[0].get('이미지') or '-')): FIRSTIMG.append(os.path.join(ed, sel[0]['이미지']))
@@ -141,6 +141,7 @@ def main():
     SDESC = re.split(r'\n\s*\n', why)[0] if why else (sec.get('전하고 싶은 것') or f'{len(EPS)}편 · 문서 {len(docs)}건을 원문으로 읽은 시리즈')
     ST.share_image(FIRSTIMG[0] if FIRSTIMG else None, stitle, f'{len(EPS)}편 · 문서 {len(docs)}건 · 전시 · 영상 · 활동지 · 통합 분석', os.path.join(out, 'share.jpg'), tag='SERIES')
     an_body, an_sum = AN.build(sorted(AE, key=lambda e: e['ep']), stitle); AN.save_data(out, an_sum)
+    AN.data_bundle(os.path.join(out, 'data.zip'), [(f"{e['slug']}", os.path.join(out, 'eps', e['slug'])) for e in EPS], out, stitle)
     smap = ('<h2>이 사이트에 있는 것</h2><div class="g">' + ''.join(f'<div class="box"><h3><a href="{u}">{t}</a></h3><p>{d}</p></div>' for u, t, d in [
         ('#eps', f'에피소드 {len(EPS)}편', '편마다 첫 페이지 · 전시 · 활동지 · 카드 · 영상 · 노트 · CSV'),
         ('analysis.html', '통합 분석', '시대 · 문서 유형 · 지역 · 정서 · 판독 · 원문 인용 · 질문을 한 장에'),
@@ -152,6 +153,7 @@ def main():
         ('quotes.html', '종이에 적힌 문장들', '이야기에 인용한 원문 전체 · 찾기'),
         ('timeline.html', '전체 연표', '모든 문서를 연도순으로 · 편과 원본으로 바로'),
         ('questions.html', '남겨 둔 질문 카드', '인쇄해 잘라 쓰는 토론 · 글쓰기 카드'),
+        ('data.zip', '데이터 묶음 ZIP', '편별 판독 · 번역 · 해제 · 노트 · 분석 집계 — 이미지 없이 가볍게'),
         ('#cards', f'시리즈 카드 {len(scards)}장', 'SNS에 바로 쓰는 기획 노트 카드')]) + '</div>')
     smap += '<h2>한눈에 — 자동 요약</h2><ul>' + ''.join(f'<li>{x}</li>' for x in an_sum['insights'][:4]) + '</ul><p><a href="analysis.html">통합 분석 전체 보기 →</a></p>'
     body = f'''<p class="k">SERIES</p><h1>{h(stitle)}</h1>{('<p class="lead">' + h(re.split(r"\n\s*\n", why)[0]) + '</p>') if why else ''}

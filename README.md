@@ -14,6 +14,8 @@
 |---|---|
 | 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 101편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
 | 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 355건 · 소장처 100곳 · 1403–1945년 · 판독 한자 16,299자 · 원문 인용 303곳 |
+| 🌏 English | [English overview](https://changgi.github.io/archive-tools/examples/en.html) — what the series is and how to explore it |
+| 📦 데이터 | [전체 데이터 묶음 ZIP](https://changgi.github.io/archive-tools/examples/data.zip) — 판독 · 번역 · 해제 · 노트 · 분석 집계(이미지 없음) |
 | 🔎 찾기 | [전체 검색](https://changgi.github.io/archive-tools/examples/search.html) — 문서 355건의 판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자로 · [문서 유형 사전](https://changgi.github.io/archive-tools/examples/types.html) |
 | 🗂️ 모아 보기 | [종이에 적힌 문장 303곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
 | ✍️ 함께 고치기 | 갤러리 「원문 읽기」 · 전시 웹페이지의 「판독 고침 제보」 → GitHub 이슈 · [기여 안내](CONTRIBUTING.md) |

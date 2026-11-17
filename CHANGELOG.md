@@ -1,5 +1,11 @@
 # 변경 기록
 
+## aks-archive-harvester 1.6.0 (2026-11-17)
+- **시·도 타일 지도** (`analysis.py`): 「어디의 기록인가」에 시·도 한 칸씩 놓은 지도(위치는 대략, 진할수록 많음, 칸마다 설명 · 지도 밖 「여러 지역 · 기타」는 글로)
+- **데이터 묶음 `data.zip`** (`series.py`, `analysis.data_bundle`): 편별 selection.csv · curator.md · delivery.md · corrections.csv와 통합 분석 집계, 출처 · 이용 조건 · 초안 안내(읽어보기.txt). 이미지는 넣지 않음. 시리즈 사이트 「이 사이트에 있는 것」 · 통합 분석 내려받기 줄에 연결. `series.py`가 편별 corrections.csv도 복사
+- 자동 요약의 시·도 수에서 「여러 지역」을 빼고 셈(예시: 13 → 12곳)
+- **예시**: 101편 데이터 묶음(0.6MB · 306개 파일), 영어 안내 페이지 `en.html`(해외 기록 · 아카이브 관계자용 — 무엇이 있고 어떻게 보는지 · 권리 안내, 갤러리와 서로 hreflang 연결, 메뉴 「English」), 갤러리 「받아 쓰기」에 데이터 묶음, README 「English」 · 「데이터」 줄
+
 ## aks-archive-harvester 1.5.0 (2026-11-17)
 - **전체 검색 `search.html`** (`analysis.py` · `series.py`): 판독 · 원문 · 번역 · 해제 · 요약 · 이야기 전문을 한 페이지에서 — 찾을 곳 고르기, 찾은 곳 앞뒤를 형광으로, 문서 유형 · 편 · 원본 바로 가기, 주소로 검색(`search.html?q=乘馹`). 인터넷 없이도 돌도록 자료를 페이지 안에 담음
 - **문서 유형 사전 `types.html`**: 나온 문서 유형마다 읽는 법(`read_guide` · `glossary`) · 건수 · 세기 분포 · 되도록 다른 편에서 고른 예 4건 · 「모두 찾기」(전체 검색으로)

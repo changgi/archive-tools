@@ -145,6 +145,29 @@ CSS = '''
 '''
 
 
+# 시·도 타일 지도(위치는 대략) — (열, 행)
+TILES = {'경기': (1, 0), '강원': (2, 0), '인천': (0, 1), '서울': (1, 1), '충북': (2, 1), '경북': (3, 1), '충남': (0, 2), '세종': (1, 2), '대전': (2, 2), '대구': (3, 2), '울산': (4, 2),
+         '전북': (1, 3), '경남': (3, 3), '부산': (4, 3), '광주': (0, 4), '전남': (1, 4), '제주': (1, 5)}
+
+
+def tilemap(counts, unit='편'):
+    """시·도 타일 지도 SVG — 진할수록 많음. 지도 밖(여러 지역 · 기타)은 아래 글로"""
+    S, G = 70, 6; mx = max([counts.get(k, 0) for k in TILES] + [1])
+    cells = []
+    for name, (c, r) in TILES.items():
+        n = counts.get(name, 0); x, y = c * (S + G), r * (S + G)
+        fill = f'rgba(196,150,74,{0.15 + 0.85 * n / mx:.2f})' if n else '#231d15'
+        ink = '#16130f' if n / mx > 0.45 else '#f3ead8'
+        cells.append(f'<g><title>{name}: {n}{unit}</title><rect x="{x}" y="{y}" width="{S}" height="{S}" rx="8" fill="{fill}" stroke="#3a3225"/>'
+                     f'<text x="{x + S / 2}" y="{y + 30}" text-anchor="middle" font-size="15" fill="{ink}">{name}</text>'
+                     f'<text x="{x + S / 2}" y="{y + 52}" text-anchor="middle" font-size="17" font-weight="700" fill="{ink}">{n or "·"}</text></g>')
+    W, H = 5 * (S + G), 6 * (S + G)
+    label = ' · '.join(f'{k} {v}' for k, v in sorted(counts.items(), key=lambda x: -x[1]))
+    other = ' · '.join(f'{k} {v}{unit}' for k, v in counts.items() if k not in TILES)
+    return (f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="시·도별 {h(label)}" style="width:100%;max-width:{W}px;font-family:inherit"><title>시·도별 {h(label)}</title>{"".join(cells)}</svg>'
+            + (f'<p class="mute">지도 밖: {h(other)}</p>' if other else ''))
+
+
 def build(eps, title, kinds_label='소장처 종류'):
     """편 목록 → 분석 본문 HTML(<div class="an">…</div>)과 요약 dict"""
     docs = [(e, s) for e in eps for s in e['sel']]
@@ -179,7 +202,7 @@ def build(eps, title, kinds_label='소장처 종류'):
     if T:
         t3 = T.most_common(3); ins.append('문서 유형은 ' + ' · '.join(f'<b>{h(k)}</b> {v}건' for k, v in t3) + f' 순으로 많고, 모두 {len(T)}가지입니다.')
     if R and len(R) > 1:
-        r1, rn = R.most_common(1)[0]; ins.append(f'소장처 {len(colls)}곳은 {len([k for k in R if k != "기타"])}개 시·도에 걸쳐 있습니다. 가장 많은 곳은 <b>{h(r1)}</b>({rn}편)입니다.')
+        r1, rn = R.most_common(1)[0]; ins.append(f'소장처 {len(colls)}곳은 {len([k for k in R if k not in ("기타", "여러 지역")])}개 시·도에 걸쳐 있습니다. 가장 많은 곳은 <b>{h(r1)}</b>({rn}편)입니다.')
     if K and len(K) > 1:
         ins.append(f'{kinds_label}: ' + ' · '.join(f'{h(k)} {v}편' for k, v in K.most_common()) + '.')
     if read_n: ins.append(f'원문 판독 {read_n}건(한자 {han:,}자) · 번역 {tr_n}건(약 {tr:,}자). 못 읽은 글자 □ {unk}개, 불확실 (?) {uns}개를 그대로 표시했습니다.')
@@ -225,7 +248,8 @@ def build(eps, title, kinds_label='소장처 종류'):
     # ---- 어디서
     out.append('<h2 id="a-where">어디의 기록인가</h2><div class="two">' +
                (f'<div class="card"><h3>{h(kinds_label)}</h3><p class="q">편 수</p>{hbars(K.most_common(), unit="편")}</div>' if K else '') +
-               f'<div class="card"><h3>지역 (현재 시·도)</h3><p class="q">소장처 이름의 첫 지명으로 나눈 편 수 · 모르는 이름은 「기타」</p>{hbars(R.most_common(), unit="편")}{tv(R.most_common(), ("시·도", "편 수"))}</div></div>')
+               f'<div class="card"><h3>지역 (현재 시·도)</h3><p class="q">소장처 이름의 첫 지명으로 나눈 편 수 · 모르는 이름은 「기타」</p>{hbars(R.most_common(), unit="편")}{tv(R.most_common(), ("시·도", "편 수"))}</div>'
+               f'<div class="card"><h3>타일 지도</h3><p class="q">시·도 한 칸이 한 지역(위치는 대략) — 진할수록 편이 많음</p>{tilemap(dict(R))}</div></div>')
 
     # ---- 정서
     feel = ''
@@ -273,7 +297,7 @@ def build(eps, title, kinds_label='소장처 종류'):
                + table(['편', '제목', '소장처', '종류', '연대', '문서', '핵심 정서', '전하고 싶은 것'], rows, 'ept')
                + '<script>(function(){var q=document.getElementById("aq"),n=document.getElementById("an"),rs=[].slice.call(document.querySelectorAll("table.ept tbody tr"));'
                + 'q.addEventListener("input",function(){var v=q.value.trim().toLowerCase(),k=0;rs.forEach(function(r){var on=!v||r.textContent.toLowerCase().indexOf(v)>=0;r.style.display=on?"":"none";if(on)k++});n.textContent=v?k+"편":""})})()</script>'
-               + '<p class="mute">데이터 내려받기: <a href="analysis-data.json" download>집계 JSON</a> · <a href="analysis-episodes.csv" download>편별 표 CSV</a> — 수업 · 연구 · 다른 도구로 다시 그리기</p>')
+               + '<p class="mute">데이터 내려받기: <a href="analysis-data.json" download>집계 JSON</a> · <a href="analysis-episodes.csv" download>편별 표 CSV</a> · <a href="data.zip" download>전체 데이터 묶음 ZIP</a>(편별 판독 · 번역 · 노트, 이미지 없음) — 수업 · 연구 · 다른 도구로 다시 그리기</p>')
 
     # ---- 한계
     out.append('<h2 id="a-lim">이 분석을 읽을 때</h2><ul class="ins">'
@@ -386,6 +410,41 @@ def write_collections(folder, eps, title, nav='', foot='', base_css='', meta_fn=
         page = ST.put_oldhangul(page, ST.oldhangul_css(body, url=oh_url))
         open(os.path.join(folder, fn), 'w', encoding='utf-8').write(page); out.append(fn)
     return out
+
+
+DATA_README = """{title} — 데이터 묶음
+
+들어 있는 것
+- 편별 폴더/selection.csv : 문서마다 문서명 · 연도 · 유형 · 인물 · 판독 · 원문 · 번역 · 해제 · 요약 · 이야기 · 원본 뷰어 링크
+- 편별 폴더/curator.md · delivery.md : 큐레이터 노트 · 전달 에디팅 (있으면)
+- 편별 폴더/corrections.csv : 함께 고친 곳(날짜 · 이전 · 이후 · 근거) (있으면)
+- analysis-data.json : 통합 분석 집계(세기 · 유형 · 지역 · 정서 · 인물 · 인용 · 편별)
+- analysis-episodes.csv : 편별 한 줄 표
+
+읽을 때
+- 판독 · 번역 · 해제는 이미지에 근거한 초안입니다. □는 못 읽은 글자, (?)는 불확실한 글자입니다.
+- 연도 · 문서유형 · 인물은 문서명에서 자동으로 뽑은 값입니다.
+- 엑셀에서 열 때 CSV는 UTF-8(BOM)이라 한글이 바로 보입니다.
+
+출처와 이용
+- 문서와 이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처. 원본은 selection.csv의 '뷰어링크'에서 보세요.
+- 이 묶음에는 이미지가 없습니다. 이미지 재사용은 소장처 동의가 필요합니다(한국고문서자료관 031-730-8873, 8876).
+- 판독 · 번역 텍스트를 인용할 때는 "초안"임과 출처를 밝혀 주세요. 고칠 곳은 「판독 고침 제보」로 알려 주세요.
+만든 날: {date}
+"""
+
+
+def data_bundle(path, eps_dirs, folder, title):
+    """데이터 묶음 ZIP — eps_dirs: [(폴더 이름, 원본 폴더)] (selection.csv · curator.md · delivery.md · corrections.csv), folder: analysis-*.json/csv가 있는 곳"""
+    import zipfile, datetime
+    with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED) as z:
+        z.writestr('읽어보기.txt', DATA_README.format(title=title, date=datetime.date.today().isoformat()))
+        for name, d in eps_dirs:
+            for f in ('selection.csv', 'curator.md', 'delivery.md', 'corrections.csv'):
+                if os.path.exists(os.path.join(d, f)): z.write(os.path.join(d, f), f'{name}/{f}')
+        for f in ('analysis-data.json', 'analysis-episodes.csv'):
+            if os.path.exists(os.path.join(folder, f)): z.write(os.path.join(folder, f), f)
+    return path
 
 
 def write(path, title, body, nav='', foot='', base_css='', meta='', oh_url=None):
