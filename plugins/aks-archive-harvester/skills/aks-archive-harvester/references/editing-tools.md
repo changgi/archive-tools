@@ -24,10 +24,11 @@ python3 studio.py fix --work WORK --theme <id> --list
 **Proof and review — `studio.py proof` · `studio.py review` (검토지 · 검토 표시).**
 
 ```bash
-python3 studio.py proof --work WORK --theme <id> [--all]          # edit/<id>/proof.html — 인쇄하면 한 장에 한 문서
+python3 studio.py proof --work WORK --theme <id> [--all] [--link]   # edit/<id>/proof.html — 인쇄하면 한 장에 한 문서 (--link: 사진을 넣지 않고 images/를 가리켜 가볍게)
 python3 studio.py review --work WORK --theme <id> --n 1,3 --by 이름   # 검토 칸에 "이름 날짜" → 결과물의 「초안」 딱지가 빠짐
 python3 studio.py review … --undo                                    # 표시 지우기
 ```
 
 - The sheet shows the original page (or the representative image) beside 판독 · 번역 and the story's quoted lines, the count of □ · (?), check boxes (판독 · 번역 · 연도·인물 · 인용 원문 일치), reviewer and date lines and a box for corrections (줄 · 이전 → 이후 · 근거).
 - Only unreviewed documents unless `--all`. Corrections go through `studio.py fix`; `review` is for documents a person has actually compared with the original — do not mark them on the user's behalf.
+- `series.py` and `analysis.py` also write `review.html` (검토 현황): reviewed and remaining documents per episode, □ · (?) counts and a progress bar, with links to proof sheets when episodes carry them.

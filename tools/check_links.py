@@ -9,7 +9,7 @@ import glob, os, re, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 pages = ['index.html', '404.html'] + glob.glob('examples/*.html') + glob.glob('examples/tutorial/site/*.html') + glob.glob('examples/tutorial/site/eps/*/*.html')
-if '--all' in sys.argv: pages += glob.glob('examples/*/exhibit.html') + glob.glob('examples/*/handout.html')
+if '--all' in sys.argv: pages += glob.glob('examples/*/exhibit.html') + glob.glob('examples/*/handout.html') + glob.glob('examples/*/proof.html')
 bad = []
 for f in pages:
     s = open(f, encoding='utf-8').read(); d = os.path.dirname(f)

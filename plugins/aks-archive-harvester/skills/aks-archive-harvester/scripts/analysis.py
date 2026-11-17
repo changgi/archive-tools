@@ -136,6 +136,7 @@ CSS = '''
 .col .qcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.col .qcards div{background:#1f1a14;border:1px solid #4a3e2c;border-radius:14px;padding:14px 16px;break-inside:avoid}.col .qcards b{display:block;font-family:'Noto Serif KR',serif;font-size:17px;color:#f3ead8;line-height:1.55}.col .qcards span{display:block;margin-top:8px;color:var(--dim);font-size:12.8px}
 .col .sr{padding-left:22px}.col .sr li{margin:0 0 12px;color:#e8dcc4}.col .sr li small{color:var(--dim)}.col .sr li p{margin:3px 0 0;font-size:14.5px;color:#d9cfbb}.col .sr mark{background:#c4964a;color:#16130f;border-radius:3px;padding:0 2px}.col .sr em{font-style:normal;color:var(--gold);font-size:12.5px;margin-right:4px}.col .sr a{color:var(--gold)}
 .col .tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}.col .tcard{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:12px 16px;break-inside:avoid}.col .tcard h3{margin:0 0 6px;color:#f3ead8;font-size:17px}.col .tcard h3 small{color:var(--gold);font-size:12.5px;font-weight:400;margin-left:6px}.col .tcard p{font-size:14px;margin:4px 0}.col .tcard ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}.col .tcard a{color:var(--gold)}
+.pbar{display:inline-block;width:90px;height:8px;background:#2a231a;border-radius:4px;overflow:hidden;vertical-align:middle}.pbar i{display:block;height:100%;background:var(--gold)}
 .col .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 16px}.col input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
 .an input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
 @media print{body{background:#fff!important;color:#111!important}main{max-width:none!important;padding:0 8mm!important}nav,.toc,.tools,input,details.tvw summary,footer a{display:none!important}
@@ -262,9 +263,10 @@ def build(eps, title, kinds_label='소장처 종류'):
     # ---- 판독 난도
     rd = sorted(((sum((s.get('판독') or '').count('□') for s in e['sel']), sum((s.get('판독') or '').count('(?)') for s in e['sel']), e) for e in eps), key=lambda x: -(x[0] + x[1]))
     rd = [x for x in rd if x[0] + x[1]][:10]
+    hard_html = hbars([(lab(e) + ' ' + e['title'][:14], a + b) for a, b, e in rd], unit='자') if rd else '<p class=mute>□ · (?) 표시가 없습니다</p>'
     out.append('<h2 id="a-read">얼마나 읽었나</h2><div class="two">'
                f'<div class="card"><h3>읽기 진행</h3><p class="q">문서 {len(docs)}건 기준</p>{hbars([("원문 판독", read_n), ("번역", tr_n), ("해제", sum(1 for _, s in docs if (s.get("해제") or "").strip())), ("요약", sum(1 for _, s in docs if (s.get("요약") or "").strip())), ("원문 인용 이야기", sum(1 for _, s in docs if ST.find_quotes(s.get("이야기")))), ("검토 표시", sum(1 for _, s in docs if s.get("검토")))], len(docs))}</div>'
-               f'<div class="card"><h3>읽기 어려웠던 편</h3><p class="q">못 읽은 글자 □ + 불확실 (?) 이 많은 순</p>{hbars([(f"{lab(e)} {e['title'][:14]}", a + b) for a, b, e in rd], unit="자") if rd else "<p class=mute>□ · (?) 표시가 없습니다</p>"}</div></div>')
+               f'<div class="card"><h3>읽기 어려웠던 편</h3><p class="q">못 읽은 글자 □ + 불확실 (?) 이 많은 순</p>{hard_html}</div></div>')
 
     # ---- 인용
     seen, pick = set(), []
@@ -390,11 +392,25 @@ def collections_pages(eps, title):
                      + (f'<p>{h(guide)}</p>' if guide else '<p class="mute">읽는 법 설명이 아직 없습니다.</p>') + f'<ul>{ex}</ul>' + (f'<p class="mute">외 {len(items) - 4}건 — <a href="search.html?q={h(t)}">모두 찾기</a></p>' if len(items) > 4 else '') + '</div>')
     types = (f'<div class="col"><div class="tools"><input id="cq" type="search" placeholder="찾기: 홍패 · 교지 · 편지 · 노비 …" aria-label="유형 찾기"><span id="cn" class="mute"></span></div>'
              f'<p class="mute">이 시리즈에 나온 문서 유형 {len(T)}가지 — 많이 나온 순. 유형은 문서명에서 뽑은 초안입니다.</p><div class="tcards">' + ''.join(cards).replace('class="tcard" data-s', 'class="tcard" data-s') + '</div></div>' + SEARCH_JS)
+    # 6) 검토 현황 — 사람이 원본과 대조한 문서(검토 칸)
+    rows, tot, done = [], 0, 0
+    for e in sorted(eps, key=lambda x: (x['ep'] or 0)):
+        n = len(e['sel']); k = sum(1 for x in e['sel'] if (x.get('검토') or '').strip()); tot += n; done += k
+        bad = sum((x.get('판독') or '').count('□') + (x.get('판독') or '').count('(?)') for x in e['sel'])
+        tlink = f'<a href="{h(e["link"])}">{h(e["title"])}</a>' if e.get('link') else h(e['title'])
+        pf = e.get('proof'); pfl = f'<a href="{h(pf)}">검토지</a>' if pf else ''
+        rows.append(f'<tr data-s="{h((lab(e) + e["title"] + e["coll"]).lower())}"><td>{h(lab(e))}</td><td>{tlink}</td><td>{n}</td><td>{k}</td><td>{n - k}</td><td>{bad or ""}</td>'
+                    f'<td><span class="pbar"><i style="width:{(k / n * 100) if n else 0:.0f}%"></i></span></td><td>{pfl}</td></tr>')
+    review = (f'<div class="col"><div class="tiles"><div class="tile"><b>{done}</b><span>검토 마친 문서</span></div><div class="tile"><b>{tot - done}</b><span>남은 문서</span></div><div class="tile"><b>{(done / tot * 100) if tot else 0:.0f}%</b><span>진행</span></div></div>'
+              '<p class="mute">검토 = 사람이 원본 사진과 판독 · 번역을 대조하고 검토 칸에 이름 · 날짜를 남긴 것(<code>studio.py proof</code> → <code>review</code>). 검토 전 문서에는 「초안」 딱지가 붙습니다. □ · (?)가 많은 편부터 보시면 좋습니다.</p>'
+              '<div class="tools"><input id="cq" type="search" placeholder="찾기: 편 · 제목 · 소장처" aria-label="검토 현황 찾기"><span id="cn" class="mute"></span></div>'
+              + table(['편', '제목', '문서', '검토', '남음', '□·(?)', '진행', '검토지'], [], 'rvt').replace('<tbody></tbody>', '<tbody>' + ''.join(rows) + '</tbody>') + '</div>' + SEARCH_JS)
     return [('search.html', '전체 검색', f'문서 {len(idx)}건의 판독 · 번역 · 해제 · 이야기 전문을 한 곳에서 찾습니다 — 한자 한 글자, 이름 하나로.', search),
             ('types.html', '문서 유형 사전', f'고신 · 홍패 · 준호구 · 명문 … 이 시리즈에 나온 {len(T)}가지 문서를 읽는 법과 예.', types),
             ('quotes.html', '종이에 적힌 문장들', f'이야기에 "현대어(原文)"로 인용한 원문 {len(qs)}곳 전체 — 찾아보고, 수업 · 글쓰기 · SNS에 씁니다.', quotes),
             ('timeline.html', '전체 연표', f'{len(dated)}건의 문서를 한 줄로 — 세기별로 나누고, 편과 원본으로 바로 갑니다.', timeline),
-            ('questions.html', '남겨 둔 질문 카드', f'문서만으로는 답할 수 없어 보는 사람과 나누려는 질문 {len(qq)}개.', questions)]
+            ('questions.html', '남겨 둔 질문 카드', f'문서만으로는 답할 수 없어 보는 사람과 나누려는 질문 {len(qq)}개.', questions),
+            ('review.html', '검토 현황', f'문서 {tot}건 가운데 사람이 원본과 대조를 마친 문서 {done}건 — 편마다 남은 문서와 검토지.', review)]
 
 
 def page_html(title, kicker, h1, lead, body, nav='', foot='', base_css=''):

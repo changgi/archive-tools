@@ -1216,6 +1216,29 @@ def corrections_html(log):
 
 
 
+def proof_html(todo, title, img, scope='(검토 칸이 빈 문서)'):
+    """검토지 HTML — img(r): 문서 하나의 사진 <img> 태그"""
+    e = html.escape
+    unk = lambda t: (t or '').count('□') + (t or '').count('(?)')
+    pages = ''.join(f"""<section class="sheet"><header><b>{e(r['순서'])}. {e(r['문서명'])}</b><span>{e(r.get('자료ID', ''))}{(' · □ · (?) ' + str(unk(r.get('판독')))) if unk(r.get('판독')) else ''}</span></header>
+<div class="cols"><div class="pic">{img(r)}{('<p class="v">원본 뷰어: ' + e(r['뷰어링크']) + '</p>') if r.get('뷰어링크') else ''}</div>
+<div class="txt"><h3>판독</h3><pre>{e(r.get('원문') or r.get('판독') or '(비어 있음)')}</pre><h3>번역</h3><p>{e(r.get('번역') or '(비어 있음)')}</p>
+<h3>이야기 속 인용</h3><p>{e(' / '.join(f'"{q[0]}({q[1]})"' for q in find_quotes(r.get('이야기'))) or '—')}</p></div></div>
+<div class="chk"><span>☐ 판독 대조</span><span>☐ 번역 대조</span><span>☐ 연도 · 인물</span><span>☐ 인용 원문 일치</span><span>검토자 ______ 날짜 ______</span></div>
+<div class="memo">고칠 곳 (줄 · 이전 → 이후 · 근거)</div></section>""" for r in todo)
+    page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>검토지 — {e(title)}</title><style>
+body{{font-family:'Noto Sans KR','Malgun Gothic',sans-serif;color:#111;margin:0;background:#eee}}.intro{{max-width:900px;margin:20px auto;padding:0 16px;font-size:14px}}
+.sheet{{background:#fff;max-width:900px;margin:16px auto;padding:14mm 12mm;box-shadow:0 1px 4px #0002;page-break-after:always;break-after:page}}
+header{{display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid #111;padding-bottom:6px;margin-bottom:10px}}header span{{font-size:12px;color:#555}}
+.cols{{display:grid;grid-template-columns:1fr 1fr;gap:14px}}.pic img{{width:100%;border:1px solid #ccc}}.noimg{{border:1px dashed #999;padding:40px;text-align:center;color:#777}}.v{{font-size:10px;color:#666;word-break:break-all}}
+h3{{font-size:13px;margin:8px 0 4px;color:#7a5a24}}pre{{white-space:pre-wrap;font:15px/2 'Noto Serif KR','Batang',serif;margin:0}}.txt p{{font-size:13.5px;line-height:1.7;margin:0}}
+.chk{{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:13px}}.memo{{border:1px solid #999;height:38mm;margin-top:8px;padding:6px;font-size:12px;color:#666}}
+@media print{{body{{background:#fff}}.intro{{display:none}}.sheet{{box-shadow:none;margin:0;max-width:none}}}}@page{{size:A4;margin:0}}</style></head><body>
+<div class="intro"><b>검토지 — {e(title)}</b> · 문서 {len(todo)}건{scope} · 인쇄하면 한 장에 한 문서. 사진과 판독 · 번역을 대조해 표시한 뒤, 고칠 곳은 <code>studio.py fix</code>로, 확인을 마친 문서는 <code>studio.py review --n 번호 --by 이름</code>으로 표시하세요.</div>
+{pages}</body></html>"""
+    return put_oldhangul(page, oldhangul_css(page))
+
+
 def cmd_proof(a):
     """검토지 — 사진 옆에 판독 · 번역을 놓고 사람이 대조해 표시하는 인쇄용 A4 (검토 칸이 빈 문서부터)"""
     ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
@@ -1225,28 +1248,14 @@ def cmd_proof(a):
     if not todo: print('검토할 문서가 없습니다(모두 검토 표시됨). 모두 다시 보려면 --all'); return
     e = html.escape
     def img(r):
+        if a.link:  # 사진을 페이지에 넣지 않고 edit/<테마>/images/ 를 가리킴(가볍게)
+            return f'<img src="{e(r.get("이미지") or "")}" alt="{e(r["문서명"])}">' if r.get('이미지') else '<div class="noimg">사진 없음</div>'
         orig = os.path.join(a.work, r.get('원본경로') or '')
         src = orig if r.get('원본경로') and os.path.exists(orig) else os.path.join(ed, r.get('이미지') or '')
         return f'<img src="{b64(src, 1500)}" alt="{e(r["문서명"])}">' if os.path.exists(src) else '<div class="noimg">사진 없음</div>'
-    unk = lambda t: (t or '').count('□') + (t or '').count('(?)')
-    pages = ''.join(f"""<section class="sheet"><header><b>{e(r['순서'])}. {e(r['문서명'])}</b><span>{e(r.get('자료ID', ''))}{(' · □ · (?) ' + str(unk(r.get('판독')))) if unk(r.get('판독')) else ''}</span></header>
-<div class="cols"><div class="pic">{img(r)}{('<p class="v">원본 뷰어: ' + e(r['뷰어링크']) + '</p>') if r.get('뷰어링크') else ''}</div>
-<div class="txt"><h3>판독</h3><pre>{e(r.get('원문') or r.get('판독') or '(비어 있음)')}</pre><h3>번역</h3><p>{e(r.get('번역') or '(비어 있음)')}</p>
-<h3>이야기 속 인용</h3><p>{e(' / '.join(f'"{q[0]}({q[1]})"' for q in find_quotes(r.get('이야기'))) or '—')}</p></div></div>
-<div class="chk"><span>☐ 판독 대조</span><span>☐ 번역 대조</span><span>☐ 연도 · 인물</span><span>☐ 인용 원문 일치</span><span>검토자 ______ 날짜 ______</span></div>
-<div class="memo">고칠 곳 (줄 · 이전 → 이후 · 근거)</div></section>""" for r in todo)
     title = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')).get('title', a.theme) if os.path.exists(os.path.join(ed, 'theme.json')) else a.theme
-    page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>검토지 — {e(title)}</title><style>
-body{{font-family:'Noto Sans KR','Malgun Gothic',sans-serif;color:#111;margin:0;background:#eee}}.intro{{max-width:900px;margin:20px auto;padding:0 16px;font-size:14px}}
-.sheet{{background:#fff;max-width:900px;margin:16px auto;padding:14mm 12mm;box-shadow:0 1px 4px #0002;page-break-after:always;break-after:page}}
-header{{display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid #111;padding-bottom:6px;margin-bottom:10px}}header span{{font-size:12px;color:#555}}
-.cols{{display:grid;grid-template-columns:1fr 1fr;gap:14px}}.pic img{{width:100%;border:1px solid #ccc}}.noimg{{border:1px dashed #999;padding:40px;text-align:center;color:#777}}.v{{font-size:10px;color:#666;word-break:break-all}}
-h3{{font-size:13px;margin:8px 0 4px;color:#7a5a24}}pre{{white-space:pre-wrap;font:15px/2 'Noto Serif KR','Batang',serif;margin:0}}.txt p{{font-size:13.5px;line-height:1.7;margin:0}}
-.chk{{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:13px}}.memo{{border:1px solid #999;height:38mm;margin-top:8px;padding:6px;font-size:12px;color:#666}}
-@media print{{body{{background:#fff}}.intro{{display:none}}.sheet{{box-shadow:none;margin:0;max-width:none}}}}@page{{size:A4;margin:0}}</style></head><body>
-<div class="intro"><b>검토지 — {e(title)}</b> · 문서 {len(todo)}건{'' if a.all else '(검토 칸이 빈 문서)'} · 인쇄하면 한 장에 한 문서. 사진과 판독 · 번역을 대조해 표시한 뒤, 고칠 곳은 <code>studio.py fix</code>로, 확인을 마친 문서는 <code>studio.py review --n 번호 --by 이름</code>으로 표시하세요.</div>
-{pages}</body></html>"""
-    out = os.path.join(ed, 'proof.html'); open(out, 'w', encoding='utf-8').write(put_oldhangul(page, oldhangul_css(page)))
+    out = os.path.join(ed, 'proof.html')
+    open(out, 'w', encoding='utf-8').write(proof_html(todo, title, img, '' if a.all else '(검토 칸이 빈 문서)'))
     print(f'→ {out}  검토할 문서 {len(todo)}건 (인쇄용 A4, 한 장에 한 문서)')
 
 
@@ -1480,7 +1489,7 @@ def main():
     fx.add_argument('--issue', type=int, help='GitHub 이슈 번호(「판독 고침 제보」 양식을 읽음)'); fx.add_argument('--repo', help='아이디/저장소')
     fx.add_argument('--apply', action='store_true', help='실제로 반영(없으면 미리 보기)'); fx.add_argument('--list', action='store_true', help='고친 기록 보기')
     pf = sp.add_parser('proof', help='검토지(인쇄용): 사진 옆에 판독 · 번역 · 인용을 놓고 대조 표시 → edit/<테마>/proof.html')
-    pf.add_argument('--work', required=True); pf.add_argument('--theme', required=True); pf.add_argument('--all', action='store_true', help='검토 표시된 문서까지 모두')
+    pf.add_argument('--work', required=True); pf.add_argument('--theme', required=True); pf.add_argument('--all', action='store_true', help='검토 표시된 문서까지 모두'); pf.add_argument('--link', action='store_true', help='사진을 페이지에 넣지 않고 images/를 가리킴(가볍게 · 같은 폴더에서 열기)')
     rv = sp.add_parser('review', help='검토 표시: 원문 대조를 마친 문서의 검토 칸에 이름 · 날짜')
     rv.add_argument('--work', required=True); rv.add_argument('--theme', required=True); rv.add_argument('--n', required=True, help='순서 번호(예: 1,3,4)')
     rv.add_argument('--by', default='검토자', help='검토한 사람 이름'); rv.add_argument('--undo', action='store_true', help='검토 표시 지우기')

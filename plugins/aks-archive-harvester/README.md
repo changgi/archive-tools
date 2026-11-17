@@ -15,7 +15,7 @@
 | 시리즈 | 여러 편을 한 사이트로: 갤러리(「이 사이트에 있는 것」 · 자동 요약) · 기획 노트 · 홍보 가이드 · 활용 가이드 · 통합 분석 · 시리즈 카드 | `series.py` |
 | 데이터 묶음 | 편별 판독 · 번역 · 해제 · 노트 · 고친 기록 · 분석 집계를 한 ZIP으로(이미지 없음, 읽어보기 포함) | `series.py` → `data.zip` |
 | 모아 보기 | 전체 검색(판독 · 번역 · 해제 · 이야기 전문) · 문서 유형 사전(읽는 법 · 건수 · 시대 · 예) · 종이에 적힌 문장 전체(찾기) · 전체 연표(원본 링크) · 남겨 둔 질문 카드(인쇄용) | `analysis.py` · `series.py` |
-| 검토지 · 검토 표시 | 사진 옆에 판독 · 번역 · 인용을 놓은 인쇄용 검토지(한 장에 한 문서) → 대조를 마친 문서에 검토자 · 날짜 표시(「초안」 딱지 빠짐) | `studio.py proof` · `review` |
+| 검토지 · 검토 표시 · 검토 현황 | 사진 옆에 판독 · 번역 · 인용을 놓은 인쇄용 검토지(한 장에 한 문서) → 대조를 마친 문서에 검토자 · 날짜 표시(「초안」 딱지 빠짐) → 시리즈의 검토 현황 페이지 | `studio.py proof` · `review` · `series.py`(review.html) |
 | 제보 반영 | 제보(GitHub 이슈)를 읽어 문서 · 칸을 찾고, 미리 본 뒤 `selection.csv`에 반영 + 고친 기록 `corrections.csv` → 전시에 「함께 고친 곳」 | `studio.py fix` |
 | 옛한글 | 아래아 등 옛한글이 어느 기기에서나 같게 보이도록 그 글자만 담은 글꼴 조각을 필요할 때만 넣음 | 자동 |
 | 판독 고침 제보 | 문서마다 「판독 고침 제보」 — GitHub 이슈에 문서명 · 자료 ID · 원본 링크 · 고칠 곳 양식을 채워 열기 | `mediate --issues <저장소 주소>` |
@@ -52,7 +52,7 @@
 ## 직접 실행
 
 ```bash
-pip install requests pillow
+pip install requests pillow          # Python 3.10 이상
 S=skills/aks-archive-harvester/scripts
 python3 $S/selftest.py                                           # 설치 확인(인터넷 불필요)
 python3 $S/harvest.py find "동춘당 송준길" --manifest W         # ① 찾기 + 목록

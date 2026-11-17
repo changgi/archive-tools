@@ -62,7 +62,7 @@ SDESC = ''
 
 def page(path, title, body, back=True, desc=''):
     home = f'<a href="{h(HOME[0])}">{h(HOME[1])}</a>' if HOME else ''
-    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a><a href="search.html">검색</a><a href="types.html">유형 사전</a><a href="quotes.html">문장</a><a href="timeline.html">연표</a><a href="questions.html">질문 카드</a></nav>'
+    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a><a href="search.html">검색</a><a href="types.html">유형 사전</a><a href="quotes.html">문장</a><a href="timeline.html">연표</a><a href="questions.html">질문 카드</a><a href="review.html">검토 현황</a></nav>'
     html_ = (f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처 · 판독·번역은 이미지에 근거한 초안 · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
     name = os.path.basename(path)
     html_ = ST.put_oldhangul(html_, ST.oldhangul_css(body))
@@ -153,10 +153,12 @@ def main():
         ('quotes.html', '종이에 적힌 문장들', '이야기에 인용한 원문 전체 · 찾기'),
         ('timeline.html', '전체 연표', '모든 문서를 연도순으로 · 편과 원본으로 바로'),
         ('questions.html', '남겨 둔 질문 카드', '인쇄해 잘라 쓰는 토론 · 글쓰기 카드'),
+        ('review.html', '검토 현황', '사람이 원본과 대조를 마친 문서 · 남은 문서 · □·(?)'),
         ('data.zip', '데이터 묶음 ZIP', '편별 판독 · 번역 · 해제 · 노트 · 분석 집계 — 이미지 없이 가볍게'),
         ('#cards', f'시리즈 카드 {len(scards)}장', 'SNS에 바로 쓰는 기획 노트 카드')]) + '</div>')
     smap += '<h2>한눈에 — 자동 요약</h2><ul>' + ''.join(f'<li>{x}</li>' for x in an_sum['insights'][:4]) + '</ul><p><a href="analysis.html">통합 분석 전체 보기 →</a></p>'
-    body = f'''<p class="k">SERIES</p><h1>{h(stitle)}</h1>{('<p class="lead">' + h(re.split(r"\n\s*\n", why)[0]) + '</p>') if why else ''}
+    lead_ = ('<p class="lead">' + h(re.split(r"\n\s*\n", why)[0]) + '</p>') if why else ''  # 파이썬 3.10 · 3.11: f-string 안에 \ 를 쓸 수 없음
+    body = f'''<p class="k">SERIES</p><h1>{h(stitle)}</h1>{lead_}
 <div class="stats"><div><b>{len(EPS)}</b><span>편</span></div><div><b>{len(docs)}</b><span>문서</span></div><div><b>{sum(1 for e in EPS if e["vids"])}</b><span>영상 있는 편</span></div><div><b>{len(scards)}</b><span>시리즈 카드</span></div></div>
 <h2>결과물 바로 가기</h2><p>편마다: <b>첫 페이지</b>(모든 결과물) · <b>전시</b> 웹페이지 · <b>활동지</b>(선생님께) · <b>채널</b>별 홍보안 · 큐레이터 <b>노트</b> · <b>전달</b> 에디팅 · <b>홍보 글</b> · 릴스·가로 영상 · 원문·번역 <b>CSV</b></p>
 {smap}
@@ -166,7 +168,8 @@ def main():
     # ---- 기획 노트
     hist = sec.get('히스토리', '')
     body = f'<p class="k">SERIES NOTE</p><h1>기획 노트 — {h(stitle)}</h1>' + ''.join(f'<h2>{h(t)}</h2>' + ''.join(f'<p>{h(p)}</p>' for p in re.split(r"\n\s*\n", b)) for t, b in secs if t != '히스토리')
-    body += f'<h2>숫자로 본 시리즈</h2><div class="g"><div class="box"><h3>문서의 시대 ({len(docs)}건)</h3>{bars(CENT)}</div><div class="box"><h3>편별 문서 수</h3>{bars([(f"EP.{e["ep"]:02d}", sum(1 for _ in open(os.path.join(out, "eps", e["slug"], "selection.csv"), encoding="utf-8-sig")) - 1) for e in EPS][:12], "#8fae8b")}</div></div>'
+    per_ep_bars = bars([('EP.%02d' % e['ep'], sum(1 for _ in open(os.path.join(out, 'eps', e['slug'], 'selection.csv'), encoding='utf-8-sig')) - 1) for e in EPS][:12], '#8fae8b')
+    body += f'<h2>숫자로 본 시리즈</h2><div class="g"><div class="box"><h3>문서의 시대 ({len(docs)}건)</h3>{bars(CENT)}</div><div class="box"><h3>편별 문서 수</h3>{per_ep_bars}</div></div>'
     if hist: body += '<h2>히스토리</h2><div class="tl">' + ''.join(f'<div>{h(l.lstrip("- ").strip())}</div>' for l in hist.splitlines() if l.strip()) + '</div>'
     body += '<h2>편별 큐레이터 노트 · 전달 에디팅</h2><div class="tw" tabindex="0" role="region" aria-label="표"><table><tr><th>편</th><th>전하고 싶은 것</th><th>핵심 정서</th><th>남겨 둔 질문</th></tr>' + ''.join(f'<tr><td><a href="eps/{e["slug"]}/index.html">EP.{e["ep"]:02d} {h(e["title"])}</a></td><td>{h(e["cur"].get("message", ""))}</td><td>{h(e["dv"].get("emotion", ""))}</td><td>{h(e["cur"].get("question", ""))}</td></tr>' for e in EPS) + '</table></div>'
     page(os.path.join(out, 'about.html'), '기획 노트 — ' + stitle, body)
@@ -186,7 +189,7 @@ def main():
     if SITE:  # 검색 엔진용 사이트 지도
         import datetime
         today = datetime.date.today().isoformat()
-        urls = [SITE + f for f in ('', 'analysis.html', 'search.html', 'types.html', 'quotes.html', 'timeline.html', 'questions.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
+        urls = [SITE + f for f in ('', 'analysis.html', 'search.html', 'types.html', 'quotes.html', 'timeline.html', 'questions.html', 'review.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
         open(os.path.join(out, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{h(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in urls) + '</urlset>\n')
     print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · search · types · quotes · timeline · questions.html(모아 보기) · eps/' + (' · sitemap.xml' if SITE else ''))
 
