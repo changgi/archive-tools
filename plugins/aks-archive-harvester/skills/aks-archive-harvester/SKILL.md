@@ -1,6 +1,6 @@
 ---
 name: aks-archive-harvester
-description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘", "통합 분석", "전체를 한눈에", "설치 확인", "링크 미리 보기", "연표", "인용 모음", "질문 카드", "판독 고침 제보", "제보 반영", "판독 고쳐줘", "전체 검색", "문서 유형 사전", "데이터 묶음", "지도". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
+description: This skill should be used when the user wants to collect, curate, edit (with 해제·판독·내용요약 reading aids), mediate (exhibit web page, card news, lesson handout, SNS post, Reels promo copy) or package for comparative research the old documents of a family archive (문중·후손가), academy, temple or other collection on the Academy of Korean Studies 한국고문서자료관 (archive.aks.ac.kr), for one collection or many at once. Trigger phrases include "한국고문서자료관 다운로드", "OO 후손가 문서 전부 받아줘", "archive.aks.ac.kr 전부 받아줘", "문중 고문서 큐레이션", "고문서로 전시 만들어줘", "고문서 카드뉴스", "고문서 수업 자료", "여러 문중 비교 연구", "고문서 연구 패키지", "고문서 이미지 일괄 수집", "원본 사진 전부 줘", "문서 전체 다운로드", "고해상도 원본 영상", "영상 만들어줘", "릴스 영상", "시리즈 사이트", "대표 면 바꿔", "전달 에디팅", "큐레이터 노트", "처음부터 끝까지 만들어줘", "공개 전 점검해줘", "통합 분석", "전체를 한눈에", "설치 확인", "링크 미리 보기", "연표", "인용 모음", "질문 카드", "판독 고침 제보", "제보 반영", "판독 고쳐줘", "전체 검색", "문서 유형 사전", "데이터 묶음", "지도", "검토지", "검토 표시". Finds the collection by name, rebuilds original-resolution JPGs from DZI tiles, then curates, edits, mediates and packages.
 ---
 
 # AKS 한국고문서자료관: 수집 → 큐레이션 → 에디팅 → 매개 → 패키징
@@ -27,6 +27,7 @@ A worked example of every step, with the auto drafts and the edited results side
 | 5 | 큐레이터 노트 | fill `curator.md` (six headings) — facts only, intent confirmed by the user | Claude + user |
 | 6 | 전달 에디팅 | `studio.py delivery --work W --theme <id>` (redraft after step 4: climax line, closing question) → refine `delivery.md` | tool → Claude + user |
 | 6b | readiness check | `studio.py check --work W --theme <id>` — empty fields, stories without "현대어(原文)" quotes, cover-like representative pages, outputs older than their notes → numbered next steps (`--strict` exits 1 while anything is left) | tool |
+| 6c | proof and review | `studio.py proof --work W --theme <id>` → print, compare image with 판독 · 번역 → `studio.py fix` for errors, `studio.py review --n 1,3 --by 이름` for checked documents (removes the 초안 badge) | user (Claude prepares) |
 | 6a | representative page | `studio.py page --work W --theme <id> --n 1 --page 002.jpg` when page 1 is a cover/rolled scroll | user choice |
 | 7 | promo, then mediate | `studio.py promo … --ep N --url <exhibit URL>` → `studio.py mediate --work W --theme <id> --url <exhibit URL>` | tool |
 | 8 | video | `video.py --work W --theme <id> --ep N --url <exhibit URL> --web` | tool |
@@ -129,6 +130,7 @@ The archive states that image use needs the collection owner's consent through i
 **More editing tools** — read `references/editing-tools.md` when you need them:
 - `studio.py delivery` — redraft 전달 에디팅 after 문구 에디팅 (climax = strongest quoted line; keeps what a person wrote unless `--force`).
 - `studio.py fix` — apply a 「판독 고침 제보」 (GitHub issue or the user's rereading) after previewing; logs `corrections.csv`, shown as 「함께 고친 곳」.
+- `studio.py proof` / `review` — a printable proof sheet (image beside 판독 · 번역 · quoted lines, check boxes and a correction box, one A4 per unreviewed document), then mark documents a person has checked. Never mark 검토 yourself: it records a human's comparison with the original.
 - `studio.py page` — swap a cover-like representative page; old-Hangul font subset added automatically to pages that need it.
 
 **Curator note (큐레이터 노트 — 기획 의도 · 비하인드).** `edit` writes `edit/<id>/curator.md` with six headings. Fill it before `mediate`, because people want to know why these documents were chosen and what the work hopes to say, not only what the documents read:

@@ -1,5 +1,11 @@
 # 변경 기록
 
+## aks-archive-harvester 1.7.0 (2026-11-17)
+- **검토지 `studio.py proof`**: 검토 칸이 빈 문서마다 인쇄용 A4 한 장 — 왼쪽에 원본 면(없으면 대표 이미지), 오른쪽에 판독 · 번역 · 이야기 속 "현대어(原文)" 인용, □ · (?) 개수, 확인 칸(판독 · 번역 · 연도·인물 · 인용 원문 일치) · 검토자 · 날짜, 「고칠 곳」 상자. `--all`로 모두
+- **검토 표시 `studio.py review --n 1,3 --by 이름`**: 사람이 대조를 마친 문서의 검토 칸에 "이름 날짜" → 결과물의 「초안」 딱지가 빠짐, `--undo`로 지움. SKILL.md: 검토 표시는 사람의 대조 기록이므로 Claude가 대신 하지 않음
+- `check`: 초안이 남으면 proof → review 순서를 안내
+- selftest 22단계(`--video` 23단계), 따라하기 예제에 검토 단계와 검토지 예시(`steps/W1/proof.html`)
+
 ## aks-archive-harvester 1.6.3 (2026-11-17)
 - **이름으로 찾기까지 시험** (`selftest.py`): 가짜 서버가 자료관 최상위 → 지역 → 소장처 목록도 흉내 — `harvest.py find "이름" --first --manifest --match`가 소장처를 찾아 `collection.json` · `docs.json`을 만드는지. 이제 수집부터 분석까지 모든 명령이 인터넷 없이 시험됨(20단계, `--video` 21단계). 시험 중에는 임시 소장처 목록 캐시를 써서 내 컴퓨터의 진짜 캐시(`~/.aks-archive-catalog.json`)는 건드리지 않음
 - `harvest.py`: 시험용 `AKS_CATALOG` 환경 변수(평소엔 쓰지 않음)

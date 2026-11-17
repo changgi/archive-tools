@@ -1216,6 +1216,56 @@ def corrections_html(log):
 
 
 
+def cmd_proof(a):
+    """검토지 — 사진 옆에 판독 · 번역을 놓고 사람이 대조해 표시하는 인쇄용 A4 (검토 칸이 빈 문서부터)"""
+    ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
+    if not os.path.exists(p): sys.exit(f'{p}이(가) 없습니다.')
+    sel = list(csv.DictReader(open(p, encoding='utf-8-sig')))
+    todo = sel if a.all else [r for r in sel if not r.get('검토')]
+    if not todo: print('검토할 문서가 없습니다(모두 검토 표시됨). 모두 다시 보려면 --all'); return
+    e = html.escape
+    def img(r):
+        orig = os.path.join(a.work, r.get('원본경로') or '')
+        src = orig if r.get('원본경로') and os.path.exists(orig) else os.path.join(ed, r.get('이미지') or '')
+        return f'<img src="{b64(src, 1500)}" alt="{e(r["문서명"])}">' if os.path.exists(src) else '<div class="noimg">사진 없음</div>'
+    unk = lambda t: (t or '').count('□') + (t or '').count('(?)')
+    pages = ''.join(f"""<section class="sheet"><header><b>{e(r['순서'])}. {e(r['문서명'])}</b><span>{e(r.get('자료ID', ''))}{(' · □ · (?) ' + str(unk(r.get('판독')))) if unk(r.get('판독')) else ''}</span></header>
+<div class="cols"><div class="pic">{img(r)}{('<p class="v">원본 뷰어: ' + e(r['뷰어링크']) + '</p>') if r.get('뷰어링크') else ''}</div>
+<div class="txt"><h3>판독</h3><pre>{e(r.get('원문') or r.get('판독') or '(비어 있음)')}</pre><h3>번역</h3><p>{e(r.get('번역') or '(비어 있음)')}</p>
+<h3>이야기 속 인용</h3><p>{e(' / '.join(f'"{q[0]}({q[1]})"' for q in find_quotes(r.get('이야기'))) or '—')}</p></div></div>
+<div class="chk"><span>☐ 판독 대조</span><span>☐ 번역 대조</span><span>☐ 연도 · 인물</span><span>☐ 인용 원문 일치</span><span>검토자 ______ 날짜 ______</span></div>
+<div class="memo">고칠 곳 (줄 · 이전 → 이후 · 근거)</div></section>""" for r in todo)
+    title = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')).get('title', a.theme) if os.path.exists(os.path.join(ed, 'theme.json')) else a.theme
+    page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>검토지 — {e(title)}</title><style>
+body{{font-family:'Noto Sans KR','Malgun Gothic',sans-serif;color:#111;margin:0;background:#eee}}.intro{{max-width:900px;margin:20px auto;padding:0 16px;font-size:14px}}
+.sheet{{background:#fff;max-width:900px;margin:16px auto;padding:14mm 12mm;box-shadow:0 1px 4px #0002;page-break-after:always;break-after:page}}
+header{{display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid #111;padding-bottom:6px;margin-bottom:10px}}header span{{font-size:12px;color:#555}}
+.cols{{display:grid;grid-template-columns:1fr 1fr;gap:14px}}.pic img{{width:100%;border:1px solid #ccc}}.noimg{{border:1px dashed #999;padding:40px;text-align:center;color:#777}}.v{{font-size:10px;color:#666;word-break:break-all}}
+h3{{font-size:13px;margin:8px 0 4px;color:#7a5a24}}pre{{white-space:pre-wrap;font:15px/2 'Noto Serif KR','Batang',serif;margin:0}}.txt p{{font-size:13.5px;line-height:1.7;margin:0}}
+.chk{{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;font-size:13px}}.memo{{border:1px solid #999;height:38mm;margin-top:8px;padding:6px;font-size:12px;color:#666}}
+@media print{{body{{background:#fff}}.intro{{display:none}}.sheet{{box-shadow:none;margin:0;max-width:none}}}}@page{{size:A4;margin:0}}</style></head><body>
+<div class="intro"><b>검토지 — {e(title)}</b> · 문서 {len(todo)}건{'' if a.all else '(검토 칸이 빈 문서)'} · 인쇄하면 한 장에 한 문서. 사진과 판독 · 번역을 대조해 표시한 뒤, 고칠 곳은 <code>studio.py fix</code>로, 확인을 마친 문서는 <code>studio.py review --n 번호 --by 이름</code>으로 표시하세요.</div>
+{pages}</body></html>"""
+    out = os.path.join(ed, 'proof.html'); open(out, 'w', encoding='utf-8').write(put_oldhangul(page, oldhangul_css(page)))
+    print(f'→ {out}  검토할 문서 {len(todo)}건 (인쇄용 A4, 한 장에 한 문서)')
+
+
+def cmd_review(a):
+    """검토 표시 — 사람이 원문과 대조를 마친 문서의 검토 칸에 '이름 날짜'. 결과물의 '초안' 딱지가 빠진다"""
+    import datetime
+    ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
+    rows = list(csv.DictReader(open(p, encoding='utf-8-sig'))); cols = list(rows[0].keys())
+    want = {x.strip() for x in a.n.split(',') if x.strip()}
+    stamp = '' if a.undo else f"{a.by} {datetime.date.today().isoformat()}"
+    hit = [r for r in rows if str(r.get('순서')) in want]
+    if not hit: sys.exit('그 순서의 문서가 없습니다.')
+    for r in hit: r['검토'] = stamp; print(f"{r['순서']}. {r['문서명']} → 검토: {stamp or '(지움)'}")
+    with open(p, 'w', newline='', encoding='utf-8-sig') as fh:
+        w = csv.DictWriter(fh, fieldnames=cols); w.writeheader(); w.writerows(rows)
+    left = sum(1 for r in rows if not r.get('검토'))
+    print(f'남은 검토 {left}건 · 결과물에 반영하려면 mediate(· promo)를 다시 실행하세요.')
+
+
 def cmd_page(a):
     """대표 면 바꾸기 — 두루마리 겉면·표지 대신 글이 있는 면을 카드·전시·영상에 쓰기"""
     ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
@@ -1296,7 +1346,7 @@ def cmd_check(a):
     if os.path.exists(os.path.join(md, 'exhibit.html')) and os.path.exists(os.path.join(md, 'promo.md')) and os.path.getmtime(os.path.join(md, 'promo.md')) > os.path.getmtime(os.path.join(md, 'index.html') if os.path.exists(os.path.join(md, 'index.html')) else os.path.join(md, 'exhibit.html')):
         todo.append('promo.md가 mediate 뒤에 바뀌었습니다 → mediate 다시(첫 페이지 「홍보 글」 타일)')
     drafts = sum(1 for s in sel if not s.get('검토'))
-    note = f" 다만 {drafts}건은 '초안' 표시가 남습니다(판독을 확인한 뒤 검토 칸에 확인자·날짜)." if drafts else ''
+    note = f" 다만 {drafts}건은 '초안' 표시가 남습니다 — studio.py proof 로 검토지를 뽑아 대조한 뒤 studio.py review --n 번호 --by 이름." if drafts else ''
     print('\n[다음 할 일]' if todo else f'\n✓ 공개 준비 완료 — 이미지 공개 전 소장처 동의(자료관 031-730-8873, 8876)를 확인하세요.{note}')
     for i, t in enumerate(dict.fromkeys(todo), 1): print(f'  {i}. {t}')
     if a.strict and todo: sys.exit(1)
@@ -1429,6 +1479,11 @@ def main():
     fx.add_argument('--replace-part', help='칸 전체가 아니라 이 구절만 --text 로 바꾸기'); fx.add_argument('--note', help='근거 · 메모')
     fx.add_argument('--issue', type=int, help='GitHub 이슈 번호(「판독 고침 제보」 양식을 읽음)'); fx.add_argument('--repo', help='아이디/저장소')
     fx.add_argument('--apply', action='store_true', help='실제로 반영(없으면 미리 보기)'); fx.add_argument('--list', action='store_true', help='고친 기록 보기')
+    pf = sp.add_parser('proof', help='검토지(인쇄용): 사진 옆에 판독 · 번역 · 인용을 놓고 대조 표시 → edit/<테마>/proof.html')
+    pf.add_argument('--work', required=True); pf.add_argument('--theme', required=True); pf.add_argument('--all', action='store_true', help='검토 표시된 문서까지 모두')
+    rv = sp.add_parser('review', help='검토 표시: 원문 대조를 마친 문서의 검토 칸에 이름 · 날짜')
+    rv.add_argument('--work', required=True); rv.add_argument('--theme', required=True); rv.add_argument('--n', required=True, help='순서 번호(예: 1,3,4)')
+    rv.add_argument('--by', default='검토자', help='검토한 사람 이름'); rv.add_argument('--undo', action='store_true', help='검토 표시 지우기')
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
     ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')
     og = sp.add_parser('originals', help='원본 묶음: 선별 문서의 원본 해상도 사진(--full 이면 문서 전체 면) + 원본 영상 → 분할 ZIP')
@@ -1441,7 +1496,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'fix': cmd_fix}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review}[a.cmd](a)
 
 
 if __name__ == '__main__':
