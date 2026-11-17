@@ -1,5 +1,12 @@
 # 변경 기록
 
+## aks-archive-harvester 1.7.2 (2026-11-18)
+- **배포 파일을 늘 같게** `tools/build_dist.py`: 파일 순서 · 날짜를 고정해 같은 소스면 같은 바이트의 `.plugin` · 스킬 ZIP — 고칠 때마다 배포 파일이 통째로 바뀌어 패치 · 저장소가 불어나던 것을 막음. `--check`로 dist가 소스와 같은지 확인
+- **버전 일치 확인** `tools/check_version.py`: plugin.json · marketplace.json(두 곳) · CHANGELOG 맨 위
+- **자동 릴리스** `.github/workflows/release.yml`: `v1.7.2` 같은 태그를 올리면 버전 확인 → 배포 파일 → CHANGELOG의 그 버전 기록을 붙인 GitHub 릴리스(`tools/changelog_section.py`)
+- 자동 시험(selftest.yml)에 버전 일치 · dist 검사 · 101편 전시 · 활동지 · 검토지까지 링크 검사 추가
+- `CONTRIBUTING.md`: 버전 · 배포 파일 · 파이썬 3.10 호환 · 릴리스 안내
+
 ## aks-archive-harvester 1.7.1 (2026-11-17)
 - **Python 3.10 · 3.11에서 `series.py` · `analysis.py`가 시작조차 안 되던 문제 고침**: f-string 안에 같은 따옴표를 겹쳐 쓰거나 `\`를 쓴 곳 3군데(3.12부터만 허용되는 문법). 3.11에서 문법 검사와 selftest 22/22 통과 확인. 1.1.0~1.7.0을 3.12 미만에서 쓰셨다면 시리즈 사이트 · 통합 분석이 멈췄을 수 있습니다(GitHub Actions의 3.10 시험이 잡았을 문제)
 - **검토 현황 `review.html`** (`analysis.py` · `series.py`): 편마다 문서 · 검토 마침 · 남음 · □·(?) 수 · 진행 막대 · 검토지 링크, 전체 진행률, 찾기

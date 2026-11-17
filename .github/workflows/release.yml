@@ -1,0 +1,30 @@
+name: release
+
+# v1.7.2 같은 태그를 올리면: 버전 확인 → 배포 파일 만들기 → GitHub 릴리스(변경 기록 + .plugin · 스킬 ZIP)
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 버전 확인(태그 · plugin.json · marketplace.json · CHANGELOG)
+        run: |
+          python tools/check_version.py
+          test "v$(python -c "import json;print(json.load(open('plugins/aks-archive-harvester/.claude-plugin/plugin.json'))['version'])")" = "$GITHUB_REF_NAME"
+      - name: 배포 파일
+        run: python tools/build_dist.py
+      - name: 릴리스
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/changelog_section.py "$GITHUB_REF_NAME" > notes.md
+          gh release create "$GITHUB_REF_NAME" dist/aks-archive-harvester.plugin dist/aks-archive-harvester-skill.zip --title "aks-archive-harvester $GITHUB_REF_NAME" --notes-file notes.md

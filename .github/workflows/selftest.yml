@@ -3,7 +3,7 @@ name: selftest
 # 플러그인이 Windows · macOS · Linux에서 끝까지 도는지 — 인터넷 없이 가짜 문서로 전 과정 시험
 on:
   push:
-    paths: ['plugins/**', 'tools/**', '.github/workflows/selftest.yml', 'examples/**/*.html']
+    paths: ['plugins/**', 'tools/**', 'dist/**', 'CHANGELOG.md', '.claude-plugin/**', '.github/workflows/selftest.yml', 'examples/**/*.html']
   pull_request:
   workflow_dispatch:
 
@@ -38,5 +38,9 @@ jobs:
           python-version: '3.12'
       - name: 매니페스트(JSON) 확인
         run: python -c "import json;json.load(open('.claude-plugin/marketplace.json'));json.load(open('plugins/aks-archive-harvester/.claude-plugin/plugin.json'));print('ok')"
+      - name: 버전 일치(plugin.json · marketplace.json · CHANGELOG)
+        run: python tools/check_version.py
+      - name: dist가 소스와 같은지
+        run: python tools/build_dist.py --check
       - name: 예시 사이트 깨진 링크 확인
-        run: python tools/check_links.py
+        run: python tools/check_links.py --all
