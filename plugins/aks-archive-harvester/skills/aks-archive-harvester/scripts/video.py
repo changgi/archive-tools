@@ -10,7 +10,7 @@
 결과: WORK/mediate/<테마>/video/<id>_reel.mp4 · _wide.mp4 · .ko.srt · .ko.vtt  (--web: 540p 압축본도)
 필요: ffmpeg, Pillow (+ 선택: pip install edge-tts)
 """
-import argparse, asyncio, csv, glob, json, os, re, shutil, subprocess, sys
+import argparse, asyncio, csv, json, os, re, shutil, subprocess, sys
 
 for _s in (sys.stdout, sys.stderr):  # Windows에서 출력을 파일·파이프로 보낼 때(cp949) 기호 때문에 멈추지 않게
     try: _s.reconfigure(errors='replace')
@@ -149,8 +149,8 @@ def main():
             import certifi; certifi.where = lambda: os.environ['AKS_CA_BUNDLE']
         except Exception: pass
     if tts:
-        try: import edge_tts  # noqa
-        except Exception: print('edge-tts가 없어 무음 영상으로 만듭니다 (pip install edge-tts)'); tts = False
+        import importlib.util
+        if importlib.util.find_spec('edge_tts') is None: print('edge-tts가 없어 무음 영상으로 만듭니다 (pip install edge-tts)'); tts = False
     if not shutil.which('ffprobe') and tts: sys.exit('ffprobe가 필요합니다(ffmpeg과 함께 설치됩니다).')
     S, foot, title = scenes(a.work, a.theme, a.ep, a.url, a.max_docs)
     od = os.path.join(a.work, 'mediate', a.theme, 'video'); os.makedirs(od, exist_ok=True)

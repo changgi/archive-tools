@@ -33,7 +33,7 @@ def jload(p):
         with open(p, encoding='utf-8') as f: return json.load(f)
     except UnicodeDecodeError:
         with open(p) as f: return json.load(f)
-from collections import Counter, defaultdict
+from collections import Counter
 from PIL import Image, ImageDraw, ImageFont, ImageStat
 
 Image.MAX_IMAGE_PIXELS = None
@@ -688,7 +688,7 @@ h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);ma
 <h2>담긴 문서</h2><ol>{''.join(f"<li>{'' if str(x['문서명']).startswith(str(x['연도'])) else html.escape(str(x['연도'])) + ' '}{html.escape(x['문서명'])}</li>" for x in sel)}</ol>
 <p class="k">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다(소장처 동의 필요).</p></main></body></html>"""
     open(os.path.join(od, 'index.html'), 'w', encoding='utf-8').write(put_oldhangul(put_share(idx, SM('index.html', title + ' — 결과물 한눈에 보기')), OHCSS))
-    print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(cardfs)}장(카드뉴스)' + (f' · 영상 {len(vids)}개' if vids else '') + f' · handout.html(수업 활동지) · sns.txt')
+    print(f'→ {od}\n  index.html(결과물 한눈에 보기) · exhibit.html(전시 웹페이지) · cards/ {len(cardfs)}장(카드뉴스)' + (f' · 영상 {len(vids)}개' if vids else '') + ' · handout.html(수업 활동지) · sns.txt')
     if unchecked: print(f'  ※ 검토 칸이 비어 있는 캡션 {len(unchecked)}건은 "초안" 표시가 붙습니다.')
 
 
@@ -898,7 +898,7 @@ def read_curator(ed):
 
 def curator_facts(sel, work=None):
     """제작 기록 — selection.csv와 받은 면에서 자동으로 세는 사실들"""
-    got = tot = 0
+    got = 0
     for s in sel:
         if work and s.get('원본경로'):
             got += len(glob.glob(os.path.join(os.path.dirname(os.path.join(work, s['원본경로'])), '*.jpg')))
@@ -1297,7 +1297,7 @@ def cmd_check(a):
     sp_ = os.path.join(ed, 'selection.csv')
     if not os.path.exists(sp_): sys.exit(f'{sp_}이(가) 없습니다. 먼저 studio.py edit 를 실행하세요.')
     sel = list(csv.DictReader(open(sp_, encoding='utf-8-sig')))
-    todo, warn = [], []
+    todo = []
     print(f'■ 점검: {a.work}/{a.theme} — 문서 {len(sel)}건')
     print('\n[문구 에디팅]')
     for s in sel:

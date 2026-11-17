@@ -28,6 +28,7 @@ python3 $S/studio.py mediate --work W --theme T --url <전시 주소> --issues h
 
 1. `python3 $S/selftest.py` — 인터넷 없이 전 과정 시험(영상까지: `--video`)
 2. `python3 tools/check_links.py --all` — 예시 사이트 깨진 링크
+   그리고 `python3 -m pyflakes plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts tools` — 정의 안 된 이름 · 쓰지 않는 import
 3. 바꾼 내용을 `CHANGELOG.md`에, 쓰는 법이 바뀌면 `SKILL.md` · README에. 버전은 세 곳(plugin.json · marketplace.json 두 곳)과 CHANGELOG 맨 위를 함께 — `python3 tools/check_version.py`
 4. `python3 tools/build_dist.py` — 배포 파일(`dist/`)을 다시 만듦. 같은 소스면 같은 바이트가 나옵니다(`--check`로 확인)
 5. 파이썬 3.10에서도 돌아야 합니다 — f-string 안에 같은 따옴표를 겹쳐 쓰거나 `\`를 넣지 않기(3.12부터만 됨)

@@ -1,5 +1,10 @@
 # 변경 기록
 
+## aks-archive-harvester 1.7.3 (2026-11-18)
+- **코드 점검(pyflakes)을 자동 시험에**: 정의 안 된 이름 · 쓰지 않는 import · 쓰지 않는 변수 · 빈 f-string을 푸시마다 검사. 지금 코드에서 찾은 10곳(쓰지 않는 import 5 · 변수 3 · 빈 f-string 2)을 정리 — 동작은 그대로, 정의 안 된 이름(실행하면 멈추는 종류)은 없었음
+- `video.py` · `selftest.py`: 설치 여부만 확인하던 `import`를 `importlib.util.find_spec`으로(쓰지 않고 불러오지 않음)
+- 파이썬 3.11 · 3.13에서 selftest 통과(3.13은 영상 포함 23/23)
+
 ## aks-archive-harvester 1.7.2 (2026-11-18)
 - **배포 파일을 늘 같게** `tools/build_dist.py`: 파일 순서 · 날짜를 고정해 같은 소스면 같은 바이트의 `.plugin` · 스킬 ZIP — 고칠 때마다 배포 파일이 통째로 바뀌어 패치 · 저장소가 불어나던 것을 막음. `--check`로 dist가 소스와 같은지 확인
 - **버전 일치 확인** `tools/check_version.py`: plugin.json · marketplace.json(두 곳) · CHANGELOG 맨 위

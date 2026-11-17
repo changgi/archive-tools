@@ -10,7 +10,7 @@
             핵심 정서 · 판독 난도 · 원문 인용 모음 · 자주 나온 인물 · 남겨 둔 질문 · 편별 표 · 데이터의 한계.
 모든 수치는 selection.csv(문서명에서 뽑은 연도·유형·인물 포함)와 curator.md · delivery.md에서 셉니다.
 """
-import argparse, collections, csv, glob, html, json, os, re, statistics, sys
+import argparse, collections, csv, glob, html, json, os, re, sys
 
 for _s in (sys.stdout, sys.stderr):
     try: _s.reconfigure(errors='replace')

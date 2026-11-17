@@ -148,12 +148,12 @@ def main():
         return good
 
     try:
-        w = make_work(root); res.append(('가짜 작업 폴더 만들기', True, '', ''))
+        make_work(root); res.append(('가짜 작업 폴더 만들기', True, '', ''))
     except Exception as e:
         print('가짜 작업 폴더를 만들지 못했습니다:', e); sys.exit(1)
     W = 'W'
-    try: import requests  # noqa — 수집(download) 시험은 requests가 있을 때만
-    except Exception: res.append(('harvest.py download (requests 없음 — 건너뜀)', True, '', 'pip install requests'))
+    import importlib.util
+    if importlib.util.find_spec('requests') is None: res.append(('harvest.py download (requests 없음 — 건너뜀)', True, '', 'pip install requests'))
     else: download_test(root, res, py, S)
     run('harvest.py curate', [S('harvest.py'), 'curate', '--work', W], ['W/metadata.csv', 'W/summary.md'])
     run('studio.py themes', [S('studio.py'), 'themes', '--work', W])

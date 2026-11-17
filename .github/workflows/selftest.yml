@@ -38,6 +38,10 @@ jobs:
           python-version: '3.12'
       - name: 매니페스트(JSON) 확인
         run: python -c "import json;json.load(open('.claude-plugin/marketplace.json'));json.load(open('plugins/aks-archive-harvester/.claude-plugin/plugin.json'));print('ok')"
+      - name: 코드 점검(pyflakes — 정의 안 된 이름 · 쓰지 않는 import 등)
+        run: |
+          python -m pip install pyflakes
+          python -m pyflakes plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts tools
       - name: 버전 일치(plugin.json · marketplace.json · CHANGELOG)
         run: python tools/check_version.py
       - name: dist가 소스와 같은지

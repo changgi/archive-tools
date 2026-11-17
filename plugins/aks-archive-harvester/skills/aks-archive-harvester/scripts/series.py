@@ -174,7 +174,7 @@ def main():
     body += '<h2>편별 큐레이터 노트 · 전달 에디팅</h2><div class="tw" tabindex="0" role="region" aria-label="표"><table><tr><th>편</th><th>전하고 싶은 것</th><th>핵심 정서</th><th>남겨 둔 질문</th></tr>' + ''.join(f'<tr><td><a href="eps/{e["slug"]}/index.html">EP.{e["ep"]:02d} {h(e["title"])}</a></td><td>{h(e["cur"].get("message", ""))}</td><td>{h(e["dv"].get("emotion", ""))}</td><td>{h(e["cur"].get("question", ""))}</td></tr>' for e in EPS) + '</table></div>'
     page(os.path.join(out, 'about.html'), '기획 노트 — ' + stitle, body)
     # ---- 홍보 가이드
-    body = f'<p class="k">PROMOTION</p><h1>채널별 홍보 가이드</h1><p class="lead">한 게시물에 문서 한 장·원문 한 줄, 질문으로 열고 「남겨 둔 질문」으로 닫기, 출처는 언제나, 판독은 초안이라고.</p>'
+    body = '<p class="k">PROMOTION</p><h1>채널별 홍보 가이드</h1><p class="lead">한 게시물에 문서 한 장·원문 한 줄, 질문으로 열고 「남겨 둔 질문」으로 닫기, 출처는 언제나, 판독은 초안이라고.</p>'
     body += '<div class="tw" tabindex="0" role="region" aria-label="표"><table><tr><th>채널</th><th>형식</th><th>쓰는 파일</th><th>요령</th></tr>' + ''.join(f'<tr><td><b>{h(a_)}</b></td><td>{h(b)}</td><td>{h(c)}</td><td>{h(d)}</td></tr>' for a_, b, c, d in ST.CHANNELS) + '</table></div>'
     body += '<h2>4주 계획</h2><div class="tw" tabindex="0" role="region" aria-label="표"><table><tr><th>주</th><th>무엇을</th></tr><tr><td>1주</td><td>1차 공개 — 릴스 · 카드뉴스 · 전시 링크</td></tr><tr><td>2주</td><td>2차 — 편별 비하인드 카드 ①②③, 「남겨 둔 질문」으로 댓글</td></tr><tr><td>3주</td><td>시리즈 — 기획 노트 카드 · 시리즈 영상 · 유튜브 묶음</td></tr><tr><td>4주</td><td>확장 — 장문 · 지역 커뮤니티 · 수업 · 전시 제안</td></tr></table></div>'
     body += '<h2>편별 채널 홍보안</h2><ul>' + ''.join(f'<li><a href="eps/{e["slug"]}/channels.md">EP.{e["ep"]:02d} {h(e["title"])}</a></li>' for e in EPS if e['has'].get('channels.md')) + '</ul>'
