@@ -32,7 +32,7 @@ python3 video.py --work WORK --theme <id> [--ep 7] [--url 전시주소] [--forma
 **Series site — `series.py`.** For several episodes:
 
 ```bash
-python3 series.py --list series.tsv --note series.md --out SITE [--title "시리즈 제목"] [--home ../index.html --home-label "← 전체 갤러리"]
+python3 series.py --list series.tsv --note series.md --out SITE [--title "시리즈 제목"] [--text-license "CC BY 4.0"] [--home ../index.html --home-label "← 전체 갤러리"]
 ```
 
 - `series.tsv`: a header line, then one line per episode — `ep<TAB>work<TAB>theme[<TAB>url]`. Work folders are found relative to the current folder or to the TSV's folder. Missing episodes are reported and skipped; videos: the `_web.mp4` copies when they exist, otherwise the full-size files (it warns about the size).
@@ -47,3 +47,5 @@ python3 series.py --list series.tsv --note series.md --out SITE [--title "시리
 - On a main page, show a few summary lines and link the analysis so first-time visitors see the whole at once.
 - Collections (모아 보기), written next to the analysis: `search.html` (full-text search over 판독 · 원문 · 번역 · 해제 · 요약 · 이야기 with field filters and highlighted snippets; `?q=` opens a search), `types.html` (문서 유형 사전 — each document type with how to read it, count, centuries and examples from different episodes), `quotes.html` (every "현대어(原文)" quote, searchable), `timeline.html` (every dated document by century, with links to the episode and the archive viewer), `questions.html` (all 남겨 둔 질문 as cards that print two per row), `review.html` (검토 현황 — reviewed / remaining documents per episode). Analysis, collections and series pages have a light print style.
 - Quotes are found by `studio.find_quotes`: a quotation that contains a parenthesis with Hanja or old Hangul counts, wherever the parenthesis sits ("…하오니(원문), 그 밖에 …") and in either order (원문(현대어) for old-Hangul letters); year parentheses like "(1646)" do not. `check`, `delivery`, `video.py` and the analysis share it.
+
+- `--text-license` states the reuse terms for the texts the user made (판독 · 번역 · 해제 · notes · data) in every page footer and in `data.zip`'s 읽어보기. Ask the user; never choose a license for them. Images are never covered by it — they stay under the holding institution's consent.

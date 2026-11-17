@@ -445,16 +445,16 @@ DATA_README = """{title} — 데이터 묶음
 출처와 이용
 - 문서와 이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처. 원본은 selection.csv의 '뷰어링크'에서 보세요.
 - 이 묶음에는 이미지가 없습니다. 이미지 재사용은 소장처 동의가 필요합니다(한국고문서자료관 031-730-8873, 8876).
-- 판독 · 번역 텍스트를 인용할 때는 "초안"임과 출처를 밝혀 주세요. 고칠 곳은 「판독 고침 제보」로 알려 주세요.
+- 판독 · 번역 텍스트를 인용할 때는 "초안"임과 출처를 밝혀 주세요. 고칠 곳은 「판독 고침 제보」로 알려 주세요.{license}
 만든 날: {date}
 """
 
 
-def data_bundle(path, eps_dirs, folder, title):
+def data_bundle(path, eps_dirs, folder, title, license=''):
     """데이터 묶음 ZIP — eps_dirs: [(폴더 이름, 원본 폴더)] (selection.csv · curator.md · delivery.md · corrections.csv), folder: analysis-*.json/csv가 있는 곳"""
     import zipfile, datetime
     with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED) as z:
-        z.writestr('읽어보기.txt', DATA_README.format(title=title, date=datetime.date.today().isoformat()))
+        z.writestr('읽어보기.txt', DATA_README.format(title=title, date=datetime.date.today().isoformat(), license=('\n- 텍스트 이용 조건: ' + license) if license else ''))
         for name, d in eps_dirs:
             for f in ('selection.csv', 'curator.md', 'delivery.md', 'corrections.csv'):
                 if os.path.exists(os.path.join(d, f)): z.write(os.path.join(d, f), f'{name}/{f}')

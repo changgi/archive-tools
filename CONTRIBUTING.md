@@ -47,4 +47,4 @@ python3 $S/studio.py mediate --work W --theme T --url <전시 주소> --issues h
 - 민감한 기록(기근 · 노비 · 자매 · 형벌)은 존엄을 먼저, 근대 명부의 실명 등 개인정보에 배려
 - 추정은 추정이라고, 못 읽은 글자는 □, 불확실한 글자는 (?)로
 
-코드는 MIT 라이선스(LICENSE)입니다. 판독 · 번역 텍스트의 재사용 조건은 따로 정할 예정입니다.
+코드는 MIT 라이선스(LICENSE), 판독 · 번역 · 해제 등 텍스트는 CC BY 4.0, 이미지는 소장처 동의가 필요합니다 — [LICENSE-CONTENT.md](LICENSE-CONTENT.md). 보내 주신 고침 · 기여도 같은 조건으로 공개됩니다.
