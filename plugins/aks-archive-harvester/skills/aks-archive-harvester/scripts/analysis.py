@@ -436,6 +436,7 @@ DATA_README = """{title} — 데이터 묶음
 - 편별 폴더/corrections.csv : 함께 고친 곳(날짜 · 이전 · 이후 · 근거) (있으면)
 - analysis-data.json : 통합 분석 집계(세기 · 유형 · 지역 · 정서 · 인물 · 인용 · 편별)
 - analysis-episodes.csv : 편별 한 줄 표
+- datapackage.json : 표의 구조 · 출처 · 이용 조건(Frictionless Data — R · Python · OpenRefine 등에서 바로 읽기)
 
 읽을 때
 - 판독 · 번역 · 해제는 이미지에 근거한 초안입니다. □는 못 읽은 글자, (?)는 불확실한 글자입니다.
@@ -450,6 +451,30 @@ DATA_README = """{title} — 데이터 묶음
 """
 
 
+LICENSES = {'CC BY 4.0': ('CC-BY-4.0', 'https://creativecommons.org/licenses/by/4.0/'), 'CC BY-SA 4.0': ('CC-BY-SA-4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'),
+            'CC BY-NC 4.0': ('CC-BY-NC-4.0', 'https://creativecommons.org/licenses/by-nc/4.0/'), 'CC0': ('CC0-1.0', 'https://creativecommons.org/publicdomain/zero/1.0/')}
+SEL_FIELDS = ['순서', '자료ID', '문서명', '연도', '문서유형', '인물', '유형설명', '대표장', '이미지', '원본경로', '캡션', '이야기', '판독', '원문', '번역', '해제', '요약', '검토', '뷰어링크', '공유이미지']
+
+
+def datapackage(names, title, license=''):
+    """Frictionless Data 묶음 설명(datapackage.json) — 다른 도구(Excel 밖의 R · Python · Open Refine 등)가 표의 구조를 알게"""
+    lic = next(((n, u) for k, (n, u) in LICENSES.items() if license.startswith(k)), None)
+    res = []
+    for n in names:
+        if n.endswith('selection.csv'):
+            res.append({'name': f'{len(res) + 1:03d}-' + re.sub(r'[^a-z0-9._-]+', '-', n.lower().replace('/selection.csv', '')).strip('-') + '-selection', 'path': n, 'format': 'csv', 'encoding': 'utf-8-sig',
+                        'schema': {'fields': [{'name': f, 'type': 'integer' if f == '순서' else 'string'} for f in SEL_FIELDS]}})
+        elif n == 'analysis-episodes.csv':
+            res.append({'name': 'episodes', 'path': n, 'format': 'csv', 'encoding': 'utf-8-sig', 'schema': {'fields': [{'name': f, 'type': 'integer' if f in ('문서 수', '처음 연도', '끝 연도') else 'string'} for f in ['편', '제목', '소장처', '종류', '지역', '문서 수', '처음 연도', '끝 연도', '핵심 정서', '전하고 싶은 것', '남겨 둔 질문']]}})
+        elif n == 'analysis-data.json':
+            res.append({'name': 'analysis', 'path': n, 'format': 'json'})
+    dp = {'name': 'gomunseo-data', 'title': title + ' — 데이터 묶음', 'description': '판독 · 번역 · 해제 · 요약 · 이야기와 큐레이터 노트, 통합 분석 집계. 판독 · 번역은 이미지에 근거한 초안. 이미지는 포함하지 않음(소장처 동의 필요).',
+          'sources': [{'title': '한국학중앙연구원 한국고문서자료관', 'path': 'https://archive.aks.ac.kr'}], 'resources': res}
+    if lic: dp['licenses'] = [{'name': lic[0], 'path': lic[1], 'title': license.split(' —')[0]}]
+    elif license: dp['licenses'] = [{'title': license}]
+    return dp
+
+
 def data_bundle(path, eps_dirs, folder, title, license=''):
     """데이터 묶음 ZIP — eps_dirs: [(폴더 이름, 원본 폴더)] (selection.csv · curator.md · delivery.md · corrections.csv), folder: analysis-*.json/csv가 있는 곳"""
     import zipfile, datetime
@@ -460,6 +485,7 @@ def data_bundle(path, eps_dirs, folder, title, license=''):
                 if os.path.exists(os.path.join(d, f)): z.write(os.path.join(d, f), f'{name}/{f}')
         for f in ('analysis-data.json', 'analysis-episodes.csv'):
             if os.path.exists(os.path.join(folder, f)): z.write(os.path.join(folder, f), f)
+        z.writestr('datapackage.json', json.dumps(datapackage(z.namelist(), title, license), ensure_ascii=False, indent=1))
     return path
 
 

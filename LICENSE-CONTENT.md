@@ -16,7 +16,7 @@
 
 > 「고문서 한 장」 판독 · 번역 — Song Chang-gi, https://changgi.github.io/archive-tools/examples/ (CC BY 4.0) · 원문 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공
 
-고쳐서 쓰셨다면 "고쳐 씀"을 덧붙여 주세요.
+고쳐서 쓰셨다면 "고쳐 씀"을 덧붙여 주세요. 논문 · 보고서에서 인용하실 때는 [CITATION.cff](CITATION.cff)(GitHub 「Cite this repository」)를 쓰시면 됩니다.
 
 ## 꼭 알아 두실 것
 

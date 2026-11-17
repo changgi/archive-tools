@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "이 저장소의 도구나 「고문서 한 장」 판독 · 번역 · 분석 데이터를 쓰셨다면 아래처럼 인용해 주세요. If you use this software or the transcriptions, please cite it as below."
+title: "archive-tools: aks-archive-harvester와 「고문서 한 장」 — 한국고문서자료관 고문서 수집 · 큐레이션 · 에디팅 · 매개 도구와 예시"
+type: software
+authors:
+  - family-names: Song
+    given-names: Chang-gi
+    email: chgsong@naver.com
+version: 1.8.1
+date-released: 2026-11-18
+url: "https://changgi.github.io/archive-tools/examples/"
+repository-code: "https://github.com/changgi/archive-tools"
+license: MIT
+abstract: >-
+  Claude 플러그인 aks-archive-harvester(한국학중앙연구원 한국고문서자료관 고문서의 수집 → 큐레이션 → 문구 · 전달 에디팅 →
+  전시 · 카드뉴스 · 활동지 · 영상 매개 → 시리즈 사이트 · 통합 분석 · 연구 패키지)와, 이를 써서 만든 101편 355건 문서의 판독 · 번역 · 해제 예시.
+  코드는 MIT, 판독 · 번역 · 해제 등 텍스트와 분석 데이터는 CC BY 4.0(LICENSE-CONTENT.md), 고문서 이미지는 소장처 동의가 필요합니다.
+keywords:
+  - Korean old documents
+  - 고문서
+  - archival curation
+  - digital humanities
+  - transcription
+  - Claude plugin

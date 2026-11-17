@@ -1,5 +1,10 @@
 # 변경 기록
 
+## aks-archive-harvester 1.8.1 (2026-11-18)
+- **인용 정보 `CITATION.cff`**: GitHub 저장소 화면의 「Cite this repository」에서 APA · BibTeX로 바로 복사(형식 검증 통과). README · LICENSE-CONTENT에 안내, `tools/check_version.py`가 CITATION.cff 버전도 함께 확인
+- **데이터 묶음에 `datapackage.json`** (`analysis.datapackage`): 편별 selection.csv와 편별 표의 열 이름 · 형식, 분석 JSON, 출처, 이용 조건(CC BY 4.0이면 표준 이름과 주소)을 적은 Frictionless Data 설명 — R · Python · OpenRefine 등에서 구조를 알고 바로 읽음
+- 예시 데이터 묶음(103개 자료 설명) · 따라하기 사이트 다시 만듦
+
 ## aks-archive-harvester 1.8.0 (2026-11-18)
 - **텍스트 이용 조건 CC BY 4.0** (`LICENSE-CONTENT.md`): 이 저장소가 새로 만든 판독 · 번역 · 해제 · 요약 · 이야기 · 캡션 · 큐레이터 노트 · 전달 에디팅 · 기획 노트 · 분석 데이터 · 홍보 문구 · 자막 글은 출처를 밝히면 상업적 이용 · 수정까지 가능. 고문서 이미지(와 그것이 들어간 카드 · 전시 · 활동지 · 영상 · 검토지)는 포함되지 않으며 소장처 동의가 필요. 코드는 그대로 MIT. 출처 표기 예와 "초안" 안내 포함
 - `series.py --text-license "CC BY 4.0"`: 사이트 모든 페이지 아래와 `data.zip` 읽어보기에 텍스트 이용 조건 표시(`analysis.data_bundle(license=…)`). SKILL 안내: 조건은 사용자에게 물어서 정하고 대신 고르지 않음

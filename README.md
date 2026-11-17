@@ -100,6 +100,7 @@ python3 plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/studi
 ## 이용 시 유의
 
 - **이용 조건**: 코드 MIT([LICENSE](LICENSE)) · 판독 · 번역 · 해제 · 이야기 · 노트 · 분석 데이터 등 텍스트 **CC BY 4.0** · 고문서 이미지는 소장처 동의 필요 — [LICENSE-CONTENT.md](LICENSE-CONTENT.md)
+- **인용**: [CITATION.cff](CITATION.cff) — GitHub 저장소 오른쪽 「Cite this repository」에서 APA · BibTeX로 바로 복사
 
 - 공공 연구기관 서버입니다. 기본 동시 요청 수(타일 16개, 페이지 2장)를 올리지 마세요.
 - 수집한 이미지의 이용·재배포는 한국고문서자료관 이용 조건을 따르세요. 대량 이용은 기관(031-779-2791)에 원본 제공을 요청하는 것이 확실합니다.
