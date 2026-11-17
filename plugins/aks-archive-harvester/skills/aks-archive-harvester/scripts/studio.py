@@ -613,7 +613,7 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
     # 3) 수업 활동지 (인쇄용 HTML)
     qs = []
     for s in sel:
-        qs.append(f"""<div class="q">{fig(s, 900)}<div><h3>{s['순서']}. {html.escape(str(s['연도']))} {html.escape(s['문서유형'])}</h3>
+        qs.append(f"""<div class="q">{fig(s, 900)}<div><h2>{s['순서']}. {html.escape(str(s['연도']))} {html.escape(s['문서유형'])}</h2>
 <p><b>어떤 문서? (해제)</b> {html.escape(s.get('해제') or s['유형설명'] or '—')}</p>
 {('<p><b>무슨 내용? (내용 요약)</b> ' + html.escape(s['요약']) + '</p>') if s.get('요약') else ''}
 {('<p class="orig"><b>원문 속 글자</b> ' + html.escape(s['판독']) + '</p>') if has_reading(s) else ''}
@@ -624,9 +624,9 @@ footer{{padding:6vw;color:#9d917c;font:15px/1.8 sans-serif;border-top:1px solid 
     hand = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>활동지 — {html.escape(title)}</title><style>
 @page{{size:A4;margin:16mm}} body{{font-family:'Malgun Gothic','Noto Sans KR',sans-serif;color:#222;font-size:14px}}
 h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:grid;grid-template-columns:42% 1fr;gap:14px;border-top:1px solid #ccc;padding:12px 0;page-break-inside:avoid}}
-.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h3{{margin:0 0 6px}} p{{margin:4px 0;line-height:1.6}} div.tr{{font:13.5px/2.3 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} ruby rt{{font-size:8.5px;color:#8a6a2e}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#666}}
+.q img{{width:100%}} .ph{{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;aspect-ratio:4/3;border:2px dashed #b89a68;color:#5a4628;text-decoration:none;padding:10px;font-size:13px}} .ph b{{font-size:15px;margin:6px 0}} .ph em{{font-style:normal;color:#9a6e2e}} h2,h3{{margin:0 0 6px;font-size:17px}} p{{margin:4px 0;line-height:1.6}} div.tr{{font:13.5px/2.3 'Batang','Noto Serif KR',serif;border-left:3px solid #c9b48a;padding:4px 10px;margin:4px 0;background:#fbf8f1}} ruby rt{{font-size:8.5px;color:#8a6a2e}} .orig{{background:#f6f1e6;padding:4px 8px;border-radius:4px;font-family:'Batang','Noto Serif KR',serif}} .box{{border:1px dashed #999;height:120px;margin-top:10px;padding:8px;color:#666}}
 </style></head><body><h1>고문서로 읽는 이야기: {html.escape(title)}</h1><p class="sub">{html.escape(coll)} · {span} · 이름: ________ </p>{''.join(qs)}
-<h3>정리해 보기</h3><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
+<h2>정리해 보기</h2><div class="box">이 문서들을 시간 순서로 이으면 어떤 이야기가 되나요? 세 문장으로 써 보세요.</div>
 <p class="sub">{html.escape(src_line)} · 이미지 이용은 자료관 이용 조건을 따릅니다. 해제·요약은 문서명과 이미지에 근거한 초안이며 판독이 어려운 글자는 □로 표시했습니다.</p></body></html>"""
     hand = put_curator(hand, curator_html(cur, None, 'handout') if cur else '', None)  # 활동지 맨 끝(교사용)
     open(os.path.join(od, 'handout.html'), 'w', encoding='utf-8').write(put_oldhangul(put_share(hand, SM('handout.html', '활동지 — ' + title)), OHCSS))
@@ -731,7 +731,44 @@ def oldhangul_css(text, url=None):
 
 def put_oldhangul(page, css):
     page = re.sub(r'<style id="oldhangul">.*?</style>', '', page, flags=re.S)
-    return page.replace('</head>', css + '</head>', 1) if css else page
+    return put_a11y(page.replace('</head>', css + '</head>', 1) if css else page)
+
+
+SKIP = ('<!--SKIP--><a class="skip" href="#{t}">본문 바로가기</a><style>.skip{{position:absolute;left:-9999px;top:0;z-index:99;background:#c4964a;color:#16130f;'
+        'padding:8px 14px;font:700 15px sans-serif;border-radius:0 0 8px 0;text-decoration:none}}.skip:focus{{left:0}}'
+        ':focus-visible{{outline:2px solid #c4964a;outline-offset:2px}}</style><!--/SKIP-->')
+
+
+def put_a11y(page):
+    """모든 웹페이지 공통 접근성 손질 — 다시 실행해도 같은 결과(멱등)
+    ① 「본문 바로가기」 링크(키보드 · 화면 낭독기 사용자가 메뉴를 건너뜀) · 초점 테두리
+    ② </main> 뒤 · <footer> 앞에 붙은 노트(큐레이터 · 연출 · 고친 곳)를 본문(main) 안으로
+    ③ 활동지처럼 main이 없으면 본문 전체를 main으로
+    ④ 같은 이름의 영역(원문 판독 · 표)을 「… 1, 2」로 구분, 메뉴(nav)가 여럿이면 이름 붙이기"""
+    page = re.sub(r'<!--SKIP-->.*?<!--/SKIP-->', '', page, flags=re.S)
+    m = re.search(r'</main>((?:(?!<main)[\s\S])*?)(?=<footer)', page)
+    if m and m.group(1).strip(): page = page[:m.start()] + m.group(1) + '</main>' + page[m.end():]
+    if '<main' not in page and '<body' in page:
+        page = re.sub(r'(<body[^>]*>)', lambda x: x.group(1) + '<main>', page, count=1)
+        i = page.rfind('</body>'); page = page[:i] + '</main>' + page[i:]
+    for lab in ('원문 판독', '표'):  # 같은 이름의 영역이 여럿이면 번호로 구분
+        if len(re.findall(rf'aria-label="{lab}(?: \d+)?"', page)) > 1:
+            k = iter(range(1, 10 ** 6))
+            page = re.sub(rf'aria-label="{lab}(?: \d+)?"', lambda x: f'aria-label="{lab} {next(k)}"', page)
+    if len(re.findall(r'<nav\b', page)) > 1:
+        names = iter(['사이트 메뉴', '이 페이지 차례', '다른 메뉴 2', '다른 메뉴 3', '다른 메뉴 4'])
+        page = re.sub(r'<nav\b(?![^>]*aria-label)', lambda x: f'<nav aria-label="{next(names)}"', page)
+    # 건너뛸 곳: 본문 첫 제목(메뉴 뒤) — 없으면 main
+    mi = page.find('<main'); hi = page.find('<h1', mi if mi >= 0 else 0)
+    nav_first = mi >= 0 and 0 <= page.find('<nav', mi) < hi
+    if nav_first and hi >= 0:
+        if not re.match(r'<h1[^>]*\bid=', page[hi:hi + 200]): page = page[:hi] + '<h1 id="content"' + page[hi + 3:]
+        t = re.match(r'<h1[^>]*\bid="([^"]+)"', page[hi:hi + 300]).group(1)
+    elif mi >= 0:
+        if not re.match(r'<main[^>]*\bid=', page[mi:mi + 200]): page = page[:mi] + '<main id="main"' + page[mi + 5:]
+        t = re.match(r'<main[^>]*\bid="([^"]+)"', page[mi:mi + 300]).group(1)
+    else: return page
+    return re.sub(r'(<body[^>]*>)', lambda x: x.group(1) + SKIP.format(t=t), page, count=1)
 
 # ---------------------------------------------------------------- 공유 미리 보기 (카카오톡 · 페이스북 · X 링크 카드)
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E"

@@ -132,10 +132,10 @@ CSS = '''
 @media (max-width:600px){.an .hb{grid-template-columns:6.5em 1fr 4em}}
 .col .qq{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}.col .qq blockquote{margin:0;background:#1f1a14;border-left:3px solid var(--gold);border-radius:8px;padding:10px 14px;font-family:'Noto Serif KR',serif;color:#f3ead8;font-size:15.5px}
 .col .qq blockquote em{display:block;font-style:normal;color:var(--dim);font-size:13px;margin-top:2px}.col .qq blockquote small{display:block;font-family:'Noto Sans KR',sans-serif;color:var(--dim);font-size:12.5px;margin-top:6px}.col .qq a{color:var(--gold)}
-.col .tlv{border-left:2px solid #c4964a66;margin:6px 0 0 4px;padding-left:16px}.col .tlv h3{margin:18px 0 6px;color:var(--gold);font-size:18px}.col .tlv div{margin:0 0 8px;font-size:14.5px;color:#e8dcc4}.col .tlv b{color:#f3ead8;margin-right:6px;font-variant-numeric:tabular-nums}.col .tlv small{color:var(--dim)}.col .tlv a{color:var(--gold)}
+.col .tlv{border-left:2px solid #c4964a66;margin:6px 0 0 4px;padding-left:16px}.col .tlv h2{margin:18px 0 6px;color:var(--gold);font-size:18px}.col .tlv div{margin:0 0 8px;font-size:14.5px;color:#e8dcc4}.col .tlv b{color:#f3ead8;margin-right:6px;font-variant-numeric:tabular-nums}.col .tlv small{color:var(--dim)}.col .tlv a{color:var(--gold)}
 .col .qcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.col .qcards div{background:#1f1a14;border:1px solid #4a3e2c;border-radius:14px;padding:14px 16px;break-inside:avoid}.col .qcards b{display:block;font-family:'Noto Serif KR',serif;font-size:17px;color:#f3ead8;line-height:1.55}.col .qcards span{display:block;margin-top:8px;color:var(--dim);font-size:12.8px}
 .col .sr{padding-left:22px}.col .sr li{margin:0 0 12px;color:#e8dcc4}.col .sr li small{color:var(--dim)}.col .sr li p{margin:3px 0 0;font-size:14.5px;color:#d9cfbb}.col .sr mark{background:#c4964a;color:#16130f;border-radius:3px;padding:0 2px}.col .sr em{font-style:normal;color:var(--gold);font-size:12.5px;margin-right:4px}.col .sr a{color:var(--gold)}
-.col .tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}.col .tcard{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:12px 16px;break-inside:avoid}.col .tcard h3{margin:0 0 6px;color:#f3ead8;font-size:17px}.col .tcard h3 small{color:var(--gold);font-size:12.5px;font-weight:400;margin-left:6px}.col .tcard p{font-size:14px;margin:4px 0}.col .tcard ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}.col .tcard a{color:var(--gold)}
+.col .tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}.col .tcard{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:12px 16px;break-inside:avoid}.col .tcard h2{margin:0 0 6px;color:#f3ead8;font-size:17px}.col .tcard h2 small{color:var(--gold);font-size:12.5px;font-weight:400;margin-left:6px}.col .tcard p{font-size:14px;margin:4px 0}.col .tcard ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}.col .tcard a{color:var(--gold)}
 .pbar{display:inline-block;width:90px;height:8px;background:#2a231a;border-radius:4px;overflow:hidden;vertical-align:middle}.pbar i{display:block;height:100%;background:var(--gold)}
 .col .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 16px}.col input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
 .an input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
@@ -239,7 +239,7 @@ def build(eps, title, kinds_label='소장처 종류'):
     if centuries and tt:
         cell = collections.Counter((s.get('문서유형') or '기타', cent(int(s['연도']))) for _, s in docs if str(s.get('연도', '')).isdigit())
         mx = max(cell.values()) if cell else 1
-        hm = '<div class="tw" style="border:0" tabindex="0" role="region" aria-label="유형 × 세기 표"><table class="hm"><tr><th></th>' + ''.join(f'<th>{c}</th>' for c in centuries) + '</tr>' + ''.join(
+        hm = '<div class="tw" style="border:0" tabindex="0" role="region" aria-label="유형 × 세기 표"><table class="hm"><tr><td></td>' + ''.join(f'<th>{c}</th>' for c in centuries) + '</tr>' + ''.join(
             f'<tr><th class="r">{h(t)}</th>' + ''.join(
                 (f'<td style="background:rgba(196,150,74,{0.18 + 0.82 * cell[(t, c)] / mx:.2f});color:{"#16130f" if cell[(t, c)] / mx > 0.45 else "#f3ead8"}" title="{h(t)} · {c}: {cell[(t, c)]}건">{cell[(t, c)]}</td>' if cell[(t, c)] else f'<td class="z" style="background:#231d15" title="{h(t)} · {c}: 0건">0</td>') for c in centuries) + '</tr>' for t in tt) + '</table></div>'
     out.append('<h2 id="a-type">어떤 문서인가</h2><div class="two">'
@@ -351,7 +351,7 @@ def collections_pages(eps, title):
     rows, cur = [], None
     for y, e, s in dated:
         c = cent(y)
-        if c != cur: rows.append(f'<h3>{c}</h3>'); cur = c
+        if c != cur: rows.append(f'<h2>{c}</h2>'); cur = c
         v = f' · <a href="{h(s["뷰어링크"])}" target="_blank" rel="noopener">원본 ↗</a>' if s.get('뷰어링크') else ''
         rows.append(f'<div data-s="{h((str(y) + (s.get("문서명") or "") + (s.get("문서유형") or "") + e["title"] + e["coll"]).lower())}"><b>{y}</b>{h(s.get("문서명") or "")} <small>· {h(s.get("문서유형") or "")} · {link(e)}{v}</small></div>')
     nod = sum(1 for _, s in docs if not str(s.get('연도', '')).isdigit())
@@ -388,7 +388,7 @@ def collections_pages(eps, title):
         seen, first, rest = set(), [], []
         for e, s in items: (rest if e['title'] in seen else first).append((e, s)); seen.add(e['title'])
         ex = ''.join(f'<li>{link(e)} — {h(dname(s))}</li>' for e, s in (first + rest)[:4])  # 되도록 다른 편에서
-        cards.append(f'<div class="tcard" data-s="{h((t + guide).lower())}"><h3 id="t-{h(t)}">{h(t)} <small>{len(items)}건' + (' · ' + ', '.join(f'{c} {v}' for c, v in sorted(cs.items(), key=lambda x: int(x[0][:-2]))) if cs else '') + '</small></h3>'
+        cards.append(f'<div class="tcard" data-s="{h((t + guide).lower())}"><h2 id="t-{h(t)}">{h(t)} <small>{len(items)}건' + (' · ' + ', '.join(f'{c} {v}' for c, v in sorted(cs.items(), key=lambda x: int(x[0][:-2]))) if cs else '') + '</small></h2>'
                      + (f'<p>{h(guide)}</p>' if guide else '<p class="mute">읽는 법 설명이 아직 없습니다.</p>') + f'<ul>{ex}</ul>' + (f'<p class="mute">외 {len(items) - 4}건 — <a href="search.html?q={h(t)}">모두 찾기</a></p>' if len(items) > 4 else '') + '</div>')
     types = (f'<div class="col"><div class="tools"><input id="cq" type="search" placeholder="찾기: 홍패 · 교지 · 편지 · 노비 …" aria-label="유형 찾기"><span id="cn" class="mute"></span></div>'
              f'<p class="mute">이 시리즈에 나온 문서 유형 {len(T)}가지 — 많이 나온 순. 유형은 문서명에서 뽑은 초안입니다.</p><div class="tcards">' + ''.join(cards).replace('class="tcard" data-s', 'class="tcard" data-s') + '</div></div>' + SEARCH_JS)
@@ -475,18 +475,24 @@ def datapackage(names, title, license=''):
     return dp
 
 
+SOURCE_FILES = ('selection.csv', 'curator.md', 'delivery.md', 'corrections.csv')
+
+
+def source_date(eps_dirs):
+    """편별 원자료가 마지막으로 바뀐 날(YYYY-MM-DD) — 다시 만들어도 내용이 같으면 같은 날짜"""
+    import datetime
+    ts = [os.path.getmtime(os.path.join(d, f)) for _, d in eps_dirs for f in SOURCE_FILES if os.path.exists(os.path.join(d, f))]
+    return datetime.date.fromtimestamp(max(ts)).isoformat() if ts else datetime.date.today().isoformat()
+
+
 def data_bundle(path, eps_dirs, folder, title, license=''):
     """데이터 묶음 ZIP — eps_dirs: [(폴더 이름, 원본 폴더)] (selection.csv · curator.md · delivery.md · corrections.csv), folder: analysis-*.json/csv가 있는 곳.
     내용이 같으면 같은 바이트(파일 순서 · 묶음 안 날짜 고정, '만든 날'은 편별 원자료가 마지막으로 바뀐 날)."""
-    import zipfile, datetime
-    items = []
-    for name, d in eps_dirs:
-        for f in ('selection.csv', 'curator.md', 'delivery.md', 'corrections.csv'):
-            if os.path.exists(os.path.join(d, f)): items.append((os.path.join(d, f), f'{name}/{f}'))
-    newest = max([os.path.getmtime(p) for p, _ in items] or [0])  # 원자료(편별 파일)가 마지막으로 바뀐 날 — 분석 파일은 만들 때마다 새로 써지므로 뺌
+    import zipfile
+    items = [(os.path.join(d, f), f'{name}/{f}') for name, d in eps_dirs for f in SOURCE_FILES if os.path.exists(os.path.join(d, f))]
+    date = source_date(eps_dirs)  # 원자료(편별 파일)가 마지막으로 바뀐 날 — 분석 파일은 만들 때마다 새로 써지므로 뺌
     for f in ('analysis-data.json', 'analysis-episodes.csv'):
         if os.path.exists(os.path.join(folder, f)): items.append((os.path.join(folder, f), f))
-    date = datetime.date.fromtimestamp(newest).isoformat() if newest else datetime.date.today().isoformat()
     def put(z, arc, data):
         zi = zipfile.ZipInfo(arc, date_time=(1980, 1, 1, 0, 0, 0)); zi.compress_type = zipfile.ZIP_DEFLATED; zi.flag_bits |= 0x800; zi.external_attr = 0o644 << 16
         z.writestr(zi, data)

@@ -102,9 +102,9 @@ def main():
         shutil.copytree(md, dst, ignore=shutil.ignore_patterns('.*'))
         for full in glob.glob(os.path.join(dst, 'video', '*_reel.mp4')) + glob.glob(os.path.join(dst, 'video', '*_wide.mp4')):
             if os.path.exists(full[:-4] + '_web.mp4'): os.remove(full)  # 웹 압축본이 있으면 원본 크기 영상은 빼기
-        shutil.copy(os.path.join(ed, 'selection.csv'), dst)
+        shutil.copy2(os.path.join(ed, 'selection.csv'), dst)
         for f in ('curator.md', 'delivery.md', 'corrections.csv'):
-            if os.path.exists(os.path.join(ed, f)): shutil.copy(os.path.join(ed, f), dst)
+            if os.path.exists(os.path.join(ed, f)): shutil.copy2(os.path.join(ed, f), dst)
         sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig'))); docs += sel
         if sel and not FIRSTIMG and os.path.exists(os.path.join(ed, sel[0].get('이미지') or '-')): FIRSTIMG.append(os.path.join(ed, sel[0]['이미지']))
         th = json.load(open(os.path.join(ed, 'theme.json'), encoding='utf-8')) if os.path.exists(os.path.join(ed, 'theme.json')) else {}
@@ -182,14 +182,13 @@ def main():
     page(os.path.join(out, 'promote.html'), '홍보 가이드 — ' + stitle, body)
     # ---- 활용 가이드
     body = '<p class="k">USE</p><h1>패키지 활용 가이드</h1><p class="lead">원본 사진(원재료) · 판독과 번역(손질된 재료) · 이야기와 큐레이터 노트(레시피) · 카드·영상·전시(차림 예시) — 받는 사람이 자기 자리(수업·전시·책·창작)에 맞게 바로 쓰는 묶음입니다.</p>'
-    body += '<div class="g">' + ''.join(f'<div class="box"><h3>{h(a_)}</h3><p>{h(b)}</p></div>' for a_, b in USE) + '</div><h2>지킬 것</h2><div class="box"><ul>' + ''.join(f'<li>{h(x)}</li>' for x in CHECK) + '</ul></div>'
+    body += '<h2>누가 어떻게 쓰나</h2><div class="g">' + ''.join(f'<div class="box"><h3>{h(a_)}</h3><p>{h(b)}</p></div>' for a_, b in USE) + '</div><h2>지킬 것</h2><div class="box"><ul>' + ''.join(f'<li>{h(x)}</li>' for x in CHECK) + '</ul></div>'
     page(os.path.join(out, 'use.html'), '활용 가이드 — ' + stitle, body)
     for fn, t, lead, body_ in AN.collections_pages(sorted(AE, key=lambda e: e['ep']), stitle):
         page(os.path.join(out, fn), f'{t} — {stitle}', f'<p class="k">COLLECTION</p><h1>{h(stitle)} — {h(t)}</h1><p class="lead">{h(lead)}</p><style>{AN.CSS}</style><div class="an">{body_}</div>', desc=lead)
     page(os.path.join(out, 'analysis.html'), '통합 분석 — ' + stitle, f'<p class="k">ANALYSIS</p><h1>{h(stitle)} — 통합 분석</h1><p class="lead">편마다 따로 보던 문서 · 노트 · 결과물을 한데 모아, 전체가 무엇을 담고 있는지 한 장에서 읽습니다.</p><style>{AN.CSS}</style>' + an_body)
     if SITE:  # 검색 엔진용 사이트 지도
-        import datetime
-        today = datetime.date.today().isoformat()
+        today = AN.source_date([(e['slug'], os.path.join(out, 'eps', e['slug'])) for e in EPS])  # 원자료가 바뀐 날(빌드한 날이 아니라)
         urls = [SITE + f for f in ('', 'analysis.html', 'search.html', 'types.html', 'quotes.html', 'timeline.html', 'questions.html', 'review.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
         open(os.path.join(out, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{h(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in urls) + '</urlset>\n')
     print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · search · types · quotes · timeline · questions.html(모아 보기) · eps/' + (' · sitemap.xml' if SITE else ''))

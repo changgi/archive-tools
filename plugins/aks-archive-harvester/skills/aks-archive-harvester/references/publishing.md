@@ -49,3 +49,13 @@ python3 series.py --list series.tsv --note series.md --out SITE [--title "시리
 - Quotes are found by `studio.find_quotes`: a quotation that contains a parenthesis with Hanja or old Hangul counts, wherever the parenthesis sits ("…하오니(원문), 그 밖에 …") and in either order (원문(현대어) for old-Hangul letters); year parentheses like "(1646)" do not. `check`, `delivery`, `video.py` and the analysis share it.
 
 - `--text-license` states the reuse terms for the texts the user made (판독 · 번역 · 해제 · notes · data) in every page footer and in `data.zip`'s 읽어보기. Ask the user; never choose a license for them. Images are never covered by it — they stay under the holding institution's consent.
+
+**Accessibility (접근성) — every page the tools write.** All pages (exhibit · handout · episode index · proof sheet · series site · analysis · collections) pass through `studio.put_a11y` (via `put_oldhangul`), which is idempotent:
+
+- a 「본문 바로가기」 skip link as the first focusable element (to the first heading after the menu, or to `main`) and a visible focus outline;
+- exactly one `main`: notes added after it (큐레이터 노트 · 연출 노트 · 함께 고친 곳) are moved inside, and a page without `main` (the handout) gets one;
+- regions with the same name are numbered (「원문 판독 1, 2 …」, 「표 1, 2 …」) and several menus get names (사이트 메뉴 · 이 페이지 차례);
+- headings go down one level at a time (the handout's documents are `h2`, the timeline's centuries and the type dictionary's entries are `h2`).
+
+`selftest.py` checks the skip link target, the single `main`, nothing outside it but footer/aside, and the heading order on every page it builds. For a browser check of a published site, `tools/check_a11y.js` in the repository runs axe-core (WCAG 2 A·AA + best practices) and fails on serious problems.
+

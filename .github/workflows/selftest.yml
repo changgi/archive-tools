@@ -48,3 +48,16 @@ jobs:
         run: python tools/build_dist.py --check
       - name: 예시 사이트 깨진 링크 확인
         run: python tools/check_links.py --all
+
+  a11y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: 예시 사이트 접근성(axe-core · WCAG 2 A·AA — 심각 0이어야 통과)
+        run: |
+          npm i --no-save --no-package-lock playwright axe-core
+          npx playwright install --with-deps chromium
+          node tools/check_a11y.js

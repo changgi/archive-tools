@@ -131,6 +131,23 @@ def download_test(root, res, py, S):
         res.append(('harvest.py download (가짜 DZI 서버)', False, f'{time.time() - t:.1f}s', f'{type(e).__name__}: {e}'))
 
 
+def a11y_check(root):
+    """만든 웹페이지마다: 「본문 바로가기」가 가리키는 곳이 있고, main이 하나이며 그 밖에 본문이 없고, 제목이 한 단계씩 내려가는지"""
+    import glob as G, re as RE
+    pages = [p for p in G.glob(os.path.join(root, 'W', 'mediate', 't', '*.html')) + G.glob(os.path.join(root, 'site', '*.html')) + [os.path.join(root, 'W', 'edit', 't', 'proof.html')] if os.path.exists(p)]
+    bad = []
+    for p in pages:
+        s = open(p, encoding='utf-8').read(); n = os.path.relpath(p, root)
+        t = RE.search(r'<a class="skip" href="#([^"]+)"', s)
+        if not t or f'id="{t.group(1)}"' not in s: bad.append(n + ' 바로가기'); continue
+        if s.count('<main') != 1: bad.append(n + ' main'); continue
+        tail = s[s.find('</main>') + 7:]
+        if RE.search(r'<(section|h[1-6]|div)\b', RE.sub(r'<footer[\s\S]*?</footer>|<aside[\s\S]*?</aside>|<script[\s\S]*?</script>|<style[\s\S]*?</style>', '', tail)): bad.append(n + ' main 밖 본문')
+        lv = [int(x) for x in RE.findall(r'<h([1-6])\b', RE.sub(r'<script[\s\S]*?</script>', '', s))]
+        if any(b - a > 1 for a, b in zip(lv, lv[1:])): bad.append(n + ' 제목 순서')
+    return (not bad, f'{len(pages)}쪽', ', '.join(bad[:4]))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--keep', action='store_true'); ap.add_argument('--video', action='store_true')
@@ -177,6 +194,8 @@ def main():
         ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/search.html', 'site/types.html', 'site/data.zip', 'site/review.html', 'site/quotes.html', 'site/timeline.html', 'site/questions.html', 'site/sitemap.xml', 'site/share.jpg', 'site/eps/01-t/index.html'])
     os.makedirs(os.path.join(root, 'an'), exist_ok=True)
     run('analysis.py', [S('analysis.py'), '--list', 'series.tsv', '--out', 'an/analysis.html'], ['an/analysis.html', 'an/analysis-episodes.csv', 'an/quotes.html'])
+    try: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', *a11y_check(root)))
+    except Exception as e: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', False, '', str(e)))
     run('studio.py originals', [S('studio.py'), 'originals', '--work', W, '--theme', 't'])
     run('harvest.py report', [S('harvest.py'), 'report', '--work', W, '--out', 'report.csv'], ['report.csv'])
     run('harvest.py bundle', [S('harvest.py'), 'bundle', '--work', W, '--dest', 'pkg', '--prefix', 'test', '--no-images'])
