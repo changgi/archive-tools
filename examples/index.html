@@ -136,6 +136,7 @@ table.ed{min-width:820px;font-size:14px}table.ed td{line-height:1.6}table.ed th{
 .edwrap{overflow-x:auto;border:1px solid #3a3225;border-radius:12px}
 .zoom{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;z-index:99;cursor:zoom-out;align-items:center;justify-content:center}.zoom.on{display:flex}.zoom img{max-width:96vw;max-height:94vh}
 .kbd{font-size:12.5px;color:var(--dim)}
+.trs{margin-top:12px}.trs summary{cursor:pointer;color:var(--gold);font-size:14px}.trx{max-height:260px;overflow:auto;background:#16130f;border:1px solid #3a3225;border-radius:10px;padding:8px 12px;margin-top:6px}.trx p{margin:4px 0;font-size:14px;color:#e8dcc4}
 .map{margin-top:18px;background:#1b1712;border:1px solid #3a3225;border-radius:18px;padding:20px 22px}
 .map h2{margin-top:0}.map .lead{color:#d5cab4;margin:0 0 14px}
 .who{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:18px}
@@ -334,8 +335,10 @@ document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>!b.disabled&&
 function pV(i){const w=fmt==='wide'&&i.wide;pane.innerHTML=`<div class="vwrap"><div class="vbox ${w?'wide':'reel'}"><video controls playsinline autoplay poster="${w?i.wp:i.rp}"><source src="${w?i.wide:i.reel}" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="${i.vtt}"></video></div>
   <div class="vside"><div class="row">${i.wide?`<div class="seg" role="group" aria-label="화면 비율"><button type="button" data-f="wide" aria-pressed="${!!w}">가로 16:9</button><button type="button" data-f="reel" aria-pressed="${!w}">세로 9:16</button></div>`:''}<label class="ck"><input type="checkbox" id="auto" ${auto?'checked':''}> 끝나면 다음 편</label></div>
   <p class="lead">${esc(i.d)}</p><div class="row"><span class="kbd">${i.dr}초${i.dw?` · 가로 ${i.dw}초`:''} · 자막 포함</span></div>
-  <div class="row">${i.f?'<button class="btn pri" type="button" data-t="r">원문 읽기 →</button>':''}<a class="btn" href="${i.reel}" download>릴스 받기</a>${i.wide?`<a class="btn" href="${i.wide}" download>가로 영상 받기</a>`:''}<a class="btn" href="${i.srt}">자막(srt)</a></div></div></div>`;
+  <div class="row">${i.f?'<button class="btn pri" type="button" data-t="r">원문 읽기 →</button>':''}<a class="btn" href="${i.reel}" download>릴스 받기</a>${i.wide?`<a class="btn" href="${i.wide}" download>가로 영상 받기</a>`:''}<a class="btn" href="${i.srt}">자막(srt)</a></div>
+  <details class="trs"><summary>자막 전문 읽기 — 소리 없이 · 화면 읽기 프로그램으로</summary><div class="trx" tabindex="0" role="region" aria-label="자막 전문">불러오는 중…</div></details></div></div>`;
   const v=pane.querySelector('video');v.play().catch(()=>{});
+  const tr=pane.querySelector('.trs');if(tr)tr.addEventListener('toggle',()=>{const box=tr.querySelector('.trx');if(!tr.open||box.dataset.ok)return;fetch(i.vtt).then(r=>r.text()).then(t=>{const L=t.replace(/\r/g,'').split('\n\n').map(b=>b.split('\n').filter(l=>l&&!/^WEBVTT/.test(l)&&!/-->/.test(l)&&!/^\d+$/.test(l)).join(' ')).filter(Boolean);box.innerHTML=L.map(l=>'<p>'+esc(l)+'</p>').join('');box.dataset.ok=1}).catch(()=>{box.textContent='자막을 불러오지 못했습니다 — 자막(srt) 파일을 받아 보세요.'})});
   v.onended=()=>{if(auto&&cur<LIST.length-1){let n=cur+1;while(n<LIST.length&&!LIST[n].reel)n++;if(n<LIST.length)openAt(n,'v')}};
   pane.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{fmt=b.dataset.f;pV(i)});$('#auto').onchange=e=>auto=e.target.checked;
   pane.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>show(b.dataset.t))}

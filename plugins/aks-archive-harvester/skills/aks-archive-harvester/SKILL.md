@@ -12,7 +12,7 @@ Two scripts live in `${CLAUDE_PLUGIN_ROOT}/skills/aks-archive-harvester/scripts/
 - `video.py` (needs `ffmpeg`, `Pillow`; optional `edge-tts`) makes a Reels (9:16) and a wide (16:9) video with subtitles from one theme.
 - `series.py` (needs `Pillow`) gathers several themes/episodes into one series site with a series note, promotion and use guides, and an integrated analysis.
 - `analysis.py` (no extra needs) builds the integrated analysis page (통합 분석) of a whole series; `series.py` calls it.
-- `selftest.py` checks an installation offline: it builds three fake documents in a temporary folder and runs every step (`--video` adds video). Run it first when a user reports that something does not work, or after installing on a new computer.
+- `selftest.py` checks an installation offline: it builds three fake documents in a temporary folder and runs every step (`--video` adds video). It also runs `harvest.py download` against a fake DZI server on the computer itself (tile stitching with overlap, falling back to a lower level when a tile is missing, logging pages the server lacks); `AKS_SITE` points `harvest.py` at that server and is not meant for normal use. Run it first when a user reports that something does not work, or after installing on a new computer.
 
 ## Full pipeline checklist (처음부터 끝까지)
 
@@ -199,7 +199,7 @@ python3 video.py --work WORK --theme <id> [--ep 7] [--url 전시주소] [--forma
 
 - Scenes: opener (전달 에디팅 열기) → introduction → one scene per document with its image and quoted source line → climax → 비하인드 (큐레이터 노트 전하고 싶은 것) → closing question with source.
 - Narration uses edge-tts when installed (`--voice ko-KR-SunHiNeural`); otherwise a silent video timed by text length. Behind a proxy with its own certificate, set `AKS_CA_BUNDLE=<ca file>`.
-- Writes `WORK/mediate/<id>/video/<base>_reel.mp4` · `_wide.mp4` · `.ko.srt` · `.ko.vtt`; `--web` adds 540p `_web.mp4` copies for web pages. Hand the full-resolution files to `originals --videos`. Run `mediate` again afterwards: the front page then gets video players with Korean subtitles (web copies preferred).
+- Writes `WORK/mediate/<id>/video/<base>_reel.mp4` · `_wide.mp4` · `.ko.srt` · `.ko.vtt`; `--web` adds 540p `_web.mp4` copies for web pages. Hand the full-resolution files to `originals --videos`. Run `mediate` again afterwards: the front page then gets video players with Korean subtitles (web copies preferred) and a 「자막 전문 읽기」 transcript for people who watch without sound or use screen readers.
 - Look at one frame of each format before handing it over.
 - Generated pages pass an automated WCAG 2 A/AA check (axe-core): keyboard-focusable scroll areas, visible focus, alt text on linked images, chart labels. Keep these when editing the templates.
 - If narration fails it stops with a message instead of a traceback; retry with `--no-tts` or set `AKS_CA_BUNDLE`.

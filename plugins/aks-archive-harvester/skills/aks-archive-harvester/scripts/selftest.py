@@ -3,7 +3,7 @@
 
   python3 selftest.py [--keep] [--video]
 
-  수집(서버 접속)만 빼고: curate → themes → edit → (문구·노트 채우기) → delivery → check → promo
+  수집은 가짜 DZI 서버(내 컴퓨터 안)로 조각 이어 붙이기 · 낮은 해상도 대체 · 없는 면 기록을 시험하고, curate → themes → edit → (문구·노트 채우기) → delivery → check → promo
   → mediate → page → (video --no-tts) → series(통합 분석 포함) → analysis → originals → report · bundle.
   --video: ffmpeg이 있으면 영상도 시험(30초가량 더 걸림).  --keep: 시험 폴더를 지우지 않음.
   결과물은 임시 폴더에만 만들고, 실제 작업 폴더는 건드리지 않습니다.
@@ -55,6 +55,59 @@ def fill(w):
         '## 이렇게 써 주세요\n설치 확인에.\n\n## 만들며 있었던 일\n가짜 문서를 만들었습니다.\n\n## 남겨 둔 질문\n다음엔 어떤 문서를 열어 볼까요?\n')
 
 
+def make_dzi(root, img, name, ts=254, ov=1, drop_top_tile=False):
+    """가짜 서버에 올릴 DZI(확대 조각) — 원본 크기 레벨부터 1px까지. drop_top_tile: 맨 위 레벨 조각 하나를 빼서 '낮은 해상도로 받기'를 시험"""
+    import math
+    w, h = img.size; L0 = math.ceil(math.log2(max(w, h)))
+    d = os.path.join(root, 'srv', 'dzi'); os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, name + '.xml'), 'w', encoding='utf-8').write(
+        f'<?xml version="1.0" encoding="UTF-8"?><Image TileSize="{ts}" Overlap="{ov}" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2008"><Size Width="{w}" Height="{h}"/></Image>')
+    for L in range(L0, max(L0 - 4, 0), -1):
+        f = 2 ** (L0 - L); W, H = math.ceil(w / f), math.ceil(h / f); im = img.resize((W, H))
+        td = os.path.join(d, name + '_files', str(L)); os.makedirs(td, exist_ok=True)
+        for r in range(math.ceil(H / ts)):
+            for c in range(math.ceil(W / ts)):
+                if drop_top_tile and L == L0 and (c, r) == (1, 1): continue
+                x0, y0 = c * ts - (ov if c else 0), r * ts - (ov if r else 0)
+                im.crop((x0, y0, min(W, (c + 1) * ts + ov), min(H, (r + 1) * ts + ov))).save(os.path.join(td, f'{c}_{r}.jpg'), quality=95)
+    return w, h
+
+
+def download_test(root, res, py, S):
+    """가짜 DZI 서버로 harvest.py download — 조각 이어 붙이기 · 낮은 해상도 대체 · 서버에 없는 면 기록"""
+    import threading, http.server, functools
+    from PIL import Image, ImageDraw, ImageChops, ImageStat
+    t = time.time()
+    try:
+        img = Image.new('RGB', (900, 700), (236, 226, 204)); d = ImageDraw.Draw(img)
+        for k in range(0, 900, 37): d.line((k, 0, 900 - k, 700), fill=(k % 255, 80, 160), width=3)
+        d.rectangle((250, 250, 520, 460), outline=(20, 20, 20), width=9)
+        make_dzi(root, img, 'ok'); make_dzi(root, img, 'part', drop_top_tile=True)
+        D = os.path.join(root, 'D'); os.makedirs(D)
+        docs = [{'id': 'D1', 'name': '시험 문서', 'title': '시험 문서', 'path': ['고문서', '시험'], 'q': '?dataId=D1', 'category': '시험', 'folder': '001_시험 문서',
+                 'imgs': [{'dzi': '/dzi/ok.xml', 'fn': '1.jpg'}, {'dzi': '/dzi/part.xml', 'fn': '2.jpg'}, {'dzi': '/dzi/none.xml', 'fn': '3.jpg'}]}]
+        json.dump(docs, open(os.path.join(D, 'docs.json'), 'w', encoding='utf-8'), ensure_ascii=False)
+        H = functools.partial(http.server.SimpleHTTPRequestHandler, directory=os.path.join(root, 'srv'))
+        H.log_message = lambda *a, **k: None
+        srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), H); threading.Thread(target=srv.serve_forever, daemon=True).start()
+        env = dict(os.environ, AKS_SITE=f'http://127.0.0.1:{srv.server_address[1]}', NO_PROXY='127.0.0.1,localhost', no_proxy='127.0.0.1,localhost', HTTP_PROXY='', http_proxy='')
+        r = subprocess.run([py, S('harvest.py'), 'download', '--work', 'D', '--time', '120'], cwd=root, env=env, capture_output=True, text=True, encoding='utf-8', errors='replace')
+        srv.shutdown()
+        out = os.path.join(D, 'out', '시험', '001_시험 문서')
+        a1 = Image.open(os.path.join(out, '001.jpg')).convert('RGB')
+        diff = ImageStat.Stat(ImageChops.difference(a1, img)).mean
+        import io as _io  # 기준: 조각 없이 JPEG로 두 번 저장했을 때의 차이(이음매가 어긋나면 이보다 크게 벌어짐)
+        b1 = _io.BytesIO(); img.save(b1, 'JPEG', quality=95); b2 = _io.BytesIO(); Image.open(b1).save(b2, 'JPEG', quality=92)
+        base = ImageStat.Stat(ImageChops.difference(Image.open(b2).convert('RGB'), img)).mean
+        shift = ImageStat.Stat(ImageChops.difference(a1, img.transform(img.size, Image.AFFINE, (1, 0, 1, 0, 1, 0)))).mean  # 1px 어긋난 것과 비교
+        a2 = Image.open(os.path.join(out, '002.jpg'))
+        miss = open(os.path.join(D, 'missing.txt'), encoding='utf-8').read(); part = open(os.path.join(D, 'partial.txt'), encoding='utf-8').read()
+        ok = (r.returncode == 0 and a1.size == img.size and max(diff) < max(base) + 2 and max(diff) < max(shift) and a2.size == (450, 350) and '003.jpg' in miss and '002.jpg' in part and 'STATUS: DONE' in r.stdout)
+        res.append(('harvest.py download (가짜 DZI 서버)', ok, f'{time.time() - t:.1f}s', '' if ok else f'크기 {a1.size} · 차이 {max(diff):.1f}(기준 {max(base):.1f}) · 2면 {a2.size} · {r.stdout.strip().splitlines()[-1:] or r.stderr[-200:]}'))
+    except Exception as e:
+        res.append(('harvest.py download (가짜 DZI 서버)', False, f'{time.time() - t:.1f}s', f'{type(e).__name__}: {e}'))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--keep', action='store_true'); ap.add_argument('--video', action='store_true')
@@ -76,6 +129,9 @@ def main():
     except Exception as e:
         print('가짜 작업 폴더를 만들지 못했습니다:', e); sys.exit(1)
     W = 'W'
+    try: import requests  # noqa — 수집(download) 시험은 requests가 있을 때만
+    except Exception: res.append(('harvest.py download (requests 없음 — 건너뜀)', True, '', 'pip install requests'))
+    else: download_test(root, res, py, S)
     run('harvest.py curate', [S('harvest.py'), 'curate', '--work', W], ['W/metadata.csv', 'W/summary.md'])
     run('studio.py themes', [S('studio.py'), 'themes', '--work', W])
     run('studio.py edit', [S('studio.py'), 'edit', '--work', W, '--all', '--id', 't'], ['W/edit/t/selection.csv', 'W/edit/t/curator.md', 'W/edit/t/delivery.md', 'W/edit/t/contact_sheet.jpg'])

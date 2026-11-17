@@ -671,6 +671,11 @@ h1{{font-size:24px;margin:0}} .sub{{color:#666;margin:4px 0 16px}} .q{{display:g
     vsec = ('<h2 id="video">영상</h2><div class="v">' + ''.join(
         f'<figure><video controls preload="metadata" playsinline src="{html.escape(v)}">' + (f'<track kind="subtitles" srclang="ko" label="한국어" src="{html.escape(t)}" default>' if t else '') +
         f'</video><figcaption>{html.escape(l)} · <a href="{html.escape(v)}" download>받기</a></figcaption></figure>' for l, v, t, f in vids) + '</div>') if vids else ''
+    srts = sorted(glob.glob(os.path.join(od, 'video', '*.ko.srt')))
+    if vids and srts:  # 자막 전문 — 소리 없이 · 화면 읽기 프로그램으로
+        lines = [ln for blk in open(srts[0], encoding='utf-8').read().replace('\r', '').split('\n\n') for ln in [' '.join(x for x in blk.split('\n') if x and '-->' not in x and not x.strip().isdigit())] if ln]
+        vsec += ('<details style="margin-top:10px"><summary style="cursor:pointer;color:#c4964a">자막 전문 읽기</summary><div tabindex="0" role="region" aria-label="자막 전문" style="max-height:260px;overflow:auto;background:#1f1a14;border-radius:10px;padding:8px 12px;margin-top:6px">'
+                 + ''.join(f'<p style="margin:4px 0;font-size:14px">{html.escape(x)}</p>' for x in lines) + '</div></details>')
     idx = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(title)} — 결과물 한눈에 보기</title><style>
 body{{margin:0;background:#16130f;color:#f3ead8;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;line-height:1.6}} main{{max-width:1080px;margin:0 auto;padding:40px 6vw 60px}}
 h1{{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(24px,4vw,36px);margin:0 0 6px}} .sub{{color:#b9ab90}} h2{{color:#c4964a;font-size:17px;margin:34px 0 10px}}

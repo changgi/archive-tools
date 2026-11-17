@@ -39,7 +39,7 @@ import requests
 from PIL import Image
 
 Image.MAX_IMAGE_PIXELS = None
-SITE = 'https://archive.aks.ac.kr'
+SITE = os.environ.get('AKS_SITE', 'https://archive.aks.ac.kr').rstrip('/')  # AKS_SITE: selftest의 가짜 서버용(평소엔 쓰지 않음)
 VIEWER = SITE + '/viewer/'
 
 

@@ -1,5 +1,11 @@
 # 변경 기록
 
+## aks-archive-harvester 1.6.1 (2026-11-17)
+- **수집 시험** (`selftest.py`): 내 컴퓨터 안에 가짜 DZI 서버를 띄워 `harvest.py download`를 시험 — 겹침(overlap) 있는 조각 이어 붙이기가 원본과 맞는지(JPEG만의 차이를 기준으로, 1px 어긋남보다 작은지), 맨 위 레벨 조각이 빠졌을 때 한 단계 낮은 해상도로 받고 `partial.txt`에 적는지, 서버에 없는 면을 `missing.txt`에 적는지. 이어 붙이기 계산을 일부러 틀리게 바꾸면 실패하는 것까지 확인. GitHub Actions에서 세 운영체제로 함께 돎(시험 18단계, `--video` 19단계)
+- `harvest.py`: 시험용 `AKS_SITE` 환경 변수(평소엔 쓰지 않음)
+- **자막 전문**: `mediate` 첫 페이지 영상 아래 「자막 전문 읽기」 — 소리 없이 보거나 화면 읽기 프로그램을 쓰는 분을 위해
+- **예시**: 갤러리 영상 탭에 「자막 전문 읽기」(누를 때 자막 파일을 불러옴), 따라하기 사이트 다시 만듦
+
 ## aks-archive-harvester 1.6.0 (2026-11-17)
 - **시·도 타일 지도** (`analysis.py`): 「어디의 기록인가」에 시·도 한 칸씩 놓은 지도(위치는 대략, 진할수록 많음, 칸마다 설명 · 지도 밖 「여러 지역 · 기타」는 글로)
 - **데이터 묶음 `data.zip`** (`series.py`, `analysis.data_bundle`): 편별 selection.csv · curator.md · delivery.md · corrections.csv와 통합 분석 집계, 출처 · 이용 조건 · 초안 안내(읽어보기.txt). 이미지는 넣지 않음. 시리즈 사이트 「이 사이트에 있는 것」 · 통합 분석 내려받기 줄에 연결. `series.py`가 편별 corrections.csv도 복사
