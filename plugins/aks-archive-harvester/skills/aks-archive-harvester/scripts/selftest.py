@@ -141,7 +141,11 @@ def date_check():
     bad = [{'연도': '1607', '원문': '萬曆三十五年丙午'}, {'연도': '1808', '해제': '1808년(순조 9) 자매문기'},
            {'연도': '1790', '번역': '건륭 55년 경술(1791)'}, {'연도': '1700', '원문': '康熙二十七年戊辰'}]
     miss = [r for r in good if ST.date_issues(r)] + [r for r in bad if not ST.date_issues(r)]
-    return (not miss, f'{len(good) + len(bad)}건', '; '.join(str(r) for r in miss[:2]))
+    sug = [({'연도': '', '자료ID': 'G002+AKS+KSM-XA.1688.1111-x', '해제': '상량문'}, 1688), ({'연도': '', '해제': '기유년(1849년으로 보임) 6월 편지'}, 1849),
+           ({'연도': '', '번역': '천순 9년(1465) 8월 14일', '자료ID': 'KSM-XA.1457.4715-x'}, 1465), ({'연도': '', '자료ID': 'KSM-XA.0000.1-x'}, None),
+           ({'연도': '', '원문': '康熙二十四年歲次甲子', '자료ID': 'KSM-XG.1684.1-x'}, None)]
+    miss += [r for r, want in sug if ST.year_suggest(r)[0] != want]
+    return (not miss, f'{len(good) + len(bad) + len(sug)}건', '; '.join(str(r) for r in miss[:2]))
 
 
 def a11y_check(root):
@@ -192,6 +196,7 @@ def main():
     except Exception as e: res.append(('문구 에디팅 · 큐레이터 노트 채우기', False, '', str(e)))
     run('studio.py delivery', [S('studio.py'), 'delivery', '--work', W, '--theme', 't'])
     run('studio.py check (할 일 남음 → 1)', [S('studio.py'), 'check', '--work', W, '--theme', 't', '--strict'], ok_codes=(1,))
+    run('studio.py years', [S('studio.py'), 'years', '--work', W, '--theme', 't'])
     run('studio.py promo', [S('studio.py'), 'promo', '--work', W, '--theme', 't', '--ep', '1', '--url', 'https://example.test/s/eps/01-t/exhibit.html'], ['W/mediate/t/promo.md'])
     run('studio.py fix (미리 보기)', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친']) 
     run('studio.py fix --apply', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친', '--note', '시험', '--apply'], ['W/edit/t/corrections.csv'])
@@ -207,8 +212,8 @@ def main():
         ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/search.html', 'site/types.html', 'site/data.zip', 'site/review.html', 'site/quotes.html', 'site/timeline.html', 'site/questions.html', 'site/sitemap.xml', 'site/share.jpg', 'site/eps/01-t/index.html'])
     os.makedirs(os.path.join(root, 'an'), exist_ok=True)
     run('analysis.py', [S('analysis.py'), '--list', 'series.tsv', '--out', 'an/analysis.html'], ['an/analysis.html', 'an/analysis-episodes.csv', 'an/quotes.html'])
-    try: res.append(('날짜 맞춤(연호 · 왕대 · 간지 · 서기)', *date_check()))
-    except Exception as e: res.append(('날짜 맞춤(연호 · 왕대 · 간지 · 서기)', False, '', str(e)))
+    try: res.append(('날짜 맞춤 · 연도 제안(연호 · 왕대 · 간지 · 서기)', *date_check()))
+    except Exception as e: res.append(('날짜 맞춤 · 연도 제안(연호 · 왕대 · 간지 · 서기)', False, '', str(e)))
     try: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', *a11y_check(root)))
     except Exception as e: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', False, '', str(e)))
     run('studio.py originals', [S('studio.py'), 'originals', '--work', W, '--theme', 't'])

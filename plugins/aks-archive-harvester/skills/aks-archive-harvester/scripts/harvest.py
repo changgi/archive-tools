@@ -310,16 +310,20 @@ def curate_rows(work, collection=None):
     rows = []
     for d in docs:
         ys, ye, typ, ents = parse_title(d['name'])
+        basis = '문서명' if ys else ''
+        m = re.search(r'KSM-\w+\.(\d{4})\.', d.get('id') or '')
+        if not ys and m and m.group(1) not in ('0000', '9999'):  # 문서명에 연도가 없으면 자료관이 매긴 연대(자료ID)
+            ys = ye = int(m.group(1)); basis = '자료ID'
         rows.append({'소장처': collection or os.path.basename(os.path.abspath(work)), '분류': d['category'], '폴더': d['folder'],
                      '문서명': d['name'], '시작연도': ys or '', '끝연도': ye or '', '세기': (f'{(ys-1)//100+1}세기' if ys else ''),
-                     '문서유형': typ, '인명·기관': '; '.join(ents), '장수': len(d['imgs']), '자료ID': d['id'], '뷰어링크': viewer_link(d['q'])})
+                     '문서유형': typ, '인명·기관': '; '.join(ents), '장수': len(d['imgs']), '자료ID': d['id'], '뷰어링크': viewer_link(d['q']), '연도근거': basis})
     return rows
 
 
 def write_summary(rows, path, title):
     from collections import Counter, defaultdict
     L = [f'# {title} — 큐레이션 요약 (자동 생성 초안)', '',
-         f'- 문서 {len(rows)}건 / {sum(r["장수"] for r in rows)}장', '- 연도·유형·인명은 문서명에서 자동 추출한 값이라 검토가 필요함', '']
+         f'- 문서 {len(rows)}건 / {sum(r["장수"] for r in rows)}장', '- 연도·유형·인명은 문서명에서 자동 추출한 값이라 검토가 필요함(문서명에 연도가 없으면 자료ID의 연대 — 「연도근거」 칸)', '']
     def table(head, cnt, n=20):
         L.extend([f'## {head}', '', '| 항목 | 건수 |', '|---|---|'] + [f'| {k} | {v} |' for k, v in cnt.most_common(n)] + [''])
     table('문서 유형', Counter(r['문서유형'] for r in rows))

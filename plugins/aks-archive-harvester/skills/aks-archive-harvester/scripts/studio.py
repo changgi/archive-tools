@@ -169,7 +169,7 @@ def read_guide(t):
 def draft_haeje(r):
     """해제 초안: 언제·누가·무엇 + 서식 읽는 법 (개별 내용은 원문 확인 후 고칠 것)"""
     who = ', '.join(e.split('(')[0] for e in r['_ents'][:2])
-    y = f"{r['_y']}년" if r['_y'] else '연대 미상'
+    y = (f"{r['_y']}년" + ('(자료관이 매긴 연대 — 원문 날짜로 확인)' if r.get('연도근거') == '자료ID' else '')) if r['_y'] else '연대 미상'
     head = f"{y}{' ' + who + ' 관련' if who else ''} {r['문서유형']}."
     return (head + ' ' + read_guide(r['문서유형'])).strip()
 
@@ -347,7 +347,7 @@ def cmd_edit(a):
                     '인물': '; '.join(e.split('(')[0] for e in r['_ents']), '유형설명': glossary(r['문서유형']),
                     '대표장': os.path.basename(src), '이미지': f'images/{fn}', '원본경로': os.path.relpath(src, a.work).replace(os.sep, '/'),
                     '캡션': draft_caption(r) + (f' (첩 이미지 {len(doc_images(a.work, r))}면 중 한 면 — 해당 면은 원문 확인 필요)' if shared > 1 else ''),
-                    '이야기': '', '판독': '', '원문': '', '번역': '', '해제': draft_haeje(r), '요약': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else '')})
+                    '이야기': '', '판독': '', '원문': '', '번역': '', '해제': draft_haeje(r), '요약': '', '검토': '', '뷰어링크': r.get('뷰어링크', ''), '공유이미지': (f'{shared}건이 같은 첩 이미지를 공유' if shared > 1 else ''), '연도근거': r.get('연도근거', '')})
     with open(os.path.join(od, 'selection.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.DictWriter(fh, fieldnames=list(out[0].keys())); w.writeheader(); w.writerows(out)
     json.dump(dict(id=tid, title=title, filter=f, candidates=len(cand), selected=len(out)), open(os.path.join(od, 'theme.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
@@ -1369,10 +1369,10 @@ def date_mentions(text):
     """글 속 날짜 표현 → [(원문 조각, 서기, 함께 적힌 간지 또는 '')]"""
     out = []
     era = '|'.join(sorted(ERAS, key=len, reverse=True)); king = '|'.join(sorted(KINGS, key=len, reverse=True))
-    for m in re.finditer(rf'({era})\s*(?:紀元後|기원후)?\s*([元正一二三四五六七八九十百廿卄卅]{{1,6}})\s*年\s*({_GZ})?', text):
+    for m in re.finditer(rf'({era})\s*(?:紀元後|기원후)?\s*([元正一二三四五六七八九十百廿卄卅]{{1,6}})\s*年\s*(?:歲次\s*)?({_GZ})?', text):
         n = han_num(m.group(2))
         if n: out.append((m.group(0), ERAS[m.group(1)] + n - 1, m.group(3) or ''))
-    for m in re.finditer(rf'(?<![가-힣])({era}|{king})\s*(?:기원후\s*)?(\d{{1,3}})(?:\s*년)?(?:\s*({_KGZ}|{_GZ})(?:년)?)?', text):
+    for m in re.finditer(rf'(?<![가-힣])({era}|{king})\s*(?:기원후\s*)?(\d{{1,3}})(?:\s*년)?(?:\s*(?:세차\s*)?({_KGZ}|{_GZ})(?:년)?)?', text):
         base = ERAS.get(m.group(1)) or KINGS.get(m.group(1))
         out.append((m.group(0), base + int(m.group(2)) - 1, m.group(3) or ''))
     return out
@@ -1382,7 +1382,7 @@ def date_issues(row):
     """한 문서의 날짜가 서로 맞는지 → [(칸, 무엇이 어긋나는지)]
     ① 연호 · 왕대 N년과 바로 붙은 간지 ② 「1808년(순조 8, 戊辰)」처럼 서기 뒤 괄호 속 왕대 · 연호 · 간지
     ③ 「순치 12년 을미(1655)」처럼 날짜 뒤 괄호 속 서기 ④ 연도 칸이 문서 속 어느 날짜와도 맞지 않음(경고)"""
-    out, years = [], set()
+    out, years, spans = [], set(), []
     for f in ('원문', '판독', '번역', '해제', '요약', '캡션', '이야기'):
         t = row.get(f) or ''
         for frag, y, g in date_mentions(t):
@@ -1398,10 +1398,64 @@ def date_issues(row):
             for g in re.findall(rf'(?<![가-힣])({_KGZ}|{_GZ})(?![가-힣])', m.group(2)):
                 if g not in (ganzhi(yy), ganzhi(yy, True)): out.append((f, f'「{m.group(0)}」 — {yy}년의 간지는 {ganzhi(yy)}({ganzhi(yy, True)})'))
         years.update(int(x) for x in re.findall(r'(?<!\d)(1[3-9]\d\d)(?=년|\))', t))
+        spans += [(int(x), int(z)) for x, z in re.findall(r'(?<!\d)(1[3-9]\d\d)\s*[~〜–-]\s*(1[3-9]\d\d)(?!\d)', t)]  # 「1955~1962년 사이」
     y0 = str(row.get('연도') or '').strip()
-    if y0.isdigit() and years and not any(abs(int(y0) - y) <= 1 for y in years):
+    if y0.isdigit() and years and not any(abs(int(y0) - y) <= 1 for y in years) and not any(lo <= int(y0) <= hi for lo, hi in spans):
         out.append(('연도', f'연도 칸 {y0}이 문서 속 날짜({", ".join(str(y) for y in sorted(years)[:4])})와 다릅니다'))
     return list(dict.fromkeys(out))
+
+
+def id_year(row):
+    """자료ID의 연대(자료관이 매긴 것, 예: …KSM-XA.1607.1111-… → 1607). 0000 · 9999는 미상 → None"""
+    m = re.search(r'KSM-\w+\.(\d{4})\.', row.get('자료ID') or '')
+    return int(m.group(1)) if m and m.group(1) not in ('0000', '9999') else None
+
+
+def year_suggest(row):
+    """빈 연도 칸에 넣을 값과 근거 → (연도, 근거) 또는 (None, 왜 못 정했는지)
+    ① 원문 · 번역 속 날짜(연호 · 왕대 · 간지)가 한 해로 모이면 ② 해제 첫머리의 서기(「1808년(…)」 · 「…년(1849년으로 보임)」) ③ 자료ID의 연대 — 앞의 근거와 어긋나지 않을 때만.
+    날짜가 서로 어긋나는 문서(date_issues)는 제안하지 않음"""
+    if date_issues(row): return None, '날짜 어긋남 — 원본 확인'
+    a = sorted({y for k in ('원문', '판독', '번역') for _, y, _ in date_mentions(row.get(k) or '')})
+    hj = (row.get('해제') or '').strip()
+    m = re.match(r'(1[3-9]\d\d)년', hj) or re.search(r'\((1[3-9]\d\d)년으로 보임\)', hj[:40])  # 「1808년(순조 8) …」 · 「기유년(1849년으로 보임) …」
+    b = int(m.group(1)) if m else None
+    c = id_year(row)
+    if len(a) == 1: return a[0], '문서 속 날짜'
+    if b and (not a or any(abs(b - y) <= 1 for y in a)): return b, '해제'
+    if c and (not a or any(abs(c - y) <= 1 for y in a)) and not (b and abs(b - c) > 1):
+        return c, '자료ID(자료관 연대)'
+    if len(a) > 1: return None, '문서 속 날짜가 여럿(' + ', '.join(map(str, a[:4])) + ')'
+    return None, '근거 없음'
+
+
+def cmd_years(a):
+    """연도 칸 점검 — 빈 칸에는 근거와 함께 제안, 채운 칸은 자료관 연대와 비교. --apply면 제안을 채움"""
+    ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
+    if not os.path.exists(p): sys.exit(f'{p}이(가) 없습니다. 먼저 studio.py edit 를 실행하세요.')
+    rows = list(csv.DictReader(open(p, encoding='utf-8-sig'))); cols = list(rows[0].keys()) if rows else []
+    if '연도근거' not in cols: cols.append('연도근거')
+    filled = 0
+    print(f'■ 연도 점검: {a.work}/{a.theme} — 문서 {len(rows)}건')
+    for r in rows:
+        n = r.get('순서') or '?'; name = (r.get('문서명') or '')[:26]; y = str(r.get('연도') or '').strip()
+        if y.isdigit():
+            c = id_year(r); di = date_issues(r)
+            note = []
+            if c and abs(c - int(y)) > 1: note.append(f'자료관 연대 {c}와 다름(문서 속 날짜를 따랐다면 그대로 두어도 됩니다)')
+            if di: note.append('날짜 어긋남 ' + ' / '.join(m for _, m in di[:2]))
+            print(f'  {n:>2}. {y} {name}' + (' — ' + ' · '.join(note) if note else ' ✓'))
+            continue
+        v, why = year_suggest(r)
+        if v:
+            print(f'  {n:>2}. (빈 칸) {name} → {v} · 근거: {why}' + (' — 채움' if a.apply else ''))
+            if a.apply: r['연도'] = str(v); r['연도근거'] = why; filled += 1
+        else: print(f'  {n:>2}. (빈 칸) {name} — 그대로 둠: {why}')
+    if a.apply and filled:
+        with open(p, 'w', newline='', encoding='utf-8-sig') as f:
+            w = csv.DictWriter(f, fieldnames=cols); w.writeheader(); w.writerows([{k: r.get(k, '') for k in cols} for r in rows])
+        print(f'\n{filled}건 채움(selection.csv 「연도」, 근거는 「연도근거」) → mediate · series를 다시 실행하세요')
+    elif not a.apply: print('\n제안을 채우려면 --apply (근거가 「자료ID」인 값은 자료관이 매긴 연대 — 원문에 날짜가 보이면 그쪽을 따르세요)')
 
 
 def cmd_check(a):
@@ -1429,6 +1483,9 @@ def cmd_check(a):
         if not s.get('검토'): marks.append('검토 칸 비어 있음 → "초안" 표시')
         if dark: marks.append('대표 면이 표지·겉면 같습니다(어둡거나 다른 면보다 작고 글씨가 적음) → studio.py page')
         di = date_issues(s)
+        if not str(s.get('연도') or '').strip().isdigit():
+            ys_, why_ = year_suggest(s)
+            marks.append(f'연도 빈 칸 → 제안 {ys_}({why_}) · studio.py years' if ys_ else f'연도 빈 칸({why_})')
         if di: marks.append('날짜 어긋남 ' + str(len(di)) + ': ' + ' / '.join(f'{f} {m}' for f, m in di[:2]) + (' (문서에 이미 적어 둠)' if '어긋' in ''.join(s.get(k) or '' for k in ('원문', '번역', '해제')) else ''))
         print(f'  {n:>2}. {name} — ' + ('✓' if not marks else ' / '.join(marks)))
         if miss or (story and not q): todo.append(f'{n}번 문서의 문구 에디팅(판독·번역·해제·요약·이야기)')
@@ -1610,6 +1667,7 @@ def main():
     rv = sp.add_parser('review', help='검토 표시: 원문 대조를 마친 문서의 검토 칸에 이름 · 날짜')
     rv.add_argument('--work', required=True); rv.add_argument('--theme', required=True); rv.add_argument('--n', required=True, help='순서 번호(예: 1,3,4)')
     rv.add_argument('--by', default='검토자', help='검토한 사람 이름'); rv.add_argument('--undo', action='store_true', help='검토 표시 지우기')
+    yr = sp.add_parser('years', help='연도 칸 점검: 빈 칸에 근거(문서 속 날짜 · 해제 · 자료ID)와 함께 제안, --apply로 채움'); yr.add_argument('--work', required=True); yr.add_argument('--theme', required=True); yr.add_argument('--apply', action='store_true')
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
     ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')
     og = sp.add_parser('originals', help='원본 묶음: 선별 문서의 원본 해상도 사진(--full 이면 문서 전체 면) + 원본 영상 → 분할 ZIP')
@@ -1622,7 +1680,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'years': cmd_years, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review}[a.cmd](a)
 
 
 if __name__ == '__main__':
