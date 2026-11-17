@@ -223,7 +223,7 @@ python3 $S/series.py --list series.tsv --note series.md --out site --home ../../
 
 ![시리즈 사이트](img/site.jpg)
 
-결과: [갤러리](site/index.html)(맨 위에 「이 사이트에 있는 것」과 자동 요약) · [통합 분석](site/analysis.html) · 모아 보기 [문장](site/quotes.html) · [연표](site/timeline.html) · [질문 카드](site/questions.html) · [기획 노트](site/about.html) · [홍보 가이드](site/promote.html) · [활용 가이드](site/use.html) · 편마다 [`eps/`](site/eps/).
+결과: [갤러리](site/index.html)(맨 위에 「이 사이트에 있는 것」과 자동 요약) · [통합 분석](site/analysis.html) · 모아 보기 [검색](site/search.html) · [유형 사전](site/types.html) · [문장](site/quotes.html) · [연표](site/timeline.html) · [질문 카드](site/questions.html) · [기획 노트](site/about.html) · [홍보 가이드](site/promote.html) · [활용 가이드](site/use.html) · 편마다 [`eps/`](site/eps/).
 
 통합 분석만 따로: `python3 $S/analysis.py --list series.tsv --out 분석.html` — 세기 · 문서 유형 · 유형×세기 · 소장처 종류 · 지역 · 핵심 정서 · 판독 난도 · 원문 인용 · 인물 · 남겨 둔 질문 · 편별 표. `series.tsv`에 4번째 칸 `kind`(문중 · 서원 …)를 쓰면 소장처 종류도 셉니다. 같은 도구로 만든 [예시 101편 통합 분석](https://changgi.github.io/archive-tools/examples/analysis.html).
 

@@ -1,5 +1,11 @@
 # 변경 기록
 
+## aks-archive-harvester 1.5.0 (2026-11-17)
+- **전체 검색 `search.html`** (`analysis.py` · `series.py`): 판독 · 원문 · 번역 · 해제 · 요약 · 이야기 전문을 한 페이지에서 — 찾을 곳 고르기, 찾은 곳 앞뒤를 형광으로, 문서 유형 · 편 · 원본 바로 가기, 주소로 검색(`search.html?q=乘馹`). 인터넷 없이도 돌도록 자료를 페이지 안에 담음
+- **문서 유형 사전 `types.html`**: 나온 문서 유형마다 읽는 법(`read_guide` · `glossary`) · 건수 · 세기 분포 · 되도록 다른 편에서 고른 예 4건 · 「모두 찾기」(전체 검색으로)
+- 시리즈 사이트 메뉴 · 「이 사이트에 있는 것」 · 사이트 지도에 두 쪽 추가, selftest 확인 항목 추가
+- **예시**: 문서 355건 전체 검색(예: 乘馹 15건 · 노비 39건) · 148가지 유형 사전, 갤러리 메뉴 「전체 검색」 · 「한눈에」 안내 · 검색창 옆 「원문 전문에서 찾기 →」(결과가 없을 때도 안내), README 「찾기」 줄
+
 ## aks-archive-harvester 1.4.1 (2026-11-16)
 - **자동 시험(GitHub Actions)** `.github/workflows/selftest.yml`: 푸시 · 풀 리퀘스트마다 Windows · macOS · Linux × Python 3.10 · 3.13에서 문법 검사와 `selftest.py`, 매니페스트(JSON)와 예시 사이트 깨진 링크(`tools/check_links.py`) 확인. README에 상태 배지
 - **이슈 양식** `.github/ISSUE_TEMPLATE/`: 「판독 고침 제보」(문서 · 자료 ID · 고칠 곳 · 고친 내용 · 근거, 라벨 「판독 고침」) · 「도구가 잘 안 돼요」(selftest 결과 첨부) · 갤러리와 게재 중단 메일 안내

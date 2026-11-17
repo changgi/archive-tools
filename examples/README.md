@@ -2,7 +2,7 @@
 
 > 📊 **통합 분석** — 101편 · 문서 355건 전체를 한 장에(시대 · 문서 유형 · 지역 · 정서 · 판독 · 원문 인용 · 남겨 둔 질문): [analysis.html](https://changgi.github.io/archive-tools/examples/analysis.html) · 데이터 [JSON](analysis-data.json) · [편별 CSV](analysis-episodes.csv) · 갤러리 첫 화면 「한눈에 보기」
 >
-> 🗂️ **모아 보기** — [종이에 적힌 문장](quotes.html) · [전체 연표](timeline.html) · [남겨 둔 질문 카드](questions.html) · 문서마다 「판독 고침 제보」(GitHub 이슈)
+> 🗂️ **모아 보기** — [전체 검색](search.html) · [문서 유형 사전](types.html) · [종이에 적힌 문장](quotes.html) · [전체 연표](timeline.html) · [남겨 둔 질문 카드](questions.html) · 문서마다 「판독 고침 제보」(GitHub 이슈)
 >
 > ✍️ **기획 노트** — 이 시리즈를 만든 이유 · 고른 기준 · 히스토리: [about.html](https://changgi.github.io/archive-tools/examples/about.html) · [CURATOR-NOTE.md](CURATOR-NOTE.md). 편마다의 큐레이터 노트는 각 폴더의 `curator.md`.
 >

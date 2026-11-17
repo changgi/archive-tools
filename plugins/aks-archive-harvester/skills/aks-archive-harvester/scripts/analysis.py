@@ -2,7 +2,7 @@
 """통합 분석 — 여러 편(테마)의 문서 · 노트 · 결과물을 모아 한 장에서 전체를 읽는 분석 페이지.
 
   python3 analysis.py --list series.tsv --out site/analysis.html [--title "시리즈 제목"]
-  (옆에 analysis-data.json(집계) · analysis-episodes.csv(편별 표), 모아 보기 quotes.html · timeline.html · questions.html도 저장)
+  (옆에 analysis-data.json(집계) · analysis-episodes.csv(편별 표), 모아 보기 search.html · types.html · quotes.html · timeline.html · questions.html도 저장)
 
   (series.py 가 사이트를 만들 때 analysis.html 도 함께 만듭니다.)
 
@@ -134,6 +134,8 @@ CSS = '''
 .col .qq blockquote em{display:block;font-style:normal;color:var(--dim);font-size:13px;margin-top:2px}.col .qq blockquote small{display:block;font-family:'Noto Sans KR',sans-serif;color:var(--dim);font-size:12.5px;margin-top:6px}.col .qq a{color:var(--gold)}
 .col .tlv{border-left:2px solid #c4964a66;margin:6px 0 0 4px;padding-left:16px}.col .tlv h3{margin:18px 0 6px;color:var(--gold);font-size:18px}.col .tlv div{margin:0 0 8px;font-size:14.5px;color:#e8dcc4}.col .tlv b{color:#f3ead8;margin-right:6px;font-variant-numeric:tabular-nums}.col .tlv small{color:var(--dim)}.col .tlv a{color:var(--gold)}
 .col .qcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.col .qcards div{background:#1f1a14;border:1px solid #4a3e2c;border-radius:14px;padding:14px 16px;break-inside:avoid}.col .qcards b{display:block;font-family:'Noto Serif KR',serif;font-size:17px;color:#f3ead8;line-height:1.55}.col .qcards span{display:block;margin-top:8px;color:var(--dim);font-size:12.8px}
+.col .sr{padding-left:22px}.col .sr li{margin:0 0 12px;color:#e8dcc4}.col .sr li small{color:var(--dim)}.col .sr li p{margin:3px 0 0;font-size:14.5px;color:#d9cfbb}.col .sr mark{background:#c4964a;color:#16130f;border-radius:3px;padding:0 2px}.col .sr em{font-style:normal;color:var(--gold);font-size:12.5px;margin-right:4px}.col .sr a{color:var(--gold)}
+.col .tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}.col .tcard{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:12px 16px;break-inside:avoid}.col .tcard h3{margin:0 0 6px;color:#f3ead8;font-size:17px}.col .tcard h3 small{color:var(--gold);font-size:12.5px;font-weight:400;margin-left:6px}.col .tcard p{font-size:14px;margin:4px 0}.col .tcard ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}.col .tcard a{color:var(--gold)}
 .col .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 16px}.col input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
 .an input[type=search]{background:#1f1a14;border:1px solid #4a3e2c;color:#f3ead8;border-radius:20px;padding:6px 14px;min-width:260px;font:inherit}
 @media print{body{background:#fff!important;color:#111!important}main{max-width:none!important;padding:0 8mm!important}nav,.toc,.tools,input,details.tvw summary,footer a{display:none!important}
@@ -189,7 +191,7 @@ def build(eps, title, kinds_label='소장처 종류'):
              (f'{han:,}', '판독한 한자'), (len(quotes), '원문 인용'), (f'{dur / 60:.0f}분' if dur else '—', '영상 길이'), (f'{cards:,}', '카드')]
     out = ['<div class="an">',
            '<nav class="toc">' + ''.join(f'<a href="#{i}">{t}</a>' for i, t in [('a-sum', '요약'), ('a-time', '시대'), ('a-type', '문서 유형'), ('a-where', '어디서'), ('a-feel', '정서'), ('a-read', '판독'), ('a-quote', '인용'), ('a-who', '인물'), ('a-q', '질문'), ('a-eps', '편별 표'), ('a-lim', '한계')]) + '</nav>',
-           '<p class="mute">모아 보기: <a href="quotes.html">종이에 적힌 문장 전체</a> · <a href="timeline.html">전체 연표</a> · <a href="questions.html">남겨 둔 질문 카드</a></p>',
+           '<p class="mute">모아 보기: <a href="search.html">전체 검색</a> · <a href="types.html">문서 유형 사전</a> · <a href="quotes.html">종이에 적힌 문장 전체</a> · <a href="timeline.html">전체 연표</a> · <a href="questions.html">남겨 둔 질문 카드</a></p>',
            '<div class="tiles">' + ''.join(f'<div class="tile"><b>{v}</b><span>{h(l)}</span></div>' for v, l in tiles) + '</div>',
            '<h2 id="a-sum">한눈에 — 자동 요약</h2><ul class="ins">' + ''.join(f'<li>{x}</li>' for x in ins) + '</ul>']
 
@@ -333,7 +335,40 @@ def collections_pages(eps, title):
     qq = [(e['cur']['question'], e) for e in sorted(eps, key=lambda x: (x['ep'] or 0)) if e['cur'].get('question')]
     questions = ('<div class="col"><p class="mute">인쇄하면 한 장에 두 줄씩 질문 카드가 됩니다 — 잘라서 모둠 토론 · 글쓰기 · 전시 참여 벽에.</p><div class="qcards">'
                  + ''.join(f'<div><b>{h(q)}</b><span>{h(lab(e))} {h(e["title"])} · {h(e["coll"])}</span></div>' for q, e in qq) + '</div></div>')
-    return [('quotes.html', '종이에 적힌 문장들', f'이야기에 "현대어(原文)"로 인용한 원문 {len(qs)}곳 전체 — 찾아보고, 수업 · 글쓰기 · SNS에 씁니다.', quotes),
+    # 4) 전체 검색 — 판독 · 원문 · 번역 · 해제 · 요약 · 이야기 전문
+    F = [('판독', '판독'), ('원문', '원문'), ('번역', '번역'), ('해제', '해제'), ('요약', '요약'), ('이야기', '이야기')]
+    idx = [{'n': dname(s), 't': s.get('문서유형') or '', 'y': s.get('연도') or '', 'e': lab(e) + ' ' + e['title'], 'c': e['coll'], 'l': e.get('link') or '', 'v': s.get('뷰어링크') or '',
+            **{k: (s.get(k) or '').strip() for k, _ in F if (s.get(k) or '').strip()}} for e, s in docs]
+    data = json.dumps(idx, ensure_ascii=False).replace('</', '<\\/')
+    search = ('<div class="col"><div class="tools"><input id="sq" type="search" placeholder="낱말 · 한자 · 이름 (예: 乘馹, 역마, 노비, 편지)" aria-label="전체 검색" autofocus>'
+              '<span id="sn" class="mute"></span></div><p class="mute" id="sf">찾을 곳: ' + ''.join(f'<label style="margin-right:10px"><input type="checkbox" value="{k}" checked> {l}</label>' for k, l in F) + '</p>'
+              f'<p class="mute">문서 {len(idx)}건의 판독 · 번역 · 해제 · 요약 · 이야기 전문에서 찾습니다. 판독은 이미지에 근거한 초안입니다.</p><ol id="sr" class="sr"></ol></div>'
+              '<script type="application/json" id="sd">' + data + '</script>'
+              '<script>(function(){var D=JSON.parse(document.getElementById("sd").textContent),q=document.getElementById("sq"),o=document.getElementById("sr"),n=document.getElementById("sn"),cb=[].slice.call(document.querySelectorAll("#sf input"));'
+              'function E(t){return String(t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",\'"\':"&quot;"}[c]})}'
+              'function go(){var v=q.value.trim();o.innerHTML="";if(v.length<1){n.textContent="";return}var lv=v.toLowerCase(),fs=cb.filter(function(c){return c.checked}).map(function(c){return c.value}),k=0,h="";'
+              'D.forEach(function(d){var hit=null;fs.some(function(f){var t=d[f];if(!t)return false;var i=t.toLowerCase().indexOf(lv);if(i<0)return false;hit=[f,t,i];return true});if(!hit&&(d.n+d.e+d.c).toLowerCase().indexOf(lv)>=0)hit=["문서명",d.n,d.n.toLowerCase().indexOf(lv)];if(!hit)return;k++;if(k>300)return;'
+              'var t=hit[1],i=Math.max(0,hit[2]),a=Math.max(0,i-40),sn=(a?"…":"")+E(t.slice(a,i))+"<mark>"+E(t.slice(i,i+v.length))+"</mark>"+E(t.slice(i+v.length,i+v.length+60))+"…";'
+              'h+="<li><b>"+E(d.n)+"</b> <small>"+E(d.t)+(d.l?" · <a href=\\""+E(d.l)+"\\">"+E(d.e)+"</a>":" · "+E(d.e))+(d.v?" · <a href=\\""+E(d.v)+"\\" target=_blank rel=noopener>원본 ↗</a>":"")+"</small><p><em>"+hit[0]+"</em> "+sn+"</p></li>"});'
+              'o.innerHTML=h;n.textContent=k+"건"+(k>300?" (앞 300건만)":"")}var tm;q.addEventListener("input",function(){clearTimeout(tm);tm=setTimeout(go,120)});cb.forEach(function(c){c.addEventListener("change",go)});'
+              'var u=new URLSearchParams(location.search).get("q");if(u){q.value=u;go()}})()</script>')
+    # 5) 문서 유형 사전 — 읽는 법 · 몇 건 · 어느 세기 · 예
+    T = collections.defaultdict(list)
+    for e, s in docs: T[(s.get('문서유형') or '기타').strip() or '기타'].append((e, s))
+    cards = []
+    for t, items in sorted(T.items(), key=lambda kv: -len(kv[1])):
+        guide = ST.read_guide(t) or ST.glossary(t)
+        cs = collections.Counter(cent(int(s['연도'])) for _, s in items if str(s.get('연도', '')).isdigit())
+        seen, first, rest = set(), [], []
+        for e, s in items: (rest if e['title'] in seen else first).append((e, s)); seen.add(e['title'])
+        ex = ''.join(f'<li>{link(e)} — {h(dname(s))}</li>' for e, s in (first + rest)[:4])  # 되도록 다른 편에서
+        cards.append(f'<div class="tcard" data-s="{h((t + guide).lower())}"><h3 id="t-{h(t)}">{h(t)} <small>{len(items)}건' + (' · ' + ', '.join(f'{c} {v}' for c, v in sorted(cs.items(), key=lambda x: int(x[0][:-2]))) if cs else '') + '</small></h3>'
+                     + (f'<p>{h(guide)}</p>' if guide else '<p class="mute">읽는 법 설명이 아직 없습니다.</p>') + f'<ul>{ex}</ul>' + (f'<p class="mute">외 {len(items) - 4}건 — <a href="search.html?q={h(t)}">모두 찾기</a></p>' if len(items) > 4 else '') + '</div>')
+    types = (f'<div class="col"><div class="tools"><input id="cq" type="search" placeholder="찾기: 홍패 · 교지 · 편지 · 노비 …" aria-label="유형 찾기"><span id="cn" class="mute"></span></div>'
+             f'<p class="mute">이 시리즈에 나온 문서 유형 {len(T)}가지 — 많이 나온 순. 유형은 문서명에서 뽑은 초안입니다.</p><div class="tcards">' + ''.join(cards).replace('class="tcard" data-s', 'class="tcard" data-s') + '</div></div>' + SEARCH_JS)
+    return [('search.html', '전체 검색', f'문서 {len(idx)}건의 판독 · 번역 · 해제 · 이야기 전문을 한 곳에서 찾습니다 — 한자 한 글자, 이름 하나로.', search),
+            ('types.html', '문서 유형 사전', f'고신 · 홍패 · 준호구 · 명문 … 이 시리즈에 나온 {len(T)}가지 문서를 읽는 법과 예.', types),
+            ('quotes.html', '종이에 적힌 문장들', f'이야기에 "현대어(原文)"로 인용한 원문 {len(qs)}곳 전체 — 찾아보고, 수업 · 글쓰기 · SNS에 씁니다.', quotes),
             ('timeline.html', '전체 연표', f'{len(dated)}건의 문서를 한 줄로 — 세기별로 나누고, 편과 원본으로 바로 갑니다.', timeline),
             ('questions.html', '남겨 둔 질문 카드', f'문서만으로는 답할 수 없어 보는 사람과 나누려는 질문 {len(qq)}개.', questions)]
 
