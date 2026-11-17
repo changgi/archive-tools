@@ -1,5 +1,9 @@
 # 변경 기록
 
+## aks-archive-harvester 1.8.2 (2026-11-18)
+- **데이터 묶음을 늘 같게**: `data.zip`도 파일 순서 · 묶음 안 날짜를 고정하고, 읽어보기의 '만든 날'을 편별 원자료가 마지막으로 바뀐 날로 — 내용이 같으면 같은 바이트(다시 만들 때마다 저장소 · 패치가 바뀌지 않게)
+- **Zenodo 설정 `.zenodo.json`**: 저장소를 Zenodo와 연결해 두면 릴리스마다 DOI가 붙을 때 쓸 제목 · 저자 · 설명 · 이용 조건(코드 MIT, 텍스트 CC BY 4.0 · 이미지 제외 안내) · 관련 주소. `CONTRIBUTING.md`에 연결 방법
+
 ## aks-archive-harvester 1.8.1 (2026-11-18)
 - **인용 정보 `CITATION.cff`**: GitHub 저장소 화면의 「Cite this repository」에서 APA · BibTeX로 바로 복사(형식 검증 통과). README · LICENSE-CONTENT에 안내, `tools/check_version.py`가 CITATION.cff 버전도 함께 확인
 - **데이터 묶음에 `datapackage.json`** (`analysis.datapackage`): 편별 selection.csv와 편별 표의 열 이름 · 형식, 분석 JSON, 출처, 이용 조건(CC BY 4.0이면 표준 이름과 주소)을 적은 Frictionless Data 설명 — R · Python · OpenRefine 등에서 구조를 알고 바로 읽음

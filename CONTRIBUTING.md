@@ -41,6 +41,8 @@ python3 $S/studio.py mediate --work W --theme T --url <전시 주소> --issues h
 
 `v1.7.2`처럼 버전과 같은 태그를 올리면(`git tag v1.7.2 && git push origin v1.7.2`) `.github/workflows/release.yml`이 버전을 확인하고 배포 파일을 만들어, CHANGELOG의 그 버전 기록과 함께 GitHub 릴리스로 올립니다.
 
+**DOI(학술 인용 번호)**: zenodo.org에 GitHub로 로그인 → GitHub 메뉴에서 `changgi/archive-tools`를 켜 두면, 릴리스마다 Zenodo가 사본을 보관하고 DOI를 붙입니다. 제목 · 저자 · 설명 · 이용 조건은 `.zenodo.json`에서 가져갑니다(버전을 올릴 때 `CITATION.cff`의 `version` · `date-released`도 함께).
+
 ## 지켜 주세요
 
 - 이미지 재사용 · 재배포는 소장처 동의가 필요합니다(한국고문서자료관 031-730-8873, 8876). 출처: "한국학중앙연구원 한국고문서자료관 소장·제공 · 소장처"

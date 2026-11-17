@@ -476,18 +476,25 @@ def datapackage(names, title, license=''):
 
 
 def data_bundle(path, eps_dirs, folder, title, license=''):
-    """데이터 묶음 ZIP — eps_dirs: [(폴더 이름, 원본 폴더)] (selection.csv · curator.md · delivery.md · corrections.csv), folder: analysis-*.json/csv가 있는 곳"""
+    """데이터 묶음 ZIP — eps_dirs: [(폴더 이름, 원본 폴더)] (selection.csv · curator.md · delivery.md · corrections.csv), folder: analysis-*.json/csv가 있는 곳.
+    내용이 같으면 같은 바이트(파일 순서 · 묶음 안 날짜 고정, '만든 날'은 편별 원자료가 마지막으로 바뀐 날)."""
     import zipfile, datetime
+    items = []
+    for name, d in eps_dirs:
+        for f in ('selection.csv', 'curator.md', 'delivery.md', 'corrections.csv'):
+            if os.path.exists(os.path.join(d, f)): items.append((os.path.join(d, f), f'{name}/{f}'))
+    newest = max([os.path.getmtime(p) for p, _ in items] or [0])  # 원자료(편별 파일)가 마지막으로 바뀐 날 — 분석 파일은 만들 때마다 새로 써지므로 뺌
+    for f in ('analysis-data.json', 'analysis-episodes.csv'):
+        if os.path.exists(os.path.join(folder, f)): items.append((os.path.join(folder, f), f))
+    date = datetime.date.fromtimestamp(newest).isoformat() if newest else datetime.date.today().isoformat()
+    def put(z, arc, data):
+        zi = zipfile.ZipInfo(arc, date_time=(1980, 1, 1, 0, 0, 0)); zi.compress_type = zipfile.ZIP_DEFLATED; zi.flag_bits |= 0x800; zi.external_attr = 0o644 << 16
+        z.writestr(zi, data)
     with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED) as z:
-        z.writestr('읽어보기.txt', DATA_README.format(title=title, date=datetime.date.today().isoformat(), license=('\n- 텍스트 이용 조건: ' + license) if license else ''))
-        for name, d in eps_dirs:
-            for f in ('selection.csv', 'curator.md', 'delivery.md', 'corrections.csv'):
-                if os.path.exists(os.path.join(d, f)): z.write(os.path.join(d, f), f'{name}/{f}')
-        for f in ('analysis-data.json', 'analysis-episodes.csv'):
-            if os.path.exists(os.path.join(folder, f)): z.write(os.path.join(folder, f), f)
-        z.writestr('datapackage.json', json.dumps(datapackage(z.namelist(), title, license), ensure_ascii=False, indent=1))
+        put(z, '읽어보기.txt', DATA_README.format(title=title, date=date, license=('\n- 텍스트 이용 조건: ' + license) if license else '').encode('utf-8'))
+        for p, arc in items: put(z, arc, open(p, 'rb').read())
+        put(z, 'datapackage.json', json.dumps(datapackage([arc for _, arc in items], title, license), ensure_ascii=False, indent=1).encode('utf-8'))
     return path
-
 
 def write(path, title, body, nav='', foot='', base_css='', meta='', oh_url=None):
     page = (

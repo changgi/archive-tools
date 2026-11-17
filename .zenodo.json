@@ -1,0 +1,14 @@
+{
+ "title": "archive-tools: aks-archive-harvester와 「고문서 한 장」 — 한국고문서자료관 고문서 수집 · 큐레이션 · 에디팅 · 매개 도구와 예시",
+ "upload_type": "software",
+ "description": "<p>Claude 플러그인 <b>aks-archive-harvester</b> — 한국학중앙연구원 한국고문서자료관 고문서의 수집 → 큐레이션 → 문구 · 전달 에디팅 → 전시 · 카드뉴스 · 활동지 · 영상 매개 → 시리즈 사이트 · 통합 분석 · 연구 패키지, 그리고 이를 써서 만든 「고문서 한 장」 101편(문서 355건)의 판독 · 번역 · 해제 예시.</p><p>코드: MIT. 판독 · 번역 · 해제 등 텍스트와 분석 데이터: CC BY 4.0(LICENSE-CONTENT.md). 고문서 이미지는 포함된 경우에도 이 조건에 들지 않으며 소장처 동의가 필요합니다. 판독 · 번역은 이미지에 근거한 초안입니다.</p><p>예시: https://changgi.github.io/archive-tools/examples/</p>",
+ "creators": [{"name": "Song, Chang-gi"}],
+ "license": "MIT",
+ "language": "kor",
+ "keywords": ["Korean old documents", "고문서", "archival curation", "digital humanities", "transcription", "Claude plugin", "한국고문서자료관"],
+ "related_identifiers": [
+  {"identifier": "https://changgi.github.io/archive-tools/examples/", "relation": "isDocumentedBy", "resource_type": "other"},
+  {"identifier": "https://archive.aks.ac.kr", "relation": "isDerivedFrom", "resource_type": "dataset"}
+ ],
+ "notes": "판독 · 번역 · 해제 등 텍스트는 CC BY 4.0, 이미지는 소장처(한국고문서자료관 031-730-8873, 8876) 동의가 필요합니다."
+}
