@@ -63,7 +63,7 @@ SDESC = ''
 
 def page(path, title, body, back=True, desc=''):
     home = f'<a href="{h(HOME[0])}">{h(HOME[1])}</a>' if HOME else ''
-    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a><a href="search.html">검색</a><a href="types.html">유형 사전</a><a href="quotes.html">문장</a><a href="timeline.html">연표</a><a href="questions.html">질문 카드</a><a href="review.html">검토 현황</a></nav>'
+    nav = f'<nav class="top">{home}<a href="index.html">갤러리</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="analysis.html">통합 분석</a><a href="search.html">검색</a><a href="types.html">유형 사전</a><a href="quotes.html">문장</a><a href="timeline.html">연표</a><a href="people.html">인물</a><a href="questions.html">질문 카드</a><a href="review.html">검토 현황</a></nav>'
     html_ = (f'<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{h(title)}</title><style>{CSS}</style></head><body><main>{nav}{body}<footer>이미지: 한국학중앙연구원 한국고문서자료관 소장·제공 · 각 소장처(재사용은 소장처 동의 필요) · 판독·번역은 이미지에 근거한 초안{(" · 텍스트 " + h(TEXT_LICENSE)) if TEXT_LICENSE else ""} · 만든 도구: aks-archive-harvester (github.com/changgi/archive-tools)</footer></main></body></html>')
     name = os.path.basename(path)
     html_ = ST.put_oldhangul(html_, ST.oldhangul_css(body))
@@ -153,6 +153,7 @@ def main():
         ('types.html', '문서 유형 사전', '문서 종류마다 읽는 법 · 건수 · 시대 · 예'),
         ('quotes.html', '종이에 적힌 문장들', '이야기에 인용한 원문 전체 · 찾기'),
         ('timeline.html', '전체 연표', '모든 문서를 연도순으로 · 편과 원본으로 바로'),
+        ('people.html', '인물 찾아보기', '문서에 나온 이름을 가나다순으로 · 여러 편에 걸친 인물'),
         ('questions.html', '남겨 둔 질문 카드', '인쇄해 잘라 쓰는 토론 · 글쓰기 카드'),
         ('review.html', '검토 현황', '사람이 원본과 대조를 마친 문서 · 남은 문서 · □·(?)'),
         ('data.zip', '데이터 묶음 ZIP', '편별 판독 · 번역 · 해제 · 노트 · 분석 집계 — 이미지 없이 가볍게'),
@@ -189,9 +190,9 @@ def main():
     page(os.path.join(out, 'analysis.html'), '통합 분석 — ' + stitle, f'<p class="k">ANALYSIS</p><h1>{h(stitle)} — 통합 분석</h1><p class="lead">편마다 따로 보던 문서 · 노트 · 결과물을 한데 모아, 전체가 무엇을 담고 있는지 한 장에서 읽습니다.</p><style>{AN.CSS}</style>' + an_body)
     if SITE:  # 검색 엔진용 사이트 지도
         today = AN.source_date([(e['slug'], os.path.join(out, 'eps', e['slug'])) for e in EPS])  # 원자료가 바뀐 날(빌드한 날이 아니라)
-        urls = [SITE + f for f in ('', 'analysis.html', 'search.html', 'types.html', 'quotes.html', 'timeline.html', 'questions.html', 'review.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
+        urls = [SITE + f for f in ('', 'analysis.html', 'search.html', 'types.html', 'quotes.html', 'timeline.html', 'people.html', 'questions.html', 'review.html', 'about.html', 'promote.html', 'use.html')] + [SITE + f'eps/{e["slug"]}/{f}' for e in EPS for f in ('index.html', 'exhibit.html', 'handout.html') if e['has'].get(f)]
         open(os.path.join(out, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{h(u)}</loc><lastmod>{today}</lastmod></url>\n' for u in urls) + '</urlset>\n')
-    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · search · types · quotes · timeline · questions.html(모아 보기) · eps/' + (' · sitemap.xml' if SITE else ''))
+    print(f'→ {out}  편 {len(EPS)} · 문서 {len(docs)} · 시리즈 카드 {len(scards)}장\n  index.html(갤러리) · about.html(기획 노트) · promote.html · use.html · analysis.html(통합 분석) · search · types · quotes · timeline · people · questions.html(모아 보기) · eps/' + (' · sitemap.xml' if SITE else ''))
 
 
 if __name__ == '__main__':

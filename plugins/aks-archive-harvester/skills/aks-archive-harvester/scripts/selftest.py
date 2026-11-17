@@ -209,7 +209,7 @@ def main():
         ['W/mediate/t/index.html', 'W/mediate/t/exhibit.html', 'W/mediate/t/handout.html', 'W/mediate/t/channels.md', 'W/mediate/t/share.jpg', 'W/mediate/t/selection.csv'])
     open(os.path.join(root, 'series.tsv'), 'w', encoding='utf-8').write('ep\twork\ttheme\tkind\n1\tW\tt\t문중\n')
     run('series.py', [S('series.py'), '--list', 'series.tsv', '--out', 'site', '--site-url', 'https://example.test/s/'],
-        ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/search.html', 'site/types.html', 'site/data.zip', 'site/review.html', 'site/quotes.html', 'site/timeline.html', 'site/questions.html', 'site/sitemap.xml', 'site/share.jpg', 'site/eps/01-t/index.html'])
+        ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/search.html', 'site/types.html', 'site/data.zip', 'site/review.html', 'site/quotes.html', 'site/timeline.html', 'site/people.html', 'site/questions.html', 'site/sitemap.xml', 'site/share.jpg', 'site/eps/01-t/index.html'])
     os.makedirs(os.path.join(root, 'an'), exist_ok=True)
     run('analysis.py', [S('analysis.py'), '--list', 'series.tsv', '--out', 'an/analysis.html'], ['an/analysis.html', 'an/analysis-episodes.csv', 'an/quotes.html'])
     try: res.append(('날짜 맞춤 · 연도 제안(연호 · 왕대 · 간지 · 서기)', *date_check()))

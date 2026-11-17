@@ -2,7 +2,7 @@
 """통합 분석 — 여러 편(테마)의 문서 · 노트 · 결과물을 모아 한 장에서 전체를 읽는 분석 페이지.
 
   python3 analysis.py --list series.tsv --out site/analysis.html [--title "시리즈 제목"]
-  (옆에 analysis-data.json(집계) · analysis-episodes.csv(편별 표), 모아 보기 search.html · types.html · quotes.html · timeline.html · questions.html도 저장)
+  (옆에 analysis-data.json(집계) · analysis-episodes.csv(편별 표), 모아 보기 search.html · types.html · quotes.html · timeline.html · people.html · questions.html도 저장)
 
   (series.py 가 사이트를 만들 때 analysis.html 도 함께 만듭니다.)
 
@@ -133,6 +133,7 @@ CSS = '''
 .col .qq{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}.col .qq blockquote{margin:0;background:#1f1a14;border-left:3px solid var(--gold);border-radius:8px;padding:10px 14px;font-family:'Noto Serif KR',serif;color:#f3ead8;font-size:15.5px}
 .col .qq blockquote em{display:block;font-style:normal;color:var(--dim);font-size:13px;margin-top:2px}.col .qq blockquote small{display:block;font-family:'Noto Sans KR',sans-serif;color:var(--dim);font-size:12.5px;margin-top:6px}.col .qq a{color:var(--gold)}
 .col .tlv{border-left:2px solid #c4964a66;margin:6px 0 0 4px;padding-left:16px}.col .tlv h2{margin:18px 0 6px;color:var(--gold);font-size:18px}.col .tlv div{margin:0 0 8px;font-size:14.5px;color:#e8dcc4}.col .tlv b{color:#f3ead8;margin-right:6px;font-variant-numeric:tabular-nums}.col .tlv small{color:var(--dim)}.col .tlv a{color:var(--gold)}
+.col .jump{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.col .jump a{display:inline-block;min-width:2.2em;text-align:center;padding:4px 8px;border:1px solid #4a3e2c;border-radius:8px;color:var(--gold);text-decoration:none}.col .pp{border-left:2px solid #c4964a66;margin:0 0 12px 4px;padding-left:14px}.col .pp b{color:#f3ead8;font-size:16px}.col .pp b small{color:var(--gold);font-weight:400;font-size:12.5px;margin-left:6px}.col .pp ul{margin:4px 0 0;padding-left:18px}.col .pp li{font-size:14.5px;color:#e8dcc4;margin:2px 0}.col .pp li small{color:var(--dim)}.col .pp li.mn{list-style:none;margin-left:-18px;margin-top:4px;color:#cfc3ab}.col .pp a{color:var(--gold)}.col .multi{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}.col .multi a{background:#231d15;border:1px solid #4a3e2c;border-radius:16px;padding:4px 12px;color:#f3ead8;text-decoration:none;font-size:14px}.col .multi a small{color:var(--gold);margin-left:4px}
 .col .qcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.col .qcards div{background:#1f1a14;border:1px solid #4a3e2c;border-radius:14px;padding:14px 16px;break-inside:avoid}.col .qcards b{display:block;font-family:'Noto Serif KR',serif;font-size:17px;color:#f3ead8;line-height:1.55}.col .qcards span{display:block;margin-top:8px;color:var(--dim);font-size:12.8px}
 .col .sr{padding-left:22px}.col .sr li{margin:0 0 12px;color:#e8dcc4}.col .sr li small{color:var(--dim)}.col .sr li p{margin:3px 0 0;font-size:14.5px;color:#d9cfbb}.col .sr mark{background:#c4964a;color:#16130f;border-radius:3px;padding:0 2px}.col .sr em{font-style:normal;color:var(--gold);font-size:12.5px;margin-right:4px}.col .sr a{color:var(--gold)}
 .col .tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}.col .tcard{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:12px 16px;break-inside:avoid}.col .tcard h2{margin:0 0 6px;color:#f3ead8;font-size:17px}.col .tcard h2 small{color:var(--gold);font-size:12.5px;font-weight:400;margin-left:6px}.col .tcard p{font-size:14px;margin:4px 0}.col .tcard ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}.col .tcard a{color:var(--gold)}
@@ -188,10 +189,7 @@ def build(eps, title, kinds_label='소장처 종류'):
     K = collections.Counter(e['kind'] for e in eps if e.get('kind'))
     R = collections.Counter(region_of(e['coll']) for e in eps)
     P = collections.Counter()
-    for _, s in docs:
-        for p in re.split(r'[;,·/]\s*', s.get('인물') or ''):
-            p = p.strip()
-            if 1 < len(p) < 12: P[p] += 1
+    for _, s in docs: P.update(persons_of(s))
     emos = [(e['dv'].get('emotion') or '').strip() for e in eps if (e['dv'].get('emotion') or '').strip()]
     EW = collections.Counter(re.sub(r'(?<=..)(의|에|을|를|이|가|은|는)$', '', w) for x in emos for w in re.split(r'\s*(?:와|과|에서|으로|로|,|·|→|그리고|\s)\s*', x) if len(w) >= 2 and w not in STOP)
     n_cur = sum(1 for e in eps if e['cur'].get('message')); n_dv = len(emos)
@@ -215,7 +213,7 @@ def build(eps, title, kinds_label='소장처 종류'):
              (f'{han:,}', '판독한 한자'), (len(quotes), '원문 인용'), (f'{dur / 60:.0f}분' if dur else '—', '영상 길이'), (f'{cards:,}', '카드')]
     out = ['<div class="an">',
            '<nav class="toc">' + ''.join(f'<a href="#{i}">{t}</a>' for i, t in [('a-sum', '요약'), ('a-time', '시대'), ('a-type', '문서 유형'), ('a-where', '어디서'), ('a-feel', '정서'), ('a-read', '판독'), ('a-quote', '인용'), ('a-who', '인물'), ('a-q', '질문'), ('a-eps', '편별 표'), ('a-lim', '한계')]) + '</nav>',
-           '<p class="mute">모아 보기: <a href="search.html">전체 검색</a> · <a href="types.html">문서 유형 사전</a> · <a href="quotes.html">종이에 적힌 문장 전체</a> · <a href="timeline.html">전체 연표</a> · <a href="questions.html">남겨 둔 질문 카드</a></p>',
+           '<p class="mute">모아 보기: <a href="search.html">전체 검색</a> · <a href="types.html">문서 유형 사전</a> · <a href="quotes.html">종이에 적힌 문장 전체</a> · <a href="people.html">인물 찾아보기</a> · <a href="timeline.html">전체 연표</a> · <a href="questions.html">남겨 둔 질문 카드</a></p>',
            '<div class="tiles">' + ''.join(f'<div class="tile"><b>{v}</b><span>{h(l)}</span></div>' for v, l in tiles) + '</div>',
            '<h2 id="a-sum">한눈에 — 자동 요약</h2><ul class="ins">' + ''.join(f'<li>{x}</li>' for x in ins) + '</ul>']
 
@@ -279,7 +277,7 @@ def build(eps, title, kinds_label='소장처 종류'):
 
     # ---- 인물
     out.append('<h2 id="a-who">자주 나온 이름</h2><div class="two">' +
-               f'<div class="card"><h3>인물 (상위 15)</h3><p class="q">문서명에서 뽑은 이름 · 같은 이름이 다른 사람일 수 있습니다</p>{hbars(P.most_common(15), unit="건") if P else "<p class=mute>자료 없음</p>"}</div>'
+               f'<div class="card"><h3>인물 (상위 15)</h3><p class="q">문서명에서 뽑은 이름 · 같은 이름이 다른 사람일 수 있습니다</p>{hbars(P.most_common(15), unit="건") if P else "<p class=mute>자료 없음</p>"}<p class="q"><a href="people.html">{len(P)}명 모두 · 가나다순 인물 찾아보기 →</a></p></div>'
                f'<div class="card"><h3>노트 진행</h3><p class="q">편 {len(eps)}개 기준</p>{hbars([("큐레이터 노트", n_cur), ("전달 에디팅 정서", n_dv), ("남겨 둔 질문", sum(1 for e in eps if e["cur"].get("question")))], len(eps), unit="편")}</div></div>')
 
     # ---- 질문
@@ -344,6 +342,38 @@ def dname(s):
     return n if (not y or n.startswith(y)) else f'{y} {n}'
 
 
+NOT_PERSON = re.compile(r'(?:현감|현령|부윤|부사|군수|목사|찰방|유사|동민|거민|동중|회원|생록|수료|감영|관찰사|향교|서원|사찰|문중|종가|관아|댁노|어사|판관|씨)$')
+ROLES = {'정부인', '숙부인', '정경부인', '부인', '공인', '유인', '수령', '좌수', '별감', '생원', '진사', '유학', '유생', '학생', '선생', '대감', '영감', '상전',
+         '노비', '사내종', '계집종', '아들', '딸', '아내', '남편', '사돈', '조부', '장자', '국왕', '장령', '혼서', '문통', '호노', '초동', '계조모', '경민장'}
+OFFICES = {'예조', '이조', '호조', '병조', '형조', '공조', '의정부', '사헌부', '사간원', '한성부', '비변사', '선혜청', '승정원', '홍문관', '경상도', '전라도', '충청도',
+           '경기도', '강원도', '황해도', '평안도', '함경도', '제주도'}
+
+
+CHO = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ'
+
+
+def persons_of(s):
+    """문서 한 건의 「인물」 칸 → 사람 이름 목록(직함 · 관청 · 고을 · 성씨만 있는 것은 뺌 — 성 없는 노비 · 승려 이름은 남김)"""
+    out = []
+    for p in re.split(r'[;,·/]\s*', s.get('인물') or ''):
+        p = re.sub(r'\(.*?\)', '', p).strip()
+        if not 1 < len(p) < 12 or p in ROLES or p in OFFICES or NOT_PERSON.search(p): continue  # 직함 · 관청 · 무리 · 「이씨」 · 「청송심씨」
+        if p[-1] in '군부현도목읍' and p[:-1] in REGION: continue  # 거제군 · 함양군처럼 고을 이름(광해군 · 이만부는 사람)
+        hz = re.search(re.escape(p) + r'\(([^)]*)\)', s.get('문서명') or '')
+        if hz and hz.group(1)[-1:] in '寺山庵院堂樓亭': continue  # 직지사(直指寺) · 황악산(黃岳山)처럼 절 · 산 · 건물 이름
+        out.append(p)
+    return list(dict.fromkeys(out))
+
+
+def initial(name):
+    """가나다 찾기용 첫소리(ㄲ → ㄱ …). 한글이 아니면 「기타」"""
+    c = name[:1]
+    if '가' <= c <= '힣':
+        k = CHO[(ord(c) - 0xAC00) // 588]
+        return {'ㄲ': 'ㄱ', 'ㄸ': 'ㄷ', 'ㅃ': 'ㅂ', 'ㅆ': 'ㅅ', 'ㅉ': 'ㅈ'}.get(k, k)
+    return '기타'
+
+
 def collections_pages(eps, title):
     """모아 보기 3종 — (파일, 제목, 머리말, 본문). 인용 · 연표 · 질문"""
     docs = [(e, s) for e in sorted(eps, key=lambda x: (x['ep'] or 0)) for s in e['sel']]
@@ -363,6 +393,34 @@ def collections_pages(eps, title):
     nod = sum(1 for _, s in docs if not str(s.get('연도', '')).isdigit())
     timeline = (f'<div class="col"><div class="tools"><input id="cq" type="search" placeholder="찾기: 연도 · 문서 유형 · 이름 · 소장처" aria-label="연표 찾기"><span id="cn" class="mute"></span></div>'
                 f'<p class="mute">연대가 적힌 문서 {len(dated)}건(연대 미상 {nod}건 제외) · 연도는 문서명·연호에서 읽은 값</p><div class="tlv">{"".join(rows)}</div></div>' + SEARCH_JS)
+    # 2b) 인물 찾아보기 — 「인물」 칸의 이름마다 나온 문서 · 편
+    PP = collections.defaultdict(list)
+    for e, s in docs:
+        for p in persons_of(s): PP[p].append((e, s))
+    # 다른 문서의 번역 · 해제 · 요약에 이름이 나오는 곳(세 글자 이상 — 두 글자는 우연히 겹치기 쉬움)
+    MM = {p: [(e, s) for e, s in docs if all(s is not y for _, y in v) and any(p in (s.get(k) or '') for k in ('번역', '해제', '요약'))] for p, v in PP.items() if len(p) >= 3}
+    eps_of = lambda p: {x["title"] for x, _ in PP[p] + MM.get(p, [])}
+    multi = sorted(((p, len(eps_of(p))) for p in PP if len(eps_of(p)) > 1), key=lambda x: (-x[1], x[0]))
+    groups = collections.defaultdict(list)
+    for p in sorted(PP): groups[initial(p)].append(p)
+    order = [k for k in 'ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ' if k in groups] + (['기타'] if '기타' in groups else [])
+    pid = {p: f'p{i}' for i, p in enumerate(sorted(PP))}
+    def pblock(p):
+        v = sorted(PP[p], key=lambda x: (int(x[1]['연도']) if str(x[1].get('연도', '')).isdigit() else 9999, x[0]['ep'] or 0))
+        li = ''.join(f'<li>{h(dname(s))} <small>· {h(s.get("문서유형") or "")} · {link(e)}' + (f' · <a href="{h(s["뷰어링크"])}" target="_blank" rel="noopener">원본 ↗</a>' if s.get('뷰어링크') else '') + '</small></li>' for e, s in v)
+        mm = MM.get(p, [])
+        li += (f'<li class="mn"><small>다른 문서에서 언급 {len(mm)}건:</small> ' + ' · '.join(f'{h(dname(s))} <small>({link(e)})</small>' for e, s in mm[:8]) + (' …' if len(mm) > 8 else '') + '</li>') if mm else ''
+        eps_n = len(eps_of(p))
+        return (f'<div class="pp" id="{pid[p]}" data-s="{h((p + " " + " ".join((s.get("문서명") or "") + e["title"] + e["coll"] for e, s in v + mm)).lower())}">'
+                f'<b>{h(p)}<small>문서 {len(v)}건' + (f' · 언급 {len(mm)}건' if mm else '') + (f' · {eps_n}편' if eps_n > 1 else '') + f'</small></b><ul>{li}</ul></div>')
+    people = (f'<div class="col"><div class="tiles"><div class="tile"><b>{len(PP)}</b><span>인물</span></div><div class="tile"><b>{len(multi)}</b><span>여러 편에 나오는 인물</span></div>'
+              f'<div class="tile"><b>{sum(len(v) for v in PP.values())}</b><span>인물이 적힌 문서(겹침 포함)</span></div></div>'
+              + (('<h2>여러 편에 걸쳐 나오는 사람</h2><p class="mute">다른 소장처 · 다른 이야기의 문서명이나 번역 · 해제에 같은 이름이 나옵니다 — 같은 사람인지는 문서로 확인하세요.</p><div class="multi">'
+                  + ''.join(f'<a href="#{pid[p]}">{h(p)}<small>{n}편</small></a>' for p, n in multi) + '</div>') if multi else '')
+              + '<div class="tools"><input id="cq" type="search" placeholder="찾기: 이름 · 문서명 · 소장처" aria-label="인물 찾기"><span id="cn" class="mute"></span></div>'
+              + '<nav class="jump" aria-label="가나다 바로가기">' + ''.join(f'<a href="#i-{k}">{k}</a>' for k in order) + '</nav>'
+              + ''.join(f'<h2 id="i-{k}">{k}</h2>' + ''.join(pblock(p) for p in groups[k]) for k in order)
+              + '<p class="mute">이름은 문서명에서 뽑은 초안입니다(「인물」 칸). 「언급」은 세 글자 이상 이름이 다른 문서의 번역 · 해제 · 요약에 그대로 나온 곳입니다. 동명이인이 섞일 수 있고, 직함 · 관청 · 고을 · 절 · 성씨만 있는 이름은 뺐습니다.</p></div>' + SEARCH_JS)
     # 3) 질문
     qq = [(e['cur']['question'], e) for e in sorted(eps, key=lambda x: (x['ep'] or 0)) if e['cur'].get('question')]
     questions = ('<div class="col"><p class="mute">인쇄하면 한 장에 두 줄씩 질문 카드가 됩니다 — 잘라서 모둠 토론 · 글쓰기 · 전시 참여 벽에.</p><div class="qcards">'
@@ -415,6 +473,7 @@ def collections_pages(eps, title):
             ('types.html', '문서 유형 사전', f'고신 · 홍패 · 준호구 · 명문 … 이 시리즈에 나온 {len(T)}가지 문서를 읽는 법과 예.', types),
             ('quotes.html', '종이에 적힌 문장들', f'이야기에 "현대어(原文)"로 인용한 원문 {len(qs)}곳 전체 — 찾아보고, 수업 · 글쓰기 · SNS에 씁니다.', quotes),
             ('timeline.html', '전체 연표', f'{len(dated)}건의 문서를 한 줄로 — 세기별로 나누고, 편과 원본으로 바로 갑니다.', timeline),
+            ('people.html', '인물 찾아보기', f'문서에 이름이 나온 {len(PP)}명을 가나다순으로 — 사람마다 나온 문서 · 편 · 원본, 여러 편에 걸친 인물 {len(multi)}명.', people),
             ('questions.html', '남겨 둔 질문 카드', f'문서만으로는 답할 수 없어 보는 사람과 나누려는 질문 {len(qq)}개.', questions),
             ('review.html', '검토 현황', f'문서 {tot}건 가운데 사람이 원본과 대조를 마친 문서 {done}건 — 편마다 남은 문서와 검토지.', review)]
 
