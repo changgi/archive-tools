@@ -75,7 +75,7 @@ def make_dzi(root, img, name, ts=254, ov=1, drop_top_tile=False):
 
 def download_test(root, res, py, S):
     """가짜 DZI 서버로 harvest.py download — 조각 이어 붙이기 · 낮은 해상도 대체 · 서버에 없는 면 기록"""
-    import threading, http.server, functools
+    import threading, http.server
     from PIL import Image, ImageDraw, ImageChops, ImageStat
     t = time.time()
     try:
@@ -83,17 +83,33 @@ def download_test(root, res, py, S):
         for k in range(0, 900, 37): d.line((k, 0, 900 - k, 700), fill=(k % 255, 80, 160), width=3)
         d.rectangle((250, 250, 520, 460), outline=(20, 20, 20), width=9)
         make_dzi(root, img, 'ok'); make_dzi(root, img, 'part', drop_top_tile=True)
-        D = os.path.join(root, 'D'); os.makedirs(D)
-        docs = [{'id': 'D1', 'name': '시험 문서', 'title': '시험 문서', 'path': ['고문서', '시험'], 'q': '?dataId=D1', 'category': '시험', 'folder': '001_시험 문서',
-                 'imgs': [{'dzi': '/dzi/ok.xml', 'fn': '1.jpg'}, {'dzi': '/dzi/part.xml', 'fn': '2.jpg'}, {'dzi': '/dzi/none.xml', 'fn': '3.jpg'}]}]
-        json.dump(docs, open(os.path.join(D, 'docs.json'), 'w', encoding='utf-8'), ensure_ascii=False)
-        H = functools.partial(http.server.SimpleHTTPRequestHandler, directory=os.path.join(root, 'srv'))
-        H.log_message = lambda *a, **k: None
+        D = os.path.join(root, 'D')
+        TREE = {'ROOT': [('F1', '시험분류')], 'F1': [('G002.T1', '시험 문서'), ('G002.T2', '다른 문서')]}
+        IMGS = {'G002.T1': ['ok', 'part', 'none'], 'G002.T2': ['ok']}
+        srvdir = os.path.join(root, 'srv')
+
+        class H(http.server.SimpleHTTPRequestHandler):  # 자료관 흉내: 목록 트리(treeAjax.do) · 면 목록(imgnode.do) · 확대 조각(/dzi)
+            def __init__(self, *a, **k): super().__init__(*a, directory=srvdir, **k)
+            def log_message(self, *a): pass
+            def do_GET(self):
+                import urllib.parse as up
+                u = up.urlparse(self.path); q = up.parse_qs(u.query); did = (q.get('dataId') or [''])[0]
+                if u.path.endswith('/treeAjax.do'):
+                    body = ''.join(f"<li data-dataId='{c}' data-url ='?itemId=book&amp;gubun=booktree&amp;dataId={c}'><span class='t' title='{n}'>{n}</span></li>" for c, n in TREE.get(did, [])).encode()
+                    ctype = 'text/html; charset=utf-8'
+                elif u.path.endswith('/imgnode.do'):
+                    body = json.dumps({'infoTitle': did, 'imgItems': [{'dzi': f'/dzi/{x}.xml', 'filename': f'{x}.jpg'} for x in IMGS.get(did, [])]}).encode(); ctype = 'application/json'
+                else: return super().do_GET()
+                self.send_response(200); self.send_header('Content-Type', ctype); self.send_header('Content-Length', str(len(body))); self.end_headers(); self.wfile.write(body)
         srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), H); threading.Thread(target=srv.serve_forever, daemon=True).start()
         env = dict(os.environ, AKS_SITE=f'http://127.0.0.1:{srv.server_address[1]}', NO_PROXY='127.0.0.1,localhost', no_proxy='127.0.0.1,localhost', HTTP_PROXY='', http_proxy='')
+        m = subprocess.run([py, S('harvest.py'), 'manifest', '--work', 'D', '--data-url', '?itemId=book&dataId=ROOT', '--match', '시험 문서'], cwd=root, env=env, capture_output=True, text=True, encoding='utf-8', errors='replace')
+        dj = json.load(open(os.path.join(D, 'docs.json'), encoding='utf-8')) if os.path.exists(os.path.join(D, 'docs.json')) else []
+        okm = (m.returncode == 0 and len(dj) == 2 and dj[0]['category'] == '시험분류' and dj[0]['folder'] == '001_시험 문서' and len(dj[0]['imgs']) == 3 and dj[1]['imgs'] == [])
+        res.append(('harvest.py manifest (가짜 목록 · --match)', okm, f'{time.time() - t:.1f}s', '' if okm else ((m.stderr or m.stdout).strip().splitlines()[-1:] or [f'문서 {len(dj)}건'])[0]))
         r = subprocess.run([py, S('harvest.py'), 'download', '--work', 'D', '--time', '120'], cwd=root, env=env, capture_output=True, text=True, encoding='utf-8', errors='replace')
         srv.shutdown()
-        out = os.path.join(D, 'out', '시험', '001_시험 문서')
+        out = os.path.join(D, 'out', '시험분류', '001_시험 문서')
         a1 = Image.open(os.path.join(out, '001.jpg')).convert('RGB')
         diff = ImageStat.Stat(ImageChops.difference(a1, img)).mean
         import io as _io  # 기준: 조각 없이 JPEG로 두 번 저장했을 때의 차이(이음매가 어긋나면 이보다 크게 벌어짐)

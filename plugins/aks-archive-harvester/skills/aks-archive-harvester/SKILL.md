@@ -35,7 +35,7 @@ A worked example of every step, with the auto drafts and the edited results side
 
 Run `studio.py check` before steps 7–10 and again before handing anything over; follow its 다음 할 일 list. Run `promo` before `mediate` so the 홍보 글 tile appears on the front page. Pass the public address (`mediate --url`, `series.py --site-url`) so every page carries link-preview tags and a 1200×630 `share.jpg` — what KakaoTalk, Facebook, X and Threads show when the link is pasted. With `--site-url`, `series.py` also writes `sitemap.xml` for search engines (submit it in Google Search Console / Naver Search Advisor). Re-running `mediate` is safe: injected blocks are replaced, not duplicated.
 
-Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Storytelling from the sources: `references/storytelling.md`. Reels copy template: `references/reels-caption.md`. Channel-by-channel promotion and second-wave (behind) materials: `references/channels.md`. What people can do with the package: `references/package-uses.md`.
+Site internals: `references/site-structure.md`. Problems and fixes: `references/troubleshooting.md`. Reading old documents (full transcription, zoom, formats): `references/reading-aid.md`. Storytelling from the sources: `references/storytelling.md`. Reels copy template: `references/reels-caption.md`. Channel-by-channel promotion and second-wave (behind) materials: `references/channels.md`. What people can do with the package: `references/package-uses.md`. 전달 에디팅: `references/delivery-editing.md`. Editing tools (delivery redraft, corrections, old Hangul, representative page): `references/editing-tools.md`. Originals, video, series site, integrated analysis and collections: `references/publishing.md`.
 
 Tell the user which stage you are in, using the five stage names, so the flow matches what they expect.
 
@@ -126,24 +126,10 @@ The archive states that image use needs the collection owner's consent through i
 
 **Two kinds of editing — 문구 에디팅 and 전달 에디팅.** Editing the captions and stories in `selection.csv` is 문구 에디팅 (what to say). After it, do 전달 에디팅 (how, through what and where to deliver the chosen records): `edit` writes `edit/<id>/delivery.md` with a draft from `delivery_draft` — 핵심 정서 · 한 문장 · 열기 · 펼치기 · 절정(the source line to stop on) · 여운 · 감각과 물질(by document type: 붉은 홍패 실물 크기, 탁본, 낭독, 조명 …) · 통로와 매개 · 여운 장치 · 전달 에디팅 전/후. Refine it so each record leaves a feeling, not only a fact; ask the user about the venue and audience when they matter. `mediate` adds it as 「연출 노트」 to `exhibit.html` and `index.html`. Guide: `references/delivery-editing.md`. Treat sensitive records (famine, slavery, self-sale, punishment) with dignity first.
 
-**Redraft after 문구 에디팅 — `studio.py delivery`.** The first draft is written before the captions exist. Once `selection.csv` has stories with quoted source lines, run `python3 studio.py delivery --work WORK --theme <id> [--key "원문 한 줄"]` to rebuild the draft: the climax becomes the strongest "현대어(原文)" line and the closing becomes the curator note's question. Fields a person already wrote (핵심 정서 · 여운 장치 · 전달 에디팅 후) are kept unless `--force`; with `--force` the old file is saved as `delivery.bak.md`.
-
-**Corrections — `studio.py fix` (판독 고침 반영).** When someone reports a misreading (the 「판독 고침 제보」 issue) or the user rereads a document:
-
-```bash
-python3 studio.py fix --work WORK --theme <id> --issue 12 --repo 아이디/저장소           # 제보 읽기: 문서 · 고칠 곳 · 고친 내용 · 근거
-python3 studio.py fix --work WORK --theme <id> --n 3 --field 번역 --replace-part "초8일" --text "8일" --note "근거"   # 미리 보기
-python3 studio.py fix … --apply        # 반영 → edit/<id>/corrections.csv(날짜 · 이전 · 이후 · 근거 · 제보)
-python3 studio.py fix --work WORK --theme <id> --list
-```
-
-- It reads both the prefilled report from the buttons and the repository's issue form (`.github/ISSUE_TEMPLATE/correction.yml`); it finds the document by 자료 ID or, failing that, by its name, and reads "이전 → 이후" as a phrase replacement.
-- Without `--apply` it only previews; it warns when the whole field would be replaced by a short text (use `--replace-part`). Check the original image before applying a reported reading; record the reason in `--note`.
-- `mediate` then adds 「함께 고친 곳」 to `exhibit.html`, and `check` counts the corrections and flags outputs older than them.
-
-**Old Hangul (옛한글).** When the texts contain old-Hangul jamo (ᄒᆞ, ᄉᆞ …), `mediate`, `series.py` and `analysis.py` add a small font subset (`assets/oldhangul-sans.woff2`, Noto Sans CJK KR, OFL) only for those characters, so 아래아 and other composed syllables look the same on every device. Card images need Pillow with libraqm for the same shaping.
-
-**Representative page — `studio.py page`.** The first page of a document is sometimes a cover, a wrapper or the outside of a rolled scroll. `edit` already skips pages that are dark, or much smaller and emptier than the document's other pages, and `check` flags a representative page that still looks like one. `python3 studio.py page --work WORK --theme <id> --n <selection 번호> --page 002.jpg` swaps `images/NN.jpg` and the 원본경로 column to another page of the same document; re-run `mediate` and `video.py` afterwards.
+**More editing tools** — read `references/editing-tools.md` when you need them:
+- `studio.py delivery` — redraft 전달 에디팅 after 문구 에디팅 (climax = strongest quoted line; keeps what a person wrote unless `--force`).
+- `studio.py fix` — apply a 「판독 고침 제보」 (GitHub issue or the user's rereading) after previewing; logs `corrections.csv`, shown as 「함께 고친 곳」.
+- `studio.py page` — swap a cover-like representative page; old-Hangul font subset added automatically to pages that need it.
 
 **Curator note (큐레이터 노트 — 기획 의도 · 비하인드).** `edit` writes `edit/<id>/curator.md` with six headings. Fill it before `mediate`, because people want to know why these documents were chosen and what the work hopes to say, not only what the documents read:
 
@@ -177,51 +163,11 @@ After it runs:
 - Every output cites 한국학중앙연구원 한국고문서자료관. Tell the user that reuse of the images follows the archive's terms.
 - If the user has their own content skills (e.g. archive-fullpackage), offer them for a richer version built on `selection.csv`.
 
-**Originals for the user (원본 묶음 — 문서 전체 + 원본 영상).** When the user asks for the high-resolution originals, the photos of each record, or the whole document (문서 전체), not only the pages shown in the outputs:
-
-```bash
-python3 studio.py originals --work WORK --theme <id> --full --dry-run          # 문서별 전체 면 수 먼저 확인
-python3 studio.py originals --work WORK --theme <id> --full [--videos 영상폴더] [--max-mb 380]
-```
-
-- `--full` downloads every page of each selected document (already saved pages are skipped; it runs `manifest --match` first if the page list is missing, then `download --match` round after round until `STATUS: DONE`). It keeps the default connection counts; never raise them, and never run two manifests at once.
-- Use `--dry-run` first and tell the user the page count when a document is a long book (e.g. a 90-page 녹권), then ask whether to take all of it or `--only 1,3`.
-- `--videos` adds the original-resolution videos and subtitles (mp4 · srt · vtt) from a folder — the files before any web compression.
-- It writes `WORK/originals/<id>/<소장처>_원본[_partNNofMM].zip`, stored (not recompressed), each under `--max-mb`: `기록사진/NN_문서명/001.jpg…`, `기록사진/출처.csv` (문서명 · 받은 면 · 전체 면 · 자료관 원본 뷰어 링크), `영상/…`, and `읽어보기_출처와이용조건.txt` (credit line, the consent-needed notice with the archive's phone numbers, and "문제가 있으면 바로 내림").
-- Without `--full` it bundles only the pages already downloaded and says how many pages are missing.
-- Deliver the ZIPs as they are, and repeat the reuse terms in your reply: the images may be redistributed only with the holding institution's consent through the archive.
-
-**Video — `video.py`.**
-
-```bash
-python3 video.py --work WORK --theme <id> [--ep 7] [--url 전시주소] [--format both|reel|wide] [--no-tts] [--web]
-```
-
-- Scenes: opener (전달 에디팅 열기) → introduction → one scene per document with its image and quoted source line → climax → 비하인드 (큐레이터 노트 전하고 싶은 것) → closing question with source.
-- Narration uses edge-tts when installed (`--voice ko-KR-SunHiNeural`); otherwise a silent video timed by text length. Behind a proxy with its own certificate, set `AKS_CA_BUNDLE=<ca file>`.
-- Writes `WORK/mediate/<id>/video/<base>_reel.mp4` · `_wide.mp4` · `.ko.srt` · `.ko.vtt`; `--web` adds 540p `_web.mp4` copies for web pages. Hand the full-resolution files to `originals --videos`. Run `mediate` again afterwards: the front page then gets video players with Korean subtitles (web copies preferred) and a 「자막 전문 읽기」 transcript for people who watch without sound or use screen readers.
-- Look at one frame of each format before handing it over.
-- Generated pages pass an automated WCAG 2 A/AA check (axe-core): keyboard-focusable scroll areas, visible focus, alt text on linked images, chart labels. Keep these when editing the templates.
-- If narration fails it stops with a message instead of a traceback; retry with `--no-tts` or set `AKS_CA_BUNDLE`.
-
-**Series site — `series.py`.** For several episodes:
-
-```bash
-python3 series.py --list series.tsv --note series.md --out SITE [--title "시리즈 제목"] [--home ../index.html --home-label "← 전체 갤러리"]
-```
-
-- `series.tsv`: a header line, then one line per episode — `ep<TAB>work<TAB>theme[<TAB>url]`. Work folders are found relative to the current folder or to the TSV's folder. Missing episodes are reported and skipped; videos: the `_web.mp4` copies when they exist, otherwise the full-size files (it warns about the size).
-- `series.md`: the series note with headings (왜 만들었나 · 전하고 싶은 것 · 고른 기준 · 이렇게 보이길 바랐다 · 이렇게 써 주세요 · 지킨 원칙 · 히스토리). Same rule as curator notes: facts and the user's own intent only.
-- Writes `SITE/index.html` (stats, 「이 사이트에 있는 것」 site map, four auto-summary lines, 결과물 바로 가기, episode grid with direct links), `analysis.html` (통합 분석, below), `about.html` (기획 노트 · per-episode message/emotion/question), `promote.html` (channels, 4-week plan), `use.html` (who can use the package and how, rights checklist), `cards/` (series cards from the note) and `eps/NN-<theme>/` copies (web videos only).
-
-**Integrated analysis — `analysis.py` (통합 분석).** When the user wants to see the whole series at a glance ("전체를 통합 분석해줘", "한눈에 전체 콘텐츠"), `series.py` already writes `SITE/analysis.html`; standalone: `python3 analysis.py --list series.tsv --out analysis.html [--title …]` (optional 4th TSV column `kind`: 문중 · 서원 · 향교 · 사찰 · 마을 · 박물관 …).
-
-- Sections: key numbers · auto-summary sentences (only computed facts) · documents by century and a year dot strip · document types and a type×century heatmap · collection kinds and regions (first place name → today's province) · 핵심 정서 words and chips · reading progress and hardest episodes (□ · (?)) · twelve quoted source lines spread across episodes · frequent names · 남겨 둔 질문 · one-line table per episode · limits of the analysis.
-- The 「어디의 기록인가」 section adds a tile map of provinces (one square per 시·도, approximate positions). `series.py` also writes `data.zip` — every episode's selection.csv, curator.md, delivery.md, corrections.csv plus the analysis data and a 읽어보기.txt on sources and reuse (no images).
-- Every chart has hover titles and a table view; the episode table has a search box. `analysis-data.json` (all counts, quotes, episodes) and `analysis-episodes.csv` are saved next to the page for classes and research. Read the summary before presenting it and keep its caveats: the figures describe the chosen documents, not the whole collection; dates, types and names are drafts extracted from titles.
-- On a main page, show a few summary lines and link the analysis so first-time visitors see the whole at once.
-- Collections (모아 보기), written next to the analysis: `search.html` (full-text search over 판독 · 원문 · 번역 · 해제 · 요약 · 이야기 with field filters and highlighted snippets; `?q=` opens a search), `types.html` (문서 유형 사전 — each document type with how to read it, count, centuries and examples from different episodes), `quotes.html` (every "현대어(原文)" quote, searchable), `timeline.html` (every dated document by century, with links to the episode and the archive viewer), `questions.html` (all 남겨 둔 질문 as cards that print two per row). Analysis, collections and series pages have a light print style.
-- Quotes are found by `studio.find_quotes`: a quotation that contains a parenthesis with Hanja or old Hangul counts, wherever the parenthesis sits ("…하오니(원문), 그 밖에 …") and in either order (원문(현대어) for old-Hangul letters); year parentheses like "(1646)" do not. `check`, `delivery`, `video.py` and the analysis share it.
+**Originals · video · series · analysis** — read `references/publishing.md` before running any of these:
+- `studio.py originals --full [--dry-run] [--videos]` — every page of the selected documents + original videos as ZIPs with source list and reuse notice.
+- `video.py` — Reels and wide videos with subtitles (`--web` for web copies); re-run `mediate` to embed them with a transcript.
+- `series.py` — several episodes as one site: gallery, series note, promotion and use guides, 통합 분석, 모아 보기 (search · document types · quotes · timeline · question cards), `data.zip`, link previews and sitemap with `--site-url`.
+- `analysis.py` — the integrated analysis and collections on their own. Keep its caveats when presenting: figures describe the chosen documents; dates, types and names are drafts from titles.
 
 ## ⑤ 패키징 (Package) + 대량 유사 연구
 

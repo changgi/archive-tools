@@ -1,5 +1,10 @@
 # 변경 기록
 
+## aks-archive-harvester 1.6.2 (2026-11-17)
+- **목록 수집 시험** (`selftest.py`): 가짜 서버가 자료관의 목록 트리(treeAjax.do)와 면 목록(imgnode.do)도 흉내 — `harvest.py manifest`가 폴더 → 문서를 따라 내려가 분류 · 폴더 이름 · 면 목록을 만들고 `--match`에 맞는 문서만 면 목록을 가져오는지, 그 docs.json으로 `download`가 도는지까지(시험 19단계, `--video` 20단계)
+- **SKILL.md 가볍게**: 33KB → 25KB. 자세한 안내를 `references/editing-tools.md`(전달 에디팅 다시 쓰기 · 판독 고침 반영 · 옛한글 · 대표 면)와 `references/publishing.md`(원본 묶음 · 영상 · 시리즈 사이트 · 통합 분석 · 모아 보기)로 옮기고, 본문에는 언제 무엇을 읽을지만 — 스킬이 켜질 때 덜 읽고, 필요할 때 펼쳐 봄
+- `references/troubleshooting.md`: selftest · Windows 인코딩 · 영상 · 옛한글 카드 · 대표 면 · 첫 페이지 타일 · 링크 미리 보기 · fix · 시리즈 용량 11줄 추가
+
 ## aks-archive-harvester 1.6.1 (2026-11-17)
 - **수집 시험** (`selftest.py`): 내 컴퓨터 안에 가짜 DZI 서버를 띄워 `harvest.py download`를 시험 — 겹침(overlap) 있는 조각 이어 붙이기가 원본과 맞는지(JPEG만의 차이를 기준으로, 1px 어긋남보다 작은지), 맨 위 레벨 조각이 빠졌을 때 한 단계 낮은 해상도로 받고 `partial.txt`에 적는지, 서버에 없는 면을 `missing.txt`에 적는지. 이어 붙이기 계산을 일부러 틀리게 바꾸면 실패하는 것까지 확인. GitHub Actions에서 세 운영체제로 함께 돎(시험 18단계, `--video` 19단계)
 - `harvest.py`: 시험용 `AKS_SITE` 환경 변수(평소엔 쓰지 않음)

@@ -13,6 +13,17 @@
 | `find`가 아무것도 못 찾음 | 검색어가 사이트 표기와 다름 | 지역명·성씨·인물명 하나만 넣어 보기, `catalog`로 전체 목록 확인, `--refresh` |
 | 카드뉴스 글자가 네모로 나옴 | 한글 글꼴을 못 찾음 | `mediate --font C:/Windows/Fonts/malgun.ttf`처럼 글꼴 지정 |
 | SSL 인증서 오류 | 회사·학교 프록시, 오래된 certifi | 스크립트는 시스템 인증서 저장소도 사용. `REQUESTS_CA_BUNDLE`로 기관 인증서 지정 |
+| 무엇이 문제인지 모르겠음 | 설치 · 글꼴 · 인코딩 등 | `python3 scripts/selftest.py`(인터넷 불필요, 가짜 서버로 수집까지) → 실패한 줄의 메시지 |
+| Windows에서 `UnicodeEncodeError` · 깨진 글자 | 출력이 cp949 파일 · 파이프로 감 | 최신 스크립트는 그대로 계속함. 화면에서는 정상. 1.0.2 이전 `docs.json`도 읽음 |
+| 영상: `ffmpeg이 필요합니다` | ffmpeg 없음 | `winget install ffmpeg` · `brew install ffmpeg` |
+| 영상: `내레이션 생성 실패` · `CERTIFICATE_VERIFY_FAILED` | 기관망 자체 인증서 | `AKS_CA_BUNDLE=<인증서 파일>` 또는 `--no-tts` |
+| 카드의 옛한글(ᄒᆞ 등)이 풀어져 보임 | Pillow에 글자 조합(libraqm) 없음 | 웹페이지는 정상(글꼴 조각). 카드는 libraqm이 있는 환경에서 다시 만들기 |
+| 카드 · 영상 첫 장면이 검거나 비어 보임 | 대표 면이 표지 · 겉면 | `studio.py check`로 확인 → `studio.py page --n N --page 002.jpg` |
+| 첫 페이지에 홍보 글 · 영상 칸이 없음 | promo · 영상을 mediate 뒤에 만듦 | `mediate` 다시(같은 명령을 다시 돌려도 중복되지 않음) |
+| 카카오톡 · SNS 링크에 그림이 안 나옴 | 공개 주소를 안 줌(미리 보기 그림은 절대 주소여야 함) | `mediate --url` · `series.py --site-url`로 다시. 카카오 공유 디버거에서 캐시 지우기 |
+| `fix`가 문서를 못 찾음 | 다른 테마이거나 자료 ID가 비어 있음 | `--theme` 확인, `--n 순서`로 지정 |
+| `fix` 미리 보기에 "칸 전체가 바뀝니다" | 제보 내용이 구절인데 칸 전체로 읽음 | `--replace-part "이전 구절"` (제보가 "이전 → 이후" 꼴이면 자동) |
+| 시리즈 사이트 용량이 큼 | 웹용 영상이 없어 원본 크기 영상이 복사됨 | `video.py … --web` 후 `series.py` 다시 |
 | 동시 요청을 올리는 명령이 거부됨 | 과도한 요청으로 판단 | 우회하지 말고 기본값으로 진행, 사용자에게 예상 시간 안내 |
 
 ## 규모 참고 (동춘당 송준길 후손가, 2026-11)
