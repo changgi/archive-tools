@@ -24,6 +24,17 @@ python3 $S/studio.py mediate --work W --theme T --url <전시 주소> --issues h
 
 원본 사진에서 그 줄을 확인한 뒤 반영합니다. 고친 기록(날짜 · 이전 · 이후 · 근거 · 제보)은 `corrections.csv`에 쌓이고 전시 웹페이지 「함께 고친 곳」에 나옵니다. 이슈에는 반영한 버전을 답글로 남기고 닫습니다.
 
+## 원본과 대조했다면(검토)
+
+예시 사이트 「검토 현황」(review.html) 아래 **검토 기록하기**에서 원본 사진과 판독 · 번역을 직접 대조한 문서에 표시하고 이름을 적은 뒤 `reviews.csv`를 내려받습니다(표시는 그 브라우저에만 남습니다). 관리자는:
+
+```bash
+python3 $S/studio.py review --from reviews.csv --in examples --dry-run   # 어디에 반영될지
+python3 $S/studio.py review --from reviews.csv --in examples             # 검토 칸에 「이름 날짜」
+```
+
+GitHub 이슈에 `reviews.csv`를 붙여 보내 주셔도 됩니다. 검토는 사람이 원본과 대조한 것만 — 자동 확인(날짜 맞춤 등)은 검토가 아닙니다.
+
 ## 도구(코드)를 고치려면
 
 1. `python3 $S/selftest.py` — 인터넷 없이 전 과정 시험(영상까지: `--video`)

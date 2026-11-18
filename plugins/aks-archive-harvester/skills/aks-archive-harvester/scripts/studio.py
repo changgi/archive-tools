@@ -1297,9 +1297,40 @@ def cmd_proof(a):
     print(f'→ {out}  검토할 문서 {len(todo)}건 (인쇄용 A4, 한 장에 한 문서)')
 
 
+def review_from(path, roots, dry=False):
+    """reviews.csv(검토 현황 페이지에서 내려받은 것: 자료ID · 검토자 · 날짜) → roots 아래 모든 selection.csv의 같은 자료ID 문서에 「이름 날짜」"""
+    recs = {}
+    for r in csv.DictReader(open(path, encoding='utf-8-sig')):
+        i = (r.get('자료ID') or '').strip(); who = (r.get('검토자') or '').strip(); d = (r.get('날짜') or '').strip()
+        if i and who: recs[i] = f'{who} {d}'.strip()
+    if not recs: sys.exit(f'{path}에 자료ID · 검토자가 있는 줄이 없습니다.')
+    files = sorted({f for root in roots for f in ([root] if root.endswith('.csv') else glob.glob(os.path.join(root, '**', 'selection.csv'), recursive=True))})
+    seen, changed = set(), 0
+    for f in files:
+        rows = list(csv.DictReader(open(f, encoding='utf-8-sig')))
+        if not rows: continue
+        cols = list(rows[0].keys()); hit = 0
+        for r in rows:
+            st = recs.get((r.get('자료ID') or '').strip())
+            if st:
+                seen.add(r['자료ID'].strip())
+                if r.get('검토') != st: r['검토'] = st; hit += 1
+        if hit:
+            changed += hit; print(f'  {f}: {hit}건')
+            if not dry:
+                with open(f, 'w', newline='', encoding='utf-8-sig') as fh:
+                    w = csv.DictWriter(fh, fieldnames=cols); w.writeheader(); w.writerows(rows)
+    miss = [i for i in recs if i not in seen]
+    print(f'검토 기록 {len(recs)}건 → 반영 {changed}곳' + (' (미리 보기 — 쓰지 않음)' if dry else '') + (f' · 찾지 못한 자료ID {len(miss)}건: ' + ', '.join(miss[:3]) if miss else ''))
+    print('결과물에 반영하려면 mediate(· series)를 다시 실행하세요.')
+
+
 def cmd_review(a):
     """검토 표시 — 사람이 원문과 대조를 마친 문서의 검토 칸에 '이름 날짜'. 결과물의 '초안' 딱지가 빠진다"""
     import datetime
+    if a.from_:
+        return review_from(a.from_, a.in_ or ([a.work] if a.work else ['.']), dry=a.dry_run)
+    if not (a.work and a.theme and a.n): sys.exit('--work · --theme · --n (또는 --from reviews.csv --in 폴더)을 주세요.')
     ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
     rows = list(csv.DictReader(open(p, encoding='utf-8-sig'))); cols = list(rows[0].keys())
     want = {x.strip() for x in a.n.split(',') if x.strip()}
@@ -1665,7 +1696,9 @@ def main():
     pf = sp.add_parser('proof', help='검토지(인쇄용): 사진 옆에 판독 · 번역 · 인용을 놓고 대조 표시 → edit/<테마>/proof.html')
     pf.add_argument('--work', required=True); pf.add_argument('--theme', required=True); pf.add_argument('--all', action='store_true', help='검토 표시된 문서까지 모두'); pf.add_argument('--link', action='store_true', help='사진을 페이지에 넣지 않고 images/를 가리킴(가볍게 · 같은 폴더에서 열기)')
     rv = sp.add_parser('review', help='검토 표시: 원문 대조를 마친 문서의 검토 칸에 이름 · 날짜')
-    rv.add_argument('--work', required=True); rv.add_argument('--theme', required=True); rv.add_argument('--n', required=True, help='순서 번호(예: 1,3,4)')
+    rv.add_argument('--work'); rv.add_argument('--theme'); rv.add_argument('--n', help='순서 번호(예: 1,3,4)')
+    rv.add_argument('--from', dest='from_', help='검토 현황 페이지에서 내려받은 reviews.csv — 자료ID로 맞춰 한꺼번에'); rv.add_argument('--in', dest='in_', nargs='+', help='selection.csv를 찾을 폴더(들) · 파일(기본: --work 또는 지금 폴더)')
+    rv.add_argument('--dry-run', action='store_true', help='--from: 어디에 반영될지 보기만')
     rv.add_argument('--by', default='검토자', help='검토한 사람 이름'); rv.add_argument('--undo', action='store_true', help='검토 표시 지우기')
     yr = sp.add_parser('years', help='연도 칸 점검: 빈 칸에 근거(문서 속 날짜 · 해제 · 자료ID)와 함께 제안, --apply로 채움'); yr.add_argument('--work', required=True); yr.add_argument('--theme', required=True); yr.add_argument('--apply', action='store_true')
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)

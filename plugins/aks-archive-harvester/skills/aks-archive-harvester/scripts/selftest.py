@@ -202,6 +202,14 @@ def main():
     run('studio.py fix --apply', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친', '--note', '시험', '--apply'], ['W/edit/t/corrections.csv'])
     run('studio.py proof', [S('studio.py'), 'proof', '--work', W, '--theme', 't'], ['W/edit/t/proof.html'])
     run('studio.py review', [S('studio.py'), 'review', '--work', W, '--theme', 't', '--n', '1', '--by', '시험'])
+    try:
+        sp_ = os.path.join(root, W, 'edit', 't', 'selection.csv'); rr = list(csv.DictReader(open(sp_, encoding='utf-8-sig')))
+        with open(os.path.join(root, 'reviews.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
+            wr = csv.writer(fh); wr.writerow(['자료ID', '편', '순서', '문서명', '검토자', '날짜']); wr.writerow([rr[-1]['자료ID'], 'EP.01', rr[-1]['순서'], rr[-1]['문서명'], '시험검토', '2026-01-02'])
+    except Exception as e: res.append(('reviews.csv 만들기', False, '', str(e)))
+    if run('studio.py review --from (검토 현황 페이지 기록)', [S('studio.py'), 'review', '--from', 'reviews.csv', '--in', W]):
+        rr = list(csv.DictReader(open(sp_, encoding='utf-8-sig')))
+        if rr[-1].get('검토') != '시험검토 2026-01-02': res[-1] = (res[-1][0], False, res[-1][2], '검토 칸이 바뀌지 않음')
     run('studio.py page', [S('studio.py'), 'page', '--work', W, '--theme', 't', '--n', '1', '--page', '002.jpg'])
     if a.video and shutil.which('ffmpeg'):
         run('video.py --no-tts', [S('video.py'), '--work', W, '--theme', 't', '--ep', '1', '--no-tts', '--web'], ['W/mediate/t/video/ep01-t_reel.mp4', 'W/mediate/t/video/ep01-t.ko.vtt'])

@@ -133,7 +133,7 @@ CSS = '''
 .col .qq{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}.col .qq blockquote{margin:0;background:#1f1a14;border-left:3px solid var(--gold);border-radius:8px;padding:10px 14px;font-family:'Noto Serif KR',serif;color:#f3ead8;font-size:15.5px}
 .col .qq blockquote em{display:block;font-style:normal;color:var(--dim);font-size:13px;margin-top:2px}.col .qq blockquote small{display:block;font-family:'Noto Sans KR',sans-serif;color:var(--dim);font-size:12.5px;margin-top:6px}.col .qq a{color:var(--gold)}
 .col .tlv{border-left:2px solid #c4964a66;margin:6px 0 0 4px;padding-left:16px}.col .tlv h2{margin:18px 0 6px;color:var(--gold);font-size:18px}.col .tlv div{margin:0 0 8px;font-size:14.5px;color:#e8dcc4}.col .tlv b{color:#f3ead8;margin-right:6px;font-variant-numeric:tabular-nums}.col .tlv small{color:var(--dim)}.col .tlv a{color:var(--gold)}
-.col .jump{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.col .jump a{display:inline-block;min-width:2.2em;text-align:center;padding:4px 8px;border:1px solid #4a3e2c;border-radius:8px;color:var(--gold);text-decoration:none}.col .pp{border-left:2px solid #c4964a66;margin:0 0 12px 4px;padding-left:14px}.col .pp b{color:#f3ead8;font-size:16px}.col .pp b small{color:var(--gold);font-weight:400;font-size:12.5px;margin-left:6px}.col .pp ul{margin:4px 0 0;padding-left:18px}.col .pp li{font-size:14.5px;color:#e8dcc4;margin:2px 0}.col .pp li small{color:var(--dim)}.col .pp li.mn{list-style:none;margin-left:-18px;margin-top:4px;color:#cfc3ab}.col .pp a{color:var(--gold)}.col .multi{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}.col .multi a{background:#231d15;border:1px solid #4a3e2c;border-radius:16px;padding:4px 12px;color:#f3ead8;text-decoration:none;font-size:14px}.col .multi a small{color:var(--gold);margin-left:4px}
+.col details.rvf{border:1px solid #3a3225;border-radius:10px;padding:8px 12px;margin:6px 0;background:#1c1712}.col details.rvf summary{cursor:pointer;color:#f3ead8}.col details.rvf summary small{color:var(--gold);margin-left:6px}.col details.rvf ul{list-style:none;padding:0;margin:8px 0 2px}.col details.rvf li{margin:4px 0;font-size:14.5px;color:#e8dcc4}.col details.rvf li.done{color:var(--dim)}.col details.rvf a{color:var(--gold);font-size:13px}.col .tools button{font:inherit;background:#2a2219;color:#f3ead8;border:1px solid #4a3e2c;border-radius:8px;padding:6px 12px;cursor:pointer}.col .tools input[type=text]{font:inherit;background:#16130f;color:#efe6d4;border:1px solid #4a3e2c;border-radius:8px;padding:6px 10px}.col .jump{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.col .jump a{display:inline-block;min-width:2.2em;text-align:center;padding:4px 8px;border:1px solid #4a3e2c;border-radius:8px;color:var(--gold);text-decoration:none}.col .pp{border-left:2px solid #c4964a66;margin:0 0 12px 4px;padding-left:14px}.col .pp b{color:#f3ead8;font-size:16px}.col .pp b small{color:var(--gold);font-weight:400;font-size:12.5px;margin-left:6px}.col .pp ul{margin:4px 0 0;padding-left:18px}.col .pp li{font-size:14.5px;color:#e8dcc4;margin:2px 0}.col .pp li small{color:var(--dim)}.col .pp li.mn{list-style:none;margin-left:-18px;margin-top:4px;color:#cfc3ab}.col .pp a{color:var(--gold)}.col .multi{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}.col .multi a{background:#231d15;border:1px solid #4a3e2c;border-radius:16px;padding:4px 12px;color:#f3ead8;text-decoration:none;font-size:14px}.col .multi a small{color:var(--gold);margin-left:4px}
 .col .qcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.col .qcards div{background:#1f1a14;border:1px solid #4a3e2c;border-radius:14px;padding:14px 16px;break-inside:avoid}.col .qcards b{display:block;font-family:'Noto Serif KR',serif;font-size:17px;color:#f3ead8;line-height:1.55}.col .qcards span{display:block;margin-top:8px;color:var(--dim);font-size:12.8px}
 .col .sr{padding-left:22px}.col .sr li{margin:0 0 12px;color:#e8dcc4}.col .sr li small{color:var(--dim)}.col .sr li p{margin:3px 0 0;font-size:14.5px;color:#d9cfbb}.col .sr mark{background:#c4964a;color:#16130f;border-radius:3px;padding:0 2px}.col .sr em{font-style:normal;color:var(--gold);font-size:12.5px;margin-right:4px}.col .sr a{color:var(--gold)}
 .col .tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}.col .tcard{background:#1f1a14;border:1px solid #3a3225;border-radius:14px;padding:12px 16px;break-inside:avoid}.col .tcard h2{margin:0 0 6px;color:#f3ead8;font-size:17px}.col .tcard h2 small{color:var(--gold);font-size:12.5px;font-weight:400;margin-left:6px}.col .tcard p{font-size:14px;margin:4px 0}.col .tcard ul{margin:6px 0 0;padding-left:18px;font-size:13.5px}.col .tcard a{color:var(--gold)}
@@ -374,6 +374,36 @@ def initial(name):
     return '기타'
 
 
+def review_form(eps):
+    """검토 기록하기 — 원본과 대조를 마친 문서에 표시하고 reviews.csv로 내려받기(이 페이지는 아무 데도 보내지 않음)"""
+    out = []
+    for e in sorted(eps, key=lambda x: (x['ep'] or 0)):
+        left = [x for x in e['sel'] if not (x.get('검토') or '').strip()]
+        items = ''.join(
+            (f'<li><label><input type="checkbox" class="rvk" data-id="{h(x.get("자료ID") or "")}" data-ep="{h(lab(e))}" data-n="{h(x.get("순서") or "")}" data-t="{h(x.get("문서명") or "")}"> '
+             f'{h(x.get("순서") or "")}. {h(dname(x))}</label>' if not (x.get('검토') or '').strip() else f'<li class="done">✓ {h(x.get("순서") or "")}. {h(dname(x))} <small>{h(x["검토"])}</small>')
+            + (f' <a href="{h(x["뷰어링크"])}" target="_blank" rel="noopener">원본 ↗</a>' if x.get('뷰어링크') else '') + '</li>' for x in e['sel'])
+        pf = f'<p class="mute"><a href="{h(e["proof"])}">이 편의 검토지(인쇄용) →</a></p>' if e.get('proof') else ''
+        out.append(f'<details class="rvf" data-s="{h((lab(e) + e["title"] + e["coll"]).lower())}"><summary>{h(lab(e))} {h(e["title"])} <small>남은 {len(left)}건</small></summary>{pf}<ul>{items}</ul></details>')
+    return ('<h2 id="record">검토 기록하기</h2><p class="mute">원본 사진과 판독 · 번역을 <b>직접 대조한 문서에만</b> 표시하세요(자동 확인 · 읽어 본 느낌은 검토가 아닙니다). 표시는 이 브라우저에만 남고 어디에도 보내지지 않습니다. '
+            '다 고르면 <b>reviews.csv</b>를 내려받아 저장소에서 <code>python3 studio.py review --from reviews.csv --in 폴더</code>로 반영합니다(자료ID로 맞춰 검토 칸에 「이름 날짜」).</p>'
+            '<div class="tools"><input id="rvby" type="text" placeholder="검토한 사람 이름" aria-label="검토한 사람 이름"> <button type="button" id="rvdl">reviews.csv 내려받기</button> '
+            '<button type="button" id="rvclr">표시 지우기</button> <span id="rvn" class="mute"></span></div>' + ''.join(out))
+
+
+REVIEW_JS = ('<script>(function(){var K="aks-review:"+location.pathname,ks=[].slice.call(document.querySelectorAll(".rvk")),by=document.getElementById("rvby"),n=document.getElementById("rvn"),st={};'
+             'try{st=JSON.parse(localStorage.getItem(K)||"{}")}catch(e){}'
+             'function save(){try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}var c=ks.filter(function(k){return k.checked}).length;n.textContent=c?c+"건 표시함":""}'
+             'ks.forEach(function(k){var id=k.dataset.id+"|"+k.dataset.ep+"|"+k.dataset.n;if(st.d&&st.d[id]){k.checked=true}k.addEventListener("change",function(){st.d=st.d||{};if(k.checked)st.d[id]=new Date().toISOString().slice(0,10);else delete st.d[id];save()})});'
+             'if(st.by)by.value=st.by;by.addEventListener("input",function(){st.by=by.value;save()});save();'
+             'function q(v){v=String(v==null?"":v);return /[",\\n]/.test(v)?"\\""+v.replace(/"/g,"\\"\\"")+"\\"":v}'
+             'document.getElementById("rvdl").addEventListener("click",function(){var who=by.value.trim();if(!who){by.focus();n.textContent="검토한 사람 이름을 적어 주세요";return}'
+             'var rows=[["자료ID","편","순서","문서명","검토자","날짜"]];ks.forEach(function(k){if(k.checked){var id=k.dataset.id+"|"+k.dataset.ep+"|"+k.dataset.n;rows.push([k.dataset.id,k.dataset.ep,k.dataset.n,k.dataset.t,who,(st.d&&st.d[id])||new Date().toISOString().slice(0,10)])}});'
+             'if(rows.length<2){n.textContent="표시한 문서가 없습니다";return}'
+             'var b=new Blob(["\\ufeff"+rows.map(function(r){return r.map(q).join(",")}).join("\\r\\n")+"\\r\\n"],{type:"text/csv"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="reviews.csv";document.body.appendChild(a);a.click();a.remove()});'
+             'document.getElementById("rvclr").addEventListener("click",function(){if(!confirm("이 브라우저에 남긴 검토 표시를 모두 지울까요?"))return;st={by:by.value};ks.forEach(function(k){k.checked=false});save()})})()</script>')
+
+
 def collections_pages(eps, title):
     """모아 보기 3종 — (파일, 제목, 머리말, 본문). 인용 · 연표 · 질문"""
     docs = [(e, s) for e in sorted(eps, key=lambda x: (x['ep'] or 0)) for s in e['sel']]
@@ -468,7 +498,7 @@ def collections_pages(eps, title):
     review = (f'<div class="col"><div class="tiles"><div class="tile"><b>{done}</b><span>검토 마친 문서</span></div><div class="tile"><b>{tot - done}</b><span>남은 문서</span></div><div class="tile"><b>{(done / tot * 100) if tot else 0:.0f}%</b><span>진행</span></div></div>'
               '<p class="mute">검토 = 사람이 원본 사진과 판독 · 번역을 대조하고 검토 칸에 이름 · 날짜를 남긴 것(<code>studio.py proof</code> → <code>review</code>). 검토 전 문서에는 「초안」 딱지가 붙습니다. □ · (?)가 많은 편부터 보시면 좋습니다.</p>'
               '<div class="tools"><input id="cq" type="search" placeholder="찾기: 편 · 제목 · 소장처" aria-label="검토 현황 찾기"><span id="cn" class="mute"></span></div>'
-              + table(['편', '제목', '문서', '검토', '남음', '□·(?)', '진행', '검토지'], [], 'rvt').replace('<tbody></tbody>', '<tbody>' + ''.join(rows) + '</tbody>') + '</div>' + SEARCH_JS)
+              + table(['편', '제목', '문서', '검토', '남음', '□·(?)', '진행', '검토지'], [], 'rvt').replace('<tbody></tbody>', '<tbody>' + ''.join(rows) + '</tbody>') + review_form(eps) + '</div>' + SEARCH_JS + REVIEW_JS)
     return [('search.html', '전체 검색', f'문서 {len(idx)}건의 판독 · 번역 · 해제 · 이야기 전문을 한 곳에서 찾습니다 — 한자 한 글자, 이름 하나로.', search),
             ('types.html', '문서 유형 사전', f'고신 · 홍패 · 준호구 · 명문 … 이 시리즈에 나온 {len(T)}가지 문서를 읽는 법과 예.', types),
             ('quotes.html', '종이에 적힌 문장들', f'이야기에 "현대어(原文)"로 인용한 원문 {len(qs)}곳 전체 — 찾아보고, 수업 · 글쓰기 · SNS에 씁니다.', quotes),
