@@ -405,10 +405,17 @@ REVIEW_JS = ('<script>(function(){var K="aks-review:"+location.pathname,ks=[].sl
              'document.getElementById("rvclr").addEventListener("click",function(){if(!confirm("이 브라우저에 남긴 검토 표시를 모두 지울까요?"))return;st={by:by.value};ks.forEach(function(k){k.checked=false});save()})})()</script>')
 
 
+def ybasis(s):
+    """연도가 문서 자체가 아닌 근거에서 왔으면 짧은 표시(연표 · 검색 · 인용)"""
+    b = (s.get('연도근거') or '')
+    return ' · 연도: 자료관 연대' if b.startswith('자료ID') else (' · 연도: 해제 추정' if b == '해제' else '')
+
+
 def cite(e, s, title=''):
     """문서 한 건의 인용 문구(국문 학술 관례) — 원문 · 소장처 · 제공 기관 · 자료ID · 원본 주소, 다음 줄에 이 판독 · 번역의 출처. 열람일은 쓰는 사람이 붙임"""
     n = (s.get('문서명') or '').strip(); y = str(s.get('연도') or '').strip()
-    a = f'「{n}」' + (f'({y})' if y and not n.startswith(y) else '') + f', {e["coll"]} 소장, 한국학중앙연구원 한국고문서자료관 제공'
+    yb = {'해제': ' 추정', '자료ID': ' 자료관 연대', '자료ID(자료관 연대)': ' 자료관 연대'}.get(s.get('연도근거') or '', '')
+    a = f'「{n}」' + (f'({y}{yb})' if y and not n.startswith(y) else '') + f', {e["coll"]} 소장, 한국학중앙연구원 한국고문서자료관 제공'
     if s.get('자료ID'): a += f', 자료ID {s["자료ID"]}'
     if s.get('뷰어링크'): a += f', {s["뷰어링크"]}'
     b = f'판독 · 번역: {title + " " if title else ""}{lab(e)} 「{e["title"]}」' + (' (검토 전 초안)' if not (s.get('검토') or '').strip() else f' (검토: {s["검토"]})')
@@ -430,10 +437,12 @@ def collections_pages(eps, title):
         c = cent(y)
         if c != cur: rows.append(f'<h2>{c}</h2>'); cur = c
         v = f' · <a href="{h(s["뷰어링크"])}" target="_blank" rel="noopener">원본 ↗</a>' if s.get('뷰어링크') else ''
-        rows.append(f'<div data-s="{h((str(y) + (s.get("문서명") or "") + (s.get("문서유형") or "") + e["title"] + e["coll"]).lower())}"><b>{y}</b>{h(s.get("문서명") or "")} <small>· {h(s.get("문서유형") or "")} · {link(e)}{v}</small></div>')
+        rows.append(f'<div data-s="{h((str(y) + (s.get("문서명") or "") + (s.get("문서유형") or "") + e["title"] + e["coll"]).lower())}"><b>{y}</b>{h(s.get("문서명") or "")} <small>· {h(s.get("문서유형") or "")}{ybasis(s)} · {link(e)}{v}</small></div>')
     nod = sum(1 for _, s in docs if not str(s.get('연도', '')).isdigit())
+    nb = collections.Counter('자료ID' if (s.get('연도근거') or '').startswith('자료ID') else (s.get('연도근거') or '') for _, s in docs)
     timeline = (f'<div class="col"><div class="tools"><input id="cq" type="search" placeholder="찾기: 연도 · 문서 유형 · 이름 · 소장처" aria-label="연표 찾기"><span id="cn" class="mute"></span></div>'
-                f'<p class="mute">연대가 적힌 문서 {len(dated)}건(연대 미상 {nod}건 제외) · 연도는 문서명·연호에서 읽은 값</p><div class="tlv">{"".join(rows)}</div></div>' + SEARCH_JS)
+                f'<p class="mute">연대가 적힌 문서 {len(dated)}건(연대 미상 {nod}건 제외) · 연도는 문서명 · 연호에서 읽은 값' + (f', 그 밖에 「해제 추정」 {nb["해제"]}건 · 「자료관 연대」 {nb["자료ID"]}건은 근거를 옆에 적었습니다(<code>studio.py years</code>)' if nb["해제"] + nb["자료ID"] else '') + '</p>'
+                f'<div class="tlv">{"".join(rows)}</div></div>' + SEARCH_JS)
     # 2b) 인물 찾아보기 — 「인물」 칸의 이름마다 나온 문서 · 편
     PP = collections.defaultdict(list)
     for e, s in docs:
@@ -468,7 +477,7 @@ def collections_pages(eps, title):
                  + ''.join(f'<div><b>{h(q)}</b><span>{h(lab(e))} {h(e["title"])} · {h(e["coll"])}</span></div>' for q, e in qq) + '</div></div>')
     # 4) 전체 검색 — 판독 · 원문 · 번역 · 해제 · 요약 · 이야기 전문
     F = [('판독', '판독'), ('원문', '원문'), ('번역', '번역'), ('해제', '해제'), ('요약', '요약'), ('이야기', '이야기')]
-    idx = [{'n': dname(s), 't': s.get('문서유형') or '', 'y': s.get('연도') or '', 'e': lab(e) + ' ' + e['title'], 'c': e['coll'], 'l': e.get('link') or '', 'v': s.get('뷰어링크') or '',
+    idx = [{'n': dname(s), 't': (s.get('문서유형') or '') + ybasis(s), 'y': s.get('연도') or '', 'e': lab(e) + ' ' + e['title'], 'c': e['coll'], 'l': e.get('link') or '', 'v': s.get('뷰어링크') or '',
             'ci': cite(e, s, title), **{k: (s.get(k) or '').strip() for k, _ in F if (s.get(k) or '').strip()}} for e, s in docs]
     data = json.dumps(idx, ensure_ascii=False).replace('</', '<\\/')
     search = ('<div class="col"><div class="tools"><input id="sq" type="search" placeholder="낱말 · 한자 · 이름 (예: 乘馹, 역마, 노비, 편지)" aria-label="전체 검색" autofocus>'
