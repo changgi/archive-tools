@@ -220,6 +220,10 @@ def main():
         ['site/index.html', 'site/analysis.html', 'site/analysis-data.json', 'site/search.html', 'site/types.html', 'site/data.zip', 'site/review.html', 'site/quotes.html', 'site/timeline.html', 'site/people.html', 'site/questions.html', 'site/sitemap.xml', 'site/share.jpg', 'site/eps/01-t/index.html'])
     os.makedirs(os.path.join(root, 'an'), exist_ok=True)
     run('analysis.py', [S('analysis.py'), '--list', 'series.tsv', '--out', 'an/analysis.html'], ['an/analysis.html', 'an/analysis-episodes.csv', 'an/quotes.html'])
+    try:
+        sh = open(os.path.join(root, 'site', 'search.html'), encoding='utf-8').read()
+        res.append(('전체 검색 · 인용 문구', '"ci": "「' in sh and '한국고문서자료관 제공' in sh, '', '' if '"ci": "「' in sh else 'search.html에 인용 문구가 없음'))
+    except Exception as e: res.append(('전체 검색 · 인용 문구', False, '', str(e)))
     try: res.append(('날짜 맞춤 · 연도 제안(연호 · 왕대 · 간지 · 서기)', *date_check()))
     except Exception as e: res.append(('날짜 맞춤 · 연도 제안(연호 · 왕대 · 간지 · 서기)', False, '', str(e)))
     try: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', *a11y_check(root)))
