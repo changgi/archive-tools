@@ -201,6 +201,7 @@ def main():
     except Exception as e: res.append(('문구 에디팅 · 큐레이터 노트 채우기', False, '', str(e)))
     run('studio.py delivery', [S('studio.py'), 'delivery', '--work', W, '--theme', 't'])
     run('studio.py check (할 일 남음 → 1)', [S('studio.py'), 'check', '--work', W, '--theme', 't', '--strict'], ok_codes=(1,))
+    run('studio.py audit (여러 편 한꺼번에)', [S('studio.py'), 'audit', '--in', W, '--csv', 'audit.csv'], ['audit.csv'])
     run('studio.py years', [S('studio.py'), 'years', '--work', W, '--theme', 't'])
     run('studio.py promo', [S('studio.py'), 'promo', '--work', W, '--theme', 't', '--ep', '1', '--url', 'https://example.test/s/eps/01-t/exhibit.html'], ['W/mediate/t/promo.md'])
     run('studio.py fix (미리 보기)', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친']) 
@@ -242,6 +243,7 @@ def main():
         fp = ST.font_path('regular')
         env = [('파이썬', platform.python_version(), ''), ('한글 글꼴(카드 · 영상)', fp or '없음', '' if fp else ST.FONT_HELP),
                ('ffmpeg(영상)', shutil.which('ffmpeg') or '없음', '' if shutil.which('ffmpeg') else '영상(video.py)에만 필요 — ffmpeg.org'),
+               ('옛한글 조합(카드의 ᄒᆞ 등)', '됨' if __import__('PIL.features', fromlist=['check']).check('raqm') else '안 됨', '' if __import__('PIL.features', fromlist=['check']).check('raqm') else '카드에서 옛한글이 풀어져 보일 수 있음(웹페이지는 정상) — libraqm이 든 Pillow'),
                ('edge-tts(내레이션)', '있음' if IU.find_spec('edge_tts') else '없음', '' if IU.find_spec('edge_tts') else '선택 — pip install edge-tts')]
         print('\n환경\n' + '\n'.join(f"  {'·' if not tip else '⚠'} {k}: {v}" + (f'\n      → {tip}' if tip else '') for k, v, tip in env))
     except Exception as e: print('환경 확인 실패:', e)

@@ -1561,6 +1561,44 @@ def cmd_years(a):
     elif not a.apply: print('\n제안을 채우려면 --apply (근거가 「자료ID」인 값은 자료관이 매긴 연대 — 원문에 날짜가 보이면 그쪽을 따르세요)')
 
 
+def cmd_audit(a):
+    """여러 편을 한꺼번에 점검 — 폴더 아래 모든 selection.csv(작업 폴더 edit/*/ 또는 예시 사이트 편 폴더)를 표 하나로"""
+    files = sorted({f for root in a.in_ for f in ([root] if root.endswith('.csv') else glob.glob(os.path.join(root, '**', 'selection.csv'), recursive=True))
+                    if '/mediate/' not in f.replace(os.sep, '/') and '/eps/' not in f.replace(os.sep, '/')
+                    and not any(x in f.replace(os.sep, '/') for x in (a.exclude or []))})  # 결과물 쪽 사본은 빼고 원본 선별표만
+    if not files: sys.exit('selection.csv를 찾지 못했습니다(--in 폴더 확인).')
+    cols = ['편', '문서', '빈 칸', '□·(?)', '날짜', '인용', '연도 빈 칸', '검토']
+    rows, tot = [], Counter()
+    for f in files:
+        sel = list(csv.DictReader(open(f, encoding='utf-8-sig')))
+        name = os.path.relpath(os.path.dirname(f), a.in_[0] if os.path.isdir(a.in_[0]) else '.').replace(os.sep, '/')
+        c = Counter(docs=len(sel))
+        for s in sel:
+            c['empty'] += sum(1 for k in ('판독', '번역', '해제', '요약', '이야기') if not (s.get(k) or '').strip())
+            c['unk'] += (s.get('판독') or '').count('□') + (s.get('판독') or '').count('(?)')
+            noted = '어긋' in ''.join(s.get(k) or '' for k in ('원문', '번역', '해제'))
+            c['date'] += 0 if noted else len(date_issues(s))
+            c['quote'] += len(quote_issues(s))
+            c['noyear'] += 0 if str(s.get('연도') or '').strip().isdigit() else 1
+            c['rev'] += 1 if (s.get('검토') or '').strip() else 0
+        tot.update(c)
+        rows.append([name, c['docs'], c['empty'], c['unk'], c['date'], c['quote'], c['noyear'], f"{c['rev']}/{c['docs']}"])
+    rows.sort(key=lambda r: (-(r[4] + r[5]), -r[2], r[0]))  # 고칠 것이 많은 편 먼저
+    w = [max(len(str(x)) for x in col) for col in zip(cols, *rows)]
+    line = lambda r: '  ' + ' | '.join(str(x).ljust(n) for x, n in zip(r, w))
+    print(f'■ 점검: 편 {len(rows)}개 · 문서 {tot["docs"]}건\n' + line(cols) + '\n  ' + '-+-'.join('-' * n for n in w))
+    for r in rows[: a.top or len(rows)]: print(line(r))
+    if a.top and len(rows) > a.top: print(f'  … 외 {len(rows) - a.top}편')
+    print(f'\n합계 — 빈 칸 {tot["empty"]} · □·(?) {tot["unk"]} · 날짜 어긋남 {tot["date"]} · 인용 불일치 {tot["quote"]} · 연도 빈 칸 {tot["noyear"]} · 검토 {tot["rev"]}/{tot["docs"]}')
+    if tot['date'] or tot['quote']: print('→ 날짜 · 인용은 편마다 studio.py check 로 자세히(어느 문서 · 어느 칸)')
+    if tot['noyear']: print('→ 연도 빈 칸: studio.py years (근거와 함께 제안)')
+    if a.csv:
+        with open(a.csv, 'w', newline='', encoding='utf-8-sig') as fh:
+            wr = csv.writer(fh); wr.writerow(cols); wr.writerows(rows)
+        print(f'표 → {a.csv}')
+    if a.strict and (tot['date'] or tot['quote'] or tot['empty']): sys.exit(1)
+
+
 def cmd_check(a):
     """공개 전 점검 — 칸이 비었거나 결과물이 원본보다 오래된 곳을 찾아 다음 할 일을 알려 준다."""
     ed = os.path.join(a.work, 'edit', a.theme); md = os.path.join(a.work, 'mediate', a.theme)
@@ -1775,6 +1813,9 @@ def main():
     rv.add_argument('--from', dest='from_', help='검토 현황 페이지에서 내려받은 reviews.csv — 자료ID로 맞춰 한꺼번에'); rv.add_argument('--in', dest='in_', nargs='+', help='selection.csv를 찾을 폴더(들) · 파일(기본: --work 또는 지금 폴더)')
     rv.add_argument('--dry-run', action='store_true', help='--from: 어디에 반영될지 보기만')
     rv.add_argument('--by', default='검토자', help='검토한 사람 이름'); rv.add_argument('--undo', action='store_true', help='검토 표시 지우기')
+    au = sp.add_parser('audit', help='여러 편 한꺼번에 점검: 빈 칸 · □·(?) · 날짜 어긋남 · 인용 불일치 · 연도 빈 칸 · 검토 진행을 편마다 한 줄로')
+    au.add_argument('--in', dest='in_', nargs='+', required=True, help='selection.csv를 찾을 폴더(들)'); au.add_argument('--csv', help='표를 CSV로'); au.add_argument('--exclude', nargs='+', help='경로에 이 말이 든 곳은 빼기(예: tutorial)'); au.add_argument('--top', type=int, default=0, help='고칠 것이 많은 편 N개만')
+    au.add_argument('--strict', action='store_true', help='날짜 · 인용 · 빈 칸이 있으면 종료 코드 1')
     yr = sp.add_parser('years', help='연도 칸 점검: 빈 칸에 근거(문서 속 날짜 · 해제 · 자료ID)와 함께 제안, --apply로 채움'); yr.add_argument('--work', required=True); yr.add_argument('--theme', required=True); yr.add_argument('--apply', action='store_true')
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
     ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')
@@ -1788,7 +1829,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'years': cmd_years, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'years': cmd_years, 'audit': cmd_audit, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review}[a.cmd](a)
 
 
 if __name__ == '__main__':
