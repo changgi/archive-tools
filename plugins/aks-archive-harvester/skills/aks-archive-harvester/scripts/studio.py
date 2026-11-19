@@ -82,6 +82,28 @@ def find_quotes(text):
                 out.append((p.group(1).strip(), rest, inner)); break
     return out
 
+def _qnorm(t):
+    """인용 대조용: 띄어쓰기 · 문장부호 · (?) · 줄바꿈을 빼고 같은 꼴(NFC)로"""
+    import unicodedata
+    t = unicodedata.normalize('NFC', t or '').replace('(?)', '')
+    return re.sub(r'[\s　·,.、。○\-—()（）\[\]「」『』"\'?!:;/]', '', t)
+
+
+def quote_issues(row):
+    """이야기 속 "현대어(原文)"의 原文이 그 문서의 원문 · 판독(또는 문서명)에 그대로 있는지 → [(인용 원문, 무엇이 문제인지)]
+    「…」로 나눈 토막마다 대조. 중간 글자를 건너뛰었으면 「…」를 넣으라고, 아예 없으면 원문 확인하라고 알린다."""
+    src = _qnorm((row.get('원문') or '') + '|' + (row.get('판독') or '') + '|' + (row.get('문서명') or ''))
+    src = src.replace('□', '')
+    out = []
+    for _, orig, _ in find_quotes(row.get('이야기')):
+        for seg in re.split(r'…|\.\.\.', orig):
+            g = _qnorm(seg).replace('□', '')
+            if len(g) < 2 or g in src: continue
+            best = max((L for L in range(len(g), 1, -1) if any(g[i:i + L] in src for i in range(len(g) - L + 1))), default=0)
+            out.append((orig, f'「{seg.strip()}」 — 원문 · 판독에 그대로 없음' + (f'(앞뒤 {best}/{len(g)}자만 이어짐: 사이에 빠진 글자가 있으면 「…」로 표시)' if best >= len(g) // 2 else ' — 원문 확인')))
+    return out
+
+
 def glossary(t):
     if t in GLOSSARY: return GLOSSARY[t]
     for k, v in GLOSSARY.items():
@@ -1261,7 +1283,8 @@ def proof_html(todo, title, img, scope='(검토 칸이 빈 문서)'):
 <div class="cols"><div class="pic">{img(r)}{('<p class="v">원본 뷰어: ' + e(r['뷰어링크']) + '</p>') if r.get('뷰어링크') else ''}</div>
 <div class="txt"><h3>판독</h3><pre>{e(r.get('원문') or r.get('판독') or '(비어 있음)')}</pre><h3>번역</h3><p>{e(r.get('번역') or '(비어 있음)')}</p>
 <h3>이야기 속 인용</h3><p>{e(' / '.join(f'"{q[0]}({q[1]})"' for q in find_quotes(r.get('이야기'))) or '—')}</p>
-<h3>날짜 맞춤</h3><p>{e(' / '.join(f'⚠ {f}: {m}' for f, m in date_issues(r)) or '연호 · 왕대 · 간지 · 서기가 서로 맞습니다(자동 확인)')}</p></div></div>
+<h3>날짜 맞춤</h3><p>{e(' / '.join(f'⚠ {f}: {m}' for f, m in date_issues(r)) or '연호 · 왕대 · 간지 · 서기가 서로 맞습니다(자동 확인)')}</p>
+<h3>인용 대조</h3><p>{e(' / '.join(f'⚠ {m}' for _, m in quote_issues(r)) or ('인용한 원문이 판독에 그대로 있습니다(자동 확인)' if find_quotes(r.get('이야기')) else '—'))}</p></div></div>
 <div class="chk"><span>☐ 판독 대조</span><span>☐ 번역 대조</span><span>☐ 연도 · 인물</span><span>☐ 인용 원문 일치</span><span>검토자 ______ 날짜 ______</span></div>
 <div class="memo">고칠 곳 (줄 · 이전 → 이후 · 근거)</div></section>""" for r in todo)
     page = f"""<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>검토지 — {e(title)}</title><style>
@@ -1514,6 +1537,8 @@ def cmd_check(a):
         if not s.get('검토'): marks.append('검토 칸 비어 있음 → "초안" 표시')
         if dark: marks.append('대표 면이 표지·겉면 같습니다(어둡거나 다른 면보다 작고 글씨가 적음) → studio.py page')
         di = date_issues(s)
+        qi = quote_issues(s)
+        if qi: marks.append('인용 원문 불일치 ' + str(len(qi)) + ': ' + qi[0][1][:60])
         if not str(s.get('연도') or '').strip().isdigit():
             ys_, why_ = year_suggest(s)
             marks.append(f'연도 빈 칸 → 제안 {ys_}({why_}) · studio.py years' if ys_ else f'연도 빈 칸({why_})')
@@ -1521,6 +1546,7 @@ def cmd_check(a):
         print(f'  {n:>2}. {name} — ' + ('✓' if not marks else ' / '.join(marks)))
         if miss or (story and not q): todo.append(f'{n}번 문서의 문구 에디팅(판독·번역·해제·요약·이야기)')
         if dark: todo.append(f'{n}번 대표 면 확인: studio.py page --work {a.work} --theme {a.theme} --n {n} --page 002.jpg')
+        if qi: todo.append(f'{n}번 이야기 인용 — 원문 · 판독과 글자 그대로 맞추기(건너뛴 곳은 「…」)')
         noted = '어긋' in ''.join(s.get(k) or '' for k in ('원문', '번역', '해제'))  # 원문 자체가 어긋나 이미 적어 둔 경우
         if di and not noted: todo.append(f'{n}번 날짜 확인 — 연호 · 왕대 · 간지 · 서기가 서로 맞는지 원본과 대조(간지는 60년마다 돌아옵니다)')
     print('\n[큐레이터 노트]')

@@ -145,7 +145,12 @@ def date_check():
            ({'연도': '', '번역': '천순 9년(1465) 8월 14일', '자료ID': 'KSM-XA.1457.4715-x'}, 1465), ({'연도': '', '자료ID': 'KSM-XA.0000.1-x'}, None),
            ({'연도': '', '원문': '康熙二十四年歲次甲子', '자료ID': 'KSM-XG.1684.1-x'}, None)]
     miss += [r for r, want in sug if ST.year_suggest(r)[0] != want]
-    return (not miss, f'{len(good) + len(bad) + len(sug)}건', '; '.join(str(r) for r in miss[:2]))
+    qt = [({'원문': '累日飢餓(?) □言語將絶命在頃刻', '이야기': '"목숨이 끊어지려 하기에(累日飢餓 … 將絶命在頃刻)"'}, 0),
+          ({'원문': '累日飢餓(?) □言語將絶命在頃刻', '이야기': '"목숨이 끊어지려 하기에(累日飢餓 將絶命在頃刻)"'}, 1),
+          ({'원문': '글월 보고 무ᄉᆞ히 이시니', '이야기': '"편지 보고 무사히 있다니(글월 보고 무ᄉᆞ히 이시니)"'}, 0),
+          ({'원문': '安鼎福 爲通德郞', '이야기': '"벼슬을 내렸다(李某 爲兵曹佐郞)"'}, 1)]
+    miss += [r for r, want in qt if len(ST.quote_issues(r)) != want]
+    return (not miss, f'{len(good) + len(bad) + len(sug) + len(qt)}건', '; '.join(str(r) for r in miss[:2]))
 
 
 def a11y_check(root):
@@ -224,8 +229,8 @@ def main():
         sh = open(os.path.join(root, 'site', 'search.html'), encoding='utf-8').read()
         res.append(('전체 검색 · 인용 문구', '"ci": "「' in sh and '한국고문서자료관 제공' in sh, '', '' if '"ci": "「' in sh else 'search.html에 인용 문구가 없음'))
     except Exception as e: res.append(('전체 검색 · 인용 문구', False, '', str(e)))
-    try: res.append(('날짜 맞춤 · 연도 제안(연호 · 왕대 · 간지 · 서기)', *date_check()))
-    except Exception as e: res.append(('날짜 맞춤 · 연도 제안(연호 · 왕대 · 간지 · 서기)', False, '', str(e)))
+    try: res.append(('날짜 맞춤 · 연도 제안 · 인용 대조', *date_check()))
+    except Exception as e: res.append(('날짜 맞춤 · 연도 제안 · 인용 대조', False, '', str(e)))
     try: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', *a11y_check(root)))
     except Exception as e: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', False, '', str(e)))
     run('studio.py originals', [S('studio.py'), 'originals', '--work', W, '--theme', 't'])

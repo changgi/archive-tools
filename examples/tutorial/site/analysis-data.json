@@ -128,7 +128,9 @@
   "unknown": 0,
   "unsure": 0,
   "date_mentions": 15,
-  "date_issues": []
+  "date_issues": [],
+  "quotes_checked": 5,
+  "quote_issues": []
  },
  "episodes": [
   {

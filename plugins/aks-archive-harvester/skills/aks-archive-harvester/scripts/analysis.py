@@ -303,6 +303,8 @@ def build(eps, title, kinds_label='소장처 종류'):
     # ---- 날짜 맞춤(studio.date_issues): 연호 · 왕대 · 간지 · 서기가 서로 맞는지
     dm = sum(len(ST.date_mentions(s.get(k) or '')) for _, s in docs for k in ('원문', '판독', '번역', '해제', '요약', '캡션', '이야기'))
     dbad = [f'{lab(e)} {s.get("순서")}번' for e, s in docs if ST.date_issues(s)]
+    nq = sum(len(ST.find_quotes(s.get('이야기'))) for _, s in docs)
+    qbad = [f'{lab(e)} {s.get("순서")}번' for e, s in docs if ST.quote_issues(s)]
     # ---- 한계
     out.append('<h2 id="a-lim">이 분석을 읽을 때</h2><ul class="ins">'
                '<li>이 수치는 <b>이 시리즈가 고른 문서</b>의 분포입니다. 소장처 전체나 조선 시대 전체의 경향이 아닙니다(고른 기준: 사람의 목소리가 들리는 한 줄 · 다양성).</li>'
@@ -311,10 +313,13 @@ def build(eps, title, kinds_label='소장처 종류'):
                '<li>판독 · 번역은 이미지에 근거한 초안입니다. □ · (?)는 그대로 남겼습니다.</li>'
                f'<li>날짜 자동 확인: 판독 · 번역 · 해제 속 날짜 표현 {dm}곳(연호 · 왕대 · 간지 · 서기)을 서로 맞춰 보았습니다 — '
                + (f'어긋난 곳 {len(dbad)}건({h(", ".join(dbad[:3]))}{" …" if len(dbad) > 3 else ""}). 원문 자체가 어긋나 해제에 적어 둔 경우도 있으니 원본으로 확인하세요.' if dbad else '모두 맞습니다.')
+               + '</li>'
+               f'<li>인용 대조: 이야기에 인용한 원문 {nq}곳을 그 문서의 판독과 글자 그대로 맞춰 보았습니다(건너뛴 곳은 「…」) — '
+               + (f'맞지 않는 곳 {len(qbad)}건({h(", ".join(qbad[:3]))}{" …" if len(qbad) > 3 else ""}).' if qbad else '모두 맞습니다.')
                + '</li></ul></div>')
     plain = [re.sub(r'<[^>]+>', '', x) for x in ins]
     data = dict(centuries=[[c, C[c]] for c in centuries], undated=nodate, types=T.most_common(), kinds=K.most_common(), regions=R.most_common(),
-                emotion_words=EW.most_common(), persons=P.most_common(50), reading=dict(read=read_n, translated=tr_n, hanja=han, translation_chars=tr, unknown=unk, unsure=uns, date_mentions=dm, date_issues=dbad),
+                emotion_words=EW.most_common(), persons=P.most_common(50), reading=dict(read=read_n, translated=tr_n, hanja=han, translation_chars=tr, unknown=unk, unsure=uns, date_mentions=dm, date_issues=dbad, quotes_checked=nq, quote_issues=qbad),
                 quotes=[dict(quote=q, source=src, episode=lab(e), title=e['title']) for q, src, e in quotes],
                 episodes=[dict(episode=lab(e), title=e['title'], collection=e['coll'], kind=e.get('kind') or '', region=region_of(e['coll']), docs=len(e['sel']),
                                years=sorted(int(x['연도']) for x in e['sel'] if str(x.get('연도', '')).isdigit()), emotion=e['dv'].get('emotion') or '',
