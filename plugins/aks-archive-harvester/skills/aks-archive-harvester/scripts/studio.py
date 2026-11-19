@@ -1596,7 +1596,10 @@ def cmd_audit(a):
         with open(a.csv, 'w', newline='', encoding='utf-8-sig') as fh:
             wr = csv.writer(fh); wr.writerow(cols); wr.writerows(rows)
         print(f'표 → {a.csv}')
-    if a.strict and (tot['date'] or tot['quote'] or tot['empty']): sys.exit(1)
+    keys = {'empty': '빈 칸', 'date': '날짜 어긋남', 'quote': '인용 불일치', 'year': '연도 빈 칸', 'unk': '□·(?)'}
+    fail = [k for k in ((a.fail_on or '').split(',') if a.fail_on else (['empty', 'date', 'quote'] if a.strict else [])) if k.strip()]
+    bad = [keys.get(k.strip(), k) for k in fail if tot['noyear' if k.strip() == 'year' else k.strip()]]
+    if bad: print('실패: ' + ' · '.join(bad)); sys.exit(1)
 
 
 def cmd_check(a):
@@ -1816,6 +1819,7 @@ def main():
     au = sp.add_parser('audit', help='여러 편 한꺼번에 점검: 빈 칸 · □·(?) · 날짜 어긋남 · 인용 불일치 · 연도 빈 칸 · 검토 진행을 편마다 한 줄로')
     au.add_argument('--in', dest='in_', nargs='+', required=True, help='selection.csv를 찾을 폴더(들)'); au.add_argument('--csv', help='표를 CSV로'); au.add_argument('--exclude', nargs='+', help='경로에 이 말이 든 곳은 빼기(예: tutorial)'); au.add_argument('--top', type=int, default=0, help='고칠 것이 많은 편 N개만')
     au.add_argument('--strict', action='store_true', help='날짜 · 인용 · 빈 칸이 있으면 종료 코드 1')
+    au.add_argument('--fail-on', help='이것이 하나라도 있으면 종료 코드 1 — empty,date,quote,year,unk 중 쉼표로(CI용, 예: date,quote)')
     yr = sp.add_parser('years', help='연도 칸 점검: 빈 칸에 근거(문서 속 날짜 · 해제 · 자료ID)와 함께 제안, --apply로 채움'); yr.add_argument('--work', required=True); yr.add_argument('--theme', required=True); yr.add_argument('--apply', action='store_true')
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
     ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')

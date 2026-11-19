@@ -1,5 +1,9 @@
 # 변경 기록
 
+## aks-archive-harvester 1.8.14 (2026-11-19)
+- **`audit --fail-on empty,date,quote,year,unk`**: 고른 항목이 하나라도 있으면 종료 코드 1 — CI · 공개 전 자동 검사용(`--strict`는 empty,date,quote와 같음)
+- **CI에 예시 판독 점검**: 푸시할 때마다 `audit --in examples --exclude tutorial --fail-on date,quote` — 예시를 고치다 날짜 어긋남 · 인용 불일치가 다시 생기면 바로 빨간불. CONTRIBUTING에도
+
 ## aks-archive-harvester 1.8.13 (2026-11-19)
 - **여러 편 한꺼번에 점검 `studio.py audit --in 폴더`**: 폴더 아래 모든 선별표(작업 폴더의 edit/*/ 또는 예시 사이트의 편 폴더 — 결과물 쪽 사본은 뺌)를 편마다 한 줄로 — 빈 칸 · □·(?) · 날짜 어긋남 · 인용 불일치 · 연도 빈 칸 · 검토 진행, 고칠 것이 많은 편부터, 합계와 다음 할 일. `--exclude` · `--top` · `--csv` · `--strict`(날짜 · 인용 · 빈 칸이 있으면 종료 코드 1)
 - `selftest`: audit 단계(28단계), 「환경」에 옛한글 조합(libraqm) 여부

@@ -39,6 +39,7 @@ GitHub 이슈에 `reviews.csv`를 붙여 보내 주셔도 됩니다. 검토는 �
 
 1. `python3 $S/selftest.py` — 인터넷 없이 전 과정 시험(영상까지: `--video`)
 2. `python3 tools/check_links.py --all` — 예시 사이트 깨진 링크
+   그리고 `python3 $S/studio.py audit --in examples --exclude tutorial --fail-on date,quote` — 예시 판독의 날짜 어긋남 · 인용 불일치(CI도 같은 검사)
    그리고 `node tools/check_a11y.js` — 예시 사이트 접근성(axe-core, 심각 0이어야 함 · 처음 한 번 `npm i --no-save playwright axe-core && npx playwright install chromium`)
    그리고 `python3 -m pyflakes plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts tools` — 정의 안 된 이름 · 쓰지 않는 import
 3. 바꾼 내용을 `CHANGELOG.md`에, 쓰는 법이 바뀌면 `SKILL.md` · README에. 버전은 세 곳(plugin.json · marketplace.json 두 곳)과 CHANGELOG 맨 위를 함께 — `python3 tools/check_version.py`
@@ -47,7 +48,7 @@ GitHub 이슈에 `reviews.csv`를 붙여 보내 주셔도 됩니다. 검토는 �
 6. 파일은 늘 UTF-8로 읽고 씁니다(`encoding='utf-8'`) — 한국어 Windows 기본 인코딩(cp949)에서도 돌아야 합니다
 7. 한국고문서자료관 서버 동시 접속 수(기본값)를 올리지 않습니다
 
-푸시하면 GitHub Actions가 Windows · macOS · Linux에서 selftest와 링크 · 버전 · dist · 접근성 검사를 돌립니다(`.github/workflows/selftest.yml`).
+푸시하면 GitHub Actions가 Windows · macOS · Linux에서 selftest와 링크 · 버전 · dist · 판독(날짜 · 인용) · 접근성 검사를 돌립니다(`.github/workflows/selftest.yml`).
 
 ## 릴리스
 

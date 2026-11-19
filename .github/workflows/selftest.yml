@@ -48,6 +48,12 @@ jobs:
         run: python tools/build_dist.py --check
       - name: 예시 사이트 깨진 링크 확인
         run: python tools/check_links.py --all
+      - name: 예시 판독 점검(날짜 어긋남 · 인용 불일치가 생기면 실패)
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python -m pip install pillow
+          python plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/studio.py audit --in examples --exclude tutorial --top 5 --fail-on date,quote
 
   a11y:
     runs-on: ubuntu-latest
