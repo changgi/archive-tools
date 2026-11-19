@@ -402,12 +402,61 @@ FONT_CANDIDATES = {
 }
 FONT_OVERRIDE = {}
 
+# 목록에 없는 곳(다른 리눅스 배포판 · 사용자 글꼴 폴더)도 찾아봄 — 이름에 이런 말이 든 글꼴
+FONT_HINTS = {'regular': ('malgun.ttf', 'AppleSDGothicNeo', 'NotoSansCJK-Regular', 'NotoSansKR-Regular', 'NanumGothic.ttf', 'NanumBarunGothic.ttf', 'NotoSansCJKkr-Regular'),
+              'bold': ('malgunbd.ttf', 'NotoSansCJK-Bold', 'NotoSansKR-Bold', 'NanumGothicBold', 'NanumBarunGothicBold', 'NotoSansCJKkr-Bold'),
+              'serif': ('batang', 'AppleMyungjo', 'NotoSerifCJK-Bold', 'NotoSerifCJK-Regular', 'NotoSerifKR', 'NanumMyeongjo')}
+FONT_DIRS = ['C:/Windows/Fonts', os.path.expanduser('~/AppData/Local/Microsoft/Windows/Fonts'), '/System/Library/Fonts', '/Library/Fonts',
+             os.path.expanduser('~/Library/Fonts'), '/usr/share/fonts', '/usr/local/share/fonts', os.path.expanduser('~/.local/share/fonts'), os.path.expanduser('~/.fonts')]
+_FONT_CACHE, _FONT_WARNED = {}, []
+
+
+def _has_hangul(p):
+    """그 글꼴로 '한'을 그렸을 때 빈 네모(글자 없음)와 다른지"""
+    try:
+        idx = 1 if 'NotoS' in p and p.endswith('.ttc') else 0  # Noto CJK 묶음: KR = 1번
+        f = ImageFont.truetype(p, 40, index=idx)
+        def ink(t):
+            im = Image.new('L', (60, 60)); ImageDraw.Draw(im).text((5, 5), t, font=f, fill=255); return im.tobytes()
+        a, b = ink('한'), ink('\uffff')
+        return any(a) and a != b
+    except Exception:
+        return False
+
+
+def font_path(kind='regular'):
+    """한글이 실제로 그려지는 글꼴 파일(없으면 None) — 정해 둔 자리 → 글꼴 폴더 찾기 순"""
+    if kind in _FONT_CACHE: return _FONT_CACHE[kind]
+    cands = ([FONT_OVERRIDE[kind]] if kind in FONT_OVERRIDE else []) + FONT_CANDIDATES[kind]
+    found = None
+    for p in cands:
+        if p and os.path.exists(p) and _has_hangul(p): found = p; break
+    if not found:
+        for d in FONT_DIRS:
+            if not os.path.isdir(d): continue
+            for root, _, files in os.walk(d):
+                for fn in sorted(files):
+                    if fn.lower().endswith(('.ttf', '.otf', '.ttc')) and any(k.lower() in fn.lower() for k in FONT_HINTS[kind]):
+                        p = os.path.join(root, fn)
+                        if _has_hangul(p): found = p; break
+                if found: break
+            if found: break
+    if not found and kind != 'regular': found = font_path('regular')
+    _FONT_CACHE[kind] = found
+    return found
+
+
+FONT_HELP = ('한글 글꼴을 찾지 못해 카드 · 영상 글자가 네모로 나올 수 있습니다. '
+             'Windows: 맑은 고딕(기본 설치) · macOS: Apple SD 산돌고딕(기본) · Ubuntu/Debian: sudo apt install fonts-noto-cjk · '
+             'Fedora: sudo dnf install google-noto-sans-cjk-fonts · 또는 --font 글꼴.ttf')
+
+
 def font(size, kind='regular'):
-    for p in ([FONT_OVERRIDE[kind]] if kind in FONT_OVERRIDE else []) + FONT_CANDIDATES[kind] + FONT_CANDIDATES['regular']:
-        if p and os.path.exists(p):
-            idx = 1 if 'NotoS' in p and p.endswith('.ttc') else 0  # Noto CJK: KR = index 1
-            try: return ImageFont.truetype(p, size, index=idx)
-            except Exception: continue
+    p = font_path(kind)
+    if p:
+        try: return ImageFont.truetype(p, size, index=1 if 'NotoS' in p and p.endswith('.ttc') else 0)
+        except Exception: pass
+    if not _FONT_WARNED: _FONT_WARNED.append(1); print('⚠ ' + FONT_HELP, file=sys.stderr)
     return ImageFont.load_default()
 
 

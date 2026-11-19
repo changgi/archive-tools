@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "기록·고문서 아카이브 조사와 수집을 위한 Claude 플러그인 모음",
-    "version": "1.8.11"
+    "version": "1.8.12"
   },
   "plugins": [
     {
       "name": "aks-archive-harvester",
       "source": "./plugins/aks-archive-harvester",
       "description": "한국고문서자료관(archive.aks.ac.kr) 고문서 ① 수집(이름으로 찾기·원본 해상도) ② 큐레이션 ③ 에디팅 ④ 매개(전시 웹페이지·카드뉴스·수업 활동지) ⑤ 연구 패키지·여러 문중 비교 연구",
-      "version": "1.8.11",
+      "version": "1.8.12",
       "author": {
         "name": "Song Chang-gi"
       },

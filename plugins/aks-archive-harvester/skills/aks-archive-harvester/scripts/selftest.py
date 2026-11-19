@@ -236,6 +236,15 @@ def main():
     run('studio.py originals', [S('studio.py'), 'originals', '--work', W, '--theme', 't'])
     run('harvest.py report', [S('harvest.py'), 'report', '--work', W, '--out', 'report.csv'], ['report.csv'])
     run('harvest.py bundle', [S('harvest.py'), 'bundle', '--work', W, '--dest', 'pkg', '--prefix', 'test', '--no-images'])
+    # 환경 — 실패는 아니지만 결과물 품질에 영향
+    try:
+        sys.path.insert(0, HERE); import studio as ST, importlib.util as IU, platform
+        fp = ST.font_path('regular')
+        env = [('파이썬', platform.python_version(), ''), ('한글 글꼴(카드 · 영상)', fp or '없음', '' if fp else ST.FONT_HELP),
+               ('ffmpeg(영상)', shutil.which('ffmpeg') or '없음', '' if shutil.which('ffmpeg') else '영상(video.py)에만 필요 — ffmpeg.org'),
+               ('edge-tts(내레이션)', '있음' if IU.find_spec('edge_tts') else '없음', '' if IU.find_spec('edge_tts') else '선택 — pip install edge-tts')]
+        print('\n환경\n' + '\n'.join(f"  {'·' if not tip else '⚠'} {k}: {v}" + (f'\n      → {tip}' if tip else '') for k, v, tip in env))
+    except Exception as e: print('환경 확인 실패:', e)
     # 결과
     width = max(len(r[0]) for r in res)
     print('\n' + '\n'.join(f"  {'✓' if g else '✗'} {l.ljust(width)}  {t:>5}  {m}" for l, g, t, m in res))

@@ -11,7 +11,7 @@
 | SendUserFile이 "exceeds the 400 MiB upload limit" | 첨부 용량 상한 | `pack --max-mb 350`으로 다시 분할 |
 | 디스크 부족 | JPG 장당 약 3MB, ZIP 사본이 한 벌 더 생김 | 분류별로 ZIP 전달 후 `WORK/out/<분류>` 삭제 |
 | `find`가 아무것도 못 찾음 | 검색어가 사이트 표기와 다름 | 지역명·성씨·인물명 하나만 넣어 보기, `catalog`로 전체 목록 확인, `--refresh` |
-| 카드뉴스 글자가 네모로 나옴 | 한글 글꼴을 못 찾음 | `mediate --font C:/Windows/Fonts/malgun.ttf`처럼 글꼴 지정 |
+| 카드뉴스 글자가 네모로 나옴 · 「⚠ 한글 글꼴을 찾지 못해」 | 한글 글꼴을 못 찾음(도구가 정해 둔 자리와 글꼴 폴더를 찾아보고, '한'이 실제로 그려지는지까지 확인) | `selftest.py`의 「환경」에서 어느 글꼴을 쓰는지 확인 → 없으면 설치(Ubuntu/Debian `sudo apt install fonts-noto-cjk` · Fedora `sudo dnf install google-noto-sans-cjk-fonts`) 또는 `mediate --font 글꼴.ttf` |
 | SSL 인증서 오류 | 회사·학교 프록시, 오래된 certifi | 스크립트는 시스템 인증서 저장소도 사용. `REQUESTS_CA_BUNDLE`로 기관 인증서 지정 |
 | 무엇이 문제인지 모르겠음 | 설치 · 글꼴 · 인코딩 등 | `python3 scripts/selftest.py`(인터넷 불필요, 가짜 서버로 수집까지) → 실패한 줄의 메시지 |
 | Windows에서 `UnicodeEncodeError` · 깨진 글자 | 출력이 cp949 파일 · 파이프로 감 | 최신 스크립트는 그대로 계속함. 화면에서는 정상. 1.0.2 이전 `docs.json`도 읽음 |
