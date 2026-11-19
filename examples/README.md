@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.112)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.118)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.112)
+## 원문으로 읽는 이야기 (EP.17–EP.118)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -132,6 +132,12 @@
 | [**EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미**](yeonbokgun/) | 영주 화계 인동장씨 연복군 종가 (문중) | 杏溪書院別有司 望 幼學張源德 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep110-yeonbokgun_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep110-yeonbokgun_wide.mp4) · [홍보 글](yeonbokgun/promo.md) |
 | [**EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패**](chungjae2/) | 봉화 유곡 안동권씨 충재 권벌 후손가 (문중) | 幼學權思晦進士一等第五人入格者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep111-chungjae2_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep111-chungjae2_wide.mp4) · [홍보 글](chungjae2/promo.md) |
 | [**EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문**](cheongeum/) | 공주 안동김씨 청음 김상헌 후손가 (문중) | 有弟文正 一生一死 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep112-cheongeum_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep112-cheongeum_wide.mp4) · [홍보 글](cheongeum/promo.md) |
+| [**EP.113 "새로 만든 것 같구나" — 배 가득 무기를 실어 보낸 제주목사, 그리고 열여섯 번째 밀부**](jijokdang/) | 함양 안의 밀양박씨 지족당 박명부 종가 (문중) | 俱極精利 一如新造 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep113-jijokdang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep113-jijokdang_wide.mp4) · [홍보 글](jijokdang/promo.md) |
+| [**EP.114 "세 살에 아비를 잃은 너를 보며" — 할머니의 별급문기, 스물한 살의 답안지, 서른여섯의 합격증**](chunghyo-bak/) | 영덕 도곡 무안박씨 충효당 박선 종가 (문중) | 汝亦三歲遺孤 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep114-chunghyo-bak_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep114-chunghyo-bak_wide.mp4) · [홍보 글](chunghyo-bak/promo.md) |
+| [**EP.115 "많은 이가 나를 헌신짝처럼 버렸을 때" — 피란길의 임금을 따른 이충원의 호성공신교서**](wanyang/) | 여주 산북 전주이씨 완양부원군 이충원 종가 (문중) | 多是保妻子而全軀 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep115-wanyang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep115-wanyang_wide.mp4) · [홍보 글](wanyang/promo.md) |
+| [**EP.116 같은 날, 두 장의 합격증 — 부여 함양박씨 집안의 백패와 홍패**](gudang/) | 부여 은산 함양박씨 구당 박세영 종가 (문중) | 幼學朴由恭生員三等第十三人入格者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep116-gudang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep116-gudang_wide.mp4) · [홍보 글](gudang/promo.md) |
+| [**EP.117 곤장을 쓰지 않은 군수, 마흔한 살의 답안지 — 청양 안동김씨 집안의 두 장면**](samdang/) | 청양 안동김씨 삼당 김영 후손가 (문중) | 糴之際 不用刑杖 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep117-samdang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep117-samdang_wide.mp4) · [홍보 글](samdang/promo.md) |
+| [**EP.118 "기울던 나라를 바로 세운 공" — 단종의 조카 정미수가 받은 사패교지, 그리고 연호 없는 합격증**](sareung/) | 양주 사릉 해주정씨 종가 (문중) | 國祚中否 神器將傾 卿能奮義 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep118-sareung_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep118-sareung_wide.mp4) · [홍보 글](sareung/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -159,7 +165,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 113개
+## 예시 (결과물 갤러리) — 119개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -276,6 +282,12 @@
 | [**EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미**](yeonbokgun/) | 영주 화계 인동장씨 연복군 종가 (문중) | 영주 화계마을 인동장씨 종가에는 '장원덕(張源德)'이라는 이름이 적힌 종이가 스무 장 가까이 전한다. 서원의… | [전시](yeonbokgun/exhibit.html) · [활동지](yeonbokgun/handout.html) · [카드](yeonbokgun/cards/) · [selection.csv](yeonbokgun/selection.csv) |
 | [**EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패**](chungjae2/) | 봉화 유곡 안동권씨 충재 권벌 후손가 (문중) | 봉화 닭실마을, 충재 권벌의 후손가. 1777년 가을 한 집안의 두 사람이 나란히 진사 · 생원에 합격하고 … | [전시](chungjae2/exhibit.html) · [활동지](chungjae2/handout.html) · [카드](chungjae2/cards/) · [selection.csv](chungjae2/selection.csv) |
 | [**EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문**](cheongeum/) | 공주 안동김씨 청음 김상헌 후손가 (문중) | 1637년 병자호란, 강화도가 함락되자 선원 김상용은 남문루에서 화약에 불을 붙여 스스로 목숨을 끊는다. 동… | [전시](cheongeum/exhibit.html) · [활동지](cheongeum/handout.html) · [카드](cheongeum/cards/) · [selection.csv](cheongeum/selection.csv) |
+| [**EP.113 "새로 만든 것 같구나" — 배 가득 무기를 실어 보낸 제주목사, 그리고 열여섯 번째 밀부**](jijokdang/) | 함양 안의 밀양박씨 지족당 박명부 종가 (문중) | 1627년, 정묘호란이 있던 해의 겨울. 제주목사 지족당 박명부는 조총 · 활 · 갑옷을 배에 가득 실어 올… | [전시](jijokdang/exhibit.html) · [활동지](jijokdang/handout.html) · [카드](jijokdang/cards/) · [selection.csv](jijokdang/selection.csv) |
+| [**EP.114 "세 살에 아비를 잃은 너를 보며" — 할머니의 별급문기, 스물한 살의 답안지, 서른여섯의 합격증**](chunghyo-bak/) | 영덕 도곡 무안박씨 충효당 박선 종가 (문중) | 1636년 봄, 영해의 한 집. 할머니 손씨는 열두 살 손자 박호에게 노비와 논을 따로 떼어 준다. '너는 … | [전시](chunghyo-bak/exhibit.html) · [활동지](chunghyo-bak/handout.html) · [카드](chunghyo-bak/cards/) · [selection.csv](chunghyo-bak/selection.csv) |
+| [**EP.115 "많은 이가 나를 헌신짝처럼 버렸을 때" — 피란길의 임금을 따른 이충원의 호성공신교서**](wanyang/) | 여주 산북 전주이씨 완양부원군 이충원 종가 (문중) | 1592년 임진왜란, 서울을 버리고 의주로 피란하는 선조의 곁에는 신하가 많지 않았다. 흰머리의 이충원은 걸… | [전시](wanyang/exhibit.html) · [활동지](wanyang/handout.html) · [카드](wanyang/cards/) · [selection.csv](wanyang/selection.csv) |
+| [**EP.116 같은 날, 두 장의 합격증 — 부여 함양박씨 집안의 백패와 홍패**](gudang/) | 부여 은산 함양박씨 구당 박세영 종가 (문중) | 1612년 7월 16일, 부여 은산의 함양박씨 박유공은 같은 날짜가 적힌 합격증 두 장을 받는다. 생원시와 … | [전시](gudang/exhibit.html) · [활동지](gudang/handout.html) · [카드](gudang/cards/) · [selection.csv](gudang/selection.csv) |
+| [**EP.117 곤장을 쓰지 않은 군수, 마흔한 살의 답안지 — 청양 안동김씨 집안의 두 장면**](samdang/) | 청양 안동김씨 삼당 김영 후손가 (문중) | 1664년 겨울, 암행어사의 보고를 읽은 임금이 고양 군수 김중일에게 편지를 보낸다. 부임 반년 만에 소문이… | [전시](samdang/exhibit.html) · [활동지](samdang/handout.html) · [카드](samdang/cards/) · [selection.csv](samdang/selection.csv) |
+| [**EP.118 "기울던 나라를 바로 세운 공" — 단종의 조카 정미수가 받은 사패교지, 그리고 연호 없는 합격증**](sareung/) | 양주 사릉 해주정씨 종가 (문중) | 단종의 누이 경혜공주의 아들 정미수. 외삼촌 단종이 왕위에서 쫓겨나고 아버지 정종마저 화를 입은 집안에서 자… | [전시](sareung/exhibit.html) · [활동지](sareung/handout.html) · [카드](sareung/cards/) · [selection.csv](sareung/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -300,7 +312,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 113개
+### 카드뉴스 미리보기 — 119개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -417,8 +429,14 @@
 | EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미 | ![](yeonbokgun/cards/00_표지.jpg) | ![](yeonbokgun/cards/01.jpg) | ![](yeonbokgun/cards/02.jpg) |
 | EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패 | ![](chungjae2/cards/00_표지.jpg) | ![](chungjae2/cards/01.jpg) | ![](chungjae2/cards/02.jpg) |
 | EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문 | ![](cheongeum/cards/00_표지.jpg) | ![](cheongeum/cards/01.jpg) | ![](cheongeum/cards/99_마무리.jpg) |
+| EP.113 "새로 만든 것 같구나" — 배 가득 무기를 실어 보낸 제주목사, 그리고 열여섯 번째 밀부 | ![](jijokdang/cards/00_표지.jpg) | ![](jijokdang/cards/01.jpg) | ![](jijokdang/cards/02.jpg) |
+| EP.114 "세 살에 아비를 잃은 너를 보며" — 할머니의 별급문기, 스물한 살의 답안지, 서른여섯의 합격증 | ![](chunghyo-bak/cards/00_표지.jpg) | ![](chunghyo-bak/cards/01.jpg) | ![](chunghyo-bak/cards/02.jpg) |
+| EP.115 "많은 이가 나를 헌신짝처럼 버렸을 때" — 피란길의 임금을 따른 이충원의 호성공신교서 | ![](wanyang/cards/00_표지.jpg) | ![](wanyang/cards/01.jpg) | ![](wanyang/cards/99_마무리.jpg) |
+| EP.116 같은 날, 두 장의 합격증 — 부여 함양박씨 집안의 백패와 홍패 | ![](gudang/cards/00_표지.jpg) | ![](gudang/cards/01.jpg) | ![](gudang/cards/02.jpg) |
+| EP.117 곤장을 쓰지 않은 군수, 마흔한 살의 답안지 — 청양 안동김씨 집안의 두 장면 | ![](samdang/cards/00_표지.jpg) | ![](samdang/cards/01.jpg) | ![](samdang/cards/02.jpg) |
+| EP.118 "기울던 나라를 바로 세운 공" — 단종의 조카 정미수가 받은 사패교지, 그리고 연호 없는 합격증 | ![](sareung/cards/00_표지.jpg) | ![](sareung/cards/01.jpg) | ![](sareung/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 113개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 119개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -537,6 +555,12 @@
 | EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미 | 장원덕 망기 — 행계서원 별유사(杏溪書院別有司) | 장원덕(張源德)의 망기. | 종이 위엔 세 줄뿐이다. 자리, 그리고 '望' 한 글자, 그리고 이름. "행계서원 별유사로, 유학 장원덕을 천거함(杏溪書院別有司 望 幼學張源德)." 벼슬 없는 시골 선비 한 사람. 그런데 이런 종이가 그의 집에 스무 장 가까이 쌓인다. | 서원이 유학 장원덕을 별유사로 천거한 망기입니다. |
 | EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패 | 1777년 권사회(權思晦) 진사 백패(進士白牌) | 1777년 권사회(權思晦)의 백패 — 소과(생원·진사시) 합격 증서. | 합격증 한 장에, 다른 시대의 종이가 붙어 있다. 아래는 1777년 9월의 글씨. "유학 권사회는 진사 1등 제5인으로 입격하였다(幼學權思晦進士一等第五人入格者)." 그 위에 1964년 1월 31일 금요일의 일력 한 장. 200년 가까이 떨어진 두 날짜가, 한 장 위에 겹쳐 있다. | 1777년 권사회의 진사 1등 제5인 합격 백패로, 연호 위에 1964년 1월 31일 일력이 붙어 있습니다. |
 | EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문 | 치제문(致祭文) | 치제문 — 제사 때 읽은 글. | 1637년 겨울, 강화도의 남문루. 형 김상용은 화약에 불을 붙였다. 같은 해, 아우 김상헌은 항복 문서를 찢고 울었고, 뒤에 심양으로 끌려갔다. 훗날 임금은 두 형제를 한 장의 종이 위에서 함께 불렀다. "아우 문정이 있어, 한 사람은 살고 한 사람은 죽었다(有弟文正 一生一死)." 그리고 아우에게는 이렇게 썼다. "발은 오랑캐 땅을 밟았으나, 머리에는 한의 달을 이었다(足踏胡地 頭戴漢月)." | 병자호란 때 순절한 김상용과 심양에 끌려갔던 아우 김상헌을 나란히 기린 치제문 두 편의 베낌본입니다. |
+| EP.113 "새로 만든 것 같구나" — 배 가득 무기를 실어 보낸 제주목사, 그리고 열여섯 번째 밀부 | 1627년 박명부(朴明榑) 유서(諭書) | 1627년 박명부(朴明榑)의 유서 — 국왕이 관원에게 내린 명령서. | 1627년, 전쟁이 지나간 해의 겨울. 제주에서 배 한 척이 무기를 가득 싣고 올라온다. 조총, 활과 화살, 갑옷과 투구. 상자를 열어 본 이들이 놀란다. 임금은 이렇게 적었다. "모두 매우 정교하고 날카로워, 마치 새로 만든 것 같다(俱極精利 一如新造)." 그리고 바다 건너 목사에게 옷감 한 벌을 보낸다. | 1627년 제주목사 박명부가 배에 실어 보낸 군기가 새것처럼 정교하다며 임금이 칭찬하고 옷감을 내린 유서입니다. |
+| EP.114 "세 살에 아비를 잃은 너를 보며" — 할머니의 별급문기, 스물한 살의 답안지, 서른여섯의 합격증 | 1636년 손씨(孫氏) 별급문기(別給文記) — 손자 박호에게 | 1636년 박호(朴滈)의 별급문기 — 재산 상속을 기록한 문서. | 1636년 봄, 할머니는 열두 살 손자를 위해 문서 한 장을 만든다. 맨 먼저 적은 것은 재산이 아니라 이유였다. "너는 세 살에 아비를 잃은 아이(汝亦三歲遺孤)." 그리고 이어 쓴다. 점점 자라는 너를 보며 조금 위로가 된다고. 그래서 종 한 사람과 강가의 논을 따로 떼어 준다고. 할머니의 이름 아래에는 붉은 도장이 찍혔다. | 1636년 할머니 손씨가 세 살에 아버지를 잃은 손자 박호에게 노비와 논을 따로 떼어 준 별급문기입니다. |
+| EP.115 "많은 이가 나를 헌신짝처럼 버렸을 때" — 피란길의 임금을 따른 이충원의 호성공신교서 | 이충원(李忠元) 호성공신교서(扈聖功臣敎書) | 1604년 이충원(李忠元)의 호성공신교서. | 1592년 여름, 피란길의 임금 곁에는 사람이 많지 않았다. 12년 뒤, 임금은 그 날들을 이렇게 돌아본다. "많은 이가 처자를 지키고 제 몸을 온전히 하려 했다(多是保妻子而全軀)." 그리고 한 사람을 부른다. "경의 붉은 마음이 아니었다면, 어찌 흰머리로 걸어서 천만 리를 건너왔겠는가(非卿赤心之無他 詎能白首以徒步 跋涉千萬里)." 임금은 마지막에 덧붙인다. "정으로는 실로 아버지와 아들 같았다(情實同父子之親)." | 1604년 선조가 임진왜란 피란길을 걸어서 따른 이충원을 호성공신 2등에 책봉하며 내린 공신교서입니다. |
+| EP.116 같은 날, 두 장의 합격증 — 부여 함양박씨 집안의 백패와 홍패 | 1612년 박유공(朴由恭) 생원 백패(生員白牌) | 1612년 박유공(朴由恭)의 백패 — 소과(생원·진사시) 합격 증서. | 1612년 7월 16일. 부여 은산의 한 선비에게 흰 종이 한 장이 온다. "유학 박유공은 생원 3등 제13인으로 입격하였다(幼學朴由恭生員三等第十三人入格者)." 그런데 같은 날, 한 장이 더 있었다. | 1612년 박유공이 생원시 3등 제13인으로 합격하고 받은 백패입니다. |
+| EP.117 곤장을 쓰지 않은 군수, 마흔한 살의 답안지 — 청양 안동김씨 집안의 두 장면 | 1664년 김중일(金重鎰) 유서(諭書) | 1664년 김중일(金重鎰)의 유서 — 국왕이 관원에게 내린 명령서. | 1664년 겨울, 암행어사의 보고서가 임금 앞에 놓인다. 고양의 새 군수에 대한 이야기였다. 임금은 그 가운데 한 줄을 그대로 옮겨 적는다. "환곡을 거둘 때 형장을 쓰지 않았다(糴之際 不用刑杖)." 쌀을 받을 때도 작은 그릇으로 재어 공평하게 받았다고. 그리고 이렇게 끝맺는다. "특별히 길든 말 한 필을 내린다(特賜熟馬一匹)." | 1664년 무렵 암행어사의 보고에 따라, 곤장 없이 공평하게 세금을 거둔 고양 군수 김중일을 칭찬하며 말 한 필을 내린 유서입니다. |
+| EP.118 "기울던 나라를 바로 세운 공" — 단종의 조카 정미수가 받은 사패교지, 그리고 연호 없는 합격증 | 1508년 정미수(鄭眉壽) 사패교지(賜牌敎旨) | 1508년 정미수(鄭眉壽)의 사패교지 — 국왕이 관직·작위 등을 내린 문서. | 단종의 조카로 태어난 아이가 있었다. 외삼촌은 왕위에서 쫓겨났고, 집안은 무너졌다. 50년 뒤, 그는 다른 왕의 교지를 받는다. "나라의 운이 막혀 신기가 기울려 할 때, 경이 의를 떨쳤다(國祚中否 神器將傾 卿能奮義)." 교지에는 그에게 내린 사람들의 이름이 이어진다. 최산, 사월, 금덕, 도타비, 그리고 아홉 살 가을이. 공신의 상은, 사람이었다. | 1508년 중종반정의 정국공신 정미수에게 공을 기려 여러 관청의 노비를 내린 사패교지입니다. |
 | EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | 매도계약서(賣渡契約書) | 매도계약서. | 그리고 해방 뒤, 이 집은 땅을 판다. "매도 대금 80만 환(賣渡代金八拾萬圜整), 계약금 10만 환은 오늘 받고." 갑과 을, 계약금, 위약금. 1607년의 명문과 같은 일을 하는 문서지만, 이제 우리가 아는 계약서의 모습이다. 땅을 사 모으던 집이, 문서로 남긴 300년이다. | 선교장 집안이 강릉 운정리(?)의 논 약 2,500평을 80만 환에 팔면서, 계약금 10만 환과 잔금 70만 환의 지급 조건을 적은 현대식 매도 계약서입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
