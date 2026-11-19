@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.106)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.112)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.106)
+## 원문으로 읽는 이야기 (EP.17–EP.112)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -126,6 +126,12 @@
 | [**EP.104 "어버이를 사랑함을 효라 한다" — 세상을 떠난 지 300년, 갈천 임훈이 받은 이름**](eunjin-im/) | 거창 은진임씨 (문중) | 淵源學問卓異 贈職 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep104-eunjin-im_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep104-eunjin-im_wide.mp4) · [홍보 글](eunjin-im/promo.md) |
 | [**EP.105 짚신 1,000켤레와 소 한 마리 — 1894년 5월, 낙안군수 신병우의 단자**](geochang-shin/) | 거창 거창신씨 (문중) | 愼炳佑爲通訓大夫行弘文館副修撰 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep105-geochang-shin_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep105-geochang-shin_wide.mp4) · [홍보 글](geochang-shin/promo.md) |
 | [**EP.106 일흔두 살의 승진, 세 아내의 이름 — 1773년 하명상과 정부인 교지 세 장**](unmun-ha/) | 진주 운문 진양하씨 (문중) | 年七十二特爲加資 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep106-unmun-ha_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep106-unmun-ha_wide.mp4) · [홍보 글](unmun-ha/promo.md) |
+| [**EP.107 자손이 오를 때마다 높아진 이름 — 노가재 김창업의 교지와 그 집의 「쥬식방문」**](nogaje/) | 양근 안동김씨 노가재 김창업 후손가 (문중) | 守忠淸監司金履翼曾祖考依法典追贈 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep107-nogaje_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep107-nogaje_wide.mp4) · [홍보 글](nogaje/promo.md) |
+| [**EP.108 "이 아이가 자라 이것을 본다면" — 유배지의 할아버지가 쓴 손자 육아 일기 「양아록」**](mukjae/) | 상주 성주이씨 묵재 종가 (문중) | 兒若長成 有見乎此 庶得祖先之心於文字上矣 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep108-mukjae_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep108-mukjae_wide.mp4) · [홍보 글](mukjae/promo.md) |
+| [**EP.109 "왕과 너만 아는 반쪽" — 무과 452등 급제자가 수군절도사가 되어 받은 밀부 유서**](geumsa/) | 공주 진주류씨 금사 유충걸 후손가 (문중) | 柳聖基爲折衝將軍行龍驤衛副護軍兼司僕將者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep109-geumsa_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep109-geumsa_wide.mp4) · [홍보 글](geumsa/promo.md) |
+| [**EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미**](yeonbokgun/) | 영주 화계 인동장씨 연복군 종가 (문중) | 杏溪書院別有司 望 幼學張源德 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep110-yeonbokgun_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep110-yeonbokgun_wide.mp4) · [홍보 글](yeonbokgun/promo.md) |
+| [**EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패**](chungjae2/) | 봉화 유곡 안동권씨 충재 권벌 후손가 (문중) | 幼學權思晦進士一等第五人入格者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep111-chungjae2_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep111-chungjae2_wide.mp4) · [홍보 글](chungjae2/promo.md) |
+| [**EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문**](cheongeum/) | 공주 안동김씨 청음 김상헌 후손가 (문중) | 有弟文正 一生一死 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep112-cheongeum_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep112-cheongeum_wide.mp4) · [홍보 글](cheongeum/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -153,7 +159,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 107개
+## 예시 (결과물 갤러리) — 113개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -264,6 +270,12 @@
 | [**EP.104 "어버이를 사랑함을 효라 한다" — 세상을 떠난 지 300년, 갈천 임훈이 받은 이름**](eunjin-im/) | 거창 은진임씨 (문중) | 장례원 판결사를 지낸 거창의 선비 임훈(林薰). 그가 세상을 떠나고 275년이 지난 1859년, 나라는 '학… | [전시](eunjin-im/exhibit.html) · [활동지](eunjin-im/handout.html) · [카드](eunjin-im/cards/) · [selection.csv](eunjin-im/selection.csv) |
 | [**EP.105 짚신 1,000켤레와 소 한 마리 — 1894년 5월, 낙안군수 신병우의 단자**](geochang-shin/) | 거창 거창신씨 (문중) | 1884년 홍문관 부수찬, 임금 곁에서 글을 짓던 신병우. 10년 뒤인 1894년 그는 전라도 낙안의 군수였… | [전시](geochang-shin/exhibit.html) · [활동지](geochang-shin/handout.html) · [카드](geochang-shin/cards/) · [selection.csv](geochang-shin/selection.csv) |
 | [**EP.106 일흔두 살의 승진, 세 아내의 이름 — 1773년 하명상과 정부인 교지 세 장**](unmun-ha/) | 진주 운문 진양하씨 (문중) | 1773년 2월, 진주의 하명상은 일흔두 살이었다. 나라는 '나이 일흔둘이라 특별히 품계를 올린다'며 그를 … | [전시](unmun-ha/exhibit.html) · [활동지](unmun-ha/handout.html) · [카드](unmun-ha/cards/) · [selection.csv](unmun-ha/selection.csv) |
+| [**EP.107 자손이 오를 때마다 높아진 이름 — 노가재 김창업의 교지와 그 집의 「쥬식방문」**](nogaje/) | 양근 안동김씨 노가재 김창업 후손가 (문중) | 벼슬보다 그림과 여행을 택한 선비, 노가재 김창업(1658–1721). 그가 세상을 떠나고 70년 뒤인 17… | [전시](nogaje/exhibit.html) · [활동지](nogaje/handout.html) · [카드](nogaje/cards/) · [selection.csv](nogaje/selection.csv) |
+| [**EP.108 "이 아이가 자라 이것을 본다면" — 유배지의 할아버지가 쓴 손자 육아 일기 「양아록」**](mukjae/) | 상주 성주이씨 묵재 종가 (문중) | 1551년 정월 초닷새, 경상도 성주의 유배지. 쉰여덟 살의 묵재 이문건(1494–1567)에게 손자가 태어… | [전시](mukjae/exhibit.html) · [활동지](mukjae/handout.html) · [카드](mukjae/cards/) · [selection.csv](mukjae/selection.csv) |
+| [**EP.109 "왕과 너만 아는 반쪽" — 무과 452등 급제자가 수군절도사가 되어 받은 밀부 유서**](geumsa/) | 공주 진주류씨 금사 유충걸 후손가 (문중) | 1795년, 공주 진주류씨 집안의 류문검은 무과에 병과 제452인으로 합격한다. 수백 명 가운데 하나였던 그… | [전시](geumsa/exhibit.html) · [활동지](geumsa/handout.html) · [카드](geumsa/cards/) · [selection.csv](geumsa/selection.csv) |
+| [**EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미**](yeonbokgun/) | 영주 화계 인동장씨 연복군 종가 (문중) | 영주 화계마을 인동장씨 종가에는 '장원덕(張源德)'이라는 이름이 적힌 종이가 스무 장 가까이 전한다. 서원의… | [전시](yeonbokgun/exhibit.html) · [활동지](yeonbokgun/handout.html) · [카드](yeonbokgun/cards/) · [selection.csv](yeonbokgun/selection.csv) |
+| [**EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패**](chungjae2/) | 봉화 유곡 안동권씨 충재 권벌 후손가 (문중) | 봉화 닭실마을, 충재 권벌의 후손가. 1777년 가을 한 집안의 두 사람이 나란히 진사 · 생원에 합격하고 … | [전시](chungjae2/exhibit.html) · [활동지](chungjae2/handout.html) · [카드](chungjae2/cards/) · [selection.csv](chungjae2/selection.csv) |
+| [**EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문**](cheongeum/) | 공주 안동김씨 청음 김상헌 후손가 (문중) | 1637년 병자호란, 강화도가 함락되자 선원 김상용은 남문루에서 화약에 불을 붙여 스스로 목숨을 끊는다. 동… | [전시](cheongeum/exhibit.html) · [활동지](cheongeum/handout.html) · [카드](cheongeum/cards/) · [selection.csv](cheongeum/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -288,7 +300,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 107개
+### 카드뉴스 미리보기 — 113개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -399,8 +411,14 @@
 | EP.104 "어버이를 사랑함을 효라 한다" — 세상을 떠난 지 300년, 갈천 임훈이 받은 이름 | ![](eunjin-im/cards/00_표지.jpg) | ![](eunjin-im/cards/01.jpg) | ![](eunjin-im/cards/02.jpg) |
 | EP.105 짚신 1,000켤레와 소 한 마리 — 1894년 5월, 낙안군수 신병우의 단자 | ![](geochang-shin/cards/00_표지.jpg) | ![](geochang-shin/cards/01.jpg) | ![](geochang-shin/cards/02.jpg) |
 | EP.106 일흔두 살의 승진, 세 아내의 이름 — 1773년 하명상과 정부인 교지 세 장 | ![](unmun-ha/cards/00_표지.jpg) | ![](unmun-ha/cards/01.jpg) | ![](unmun-ha/cards/02.jpg) |
+| EP.107 자손이 오를 때마다 높아진 이름 — 노가재 김창업의 교지와 그 집의 「쥬식방문」 | ![](nogaje/cards/00_표지.jpg) | ![](nogaje/cards/01.jpg) | ![](nogaje/cards/02.jpg) |
+| EP.108 "이 아이가 자라 이것을 본다면" — 유배지의 할아버지가 쓴 손자 육아 일기 「양아록」 | ![](mukjae/cards/00_표지.jpg) | ![](mukjae/cards/01.jpg) | ![](mukjae/cards/02.jpg) |
+| EP.109 "왕과 너만 아는 반쪽" — 무과 452등 급제자가 수군절도사가 되어 받은 밀부 유서 | ![](geumsa/cards/00_표지.jpg) | ![](geumsa/cards/01.jpg) | ![](geumsa/cards/02.jpg) |
+| EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미 | ![](yeonbokgun/cards/00_표지.jpg) | ![](yeonbokgun/cards/01.jpg) | ![](yeonbokgun/cards/02.jpg) |
+| EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패 | ![](chungjae2/cards/00_표지.jpg) | ![](chungjae2/cards/01.jpg) | ![](chungjae2/cards/02.jpg) |
+| EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문 | ![](cheongeum/cards/00_표지.jpg) | ![](cheongeum/cards/01.jpg) | ![](cheongeum/cards/99_마무리.jpg) |
 
-### 문구 에디팅 전과 후 — 107개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 113개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -513,6 +531,12 @@
 | EP.104 "어버이를 사랑함을 효라 한다" — 세상을 떠난 지 300년, 갈천 임훈이 받은 이름 | 1859년 임훈(林薰) 고신(告身) | 1859년 임훈(林薰)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1859년, 한 장의 교지가 거창의 임씨 집안에 온다. 받을 사람은 이미 275년 전에 세상을 떠났다. 그래도 나라는 이렇게 적었다. "학문의 연원이 뛰어나 벼슬을 추증한다(淵源學問卓異 贈職)." 죽은 선비에게 이조참판의 이름이 더해졌다. | 1859년, 세상을 떠난 임훈에게 '학문의 연원이 뛰어나다'며 이조참판을 추증한 교지입니다. |
 | EP.105 짚신 1,000켤레와 소 한 마리 — 1894년 5월, 낙안군수 신병우의 단자 | 1884년 신병우(愼炳佑) 고신(告身) | 1884년 신병우(愼炳佑)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1884년 가을, 거창 신씨 집안의 신병우는 궁궐로 들어간다. "신병우를 통훈대부 행 홍문관 부수찬으로 삼는다(愼炳佑爲通訓大夫行弘文館副修撰)." 임금 곁에서 글을 짓고, 임금의 공부 자리에 앉고, 나라의 기록을 쓰는 자리였다. | 1884년, 신병우를 홍문관 부수찬 등 학문을 맡는 벼슬에 임명한 교지입니다. |
 | EP.106 일흔두 살의 승진, 세 아내의 이름 — 1773년 하명상과 정부인 교지 세 장 | 1773년 하명상(河命祥) 고신(告身)－1 | 1773년 하명상(河命祥)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1773년 봄, 진주의 하명상은 일흔두 살이었다. 서울에서 교지가 온다. 까닭은 왼쪽 작은 글씨에 적혀 있다. "나이 일흔둘이라 특별히 품계를 올린다(年七十二特爲加資)." 오래 산 것이, 그대로 벼슬이 되었다. | 1773년, 일흔두 살의 하명상을 나이가 많다는 까닭으로 특별히 통정대부에 올린 교지입니다. |
+| EP.107 자손이 오를 때마다 높아진 이름 — 노가재 김창업의 교지와 그 집의 「쥬식방문」 | 1792년 김창업(金昌業) 증직교지(贈職敎旨) | 1792년 김창업(金昌業)의 증직교지 — 국왕이 관직·작위 등을 내린 문서. | 노가재 김창업은 벼슬 대신 그림과 여행을 택한 선비였다. 그가 세상을 떠나고 70년이 지난 1792년, 교지 한 장이 온다. 까닭은 작은 글씨에 있다. "충청감사 김이익의 증조부이므로 법전에 따라 추증한다(守忠淸監司金履翼曾祖考依法典追贈)." 증손자가 오르자, 증조할아버지의 이름도 함께 올라갔다. | 1792년, 증손자 김이익이 충청감사가 되자 증조부 김창업에게 사복시정을 추증한 교지입니다. |
+| EP.108 "이 아이가 자라 이것을 본다면" — 유배지의 할아버지가 쓴 손자 육아 일기 「양아록」 | 양아록(養兒錄) — 서문 | 1551년 양아록. | 1551년, 경상도 성주의 귀양지. 쉰여덟 살 선비에게는 벗도, 살림도, 곁을 지키던 아내도 없었다. 남은 것은 갓 태어난 손자 하나. 그는 그 아이가 노는 것을 보며 하루를 보냈고, 그 모습을 적기 시작한다. 왜 적는가. 서문의 마지막 줄이 답한다. "이 아이가 자라서 이것을 본다면, 글자 위에서나마 할아버지의 마음을 알리라(兒若長成 有見乎此 庶得祖先之心於文字上矣)." | 유배지의 이문건이 손자를 기르며 쓴 육아 기록 「양아록」의 서문으로, '아이가 자라 이것을 보면 할아버지의 마음을 알리라'고 적었습니다. |
+| EP.109 "왕과 너만 아는 반쪽" — 무과 452등 급제자가 수군절도사가 되어 받은 밀부 유서 | 1722년 류성기(柳聖基) 고신(告身) | 1722년 류성기(柳聖基)의 고신 — 국왕이 관직·품계를 내린 임명장. | 이야기는 한 장의 무관 임명장에서 시작한다. 1722년 8월, 류성기는 정3품 절충장군의 품계를 받는다. "류성기를 절충장군 행 용양위 부호군 겸 사복장으로 삼는다(柳聖基爲折衝將軍行龍驤衛副護軍兼司僕將者)." 붓글씨는 크고 반듯하다. 이 집안의 무반 이야기는 여기서부터 70여 년을 건너뛴다. | 1722년 류성기를 절충장군 행 용양위 부호군 겸 사복장으로 임명한 교지입니다. |
+| EP.110 "그대를 천거합니다" — 영주의 한 선비에게 날아든 망기 꾸러미 | 장원덕 망기 — 행계서원 별유사(杏溪書院別有司) | 장원덕(張源德)의 망기. | 종이 위엔 세 줄뿐이다. 자리, 그리고 '望' 한 글자, 그리고 이름. "행계서원 별유사로, 유학 장원덕을 천거함(杏溪書院別有司 望 幼學張源德)." 벼슬 없는 시골 선비 한 사람. 그런데 이런 종이가 그의 집에 스무 장 가까이 쌓인다. | 서원이 유학 장원덕을 별유사로 천거한 망기입니다. |
+| EP.111 합격증 위에 붙은 1964년 1월 31일 — 닭실마을 권씨 집안의 백패와 홍패 | 1777년 권사회(權思晦) 진사 백패(進士白牌) | 1777년 권사회(權思晦)의 백패 — 소과(생원·진사시) 합격 증서. | 합격증 한 장에, 다른 시대의 종이가 붙어 있다. 아래는 1777년 9월의 글씨. "유학 권사회는 진사 1등 제5인으로 입격하였다(幼學權思晦進士一等第五人入格者)." 그 위에 1964년 1월 31일 금요일의 일력 한 장. 200년 가까이 떨어진 두 날짜가, 한 장 위에 겹쳐 있다. | 1777년 권사회의 진사 1등 제5인 합격 백패로, 연호 위에 1964년 1월 31일 일력이 붙어 있습니다. |
+| EP.112 "한 사람은 살고 한 사람은 죽었다" — 김상용 · 김상헌 형제에게 내린 치제문 | 치제문(致祭文) | 치제문 — 제사 때 읽은 글. | 1637년 겨울, 강화도의 남문루. 형 김상용은 화약에 불을 붙였다. 같은 해, 아우 김상헌은 항복 문서를 찢고 울었고, 뒤에 심양으로 끌려갔다. 훗날 임금은 두 형제를 한 장의 종이 위에서 함께 불렀다. "아우 문정이 있어, 한 사람은 살고 한 사람은 죽었다(有弟文正 一生一死)." 그리고 아우에게는 이렇게 썼다. "발은 오랑캐 땅을 밟았으나, 머리에는 한의 달을 이었다(足踏胡地 頭戴漢月)." | 병자호란 때 순절한 김상용과 심양에 끌려갔던 아우 김상헌을 나란히 기린 치제문 두 편의 베낌본입니다. |
 | EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | 매도계약서(賣渡契約書) | 매도계약서. | 그리고 해방 뒤, 이 집은 땅을 판다. "매도 대금 80만 환(賣渡代金八拾萬圜整), 계약금 10만 환은 오늘 받고." 갑과 을, 계약금, 위약금. 1607년의 명문과 같은 일을 하는 문서지만, 이제 우리가 아는 계약서의 모습이다. 땅을 사 모으던 집이, 문서로 남긴 300년이다. | 선교장 집안이 강릉 운정리(?)의 논 약 2,500평을 80만 환에 팔면서, 계약금 10만 환과 잔금 70만 환의 지급 조건을 적은 현대식 매도 계약서입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
