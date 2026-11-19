@@ -104,6 +104,12 @@ def quote_issues(row):
     return out
 
 
+def persons(row):
+    """「인물」 칸에서 사람 이름만(직함 · 관청 · 고을 · 절 · 산 · 성씨만 있는 것은 뺌) — 카드 · 전시 · 홍보 태그용. 기준은 analysis.persons_of"""
+    import analysis
+    return analysis.persons_of(row)
+
+
 def glossary(t):
     if t in GLOSSARY: return GLOSSARY[t]
     for k, v in GLOSSARY.items():
@@ -625,7 +631,7 @@ def cmd_mediate(a):
          ph=(placeholder_img(sel[0]['문서명'], sel[0]['자료ID']) if PH else None))
     for s in sel:
         body = (s['이야기'] or s['캡션'])
-        card(os.path.join(ed, s['이미지']), f"{s['연도']} {s['문서유형']}".strip(), s['인물'], body, f"{s['문서명']} · {src_line}", os.path.join(od, 'cards', f"{int(s['순서']):02d}.png"),
+        card(os.path.join(ed, s['이미지']), f"{s['연도']} {s['문서유형']}".strip(), ' · '.join(persons(s)), body, f"{s['문서명']} · {src_line}", os.path.join(od, 'cards', f"{int(s['순서']):02d}.png"),
              ph=(placeholder_img(s['문서명'], s['자료ID']) if PH else None))
     end = Image.new('RGB', (1080, 1350), (22, 19, 15)); d = ImageDraw.Draw(end)
     d.text((540, 560), '흩어진 기록을,', font=font(72, 'serif'), fill=PAPER, anchor='ms')
@@ -639,7 +645,7 @@ def cmd_mediate(a):
     for s in sel:
         items.append(f"""<section class="panel"><div class="yr">{html.escape(str(s['연도']) or '연도 미상')}</div>
 <figure>{fig(s)}</figure>
-<div class="txt"><h2>{html.escape(s['문서유형'])}{(' · ' + html.escape(s['인물'])) if s['인물'] else ''}</h2>
+<div class="txt"><h2>{html.escape(s['문서유형'])}{(' · ' + html.escape(', '.join(persons(s)))) if persons(s) else ''}</h2>
 <p class="cap">{html.escape(s['이야기'] or s['캡션'])}</p>
 {aid_html(s)}
 <p class="meta">{html.escape(s['문서명'])}<br>{html.escape(s['자료ID'])}{(' · <a href="' + html.escape(s['뷰어링크']) + '" target="_blank" rel="noopener">원본 보기 ↗</a>') if s.get('뷰어링크') else ''}{(' · <a href="' + html.escape(issue_url(a.issues, s, title)) + '" target="_blank" rel="noopener">판독 고침 제보 ↗</a>') if a.issues else ''}</p>{'' if s.get('검토') else '<p class="draft">캡션 초안 — 원문 확인 전</p>'}</div></section>""")
@@ -1764,7 +1770,7 @@ def cmd_promo(a):
     coll = a.collection or (json.load(open(os.path.join(a.work, 'collection.json'), encoding='utf-8'))['name'] if os.path.exists(os.path.join(a.work, 'collection.json')) else os.path.basename(os.path.abspath(a.work)))
     title = a.title or th['title']
     ys = sorted(int(s['연도']) for s in sel if s['연도'])
-    people = [p for p in dict.fromkeys(x.strip() for s in sel for x in s['인물'].split(';')) if p][:4]
+    people = list(dict.fromkeys(p for s in sel for p in persons(s)))[:4]
     kinds = list(dict.fromkeys(s['문서유형'] for s in sel))[:4]
     tags = ['#' + a.series.replace(' ', '')] + ['#' + t.replace(' ', '') for t in (people + [coll.split()[-1]] + kinds)] + ['#고문서', '#한국고문서자료관', '#디지털인문학', '#Claude', '#오픈소스']
     first, last = (sel[0], sel[-1]) if sel else ({}, {})

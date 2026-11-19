@@ -1,5 +1,8 @@
 # 변경 기록
 
+## aks-archive-harvester 1.8.15 (2026-11-19)
+- **카드 · 전시 · 홍보 태그의 「인물」은 사람만 `studio.persons`**: 문서명에서 뽑은 「인물」 칸에 섞여 들던 고을 · 산 · 절 · 관청 · 성씨만 있는 이름(예: 「경상도; 황악산; 직지사」)을 카드 부제 · 전시 문서 제목 줄 · 릴스 문구의 해시태그에서 뺌 — 인물 찾아보기와 같은 기준(`analysis.persons_of`). 선별표의 「인물」 칸 자체는 그대로(이미 만든 예시 카드도 그대로)
+
 ## aks-archive-harvester 1.8.14 (2026-11-19)
 - **`audit --fail-on empty,date,quote,year,unk`**: 고른 항목이 하나라도 있으면 종료 코드 1 — CI · 공개 전 자동 검사용(`--strict`는 empty,date,quote와 같음)
 - **CI에 예시 판독 점검**: 푸시할 때마다 `audit --in examples --exclude tutorial --fail-on date,quote` — 예시를 고치다 날짜 어긋남 · 인용 불일치가 다시 생기면 바로 빨간불. CONTRIBUTING에도
