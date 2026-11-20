@@ -1,0 +1,112 @@
+[
+ {
+  "id": "ep7-royal-letters",
+  "work": "오죽헌",
+  "theme": "royal",
+  "folder": "royal-letters",
+  "title": "왕실 가족의 편지",
+  "lead": "손자가 할머니에게, 부모가 딸에게, 아들이 어머니에게 — 오죽헌·시립박물관에 남은 왕실 가족의 한글 편지",
+  "coll": "오죽헌·시립박물관",
+  "kind": "박물관",
+  "series": "EP.7"
+ },
+ {
+  "id": "ep8-unjoru",
+  "work": "구례_오미_문화류씨_운조루",
+  "theme": "unjoru",
+  "folder": "unjoru",
+  "title": "운조루의 시간",
+  "lead": "집을 사고판 30년의 기록에서, 무과에 급제해 벼슬길을 걸은 유이주까지 — 구례 운조루 문화류씨 집안의 문서",
+  "coll": "구례 오미 문화류씨 운조루",
+  "kind": "문중",
+  "series": "EP.8"
+ },
+ {
+  "id": "ep9-jeongon",
+  "work": "동계_정온_종가",
+  "theme": "jeongon",
+  "folder": "jeongon",
+  "title": "되찾은 제사 땅",
+  "lead": "시호를 받은 조상, 160여 년 뒤 장부에 섞여 버린 제사 땅을 되찾은 후손 — 거창 동계 정온 종가의 문서",
+  "coll": "거창 동계 정온 종가",
+  "kind": "문중",
+  "series": "EP.9"
+ },
+ {
+  "id": "ep10-gujora",
+  "work": "구조라리",
+  "theme": "gujora",
+  "folder": "gujora",
+  "title": "섬마을의 호소",
+  "lead": "진상 부담을 덜어 달라는 호소에서 1910년 소유권 신청서까지 — 거제 구조라리 사람들이 남긴 문서",
+  "coll": "거제 일운 구조라리",
+  "kind": "마을",
+  "series": "EP.10"
+ },
+ {
+  "id": "ep11-hagari",
+  "work": "애월_하가리",
+  "theme": "hagari",
+  "folder": "hagari",
+  "title": "윤음에서 금융조합까지",
+  "lead": "1781년 정조의 윤음에서 1907년 금융조합 정관까지 — 제주 애월 하가리가 근대로 건너간 기록",
+  "coll": "제주 애월 하가리",
+  "kind": "마을",
+  "series": "EP.11"
+ },
+ {
+  "id": "ep12-yongmunsa",
+  "work": "예천_용문사",
+  "theme": "yongmunsa",
+  "folder": "yongmunsa",
+  "title": "기도와 살림의 기록",
+  "lead": "불상 속 복장기에서 쌀을 모은 계, 살림을 넘긴 전장기까지 — 예천 용문사의 기록",
+  "coll": "예천 용문사",
+  "kind": "사찰",
+  "series": "EP.12"
+ },
+ {
+  "id": "ep13-deokcheon",
+  "work": "산청_덕천서원",
+  "theme": "deokcheon",
+  "folder": "deokcheon",
+  "title": "200년의 상소",
+  "lead": "스승 남명 조식을 높여 모시자는 상소가 200년 동안 이어졌다 — 산청 덕천서원의 기록",
+  "coll": "산청 덕천서원",
+  "kind": "서원",
+  "series": "EP.13"
+ },
+ {
+  "id": "ep14-yunjeung",
+  "work": "명재_윤증_종가",
+  "theme": "yunjeung",
+  "folder": "yunjeung",
+  "title": "나아가지 않은 선비",
+  "lead": "임명장 36장, 부름 18번 — 쌓인 문서가 말하는 명재 윤증의 선택",
+  "coll": "논산 명재 윤증 종가",
+  "kind": "문중",
+  "series": "EP.14"
+ },
+ {
+  "id": "ep15-byeongsan",
+  "work": "안동_병산서원",
+  "theme": "byeongsan",
+  "folder": "byeongsan",
+  "title": "서원을 움직인 사람들",
+  "lead": "모시고, 모이고, 지키고, 다시 짓고, 공경한 사람들 — 안동 병산서원의 기록",
+  "coll": "안동 병산서원",
+  "kind": "서원",
+  "series": "EP.15"
+ },
+ {
+  "id": "ep16-anjeongbok",
+  "work": "순암_안정복",
+  "theme": "anjeongbok",
+  "folder": "anjeongbok",
+  "title": "학자의 벼슬길",
+  "lead": "첫 벼슬 후릉 참봉에서 가선대부까지, 40여 년 — 『동사강목』의 저자 안정복 집안의 문서",
+  "coll": "광주 순암 안정복 종가",
+  "kind": "문중",
+  "series": "EP.16"
+ }
+]

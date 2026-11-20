@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>aks-archive-harvester 예시 — 흩어진 기록을, 다시 이야기로</title>
+<style>
+:root{--ink:#16130f;--paper:#efe6d4;--gold:#c4964a;--dim:#a09480}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:'Noto Sans KR','Malgun Gothic',sans-serif;line-height:1.7}
+a{color:var(--gold)}
+header{padding:10vh 7vw 6vh;background:radial-gradient(circle at 25% 30%,#3a2e1e,var(--ink) 70%)}
+header small{letter-spacing:.2em;color:var(--gold);font-weight:700}
+h1{font-family:'Noto Serif KR','Batang',serif;font-size:clamp(34px,6vw,64px);line-height:1.25;margin:.3em 0}
+header p{max-width:46em;color:#d5cab4;font-size:18px}
+.steps{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+.steps span{background:#2c251b;border:1px solid #4a3e2c;border-radius:30px;padding:6px 16px;font-weight:700;font-size:15px}
+.steps span b{color:var(--gold)}
+main{padding:0 7vw 8vh}
+.note{background:#231d15;border-left:4px solid var(--gold);padding:16px 20px;border-radius:6px;color:#d5cab4;font-size:15px;margin:0 0 40px}
+h2{font-family:'Noto Serif KR',serif;font-size:30px;margin:56px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.ex{background:#1f1a14;border:1px solid #3a3225;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.ex img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-bottom:1px solid #3a3225}
+.ex .b{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ex h3{margin:0;font-size:21px}
+.ex .who{color:var(--dim);font-size:14px}
+.ex .tag{align-self:flex-start;background:var(--gold);color:var(--ink);font-weight:700;font-size:13px;border-radius:20px;padding:2px 12px}
+.ex .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
+.ex .links a{background:#2c251b;border:1px solid #4a3e2c;border-radius:8px;padding:6px 12px;text-decoration:none;font-size:14px;color:var(--paper)}
+.ex .links a:hover{border-color:var(--gold)}
+.strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px}
+.strip img{height:300px;border-radius:8px;border:1px solid #3a3225}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td,th{border-bottom:1px solid #3a3225;padding:10px 12px;text-align:left;vertical-align:top}
+th{color:var(--gold);width:150px}
+pre{background:#0d0c0a;border:1px solid #3a3225;border-radius:10px;padding:16px;overflow-x:auto;font-size:14px;color:#e8dcc4}
+footer{padding:40px 7vw;color:var(--dim);font-size:14px;border-top:1px solid #3a3225}
+</style>
+</head>
+<body>
+<header>
+  <small>AKS-ARCHIVE-HARVESTER · 예시 갤러리</small>
+  <h1>흩어진 기록을,<br>다시 이야기로.</h1>
+  <p>한국고문서자료관의 고문서를 Claude 플러그인으로 모으고, 정리하고, 다듬고, 사람들에게 잇고, 연구 자료로 묶은 실제 결과물입니다.</p>
+  <div class="steps"><span><b>①</b> 수집</span><span><b>②</b> 큐레이션</span><span><b>③</b> 에디팅</span><span><b>④</b> 매개</span><span><b>⑤</b> 패키징</span></div>
+  <p><a href="https://github.com/changgi/archive-tools">github.com/changgi/archive-tools</a> · <a href="https://github.com/changgi/archive-tools/tree/main/examples">따라하기(예제) 보기</a></p>
+</header>
+<main>
+  <p class="note">이미지 출처 — 예시의 고문서 사진은 한국학중앙연구원 한국고문서자료관 소장·제공 자료이며, 각 문서에 자료관 뷰어 원본 링크를 달았습니다. 자료관은 이미지 사용에 소장처 동의가 필요하다고 안내합니다(031-730-8873, 8876). 이 이미지를 다시 쓰려면 자료관에 문의하세요. 게재에 문제가 있으면 <a href="https://github.com/changgi/archive-tools/issues">이슈</a>나 chgsong@naver.com으로 알려 주시면 바로 내리겠습니다.</p>
+
+  <h2>홍보 영상</h2>
+  <style>.reels{display:flex;flex-wrap:wrap;gap:28px}.reel{margin:0;width:min(340px,100%)}.reel video{width:100%;border-radius:14px;border:1px solid #3a3225;background:#000}
+  .reel figcaption{display:flex;flex-direction:column;gap:4px;margin-top:10px}.reel b{font-size:18px}.reel span{color:#d5cab4;font-size:15px}.reel small{color:#a09480;font-size:13px}</style>
+  <div class="reels">
+    <figure class="reel">
+      <video controls playsinline preload="metadata" poster="media/promo-reel-poster.jpg">
+        <source src="media/promo-reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/promo-reel.ko.vtt" default>
+      </video>
+      <figcaption><b>EP.1 흩어진 기록을, 다시 이야기로</b><span>1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지</span><small>83초 · 9:16 · <a href="media/promo-reel.mp4" download>내려받기</a> · <a href="media/promo-reel.ko.srt">자막</a></small></figcaption>
+    </figure>
+    <figure class="reel">
+      <video controls playsinline preload="metadata" poster="media/promo-reel-ep2-poster.jpg">
+        <source src="media/promo-reel-ep2.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/promo-reel-ep2.ko.vtt" default>
+      </video>
+      <figcaption><b>EP.2 만든 것 보기</b><span>말 한마디로 만들어진 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교</span><small>48초 · 9:16 · <a href="media/promo-reel-ep2.mp4" download>내려받기</a> · <a href="media/promo-reel-ep2.ko.srt">자막</a></small></figcaption>
+    </figure>
+  </div>
+
+  <h2>예시 세 가지 — 문중</h2>
+  <div class="grid">
+    <article class="ex"><img src="dongchundang-marriage/cards/00_표지.jpg" alt="혼인과 호적 카드뉴스 표지" loading="lazy">
+      <div class="b"><span class="tag">③ 에디팅 후</span><h3>혼인과 호적으로 보는 집안의 생활사</h3>
+      <div class="who">대전 회덕 은진송씨 동춘당 송준길 후손가 · 1660–1825 · 8점</div>
+      <div>Claude가 다듬은 이야기 문장으로 만든 전시·카드뉴스·활동지</div>
+      <div class="links"><a href="dongchundang-marriage/exhibit.html">전시 웹페이지</a><a href="dongchundang-marriage/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/dongchundang-marriage/cards">카드뉴스</a><a href="dongchundang-marriage/sns.txt">SNS 글</a><a href="dongchundang-marriage/selection.csv">selection.csv</a></div></div></article>
+    <article class="ex"><img src="dongchundang-songjungil/cards/00_표지.jpg" alt="송준길 생애 카드뉴스 표지">
+      <div class="b"><span class="tag">③ 에디팅 전</span><h3>송준길의 기록으로 본 생애</h3>
+      <div class="who">같은 소장처 · 1593–1671 · 6점</div>
+      <div>자동 선별·자동 캡션 초안 그대로 — 에디팅 전 상태. 같은 첩 이미지를 공유하는 낱장 문서는 하나만 골랐습니다</div>
+      <div class="links"><a href="dongchundang-songjungil/exhibit.html">전시 웹페이지</a><a href="dongchundang-songjungil/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/dongchundang-songjungil/cards">카드뉴스</a><a href="dongchundang-songjungil/sns.txt">SNS 글</a></div></div></article>
+    <article class="ex"><img src="yuhoedang-land/cards/00_표지.jpg" alt="땅과 관청 사이 카드뉴스 표지">
+      <div class="b"><span class="tag">다른 소장처</span><h3>땅과 관청 사이 — 문서로 보는 집안 살림</h3>
+      <div class="who">대전 무수동 안동권씨 유회당 권이진 종가 · 1695–1843 · 8점</div>
+      <div>문서유형(명문·고목·첩정…)으로 직접 정한 테마</div>
+      <div class="links"><a href="yuhoedang-land/exhibit.html">전시 웹페이지</a><a href="yuhoedang-land/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/yuhoedang-land/cards">카드뉴스</a><a href="yuhoedang-land/sns.txt">SNS 글</a></div></div></article>
+  </div>
+
+  <h2>예시 더 보기 — 사찰 · 마을 · 서원 · 박물관</h2>
+  <p>문중(집안)이 아닌 곳에도 같은 방법이 통합니다. 예시마다 결과물(전시 웹페이지·카드뉴스·활동지·SNS 글), 영상(릴스 9:16·가로 16:9), 홍보 글을 한 세트로 만들었습니다.</p>
+  <div class="grid">
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep3-jikjisa_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep3-jikjisa_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep3-jikjisa.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.3 · 사찰</span><h3>절을 짓고 다시 세운 기록</h3><div class="who">김천 직지사 · 문서 50건 중 8점</div><div>사적·중건기·상량문·헌답기 — 나무판과 종이에 남은 절의 건축사</div>
+      <div class="links"><a href="jikjisa-temple/exhibit.html">전시 웹페이지</a><a href="jikjisa-temple/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/jikjisa-temple/cards">카드뉴스</a><a href="jikjisa-temple/sns.txt">SNS 글</a>
+      <a href="media/ep3-jikjisa_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/jikjisa-temple/promo.md">홍보 글</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep4-susanri_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep4-susanri_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep4-susanri.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.4 · 마을</span><h3>섬마을에 내려온 약속</h3><div class="who">제주 애월 수산리 · 1784–1880 · 8점</div><div>정조의 윤음부터 마을의 향약·절목까지</div>
+      <div class="links"><a href="susanri-village/exhibit.html">전시 웹페이지</a><a href="susanri-village/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/susanri-village/cards">카드뉴스</a><a href="susanri-village/sns.txt">SNS 글</a>
+      <a href="media/ep4-susanri_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/susanri-village/promo.md">홍보 글</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep5-namgye_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep5-namgye_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep5-namgye.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.5 · 서원</span><h3>서원을 지키고 꾸린 기록</h3><div class="who">함양 남계서원 · 1733–1940 · 8점</div><div>논밭 장부·완문·상량문·건물 배치도</div>
+      <div class="links"><a href="namgye-seowon/exhibit.html">전시 웹페이지</a><a href="namgye-seowon/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/namgye-seowon/cards">카드뉴스</a><a href="namgye-seowon/sns.txt">SNS 글</a>
+      <a href="media/ep5-namgye_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/namgye-seowon/promo.md">홍보 글</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep6-myeongseong_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep6-myeongseong_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep6-myeongseong.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.6 · 박물관</span><h3>왕비의 편지</h3><div class="who">명성황후기념관 · 1888–1890 · 8통</div><div>명성황후가 민영소에게 보낸 한글 편지</div>
+      <div class="links"><a href="myeongseong-letters/exhibit.html">전시 웹페이지</a><a href="myeongseong-letters/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/myeongseong-letters/cards">카드뉴스</a><a href="myeongseong-letters/sns.txt">SNS 글</a>
+      <a href="media/ep6-myeongseong_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/myeongseong-letters/promo.md">홍보 글</a></div></div></article>
+  </div>
+
+  <h2>이야기가 있는 기록 — EP.7–EP.16</h2>
+  <p>문서명과 이미지 속에 서사가 있는 소장처 10곳을 골라, 질문으로 시작해 문서로 따라가고 한 문장으로 맺는 이야기로 만들었습니다. 왕실의 편지, 되찾은 제사 땅, 200년의 상소, 나아가지 않은 선비까지.</p>
+  <div class="grid">
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep7-royal-letters_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep7-royal-letters_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep7-royal-letters.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.7 · 박물관</span><h3>왕실 가족의 편지</h3><div class="who">오죽헌·시립박물관 · 1665 무렵 · 편지 7통</div><div>“임금도 할머니에게 편지를 썼을까요?”</div>
+      <div class="links"><a href="royal-letters/exhibit.html">전시 웹페이지</a><a href="royal-letters/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/royal-letters/cards">카드뉴스</a><a href="royal-letters/sns.txt">SNS 글</a>
+      <a href="media/ep7-royal-letters_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/royal-letters/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/royal-letters">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep8-unjoru_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep8-unjoru_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep8-unjoru.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.8 · 문중</span><h3>운조루의 시간</h3><div class="who">구례 오미 문화류씨 운조루 · 1659–1784 · 7점</div><div>“운조루를 지은 유이주, 그는 어떤 길을 걸어왔을까요?”</div>
+      <div class="links"><a href="unjoru/exhibit.html">전시 웹페이지</a><a href="unjoru/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/unjoru/cards">카드뉴스</a><a href="unjoru/sns.txt">SNS 글</a>
+      <a href="media/ep8-unjoru_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/unjoru/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/unjoru">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep9-jeongon_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep9-jeongon_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep9-jeongon.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.9 · 문중</span><h3>되찾은 제사 땅</h3><div class="who">거창 동계 정온 종가 · 1403–1825 · 6점</div><div>“조상의 제사 땅이 남의 장부에 들어가 버렸다면?”</div>
+      <div class="links"><a href="jeongon/exhibit.html">전시 웹페이지</a><a href="jeongon/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/jeongon/cards">카드뉴스</a><a href="jeongon/sns.txt">SNS 글</a>
+      <a href="media/ep9-jeongon_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/jeongon/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/jeongon">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep10-gujora_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep10-gujora_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep10-gujora.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.10 · 마을</span><h3>섬마을의 호소</h3><div class="who">거제 일운 구조라리 · 1850–1912 · 8점</div><div>“섬마을 사람들은 무엇을 호소했을까요?”</div>
+      <div class="links"><a href="gujora/exhibit.html">전시 웹페이지</a><a href="gujora/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/gujora/cards">카드뉴스</a><a href="gujora/sns.txt">SNS 글</a>
+      <a href="media/ep10-gujora_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/gujora/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/gujora">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep11-hagari_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep11-hagari_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep11-hagari.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.11 · 마을</span><h3>윤음에서 금융조합까지</h3><div class="who">제주 애월 하가리 · 1781–1912 · 8점</div><div>“왕의 말씀에서 은행까지, 한 마을이 걸어온 길은?”</div>
+      <div class="links"><a href="hagari/exhibit.html">전시 웹페이지</a><a href="hagari/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/hagari/cards">카드뉴스</a><a href="hagari/sns.txt">SNS 글</a>
+      <a href="media/ep11-hagari_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/hagari/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/hagari">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep12-yongmunsa_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep12-yongmunsa_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep12-yongmunsa.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.12 · 사찰</span><h3>기도와 살림의 기록</h3><div class="who">예천 용문사 · 1514–1879 · 8점</div><div>“불상 안에는 무엇이 들어 있을까요?”</div>
+      <div class="links"><a href="yongmunsa/exhibit.html">전시 웹페이지</a><a href="yongmunsa/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/yongmunsa/cards">카드뉴스</a><a href="yongmunsa/sns.txt">SNS 글</a>
+      <a href="media/ep12-yongmunsa_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/yongmunsa/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/yongmunsa">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep13-deokcheon_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep13-deokcheon_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep13-deokcheon.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.13 · 서원</span><h3>200년의 상소</h3><div class="who">산청 덕천서원 · 1609–1814 · 6점</div><div>“한 스승을 높이기 위해, 200년 동안 상소를 올린 사람들이 있습니다.”</div>
+      <div class="links"><a href="deokcheon/exhibit.html">전시 웹페이지</a><a href="deokcheon/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/deokcheon/cards">카드뉴스</a><a href="deokcheon/sns.txt">SNS 글</a>
+      <a href="media/ep13-deokcheon_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/deokcheon/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/deokcheon">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep14-yunjeung_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep14-yunjeung_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep14-yunjeung.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.14 · 문중</span><h3>나아가지 않은 선비</h3><div class="who">논산 명재 윤증 종가 · 1654–1701 · 8점</div><div>“임금이 수십 번 불러도, 나아가지 않은 선비가 있습니다.”</div>
+      <div class="links"><a href="yunjeung/exhibit.html">전시 웹페이지</a><a href="yunjeung/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/yunjeung/cards">카드뉴스</a><a href="yunjeung/sns.txt">SNS 글</a>
+      <a href="media/ep14-yunjeung_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/yunjeung/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/yunjeung">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep15-byeongsan_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep15-byeongsan_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep15-byeongsan.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.15 · 서원</span><h3>서원을 움직인 사람들</h3><div class="who">안동 병산서원 · 1610–1811 · 7점</div><div>“서원을 움직인 사람들은 누구였을까요?”</div>
+      <div class="links"><a href="byeongsan/exhibit.html">전시 웹페이지</a><a href="byeongsan/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/byeongsan/cards">카드뉴스</a><a href="byeongsan/sns.txt">SNS 글</a>
+      <a href="media/ep15-byeongsan_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/byeongsan/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/byeongsan">이야기 전문</a></div></div></article>
+    <article class="ex">
+      <video controls playsinline preload="none" poster="media/ep16-anjeongbok_reel-poster.jpg" style="width:100%;aspect-ratio:9/16;background:#000;display:block;border-bottom:1px solid #3a3225">
+        <source src="media/ep16-anjeongbok_reel.mp4" type="video/mp4"><track kind="captions" srclang="ko" label="한국어" src="media/ep16-anjeongbok.ko.vtt" default></video>
+      <div class="b"><span class="tag">EP.16 · 문중</span><h3>학자의 벼슬길</h3><div class="who">광주 순암 안정복 종가 · 1607–1790 · 8점</div><div>“『동사강목』을 쓴 학자는 어떤 벼슬길을 걸었을까요?”</div>
+      <div class="links"><a href="anjeongbok/exhibit.html">전시 웹페이지</a><a href="anjeongbok/handout.html">수업 활동지</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/anjeongbok/cards">카드뉴스</a><a href="anjeongbok/sns.txt">SNS 글</a>
+      <a href="media/ep16-anjeongbok_wide.mp4">가로 영상 16:9</a><a href="https://github.com/changgi/archive-tools/blob/main/examples/anjeongbok/promo.md">홍보 글</a><a href="https://github.com/changgi/archive-tools/tree/main/examples/anjeongbok">이야기 전문</a></div></div></article>
+  </div>
+
+  <h2>카드뉴스 한눈에</h2>
+  <div class="strip">
+    <img src="dongchundang-marriage/cards/00_표지.jpg" alt=""><img src="dongchundang-marriage/cards/01.jpg" alt=""><img src="dongchundang-marriage/cards/02.jpg" alt="">
+    <img src="dongchundang-marriage/cards/05.jpg" alt=""><img src="dongchundang-marriage/cards/07.jpg" alt=""><img src="dongchundang-marriage/cards/99_마무리.jpg" alt="">
+  </div>
+
+  <h2>에디팅 전과 후</h2>
+  <table>
+    <tr><th>자동 초안</th><td>1825년 송영로의 호구단자 — 집안 식구를 관에 신고한 호적 서류.</td></tr>
+    <tr><th>에디팅 후</th><td>1862년 빙고별제 임명장을 받는 송영로의 이름이, 37년 앞선 이 호적 신고서에도 등장한다.</td></tr>
+    <tr><th>검토</th><td>비워 두면 모든 결과물에 "초안 — 원문 확인 전" 표시가 남습니다. 원문을 확인한 줄에만 <code>확인</code>을 넣으세요.</td></tr>
+  </table>
+
+  <h2>여러 소장처 비교 (대량 유사 연구)</h2>
+  <p>예시에 쓴 소장처 16곳(문중·사찰·마을·서원·박물관) 4,934건을 같은 방식으로 정리해 비교했습니다. 문중에는 고신(임명장)이, 마을에는 절목(규정)이, 서원에는 장부가 많듯 소장처마다 남긴 기록의 결이 다릅니다.</p>
+  <div class="ex" style="max-width:520px"><div class="b"><h3>소장처 비교 리포트</h3>
+    <div class="links"><a href="compare/compare_report.html">그래프 리포트</a><a href="compare/compare_summary.md">비교표</a><a href="compare/compare_metadata.csv">합친 메타데이터</a><a href="compare/collections.tsv">목록 파일 예</a></div></div></div>
+
+  <h2>직접 해 보기</h2>
+<pre>/plugin marketplace add changgi/archive-tools
+/plugin install aks-archive-harvester@changgi-archive-tools
+
+💬 한국고문서자료관에서 유회당 권이진 종가 문서 받아줘
+💬 이 집안 문서로 어떤 이야기를 만들 수 있을까?
+💬 혼인과 호적 테마로 전시 웹페이지랑 카드뉴스 만들어줘
+💬 대전 문중들을 비교 연구할 수 있게 패키지로 묶어줘
+💬 완석정 유지로 전시·카드·영상까지 처음부터 끝까지 만들어줘
+💬 공개해도 되는지 점검해줘</pre>
+  <p>찾기부터 영상·시리즈 사이트까지 전 과정을 실제로 돌린 예제: <a href="tutorial/site/index.html">완성된 사이트</a> · <a href="https://github.com/changgi/archive-tools/blob/main/examples/tutorial/README.md">단계별 따라하기</a>. 다른 명령 예제는 <a href="https://github.com/changgi/archive-tools/tree/main/examples">examples/README.md</a>에 있습니다.</p>
+</main>
+<footer>자료: 한국학중앙연구원 한국고문서자료관 · 이미지 이용은 자료관 이용 조건을 따릅니다 · 연도·유형·인물은 문서명에서 자동 추출한 초안이며, 판독·해석은 원문 확인이 필요합니다.<br>
+판독 · 번역 · 해제 등 텍스트는 <a href="https://github.com/changgi/archive-tools/blob/main/LICENSE-CONTENT.md">CC BY 4.0</a>(이미지 제외) · 이 저장소는 한국학중앙연구원과 관계없는 개인 제작물입니다 · 만든 사람: Song Chang-gi · <a href="https://github.com/changgi">github.com/changgi</a></footer>
+</body>
+</html>

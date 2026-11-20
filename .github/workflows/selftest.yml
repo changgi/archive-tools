@@ -3,7 +3,7 @@ name: selftest
 # 플러그인이 Windows · macOS · Linux에서 끝까지 도는지 — 인터넷 없이 가짜 문서로 전 과정 시험
 on:
   push:
-    paths: ['plugins/**', 'tools/**', 'dist/**', 'CHANGELOG.md', '.claude-plugin/**', '.github/workflows/selftest.yml', 'examples/**/*.html']
+    paths: ['plugins/**', 'tools/**', 'dist/**', 'CHANGELOG.md', '.claude-plugin/**', '.github/workflows/selftest.yml', 'examples/**/*.html', 'examples/**/record.json', 'examples/**/checksums.sha256']
   pull_request:
   workflow_dispatch:
 
@@ -54,6 +54,10 @@ jobs:
         run: |
           python -m pip install pillow
           python plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/studio.py audit --in examples --exclude tutorial --top 5 --fail-on date,quote
+      - name: 기록 꾸러미 고정값(SHA-256) 대조 — 기록 없이 바뀐 결과물이 있으면 실패
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts/studio.py record --verify --in examples --media examples/media --exclude /tutorial/
 
   a11y:
     runs-on: ubuntu-latest

@@ -1,0 +1,307 @@
+{
+ "schema": "aks-record/1.0",
+ "identifier": "gomunseo-hanjang/hawiji",
+ "title": "\"사육신의 조카, 구동\" — 하위지 집안을 이은 한 소년의 소지",
+ "episode": "EP.42",
+ "language": "ko",
+ "context": {
+  "series": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
+  "collection": "안동 송파 진주하씨 하위지 후손가",
+  "holder": "안동 송파 진주하씨 하위지 후손가",
+  "source_archive": "한국학중앙연구원 한국고문서자료관 (archive.aks.ac.kr)",
+  "purpose": "멸문의 화 속에서도 집안을 이으려 한 한 소년의 기록이 남아 있었다는 것.",
+  "process": [
+   "수집",
+   "선별",
+   "판독 · 번역 · 해제",
+   "문구 에디팅",
+   "전달 에디팅",
+   "산출물",
+   "검증",
+   "사람 검토"
+  ]
+ },
+ "agents": [
+  {
+   "name": "Song Chang-gi (chgsong@naver.com, github.com/changgi)",
+   "role": "기획 · 책임 편집",
+   "type": "person"
+  },
+  {
+   "name": "Claude (Anthropic) — 판독 · 번역 · 해제 · 이야기 초안, 산출물 제작",
+   "role": "판독 · 번역 · 해제 초안, 편집 보조",
+   "type": "software"
+  },
+  {
+   "name": "aks-archive-harvester 1.9.0",
+   "role": "수집 · 산출물 생성 · 검증 도구",
+   "type": "software"
+  }
+ ],
+ "sources": [
+  {
+   "order": "1",
+   "identifier": "G002+AKS+KSM-XB.1461.0000-20101008.B036a_056_00015_XXX",
+   "title": "1461년 하원(河源) 소지(所志)",
+   "date": "1461",
+   "date_basis": "자료관 목록",
+   "type": "소지",
+   "persons": "하원",
+   "page": "002.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016709%5EL016709F02%5EL016709F0202&dataId=G002%2BAKS%2BKSM-XB.1461.0000-20101008.B036a_056_00015_XXX&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "2",
+   "identifier": "G002+AKS+KSM-XB.1770.0000-20101008.B036a_056_00005_XXX",
+   "title": "1770년 한광회(韓光會) 계(啓)",
+   "date": "1770",
+   "date_basis": "자료관 목록",
+   "type": "계",
+   "persons": "한광회",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016709%5EL016709F02%5EL016709F0202&dataId=G002%2BAKS%2BKSM-XB.1770.0000-20101008.B036a_056_00005_XXX&itemType=",
+   "review": "미검토"
+  }
+ ],
+ "derivatives": [
+  {
+   "path": "../media/ep42-hawiji.ko.srt",
+   "role": "자막(SRT)",
+   "kind": "caption",
+   "format": "application/x-subrip",
+   "bytes": 1600,
+   "sha256": "adeb62ff319d5a93492fc5d4d5855fd00d50ffbe38a6a46537f9806d7571f4b8"
+  },
+  {
+   "path": "../media/ep42-hawiji.ko.vtt",
+   "role": "자막(WebVTT)",
+   "kind": "caption",
+   "format": "text/vtt",
+   "bytes": 1608,
+   "sha256": "c5356aee4d3601f17ff81a1e95d258b156c79a8f01180eaf078e3ee5e1af6e1a"
+  },
+  {
+   "path": "../media/ep42-hawiji_reel-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 68374,
+   "sha256": "1181af598dc678837d72fcfd9b7d85dd78423e87622b9a25bf18d59a5fc344a6"
+  },
+  {
+   "path": "../media/ep42-hawiji_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1476029,
+   "sha256": "93dc7ac76c5ccf040f11c7b4bde31fa26e3f90e098e1102c8f217ba555960afa"
+  },
+  {
+   "path": "../media/ep42-hawiji_wide-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 70133,
+   "sha256": "645b67ba0f25c8662b4ca898e8a27dcdf6c3fc07bf6fc09cd88305f25da90ca6"
+  },
+  {
+   "path": "../media/ep42-hawiji_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1573479,
+   "sha256": "8223a2144afb27fa9772a2d15c339d7a0790744198819ec1cf7f7eb378a620a2"
+  },
+  {
+   "path": "README.md",
+   "role": "편 설명(판독 · 번역 · 해제 전문)",
+   "kind": "text",
+   "format": "text/markdown",
+   "bytes": 12808,
+   "sha256": "7d1e30f79c4edc070a0360b0da09a4a854a6892144b5cc59f16342a7da6ba66c"
+  },
+  {
+   "path": "behind/b1_전하고싶은것.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 135609,
+   "sha256": "be696fb949be18f7e36949f2be61590ff18dc35c986e526e9bfc00325fec8a7c"
+  },
+  {
+   "path": "behind/b2_만들며있었던일.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 76549,
+   "sha256": "b27b39a67c7acf594ad208fb4a1a73967bfbaf49c117e44b76bcd4618910b9e2"
+  },
+  {
+   "path": "behind/b3_남겨둔질문.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 94415,
+   "sha256": "bcb5d8ec9e3e234c04895950d7b99fb01f9d46ae7fdd3558f5a0d3ad9d7d5d2c"
+  },
+  {
+   "path": "cards/00_표지.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 175753,
+   "sha256": "3340e3ef92f3ab9341cdf55008213de69caabbe69d49cc919bfed2ec549fb893"
+  },
+  {
+   "path": "cards/01.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 168168,
+   "sha256": "dacbd34aaac21ac65e1caf60036869c4bbc409bcb1bf485a476c503289c756b0"
+  },
+  {
+   "path": "cards/02.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 233179,
+   "sha256": "2b0b131b7cf4be3b3347eea6c9e957634239ad8b33796b27a7245114667d669f"
+  },
+  {
+   "path": "cards/99_마무리.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 50064,
+   "sha256": "c24eddd3fdb08c35d5cbca9c1d480696cd2cda8b0b0071352b76915bc0198a90"
+  },
+  {
+   "path": "channels.md",
+   "role": "채널별 홍보안",
+   "kind": "promotion",
+   "format": "text/markdown",
+   "bytes": 7048,
+   "sha256": "78981fe09bc023fc5567f5290967cb09aecf6efbd4cc9068bff03dd410627de0"
+  },
+  {
+   "path": "curator.md",
+   "role": "큐레이터 노트",
+   "kind": "note",
+   "format": "text/markdown",
+   "bytes": 740,
+   "sha256": "85775049ba2f974b52a97581f7c2f2614176aeda456ec1e83ef060bcaeaf3fbf"
+  },
+  {
+   "path": "delivery.md",
+   "role": "전달 에디팅",
+   "kind": "note",
+   "format": "text/markdown",
+   "bytes": 1914,
+   "sha256": "40e13a7fdd8d699995456e2d496456dc1808d366d969dd69b19478eff8f0aa80"
+  },
+  {
+   "path": "exhibit.html",
+   "role": "온라인 전시",
+   "kind": "exhibit",
+   "format": "text/html",
+   "bytes": 641041,
+   "sha256": "8b69c382d222cf6cea463ba755bb4d061dbbd54de2c134575402c77f46706f05"
+  },
+  {
+   "path": "handout.html",
+   "role": "수업 활동지",
+   "kind": "education",
+   "format": "text/html",
+   "bytes": 310788,
+   "sha256": "2733da5f37aabc5e8964b3393935ad0d55b5efe9d2281e2449070f0debde25ab"
+  },
+  {
+   "path": "promo.md",
+   "role": "홍보 글",
+   "kind": "promotion",
+   "format": "text/markdown",
+   "bytes": 3837,
+   "sha256": "eb6c9b4e82f66398b3fb2f04194086ea239fd2ce043e0afa1688bc48407da2b0"
+  },
+  {
+   "path": "proof.html",
+   "role": "검토지(원본 대조용)",
+   "kind": "review",
+   "format": "text/html",
+   "bytes": 9083,
+   "sha256": "4af6cd4dd849a678fd5cbccbf8cf4400271e90d495541f48f1ab5cdcf17ba7d9"
+  },
+  {
+   "path": "selection.csv",
+   "role": "판독번역표",
+   "kind": "data",
+   "format": "text/csv",
+   "bytes": 9540,
+   "sha256": "4b2d5f1ec3c90e98bf19953d1c6e063ba2507973c99ce182da1f6ffc4ea9872b"
+  },
+  {
+   "path": "sns.txt",
+   "role": "SNS 글",
+   "kind": "promotion",
+   "format": "text/plain",
+   "bytes": 936,
+   "sha256": "d9c242fbc8ad622bdd998cf1ca9b0ece8de785e8a16d66ca2c682f1851e625ab"
+  },
+  {
+   "path": "theme.json",
+   "role": "테마 정보",
+   "kind": "data",
+   "format": "application/json",
+   "bytes": 157,
+   "sha256": "69a6eb39795fb548482b5bc5fab58ad3817b6a03c8c179256ef61ae7bb0e04f0"
+  }
+ ],
+ "validation": {
+  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "documents": 2,
+  "quotes": 2,
+  "uncertain_marks": 1,
+  "date_issues": 0,
+  "date_issues_acknowledged": 0,
+  "quote_issues": 0,
+  "undated": 0,
+  "details": []
+ },
+ "review": {
+  "reviewed": 0,
+  "total": 2,
+  "status": "미검토 (판독 · 번역은 초안)",
+  "rule": "원본과 대조한 사람만 검토 칸을 채운다 — 도구와 AI는 검토를 표시하지 않는다"
+ },
+ "rights": {
+  "images": "고문서 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). 다시 쓰려면 자료관을 통한 소장처 동의가 필요하며, 문제가 있으면 내립니다.",
+  "text": "CC BY 4.0 (이 시리즈가 새로 만든 텍스트) · MIT (코드)"
+ },
+ "relations": {
+  "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
+  "previous": "changgye",
+  "next": "danseong",
+  "derived_from": [
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016709%5EL016709F02%5EL016709F0202&dataId=G002%2BAKS%2BKSM-XB.1461.0000-20101008.B036a_056_00015_XXX&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016709%5EL016709F02%5EL016709F0202&dataId=G002%2BAKS%2BKSM-XB.1770.0000-20101008.B036a_056_00005_XXX&itemType="
+  ]
+ },
+ "created": "2026-11-21",
+ "modified": "2026-11-21",
+ "events": [
+  {
+   "date": "2026-11-21",
+   "type": "creation",
+   "agent": "Song Chang-gi (chgsong@naver.com, github.com/changgi), Claude (Anthropic) — 판독 · 번역 · 해제 · 이야기 초안, 산출물 제작, aks-archive-harvester 1.9.0",
+   "detail": "기록 꾸러미 생성 — 문서 2건 · 파생물 24개"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "validation",
+   "agent": "studio.py record (aks-archive-harvester 1.9.0)",
+   "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 1 · 연도 빈 칸 0"
+  }
+ ]
+}

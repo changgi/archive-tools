@@ -12,6 +12,7 @@ aks-archive-harvester 스튜디오 — 수집한 고문서로 큐레이션 테�
   zoom    : 판독용 확대 조각(원본 해상도, 오른쪽부터) → edit/<테마>/zoom/
   promo   : 릴스 홍보 문구 틀(「고문서 한 장」 형식) → mediate/<테마>/promo.md
   report  : compare_metadata.csv → 소장처 비교 리포트(compare_report.html, 막대그래프)
+  record  : 기록 꾸러미 — 편마다 record.json(맥락 · 출처 · 파생물 · 검증 · 검토 · 이력) + checksums.sha256, --verify 로 고정값 대조
 
 예)
   python3 studio.py themes  --work W
@@ -1788,6 +1789,186 @@ def cmd_promo(a):
     print(txt); print('→', os.path.join(out, 'promo.md'))
 
 
+# ── 기록 꾸러미(record) ─ 편마다 맥락 · 출처 · 파생물 · 고정값 · 검증 · 검토 · 작업 이력을 한 파일로 ──
+REC_ROLE = [(r'^selection\.csv$', '판독번역표', 'data', 'text/csv'), (r'^README\.md$', '편 설명(판독 · 번역 · 해제 전문)', 'text', 'text/markdown'),
+            (r'^exhibit\.html$', '온라인 전시', 'exhibit', 'text/html'), (r'^handout\.html$', '수업 활동지', 'education', 'text/html'),
+            (r'^proof\.html$', '검토지(원본 대조용)', 'review', 'text/html'), (r'^index\.html$', '편 안내 페이지', 'web', 'text/html'),
+            (r'^cards/.*\.(png|jpe?g)$', '카드뉴스', 'card', 'image/jpeg'), (r'^behind/.*\.(png|jpe?g)$', '비하인드 카드', 'card', 'image/jpeg'),
+            (r'^images/.*\.(png|jpe?g)$', '선별 이미지(웹용)', 'image', 'image/jpeg'), (r'^curator\.md$', '큐레이터 노트', 'note', 'text/markdown'),
+            (r'^delivery\.md$', '전달 에디팅', 'note', 'text/markdown'), (r'^promo\.md$', '홍보 글', 'promotion', 'text/markdown'),
+            (r'^channels\.md$', '채널별 홍보안', 'promotion', 'text/markdown'), (r'^sns\.txt$', 'SNS 글', 'promotion', 'text/plain'),
+            (r'^corrections\.csv$', '판독 고침 이력', 'audit-trail', 'text/csv'), (r'^theme\.json$', '테마 정보', 'data', 'application/json'),
+            (r'_reel\.mp4$', '릴스 영상(9:16)', 'video', 'video/mp4'), (r'_wide\.mp4$', '가로 영상(16:9)', 'video', 'video/mp4'),
+            (r'\.srt$', '자막(SRT)', 'caption', 'application/x-subrip'), (r'\.vtt$', '자막(WebVTT)', 'caption', 'text/vtt'),
+            (r'-poster\.jpe?g$', '영상 포스터', 'image', 'image/jpeg')]
+REC_SKIP = ('record.json', 'checksums.sha256')
+
+
+def _sha256(p):
+    import hashlib
+    h = hashlib.sha256()
+    with open(p, 'rb') as f:
+        for b in iter(lambda: f.read(1 << 20), b''): h.update(b)
+    return h.hexdigest()
+
+
+def _rec_files(d, media=None):
+    """편 폴더의 파일 + (--media가 있으면) 그 편 이름이 붙은 영상 · 자막 · 포스터 → [(기록 속 경로, 실제 경로)]"""
+    out = []
+    for root, _, fs in os.walk(d):
+        for f in fs:
+            full = os.path.join(root, f); rel = os.path.relpath(full, d).replace(os.sep, '/')
+            if rel in REC_SKIP or '/__pycache__/' in '/' + rel or f.startswith('.'): continue
+            out.append((rel, full))
+    if media and os.path.isdir(media):
+        rx = re.compile(r'^ep\d+-' + re.escape(os.path.basename(os.path.normpath(d))) + r'[._]')
+        for f in sorted(os.listdir(media)):
+            if rx.match(f): out.append((os.path.relpath(os.path.join(media, f), d).replace(os.sep, '/'), os.path.join(media, f)))
+    return sorted(out)
+
+
+def _rec_role(rel):
+    b = rel.split('/')[-1]
+    for rx, lab, kind, mime in REC_ROLE:
+        if re.search(rx, rel) or re.search(rx, b): return lab, kind, mime
+    return '기타', 'other', 'application/octet-stream'
+
+
+def _plugin_version():
+    try: return jload(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '.claude-plugin', 'plugin.json')).get('version', '')
+    except Exception: return ''
+
+
+def build_record(d, media=None, meta=None, agent=None, creator=None, license_text=None, rights_images=None, today=None):
+    """편 폴더 하나의 기록 꾸러미 → (record dict, checksums 줄 목록). 이전 record.json이 있으면 작성일과 작업 이력을 이어받는다."""
+    import datetime
+    today = today or datetime.date.today().isoformat()
+    meta = meta or {}
+    sel = list(csv.DictReader(open(os.path.join(d, 'selection.csv'), encoding='utf-8-sig')))
+    old = jload(os.path.join(d, 'record.json')) if os.path.exists(os.path.join(d, 'record.json')) else {}
+    title = meta.get('title') or ''
+    if not title and os.path.exists(os.path.join(d, 'theme.json')): title = (jload(os.path.join(d, 'theme.json')) or {}).get('title', '')
+    if not title and os.path.exists(os.path.join(d, 'exhibit.html')):
+        m = re.search(r'<title>([^<]*)', open(os.path.join(d, 'exhibit.html'), encoding='utf-8').read()); title = html.unescape(m.group(1)).strip() if m else ''
+    files = _rec_files(d, media)
+    derivs, sums = [], []
+    for rel, full in files:
+        h = _sha256(full); lab, kind, mime = _rec_role(rel)
+        derivs.append(dict(path=rel, role=lab, kind=kind, format=mime, bytes=os.path.getsize(full), sha256=h)); sums.append(f'{h}  {rel}')
+    docs, val, tot = [], [], Counter()
+    for s in sel:
+        di, qi = date_issues(s), quote_issues(s)
+        noted = '어긋' in ''.join(s.get(k) or '' for k in ('원문', '번역', '해제'))
+        unk = (s.get('판독') or '').count('□') + (s.get('판독') or '').count('(?)')
+        rv = (s.get('검토') or '').strip()
+        tot.update(docs=1, unk=unk, date=0 if noted else len(di), noted=1 if (noted and di) else 0, quote=len(qi), reviewed=1 if rv else 0,
+                   quotes=len(find_quotes(s.get('이야기'))), noyear=0 if str(s.get('연도') or '').strip().isdigit() else 1)
+        docs.append({k: v for k, v in dict(order=s.get('순서'), identifier=s.get('자료ID'), title=s.get('문서명'), date=s.get('연도'),
+                                           date_basis=s.get('연도근거') or ('자료관 목록' if s.get('연도') else ''), type=s.get('문서유형'),
+                                           persons=s.get('인물'), page=s.get('대표장'), source_url=s.get('뷰어링크'),
+                                           review=rv or '미검토').items() if v})
+        for f_, why in di: val.append(dict(doc=s.get('순서'), field=f_, issue=why, acknowledged=noted))
+        for q, why in qi: val.append(dict(doc=s.get('순서'), quote=q, issue=why))
+    ver = _plugin_version()
+    rec = {'schema': 'aks-record/1.0',
+           'identifier': meta.get('identifier') or os.path.basename(os.path.normpath(d)),
+           'title': title, 'episode': meta.get('episode'), 'language': 'ko',
+           'context': {k: v for k, v in dict(series=meta.get('series'), collection=meta.get('collection'), holder=meta.get('holder'),
+                                             source_archive=meta.get('source_archive', '한국학중앙연구원 한국고문서자료관 (archive.aks.ac.kr)'),
+                                             purpose=meta.get('purpose'), process=['수집', '선별', '판독 · 번역 · 해제', '문구 에디팅', '전달 에디팅', '산출물', '검증', '사람 검토']).items() if v},
+           'agents': [x for x in [dict(name=creator, role='기획 · 책임 편집', type='person') if creator else None,
+                                  dict(name=agent, role='판독 · 번역 · 해제 초안, 편집 보조', type='software') if agent else None,
+                                  dict(name=f'aks-archive-harvester {ver}'.strip(), role='수집 · 산출물 생성 · 검증 도구', type='software')] if x],
+           'sources': docs,
+           'derivatives': derivs,
+           'validation': {'tool': f'studio.py record (aks-archive-harvester {ver})'.strip(), 'documents': tot['docs'], 'quotes': tot['quotes'],
+                          'uncertain_marks': tot['unk'], 'date_issues': tot['date'], 'date_issues_acknowledged': tot['noted'], 'quote_issues': tot['quote'],
+                          'undated': tot['noyear'], 'details': val},
+           'review': {'reviewed': tot['reviewed'], 'total': tot['docs'],
+                      'status': '검토 완료' if tot['docs'] and tot['reviewed'] == tot['docs'] else ('일부 검토' if tot['reviewed'] else '미검토 (판독 · 번역은 초안)'),
+                      'rule': '원본과 대조한 사람만 검토 칸을 채운다 — 도구와 AI는 검토를 표시하지 않는다'},
+           'rights': {k: v for k, v in dict(images=rights_images, text=license_text).items() if v},
+           'relations': {k: v for k, v in dict(is_part_of=meta.get('series'), previous=meta.get('previous'), next=meta.get('next'),
+                                               derived_from=sorted({x['source_url'] for x in docs if x.get('source_url')})).items() if v}}
+    rec = {k: v for k, v in rec.items() if v not in (None, '', {}, [])}
+    # 작업 이력(PREMIS 사건처럼): 무엇이 바뀌었을 때만 한 줄씩 쌓는다 — 다시 돌려도 같은 내용이면 이력이 늘지 않는다
+    ev = list(old.get('events') or [])
+    oh = {x['path']: x['sha256'] for x in old.get('derivatives', [])}
+    nh = {x['path']: x['sha256'] for x in derivs}
+    if not old:
+        ev.append(dict(date=today, type='creation', agent=', '.join(a_['name'] for a_ in rec['agents']), detail=f'기록 꾸러미 생성 — 문서 {tot["docs"]}건 · 파생물 {len(derivs)}개'))
+    else:
+        add = sorted(set(nh) - set(oh)); gone = sorted(set(oh) - set(nh)); chg = sorted(k for k in nh if k in oh and nh[k] != oh[k])
+        if add or gone or chg:
+            ev.append(dict(date=today, type='modification', agent=rec['agents'][-1]['name'],
+                           detail=f'파생물 바뀜 {len(chg)} · 새로 {len(add)} · 빠짐 {len(gone)}', changed=(chg + add + gone)[:40]))
+        orv = (old.get('review') or {}).get('reviewed', 0)
+        if tot['reviewed'] != orv:
+            ev.append(dict(date=today, type='review', agent=', '.join(sorted({x['review'] for x in docs if x.get('review') != '미검토'})) or '—',
+                           detail=f'검토 {orv} → {tot["reviewed"]}/{tot["docs"]}'))
+    ov = old.get('validation') or {}
+    if not old or any(ov.get(k) != rec['validation'][k] for k in ('date_issues', 'quote_issues', 'uncertain_marks', 'undated')):
+        ev.append(dict(date=today, type='validation', agent=rec['validation']['tool'],
+                       detail=f'날짜 어긋남 {tot["date"]} · 인용 불일치 {tot["quote"]} · □·(?) {tot["unk"]} · 연도 빈 칸 {tot["noyear"]}'))
+    rec['created'] = old.get('created') or today
+    rec['modified'] = today if (not old or ev != list(old.get('events') or [])) else old.get('modified', today)
+    rec['events'] = ev
+    return rec, sums
+
+
+def record_dc(rec):
+    """기록 꾸러미 → Dublin Core 한 줄(다른 기록관리 · 목록 시스템으로 옮길 때)"""
+    ctx = rec.get('context', {})
+    return {'dc:identifier': rec['identifier'], 'dc:title': rec.get('title', ''), 'dc:creator': '; '.join(a['name'] for a in rec.get('agents', [])),
+            'dc:subject': '; '.join(sorted({x.get('type', '') for x in rec.get('sources', []) if x.get('type')})),
+            'dc:description': ctx.get('purpose', ''), 'dc:source': '; '.join(x.get('identifier', '') for x in rec.get('sources', [])),
+            'dc:coverage': '; '.join(x.get('date', '') for x in rec.get('sources', []) if x.get('date')),
+            'dc:relation': ctx.get('collection', ''), 'dc:rights': ' / '.join(rec.get('rights', {}).values()),
+            'dc:date': rec.get('modified', ''), 'dc:language': rec.get('language', 'ko'), 'dc:type': 'Collection; Text; Image; MovingImage',
+            'dc:format': '; '.join(sorted({x['format'] for x in rec.get('derivatives', [])})), 'review': rec.get('review', {}).get('status', '')}
+
+
+def cmd_record(a):
+    """편 폴더마다 record.json(맥락 · 출처 · 파생물 · 검증 · 검토 · 이력) + checksums.sha256 — --verify 는 고정값 대조만"""
+    import datetime
+    dirs = sorted({os.path.dirname(f) for root in a.in_ for f in ([root] if root.endswith('.csv') else glob.glob(os.path.join(root, '**', 'selection.csv'), recursive=True))
+                   if not any(x in f.replace(os.sep, '/') for x in (a.exclude or []))})  # 결과물 폴더(mediate · eps · 예시 편)가 기록 대상
+    if not dirs: sys.exit('selection.csv가 있는 폴더를 찾지 못했습니다(--in 확인).')
+    if a.verify:
+        bad = 0; n = 0
+        for d in dirs:
+            cp = os.path.join(d, 'checksums.sha256')
+            if not os.path.exists(cp): print(f'  ✗ {d}: checksums.sha256 없음 — studio.py record 로 만드세요'); bad += 1; continue
+            want = dict(reversed(l.rstrip('\n').split('  ', 1)) for l in open(cp, encoding='utf-8') if l.strip())
+            have = dict((rel, full) for rel, full in _rec_files(d, a.media))
+            miss = sorted(set(want) - set(have)); extra = sorted(set(have) - set(want))
+            diff = sorted(r for r in want if r in have and _sha256(have[r]) != want[r]); n += len(want)
+            if miss or extra or diff:
+                bad += 1; print(f'  ✗ {os.path.relpath(d, a.in_[0]) if os.path.isdir(a.in_[0]) else d}: 바뀜 {len(diff)} · 없어짐 {len(miss)} · 기록 안 된 파일 {len(extra)}  ' + ', '.join((diff + miss + extra)[:5]))
+        print(f'■ 고정값 대조: 편 {len(dirs)}개 · 파일 {n}개 · 어긋난 편 {bad}개')
+        if bad: print('→ 바뀐 결과물이 기록되지 않았습니다. 확인 뒤 studio.py record 로 다시 기록하세요.'); sys.exit(1)
+        return
+    metas = jload(a.meta) if a.meta else {}
+    today = a.date or datetime.date.today().isoformat()
+    recs = []
+    for d in dirs:
+        key = os.path.basename(os.path.normpath(d))
+        rec, sums = build_record(d, a.media, metas.get(key, {}), a.agent, a.creator, a.license, a.rights_images, today)
+        with open(os.path.join(d, 'record.json'), 'w', encoding='utf-8') as fh: json.dump(rec, fh, ensure_ascii=False, indent=1); fh.write('\n')
+        with open(os.path.join(d, 'checksums.sha256'), 'w', encoding='utf-8', newline='\n') as fh: fh.write('\n'.join(sums) + '\n')
+        recs.append(rec)
+    if a.index:
+        with open(a.index + '.jsonl', 'w', encoding='utf-8') as fh:
+            for r in recs: fh.write(json.dumps({k: v for k, v in r.items() if k != 'derivatives'}, ensure_ascii=False) + '\n')
+        rows = [record_dc(r) for r in recs]
+        with open(a.index + '-dc.csv', 'w', newline='', encoding='utf-8-sig') as fh:
+            w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+    t = Counter()
+    for r in recs: t.update(docs=r['review']['total'], rev=r['review']['reviewed'], files=len(r.get('derivatives', [])), bad=r['validation']['date_issues'] + r['validation']['quote_issues'])
+    print(f'■ 기록 꾸러미: 편 {len(recs)}개 · 문서 {t["docs"]}건 · 파생물 {t["files"]}개 · 날짜 · 인용 어긋남 {t["bad"]} · 검토 {t["rev"]}/{t["docs"]}'
+          + (f'\n  목록 → {a.index}.jsonl · {a.index}-dc.csv' if a.index else ''))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest='cmd', required=True)
@@ -1829,6 +2010,13 @@ def main():
     yr = sp.add_parser('years', help='연도 칸 점검: 빈 칸에 근거(문서 속 날짜 · 해제 · 자료ID)와 함께 제안, --apply로 채움'); yr.add_argument('--work', required=True); yr.add_argument('--theme', required=True); yr.add_argument('--apply', action='store_true')
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
     ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')
+    rc = sp.add_parser('record', help='기록 꾸러미: 편마다 record.json(맥락 · 출처 · 파생물 · 검증 · 검토 · 작업 이력) + checksums.sha256(SHA-256 고정값), --verify 로 대조')
+    rc.add_argument('--in', dest='in_', nargs='+', required=True, help='selection.csv를 찾을 폴더(들)'); rc.add_argument('--exclude', nargs='+', help='경로에 이 말이 든 곳은 빼기')
+    rc.add_argument('--media', help='편 이름이 붙은 영상 · 자막 · 포스터가 든 폴더(예: examples/media)'); rc.add_argument('--meta', help='폴더 이름 → {title, episode, series, collection, holder, purpose, previous, next} JSON')
+    rc.add_argument('--agent', help='판독 · 번역 초안을 만든 AI 또는 도구 이름(예: "Claude (Anthropic)")'); rc.add_argument('--creator', help='책임 편집자 이름')
+    rc.add_argument('--license', help='텍스트 이용 조건(직접 정한 것만, 예: CC BY 4.0)'); rc.add_argument('--rights-images', help='이미지 이용 조건 문구')
+    rc.add_argument('--index', help='모든 편 목록을 PATH.jsonl · PATH-dc.csv(Dublin Core)로'); rc.add_argument('--date', help='기록 날짜(기본: 오늘)')
+    rc.add_argument('--verify', action='store_true', help='만들지 않고 checksums.sha256과 실제 파일만 대조(바뀐 것이 있으면 종료 코드 1, CI용)')
     og = sp.add_parser('originals', help='원본 묶음: 선별 문서의 원본 해상도 사진(--full 이면 문서 전체 면) + 원본 영상 → 분할 ZIP')
     og.add_argument('--work', required=True); og.add_argument('--theme', required=True)
     og.add_argument('--full', action='store_true', help='선별 문서의 모든 면을 받아서 묶기 (이미 받은 면은 건너뜀)')
@@ -1839,7 +2027,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'years': cmd_years, 'audit': cmd_audit, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'years': cmd_years, 'audit': cmd_audit, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review, 'record': cmd_record}[a.cmd](a)
 
 
 if __name__ == '__main__':

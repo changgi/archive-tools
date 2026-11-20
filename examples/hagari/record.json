@@ -1,0 +1,427 @@
+{
+ "schema": "aks-record/1.0",
+ "identifier": "gomunseo-hanjang/hagari",
+ "title": "윤음에서 금융조합까지",
+ "episode": "EP.11",
+ "language": "ko",
+ "context": {
+  "series": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
+  "collection": "제주 애월 하가리",
+  "holder": "제주 애월 하가리",
+  "source_archive": "한국학중앙연구원 한국고문서자료관 (archive.aks.ac.kr)",
+  "purpose": "한 마을의 문서함에 조선에서 근대로 넘어가는 길이 담겨 있다는 것.",
+  "process": [
+   "수집",
+   "선별",
+   "판독 · 번역 · 해제",
+   "문구 에디팅",
+   "전달 에디팅",
+   "산출물",
+   "검증",
+   "사람 검토"
+  ]
+ },
+ "agents": [
+  {
+   "name": "Song Chang-gi (chgsong@naver.com, github.com/changgi)",
+   "role": "기획 · 책임 편집",
+   "type": "person"
+  },
+  {
+   "name": "Claude (Anthropic) — 판독 · 번역 · 해제 · 이야기 초안, 산출물 제작",
+   "role": "판독 · 번역 · 해제 초안, 편집 보조",
+   "type": "software"
+  },
+  {
+   "name": "aks-archive-harvester 1.9.0",
+   "role": "수집 · 산출물 생성 · 검증 도구",
+   "type": "software"
+  }
+ ],
+ "sources": [
+  {
+   "order": "1",
+   "identifier": "G002+AKS+KSM-XA.1781.5011-20201218.D108_00082",
+   "title": "1781년 정조(正祖) 윤음(綸音)",
+   "date": "1781",
+   "date_basis": "자료관 목록",
+   "type": "윤음",
+   "persons": "정조",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0201&dataId=G002%2BAKS%2BKSM-XA.1781.5011-20201218.D108_00082&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "2",
+   "identifier": "G002+AKS+KSM-XC.1839.5011-20201218.D108_00087",
+   "title": "1839년 월소엄금절목(越訴嚴禁節目)",
+   "date": "1839",
+   "date_basis": "자료관 목록",
+   "type": "월소엄금절목",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0203&dataId=G002%2BAKS%2BKSM-XC.1839.5011-20201218.D108_00087&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "3",
+   "identifier": "G002+AKS+KSM-XG.1889.5011-20201218.D108_00111",
+   "title": "1889년 전장주(傳掌主) 임백상(林栢祥) 전여기(傳與記)",
+   "date": "1889",
+   "date_basis": "자료관 목록",
+   "type": "전여기",
+   "persons": "전장주",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0207&dataId=G002%2BAKS%2BKSM-XG.1889.5011-20201218.D108_00111&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "4",
+   "identifier": "G002+AKS+KSM-XC.1895.5011-20201218.D108_00098",
+   "title": "1895년 하가리 경민소(下加里 警民所) 회통(回通)－1",
+   "date": "1895",
+   "date_basis": "자료관 목록",
+   "type": "회통",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0203&dataId=G002%2BAKS%2BKSM-XC.1895.5011-20201218.D108_00098&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "5",
+   "identifier": "G002+AKS+KSM-XC.1897.5011-20201218.D108_00109",
+   "title": "1897년 상하가양리수의성절목(上下加兩里收議成節目)",
+   "date": "1897",
+   "date_basis": "자료관 목록",
+   "type": "상하가양리수의성절목",
+   "page": "002.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0203&dataId=G002%2BAKS%2BKSM-XC.1897.5011-20201218.D108_00109&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "6",
+   "identifier": "G002+AKS+KSM-XG.1906.5011-20201218.D108_00114",
+   "title": "1906년 제주군사립의신학교비기본금액급연리총책(濟州郡私立義信學校費基本金額及年利摠冊)",
+   "date": "1906",
+   "date_basis": "자료관 목록",
+   "type": "학교 기금 장부",
+   "page": "004.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0207&dataId=G002%2BAKS%2BKSM-XG.1906.5011-20201218.D108_00114&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "7",
+   "identifier": "G002+AKS+KSM-XD.1907.5011-20201218.D108_00110",
+   "title": "1907년 제주지방금융조합정관(濟州地方金融組合定款)",
+   "date": "1907",
+   "date_basis": "자료관 목록",
+   "type": "제주지방금융조합정관",
+   "page": "004.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0204&dataId=G002%2BAKS%2BKSM-XD.1907.5011-20201218.D108_00110&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "8",
+   "identifier": "G002+AKS+KSM-XG.1912.5011-20201218.D108_00116",
+   "title": "1912년 신우면 하가리(新右面 下加里) 환곡분급성책(還穀分給成冊)",
+   "date": "1912",
+   "date_basis": "자료관 목록",
+   "type": "환곡분급성책",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0207&dataId=G002%2BAKS%2BKSM-XG.1912.5011-20201218.D108_00116&itemType=",
+   "review": "미검토"
+  }
+ ],
+ "derivatives": [
+  {
+   "path": "../media/ep11-hagari.ko.srt",
+   "role": "자막(SRT)",
+   "kind": "caption",
+   "format": "application/x-subrip",
+   "bytes": 1073,
+   "sha256": "2dd40e0e54a4849e32453b0429a9671b9efc7063da6826debf9a740c1e142978"
+  },
+  {
+   "path": "../media/ep11-hagari.ko.vtt",
+   "role": "자막(WebVTT)",
+   "kind": "caption",
+   "format": "text/vtt",
+   "bytes": 1081,
+   "sha256": "e2a0ebc0b45ba801b94fec11bca2807d761dc47f8a5d6c1a6fa698d2400f49f0"
+  },
+  {
+   "path": "../media/ep11-hagari_reel-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 65127,
+   "sha256": "93c2e78010e7de15bcd200293c982ed59cb63921134934854918877d71fdddbf"
+  },
+  {
+   "path": "../media/ep11-hagari_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1163859,
+   "sha256": "c75c37ad21ed5c19c7d6c2a797a5d8cd7ca01e388ba01fa78f9e9f330e74fbbb"
+  },
+  {
+   "path": "../media/ep11-hagari_wide-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 60155,
+   "sha256": "34e252dd85c32da0f538855048ff9d02d5b50b3215d76d2207083645b6438600"
+  },
+  {
+   "path": "../media/ep11-hagari_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1169066,
+   "sha256": "51bcec59fc6b10f1fcab6e39bc8fb7241de9e0c9d058d33b783350cfa1549d25"
+  },
+  {
+   "path": "README.md",
+   "role": "편 설명(판독 · 번역 · 해제 전문)",
+   "kind": "text",
+   "format": "text/markdown",
+   "bytes": 8131,
+   "sha256": "b05fbe3e853d717e1ba4757bb2401ad7531d5fdfb2ab4f8a76ea32665c4c6d81"
+  },
+  {
+   "path": "behind/b1_전하고싶은것.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 110661,
+   "sha256": "fd985eb327884ea96c6f0ebcf660ccb97b43e8f09f8a4d075b45b471841e482b"
+  },
+  {
+   "path": "behind/b2_만들며있었던일.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 88550,
+   "sha256": "f3be76e451868471b9f07a14c4618dbd6dd6e1e1e63a63d9db6adcc54cfcc991"
+  },
+  {
+   "path": "behind/b3_남겨둔질문.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 88708,
+   "sha256": "5bf33b1ddaf86c99edc3f3c93dfcb682d3281316d7edd5272a2430c6b2a86eba"
+  },
+  {
+   "path": "cards/00_표지.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 122342,
+   "sha256": "712a7c5eecfe6059b6f83392a06d637d8ff6087c128ed25ce15572dcbadfeea4"
+  },
+  {
+   "path": "cards/01.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 108524,
+   "sha256": "6d50c0cd274504fda50098fc43be43a70e2e6fa4a9eab41cc08db3ebe953ea97"
+  },
+  {
+   "path": "cards/02.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 108351,
+   "sha256": "00e28392979252c6449f84b8fd370d50ac248aca37e3f6d1cf59ae96ebd5fb99"
+  },
+  {
+   "path": "cards/03.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 98480,
+   "sha256": "ef6576428c89500f4b867ff165f1dcd86d3f6af2b72acc9be66c0033aa51b7fc"
+  },
+  {
+   "path": "cards/04.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 89764,
+   "sha256": "bd82de2723c0732574575eff87c9528b915608425da81ea9ef18e69ddd0ad75e"
+  },
+  {
+   "path": "cards/05.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 119043,
+   "sha256": "857eaa051642477ef05ceeded193f27b0cefe74c904c7a13d5d07fe8417fb4ad"
+  },
+  {
+   "path": "cards/06.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 132891,
+   "sha256": "b6b94292f6832a7efef53da4be38d265c2027a4e0c37f7af7409b587dacb3ac1"
+  },
+  {
+   "path": "cards/07.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 138055,
+   "sha256": "4c9673aa9f31c4206e22dea9db2b7ba9ba2ba45e13e0b7d6267bccd88ea555c3"
+  },
+  {
+   "path": "cards/08.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 99032,
+   "sha256": "75876cf9539554a5a48fc633840a9048b79dcc12d03894d09f86e5172c395f19"
+  },
+  {
+   "path": "cards/99_마무리.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 47687,
+   "sha256": "612471693047c302d91d18c9a8b5575b9a403999ffa9c45a1f283e7acb20ee69"
+  },
+  {
+   "path": "channels.md",
+   "role": "채널별 홍보안",
+   "kind": "promotion",
+   "format": "text/markdown",
+   "bytes": 6519,
+   "sha256": "7edcb8478228efc77001594ef120670ca6943a2fb143f0b54ef2a48c7f5633a4"
+  },
+  {
+   "path": "curator.md",
+   "role": "큐레이터 노트",
+   "kind": "note",
+   "format": "text/markdown",
+   "bytes": 902,
+   "sha256": "d642868b0014475fa6ad6d7792e057f1346e084afa50c144a08eee769a20af7d"
+  },
+  {
+   "path": "delivery.md",
+   "role": "전달 에디팅",
+   "kind": "note",
+   "format": "text/markdown",
+   "bytes": 2219,
+   "sha256": "0f6ed58946cc05076e55f045ddb443700eb357d3f133a83512f149f2cdd73edc"
+  },
+  {
+   "path": "exhibit.html",
+   "role": "온라인 전시",
+   "kind": "exhibit",
+   "format": "text/html",
+   "bytes": 1127644,
+   "sha256": "36767accc680e4c84d708b1845ca99ac6a32d456fd280923dfb3e0d6357c7856"
+  },
+  {
+   "path": "handout.html",
+   "role": "수업 활동지",
+   "kind": "education",
+   "format": "text/html",
+   "bytes": 538563,
+   "sha256": "a7a8dc077d9b4f093e06a8dd35db242f754f35f55a80a59f00e94ba77b54d579"
+  },
+  {
+   "path": "promo.md",
+   "role": "홍보 글",
+   "kind": "promotion",
+   "format": "text/markdown",
+   "bytes": 3686,
+   "sha256": "fa2c1185012fb40d2086c8340f9833bef247776621087da95e58236cde079793"
+  },
+  {
+   "path": "proof.html",
+   "role": "검토지(원본 대조용)",
+   "kind": "review",
+   "format": "text/html",
+   "bytes": 273814,
+   "sha256": "3c5990cae0e010579e564593d4a0832051b50cbd7edc4ca4f77bafa5d013584e"
+  },
+  {
+   "path": "selection.csv",
+   "role": "판독번역표",
+   "kind": "data",
+   "format": "text/csv",
+   "bytes": 13700,
+   "sha256": "837708d2209b5b8f2f5c22e2f7e295d7eac8393307c682826dc4318afb3443dd"
+  },
+  {
+   "path": "sns.txt",
+   "role": "SNS 글",
+   "kind": "promotion",
+   "format": "text/plain",
+   "bytes": 1452,
+   "sha256": "3066d7eff83cb0aa3fc870f85553b7775da66b27a827c1d775cd84b95339ef72"
+  },
+  {
+   "path": "theme.json",
+   "role": "테마 정보",
+   "kind": "data",
+   "format": "application/json",
+   "bytes": 88,
+   "sha256": "b28e028e10331ea610e29d29c0d36d1e8aac6e0b2537da1156288aa8661f24b9"
+  }
+ ],
+ "validation": {
+  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "documents": 8,
+  "quotes": 1,
+  "uncertain_marks": 0,
+  "date_issues": 0,
+  "date_issues_acknowledged": 0,
+  "quote_issues": 0,
+  "undated": 0,
+  "details": []
+ },
+ "review": {
+  "reviewed": 0,
+  "total": 8,
+  "status": "미검토 (판독 · 번역은 초안)",
+  "rule": "원본과 대조한 사람만 검토 칸을 채운다 — 도구와 AI는 검토를 표시하지 않는다"
+ },
+ "rights": {
+  "images": "고문서 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). 다시 쓰려면 자료관을 통한 소장처 동의가 필요하며, 문제가 있으면 내립니다.",
+  "text": "CC BY 4.0 (이 시리즈가 새로 만든 텍스트) · MIT (코드)"
+ },
+ "relations": {
+  "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
+  "previous": "gujora",
+  "next": "yongmunsa",
+  "derived_from": [
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0201&dataId=G002%2BAKS%2BKSM-XA.1781.5011-20201218.D108_00082&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0203&dataId=G002%2BAKS%2BKSM-XC.1839.5011-20201218.D108_00087&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0203&dataId=G002%2BAKS%2BKSM-XC.1895.5011-20201218.D108_00098&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0203&dataId=G002%2BAKS%2BKSM-XC.1897.5011-20201218.D108_00109&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0204&dataId=G002%2BAKS%2BKSM-XD.1907.5011-20201218.D108_00110&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0207&dataId=G002%2BAKS%2BKSM-XG.1889.5011-20201218.D108_00111&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0207&dataId=G002%2BAKS%2BKSM-XG.1906.5011-20201218.D108_00114&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=07%5E0747%5EL074701%5EL074701F02%5EL074701F0207&dataId=G002%2BAKS%2BKSM-XG.1912.5011-20201218.D108_00116&itemType="
+  ]
+ },
+ "created": "2026-11-21",
+ "modified": "2026-11-21",
+ "events": [
+  {
+   "date": "2026-11-21",
+   "type": "creation",
+   "agent": "Song Chang-gi (chgsong@naver.com, github.com/changgi), Claude (Anthropic) — 판독 · 번역 · 해제 · 이야기 초안, 산출물 제작, aks-archive-harvester 1.9.0",
+   "detail": "기록 꾸러미 생성 — 문서 8건 · 파생물 30개"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "validation",
+   "agent": "studio.py record (aks-archive-harvester 1.9.0)",
+   "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  }
+ ]
+}

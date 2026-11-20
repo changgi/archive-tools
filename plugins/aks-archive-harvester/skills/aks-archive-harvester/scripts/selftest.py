@@ -234,6 +234,13 @@ def main():
     except Exception as e: res.append(('날짜 맞춤 · 연도 제안 · 인용 대조', False, '', str(e)))
     try: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', *a11y_check(root)))
     except Exception as e: res.append(('웹페이지 접근성(본문 바로가기 · main 하나 · 제목 순서)', False, '', str(e)))
+    run('studio.py record (기록 꾸러미)', [S('studio.py'), 'record', '--in', 'site/eps', '--media', 'site/media', '--agent', '시험 도구', '--index', 'site/records'],
+        ['site/eps/01-t/record.json', 'site/eps/01-t/checksums.sha256', 'site/records.jsonl', 'site/records-dc.csv'])
+    run('studio.py record --verify (고정값 대조)', [S('studio.py'), 'record', '--verify', '--in', 'site/eps', '--media', 'site/media'])
+    try:
+        with open(os.path.join(root, 'site', 'eps', '01-t', 'sns.txt'), 'a', encoding='utf-8') as fh: fh.write('바뀜')
+    except Exception: pass
+    run('studio.py record --verify (바뀐 파일 → 1)', [S('studio.py'), 'record', '--verify', '--in', 'site/eps', '--media', 'site/media'], ok_codes=(1,))
     run('studio.py originals', [S('studio.py'), 'originals', '--work', W, '--theme', 't'])
     run('harvest.py report', [S('harvest.py'), 'report', '--work', W, '--out', 'report.csv'], ['report.csv'])
     run('harvest.py bundle', [S('harvest.py'), 'bundle', '--work', W, '--dest', 'pkg', '--prefix', 'test', '--no-images'])
