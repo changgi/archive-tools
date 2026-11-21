@@ -362,6 +362,7 @@
  "relations": {
   "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
   "previous": "jeju-kim-mun",
+  "next": "jangseogak",
   "derived_from": [
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0168%5EL016810%5EL016810F02%5EL016810F0201&dataId=G002%2BAKS%2BKSM-XA.1845.5011-20220125.B082a_114_00606_XXX&itemType=",
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0168%5EL016810%5EL016810F02%5EL016810F0201&dataId=G002%2BAKS%2BKSM-XA.1852.5011-20220125.B082a_114_00610_XXX&itemType=",

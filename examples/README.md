@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.131)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.138)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.131)
+## 원문으로 읽는 이야기 (EP.17–EP.138)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -151,6 +151,13 @@
 | [**EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계**](eodo-kang-sh/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 姜鳳瑞爲朝奉大夫行成均館學諭者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep129-eodo-kang-sh_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep129-eodo-kang-sh_wide.mp4) · [홍보 글](eodo-kang-sh/promo.md) |
 | [**EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계**](jeju-kim-mun/) | 제주 경주김씨 문중회 (문중) | 因本島上秋失稔 募粟補賑 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep130-jeju-kim-mun_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep130-jeju-kim-mun_wide.mp4) · [홍보 글](jeju-kim-mun/promo.md) |
 | [**EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지**](jocheon-kang-ms/) | 제주 조천 곡산강씨 강만식 후손가 (문중) | 馬兵康萬埴武科丙科第三百九十一人及第出身者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep131-jocheon-kang-ms_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep131-jocheon-kang-ms_wide.mp4) · [홍보 글](jocheon-kang-ms/promo.md) |
+| [**EP.132 "금을 연잉군으로 삼는다" — 왕이 되기 전의 영조가 받은 종이들**](jangseogak/) | 한국학중앙연구원 장서각 (박물관) | 昑爲延礽君者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep132-jangseogak_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep132-jangseogak_wide.mp4) · [홍보 글](jangseogak/promo.md) |
+| [**EP.133 어머니의 아버지, 아들의 어머니, 첫째 딸 — 영조가 다시 불러 준 이름들**](jangseogak-yeongjo/) | 한국학중앙연구원 장서각 (박물관) | 淑嬪考 贈職事 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep133-jangseogak-yeongjo_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep133-jangseogak-yeongjo_wide.mp4) · [홍보 글](jangseogak-yeongjo/promo.md) |
+| [**EP.134 "제 맏아들이 이미 다 자랐으나 아직 짝이 없어" — 기해년 봄, 열이틀 사이의 혼인 편지**](gyeongju-honseo/) | 경주 경주이씨 이찬우 (문중) | 乙亥十一月十日酉時 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep134-gyeongju-honseo_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep134-gyeongju-honseo_wide.mp4) · [홍보 글](gyeongju-honseo/promo.md) |
+| [**EP.135 "밥을 먹다가 수저를 놓았다" — 정조가 암행어사와 물난리 겪은 의주 백성에게 쓴 글**](jangseogak-jeongjo/) | 한국학중앙연구원 장서각 (박물관) | 糾檢守宰之贓否 廣訪閭里之疾苦 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep135-jangseogak-jeongjo_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep135-jangseogak-jeongjo_wide.mp4) · [홍보 글](jangseogak-jeongjo/promo.md) |
+| [**EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표**](gyeongju-hojeok/) | 경주 경주이씨 이찬우 (문중) | 幼學盧啓宅年四十七己亥本光山 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep136-gyeongju-hojeok_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep136-gyeongju-hojeok_wide.mp4) · [홍보 글](gyeongju-hojeok/promo.md) |
+| [**EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지**](jangseogak-gung/) | 한국학중앙연구원 장서각 (박물관) | 翁主爲永溫翁主者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep137-jangseogak-gung_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep137-jangseogak-gung_wide.mp4) · [홍보 글](jangseogak-gung/promo.md) |
+| [**EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩**](eodo-kang-sh-chacheop/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 不輕察任 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep138-eodo-kang-sh-chacheop_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep138-eodo-kang-sh-chacheop_wide.mp4) · [홍보 글](eodo-kang-sh-chacheop/promo.md) |
 | [**EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안**](jocheon-kang/) | 제주 조천 곡산강씨 강이진 후손가 (문중) | 兼中軍差定 凡諸軍務 依兵法擧行者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang_wide.mp4) · [홍보 글](jocheon-kang/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
@@ -179,7 +186,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 132개
+## 예시 (결과물 갤러리) — 139개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -315,6 +322,13 @@
 | [**EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계**](eodo-kang-sh/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 1777년 가을, 제주 사람 강봉서는 성균관 학유가 되고 두 달 뒤 학록이 된다. 1791년 은계 찰방일 때… | [전시](eodo-kang-sh/exhibit.html) · [활동지](eodo-kang-sh/handout.html) · [카드](eodo-kang-sh/cards/) · [selection.csv](eodo-kang-sh/selection.csv) |
 | [**EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계**](jeju-kim-mun/) | 제주 경주김씨 문중회 (문중) | 1709년 가을, 제주에 흉년이 든다. 이듬해 봄 제주 목사는 곡식을 모아 진휼하겠다고 임금에게 청해 허락을… | [전시](jeju-kim-mun/exhibit.html) · [활동지](jeju-kim-mun/handout.html) · [카드](jeju-kim-mun/cards/) · [selection.csv](jeju-kim-mun/selection.csv) |
 | [**EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지**](jocheon-kang-ms/) | 제주 조천 곡산강씨 강만식 후손가 (문중) | 1845년, 제주의 기병 강만식은 무과에 병과 제391인으로 급제한다. 7년 뒤 그는 명월진 수군만호가 된다… | [전시](jocheon-kang-ms/exhibit.html) · [활동지](jocheon-kang-ms/handout.html) · [카드](jocheon-kang-ms/cards/) · [selection.csv](jocheon-kang-ms/selection.csv) |
+| [**EP.132 "금을 연잉군으로 삼는다" — 왕이 되기 전의 영조가 받은 종이들**](jangseogak/) | 한국학중앙연구원 장서각 (박물관) | 1699년 겨울, 여섯 살 왕자 이금에게 교지가 내려온다. '금을 연잉군으로 삼는다.' 열아홉에는 오위도총부… | [전시](jangseogak/exhibit.html) · [활동지](jangseogak/handout.html) · [카드](jangseogak/cards/) · [selection.csv](jangseogak/selection.csv) |
+| [**EP.133 어머니의 아버지, 아들의 어머니, 첫째 딸 — 영조가 다시 불러 준 이름들**](jangseogak-yeongjo/) | 한국학중앙연구원 장서각 (박물관) | 왕이 된 영조는 이름을 높여 주는 교지를 여러 번 내린다. 1734년에는 무관의 낮은 자리에 머물렀던 외할아… | [전시](jangseogak-yeongjo/exhibit.html) · [활동지](jangseogak-yeongjo/handout.html) · [카드](jangseogak-yeongjo/cards/) · [selection.csv](jangseogak-yeongjo/selection.csv) |
+| [**EP.134 "제 맏아들이 이미 다 자랐으나 아직 짝이 없어" — 기해년 봄, 열이틀 사이의 혼인 편지**](gyeongju-honseo/) | 경주 경주이씨 이찬우 (문중) | 기해년 2월 28일, 오천 정씨 집안의 정진출이 이씨 집안에 종이 두 장을 보낸다. 한 장에는 아들이 태어난… | [전시](gyeongju-honseo/exhibit.html) · [활동지](gyeongju-honseo/handout.html) · [카드](gyeongju-honseo/cards/) · [selection.csv](gyeongju-honseo/selection.csv) |
+| [**EP.135 "밥을 먹다가 수저를 놓았다" — 정조가 암행어사와 물난리 겪은 의주 백성에게 쓴 글**](jangseogak-jeongjo/) | 한국학중앙연구원 장서각 (박물관) | 1794년, 흉년 든 경기 고을로 떠나는 암행어사에게 정조는 봉서를 건넨다. 백성이 애타게 바라는 것도, 관… | [전시](jangseogak-jeongjo/exhibit.html) · [활동지](jangseogak-jeongjo/handout.html) · [카드](jangseogak-jeongjo/cards/) · [selection.csv](jangseogak-jeongjo/selection.csv) |
+| [**EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표**](gyeongju-hojeok/) | 경주 경주이씨 이찬우 (문중) | 1765년 상주의 호적은 붓으로 한 줄씩 이어 쓴 종이였다. 135년 뒤 대한제국의 호적은 칸이 미리 인쇄된… | [전시](gyeongju-hojeok/exhibit.html) · [활동지](gyeongju-hojeok/handout.html) · [카드](gyeongju-hojeok/cards/) · [selection.csv](gyeongju-hojeok/selection.csv) |
+| [**EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지**](jangseogak-gung/) | 한국학중앙연구원 장서각 (박물관) | 궁궐 안에도 교지가 오갔다. 1827년, 순조의 어린 딸은 '영온옹주'라는 이름을 받는다. 1868년, 궁녀… | [전시](jangseogak-gung/exhibit.html) · [활동지](jangseogak-gung/handout.html) · [카드](jangseogak-gung/cards/) · [selection.csv](jangseogak-gung/selection.csv) |
+| [**EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩**](eodo-kang-sh-chacheop/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 1635년 겨울, 제주 목사는 강수황에게 차첩 한 장을 내린다. 16년 뒤 그는 섬 군대의 왼쪽 부대를 맡는… | [전시](eodo-kang-sh-chacheop/exhibit.html) · [활동지](eodo-kang-sh-chacheop/handout.html) · [카드](eodo-kang-sh-chacheop/cards/) · [selection.csv](eodo-kang-sh-chacheop/selection.csv) |
 | [**EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안**](jocheon-kang/) | 제주 조천 곡산강씨 강이진 후손가 (문중) | 1863년 대정현감 강이진은 중군을 겸하라는 전령을 받는다. 16년 뒤 중군 강재오는 유영장이 되고, 이듬해… | [전시](jocheon-kang/exhibit.html) · [활동지](jocheon-kang/handout.html) · [카드](jocheon-kang/cards/) · [selection.csv](jocheon-kang/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
@@ -340,7 +354,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 132개
+### 카드뉴스 미리보기 — 139개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -476,10 +490,17 @@
 | EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계 | ![](eodo-kang-sh/cards/00_표지.jpg) | ![](eodo-kang-sh/cards/01.jpg) | ![](eodo-kang-sh/cards/02.jpg) |
 | EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계 | ![](jeju-kim-mun/cards/00_표지.jpg) | ![](jeju-kim-mun/cards/01.jpg) | ![](jeju-kim-mun/cards/02.jpg) |
 | EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지 | ![](jocheon-kang-ms/cards/00_표지.jpg) | ![](jocheon-kang-ms/cards/01.jpg) | ![](jocheon-kang-ms/cards/02.jpg) |
+| EP.132 "금을 연잉군으로 삼는다" — 왕이 되기 전의 영조가 받은 종이들 | ![](jangseogak/cards/00_표지.jpg) | ![](jangseogak/cards/01.jpg) | ![](jangseogak/cards/02.jpg) |
+| EP.133 어머니의 아버지, 아들의 어머니, 첫째 딸 — 영조가 다시 불러 준 이름들 | ![](jangseogak-yeongjo/cards/00_표지.jpg) | ![](jangseogak-yeongjo/cards/01.jpg) | ![](jangseogak-yeongjo/cards/02.jpg) |
+| EP.134 "제 맏아들이 이미 다 자랐으나 아직 짝이 없어" — 기해년 봄, 열이틀 사이의 혼인 편지 | ![](gyeongju-honseo/cards/00_표지.jpg) | ![](gyeongju-honseo/cards/01.jpg) | ![](gyeongju-honseo/cards/02.jpg) |
+| EP.135 "밥을 먹다가 수저를 놓았다" — 정조가 암행어사와 물난리 겪은 의주 백성에게 쓴 글 | ![](jangseogak-jeongjo/cards/00_표지.jpg) | ![](jangseogak-jeongjo/cards/01.jpg) | ![](jangseogak-jeongjo/cards/02.jpg) |
+| EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표 | ![](gyeongju-hojeok/cards/00_표지.jpg) | ![](gyeongju-hojeok/cards/01.jpg) | ![](gyeongju-hojeok/cards/02.jpg) |
+| EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지 | ![](jangseogak-gung/cards/00_표지.jpg) | ![](jangseogak-gung/cards/01.jpg) | ![](jangseogak-gung/cards/02.jpg) |
+| EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩 | ![](eodo-kang-sh-chacheop/cards/00_표지.jpg) | ![](eodo-kang-sh-chacheop/cards/01.jpg) | ![](eodo-kang-sh-chacheop/cards/02.jpg) |
 | EP.84 사또의 성적표 — 여덟 글자로 매긴 수령 평가 '포폄제목' | ![](jocheon-kang/cards/00_표지.jpg) | ![](jocheon-kang/cards/01.jpg) | ![](jocheon-kang/cards/02.jpg) |
 | EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안 | ![](jocheon-kang/cards/00_표지.jpg) | ![](jocheon-kang/cards/01.jpg) | ![](jocheon-kang/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 132개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 139개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -617,6 +638,13 @@
 | EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계 | 1777년 강봉서(姜鳳瑞) 성균관 학유 고신(告身) | 1777년 강봉서(姜鳳瑞)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1777년 가을, 제주 사람 강봉서에게 첫 교지가 온다. "강봉서를 조봉대부 행 성균관 학유로 삼는다(姜鳳瑞爲朝奉大夫行成均館學諭者)." 섬에서 서울의 성균관으로. 그의 벼슬길이 시작된다. | 1777년 강봉서를 조봉대부 행 성균관 학유로 임명한 고신입니다. |
 | EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계 | 1710년 제주목 입안(立案) — 김명산 납속 통정첩 | 1710년 김명산(金明山)의 입안. | 1709년 가을, 제주에 흉년이 든다. 이듬해 봄 목사가 입안을 쓴다. "이 섬에 지난가을 흉년이 들어, 곡식을 모아 진휼을 돕는다(因本島上秋失稔 募粟補賑)." 김명산은 쌀 네 섬을 내놓는다. 굶주린 이웃의 몫이었다. | 1710년 제주의 흉년에 진휼 곡식 네 섬을 바친 김명산에게 통정대부 첩을 내주었다는 제주 목사의 입안입니다. |
 | EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지 | 1845년 강만식(康萬埴) 무과 홍패(武科紅牌) | 1845년 강만식(康萬埴)의 홍패 — 문과·무과 합격 증서. | 1845년 봄, 제주의 기병 강만식이 붉은 종이를 받는다. "마병 강만식은 무과 병과 제391인으로 급제하였다(馬兵康萬埴武科丙科第三百九十一人及第出身者)." 391번째. 그래도 이름은 올랐다. | 1845년 마병 강만식이 무과 병과 제391인으로 급제하고 받은 홍패입니다. |
+| EP.132 "금을 연잉군으로 삼는다" — 왕이 되기 전의 영조가 받은 종이들 | 1699년 연잉군(延礽君) 이금(李昑) 봉작 고신(告身) | 1699년 이금(李昑)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1699년 겨울. 여섯 살 왕자에게 교지 한 장이 온다. 성은 없고 이름 한 글자뿐이다. "금을 연잉군으로 삼는다(昑爲延礽君者)." 이 아이가 훗날 52년을 다스린 임금, 영조다. | 1699년 여섯 살 왕자 이금을 연잉군으로 봉한 교지로, 훗날의 영조입니다. |
+| EP.133 어머니의 아버지, 아들의 어머니, 첫째 딸 — 영조가 다시 불러 준 이름들 | 1734년 최효원(崔孝元) 증직교지(贈職敎旨) — 숙빈 최씨의 아버지 | 1734년 최효원(崔孝元)의 증직교지 — 국왕이 관직·작위 등을 내린 문서. | 1734년. 왕이 된 영조가 외할아버지의 이름을 다시 부른다. 살아서는 종6품 무관이던 사람이다. 옆에 작은 글씨. "숙빈의 아버지이므로 벼슬을 추증한다(淑嬪考 贈職事)." 낮은 자리의 이름이, 영의정이 되었다. | 1734년 영조가 외할아버지 최효원을 '숙빈의 아버지'라는 이유로 영의정에 추증한 교지입니다. |
+| EP.134 "제 맏아들이 이미 다 자랐으나 아직 짝이 없어" — 기해년 봄, 열이틀 사이의 혼인 편지 | 기해년 정진출(鄭鎭出) 사주단자(四柱單子) | 정진출(鄭鎭出)의 사주단자 — 신랑의 생년월일시를 적어 보낸 문서. | 기해년 2월 말, 종이 한 장이 이씨 집에 닿는다. 글자는 한 줄뿐이다. "을해년 11월 10일 유시(乙亥十一月十日酉時)." 스물다섯 해 전 저녁 무렵, 한 아이가 태어난 시각이다. | 기해년 2월 28일 오천 정씨 집안이 신랑의 사주 '을해년 11월 10일 유시'를 적어 신부 집에 보낸 사주단자입니다. |
+| EP.135 "밥을 먹다가 수저를 놓았다" — 정조가 암행어사와 물난리 겪은 의주 백성에게 쓴 글 | 1794년 정조(正祖) 경기암행어사봉서(京畿暗行御史封書) — 첫 장 | 1794년 정조(正祖)의 암행어사 봉서. | 1794년, 흉년 든 경기. 떠나는 암행어사에게 정조가 봉한 글을 건넨다. "수령의 탐오를 살피고 마을의 아픔을 널리 묻는 것이 어사의 직분이다(糾檢守宰之贓否 廣訪閭里之疾苦)." 그리고 이렇게 쓴다. "백성이 애타게 바라는 것은 오직 어사다(民之懸懸以望者 惟御史)." | 1794년 정조가 흉년 든 경기로 보내는 암행어사에게, 어사의 직분과 조정의 책임을 말하며 관청 · 장터 · 마을을 다니며 살피라고 한 봉서의 첫 장입니다. |
+| EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표 | 1765년 노계택(盧啓宅) 준호구(準戶口) | 1765년 노계택(盧啓宅)의 준호구 — 관에서 발급한 호적 증명서. | 1765년 정월, 상주. 관청이 호적을 베껴 준다. 칸은 없다. 붓으로 한 줄씩 이어 쓴다. "유학 노계택, 나이 47세, 본관 광산(幼學盧啓宅年四十七己亥本光山)." 아버지, 할아버지, 증조할아버지. 사람은 조상의 이름으로 먼저 설명되었다. | 1765년 상주목이 유학 노계택 부부와 그 사조를 붓으로 이어 써 확인해 준 준호구입니다(아래 떨어져 나감). |
+| EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지 | 1827년 영온옹주(永溫翁主) 봉작 교지 | 1827년 영온옹주(永溫翁主)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1827년 여름, 궁궐 안. 이름 없이 '옹주'로만 불리던 어린 딸에게 교지가 온다. "옹주를 영온옹주로 삼는다(翁主爲永溫翁主者)." 길이 따뜻하라는 이름. 그러나 그 아이는 오래 살지 못했다고 전한다. | 1827년 순조의 딸에게 '영온옹주'라는 이름을 내린 봉작 교지입니다. |
+| EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩 | 1635년 강수황(姜受璜) 차첩(差帖) | 1635년 강수황(姜受璜)의 차첩 — 하급 관직 임명장. | 1635년 겨울, 제주. 목사가 강수황에게 종이 한 장을 내린다. 섬의 군영에 그의 자리가 생겼다. 마지막 줄에는 당부가 적혔다. "가볍게 여기지 말고 맡아 살피라(不輕察任)." | 1635년 제주 목사가 강수황을 섬 군영의 한 자리에 차정한 차첩으로, 맡긴 자리 이름은 초서라 확실히 읽지 못했습니다. |
 | EP.84 사또의 성적표 — 여덟 글자로 매긴 수령 평가 '포폄제목' | 1863년 대정현감 강이진(康履鎭) 중군 차정 전령(傳令) | 1863년 강이진(康履鎭)의 전령 — 관청이 내린 명령서. | 1863년 여름, 제주 대정. 현감 강이진에게 군령 한 장이 온다. "중군을 겸하도록 정하니, 모든 군무를 병법에 따라 거행하라(兼中軍差定 凡諸軍務 依兵法擧行者)." 섬을 지키는 일이, 이 집안의 일이 된다. | 1863년 대정현감 강이진에게 중군을 겸하여 군무를 병법대로 거행하라고 내린 전령입니다. |
 | EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | 매도계약서(賣渡契約書) | 매도계약서. | 그리고 해방 뒤, 이 집은 땅을 판다. "매도 대금 80만 환(賣渡代金八拾萬圜整), 계약금 10만 환은 오늘 받고." 갑과 을, 계약금, 위약금. 1607년의 명문과 같은 일을 하는 문서지만, 이제 우리가 아는 계약서의 모습이다. 땅을 사 모으던 집이, 문서로 남긴 300년이다. | 선교장 집안이 강릉 운정리(?)의 논 약 2,500평을 80만 환에 팔면서, 계약금 10만 환과 잔금 70만 환의 지급 조건을 적은 현대식 매도 계약서입니다. |
 

@@ -12,12 +12,12 @@
 
 | 하려는 일 | 바로 가기 |
 |---|---|
-| 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 132편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
-| 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 464건 · 소장처 130곳 · 1403–1959년 · 판독 한자 23,343자 · 원문 인용 426곳 |
+| 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 139편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
+| 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 492건 · 소장처 132곳 · 1403–1959년 · 판독 한자 25,765자 · 원문 인용 456곳 |
 | 🌏 English | [English overview](https://changgi.github.io/archive-tools/examples/en.html) — what the series is and how to explore it |
 | 📦 데이터 | [전체 데이터 묶음 ZIP](https://changgi.github.io/archive-tools/examples/data.zip) — 판독 · 번역 · 해제 · 노트 · 분석 집계(이미지 없음) |
-| 🔎 찾기 | [전체 검색](https://changgi.github.io/archive-tools/examples/search.html) — 문서 464건의 판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자로 · [문서 유형 사전](https://changgi.github.io/archive-tools/examples/types.html) |
-| 🗂️ 모아 보기 | [종이에 적힌 문장 426곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [인물 찾아보기 197명](https://changgi.github.io/archive-tools/examples/people.html) — 광해군 · 이언적 · 박의장처럼 여러 편에 걸친 인물 · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
+| 🔎 찾기 | [전체 검색](https://changgi.github.io/archive-tools/examples/search.html) — 문서 492건의 판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자로 · [문서 유형 사전](https://changgi.github.io/archive-tools/examples/types.html) |
+| 🗂️ 모아 보기 | [종이에 적힌 문장 456곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [인물 찾아보기 208명](https://changgi.github.io/archive-tools/examples/people.html) — 광해군 · 이언적 · 박의장처럼 여러 편에 걸친 인물 · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
 | ✍️ 함께 고치기 | 갤러리 「원문 읽기」 · 전시 웹페이지의 「판독 고침 제보」 → GitHub 이슈 · [기여 안내](CONTRIBUTING.md) |
 | ✅ 원본과 대조하기 | [검토 현황](https://changgi.github.io/archive-tools/examples/review.html) 「검토 기록하기」에서 대조한 문서에 표시 → `reviews.csv` 내려받기 → 이슈로 보내거나 `studio.py review --from` |
 | 📜 원문 읽기 | 편마다 판독 · 번역 · 해제 · 요약 · "현대어(原文)" 이야기 (갤러리 각 편 「원문 읽기」) |
@@ -47,7 +47,7 @@
 
 📜 **원문으로 읽는 이야기 50편 더 (EP.51–EP.100):** 귀화 일본 장수 사여모 · 유희의 『물명고』 · 제주의 종이 신분증 지패 · 공명첩 · 사또의 성적표 포폄 · 밀부 제34부 · 험천의 김홍익 · 1919년 만일계 · 1592년 안동 의병 일지 · 이완용 서명의 관고 · 농암 이현보의 양로연 · 류성룡 증손녀의 호적 · 몰래 무덤 산송 · 1904년 향교 완문 · 하홍도의 여름 편지 외 — 문중 · 서원 · 향교 · 사찰 · 제주 문서까지 → [보기](https://changgi.github.io/archive-tools/examples/) · 첫 화면 「결과물 한눈에 보기」에서 영상 · 전시 · 활동지 · 카드뉴스 · CSV · 홍보 글로 바로 가기
 
-📜 **원문으로 읽는 이야기 31편 더 (EP.101–EP.131):** 섬마을 훈장의 통정대부 · 해남 김선지의 임진년 고신 · 묵재 이문건의 『양아록』 · 술과 음식의 한글 책 「쥬식방문」 · 단종의 조카가 받은 사패 · 1910년 8월 28일의 마지막 칙명 · 굶주린 해 서천 군수의 유서 · 제주 9편(급제 60년의 회방 홍패 · 말 열 필과 선산 · 아버지와 아들의 같은 시험 · 흉년의 납속 · "해유에 흠이 없다") 외 → [보기](https://changgi.github.io/archive-tools/examples/)
+📜 **원문으로 읽는 이야기 38편 더 (EP.101–EP.138):** 섬마을 훈장의 통정대부 · 해남 김선지의 임진년 고신 · 묵재 이문건의 『양아록』 · 술과 음식의 한글 책 「쥬식방문」 · 단종의 조카가 받은 사패 · 1910년 8월 28일의 마지막 칙명 · 굶주린 해 서천 군수의 유서 · 제주 9편(급제 60년의 회방 홍패 · 말 열 필과 선산 · 아버지와 아들의 같은 시험 · 흉년의 납속 · "해유에 흠이 없다") · 장서각의 왕실 문서(왕자 시절 영조의 교지 · 정조의 암행어사 봉서와 "밥을 먹다가 수저를 멈추었다" · 궁녀 엄씨의 교지) · 경주 이씨 집안의 혼서와 대한제국 호적표 외 → [보기](https://changgi.github.io/archive-tools/examples/)
 
 🗃️ **기록 꾸러미 · 제작 도구 공개:** 편마다 맥락 · 출처 · 파생물 · SHA-256 고정값 · 검증 · 검토 · 작업 이력을 담은 `record.json`과 전체 목록([records.jsonl](https://changgi.github.io/archive-tools/examples/records.jsonl) · [Dublin Core CSV](https://changgi.github.io/archive-tools/examples/records-dc.csv)), 푸시마다 고정값 대조(CI) — [설명](plugins/aks-archive-harvester/skills/aks-archive-harvester/references/records.md). 이 시리즈를 만든 스크립트와 원고는 [`tools/series/`](tools/series/README.md)에 그대로 공개해 누구나 다시 만들 수 있습니다.
 
