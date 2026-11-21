@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.150)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.153)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.150)
+## 원문으로 읽는 이야기 (EP.17–EP.153)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -170,6 +170,9 @@
 | [**EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장**](eodo-kang-ij-taekil/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 庚午七月十七日辰時生 | [릴스](https://changgi.github.io/archive-tools-next/media/ep148-eodo-kang-ij-taekil_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep148-eodo-kang-ij-taekil_wide.mp4) · [홍보 글](eodo-kang-ij-taekil/promo.md) |
 | [**EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장**](eodo-kang-ij-jangsa/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 乾化命庚午 | [릴스](https://changgi.github.io/archive-tools-next/media/ep149-eodo-kang-ij-jangsa_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep149-eodo-kang-ij-jangsa_wide.mp4) · [홍보 글](eodo-kang-ij-jangsa/promo.md) |
 | [**EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장**](eodo-kang-ij-manggi/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 姜渭文 爲 | [릴스](https://changgi.github.io/archive-tools-next/media/ep150-eodo-kang-ij-manggi_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep150-eodo-kang-ij-manggi_wide.mp4) · [홍보 글](eodo-kang-ij-manggi/promo.md) |
+| [**EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장**](eodo-kang-ij-seongjo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 破屋 四月六日 | [릴스](https://changgi.github.io/archive-tools-next/media/ep151-eodo-kang-ij-seongjo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep151-eodo-kang-ij-seongjo_wide.mp4) · [홍보 글](eodo-kang-ij-seongjo/promo.md) |
+| [**EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장**](eodo-kang-ij-jokbo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 四男二女 庶子四 | [릴스](https://changgi.github.io/archive-tools-next/media/ep152-eodo-kang-ij-jokbo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep152-eodo-kang-ij-jokbo_wide.mp4) · [홍보 글](eodo-kang-ij-jokbo/promo.md) |
+| [**EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장**](eodo-kang-ij-pyomun/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 若有雜談是去等 矣妻塚移之意 | [릴스](https://changgi.github.io/archive-tools-next/media/ep153-eodo-kang-ij-pyomun_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep153-eodo-kang-ij-pyomun_wide.mp4) · [홍보 글](eodo-kang-ij-pyomun/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -197,7 +200,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 151개
+## 예시 (결과물 갤러리) — 154개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -352,6 +355,9 @@
 | [**EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장**](eodo-kang-ij-taekil/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 혼인을 앞두면 먼저 신랑의 생년월일시를 적어 보내고, 그것으로 운을 풀고, 신부의 사주와 맞춰 날을 고른다.… | [전시](eodo-kang-ij-taekil/exhibit.html) · [활동지](eodo-kang-ij-taekil/handout.html) · [카드](eodo-kang-ij-taekil/cards/) · [selection.csv](eodo-kang-ij-taekil/selection.csv) |
 | [**EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장**](eodo-kang-ij-jangsa/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 종이마다 첫 줄이 같다. '乾化命 庚午', 세상을 떠난 남자는 경오생. 오른쪽 끝에는 '主 壬辰', 상을 치… | [전시](eodo-kang-ij-jangsa/exhibit.html) · [활동지](eodo-kang-ij-jangsa/handout.html) · [카드](eodo-kang-ij-jangsa/cards/) · [selection.csv](eodo-kang-ij-jangsa/selection.csv) |
 | [**EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장**](eodo-kang-ij-manggi/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 향교와 삼성사의 일을 맡을 사람을 뽑을 때, 유사들은 이름 셋을 적어 올린다. '望'. 위에서 그 가운데 한… | [전시](eodo-kang-ij-manggi/exhibit.html) · [활동지](eodo-kang-ij-manggi/handout.html) · [카드](eodo-kang-ij-manggi/cards/) · [selection.csv](eodo-kang-ij-manggi/selection.csv) |
+| [**EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장**](eodo-kang-ij-seongjo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 혼인도, 장례도 날을 골랐던 집안은 집을 지을 때도 날을 골랐다. 헌 집을 허무는 날, 터의 신에게 제사 지… | [전시](eodo-kang-ij-seongjo/exhibit.html) · [활동지](eodo-kang-ij-seongjo/handout.html) · [카드](eodo-kang-ij-seongjo/cards/) · [selection.csv](eodo-kang-ij-seongjo/selection.csv) |
+| [**EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장**](eodo-kang-ij-jokbo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | EP.128부터 열두 편 동안 만난 이름들 — 수황, 두형, 세건, 여흥, 위문, 인주, 익진. 호적과 분재… | [전시](eodo-kang-ij-jokbo/exhibit.html) · [활동지](eodo-kang-ij-jokbo/handout.html) · [카드](eodo-kang-ij-jokbo/cards/) · [selection.csv](eodo-kang-ij-jokbo/selection.csv) |
+| [**EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장**](eodo-kang-ij-pyomun/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1829년 여름, 한 남자가 강유훈에게 종이 한 장을 써 준다. 아내를 묻을 곳이 없어 강씨가 미리 표시해 … | [전시](eodo-kang-ij-pyomun/exhibit.html) · [활동지](eodo-kang-ij-pyomun/handout.html) · [카드](eodo-kang-ij-pyomun/cards/) · [selection.csv](eodo-kang-ij-pyomun/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -376,7 +382,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 151개
+### 카드뉴스 미리보기 — 154개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -531,8 +537,11 @@
 | EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장 | ![](eodo-kang-ij-taekil/cards/00_표지.jpg) | ![](eodo-kang-ij-taekil/cards/01.jpg) | ![](eodo-kang-ij-taekil/cards/02.jpg) |
 | EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장 | ![](eodo-kang-ij-jangsa/cards/00_표지.jpg) | ![](eodo-kang-ij-jangsa/cards/01.jpg) | ![](eodo-kang-ij-jangsa/cards/02.jpg) |
 | EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장 | ![](eodo-kang-ij-manggi/cards/00_표지.jpg) | ![](eodo-kang-ij-manggi/cards/01.jpg) | ![](eodo-kang-ij-manggi/cards/02.jpg) |
+| EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장 | ![](eodo-kang-ij-seongjo/cards/00_표지.jpg) | ![](eodo-kang-ij-seongjo/cards/01.jpg) | ![](eodo-kang-ij-seongjo/cards/02.jpg) |
+| EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장 | ![](eodo-kang-ij-jokbo/cards/00_표지.jpg) | ![](eodo-kang-ij-jokbo/cards/01.jpg) | ![](eodo-kang-ij-jokbo/cards/02.jpg) |
+| EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장 | ![](eodo-kang-ij-pyomun/cards/00_표지.jpg) | ![](eodo-kang-ij-pyomun/cards/01.jpg) | ![](eodo-kang-ij-pyomun/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 151개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 154개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -689,6 +698,9 @@
 | EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장 | 사성록(四星錄)－06 | 1800년 사성록. | 혼인 이야기는 숫자 몇 개로 시작한다. "경오년 7월 17일 진시생(庚午七月十七日辰時生)." 그 아래로 네 글자씩, 좋은 말이 빽빽하다. "몸을 세워 이름을 날리고, 높은 집안을 드나든다(立身揚名 出入高門)." 혼인을 앞둔 신랑의 운세다. | 경오년 7월 17일 진시에 태어난 신랑의 사주를 '입신양명' 같은 네 글자 구절로 풀이한 사성록입니다. |
 | EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장 | 장사택일기(葬事擇日記)－14 | 1903년 장사택일기. | 첫 줄은 늘 같다. "돌아가신 분, 경오생(乾化命庚午)." 그 옆에 작게 "상주, 임진생(主壬辰)." 스물두 살 아래, 아마도 아들. 아래로 날짜가 이어진다. 관을 내갈 시각, 땅을 열 시각. 그리고 마지막 줄. "기축생 · 을축생은 관을 내가고 내릴 때 반드시 피하라(冲 己丑 乙丑生 出柩 下棺 必避)." | 경오생 망자의 안장일(11월)과 출구 · 개토 시각을 고르고, 기축생 · 을축생은 하관 때 피하라고 적은 장사택일기입니다. |
 | EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장 | 망기(望記)－01 | 1757년 망기. | 1757년 여름, 종이 한가운데 '望' 한 글자. 그 아래 이름 셋이 나란히 선다. 강위문, 강후종, 김진욱. 그리고 첫 이름 아래에만 글자 하나가 붙는다. "강위문, 이 사람으로(姜渭文 爲)." 셋 가운데 하나가 그렇게 정해진다. | 1757년 유사가 겸제독 후보로 강위문 · 강후종 · 김진욱을 올리고, 강위문이 뽑힌 망기입니다. |
+| EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장 | 성조택일기(成造擇日記)－4 | 성조택일기. | 집 짓기는 허무는 날부터 고른다. 임진생 주인의 종이. 4월 5일 밤, 먼저 땅의 신에게 제사. 다음 날 아침, "헌 집을 허문다, 4월 6일(破屋 四月六日)." 그리고 여드레 뒤 새벽, 새 기둥이 선다. | 임진생 집주인이 4월 5일 터주 제사, 6일 헌 집 허물기, 14일 입주 · 상량의 날과 시각을 고른 성조택일기입니다. |
+| EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장 | 족보단자(族譜單子)－1 | 족보단자 — 사실이나 물목을 적어 올린 문서. | 열두 편 동안 이름 하나씩 만났다. 이 종이는 그 이름들의 지도다. 위에서부터 한 대씩 내려오다, 낯익은 이름이 나온다. 계남, 그리고 수황. 그 아래 두형, 강세건의 아버지. "아들 넷 딸 둘, 서자 넷(四男二女 庶子四)." 막내아들 세건은 그 넷 가운데 하나였다. | 진주강씨 족보단자 초고로, 전우부터 계남 · 수황 · 두형까지 여러 대를 적었으며 두형은 '4남 2녀, 서자 넷'으로 강세건의 아버지와 맞습니다. |
+| EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장 | 표문(標文)－1 | 1829년 표문. | 1829년 여름, 아내를 잃은 남자가 묻을 곳을 찾는다. 그 자리는 강유훈이 미리 표시해 둔 묏자리 바로 옆이었다. 거절당하고, 빌고, 허락을 받는다. 그리고 종이를 쓴다. "말썽이 생기면 제 아내의 무덤을 옮기겠습니다(若有雜談是去等 矣妻塚移之意)." | 1829년 아내를 묻을 자리를 강유훈의 묏자리 곁에 허락받은 사람이, 경계를 지키고 말썽이 나면 무덤을 옮기겠다고 써 준 표문입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
