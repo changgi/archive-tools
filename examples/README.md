@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.153)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.157)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.153)
+## 원문으로 읽는 이야기 (EP.17–EP.157)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -173,6 +173,10 @@
 | [**EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장**](eodo-kang-ij-seongjo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 破屋 四月六日 | [릴스](https://changgi.github.io/archive-tools-next/media/ep151-eodo-kang-ij-seongjo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep151-eodo-kang-ij-seongjo_wide.mp4) · [홍보 글](eodo-kang-ij-seongjo/promo.md) |
 | [**EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장**](eodo-kang-ij-jokbo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 四男二女 庶子四 | [릴스](https://changgi.github.io/archive-tools-next/media/ep152-eodo-kang-ij-jokbo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep152-eodo-kang-ij-jokbo_wide.mp4) · [홍보 글](eodo-kang-ij-jokbo/promo.md) |
 | [**EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장**](eodo-kang-ij-pyomun/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 若有雜談是去等 矣妻塚移之意 | [릴스](https://changgi.github.io/archive-tools-next/media/ep153-eodo-kang-ij-pyomun_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep153-eodo-kang-ij-pyomun_wide.mp4) · [홍보 글](eodo-kang-ij-pyomun/promo.md) |
+| [**EP.154 학생에서 선전관까지 — 최진립이 전쟁을 건너며 받은 임명장 네 장 (1583–1601)**](choi-ijo-gosin1/) | 경주 이조 경주최씨 (문중) | 學生崔震立爲承仕郞軍資監奉事者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep154-choi-ijo-gosin1_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep154-choi-ijo-gosin1_wide.mp4) · [홍보 글](choi-ijo-gosin1/promo.md) |
+| [**EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634)**](choi-ijo-gosin2/) | 경주 이조 경주최씨 (문중) | 崔震立爲慶源鎭兵馬僉節制使者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep155-choi-ijo-gosin2_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep155-choi-ijo-gosin2_wide.mp4) · [홍보 글](choi-ijo-gosin2/promo.md) |
+| [**EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장**](choi-ijo-chujeung/) | 경주 이조 경주최씨 (문중) | 贈通訓大夫司僕寺正者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep156-choi-ijo-chujeung_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep156-choi-ijo-chujeung_wide.mp4) · [홍보 글](choi-ijo-chujeung/promo.md) |
+| [**EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장**](choi-ijo-yongjin/) | 경주 이조 경주최씨 (문중) | 侍母金氏 年七十三 | [릴스](https://changgi.github.io/archive-tools-next/media/ep157-choi-ijo-yongjin_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep157-choi-ijo-yongjin_wide.mp4) · [홍보 글](choi-ijo-yongjin/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -200,7 +204,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 154개
+## 예시 (결과물 갤러리) — 158개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -358,6 +362,10 @@
 | [**EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장**](eodo-kang-ij-seongjo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 혼인도, 장례도 날을 골랐던 집안은 집을 지을 때도 날을 골랐다. 헌 집을 허무는 날, 터의 신에게 제사 지… | [전시](eodo-kang-ij-seongjo/exhibit.html) · [활동지](eodo-kang-ij-seongjo/handout.html) · [카드](eodo-kang-ij-seongjo/cards/) · [selection.csv](eodo-kang-ij-seongjo/selection.csv) |
 | [**EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장**](eodo-kang-ij-jokbo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | EP.128부터 열두 편 동안 만난 이름들 — 수황, 두형, 세건, 여흥, 위문, 인주, 익진. 호적과 분재… | [전시](eodo-kang-ij-jokbo/exhibit.html) · [활동지](eodo-kang-ij-jokbo/handout.html) · [카드](eodo-kang-ij-jokbo/cards/) · [selection.csv](eodo-kang-ij-jokbo/selection.csv) |
 | [**EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장**](eodo-kang-ij-pyomun/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1829년 여름, 한 남자가 강유훈에게 종이 한 장을 써 준다. 아내를 묻을 곳이 없어 강씨가 미리 표시해 … | [전시](eodo-kang-ij-pyomun/exhibit.html) · [활동지](eodo-kang-ij-pyomun/handout.html) · [카드](eodo-kang-ij-pyomun/cards/) · [selection.csv](eodo-kang-ij-pyomun/selection.csv) |
+| [**EP.154 학생에서 선전관까지 — 최진립이 전쟁을 건너며 받은 임명장 네 장 (1583–1601)**](choi-ijo-gosin1/) | 경주 이조 경주최씨 (문중) | 1583년, 열여섯 살 '학생' 최진립은 이조에서 군자감 봉사 자리를 받는다. 10년 뒤 임진왜란 한가운데,… | [전시](choi-ijo-gosin1/exhibit.html) · [활동지](choi-ijo-gosin1/handout.html) · [카드](choi-ijo-gosin1/cards/) · [selection.csv](choi-ijo-gosin1/selection.csv) |
+| [**EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634)**](choi-ijo-gosin2/) | 경주 이조 경주최씨 (문중) | 마흔일곱의 최진립은 조선의 북쪽 끝, 두만강가 경원으로 간다. 이듬해에는 통정대부 경원도호부사. 예순셋에는 … | [전시](choi-ijo-gosin2/exhibit.html) · [활동지](choi-ijo-gosin2/handout.html) · [카드](choi-ijo-gosin2/cards/) · [selection.csv](choi-ijo-gosin2/selection.csv) |
+| [**EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장**](choi-ijo-chujeung/) | 경주 이조 경주최씨 (문중) | 1756년 7월 17일, 경주최씨 집에 교지 네 장이 한꺼번에 도착한다. 받는 사람은 모두 이미 세상을 떠난… | [전시](choi-ijo-chujeung/exhibit.html) · [활동지](choi-ijo-chujeung/handout.html) · [카드](choi-ijo-chujeung/cards/) · [selection.csv](choi-ijo-chujeung/selection.csv) |
+| [**EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장**](choi-ijo-yongjin/) | 경주 이조 경주최씨 (문중) | 1858년 호적에서 최용진은 예순아홉 살 '유학'이다. 12년 뒤에는 여든하나. 1875년, 여든여섯의 그에… | [전시](choi-ijo-yongjin/exhibit.html) · [활동지](choi-ijo-yongjin/handout.html) · [카드](choi-ijo-yongjin/cards/) · [selection.csv](choi-ijo-yongjin/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -382,7 +390,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 154개
+### 카드뉴스 미리보기 — 158개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -540,8 +548,12 @@
 | EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장 | ![](eodo-kang-ij-seongjo/cards/00_표지.jpg) | ![](eodo-kang-ij-seongjo/cards/01.jpg) | ![](eodo-kang-ij-seongjo/cards/02.jpg) |
 | EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장 | ![](eodo-kang-ij-jokbo/cards/00_표지.jpg) | ![](eodo-kang-ij-jokbo/cards/01.jpg) | ![](eodo-kang-ij-jokbo/cards/02.jpg) |
 | EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장 | ![](eodo-kang-ij-pyomun/cards/00_표지.jpg) | ![](eodo-kang-ij-pyomun/cards/01.jpg) | ![](eodo-kang-ij-pyomun/cards/02.jpg) |
+| EP.154 학생에서 선전관까지 — 최진립이 전쟁을 건너며 받은 임명장 네 장 (1583–1601) | ![](choi-ijo-gosin1/cards/00_표지.jpg) | ![](choi-ijo-gosin1/cards/01.jpg) | ![](choi-ijo-gosin1/cards/02.jpg) |
+| EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634) | ![](choi-ijo-gosin2/cards/00_표지.jpg) | ![](choi-ijo-gosin2/cards/01.jpg) | ![](choi-ijo-gosin2/cards/02.jpg) |
+| EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장 | ![](choi-ijo-chujeung/cards/00_표지.jpg) | ![](choi-ijo-chujeung/cards/01.jpg) | ![](choi-ijo-chujeung/cards/02.jpg) |
+| EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장 | ![](choi-ijo-yongjin/cards/00_표지.jpg) | ![](choi-ijo-yongjin/cards/01.jpg) | ![](choi-ijo-yongjin/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 154개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 158개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -701,6 +713,10 @@
 | EP.151 헌 집을 허무는 날부터 오곡을 들고 들어가는 날까지 — 집 짓기 택일기 네 장 | 성조택일기(成造擇日記)－4 | 성조택일기. | 집 짓기는 허무는 날부터 고른다. 임진생 주인의 종이. 4월 5일 밤, 먼저 땅의 신에게 제사. 다음 날 아침, "헌 집을 허문다, 4월 6일(破屋 四月六日)." 그리고 여드레 뒤 새벽, 새 기둥이 선다. | 임진생 집주인이 4월 5일 터주 제사, 6일 헌 집 허물기, 14일 입주 · 상량의 날과 시각을 고른 성조택일기입니다. |
 | EP.152 흩어진 이름들이 한 줄로 — 제주 진주강씨의 족보단자 네 장 | 족보단자(族譜單子)－1 | 족보단자 — 사실이나 물목을 적어 올린 문서. | 열두 편 동안 이름 하나씩 만났다. 이 종이는 그 이름들의 지도다. 위에서부터 한 대씩 내려오다, 낯익은 이름이 나온다. 계남, 그리고 수황. 그 아래 두형, 강세건의 아버지. "아들 넷 딸 둘, 서자 넷(四男二女 庶子四)." 막내아들 세건은 그 넷 가운데 하나였다. | 진주강씨 족보단자 초고로, 전우부터 계남 · 수황 · 두형까지 여러 대를 적었으며 두형은 '4남 2녀, 서자 넷'으로 강세건의 아버지와 맞습니다. |
 | EP.153 말로 하면 잊히니 종이에 — 제주 강씨 집에 남은 표문 네 장 | 표문(標文)－1 | 1829년 표문. | 1829년 여름, 아내를 잃은 남자가 묻을 곳을 찾는다. 그 자리는 강유훈이 미리 표시해 둔 묏자리 바로 옆이었다. 거절당하고, 빌고, 허락을 받는다. 그리고 종이를 쓴다. "말썽이 생기면 제 아내의 무덤을 옮기겠습니다(若有雜談是去等 矣妻塚移之意)." | 1829년 아내를 묻을 자리를 강유훈의 묏자리 곁에 허락받은 사람이, 경계를 지키고 말썽이 나면 무덤을 옮기겠다고 써 준 표문입니다. |
+| EP.154 학생에서 선전관까지 — 최진립이 전쟁을 건너며 받은 임명장 네 장 (1583–1601) | 1583년 최진립(崔震立) 고신(告身) | 1583년 최진립(崔震立)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1583년 봄, 경주의 열여섯 살 소년에게 종이 한 장이 온다. 보낸 곳은 문관 인사를 맡는 이조. "학생 최진립을 승사랑 군자감 봉사로 삼는다(學生崔震立爲承仕郞軍資監奉事者)." 훗날 장군이 될 사람의 첫 이름표는, 군량 창고의 하급 관리였다. | 1583년 이조가 열여섯 살 학생 최진립을 승사랑 군자감 봉사로 임명한 고신으로, 그의 첫 관직입니다. |
+| EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634) | 1614년 최진립(崔震立) 고신(告身) | 1614년 최진립(崔震立)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1614년 겨울, 마흔일곱의 최진립에게 교지가 온다. 지명이 낯설 만큼 멀다. "최진립을 경원진 병마첨절제사로 삼는다(崔震立爲慶源鎭兵馬僉節制使者)." 경원, 두만강가. 남쪽 끝 경주에서 북쪽 끝으로. | 1614년 최진립을 함경도 국경의 경원진 병마첨절제사로 삼은 교지입니다. |
+| EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장 | 1756년 최동윤(崔東尹) 추증교지(追贈敎旨) | 1756년 최동윤(崔東尹)의 추증교지 — 죽은 이에게 관직을 높여 내린 교지. | 1756년 7월 17일, 교지가 한꺼번에 온다. 첫 장의 주인은 오래전 세상을 떠난 사람, 종사랑 최동윤. "통훈대부 사복시정을 추증한다(贈通訓大夫司僕寺正者)." 왼쪽 작은 글씨가 이유를 말한다. 증손자 최경로가 종2품에 올랐기 때문이다. | 1756년 최경로가 종2품에 오르자 그의 증조할아버지 최동윤(종사랑)에게 통훈대부 사복시정을 추증한 교지입니다. |
+| EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장 | 1858년 최용진(崔龍鎭) 호구단자(戶口單子) | 1858년 최용진(崔龍鎭)의 호구단자 — 집안 식구를 관에 신고한 호적 서류. | 1858년 정월, 경주 이조리. 예순아홉 살 최용진이 식구를 적어 낸다. 맨 위에 그 자신, 그 아래 한 줄이 이상하다. "모시는 어머니 김씨, 일흔세 살(侍母金氏 年七十三)." 아들보다 네 살 많은 어머니. 그 아래 아내 서씨, 아들 남수, 며느리 손씨. | 1858년 경주 이조리 최용진(69세 유학) 호의 호구단자로, 어머니 김씨 · 아내 서씨 · 제수 · 아들 남수 · 며느리가 함께 적혀 있습니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
