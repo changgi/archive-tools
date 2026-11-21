@@ -3,7 +3,7 @@
 제천 한수 연안이씨 (문중) · 스물둘에 진사가 되고 21년 뒤 전주판관으로 일하며 문과에 붙은 이해조. 그 뒤 1년 반 사이 사간원 헌납·홍문관 수찬·부교리로 연달아 부르는 유지 세 장이 제천의 집으로 날아왔다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jecheon-lee/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jecheon-lee/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep58-jecheon-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep58-jecheon-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep58-jecheon-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep58-jecheon-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

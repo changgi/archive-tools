@@ -3,7 +3,7 @@
 안동 주촌 진성이씨 경류정 (문중) · 1569년(선조 2) 정월, 안동 주촌의 '학생' 이정회(李庭檜, 1542–1613)가 종8품 무관 품계 수의부위를 받는다. 24년 뒤, 임진왜란 중인 1593년 10월에는 군량과 군수 물자를 맡은 군자감 판관이 된다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gyeongryujeong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gyeongryujeong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep95-gyeongryujeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep95-gyeongryujeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep95-gyeongryujeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep95-gyeongryujeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

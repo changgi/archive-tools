@@ -3,7 +3,7 @@
 제주 애월 김해김씨 김희주 후손가 (문중) · 1815년 겨울, 제주 애월의 한량 둘이 같은 무과 시험에 나란히 이름을 올린다. 김종관과 김종복. 21년 뒤에는 김기행이 병과 제5인으로, 다시 20여 년 사이에 김계병과 김의병이, 1879년에는 김희정이 뒤를 잇는다. 여섯 장 모두 벼슬 없는 한량으로 받은 무과 홍패다. 마지막 한 장은 붉은빛이 바래 보랏빛으로 남았다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/aewol-kim-hj/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/aewol-kim-hj/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep124-aewol-kim-hj_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep124-aewol-kim-hj_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep124-aewol-kim-hj_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep124-aewol-kim-hj_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

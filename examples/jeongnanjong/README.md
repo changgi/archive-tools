@@ -3,7 +3,7 @@
 군포 속달 동래정씨 동래부원군 정난종 종가 (문중) · 대가 끊긴 공신 집안에 양자를 세워 준 예조의 입안, 서른셋 선비가 『시경』 구절로 써 낸 과거 답안지와 같은 해 받은 홍패, 그리고 30년 뒤 무과 홍패 — 종가가 이어지는 방법
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jeongnanjong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jeongnanjong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep39-jeongnanjong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep39-jeongnanjong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep39-jeongnanjong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep39-jeongnanjong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

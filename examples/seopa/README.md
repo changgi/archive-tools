@@ -3,7 +3,7 @@
 예천 진주류씨 서파 유희 가문 (문중) · 『언문지』를 쓴 실학자 서파 유희(柳僖, 1773–1837)가 세상 만물의 이름을 모아 한자와 한글로 풀이한 어휘 사전 『물명고(物名考)』. 첫 장은 새(羽蟲)로 시작한다 — 알, 알 낳다, 알을 품다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/seopa/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/seopa/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep74-seopa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep74-seopa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep74-seopa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep74-seopa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

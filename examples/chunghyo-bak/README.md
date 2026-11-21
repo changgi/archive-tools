@@ -3,7 +3,7 @@
 영덕 도곡 무안박씨 충효당 박선 종가 (문중) · 1636년 봄, 영해의 한 집. 할머니 손씨는 열두 살 손자 박호에게 노비와 논을 따로 떼어 준다. '너는 세 살에 아비를 잃은 아이인데, 점점 자라는 너를 보며 조금 위로가 된다.' 9년 뒤 스물한 살의 박호는 과거 시험장에서 「복사꽃 노래」를 짓고, 다시 15년 뒤 진사 합격증을 받는다. 임진왜란의 장수 박의장의 증손자, 한 사람의 서른여섯 해가 석 장에 담겼다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/chunghyo-bak/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/chunghyo-bak/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep114-chunghyo-bak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep114-chunghyo-bak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep114-chunghyo-bak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep114-chunghyo-bak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

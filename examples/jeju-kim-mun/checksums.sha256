@@ -1,10 +1,8 @@
 ab67e6a6f2a27f88c0597d9b140d164bfd4fd2d099f065e86734f8143f0a0ae5  ../media/ep130-jeju-kim-mun.ko.srt
 7b851e64eaa98184bbac5d1609113256bf68804c05df162c8b7fac7689549007  ../media/ep130-jeju-kim-mun.ko.vtt
 3633468e2afa0f85e3b10a3b53622ee4e13687e5d3672cef222039f0a53cfb2c  ../media/ep130-jeju-kim-mun_reel-poster.jpg
-a6016cb7acd9d136d5d11e708625972836a2a2edfd8cccd16cec9764e969263a  ../media/ep130-jeju-kim-mun_reel.mp4
 701dd900657c81b3c4348f81c3dcf0b0b1de35d354e6f3c5e90a3b93e713e078  ../media/ep130-jeju-kim-mun_wide-poster.jpg
-82c621411f0f81917073b1cde45293926d5ee98ab8d1785421729c2935d50eac  ../media/ep130-jeju-kim-mun_wide.mp4
-6e26e8b57c965c06a727053c557c9b30cb8bd3f8a480372d26c0f75244367d22  README.md
+b30ce6cdb1df67b800faf63be1a2b47d8f75f1178c16571a6ed3fa9c2b053fc7  README.md
 b8a0f5d6e5b1ac5193c7f149845f39708654a0951cd6995e5f723c0c34227a4e  behind/b1_전하고싶은것.jpg
 887dd35f889d47666b14087a6589fe1772ebe56c4670c5cb7e1523fa8b96ff8b  behind/b2_만들며있었던일.jpg
 af064d69820e652ca93ca79db5b7976bd8098fa62cc43ad10c2bac95b53cc231  behind/b3_남겨둔질문.jpg
@@ -20,6 +18,8 @@ e08076d7b074795f7d83ed2852b64a881ed58db67fe8809062a04ba3c6ffa14e  curator.md
 1cc74704499626652d27cd6fd092acabff7cade1c665fe366e3482493e4bb6af  delivery.md
 6a9a9da3adca886feee8f41f406a8ea5aa1efcb145f2d375fa26e309570ff9c6  exhibit.html
 2b50f00cdf89a6ef64ce15092e1688d45eb99fdad4a313d1d0e32d4c9ab0893b  handout.html
+a6016cb7acd9d136d5d11e708625972836a2a2edfd8cccd16cec9764e969263a  https://changgi.github.io/archive-tools-next/media/ep130-jeju-kim-mun_reel.mp4
+82c621411f0f81917073b1cde45293926d5ee98ab8d1785421729c2935d50eac  https://changgi.github.io/archive-tools-next/media/ep130-jeju-kim-mun_wide.mp4
 b7c16dc4170e27e998d3defa9cff8a4cfe418a6a73b91f435cee3bb2d733fd76  promo.md
 6246deee83d7628a9fad6998ebbdafe6886820b110e1c0241cf8a65cbb98903d  proof.html
 468a715d1a3c282ee2bc52eb474eef64aeaf06662e6734b5927508cf29723ed5  selection.csv

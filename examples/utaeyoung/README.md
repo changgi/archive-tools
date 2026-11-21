@@ -3,7 +3,7 @@
 서울 진주류씨 우강 유태영 후손가 (문중) · '민국 2년(1913) 초가을, 선신서국 석인(石印).' 중화민국이 막 세워진 상하이에서 찍어 낸 값싼 그림 소설이 서울의 한 선비 집안 서가에 꽂혔다. 삼국지 그 뒤, 서진(西晉)의 이야기. 첫 장에는 유유·유의·왕진악이 그려져 있다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/utaeyoung/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/utaeyoung/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep88-utaeyoung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep88-utaeyoung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep88-utaeyoung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep88-utaeyoung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

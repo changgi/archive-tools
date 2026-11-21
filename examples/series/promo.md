@@ -1,6 +1,6 @@
 # 시리즈 비하인드 — 2차 홍보 문구
 
-## 릴스 ① 왜 「고문서 한 장」인가 (media/series-why_reel.mp4)
+## 릴스 ① 왜 「고문서 한 장」인가 (https://changgi.github.io/archive-tools-next/media/series-why_reel.mp4)
 ```
 📜 고문서 한 장 · 비하인드 〈왜 「고문서 한 장」인가〉
 
@@ -23,7 +23,7 @@ https://changgi.github.io/archive-tools/examples/
 #고문서한장 #비하인드 #고문서 #한국고문서자료관 #원문판독 #기록 #디지털인문학 #Claude #오픈소스
 ```
 
-## 릴스 ② 100편이 걸어온 길 (media/series-history_reel.mp4)
+## 릴스 ② 100편이 걸어온 길 (https://changgi.github.io/archive-tools-next/media/series-history_reel.mp4)
 ```
 📜 고문서 한 장 · 비하인드 〈100편이 걸어온 길〉
 
@@ -43,7 +43,7 @@ https://changgi.github.io/archive-tools/examples/about.html
 #고문서한장 #비하인드 #히스토리 #고문서 #한국고문서자료관 #Claude #오픈소스
 ```
 
-## 릴스 ③ 만들며 있었던 일 (media/series-behind_reel.mp4)
+## 릴스 ③ 만들며 있었던 일 (https://changgi.github.io/archive-tools-next/media/series-behind_reel.mp4)
 ```
 📜 고문서 한 장 · 비하인드 〈만들며 있었던 일〉
 

@@ -3,7 +3,7 @@
 제주 어도 진주강씨 강익진 후손가 (문중) · 1675년 겨울, 제주의 열아홉 살 무학 강세건은 군영 아래 일을 맡아 따르라는 전령을 받는다. 6년 뒤 호적에 그는 스물다섯 살, 군영의 가솔로 적혀 있고, 집에는 아내와 외삼촌, 외사촌 누이 둘이 함께 산다. 서른셋에는 전력부위 겸사복, 마흔일곱에는 병절교위 용양위 부사과가 된다. 같은 이름이 네 장의 종이를 건너 28년을 걷는다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/eodo-kang-ij/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/eodo-kang-ij/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep128-eodo-kang-ij_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep128-eodo-kang-ij_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

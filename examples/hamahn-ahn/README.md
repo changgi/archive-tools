@@ -3,7 +3,7 @@
 함안 두릉 순흥안씨 (문중) · 1728년 무신란 때 적을 막으러 나간 함안의 속오군은 여러 날 굶주렸다. 그때 양식을 내주고 음식을 먹인 사람이 두곡의 안 생원이었다. 27년이 지난 1755년, 그리고 다시 1759년, 이름 없는 병사들은 고을 원님에게 글을 올린다. '그 은혜를 나라가 알아 달라'고. 그 호소문이 안씨 집안에 남았다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hamahn-ahn/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hamahn-ahn/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep103-hamahn-ahn_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep103-hamahn-ahn_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep103-hamahn-ahn_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep103-hamahn-ahn_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

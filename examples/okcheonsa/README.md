@@ -3,7 +3,7 @@
 고성 옥천사 보장각 (사찰) · 나라에 바칠 종이를 만드는 절이었기에 산을 지켜야 했던 옥천사. 암행어사의 완문, 의정부의 완문, 그리고 대한제국 말 군수에게 낸 신고서까지 — 절이 산과 종이를 지켜 온 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/okcheonsa/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/okcheonsa/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep34-okcheonsa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep34-okcheonsa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep34-okcheonsa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep34-okcheonsa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

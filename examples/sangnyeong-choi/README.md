@@ -3,7 +3,7 @@
 남원·구례 삭녕최씨 (문중) · 1537년부터 과거가 사라지기 직전 1894년까지, 한 집안에 이어진 문과 홍패 다섯 장. 그리고 1603년 급제한 맏아들에게 '어머니가 살아 계실 때 이 경사를 보니 기쁘다'며 아버지가 논밭을 따로 준 문서의 베낀 본
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/sangnyeong-choi/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/sangnyeong-choi/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep61-sangnyeong-choi_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep61-sangnyeong-choi_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep61-sangnyeong-choi_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep61-sangnyeong-choi_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

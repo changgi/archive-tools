@@ -3,7 +3,7 @@
 아산 선교 장흥임씨 종가 (문중) · 신랑 집이 신부 집에 보내는 혼서(婚書). 1709년 임성이 아우의 혼인에 보낸 것과 1915년 임현규가 맏아들의 혼인에 보낸 것은, 계절 인사만 다를 뿐 같은 문장이다. 아산 장흥임씨 종가의 혼서 200년
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jangheung-im/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jangheung-im/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep63-jangheung-im_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep63-jangheung-im_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep63-jangheung-im_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep63-jangheung-im_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@
 공주 전주이씨 숭선군파 종가 (문중) · 1701년 11월 8일 새벽, 감옥. 인조의 손자 동평군 이항(1660–1701)은 사약을 받기 전, 덮고 있던 베 이불에 붓으로 글을 쓴다. 자기 일생을 적은 짧은 자서전, 그리고 남겨질 아들들에게 주는 당부. '집 밖에 나다니지 말고, 사람을 사귀지 말고, 목숨을 지키는 데만 뜻을 두어라.' 그 이불이 지금까지 남아 있다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/sungseon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/sungseon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep119-sungseon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep119-sungseon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep119-sungseon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep119-sungseon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

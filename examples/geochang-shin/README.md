@@ -3,7 +3,7 @@
 거창 거창신씨 (문중) · 1884년 홍문관 부수찬, 임금 곁에서 글을 짓던 신병우. 10년 뒤인 1894년 그는 전라도 낙안의 군수였다. 그해 5월 10일, 그는 초토영(招討營)에 단자 한 장을 보낸다. 적은 것은 단 두 줄 — '군수품 큰 소 한 마리, 짚신 1,000켤레.' 동학농민군과 관군이 맞선 그 봄의 한복판이었다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/geochang-shin/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/geochang-shin/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep105-geochang-shin_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep105-geochang-shin_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep105-geochang-shin_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep105-geochang-shin_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

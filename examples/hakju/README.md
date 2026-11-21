@@ -3,7 +3,7 @@
 서산 대교 경주김씨 학주 김홍욱 종가 (문중) · 상소 하나로 목숨을 잃은 황해도관찰사 김홍욱. 한 달 사이 생원과 문과에 붙은 손자, 64년 만에 할아버지의 벼슬을 되찾아 준 교지, 그리고 할머니에게 돌아간 정경부인 — 네 장의 교지로 읽는 한 집안의 회복
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hakju/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hakju/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep37-hakju_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep37-hakju_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep37-hakju_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep37-hakju_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

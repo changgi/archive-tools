@@ -3,7 +3,7 @@
 안동 하회 풍산류씨 북촌댁 화경당 (문중) · 1923년 경성제일고보에 다니던 하회마을 북촌댁 소년 류시원이 할아버지·아버지께 보낸 엽서, 그리고 학교가 보낸 '동맹휴학' 통지 — 100년 전 유학생의 목소리
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/bukchondaek/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/bukchondaek/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep30-bukchondaek_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep30-bukchondaek_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep30-bukchondaek_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep30-bukchondaek_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

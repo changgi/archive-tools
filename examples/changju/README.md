@@ -3,7 +3,7 @@
 진주 단목 진양하씨 창주 하증 후손가 (문중) · 1906년 윤4월, 진주 단목의 하계룡 등이 경상남도 관찰사에게 올린 소지. 고조모와 조부의 산소 가까이에 진태명이 몰래 묘를 썼고, 관에서 40일 안에 파 가라고 판결했지만 그는 버티고 있다. 한문 사이로 '-이요', '-이라', '-하야' 같은 한글 토가 들어간 대한제국 시기의 소장
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/changju/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/changju/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep99-changju_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep99-changju_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep99-changju_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep99-changju_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

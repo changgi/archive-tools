@@ -3,7 +3,7 @@
 대구 영천이씨 세효당 후손가 (문중) · 1519년(기묘년) 가을, 안동부사 이현보(李賢輔, 호 농암)는 고을의 여든 넘은 노인을 양반부터 천민까지, 남녀를 가리지 않고 모두 불러 잔치를 연다. 수백 명이 모였다. 그 자리에서 쉰셋의 부사는 색동옷을 입고 춤을 추었다. 그 자리에 그의 부모도 앉아 있었다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/sehyodang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/sehyodang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep97-sehyodang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep97-sehyodang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep97-sehyodang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep97-sehyodang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

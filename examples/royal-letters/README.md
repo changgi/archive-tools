@@ -3,7 +3,7 @@
 오죽헌·시립박물관 (박물관) · 손자가 할머니에게, 부모가 딸에게, 아들이 어머니에게 — 오죽헌·시립박물관에 남은 왕실 가족의 한글 편지
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/royal-letters/exhibit.html) · [수업 활동지](https://changgi.github.io/archive-tools/examples/royal-letters/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep7-royal-letters_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep7-royal-letters_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 에디팅 결과: [`selection.csv`](selection.csv)
 
 ## 이야기 (영상 내레이션)

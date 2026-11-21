@@ -14,6 +14,7 @@
 | `data/ep*-<폴더>.json` | 영상 렌더 설정(장면 · 자막 · 음성 문장). 폴더 위치는 `$WORK` · `$DATA` 이름으로 저장 | 올림 |
 | `data/promo/` · `*.json` | 홍보 글 원본, 갤러리용 모음(captions · curator · delivery) | 올림 |
 | `work/` | 소장처 작업 폴더(`harvest.py --work`) — 원본 이미지 | **안 올림**(자료관에서 다시 받음) |
+| `../archive-tools-next/media/` | 예시 영상(mp4) — GitHub Pages 1GB 한도 때문에 [별도 저장소](https://github.com/changgi/archive-tools-next). `media_offload.py`가 옮기고 링크를 바꿈 | 별도 저장소 |
 | `state/` | 원본 묶음 목록(collect.json) · 기록 메타 · 로그 | 안 올림 |
 
 ## 순서
@@ -48,6 +49,7 @@ bash tools/series/site_build.sh
 | `SERIES_WORK` | 소장처 작업 폴더 | `tools/series/work` |
 | `SERIES_CAND` | 예전 후보 작업 폴더 | `SERIES_WORK` |
 | `SERIES_STATE` | 상태 · 로그 | `tools/series/state` |
+| `SERIES_NEXT` | 영상 저장소 archive-tools-next | 저장소 옆 `../archive-tools-next` |
 
 ## 기록 꾸러미 (record.json · checksums.sha256)
 

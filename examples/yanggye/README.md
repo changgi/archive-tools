@@ -3,7 +3,7 @@
 김천 성산이씨 양계 이하 종가 (문중) · 1654년(효종 5) 10월, 문과에 갑과 제2인으로 합격한 김천의 이하(李𩡘). 첫 벼슬은 궁중의 음식을 맡은 사옹원(司饔院)의 직장이었다. 25년 뒤인 1679년, 그는 임금의 글을 대신 짓는 '지제교'가 된다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/yanggye/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/yanggye/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep94-yanggye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep94-yanggye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep94-yanggye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep94-yanggye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

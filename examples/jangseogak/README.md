@@ -3,7 +3,7 @@
 한국학중앙연구원 장서각 (박물관) · 1699년 겨울, 여섯 살 왕자 이금에게 교지가 내려온다. '금을 연잉군으로 삼는다.' 열아홉에는 오위도총부 도총관이 되고, 스물넷에는 나라의 관노비 여남은 명을 이름과 나이까지 적어 받는다. 그리고 왕이 된 그가, 1727년 아홉 살 아들의 성인식에 교서를 내린다. '이제부터 너는 밤낮으로 삼가라'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jangseogak/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jangseogak/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep132-jangseogak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep132-jangseogak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep132-jangseogak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep132-jangseogak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

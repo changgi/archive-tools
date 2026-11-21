@@ -3,7 +3,7 @@
 제주 어도 진주강씨 강수황 후손가 (문중) · 1777년 가을, 제주 사람 강봉서는 성균관 학유가 되고 두 달 뒤 학록이 된다. 1791년 은계 찰방일 때 임금은 제향의 공으로 활 한 장을 내린다. 1793년, 일흔다섯 살 아버지 강시양은 '시종신 사헌부 장령 강봉서의 아버지'로서 통정대부 품계를 받는다. 1808년 봄, 다시 유지가 온다. 그대를 사헌부 장령으로 삼으니, 속히 역마를 타고 올라오라
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/eodo-kang-sh/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/eodo-kang-sh/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep129-eodo-kang-sh_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep129-eodo-kang-sh_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep129-eodo-kang-sh_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep129-eodo-kang-sh_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

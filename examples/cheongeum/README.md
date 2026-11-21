@@ -3,7 +3,7 @@
 공주 안동김씨 청음 김상헌 후손가 (문중) · 1637년 병자호란, 강화도가 함락되자 선원 김상용은 남문루에서 화약에 불을 붙여 스스로 목숨을 끊는다. 동생 청음 김상헌은 끝까지 항복에 반대하다 심양으로 끌려가 몇 해를 갇혀 지낸다. 한 사람은 죽고, 한 사람은 살아 돌아왔다. 김상헌 후손가에 전하는 한 장의 치제문(抄)은 그 두 형제를 나란히 부른다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/cheongeum/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/cheongeum/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep112-cheongeum_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep112-cheongeum_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep112-cheongeum_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep112-cheongeum_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

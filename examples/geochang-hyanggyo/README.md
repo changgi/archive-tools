@@ -3,7 +3,7 @@
 거창 거창향교 (향교) · 전쟁 뒤 무너진 문을 고친 1636년의 기록, 젊은 선비를 기르는 양현재, 문루의 건립 연혁, 그리고 일제강점기의 중수 의연록 — 거창향교가 스스로 남긴 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/geochang-hyanggyo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/geochang-hyanggyo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep25-geochang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep25-geochang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep25-geochang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep25-geochang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@
 안동 법흥 고성이씨 종가 임청각 (문중) · 도연명의 「귀거래사」에서 이름을 딴 집 — 과거 급제 홍패, 다산 정약용의 편지, 조상의 묘를 지키려 올린 소지까지, 안동 임청각 고성이씨 종가의 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/imcheonggak/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/imcheonggak/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep20-imcheonggak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep20-imcheonggak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep20-imcheonggak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep20-imcheonggak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

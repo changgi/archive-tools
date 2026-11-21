@@ -3,7 +3,7 @@
 경주 용산서원 (서원) · 임진왜란 이듬해 남편을 잃은 여인이 열한 살 딸을 내놓은 1593년 명문, 그리고 215년 뒤 늙은 어머니를 살리려고 스스로를 판 평해 여인 월섬의 1808년 문서 — 경주 용산서원에 전하는 가장 무거운 종이
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/yongsan/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/yongsan/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep45-yongsan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep45-yongsan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep45-yongsan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep45-yongsan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

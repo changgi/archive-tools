@@ -3,7 +3,7 @@
 제주 애월 김해김씨 김용징 후손가 (문중) · 1765년 봄, 제주 애월의 한량 김광세는 무과에 병과 제100인으로 급제한다. 그리고 60년 뒤인 1825년 여름, 같은 을유년에 그는 다시 홍패를 받는다. 이번에는 이름 앞에 절충장군이 붙고, 끝에 두 글자 '회방(回榜)'이 더해졌다. 급제 60년을 살아서 맞은 사람에게 나라가 다시 내린 축하였다. 29년 뒤, 같은 집안의 김명악은 문과 갑과 제1인으로 이름을 올린다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/aewol-kim-yj/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/aewol-kim-yj/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep123-aewol-kim-yj_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep123-aewol-kim-yj_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep123-aewol-kim-yj_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep123-aewol-kim-yj_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

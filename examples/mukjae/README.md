@@ -3,7 +3,7 @@
 상주 성주이씨 묵재 종가 (문중) · 1551년 정월 초닷새, 경상도 성주의 유배지. 쉰여덟 살의 묵재 이문건(1494–1567)에게 손자가 태어났다. 친구도 없고 살림도 서툰 귀양살이, 그는 손자가 노는 것을 보며 하루를 보내고 그 모습을 글로 적기 시작한다. 이가 나고, 기어 다니고, 아프고, 말을 배우는 것까지. 한국에서 가장 오래된 육아 일기로 꼽히는 「양아록」의 첫 장이다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/mukjae/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/mukjae/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep108-mukjae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep108-mukjae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep108-mukjae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep108-mukjae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

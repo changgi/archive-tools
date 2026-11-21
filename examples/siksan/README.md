@@ -3,7 +3,7 @@
 상주 연안이씨 식산 이만부 종가 (문중) · 1699년 12월, 상주목이 서른다섯의 유학 이만부(李萬敷, 호 식산)에게 발급한 준호구. 아버지는 경기관찰사, 할아버지는 판중추부사. 아내 풍산류씨의 증조부 칸에는 '풍원부원군 문충공 성룡' — 서애 류성룡이 적혀 있다. 그리고 그 아래 노비 열세 명의 이름과 부모
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/siksan/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/siksan/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep98-siksan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep98-siksan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep98-siksan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep98-siksan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

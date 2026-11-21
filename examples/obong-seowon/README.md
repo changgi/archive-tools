@@ -3,7 +3,7 @@
 밀양 창녕조씨 오봉서원 (서원) · '헌관과 여러 집사는 각자 차례로 선다. △알자가 초헌관을 인도한다. △세 번 향을 올린다.' 제사 때 사회자(집례)가 소리 내어 읽으면, 모두가 그 말에 따라 움직였다. 동작 하나하나를 세모(△)로 끊어 적은 18~19세기 오봉서원의 홀기
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/obong-seowon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/obong-seowon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep92-obong-seowon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep92-obong-seowon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep92-obong-seowon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep92-obong-seowon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

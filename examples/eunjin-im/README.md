@@ -3,7 +3,7 @@
 거창 은진임씨 (문중) · 장례원 판결사를 지낸 거창의 선비 임훈(林薰). 그가 세상을 떠나고 275년이 지난 1859년, 나라는 '학문의 연원이 뛰어나다'며 이조참판을 추증했다. 다시 26년 뒤인 1885년, 붉은 종이에 금박이 뿌려진 교지가 내려온다. 시호는 효간(孝簡). 왼쪽 작은 글씨가 그 뜻을 풀었다 — '어버이를 사랑함을 효라 하고, 한결같은 덕으로 게으르지 않음을 간이라 한다'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/eunjin-im/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/eunjin-im/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep104-eunjin-im_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep104-eunjin-im_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep104-eunjin-im_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep104-eunjin-im_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

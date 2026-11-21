@@ -3,7 +3,7 @@
 제주 제주고씨 종친회 (문중) · 1902년, 51세가 된 고종 황제가 원로 대신들의 모임인 기로소(耆老所)에 들어간다. 이를 기념해 나라는 전국의 여든 살 넘은 선비와 백성에게 품계를 올려 주었다. 제주의 고장흥(高章興)도 그날 정3품 통정대부가 되었다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jeju-go/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jeju-go/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep90-jeju-go_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep90-jeju-go_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep90-jeju-go_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep90-jeju-go_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

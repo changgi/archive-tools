@@ -3,7 +3,7 @@
 국립청주박물관 (박물관) · 출가한 숙명공주가 아버지 효종께 올린 작은 글씨의 문안 편지, 그 행간에 큰 글씨로 답장을 적어 돌려보낸 임금, 그리고 어머니 인선왕후의 편지 — 국립청주박물관의 왕실 한글 편지첩
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/cheongju-museum/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/cheongju-museum/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep49-cheongju-museum_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep49-cheongju-museum_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep49-cheongju-museum_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep49-cheongju-museum_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

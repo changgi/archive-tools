@@ -3,7 +3,7 @@
 구미 옥산 인동장씨 여헌 장현광 종가 (문중) · 임금이 열 번 넘게 부른 산림의 학자, 그 부름에 답한 것은 종 애남의 소지였다 — 전쟁 중의 편지, 정묘호란의 호소사 유지와 함께 읽는 여헌 장현광 종가
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/yeoheon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/yeoheon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep29-yeoheon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep29-yeoheon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep29-yeoheon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep29-yeoheon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

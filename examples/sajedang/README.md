@@ -3,7 +3,7 @@
 남원 안터 순흥안씨 사제당 안처순 후손가 (문중) · 1513년 진사 백패와 이듬해 문과 홍패를 받은 안처순, 그리고 235년 뒤 후손 안극효에게 차례로 내려온 임명 교지와 '역마를 타고 올라오라'는 유지 — 날짜가 이야기를 하는 문서들
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/sajedang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/sajedang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep40-sajedang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep40-sajedang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep40-sajedang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep40-sajedang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

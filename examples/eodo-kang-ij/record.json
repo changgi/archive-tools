@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.1",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -114,14 +114,6 @@
    "sha256": "a440757f2d96080ab3a9a9d1549488da2cc12f3ee9f2d0b76d56281de7cbc797"
   },
   {
-   "path": "../media/ep128-eodo-kang-ij_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1758626,
-   "sha256": "b499d08c857a521a874c76c8f3e6d82b7a0ca5d54e1a81b3624bce47d75d9e5e"
-  },
-  {
    "path": "../media/ep128-eodo-kang-ij_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -130,20 +122,12 @@
    "sha256": "57beea4852dcbecd10c10bb3db0459dab424eaa97aa3dcf20b08a2f6d1ceebaf"
   },
   {
-   "path": "../media/ep128-eodo-kang-ij_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1866935,
-   "sha256": "c7c3bbac1feb976b195bfbdf839c75df65f22397f9f51e7873699fd1d8a8d683"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 15324,
-   "sha256": "3b1124530935e87e6d1f6d1c4e6ca71cd82258f661c855cbc7dc44a8286d42a2"
+   "bytes": 15316,
+   "sha256": "b02d18f86b0b49195af35161b0b164d16ee8fc6edf69a8f392c95e513db4409c"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -258,6 +242,22 @@
    "sha256": "208f68a3e0823732ae3bcb873c7957266ed3c0b46cca70e400b4857348d495d0"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1758626,
+   "sha256": "b499d08c857a521a874c76c8f3e6d82b7a0ca5d54e1a81b3624bce47d75d9e5e"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1866935,
+   "sha256": "c7c3bbac1feb976b195bfbdf839c75df65f22397f9f51e7873699fd1d8a8d683"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -299,7 +299,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.1)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 4,
   "quotes": 4,
   "uncertain_marks": 15,
@@ -344,6 +344,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.1)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 15 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep128-eodo-kang-ij_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_reel.mp4",
+    "../media/ep128-eodo-kang-ij_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

@@ -3,7 +3,7 @@
 제주 조천 곡산강씨 강만식 후손가 (문중) · 관찰사는 해마다 두 번, 고을 수령들의 근무를 평가해 임금께 올렸다. 평가는 단 여덟 글자, 그리고 '상(上)·중(中)·하(下)'. 병인년 가을·겨울의 포폄제목에는 전주판관, 나주목사, 광주목사의 이름 아래 짧은 평이 붙어 있다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jocheon-kang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jocheon-kang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep84-jocheon-kang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep84-jocheon-kang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep84-jocheon-kang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep84-jocheon-kang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

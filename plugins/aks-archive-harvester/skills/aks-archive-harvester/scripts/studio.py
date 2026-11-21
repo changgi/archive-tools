@@ -1828,11 +1828,17 @@ def _rec_files(d, media=None):
             full = os.path.join(root, f); rel = os.path.relpath(full, d).replace(os.sep, '/')
             if rel in REC_SKIP or '/__pycache__/' in '/' + rel or f.startswith('.'): continue
             out.append((rel, full))
+    rx = re.compile(r'^ep\d+-' + re.escape(os.path.basename(os.path.normpath(d))) + r'[._]')
     if media and os.path.isdir(media):
-        rx = re.compile(r'^ep\d+-' + re.escape(os.path.basename(os.path.normpath(d))) + r'[._]')
         for f in sorted(os.listdir(media)):
             if rx.match(f): out.append((os.path.relpath(os.path.join(media, f), d).replace(os.sep, '/'), os.path.join(media, f)))
+    for rdir, url in REC_REMOTE:  # 다른 저장소로 옮긴 파일(예: 영상) — 기록 속 경로는 공개 주소
+        if os.path.isdir(rdir):
+            for f in sorted(os.listdir(rdir)):
+                if rx.match(f): out.append((url.rstrip('/') + '/' + f, os.path.join(rdir, f)))
     return sorted(out)
+
+REC_REMOTE = []  # [(폴더, 공개 주소)] — record --media-remote
 
 
 def _rec_role(rel):
@@ -1907,6 +1913,11 @@ def build_record(d, media=None, meta=None, agent=None, creator=None, license_tex
         ev.append(dict(date=today, type='creation', agent=', '.join(a_['name'] for a_ in rec['agents']), detail=f'기록 꾸러미 생성 — 문서 {tot["docs"]}건 · 파생물 {len(derivs)}개'))
     else:
         add = sorted(set(nh) - set(oh)); gone = sorted(set(oh) - set(nh)); chg = sorted(k for k in nh if k in oh and nh[k] != oh[k])
+        og = {oh[k]: k for k in gone}; mv = [(og[nh[k]], k) for k in add if nh[k] in og]  # 내용(고정값)이 같은 채 자리만 옮긴 파일
+        add = [k for k in add if k not in {b for _, b in mv}]; gone = [k for k in gone if k not in {a for a, _ in mv}]
+        if mv:
+            ev.append(dict(date=today, type='migration', agent=rec['agents'][-1]['name'],
+                           detail=f'파생물 {len(mv)}개를 내용 그대로 옮김(고정값 같음)', moved=[f'{a} → {b}' for a, b in mv][:40]))
         if add or gone or chg:
             ev.append(dict(date=today, type='modification', agent=rec['agents'][-1]['name'],
                            detail=f'파생물 바뀜 {len(chg)} · 새로 {len(add)} · 빠짐 {len(gone)}', changed=(chg + add + gone)[:40]))
@@ -1948,6 +1959,7 @@ def cmd_record(a):
     dirs = sorted({os.path.dirname(f) for root in a.in_ for f in ([root] if root.endswith('.csv') else glob.glob(os.path.join(root, '**', 'selection.csv'), recursive=True))
                    if not any(x in f.replace(os.sep, '/') for x in (a.exclude or []))})  # 결과물 폴더(mediate · eps · 예시 편)가 기록 대상
     if not dirs: sys.exit('selection.csv가 있는 폴더를 찾지 못했습니다(--in 확인).')
+    REC_REMOTE[:] = [(r[0], r[1]) for r in (a.media_remote or [])]
     if a.verify:
         bad = 0; n = 0
         for d in dirs:
@@ -2025,7 +2037,7 @@ def main():
     ck = sp.add_parser('check', help='공개 전 점검: 빈 칸 · 인용 · 대표 면 · 오래된 결과물 → 다음 할 일'); ck.add_argument('--work', required=True); ck.add_argument('--theme', required=True)
     ck.add_argument('--strict', action='store_true', help='할 일이 남아 있으면 종료 코드 1')
     rc = sp.add_parser('record', help='기록 꾸러미: 편마다 record.json(맥락 · 출처 · 파생물 · 검증 · 검토 · 작업 이력) + checksums.sha256(SHA-256 고정값), --verify 로 대조')
-    rc.add_argument('--in', dest='in_', nargs='+', required=True, help='selection.csv를 찾을 폴더(들)'); rc.add_argument('--exclude', nargs='+', help='경로에 이 말이 든 곳은 빼기')
+    rc.add_argument('--in', dest='in_', nargs='+', required=True, help='selection.csv를 찾을 폴더(들)'); rc.add_argument('--exclude', nargs='+', help='경로에 이 말이 든 곳은 빼기'); rc.add_argument('--media-remote', nargs=2, action='append', metavar=('DIR', 'URL'), help='다른 저장소로 옮긴 영상 폴더와 그 공개 주소(여러 번 가능) — 기록에는 주소로 남고 고정값은 그 폴더 파일로 대조')
     rc.add_argument('--media', help='편 이름이 붙은 영상 · 자막 · 포스터가 든 폴더(예: examples/media)'); rc.add_argument('--meta', help='폴더 이름 → {title, episode, series, collection, holder, purpose, previous, next} JSON')
     rc.add_argument('--agent', help='판독 · 번역 초안을 만든 AI 또는 도구 이름(예: "Claude (Anthropic)")'); rc.add_argument('--creator', help='책임 편집자 이름')
     rc.add_argument('--license', help='텍스트 이용 조건(직접 정한 것만, 예: CC BY 4.0)'); rc.add_argument('--rights-images', help='이미지 이용 조건 문구')

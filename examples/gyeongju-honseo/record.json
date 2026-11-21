@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.1",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -106,14 +106,6 @@
    "sha256": "8af05ca8678a11566e03fcc6aba64ebe675b7664ac6abb8a4d1454eb1adf452d"
   },
   {
-   "path": "../media/ep134-gyeongju-honseo_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1591097,
-   "sha256": "26b938731ed2628b7c201c5b058822e6e02913ec6ab57de4da9d57c82d0ed1dd"
-  },
-  {
    "path": "../media/ep134-gyeongju-honseo_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -122,20 +114,12 @@
    "sha256": "e72877123c5be03eb2f9d85ea7123e94d1a8126f840ca3ba0f255422176b8ba3"
   },
   {
-   "path": "../media/ep134-gyeongju-honseo_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1617346,
-   "sha256": "98bae49b9d4e0495e596d8af214299a3c245a3e10af399dc84c000b03ccfe547"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 14945,
-   "sha256": "e0da360ec429ed315bcad61b92e28fe322d4dcd9fe1c3819657fbd2f7d347886"
+   "bytes": 14937,
+   "sha256": "2a07a70e9b3cfb36ad6efbb1c125667c69ca013b351b83bdd50fe4133a807e5a"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -250,6 +234,22 @@
    "sha256": "30714a5abac735147bf9e2d39f23b1a8f097c9fab720f26ea0ba6f9da9045618"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep134-gyeongju-honseo_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1591097,
+   "sha256": "26b938731ed2628b7c201c5b058822e6e02913ec6ab57de4da9d57c82d0ed1dd"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep134-gyeongju-honseo_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1617346,
+   "sha256": "98bae49b9d4e0495e596d8af214299a3c245a3e10af399dc84c000b03ccfe547"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -291,7 +291,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.1)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 4,
   "quotes": 5,
   "uncertain_marks": 29,
@@ -336,6 +336,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.1)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 29 · 연도 빈 칸 4"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep134-gyeongju-honseo_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep134-gyeongju-honseo_reel.mp4",
+    "../media/ep134-gyeongju-honseo_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep134-gyeongju-honseo_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

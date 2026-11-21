@@ -3,7 +3,7 @@
 용인 해주오씨 추탄 오윤겸 종가 (문중) · 전쟁 중 세자를 지키던 하급 무관직, 지중추부사, '서둘러 올라오라'는 우의정 임명 유서, 그리고 영의정의 녹봉 증서 — 36년의 관직 생활을 네 장의 문서로 따라가기
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/chutan/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/chutan/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep38-chutan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep38-chutan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep38-chutan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep38-chutan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

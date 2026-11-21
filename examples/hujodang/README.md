@@ -3,7 +3,7 @@
 안동 오천 광산김씨 후조당 김부필 (문중) · 양자로 들어와 자신을 거두어 모신 조카 김효로에게 오천(烏川)의 논밭과 집을 물려준 1480년 황씨 부인의 문서. 그리고 70년 뒤 그 손자 김연의 남매들이 할아버지 무덤과 제사를 두고 함께 정한 1550년 화회문기 — '군자리' 광산김씨의 시작
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hujodang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hujodang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep70-hujodang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep70-hujodang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep70-hujodang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep70-hujodang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

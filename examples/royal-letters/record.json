@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -131,14 +131,6 @@
    "sha256": "462841059e860f30b845224969d691185c0e9895e3c533c0d4a9680057fda48a"
   },
   {
-   "path": "../media/ep7-royal-letters_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1167357,
-   "sha256": "831dd22f44a081ad9190391a05f636108b3141e5eb3aea938604aca86608b74a"
-  },
-  {
    "path": "../media/ep7-royal-letters_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -147,20 +139,12 @@
    "sha256": "c03c43653141a172899c022bf3090c008697b9216b22491368938567794ef993"
   },
   {
-   "path": "../media/ep7-royal-letters_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1197141,
-   "sha256": "12cbf32df4a1abf503fc89e4e5ec22a32dc2853243327a1b66eaaae8583168d5"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 7482,
-   "sha256": "ab00562cda814ed73681f31a2fd82922e98e75219378eeef9e5c6a2560f51d69"
+   "bytes": 7474,
+   "sha256": "da551b65402adddd4459b34ff113068718cc4aaca2ff35a64480c7c80ffa1468"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -299,6 +283,22 @@
    "sha256": "c2d2a554a9f58559700143c3795bd4161d3b627b5b82fed44f2f4c70880261a1"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1167357,
+   "sha256": "831dd22f44a081ad9190391a05f636108b3141e5eb3aea938604aca86608b74a"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1197141,
+   "sha256": "12cbf32df4a1abf503fc89e4e5ec22a32dc2853243327a1b66eaaae8583168d5"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -340,7 +340,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 7,
   "quotes": 5,
   "uncertain_marks": 0,
@@ -388,6 +388,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 6"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep7-royal-letters_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_reel.mp4",
+    "../media/ep7-royal-letters_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

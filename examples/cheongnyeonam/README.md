@@ -3,7 +3,7 @@
 고성 옥천사 청련암 (사찰) · 1919년(己未年) 10월 15일, 고성 옥천사의 작은 암자 청련암에서 '만일계(萬日稧)'가 만들어진다. 1만 일, 약 27년 동안 이어 갈 염불 모임. 장부에는 진주 고을 사람들이 살아 있는 가족의 이름과 돌아가신 부모의 '영가(靈駕)'를 나란히 적었다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/cheongnyeonam/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/cheongnyeonam/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep87-cheongnyeonam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep87-cheongnyeonam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep87-cheongnyeonam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep87-cheongnyeonam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@ import _paths as P  # 저장소 · 작업 폴더 위치(환경 변수로 바꿀 
 import json, glob, csv, re, os
 R = (P.REPO + '/examples/'); RM = R + 'README.md'
 s = open(RM, encoding='utf-8').read()
-V = 'https://changgi.github.io/archive-tools/examples/media/'
+V = P.NEXT_URL  # 영상은 archive-tools-next (media_offload.py)
 J = [json.load(open(p, encoding='utf-8')) for p in glob.glob((P.DATA + '/new2/*.json'))+glob.glob((P.DATA + '/new3/*.json'))+glob.glob((P.DATA + '/new4/*.json'))]
 J = sorted([j for j in J if os.path.exists(R + j['meta']['folder'] + '/selection.csv')], key=lambda j: j['meta']['ep'])
 def sel(f): return list(csv.DictReader(open(R + f + '/selection.csv', encoding='utf-8-sig')))
@@ -30,9 +30,8 @@ def after(s, anchor, rows):
     i = s.index(anchor); e = s.index('\n', i)
     return s[:e + 1] + mark + '\n' + '\n'.join(rows) + '\n' + mark + 'END\n' + s[e + 1:]
 # 표 안에 HTML 주석을 넣으면 표가 끊기므로 주석 없이 넣고, 다시 돌릴 때는 행 자체로 지운다
-for rows in (rows_story, rows_ex, rows_card, rows_ed):
-    for r_ in rows:
-        s = s.replace('\n' + r_, '')
+EPS = {str(j['meta']['ep']) for j in J}  # 이 편들의 예전 행은(폴더 이름이 바뀐 것까지) 모두 지우고 새로 넣는다
+s = '\n'.join(l for l in s.split('\n') if not re.match(r'\| (?:\[\*\*)?EP\.(\d+) ', l) or re.match(r'\| (?:\[\*\*)?EP\.(\d+) ', l).group(1) not in EPS)
 def ins(s, anchor, rows):
     i = s.index(anchor); e = s.index('\n', i)
     return s[:e + 1] + '\n'.join(rows) + '\n' + s[e + 1:]

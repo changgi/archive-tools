@@ -3,7 +3,7 @@
 경기도박물관 (박물관) · 도지 넉 섬을 두고 남의 집 노비를 꾸짖은 1692년 편지, 딸에게 '네 편지는 상자의 답장으로 보았다'고 쓴 1695년 편지 — 경기도박물관에 남은 은진송씨 송규렴 집안 한글 편지
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gyeonggi-museum/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gyeonggi-museum/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep50-gyeonggi-museum_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep50-gyeonggi-museum_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep50-gyeonggi-museum_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep50-gyeonggi-museum_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@
 제주 조천 김해김씨 김희정 후손가 (문중) · 1890년 겨울, 제주의 열여덟 살 김항유가 승보 초시에 이름을 적어 낸다. 이듬해 가을, 그의 아버지 김의정이 예조에 단자를 올린다. 4년 전 승보에 든 자신도 올가을 회시에 답안을 내야 하는데, 아들도 이미 회시에 붙게 되었으니 아버지와 아들이 함께 응시해도 되겠느냐고. 한 달 뒤 아들은 진사 백패를 받고, 같은 달 아버지는 숭인전 참봉에 임명된다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jocheon-kim/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jocheon-kim/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep126-jocheon-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep126-jocheon-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep126-jocheon-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep126-jocheon-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

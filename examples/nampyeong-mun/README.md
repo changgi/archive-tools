@@ -3,7 +3,7 @@
 영암 남평문씨 (문중) · '교지' 바로 아래, 이름이 들어갈 자리가 하얗게 비어 있다. 돈이나 곡식을 낸 사람에게 팔기 위해 미리 찍어 둔 백지 임명장, 공명첩(空名帖). 영암 남평문씨 집안에는 1891년의 공명첩이 열 장 넘게 남아 있다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/nampyeong-mun/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/nampyeong-mun/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep81-nampyeong-mun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep81-nampyeong-mun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep81-nampyeong-mun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep81-nampyeong-mun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

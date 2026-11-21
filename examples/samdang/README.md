@@ -3,7 +3,7 @@
 청양 안동김씨 삼당 김영 후손가 (문중) · 1664년 겨울, 암행어사의 보고를 읽은 임금이 고양 군수 김중일에게 편지를 보낸다. 부임 반년 만에 소문이 났고, 세금을 거둘 때 곤장을 쓰지 않았으며, 쌀을 받을 때도 작은 말로 공평하게 쟀다는 것이다. 그리고 120여 년 뒤, 같은 집안의 김유기는 마흔한 살 생원의 몸으로 과거장에 나아가 '三下'를 받은 답안으로 문과에 합격한다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/samdang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/samdang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep117-samdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep117-samdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep117-samdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep117-samdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

@@ -9,6 +9,7 @@ STUDIO = P.SCRIPTS + '/studio.py'
 RIGHTS = ('고문서 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). '
           '다시 쓰려면 자료관을 통한 소장처 동의가 필요하며, 문제가 있으면 내립니다.')
 SKIP = ['/tutorial/']  # 따라하기 예제는 편이 아님
+REMOTE = (['--media-remote', P.NEXT + '/media', P.NEXT_URL] if os.path.isdir(P.NEXT + '/media') else [])  # 영상은 archive-tools-next
 
 def metas():
     s = open(EX + '/index.html', encoding='utf-8').read()
@@ -35,10 +36,10 @@ def metas():
 
 if __name__ == '__main__':
     if '--verify' in sys.argv:
-        sys.exit(subprocess.run(['python3', STUDIO, 'record', '--verify', '--in', EX, '--media', EX + '/media', '--exclude'] + SKIP).returncode)
+        sys.exit(subprocess.run(['python3', STUDIO, 'record', '--verify', '--in', EX, '--media', EX + '/media', '--exclude'] + SKIP + REMOTE).returncode)
     m = metas(); mp = os.path.join(P.STATE, 'record_meta.json')
     json.dump(m, open(mp, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    r = subprocess.run(['python3', STUDIO, 'record', '--in', EX, '--media', EX + '/media', '--exclude'] + SKIP + ['--meta', mp,
+    r = subprocess.run(['python3', STUDIO, 'record', '--in', EX, '--media', EX + '/media', '--exclude'] + SKIP + REMOTE + ['--meta', mp,
                         '--agent', 'Claude (Anthropic) — 판독 · 번역 · 해제 · 이야기 초안, 산출물 제작',
                         '--creator', 'Song Chang-gi (chgsong@naver.com, github.com/changgi)',
                         '--license', 'CC BY 4.0 (이 시리즈가 새로 만든 텍스트) · MIT (코드)',

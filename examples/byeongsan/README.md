@@ -3,7 +3,7 @@
 안동 병산서원 (서원) · 모시고, 모이고, 지키고, 다시 짓고, 공경한 사람들 — 안동 병산서원의 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/byeongsan/exhibit.html) · [수업 활동지](https://changgi.github.io/archive-tools/examples/byeongsan/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep15-byeongsan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep15-byeongsan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep15-byeongsan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep15-byeongsan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 에디팅 결과: [`selection.csv`](selection.csv)
 
 ## 이야기 (영상 내레이션)

@@ -63,7 +63,7 @@
 
 명령을 하나씩 따라 하는 예제는 [`examples/tutorial/README.md`](examples/tutorial/README.md)(전 과정)와 [`examples/README.md`](examples/README.md)에 있습니다.
 
-🎬 **홍보 영상:** [EP.1 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools/examples/media/promo-reel.mp4) · [EP.2 만든 것 보기(48초)](https://changgi.github.io/archive-tools/examples/media/promo-reel-ep2.mp4) · EP.3–EP.6 예시 세트 영상은 [예시 README](examples/README.md#예시-세트-영상-ep3ep6) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)
+🎬 **홍보 영상:** [EP.1 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [EP.2 만든 것 보기(48초)](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · EP.3–EP.6 예시 세트 영상은 [예시 README](examples/README.md#예시-세트-영상-ep3ep6) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)
 
 ## 설치
 

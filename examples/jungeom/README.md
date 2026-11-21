@@ -3,7 +3,7 @@
 제주 애월 중엄리 (마을) · 해녀의 미역을 헐값에 빼앗던 폐단을 없앤 1794년 절목, 명절 제사상 전복을 둘러싼 1844년 절목, 그리고 신당의 나무가 베어진 1901년 — 마을이 함께 간직해 온 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jungeom/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jungeom/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep35-jungeom_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep35-jungeom_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep35-jungeom_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep35-jungeom_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

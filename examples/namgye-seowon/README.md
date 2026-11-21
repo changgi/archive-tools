@@ -3,7 +3,7 @@
 함양 남계서원 (서원) · ③ 에디팅 후 — Claude가 문서명과 이미지에 근거해 쓴 `이야기` 문장 사용 (검토 전 초안 표시)
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/namgye-seowon/exhibit.html) · [수업 활동지](https://changgi.github.io/archive-tools/examples/namgye-seowon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 에디팅 결과: [`selection.csv`](selection.csv)
 
 | 표지 | 1번 카드 | 마무리 |

@@ -3,7 +3,7 @@
 봉화 꽃내 무안박씨 회이당 박한 종가 (문중) · 을유년(1945) 2월. 해방을 여섯 달 앞둔 식민지 말기, 전쟁 동원이 극에 달하던 때에도 봉화의 삼계서원은 봄 제향을 준비했다. 제사의 진행을 맡을 '집례(執禮)'로 유학 박만택을 추천하는 망기 한 장
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/kkotnae/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/kkotnae/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep91-kkotnae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep91-kkotnae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep91-kkotnae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep91-kkotnae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

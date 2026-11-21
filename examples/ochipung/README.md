@@ -3,7 +3,7 @@
 안성 해주오씨 오치풍 후손가 (문중) · 1815년 한량 오치풍부터 1885년 오준모까지, 네 장의 무과 홍패가 한 집안에 이어졌다. 순위는 49등, 152등, 19등, 317등. 그 사이 1862년 길주목사로 북쪽 변방을 맡은 오영선의 유서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/ochipung/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/ochipung/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep59-ochipung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep59-ochipung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep59-ochipung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep59-ochipung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

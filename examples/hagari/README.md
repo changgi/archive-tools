@@ -3,7 +3,7 @@
 제주 애월 하가리 (마을) · 1781년 정조의 윤음에서 1907년 금융조합 정관까지 — 제주 애월 하가리가 근대로 건너간 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hagari/exhibit.html) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hagari/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep11-hagari_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep11-hagari_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep11-hagari_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep11-hagari_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 에디팅 결과: [`selection.csv`](selection.csv)
 
 ## 이야기 (영상 내레이션)

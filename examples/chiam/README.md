@@ -3,7 +3,7 @@
 경주 옥산 여주이씨 치암 이순 종가 (문중) · 1778년 흉년, 굶주려 얼굴이 누렇게 붓고 두 딸과 함께 죽게 된 여인 은단을 돈을 주고 살려 낸 이희모. 이듬해 여인은 딸들을 버리고 다른 사람에게 시집갔고, 남은 두 딸 막내와 계심의 앞날을 위해 이희모가 관찰사에게 올린 소지
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/chiam/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/chiam/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep67-chiam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep67-chiam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep67-chiam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep67-chiam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

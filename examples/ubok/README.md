@@ -3,7 +3,7 @@
 상주 우산 진주정씨 우복 정경세 종가 (문중) · 스물일곱 정경세의 첫 벼슬에서 병든 그를 부르는 임금의 유지, 6대손 정종로를 부르는 유지, 그리고 대한제국기 종의 소지까지 — 상주 우복 종가의 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/ubok/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/ubok/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep23-ubok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep23-ubok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep23-ubok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep23-ubok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

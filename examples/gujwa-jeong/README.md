@@ -3,7 +3,7 @@
 제주 구좌 동래정씨 정석록 후손가 (문중) · 1743년 정석록은 아버지가 받을 품계를 대신 받는다. 82년 뒤인 1825년 봄, 그의 증손 정익환이 스물다섯 살에 진사시 3등 제2인으로 입격한다. 답안지 겉봉 맨 앞에는 증조할아버지 정석록의 이름이 적혀 있다. 백패가 내려온 그달, 아버지는 아들에게 밭 두 뙈기를 따로 떼어 주는 문서를 쓴다. 서울 집 자제도 어려운 일을 먼 고을의 우리 집에서 해냈으니, 한 집안의 경사일 뿐 아니라 온 고을이 우러러 부러워할 일이라고
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gujwa-jeong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gujwa-jeong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep127-gujwa-jeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep127-gujwa-jeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep127-gujwa-jeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep127-gujwa-jeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

@@ -3,7 +3,7 @@
 제주 조천 곡산강씨 강만식 후손가 (문중) · 1845년, 제주의 기병 강만식은 무과에 병과 제391인으로 급제한다. 7년 뒤 그는 명월진 수군만호가 된다. 1858년에는 같은 집안의 한량 강우진이 병과 제64인으로 급제하고, 1871년 그의 벼슬로 증조할아버지까지 벼슬을 추증받는다. 1876년 정의 고을을 맡은 강우진이 자리에서 물러난 뒤, 1879년 서울 호조가 공문을 보낸다. 재임 중의 회계에 흠이 없다는 해유였다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jocheon-kang-ms/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jocheon-kang-ms/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep131-jocheon-kang-ms_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep131-jocheon-kang-ms_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep131-jocheon-kang-ms_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep131-jocheon-kang-ms_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

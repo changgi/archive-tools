@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -90,14 +90,6 @@
    "sha256": "0a3e2720d0d6d1b6f7355d15f05254e440440bb70c6463bc81967e0f68b82686"
   },
   {
-   "path": "../media/ep76-wanseokjeong_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1337682,
-   "sha256": "cd9b31f936321a68010e527a378fc569af4479ecc55526342db0db77e350a41f"
-  },
-  {
    "path": "../media/ep76-wanseokjeong_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -106,20 +98,12 @@
    "sha256": "9efecccd7d8c465f9e721a35075e117c437af9d704057cacf7828b21ec6e5c87"
   },
   {
-   "path": "../media/ep76-wanseokjeong_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1387354,
-   "sha256": "02a8eeae0dc3b706b0cc0d3e143d360b6ce83e76e4455907eb51d5da5b3228d8"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 8083,
-   "sha256": "b0372a49b90f2eaf70db7ec3089d50e55257f43f117f122a1343ce160e52e6a2"
+   "bytes": 8075,
+   "sha256": "a4f748dfacc7c2671c75309adcd6b1d986c90e868b130672de582c033cd12ebd"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -218,6 +202,22 @@
    "sha256": "8aa5597a27284d76106ae4b1a8f1cdb17b053d6db43eb6885717fb77a83a7b08"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep76-wanseokjeong_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1337682,
+   "sha256": "cd9b31f936321a68010e527a378fc569af4479ecc55526342db0db77e350a41f"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep76-wanseokjeong_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1387354,
+   "sha256": "02a8eeae0dc3b706b0cc0d3e143d360b6ce83e76e4455907eb51d5da5b3228d8"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -259,7 +259,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 2,
   "quotes": 2,
   "uncertain_marks": 0,
@@ -302,6 +302,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep76-wanseokjeong_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep76-wanseokjeong_reel.mp4",
+    "../media/ep76-wanseokjeong_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep76-wanseokjeong_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

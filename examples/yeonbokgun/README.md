@@ -3,7 +3,7 @@
 영주 화계 인동장씨 연복군 종가 (문중) · 영주 화계마을 인동장씨 종가에는 '장원덕(張源德)'이라는 이름이 적힌 종이가 스무 장 가까이 전한다. 서원의 유사, 향교 제사의 축관, 계모임의 유사… 마을과 고을의 일을 맡아 달라는 추천장, 망기(望記)다. 그 가운데에는 우리나라 첫 사액서원인 소수서원의 것도 있고, 그것을 담아 보낸 봉투까지 남아 있다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/yeonbokgun/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/yeonbokgun/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep110-yeonbokgun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep110-yeonbokgun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep110-yeonbokgun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep110-yeonbokgun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

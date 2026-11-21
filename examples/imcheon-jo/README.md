@@ -3,7 +3,7 @@
 익산 함열 임천조씨 (문중) · 1815년, 철원부사 조운구(趙雲衢)는 자기 몫을 털어 흉년의 백성을 구했다(사진 私賑). 나라는 어린 말 한 필로 답했다. 3년 뒤 충청도 병마절도사가 된 그에게 왕은 비밀 병부 '제34부'를 내린다 — '비상한 명이 있거든 부신을 맞춰 본 뒤에 따르라'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/imcheon-jo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/imcheon-jo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep80-imcheon-jo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep80-imcheon-jo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep80-imcheon-jo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep80-imcheon-jo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

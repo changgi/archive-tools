@@ -3,7 +3,7 @@
 봉화 유곡 안동권씨 충재 권벌 후손가 (문중) · 봉화 닭실마을, 충재 권벌의 후손가. 1777년 가을 한 집안의 두 사람이 나란히 진사 · 생원에 합격하고 흰 종이 합격증, 백패를 받는다. 그중 한 장에는 언제부턴가 1964년 1월 31일의 일력 한 장이 붙어 연호를 가리고 있다. 그리고 70년 뒤, 같은 집안의 권호연은 진사가 되고, 11년을 더 걸어 붉은 종이 문과 홍패를 받는다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/chungjae2/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/chungjae2/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep111-chungjae2_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep111-chungjae2_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep111-chungjae2_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep111-chungjae2_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

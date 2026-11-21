@@ -3,7 +3,7 @@
 상주 충주박씨 충원군 박동형 종가 (문중) · 1728년 이인좌·정희량의 난(무신란) 때 영남으로 달아나던 적을 끝까지 쫓아 잡은 상주의 무관 박동형. 그를 양무공신 3등 충원군에 봉한 영조의 교서 — '큰 물고기가 그물을 빠져나갈까 분하고 원통하여'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/chungwongun/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/chungwongun/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep72-chungwongun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep72-chungwongun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep72-chungwongun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep72-chungwongun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

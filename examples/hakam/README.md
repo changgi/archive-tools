@@ -3,7 +3,7 @@
 김천 진주강씨 학암 강석귀 종가 (문중) · 1706년 어머니 안동권씨가 자녀들에게 재산을 나눈 분재기, 1795년 사헌부 지평으로 부르는 유지, 그리고 9년 뒤 증조할머니 묘 바로 곁에 몰래 쓴 무덤을 찾아내고 '늙고 병들어 관아 뜰에 직접 서지 못한다'며 올린 1804년 소지
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hakam/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hakam/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep65-hakam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep65-hakam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep65-hakam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep65-hakam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

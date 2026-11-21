@@ -3,7 +3,7 @@
 산청 단성향교 (향교) · 읍내에 장을 열면 고을에 화가 든다 — 풍수를 근거로 장터를 옛 자리로 돌려 달라는 1881년 향회의 품목, 그리고 무너져 가는 향교를 고치자며 돈을 모은 1893년 통문
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/danseong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/danseong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep43-danseong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep43-danseong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep43-danseong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep43-danseong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

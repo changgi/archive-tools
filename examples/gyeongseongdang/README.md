@@ -3,7 +3,7 @@
 안산 부곡 진주류씨 경성당 (문중) · 부마 진안위 댁의 노비가 안산 땅의 일로 군수에게 올린 1606년 소지와 입안, 그리고 192년 뒤 어머니 유언을 받들어 동생과 누이에게 논밭을 나눠 주며 '피눈물로 써서 준다'고 적은 1798년 분재기
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gyeongseongdang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gyeongseongdang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep54-gyeongseongdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep54-gyeongseongdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep54-gyeongseongdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep54-gyeongseongdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

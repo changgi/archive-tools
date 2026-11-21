@@ -3,7 +3,7 @@
 진주 안계 진양하씨 담헌 하우선 종가 (문중) · 1608년(무신년) 4월 29일. 훗날 남명학파의 큰 선비가 되는 겸재 하홍도(河弘度, 1593–1666)가 열여섯 살 무렵 쓴 편지 한 장. '장맛비가 처음 개고 푸른 그늘이 하늘 같은데' — 안부를 묻고, 몇 달의 틈을 내어 공부하고 싶다는 마음을 적었다. 100번째 이야기는 400여 년 전 여름 문턱의 편지로 맺는다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/damheon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/damheon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep100-damheon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep100-damheon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep100-damheon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep100-damheon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

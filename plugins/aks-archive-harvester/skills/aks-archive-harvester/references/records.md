@@ -31,6 +31,7 @@ python3 studio.py record --verify --in <결과물 폴더> --media <영상 폴더
 
 - `--meta meta.json`: 폴더 이름을 열쇠로 `title · episode · series · collection · holder · purpose · previous · next`를 넘길 수 있습니다.
 - `--date YYYY-MM-DD`: 기록 날짜를 고정(다시 만들어도 같은 결과가 나오게).
+- `--media-remote 폴더 주소`: 영상처럼 큰 파일을 다른 저장소 · 서버로 옮겼을 때. 기록에는 공개 주소로 남고, 고정값은 그 폴더의 파일로 대조합니다. 내용(고정값)이 같은 채 자리만 옮기면 이력에 `migration`(옮김) 한 줄이 붙습니다 — 도서관이 책을 다른 서고로 옮기며 청구기호 옆에 '이관'을 적는 것과 같습니다.
 - 바뀐 것이 없으면 `events`에 아무것도 더하지 않습니다. 파일이 바뀌면 "수정", 검토 칸이 새로 채워지면 "검토" 한 줄이 붙습니다.
 
 ## record.json 모양 (줄임)

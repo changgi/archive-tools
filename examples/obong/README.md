@@ -3,7 +3,7 @@
 의성 아주신씨 오봉 신지제 가문 (문중) · 사헌부 지평으로 부르는 1605년 유지, 횃불 든 강도떼 정대립 일당을 마음을 다해 잡은 창원부사 신지제에게 상을 더한다는 1617년 광해군의 교서, 그리고 아들 신홍망의 1639년 문과 홍패
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/obong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/obong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep69-obong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep69-obong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep69-obong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep69-obong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

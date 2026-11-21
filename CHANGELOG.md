@@ -1,5 +1,10 @@
 # 변경 기록
 
+## aks-archive-harvester 1.9.2 (2026-11-21)
+- **영상은 별도 저장소로 [archive-tools-next](https://github.com/changgi/archive-tools-next)**: GitHub Pages는 사이트 하나를 1GB까지만 올려 줘서, 예시 영상(mp4 277개 · 454MB)을 옮기고 링크를 `https://changgi.github.io/archive-tools-next/media/…`로 바꿈. 포스터 · 자막 · 카드 · 전시는 그대로 이 저장소에. 예시 폴더 878MB → 약 420MB
+- **`studio.py record --media-remote 폴더 주소`**: 옮긴 파일은 기록에 공개 주소로 남기고 고정값은 그 폴더로 대조. 내용 그대로 자리만 옮기면 이력에 `migration` 한 줄(예시 128편에 기록). CI는 archive-tools-next를 함께 가져와 대조
+- `tools/series/media_offload.py`(영상 옮기기 · 링크 바꾸기, 여러 번 돌려도 같은 결과)를 `site_build.sh`에. `readme_ex`: 폴더 이름이 바뀐 편의 예전 행도 지움(EP.125 중복 행 정리)
+
 ## 예시 EP.132–138 (2026-11-21)
 - 한국학중앙연구원 장서각 5편(왕자 시절 영조의 교지 · 영조가 다시 불러 준 이름들 · 정조의 암행어사 봉서와 의주 효유서 · 궁녀 엄씨와 옹주 · 왕자의 교지), 경주 경주이씨 이찬우 소장 2편(기해년 열이틀의 혼서 · 1900/1901년 호적표의 직업 칸), 제주 어도 진주강씨 강수황의 17세기 차첩 네 장
 - 기록 꾸러미 139편 · 날짜 · 인용 어긋남 0

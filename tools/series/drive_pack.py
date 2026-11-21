@@ -48,7 +48,7 @@ def items(kind):
         elif kind == '영상' and f in ID:
             e = ID[f]
             for m, nm in (('reel', '릴스_9x16.mp4'), ('wide', '가로_16x9.mp4')):
-                src = OUT + f'{e}_{m}.mp4' if os.path.exists(OUT + f'{e}_{m}.mp4') else E + f'media/{e}_{m}.mp4'
+                src = OUT + f'{e}_{m}.mp4' if os.path.exists(OUT + f'{e}_{m}.mp4') else P.media_file(f'{e}_{m}.mp4')
                 if os.path.exists(src): out.append((f'{R}02_영상/{L}/{nm}', src))
             for src, nm in ((E + f'media/{e}.ko.srt', '자막.srt'), (E + f'media/{e}_reel-poster.jpg', '포스터_릴스.jpg'), (E + f'media/{e}_wide-poster.jpg', '포스터_가로.jpg')):
                 if os.path.exists(src): out.append((f'{R}02_영상/{L}/{nm}', src))
@@ -61,7 +61,7 @@ def items(kind):
                           ('delivery.md', '전달에디팅.md'), ('sns.txt', 'SNS.txt'), ('selection.csv', '판독번역표.csv')):
                 if os.path.exists(d + a): out.append((f'{R}06_글·데이터/{L}/{nm}', d + a))
     if kind == '영상':
-        for p in sorted(glob.glob(E + 'media/promo-reel*.mp4') + glob.glob(E + 'media/series-*_reel.mp4')):
+        for p in sorted(glob.glob(E + 'media/promo-reel*.mp4') + glob.glob(E + 'media/series-*_reel.mp4') + glob.glob(P.NEXT + '/media/promo-reel*.mp4') + glob.glob(P.NEXT + '/media/series-*_reel.mp4')):
             out.append((f'{R}02_영상/_시리즈 홍보영상/{os.path.basename(p)}', p))
     if kind == '나머지':
         for a in ('analysis-data.json', 'analysis-episodes.csv', 'data.zip', 'media/reels-captions.md', 'README.md', 'CURATOR-NOTE.md', 'PROMOTE.md', 'USE.md'):

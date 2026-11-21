@@ -3,7 +3,7 @@
 서울 마포 성주이씨 대종회 (문중) · "이화에 월백하고"의 이조년, 그리고 스스로를 "얼굴은 아낙처럼 여리다"고 쓴 도은 이숭인 — 성주이씨 집안은 낡은 조상의 초상을 1655년부터 60년마다 다시 그려 왔다. 초상 위에 적힌 날짜들
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/seongju-lee/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/seongju-lee/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep53-seongju-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep53-seongju-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep53-seongju-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep53-seongju-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

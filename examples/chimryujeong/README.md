@@ -3,7 +3,7 @@
 밀양 사촌 의령남씨 종가 침류정 (문중) · 1799년 봄, 밀양 단장면 사동 마을 뒤 의령남씨 선산. 정월 성묘 뒤 와 보니, 누군가 밤을 틈타 8대조 판서공 무덤의 바로 뒤 주룡(主龍)에 몰래 시신을 묻어 놓았다. 남국신 등 문중 사람 스물여섯이 이름을 늘어놓고 밀양 부사에게 호소한다 — '관에서 사람을 보내 파내게 해 주십시오'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/chimryujeong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/chimryujeong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep96-chimryujeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep96-chimryujeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep96-chimryujeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep96-chimryujeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

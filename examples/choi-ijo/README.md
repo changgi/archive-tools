@@ -3,7 +3,7 @@
 경주 이조 경주최씨 (문중) · 269등으로 무과에 붙은 부장, 임금이 '청렴함이 늙을수록 굳다'고 쓴 교서, 남한산성 아래 전사한 아버지를 묻으려던 아들들의 소지, 그리고 시호 '정무' — 경주최씨 집안의 시작
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/choi-ijo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/choi-ijo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep36-choi-ijo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep36-choi-ijo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep36-choi-ijo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep36-choi-ijo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

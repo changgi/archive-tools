@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -88,14 +88,6 @@
    "sha256": "83b4174f397645e980750fa12c3e22943c0e9e8c6d3ee5defd716df5d7cefca5"
   },
   {
-   "path": "../media/ep50-gyeonggi-museum_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1343638,
-   "sha256": "aa20f2bc6e92572956ec7edb388bd355adafe8615d3dca662ae01a5baecf9b28"
-  },
-  {
    "path": "../media/ep50-gyeonggi-museum_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -104,20 +96,12 @@
    "sha256": "6f1996026bf7b9c6adc7610677291015553e9d881f374bc19a443db45d38dfab"
   },
   {
-   "path": "../media/ep50-gyeonggi-museum_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1346993,
-   "sha256": "7c6874aecf35e24aba3ba9801dc2f5e496d9ffb4e554b7c04361e3e6693b0f19"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 9763,
-   "sha256": "c4b520c8916c224ae9214e27d0b6182b13720337375647fa48465991747a22e1"
+   "bytes": 9755,
+   "sha256": "ace47814a7c29f05127ebb7bf875a3f9b315820aee98154ccc31f105014352b1"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -216,6 +200,22 @@
    "sha256": "8d60191c8ee9e6082a9827906289061db4a494c7173f899110b28b8c8fce9edc"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep50-gyeonggi-museum_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1343638,
+   "sha256": "aa20f2bc6e92572956ec7edb388bd355adafe8615d3dca662ae01a5baecf9b28"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep50-gyeonggi-museum_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1346993,
+   "sha256": "7c6874aecf35e24aba3ba9801dc2f5e496d9ffb4e554b7c04361e3e6693b0f19"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -257,7 +257,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 2,
   "quotes": 2,
   "uncertain_marks": 4,
@@ -300,6 +300,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 4 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep50-gyeonggi-museum_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep50-gyeonggi-museum_reel.mp4",
+    "../media/ep50-gyeonggi-museum_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep50-gyeonggi-museum_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

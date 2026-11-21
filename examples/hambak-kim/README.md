@@ -3,7 +3,7 @@
 청도 함박김씨 (문중) · 임진왜란 때 조선에 귀순한 일본 장수 사여모(沙汝某), 조선 이름 김성인. 그에게 내린 가선대부 교지, '향화(向化)'라 적힌 아들 대의 고신, 그리고 1676년 '제8,353등'으로 무과에 붙은 후손의 홍패까지 — 청도 함박김씨 집안에 남은 세 장
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hambak-kim/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hambak-kim/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep73-hambak-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep73-hambak-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep73-hambak-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep73-hambak-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

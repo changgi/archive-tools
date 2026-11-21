@@ -3,7 +3,7 @@
 제주 어도 진주강씨 강수황 후손가 (문중) · 1635년 겨울, 제주 목사는 강수황에게 차첩 한 장을 내린다. 16년 뒤 그는 섬 군대의 왼쪽 부대를 맡는 좌부 천총이 되고, 9년 뒤에는 고을의 일을 보는 유향별감이 된다. 3년 뒤, 쫓겨난 사람의 자리에 그를 다시 오른쪽 부대 천총으로 앉힌다. 네 장 모두 같은 말로 끝난다. 가볍게 여기지 말고 맡아 살피라
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/eodo-kang-sh-chacheop/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/eodo-kang-sh-chacheop/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep138-eodo-kang-sh-chacheop_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep138-eodo-kang-sh-chacheop_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep138-eodo-kang-sh-chacheop_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep138-eodo-kang-sh-chacheop_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

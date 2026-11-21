@@ -3,7 +3,7 @@
 칠곡 석전 광주이씨 (문중) · 1608년, 칠곡 석전의 이윤우(李潤雨)가 성균관 학유로 첫 벼슬을 받는다. 1942년, 같은 집안의 후손이 왜관금융조합에서 200원을 빌리며 '옛 빚을 갚는 데 쓴다'고 적는다. 한 집안 문서함 속 두 장의 종이
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/seokjeon-lee/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/seokjeon-lee/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep77-seokjeon-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep77-seokjeon-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep77-seokjeon-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep77-seokjeon-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

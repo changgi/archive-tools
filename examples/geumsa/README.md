@@ -3,7 +3,7 @@
 공주 진주류씨 금사 유충걸 후손가 (문중) · 1795년, 공주 진주류씨 집안의 류문검은 무과에 병과 제452인으로 합격한다. 수백 명 가운데 하나였던 그는 훗날 충청도 수군절도사가 되어, 임금에게서 반쪽짜리 병부(밀부)와 함께 한 통의 유서를 받는다. '맞춰 보아 의심이 없거든 그때 명을 따르라.' 그 앞에는 1722년, 같은 집안 류성기가 받은 절충장군 교지가 있다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/geumsa/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/geumsa/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep109-geumsa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep109-geumsa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep109-geumsa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep109-geumsa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

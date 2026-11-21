@@ -3,7 +3,7 @@
 강화·부여 창원황씨 (문중) · 1596년 6월, 서른다섯의 황신(黃愼, 1562–1617)은 통정대부로 품계가 올라 명나라 책봉사를 따라 일본으로 가는 통신사가 된다. 협상은 깨졌고, 이듬해 7월 정유재란이 터지자 그는 전라도의 병마·수군 지휘를 겸하는 자리에 임명된다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/changwon-hwang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/changwon-hwang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep82-changwon-hwang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep82-changwon-hwang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep82-changwon-hwang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep82-changwon-hwang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

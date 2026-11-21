@@ -3,7 +3,7 @@
 여주 산북 전주이씨 완양부원군 이충원 종가 (문중) · 1592년 임진왜란, 서울을 버리고 의주로 피란하는 선조의 곁에는 신하가 많지 않았다. 흰머리의 이충원은 걸어서 그 길을 따랐다. 전쟁이 끝난 뒤인 1604년, 임금은 그를 호성공신(扈聖功臣)에 올리며 교서를 내린다. 비단에 쓴 그 두루마리에서 임금은 이렇게 고백한다. '많은 이가 처자를 지키고 제 몸을 온전히 하려 했다'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/wanyang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/wanyang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep115-wanyang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep115-wanyang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep115-wanyang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep115-wanyang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

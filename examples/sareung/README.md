@@ -3,7 +3,7 @@
 양주 사릉 해주정씨 종가 (문중) · 단종의 누이 경혜공주의 아들 정미수. 외삼촌 단종이 왕위에서 쫓겨나고 아버지 정종마저 화를 입은 집안에서 자란 그는, 1506년 중종반정에 참여해 정국공신이 된다. 1508년 임금은 그에게 노비를 내리며 '나라의 운이 기울어 신기(神器)가 쓰러지려 할 때 경이 의를 떨쳤다'고 적는다. 그리고 한 세기 뒤, 같은 집안의 정식이 받은 진사 합격증에는 연호 대신 간지 '壬午'만 적혀 있다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/sareung/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/sareung/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep118-sareung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep118-sareung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep118-sareung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep118-sareung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

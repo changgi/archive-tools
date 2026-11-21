@@ -3,7 +3,7 @@
 안동 천전 의성김씨 천상각파 (문중) · 1590년 김용, 1660년 김방걸의 홍패에 이어, 1711년 진사에 붙은 김성탁은 24년 뒤 단성현감으로 일하며 문과에 급제한다. 이듬해 '사간원 정언으로 삼으니 서둘러 올라오라'는 유지까지 — 안동 내앞 의성김씨의 붉은 종이
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/cheonsang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/cheonsang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep71-cheonsang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep71-cheonsang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep71-cheonsang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep71-cheonsang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

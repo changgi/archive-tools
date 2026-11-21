@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -156,14 +156,6 @@
    "sha256": "93c2e78010e7de15bcd200293c982ed59cb63921134934854918877d71fdddbf"
   },
   {
-   "path": "../media/ep11-hagari_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1163859,
-   "sha256": "c75c37ad21ed5c19c7d6c2a797a5d8cd7ca01e388ba01fa78f9e9f330e74fbbb"
-  },
-  {
    "path": "../media/ep11-hagari_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -172,20 +164,12 @@
    "sha256": "34e252dd85c32da0f538855048ff9d02d5b50b3215d76d2207083645b6438600"
   },
   {
-   "path": "../media/ep11-hagari_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1169066,
-   "sha256": "51bcec59fc6b10f1fcab6e39bc8fb7241de9e0c9d058d33b783350cfa1549d25"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 8131,
-   "sha256": "b05fbe3e853d717e1ba4757bb2401ad7531d5fdfb2ab4f8a76ea32665c4c6d81"
+   "bytes": 8123,
+   "sha256": "4dc256395c53b04865b3dda821b772c14fcd6be98287fb7ac3f61bb656d1673e"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -332,6 +316,22 @@
    "sha256": "a7a8dc077d9b4f093e06a8dd35db242f754f35f55a80a59f00e94ba77b54d579"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep11-hagari_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1163859,
+   "sha256": "c75c37ad21ed5c19c7d6c2a797a5d8cd7ca01e388ba01fa78f9e9f330e74fbbb"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep11-hagari_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1169066,
+   "sha256": "51bcec59fc6b10f1fcab6e39bc8fb7241de9e0c9d058d33b783350cfa1549d25"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -373,7 +373,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 8,
   "quotes": 1,
   "uncertain_marks": 0,
@@ -422,6 +422,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep11-hagari_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep11-hagari_reel.mp4",
+    "../media/ep11-hagari_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep11-hagari_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

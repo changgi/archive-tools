@@ -3,7 +3,7 @@
 합천 용연서원 (서원) · 홍수로 서원의 논이 쓸려 간 뒤 둑을 다시 쌓아 달라는 1709년 상서, 그리고 170년 뒤 13대조 무덤 바로 위에 몰래 묻은 투장을 파내 달라는 박씨 후손들의 1881년 소지 — 서원과 문중이 땅을 지킨 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/yongyeon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/yongyeon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep46-yongyeon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep46-yongyeon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep46-yongyeon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep46-yongyeon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

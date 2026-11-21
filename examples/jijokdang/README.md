@@ -3,7 +3,7 @@
 함양 안의 밀양박씨 지족당 박명부 종가 (문중) · 1627년, 정묘호란이 있던 해의 겨울. 제주목사 지족당 박명부는 조총 · 활 · 갑옷을 배에 가득 실어 올려 보낸다. 점검해 보니 하나도 빠진 것이 없고, 모두 새로 만든 것처럼 날카로웠다. 임금은 편지를 내려 칭찬하고 옷감을 하사한다. 8년 뒤 그는 충청도 관찰사가 되어 증조부까지 벼슬을 추증받고, 왕과 그만 아는 '열여섯 번째' 밀부를 받는다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jijokdang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jijokdang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep113-jijokdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep113-jijokdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep113-jijokdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep113-jijokdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

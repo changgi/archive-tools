@@ -3,7 +3,7 @@
 서귀포 사계 진주강씨 (문중) · 1676년 5월, 제주목 우면 제9리 수류천. 제75호에 사는 향교 학생 강균황(44세)과 그 아들 강매(19세)가 같은 날 '지패(紙牌)'를 받는다. 나무나 뿔 대신 종이로 만든 제주의 호패. 그 통의 우두머리(통수)는 관청의 노비였다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/sagye-kang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/sagye-kang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep79-sagye-kang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep79-sagye-kang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep79-sagye-kang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep79-sagye-kang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

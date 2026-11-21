@@ -3,7 +3,7 @@
 안성 보체 동래정씨 정홍순 종가 (문중) · 5년 안에 잇달아 급제한 두 아들에게 노비와 논을 상으로 나눠 준 아버지의 1727년 분재기, 손자 정홍순의 홍패와 남한산성 수어사 교서, 그리고 정조가 큰 글씨로 써 보낸 비답
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jeonghongsun/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jeonghongsun/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep51-jeonghongsun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep51-jeonghongsun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep51-jeonghongsun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep51-jeonghongsun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -114,14 +114,6 @@
    "sha256": "c3cc8a2aaefb6f0555978f3d364aaae78ed82485cf9af7edb2693115bf7ec586"
   },
   {
-   "path": "../media/ep36-choi-ijo_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1769968,
-   "sha256": "c2cc89082353a8d8b380ad902653ceb1ef0508df430edfe3728366985490f059"
-  },
-  {
    "path": "../media/ep36-choi-ijo_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -130,20 +122,12 @@
    "sha256": "b6158e8bc0ea4890bfcc8804d1fd78f4ca7ef9fa6470dfe7f0db7e470caca2bf"
   },
   {
-   "path": "../media/ep36-choi-ijo_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1826675,
-   "sha256": "fbc8255e28de3de1e5ce6cd9027e3294ecb8b7b5ebd5ac1945d1bee621ecd8bb"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 14391,
-   "sha256": "c30ff0f0e077f15e29835504f5437398c70901f1df2c809fd938dd4af8c0f215"
+   "bytes": 14383,
+   "sha256": "1e27836cd348fc35b1746810bd8fcee0be009585c63055b67db76f82ee3a78cc"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -258,6 +242,22 @@
    "sha256": "139886c4d407b5c74ff211e465e23acc8c4abf68555adca1734581805657045a"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep36-choi-ijo_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1769968,
+   "sha256": "c2cc89082353a8d8b380ad902653ceb1ef0508df430edfe3728366985490f059"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep36-choi-ijo_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1826675,
+   "sha256": "fbc8255e28de3de1e5ce6cd9027e3294ecb8b7b5ebd5ac1945d1bee621ecd8bb"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -299,7 +299,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 4,
   "quotes": 4,
   "uncertain_marks": 4,
@@ -344,6 +344,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 4 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep36-choi-ijo_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep36-choi-ijo_reel.mp4",
+    "../media/ep36-choi-ijo_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep36-choi-ijo_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

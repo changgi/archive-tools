@@ -3,7 +3,7 @@
 영덕 도곡 무안박씨 무의공 박의장 종가 (문중) · 향교 학생으로 무과에 급제한 박의장, 전쟁 통에 굶어 죽어 가던 피란민을 거둔 집안의 소지, 군량 700석을 모은 경주부윤에게 내린 전마 — 전쟁을 지난 한 집안의 30년
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/uiijang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/uiijang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep31-uiijang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep31-uiijang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep31-uiijang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep31-uiijang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

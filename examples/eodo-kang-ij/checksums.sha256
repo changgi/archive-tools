@@ -1,10 +1,8 @@
 e90b72cfd4a0bbf953bc273eddedcad90ff47f4d527fcbb4ed863bd28a92cf2f  ../media/ep128-eodo-kang-ij.ko.srt
 5522f2f71fd71af15e97f065bb4ec87d9db132296ed98ac37effe6b7886d1383  ../media/ep128-eodo-kang-ij.ko.vtt
 a440757f2d96080ab3a9a9d1549488da2cc12f3ee9f2d0b76d56281de7cbc797  ../media/ep128-eodo-kang-ij_reel-poster.jpg
-b499d08c857a521a874c76c8f3e6d82b7a0ca5d54e1a81b3624bce47d75d9e5e  ../media/ep128-eodo-kang-ij_reel.mp4
 57beea4852dcbecd10c10bb3db0459dab424eaa97aa3dcf20b08a2f6d1ceebaf  ../media/ep128-eodo-kang-ij_wide-poster.jpg
-c7c3bbac1feb976b195bfbdf839c75df65f22397f9f51e7873699fd1d8a8d683  ../media/ep128-eodo-kang-ij_wide.mp4
-3b1124530935e87e6d1f6d1c4e6ca71cd82258f661c855cbc7dc44a8286d42a2  README.md
+b02d18f86b0b49195af35161b0b164d16ee8fc6edf69a8f392c95e513db4409c  README.md
 f806aa287dfe09444961da17860f9c8755416091339f71e0390100d2130d2eed  behind/b1_전하고싶은것.jpg
 2ad400911a4ba7d94ea95df98930e29ff08e07015c58196e4d885aae8b6ee9a0  behind/b2_만들며있었던일.jpg
 f8c2d498d922cb9d487a4ac9a222e66d2ed88cdee33078c455f876c42bcc6ecb  behind/b3_남겨둔질문.jpg
@@ -19,6 +17,8 @@ c2f1981cd11118637454627c185bc038041f93fdd4fe98e329f144dac66641fe  cards/99_마�
 0e9a23e74f9f08ce9351b6db50b149547e209d86f4fb9b8482143f4075caaaf3  delivery.md
 80b5c15222c40813c30197e6ab8096775b319782e55f84b61768c7f1a478914d  exhibit.html
 208f68a3e0823732ae3bcb873c7957266ed3c0b46cca70e400b4857348d495d0  handout.html
+b499d08c857a521a874c76c8f3e6d82b7a0ca5d54e1a81b3624bce47d75d9e5e  https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_reel.mp4
+c7c3bbac1feb976b195bfbdf839c75df65f22397f9f51e7873699fd1d8a8d683  https://changgi.github.io/archive-tools-next/media/ep128-eodo-kang-ij_wide.mp4
 2e2559da5b6312c9145d058605f54be722eb64e1e139534f8f4b207a6ab8092d  promo.md
 fd618b449af52f265185562285260c9056379c2b873003a8320322b061eaa184  proof.html
 c90a319775bb5a632fac38292ac71c8cdebd99a3911933e5283d18c7eda83ceb  selection.csv

@@ -3,7 +3,7 @@
 밀양 덕남서원 (서원) · 고려가 망할 때 벼슬을 버린 송은 박익을 기려 달라는 1834년 경상도 유생들의 계초, 그리고 34년 뒤 서원 앞산의 소나무를 팔아 버린 후손들을 고발한 1868년 소지 — 기리는 일과 지키는 일
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/deoknam/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/deoknam/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep44-deoknam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep44-deoknam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep44-deoknam_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep44-deoknam_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

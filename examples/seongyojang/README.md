@@ -3,7 +3,7 @@
 강릉 전주이씨 선교장 효령대군 후손가 (문중) · 480장의 땅 문서를 남긴 만석꾼의 집 — 1607년 무명 여덟 필로 산 논에서 일제강점기 은행 저당, 해방 뒤 80만 원짜리 매도계약서까지
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/seongyojang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/seongyojang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep27-seongyojang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep27-seongyojang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep27-seongyojang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep27-seongyojang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@
 경주 장산서원 (서원) · 1799년 3월, 경주부윤 오(吳) 아무개가 장산사(章山祠)의 봄 제사에 쓸 물건을 적어 보낸다. 술 빚을 쌀 세 되, 누룩 한 덩이, 사슴포 세 가닥, 사슴 젓갈 한 되, 밤·대추, 미나리·무 김치, 그리고 축문 쓸 종이 한 장과 붓 한 자루
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jangsan/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jangsan/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep86-jangsan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep86-jangsan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep86-jangsan_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep86-jangsan_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

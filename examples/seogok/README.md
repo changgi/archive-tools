@@ -3,7 +3,7 @@
 진안 정천 전주이씨 서곡 이정영 후손가 (문중) · 혼례를 마친 뒤 사돈댁에서 보내온 한글 편지 — '큰일을 평안히 지내고, 며느리가 극진하다 하니 기쁘기 측량없다' — 그리고 논 서 마지기와 빚을 두고 손자에게 길게 당부한 할아버지의 편지. 진안 전주이씨 집안의 언간 60여 통 가운데 두 통
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/seogok/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/seogok/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep60-seogok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep60-seogok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep60-seogok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep60-seogok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

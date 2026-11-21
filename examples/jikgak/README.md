@@ -3,7 +3,7 @@
 보령 천궁 경주김씨 직각 김면주 종가 (문중) · 1885년 3월 13일, 경복궁 근정전의 춘도기 시험. 서른네 살의 김상덕은 「순임금의 남풍가」를 시로 지어 시험관에게서 '三下'를 받는다. 답안지 머리에는 그날의 시험관 이름과 결과가 적혀 있다. '三下 하나, 유학 김상덕은 회시로 바로 나아가게 하라.' 1년 뒤 그는 내무부의 작은 벼슬을 받고, 3년 뒤 서른일곱의 몸으로 다시 경무대 시험장에 앉는다. 과거 제도가 사라지기 9년 전이었다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jikgak/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jikgak/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep120-jikgak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep120-jikgak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep120-jikgak_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep120-jikgak_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

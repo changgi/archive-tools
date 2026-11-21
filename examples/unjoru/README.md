@@ -3,7 +3,7 @@
 구례 오미 문화류씨 운조루 (문중) · 집을 사고판 30년의 기록에서, 무과에 급제해 벼슬길을 걸은 유이주까지 — 구례 운조루 문화류씨 집안의 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/unjoru/exhibit.html) · [수업 활동지](https://changgi.github.io/archive-tools/examples/unjoru/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep8-unjoru_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep8-unjoru_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep8-unjoru_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep8-unjoru_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 에디팅 결과: [`selection.csv`](selection.csv)
 
 ## 이야기 (영상 내레이션)

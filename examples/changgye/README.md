@@ -3,7 +3,7 @@
 나주 회진 나주임씨 창계 임영 후손가 (문중) · 생원시 장원 백패, '동짓날 관문을 닫는다'를 주제로 쓴 답안지와 홍패, 그리고 병든 개성유수에게 임금이 직접 써 보낸 편지와 밀부 유서 — 나주 회진에 남은 한 학자의 30년
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/changgye/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/changgye/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep41-changgye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep41-changgye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep41-changgye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep41-changgye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

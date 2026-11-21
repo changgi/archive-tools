@@ -3,7 +3,7 @@
 부안 우반 부안김씨 (문중) · 1502년 성균관 생원의 홍패, 전쟁이 끝난 1600년 '흩어졌던 백성이 돌아오고 들판이 다 개간되었다'는 어사의 보고에 금산군수 김홍원에게 비단을 내린 유지, 그리고 일찍 남편을 잃은 며느리가 양자를 세워 달라고 올린 소지
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/buan-kim/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/buan-kim/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep62-buan-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep62-buan-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep62-buan-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep62-buan-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

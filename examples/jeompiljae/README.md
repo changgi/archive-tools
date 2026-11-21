@@ -3,7 +3,7 @@
 고령 선산김씨 점필재 김종직 종가 (문중) · 무오사화로 무덤까지 파헤쳐진 점필재 김종직 — 그 집안에 남은 진사 합격증, '문충'이라는 시호, 산지기 임명 문서, 그리고 장원 급제의 붉은 홍패
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jeompiljae/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jeompiljae/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep28-jeompiljae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep28-jeompiljae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep28-jeompiljae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep28-jeompiljae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

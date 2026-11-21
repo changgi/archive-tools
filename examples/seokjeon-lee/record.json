@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -89,14 +89,6 @@
    "sha256": "a4fd34001f1b7477fd473a97db448a24350b8bedf9e9b71e4d4ab73818d9d07c"
   },
   {
-   "path": "../media/ep77-seokjeon-lee_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1365917,
-   "sha256": "e87b76094f8840bd706acb327a58f6a2a0f03353e2fc6a1efacf73935381918e"
-  },
-  {
    "path": "../media/ep77-seokjeon-lee_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -105,20 +97,12 @@
    "sha256": "4f8d509d0392887e5245d44dcc442e6de6ca241d841c8729272c45e3fcef0f25"
   },
   {
-   "path": "../media/ep77-seokjeon-lee_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1427106,
-   "sha256": "92c596787fc3030aa860ba0f99bf75e3dd7926045e84705baf7b93ade20bf0a7"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 10482,
-   "sha256": "1b21c0c3468c55fbb81b34e0fd3cf937ae165db08096c33094b45fdcc357a559"
+   "bytes": 10474,
+   "sha256": "3b549fd740c85a0477d6fd375129ad0a634c1968371c90b996e5bc79765d92d2"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -217,6 +201,22 @@
    "sha256": "479d67269fc3864397b9676afcbd4e4337f6f91b467c53e713726a5b927fb200"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep77-seokjeon-lee_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1365917,
+   "sha256": "e87b76094f8840bd706acb327a58f6a2a0f03353e2fc6a1efacf73935381918e"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep77-seokjeon-lee_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1427106,
+   "sha256": "92c596787fc3030aa860ba0f99bf75e3dd7926045e84705baf7b93ade20bf0a7"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -258,7 +258,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 2,
   "quotes": 2,
   "uncertain_marks": 0,
@@ -301,6 +301,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep77-seokjeon-lee_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep77-seokjeon-lee_reel.mp4",
+    "../media/ep77-seokjeon-lee_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep77-seokjeon-lee_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

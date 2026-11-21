@@ -3,7 +3,7 @@
 안동 하회 풍산류씨 (문중) · 임진왜란 한가운데 받은 임명장, 물러나려는 재상을 붙잡은 임금의 글, 그리고 시호까지 — 하회 풍산류씨 집안의 류성룡 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hahoe-ryu/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hahoe-ryu/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep18-hahoe_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep18-hahoe_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep18-hahoe_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep18-hahoe_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

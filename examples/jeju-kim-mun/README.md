@@ -3,7 +3,7 @@
 제주 경주김씨 문중회 (문중) · 1709년 가을, 제주에 흉년이 든다. 이듬해 봄 제주 목사는 곡식을 모아 진휼하겠다고 임금에게 청해 허락을 받고, 곡식을 바치는 사람에게 통정대부 첩을 내준다. 김명산은 쌀 네 섬을 바치고 그 첩에 이름을 올린다. 18년 뒤, 여든셋이 된 그는 어사의 보고로 가선대부에 오른다. 같은 집안의 김차복도 근력부위를 거쳐 통정대부가 된다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jeju-kim-mun/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jeju-kim-mun/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep130-jeju-kim-mun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep130-jeju-kim-mun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep130-jeju-kim-mun_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep130-jeju-kim-mun_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

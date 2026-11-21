@@ -3,7 +3,7 @@
 서산 대교 경주김씨 충민공 김홍익 후손가 (문중) · 1624년 의금부 도사로 첫 벼슬을 받은 진사 김홍익(金弘翼, 1581–1636). 병자호란 때 연기현감으로 군사를 이끌고 남한산성을 구하러 가다 험천(險川)에서 전사한다. 네 번째 병자년인 1816년, 순조는 신하를 보내 제문을 읽게 한다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/kimhongik/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/kimhongik/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep83-kimhongik_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep83-kimhongik_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep83-kimhongik_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep83-kimhongik_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

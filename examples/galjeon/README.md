@@ -3,7 +3,7 @@
 안동 갈전 순흥안씨 종가 (문중) · 1597년 12월, 왜군이 다시 쳐들어온 정유재란의 한복판. 생원 안담수(安聃壽)가 경상도 남쪽 역로인 성현도(省峴道)의 찰방이 된다. 전쟁이 끝난 1598년 12월에는 '별가(別加)'로 품계가 오르고, 스무 해 뒤에는 장악원 첨정이 된다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/galjeon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/galjeon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep78-galjeon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep78-galjeon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep78-galjeon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep78-galjeon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

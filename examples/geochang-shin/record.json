@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -90,14 +90,6 @@
    "sha256": "26e2d8b579f7c4f381b0df5c2c06266ae9a1fc433c3ade4921a96c94a0dbf980"
   },
   {
-   "path": "../media/ep105-geochang-shin_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1342842,
-   "sha256": "7ae39ef6ff8bab540d70a0f5a32504339adc30256e0597a1185f969d8701e3c8"
-  },
-  {
    "path": "../media/ep105-geochang-shin_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -106,20 +98,12 @@
    "sha256": "171d07fcc3550549046b5f1e3f96608a8dfc18631cff990b4d8679736a47a332"
   },
   {
-   "path": "../media/ep105-geochang-shin_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1354926,
-   "sha256": "212fc7c0c2e3e8523999adac4fcc4b5ec6a817a2704589d752d5f6559e1b67d4"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 8848,
-   "sha256": "bb40e847fc9dc7cd0380238d6ef18c2da9d7e13182e694b324740ad4768e750d"
+   "bytes": 8840,
+   "sha256": "0bf0b842fa9a7eaa484053f1ac4a24970e9515d95b0cfe5e533b91df70eb5e0f"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -218,6 +202,22 @@
    "sha256": "b18d170f30e67c9e16cd25d860e9dfe883586d94b8a370e27468e5fffdc1cc50"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep105-geochang-shin_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1342842,
+   "sha256": "7ae39ef6ff8bab540d70a0f5a32504339adc30256e0597a1185f969d8701e3c8"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep105-geochang-shin_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1354926,
+   "sha256": "212fc7c0c2e3e8523999adac4fcc4b5ec6a817a2704589d752d5f6559e1b67d4"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -259,7 +259,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 2,
   "quotes": 2,
   "uncertain_marks": 0,
@@ -302,6 +302,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep105-geochang-shin_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep105-geochang-shin_reel.mp4",
+    "../media/ep105-geochang-shin_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep105-geochang-shin_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

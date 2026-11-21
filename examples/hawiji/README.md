@@ -3,7 +3,7 @@
 안동 송파 진주하씨 하위지 후손가 (문중) · 1456년 사육신 하위지가 처형된 뒤, 그 동생의 어린 아들 구동이 빼앗긴 아버지의 노비를 돌려 달라고 올린 1461년 소지, 그리고 300년 뒤 예조판서가 '하원은 하소지의 아들'이라며 시호를 청한 1770년 계 — 끊어질 뻔한 집안이 이어진 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hawiji/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hawiji/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep42-hawiji_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep42-hawiji_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep42-hawiji_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep42-hawiji_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

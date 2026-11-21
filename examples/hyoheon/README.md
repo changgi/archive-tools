@@ -3,7 +3,7 @@
 김포 전주이씨 효헌 이인철 후손가 (문중) · 1896년, 조선이 처음으로 스스로 정한 연호 '건양(建陽)'이 찍힌 임명장이 이인철에게 온다. 14년 뒤인 1910년 8월, 세상을 떠난 그에게 붉은 종이에 쓴 시호 '효헌(孝憲)'이 내려진다. 그리고 같은 달 28일, 그 집안의 이순하는 규장각 부제학에 임명된다. 그 이튿날, 대한제국은 사라졌다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hyoheon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hyoheon/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep121-hyoheon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep121-hyoheon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep121-hyoheon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep121-hyoheon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

@@ -3,7 +3,7 @@
 경주 옥산 여주이씨 독락당 (문중) · "속히 역마를 타고 올라오라"던 임금의 부름에서 서자에게 남긴 노비 문서까지 — 회재 이언적과 그 가족이 남긴 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/dongnakdang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/dongnakdang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep17-dongnakdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep17-dongnakdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep17-dongnakdang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep17-dongnakdang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

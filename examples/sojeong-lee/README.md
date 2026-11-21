@@ -3,7 +3,7 @@
 경주 소정 경주이씨 (문중) · 묘 근처에 몰래 쓴 무덤 때문에 사또에게 올린 1824년 소지, 그리고 68년 뒤 '농사도 장사도 하지 않는 떠돌이 친척이 술빚을 지고 문중에 받아 가게 한다'며 집안사람 스무 명이 관찰사에게 올린 1892년 상서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/sojeong-lee/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/sojeong-lee/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep64-sojeong-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep64-sojeong-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep64-sojeong-lee_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep64-sojeong-lee_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

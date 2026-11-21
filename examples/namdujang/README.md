@@ -3,7 +3,7 @@
 김포 의령남씨 서윤공 남두장 후손가 (문중) · 1650년 진사 백패를 받은 남두장, 3년마다 다시 받은 호적(준호구)에 적힌 노비와 가족, 그리고 땅을 저당 잡혔던 사람이 '옛 문서를 찾지 못했으니 이 수기로 증거하라'고 써 준 1797년의 종이 한 장
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/namdujang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/namdujang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep55-namdujang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep55-namdujang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep55-namdujang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep55-namdujang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@
 예천 용문사 (사찰) · 불상 속 복장기에서 쌀을 모은 계, 살림을 넘긴 전장기까지 — 예천 용문사의 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/yongmunsa/exhibit.html) · [수업 활동지](https://changgi.github.io/archive-tools/examples/yongmunsa/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep12-yongmunsa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep12-yongmunsa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep12-yongmunsa_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep12-yongmunsa_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 에디팅 결과: [`selection.csv`](selection.csv)
 
 ## 이야기 (영상 내레이션)

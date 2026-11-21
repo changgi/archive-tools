@@ -3,7 +3,7 @@
 합천 합천향교 (향교) · 1904년 10월, 합천향교가 규약 하나를 고쳐 관인을 찍는다. 이 고을은 남인이 가장 많아 향교의 우두머리(교수) 자리를 바라는 사람도 많은데, 임기 1년을 꽉 채우면 큰 선비들이 차례를 못 얻을까 걱정된다. 그러니 봄·가을 반년씩 돌아가며 맡자 — '겸양의 풍속을 이루자'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hapcheon-hyanggyo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hapcheon-hyanggyo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep85-hapcheon-hyanggyo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep85-hapcheon-hyanggyo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep85-hapcheon-hyanggyo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep85-hapcheon-hyanggyo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

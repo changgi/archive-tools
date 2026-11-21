@@ -3,7 +3,7 @@
 한국학중앙연구원 장서각 (박물관) · 왕이 된 영조는 이름을 높여 주는 교지를 여러 번 내린다. 1734년에는 무관의 낮은 자리에 머물렀던 외할아버지 최효원을 영의정으로 추증한다. 어머니 숙빈 최씨의 사당 육상궁에는 노비를 내려 '누구의 몇째 자식'까지 적는다. 1765년에는 사도세자의 어머니 영빈 이씨에게 '의열'이라는 시호를, 1773년에는 이름 없이 '첫째 옹주'로 불리던 딸에게 '화억'이라는 이름을 준다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jangseogak-yeongjo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jangseogak-yeongjo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep133-jangseogak-yeongjo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep133-jangseogak-yeongjo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep133-jangseogak-yeongjo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep133-jangseogak-yeongjo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

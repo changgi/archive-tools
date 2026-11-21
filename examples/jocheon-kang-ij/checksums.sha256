@@ -1,10 +1,8 @@
 d9147580b7b25e4f8f380bf7b6e78670c57dbd668d11a314113c5b551284c336  ../media/ep125-jocheon-kang-ij.ko.srt
 9ef179bd76a41e129248187f761271c2f1cab37646ef89cd999bb30866e8c76c  ../media/ep125-jocheon-kang-ij.ko.vtt
 29e2217a170a15fe1a0e3347728381a5bf8bde03a634738e505e91a1450ccbb6  ../media/ep125-jocheon-kang-ij_reel-poster.jpg
-9c4fde08519273d570e58fb616350674c65ff36eae592a22a8826850c931327c  ../media/ep125-jocheon-kang-ij_reel.mp4
 8999a81a462ae28c8f3b6c46be4ef56cbf3c602ae22863e509ec7a23959cc60f  ../media/ep125-jocheon-kang-ij_wide-poster.jpg
-9a3ad4d3ec04b87d7ade5ca5c421a1f85da7bb6863a8b22b5a91bfd61bc57b99  ../media/ep125-jocheon-kang-ij_wide.mp4
-26cd0495f548c716e5c255c1ee8fd77d4c2dba0226e1140380591695b166029f  README.md
+4d3920c08edf98c0f8febce45341251c47db6d59c764cd0d681c7e36d343bdcc  README.md
 ed42c0c01aa8952be6880ad32016c6bff027b67a0a70c4d8961f1f233a6f36fd  behind/b1_전하고싶은것.jpg
 d66b47ce7ad7a7280ca275709f6d528a60a72d8bec100f8e442e9ed31197aef4  behind/b2_만들며있었던일.jpg
 31646ff5b79c67c7bcfb34e83b89eb4459ccb2d2c6cdbb5c51358993a3d4d6e0  behind/b3_남겨둔질문.jpg
@@ -21,6 +19,8 @@ a95e17dcea87fb419e07608047b659350e0133f66e36ee8ca4457772d7d705af  curator.md
 3819ffa3df02117a3de6a7bab38cfda47655ac48bab3a7e21c84bb41232de5f1  delivery.md
 61e05b792c7f400e0efa85b46de093348edec4350008b331da9c6586e93ba35b  exhibit.html
 95cc5c176314d2d6a5ac173cd00416b0bdd8509524f469f7acc3b9803fadd6c3  handout.html
+9c4fde08519273d570e58fb616350674c65ff36eae592a22a8826850c931327c  https://changgi.github.io/archive-tools-next/media/ep125-jocheon-kang-ij_reel.mp4
+9a3ad4d3ec04b87d7ade5ca5c421a1f85da7bb6863a8b22b5a91bfd61bc57b99  https://changgi.github.io/archive-tools-next/media/ep125-jocheon-kang-ij_wide.mp4
 acbb96097a7009b2c6589d1e61e4c0d1119d92136974e9ed91e6afaac7baa280  promo.md
 cddff33bcfd8986e8c69122c78db2b4bfd7f6608ee3306d98fcd30e2fd7fe375  proof.html
 c7360d7947c49cf8cae9acc38eb91397087ad232a832bc7fff982135c18ef902  selection.csv

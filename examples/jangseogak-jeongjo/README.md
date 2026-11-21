@@ -3,7 +3,7 @@
 한국학중앙연구원 장서각 (박물관) · 1794년, 흉년 든 경기 고을로 떠나는 암행어사에게 정조는 봉서를 건넨다. 백성이 애타게 바라는 것도, 관리가 두려워하는 것도 오직 어사라고. 그리고 조목을 적는다. 버려진 아이를 거두라고 했는데 수령들은 정말 마음을 다하는가. 또 한 장, 압록강 하구의 의주에 큰물이 져 천여 호가 떠내려가고 수백 명이 빠져 죽었다는 보고를 받은 임금은 쓴다. 한 번 보고 놀라고, 두 번 보고 슬퍼, 밥을 먹다가 수저를 놓았다고
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jangseogak-jeongjo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jangseogak-jeongjo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep135-jangseogak-jeongjo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep135-jangseogak-jeongjo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep135-jangseogak-jeongjo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep135-jangseogak-jeongjo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

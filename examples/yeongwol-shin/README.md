@@ -3,7 +3,7 @@
 영광 영월신씨 (문중) · 1610년, 정유재란 때 피란하다 잃어버린 할머니의 노비를 되찾으려는 '초동(草童, 아이) 신응망'의 소지. 그리고 48년 뒤 1658년, 이제는 '돌아가신 장령 신응망의 아내 정씨'가 남편 집안의 노비 문제로 올린 소지
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/yeongwol-shin/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/yeongwol-shin/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep68-yeongwol-shin_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep68-yeongwol-shin_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep68-yeongwol-shin_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep68-yeongwol-shin_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

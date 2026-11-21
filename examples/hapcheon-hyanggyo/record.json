@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -77,14 +77,6 @@
    "sha256": "0c7b2f426146c0204d7e6fc1b5d85b1c48f5ee0100ff43711b389d5a76cf3e78"
   },
   {
-   "path": "../media/ep85-hapcheon-hyanggyo_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 973092,
-   "sha256": "083d444d398fee9498ee9f668840e85090fdfbd42e71483a0f20fcb77aedd4c8"
-  },
-  {
    "path": "../media/ep85-hapcheon-hyanggyo_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -93,20 +85,12 @@
    "sha256": "412aa8b1b931af8c6eb4437df3690a55a34a6d378646db55c47cea597112b2c6"
   },
   {
-   "path": "../media/ep85-hapcheon-hyanggyo_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1012557,
-   "sha256": "858e62e3740e5d814778e512df82e86a919f490839eb2fdb72ff75758ac7548a"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 8213,
-   "sha256": "4aabf8e834e19ea53a3c34e13c0970425881b1fd9a5c473b214e910145bd0300"
+   "bytes": 8205,
+   "sha256": "dbd341f6a9e006a6d79c7698f8b249fabeea32b3dfac36ce0b11921c6c05f658"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -197,6 +181,22 @@
    "sha256": "60acc33ed67963731101401f819727937b5486f57bf59a5b4bdccdb3045bb535"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep85-hapcheon-hyanggyo_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 973092,
+   "sha256": "083d444d398fee9498ee9f668840e85090fdfbd42e71483a0f20fcb77aedd4c8"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep85-hapcheon-hyanggyo_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1012557,
+   "sha256": "858e62e3740e5d814778e512df82e86a919f490839eb2fdb72ff75758ac7548a"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -238,7 +238,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 1,
   "quotes": 1,
   "uncertain_marks": 0,
@@ -280,6 +280,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep85-hapcheon-hyanggyo_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep85-hapcheon-hyanggyo_reel.mp4",
+    "../media/ep85-hapcheon-hyanggyo_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep85-hapcheon-hyanggyo_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

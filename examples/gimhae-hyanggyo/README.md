@@ -3,7 +3,7 @@
 김해 김해향교 (향교) · 떠나는 사또의 선정을 기려 달라고 관찰사에게 올린 1622년 상서, 그리고 젊은 향원들이 멋대로 이름을 써넣어 무너진 향안의 질서를 다시 세운 1753년 완의 — 고을의 이름을 적는다는 것의 무게
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gimhae-hyanggyo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gimhae-hyanggyo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep47-gimhae-hyanggyo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep47-gimhae-hyanggyo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep47-gimhae-hyanggyo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep47-gimhae-hyanggyo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

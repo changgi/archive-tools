@@ -43,7 +43,7 @@ for jp in sorted(glob.glob((P.DATA + '/new/*.json'))) + sorted(glob.glob((P.DATA
 
 def dur(p):
     import subprocess
-    return round(float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', R + p])))
+    return round(float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', P.media_file(os.path.basename(p)) if p.endswith('.mp4') else R + p])))
 
 # ---- 영상 슬라이드 ----
 V = [dict(ep=1, id='promo-reel', title='흩어진 기록을, 다시 이야기로', sub='임명장 한 장에서 시작해 ① 수집부터 ⑤ 패키징까지', group='intro',
@@ -53,7 +53,7 @@ V = [dict(ep=1, id='promo-reel', title='흩어진 기록을, 다시 이야기로
 for k, c in sorted(caps.items(), key=lambda x: x[1]['n']):
     ex = next((e for e in EX if e['folder'] == c['folder']), None)
     if not ex: continue
-    if not os.path.exists(R + f'media/{k}_reel.mp4'): continue
+    if not os.path.exists(P.media_file(f'{k}_reel.mp4')): continue
     V.append(dict(ep=c['n'], id=k, title=c['title'], sub=f"{ex['who']}", group='set' if c['n'] <= 6 else ('story' if c['n'] <= 16 else ('read' if c['n'] <= 26 else ('read2' if c['n'] <= 50 else ('read3' if c['n'] <= 100 else 'read4')))), kind=ex['kind'],
                   folder=c['folder'], reel=f'media/{k}_reel.mp4', rposter=f'media/{k}_reel-poster.jpg',
                   wide=f'media/{k}_wide.mp4', wposter=f'media/{k}_wide-poster.jpg', vtt=f'media/{k}.ko.vtt', srt=f'media/{k}.ko.srt', caption=c['caption']))

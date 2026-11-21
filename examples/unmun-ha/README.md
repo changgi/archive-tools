@@ -3,7 +3,7 @@
 진주 운문 진양하씨 (문중) · 1773년 2월, 진주의 하명상은 일흔두 살이었다. 나라는 '나이 일흔둘이라 특별히 품계를 올린다'며 그를 통정대부로 올렸고, 같은 해 그는 가선대부 동지중추부사가 된다. 그러자 세 장의 교지가 더 내려왔다. 먼저 세상을 떠난 세 아내 김씨 · 이씨 · 정씨가 모두 정부인(貞夫人)이 되었다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/unmun-ha/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/unmun-ha/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep106-unmun-ha_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep106-unmun-ha_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep106-unmun-ha_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep106-unmun-ha_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

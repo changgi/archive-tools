@@ -3,7 +3,7 @@
 양주 광주정씨 (문중) · 혼례를 치른 둘째 아들에게 어머니가 노비를 따로 준 1685년 문기, 제주목사 정관휘에게 내린 밀부 유서와 '감귤을 예대로 올리지 못해 죄를 기다린다는 장계에, 죄를 기다리지 말라'는 1800년 유지, 그리고 예조가 양자를 공증한 1831년 입안
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gwangju-jeong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gwangju-jeong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep57-gwangju-jeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep57-gwangju-jeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep57-gwangju-jeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep57-gwangju-jeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@
 경주 경주이씨 이찬우 (문중) · 기해년 2월 28일, 오천 정씨 집안의 정진출이 이씨 집안에 종이 두 장을 보낸다. 한 장에는 아들이 태어난 해 · 달 · 날 · 시, 다른 한 장에는 혼인을 허락해 주어 고맙다는 편지. 나흘 뒤 이씨 집이 잔칫날을 정해 보내오자, 그는 다시 고맙다는 답장을 쓴다. 그리고 3월 11일, 예물과 함께 혼서를 보낸다. '제 맏아들이 이미 다 자랐으나 아직 짝이 없어'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gyeongju-honseo/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gyeongju-honseo/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep134-gyeongju-honseo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep134-gyeongju-honseo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep134-gyeongju-honseo_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep134-gyeongju-honseo_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

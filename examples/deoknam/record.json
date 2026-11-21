@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -90,14 +90,6 @@
    "sha256": "40e1c37432512e7585e42d0809d15a1dd3699c73765e983edc96f4ee9b4466a0"
   },
   {
-   "path": "../media/ep44-deoknam_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1641351,
-   "sha256": "4d1da769006713ca9dc00b4a54a98e502670840024fa0514665aaa732c6ed84d"
-  },
-  {
    "path": "../media/ep44-deoknam_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -106,20 +98,12 @@
    "sha256": "b781edb04b1b742024e2fa565e7e014679df80051f2ee890a0fdf38b8432bb1b"
   },
   {
-   "path": "../media/ep44-deoknam_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1779484,
-   "sha256": "60192e3da394ddeca8df552ba6c49e2ea2e436dd423634554c92d050ebc2ae91"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 10772,
-   "sha256": "f4247251f17217a6abf9298b70ae8686cef543fe806794949b27c685df7c8dcb"
+   "bytes": 10764,
+   "sha256": "7edfe5ceb986527b661aa66a418a4420ba980066f36e9b84b56109e6ecab14e0"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -218,6 +202,22 @@
    "sha256": "343ca2da81c81c176912e1539ec330471e962a5939d47e5dcea58c9258939ae5"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep44-deoknam_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1641351,
+   "sha256": "4d1da769006713ca9dc00b4a54a98e502670840024fa0514665aaa732c6ed84d"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep44-deoknam_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1779484,
+   "sha256": "60192e3da394ddeca8df552ba6c49e2ea2e436dd423634554c92d050ebc2ae91"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -259,7 +259,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 2,
   "quotes": 2,
   "uncertain_marks": 3,
@@ -302,6 +302,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 3 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep44-deoknam_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep44-deoknam_reel.mp4",
+    "../media/ep44-deoknam_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep44-deoknam_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

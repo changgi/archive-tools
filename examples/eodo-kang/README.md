@@ -3,7 +3,7 @@
 제주 어도 진주강씨 강봉지 후손가 (문중) · 1895년 여름, 제주향교는 애월면의 훈장으로 강여규를 천거했다. 4년 뒤 대한제국 광무 3년, 같은 이름이 정3품 통정대부의 칙명에 오르고, 같은 날 아내 진씨도 숙부인이 되었다. 섬마을 서당 선생의 이름이 황제의 칙명까지 닿은 네 해의 기록
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/eodo-kang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/eodo-kang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep101-eodo-kang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep101-eodo-kang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep101-eodo-kang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep101-eodo-kang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

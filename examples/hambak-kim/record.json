@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.0",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -100,14 +100,6 @@
    "sha256": "bb03f6f1dd1ef742568cba4cc730cc5e553d6cbe2abbb891e794240ce611d702"
   },
   {
-   "path": "../media/ep73-hambak-kim_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1668603,
-   "sha256": "4e878d0db472fe21ba0dae4b4ef6395c80df1c389e9fdf11e9d1d13bba84dc0f"
-  },
-  {
    "path": "../media/ep73-hambak-kim_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -116,20 +108,12 @@
    "sha256": "e282842cf84ff9b4514a24400605b5f92ee0a6401c47cdf4934c488f2065767b"
   },
   {
-   "path": "../media/ep73-hambak-kim_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1724030,
-   "sha256": "1b9bbc046cc28979d996d7aa32b9ef0b7bd389f23a4ff244fbf588c064a983b2"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 10384,
-   "sha256": "5b442219c7cd3198553e53247a776aab4a801ada6b350b3b81b7c1f8a90fe975"
+   "bytes": 10376,
+   "sha256": "4961413ffa28ff1cb69b9dc56359933c20febdef3478144c66dff0f5c2b9c568"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -236,6 +220,22 @@
    "sha256": "a3e5468c129b40d0c8d3b0a51466c993a5e86dffb5f1643f57e8283ac4302911"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep73-hambak-kim_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1668603,
+   "sha256": "4e878d0db472fe21ba0dae4b4ef6395c80df1c389e9fdf11e9d1d13bba84dc0f"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep73-hambak-kim_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1724030,
+   "sha256": "1b9bbc046cc28979d996d7aa32b9ef0b7bd389f23a4ff244fbf588c064a983b2"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -277,7 +277,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.0)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 3,
   "quotes": 3,
   "uncertain_marks": 0,
@@ -321,6 +321,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.0)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep73-hambak-kim_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep73-hambak-kim_reel.mp4",
+    "../media/ep73-hambak-kim_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep73-hambak-kim_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

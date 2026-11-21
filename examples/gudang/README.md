@@ -3,7 +3,7 @@
 부여 은산 함양박씨 구당 박세영 종가 (문중) · 1612년 7월 16일, 부여 은산의 함양박씨 박유공은 같은 날짜가 적힌 합격증 두 장을 받는다. 생원시와 진사시, 두 시험에 한꺼번에 붙은 것이다. 57년 뒤 같은 집안에는 또 같은 날짜의 백패 두 장이 온다. 박경승은 진사, 박경후는 생원. 그리고 6년 뒤, 박경후는 붉은 문과 홍패를 받는다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gudang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gudang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep116-gudang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep116-gudang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep116-gudang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep116-gudang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

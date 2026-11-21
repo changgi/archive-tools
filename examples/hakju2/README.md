@@ -3,7 +3,7 @@
 서산 대교 경주김씨 학주 김홍욱 후손가 (문중) · 1905년, 영릉령 김동일(金東鎰)이 융릉령으로 옮기며 '판임관 7등'을 받는다. 1908년, 과천군수였던 그는 연천군수가 되어 '주임관 4등'에 오른다. 교지 대신 관고, 정1품·종9품 대신 '칙임·주임·판임'과 '등(等)'. 그리고 마지막 장 끝에 적힌 이름 — 내각총리대신 이완용
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hakju2/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hakju2/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep93-hakju2_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep93-hakju2_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep93-hakju2_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep93-hakju2_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

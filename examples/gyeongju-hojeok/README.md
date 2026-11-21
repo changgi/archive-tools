@@ -3,7 +3,7 @@
 경주 경주이씨 이찬우 (문중) · 1765년 상주의 호적은 붓으로 한 줄씩 이어 쓴 종이였다. 135년 뒤 대한제국의 호적은 칸이 미리 인쇄된 표가 된다. 1900년, 전라남도의 백락순은 그 표에 '나이 64, 본관 수원, 직업 선비(士)'로 적힌다. 이듬해 같은 표, 같은 식구. 나이는 65로 한 살 늘었고, 직업 칸의 글자가 바뀌었다. '농(農)'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gyeongju-hojeok/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gyeongju-hojeok/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep136-gyeongju-hojeok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep136-gyeongju-hojeok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep136-gyeongju-hojeok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep136-gyeongju-hojeok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

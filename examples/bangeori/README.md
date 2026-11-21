@@ -3,7 +3,7 @@
 경주 외동 방어리 (마을) · 역병과 흉년 뒤에 다시 고쳐 쓴 동계 완의 — 모임에서 술 때문에 다툼이 나니 석 잔만 마시자는 첫 조항, 그리고 초상과 혼례를 서로 돕기로 한 활쏘기 모임 '사계'의 책 — 마을이 스스로 만든 규칙
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/bangeori/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/bangeori/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep48-bangeori_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep48-bangeori_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep48-bangeori_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep48-bangeori_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

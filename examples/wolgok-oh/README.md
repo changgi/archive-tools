@@ -3,7 +3,7 @@
 성남 해주오씨 월곡공파 오윤함 (문중) · 1698년, 선전관 오수웅은 무과에 병과 제8인으로 급제한다. 16년 뒤 그는 충청도 서천 군수가 되어 흉년을 맞는다. 진휼이 끝나자 감사는 임금에게 보고한다. 그가 정성을 다해 곡식을 많이 마련하고, 처음부터 끝까지 백성을 살리려 했다고. 임금은 옷감 한 벌을 내린다. 그리고 104년 뒤, 같은 집안의 오경덕이 다시 붉은 무과 홍패를 받는다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/wolgok-oh/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/wolgok-oh/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep122-wolgok-oh_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep122-wolgok-oh_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep122-wolgok-oh_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep122-wolgok-oh_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

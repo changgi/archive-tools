@@ -3,7 +3,7 @@
 안동 금계 의성김씨 학봉 김성일 종가 (문중) · 맏아들의 혼사를 알리는 납폐서, 남편이 아내에게 보낸 답장, 그리고 계집종이 상전에게 올린 한글 편지 — 학봉 김성일 종가 안채의 목소리
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hakbong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hakbong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep21-hakbong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep21-hakbong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep21-hakbong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep21-hakbong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

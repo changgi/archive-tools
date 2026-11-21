@@ -3,7 +3,7 @@
 의정부 장암 반남박씨 서계 박세당 종가 (문중) · 홍문관 교리에서 "속히 올라오라"는 부제학 부름까지, 그리고 세상을 떠난 뒤 받은 시호 — 수락산 아래 서계 박세당 종가의 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/segye/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/segye/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep22-segye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep22-segye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep22-segye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep22-segye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

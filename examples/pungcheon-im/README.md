@@ -3,7 +3,7 @@
 이천 풍천임씨 (문중) · 한 해에 생원·진사에 붙고 2년 뒤 문과 장원을 한 임유후. 함경도 고산도의 역참을 맡아 '사람과 말이 밤낮 쉬지 못하고, 목숨이 목구멍에 달렸다'고 임금께 올린 1636년 계초, 그리고 36년 뒤 개성유수 교서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/pungcheon-im/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/pungcheon-im/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep56-pungcheon-im_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep56-pungcheon-im_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep56-pungcheon-im_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep56-pungcheon-im_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

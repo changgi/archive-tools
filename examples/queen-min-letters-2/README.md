@@ -3,7 +3,7 @@
 국립고궁박물관 (박물관) · 매화와 새, 대나무, 바둑판이 찍힌 편지지 — 국립고궁박물관에 남은 명성황후의 한글 편지 1886~1894
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/queen-min-letters-2/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/queen-min-letters-2/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep26-gogung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep26-gogung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep26-gogung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep26-gogung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

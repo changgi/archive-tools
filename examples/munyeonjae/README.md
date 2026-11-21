@@ -3,7 +3,7 @@
 고령 도진 고령박씨 소윤공 문연재 (문중) · 1572년 한 해 동안 중병을 앓다 살아난 아들에게 아버지가 따로 재산을 준 흘림 글씨의 분재기, 그리고 146년 뒤 다른 아버지가 둘째 아들에게 '부례산의 땅 한 자락'을 준다고 적은 석 줄짜리 손 편지(수기)
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/munyeonjae/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/munyeonjae/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep66-munyeonjae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep66-munyeonjae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep66-munyeonjae_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep66-munyeonjae_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

@@ -3,7 +3,7 @@
 양근 안동김씨 노가재 김창업 후손가 (문중) · 벼슬보다 그림과 여행을 택한 선비, 노가재 김창업(1658–1721). 그가 세상을 떠나고 70년 뒤인 1792년, 증손자가 충청감사가 되자 그에게 사복시정이 추증된다. 5년 뒤 손자가 형조참판에 오르자 다시 이조참의가 된다. 그리고 같은 집에, 한글로 적은 술과 음식의 책 「쥬식방문」이 전한다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/nogaje/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/nogaje/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep107-nogaje_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep107-nogaje_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep107-nogaje_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep107-nogaje_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

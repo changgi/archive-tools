@@ -3,7 +3,7 @@
 광주 순암 안정복 종가 (문중) · 첫 벼슬 후릉 참봉에서 가선대부까지, 40여 년 — 『동사강목』의 저자 안정복 집안의 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/anjeongbok/exhibit.html) · [수업 활동지](https://changgi.github.io/archive-tools/examples/anjeongbok/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep16-anjeongbok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep16-anjeongbok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep16-anjeongbok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep16-anjeongbok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 에디팅 결과: [`selection.csv`](selection.csv)
 
 ## 이야기 (영상 내레이션)

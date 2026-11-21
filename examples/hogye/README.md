@@ -3,7 +3,7 @@
 의성 아주신씨 호계 신적도 가문 (문중) · 1646년(인조 24) 3월, 의성의 유학(幼學) 신채가 진사시에 3등 제18인으로 합격했다. 병자호란의 치욕이 아직 생생하던 때, 한 장의 흰 종이(백패)에 적힌 스무 남짓 글자
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hogye/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hogye/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep75-hogye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep75-hogye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep75-hogye_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep75-hogye_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

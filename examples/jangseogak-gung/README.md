@@ -3,7 +3,7 @@
 한국학중앙연구원 장서각 (박물관) · 궁궐 안에도 교지가 오갔다. 1827년, 순조의 어린 딸은 '영온옹주'라는 이름을 받는다. 1868년, 궁녀 엄씨는 전언에서 상침으로 오른다. 1876년, 고종의 아홉 살 맏아들은 '완화군'이 된다. 그리고 1882년, 상식 엄씨는 궁녀가 오를 수 있는 높은 자리, 상궁이 된다. 옹주와 왕자는 어려서 세상을 떠났고, 궁녀의 이름은 성 한 글자로만 남았다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jangseogak-gung/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jangseogak-gung/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep137-jangseogak-gung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep137-jangseogak-gung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep137-jangseogak-gung_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep137-jangseogak-gung_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

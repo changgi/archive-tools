@@ -3,7 +3,7 @@
 시흥 반남박씨 금계군 박동량 종가 (문중) · 임진왜란에 선조를 의주까지 모신 박동량에게 1604년 내린 호성공신교서 — 원본은 병자호란 때 사라지고, 76년 뒤 1680년 옛 공신의 예에 따라 다시 도장을 찍어 내려 준 두루마리. 그리고 증손 박사익의 초상
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/bakdongryang/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/bakdongryang/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep52-bakdongryang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep52-bakdongryang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep52-bakdongryang_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep52-bakdongryang_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

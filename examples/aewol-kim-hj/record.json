@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.1",
+   "name": "aks-archive-harvester 1.9.2",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -138,14 +138,6 @@
    "sha256": "b9f1713ef3dd39288ba0a0198a7065200d93843ed2635d7bf74ee327926cdc49"
   },
   {
-   "path": "../media/ep124-aewol-kim-hj_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 2145749,
-   "sha256": "46c40a9bda29d69df86108e33b4233b8c9f47739b471a561498d5d6ba140e4a5"
-  },
-  {
    "path": "../media/ep124-aewol-kim-hj_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
@@ -154,20 +146,12 @@
    "sha256": "329b2b005bb9a37348428ba7d0671dabc239722a7719ff329714c72a8d909143"
   },
   {
-   "path": "../media/ep124-aewol-kim-hj_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 2214016,
-   "sha256": "e1feb1bda6861dc5d4d6ec60da7b385491b70a4c6849a40b108e8b43f17419cc"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 13774,
-   "sha256": "faaf0ad6f14c7b2cfdc8c80b70a316dc20f69cd155dce57779bae25f0050892d"
+   "bytes": 13766,
+   "sha256": "d9446a0d78aff721c6aab6281a504e76fdc6bc5cb17c55cf0bb28ef78b2f1c29"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -298,6 +282,22 @@
    "sha256": "8e5096224d66d5000bf01b6a39d067b099fda2db915026d9d451ce0c352a922d"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep124-aewol-kim-hj_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 2145749,
+   "sha256": "46c40a9bda29d69df86108e33b4233b8c9f47739b471a561498d5d6ba140e4a5"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep124-aewol-kim-hj_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 2214016,
+   "sha256": "e1feb1bda6861dc5d4d6ec60da7b385491b70a4c6849a40b108e8b43f17419cc"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -339,7 +339,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.1)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 6,
   "quotes": 5,
   "uncertain_marks": 0,
@@ -386,6 +386,25 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.1)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-21",
+   "type": "migration",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 2개를 내용 그대로 옮김(고정값 같음)",
+   "moved": [
+    "../media/ep124-aewol-kim-hj_reel.mp4 → https://changgi.github.io/archive-tools-next/media/ep124-aewol-kim-hj_reel.mp4",
+    "../media/ep124-aewol-kim-hj_wide.mp4 → https://changgi.github.io/archive-tools-next/media/ep124-aewol-kim-hj_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md"
+   ]
   }
  ]
 }

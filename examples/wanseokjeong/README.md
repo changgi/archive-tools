@@ -3,7 +3,7 @@
 성주 명곡 벽진이씨 완석정 이언영 종가 (문중) · 1623년 인조반정으로 새 조정이 들어서자, 성주의 이언영(李彦英, 1568–1639)에게 왕의 부름이 두 번 내려온다. 사헌부 장령, 이듬해 승정원 동부승지. 두 장 모두 같은 한 마디로 끝난다 — '너는 역마를 타고 올라오라'
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/wanseokjeong/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/wanseokjeong/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep76-wanseokjeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep76-wanseokjeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep76-wanseokjeong_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep76-wanseokjeong_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

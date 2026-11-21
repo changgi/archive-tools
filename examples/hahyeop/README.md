@@ -3,7 +3,7 @@
 진주 단목 진양하씨 단지 하협 종가 (문중) · 환곡 폐단을 고발한 소장에 이름이 엮여 병영 옥에 갇힌 일흔 살 진사 하진백, 아버지를 대신해 글을 올린 두 아들과 고을 유생들 — 1805년 봄, 한 집안의 억울함
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hahyeop/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hahyeop/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep32-hahyeop_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep32-hahyeop_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep32-hahyeop_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep32-hahyeop_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

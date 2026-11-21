@@ -3,7 +3,7 @@
 고창 흥덕 평해황씨 이재 황윤석 종가 (문중) · "흉년이 거듭되어 살림이 거덜 나" 밭을 판 농민의 명문, 둘째 아들에게 여종을 준 어머니, 그리고 실학자 황윤석이 옛 전서로 쓴 혼서 — 고창 흥덕 평해황씨 종가의 문서
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/hwangyunseok/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/hwangyunseok/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep24-hwangyunseok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep24-hwangyunseok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep24-hwangyunseok_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep24-hwangyunseok_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 

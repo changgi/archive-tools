@@ -3,7 +3,7 @@
 해남 김해김씨 (문중) · 1593년 임진왜란 한복판, 해남의 김선지는 수문장에서 병절교위로 올랐다. 12년 뒤 아버지 김안방은 생원시에 붙었고, 다시 12년 뒤인 1617년 여섯 자녀에게 재산을 나누며 이렇게 적었다. '자녀 된 자는 내 뜻을 헤아려 많고 적음을 따지지 말라.' 맏아들 몫은 그의 아내 김씨 앞으로 적혀 있었다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/haenam-kim/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/haenam-kim/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep102-haenam-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep102-haenam-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep102-haenam-kim_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep102-haenam-kim_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->

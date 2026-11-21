@@ -3,7 +3,7 @@
 제주 조천 곡산강씨 강이진 후손가 (문중) · 1863년 대정현감 강이진은 중군을 겸하라는 전령을 받는다. 16년 뒤 중군 강재오는 유영장이 되고, 이듬해 대정현감에 오른다. 1888년 여름, '강 영장 댁'의 노비 달석이 제주 목사에게 소장을 올린다. 상전이 조상 묘 자리로 잡은 땅이 나라 말을 기르는 목장 안에 있으니, 대신 말 열 필을 바쳐 목장을 채우겠다고. 목사는 그 땅을 영영 떼어 준다는 입안을 내준다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/jocheon-kang-ij/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/jocheon-kang-ij/handout.html)
-- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang-ij_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang-ij_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
+- 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep125-jocheon-kang-ij_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep125-jocheon-kang-ij_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
 - 카드뉴스: [`cards/`](cards/) · SNS 글: [`sns.txt`](sns.txt) · 판독·해석 표: [`selection.csv`](selection.csv)
 
 <!-- DELIVERY -->
