@@ -25,7 +25,9 @@ def label(i):
     return safe(f"EP.{i['ep']:03d}_" + coll)[:70]
 
 
-ORDER = sorted(IT, key=lambda i: (i.get('ep') is not None, i.get('ep') or 0))
+FROM = int(os.environ.get('DRIVE_FROM') or 0)  # 이 편 번호부터만(예: DRIVE_FROM=101)
+TO = int(os.environ.get('DRIVE_TO') or 0)  # 이 편 번호까지만
+ORDER = sorted([i for i in IT if (not FROM or (i.get('ep') and int(i['ep']) >= FROM)) and (not TO or (i.get('ep') and int(i['ep']) <= TO))], key=lambda i: (i.get('ep') is not None, int(i.get('ep') or 0)))
 LAB = {i['f']: label(i) for i in ORDER}
 ID = {i['f']: os.path.basename(i['reel']).split('_reel')[0] for i in ORDER if i.get('reel')}
 
@@ -60,7 +62,7 @@ def items(kind):
             for a, nm in (('README.md', 'README.md'), ('promo.md', '홍보글.md'), ('channels.md', '채널별홍보.md'), ('curator.md', '큐레이터노트.md'),
                           ('delivery.md', '전달에디팅.md'), ('sns.txt', 'SNS.txt'), ('selection.csv', '판독번역표.csv')):
                 if os.path.exists(d + a): out.append((f'{R}06_글·데이터/{L}/{nm}', d + a))
-    if kind == '영상':
+    if kind == '영상' and not (FROM or TO):
         for p in sorted(glob.glob(E + 'media/promo-reel*.mp4') + glob.glob(E + 'media/series-*_reel.mp4') + glob.glob(P.NEXT + '/media/promo-reel*.mp4') + glob.glob(P.NEXT + '/media/series-*_reel.mp4')):
             out.append((f'{R}02_영상/_시리즈 홍보영상/{os.path.basename(p)}', p))
     if kind == '나머지':
@@ -100,12 +102,12 @@ if __name__ == '__main__':
     kind = sys.argv[1]; cap = int(sys.argv[2] if len(sys.argv) > 2 else 380) * 1024 * 1024
     its = items(kind); part, size, z, made = 0, 0, None, []
     import shutil
-    FIN = '/mnt/user-data/outputs/드라이브용/'; os.makedirs(FIN, exist_ok=True)
+    FIN = os.environ.get('DRIVE_OUT') or '/mnt/user-data/outputs/드라이브용/'; os.makedirs(FIN, exist_ok=True)
     def done(zz):  # 다 쓴 묶음은 출력 폴더로 옮겨 디스크를 비움
         zz.close(); p = made[-1]; shutil.copy(p, FIN + os.path.basename(p)); os.remove(p); print(os.path.basename(p), round(os.path.getsize(FIN + os.path.basename(p)) / 1e6, 1), 'MB', flush=True)
     def openz():
         global part
-        part += 1; p = f'{DST}고문서한장_{kind}_{part:02d}.zip'; made.append(p)
+        part += 1; p = f'{DST}고문서한장_{kind}' + (f'_EP{FROM}' if FROM else '') + (f'-{TO}' if TO else ('부터' if FROM else '')) + f'_{part:02d}.zip'; made.append(p)
         return zipfile.ZipFile(p, 'w', zipfile.ZIP_STORED)
     for arc, src in its:
         n = len(src) if isinstance(src, bytes) else os.path.getsize(src)

@@ -227,31 +227,31 @@
    "kind": "exhibit",
    "format": "text/html",
    "bytes": 1043814,
-   "sha256": "b92c5d24d3cda963d942789f666815aca8512d124f1a142b9b15387023ceb3b9"
+   "sha256": "dee3b3653b7b6e6e4a83627d05c3a36f425ef3fb716d407633af2e115cdfaac6"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 558278,
-   "sha256": "c39b428c5e89609159b3cbf00e49774bf3b574001e7bd89e3b417fa4625e1130"
+   "bytes": 558279,
+   "sha256": "a26db3c44257ad66e5e5ffb4bc2e780c9574dc8fcde3fc725b74da78af97aaca"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep135-jangseogak-jeongjo_reel.mp4",
    "role": "릴스 영상(9:16)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 2356278,
-   "sha256": "ff19343ed36e1ee1a26ced25beb53e2492f8a8081e288419b1b82d1d6b9818c6"
+   "bytes": 2358913,
+   "sha256": "043ee4ebf04bf416a16061fd7af071b2a248eb80909b2af26cf7028e8c76559c"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep135-jangseogak-jeongjo_wide.mp4",
    "role": "가로 영상(16:9)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 2464022,
-   "sha256": "8915c7e9bf906d07784157612abec6c78df25e884a21bebbaff35842ba1daf60"
+   "bytes": 2459746,
+   "sha256": "236191cb8e213eac2f7ec0f6dfad916e3160a1ea657e4d00500491c9fe31bf09"
   },
   {
    "path": "promo.md",
@@ -356,6 +356,28 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md",
+    "https://changgi.github.io/archive-tools-next/media/ep135-jangseogak-jeongjo_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep135-jangseogak-jeongjo_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md",
+    "exhibit.html",
+    "handout.html"
    ]
   }
  ]

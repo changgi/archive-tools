@@ -94,32 +94,32 @@
    "role": "자막(SRT)",
    "kind": "caption",
    "format": "application/x-subrip",
-   "bytes": 2281,
-   "sha256": "ef4bc9e140c8d4fc76d3de7f2ef343ec3a4be0034713669354066b46b3e27526"
+   "bytes": 2074,
+   "sha256": "2dafe7c7d0720ea46eab7d88776e15be360cc2b3b9c6620c7f71061aa0dc8be7"
   },
   {
    "path": "../media/ep127-gujwa-jeong.ko.vtt",
    "role": "자막(WebVTT)",
    "kind": "caption",
    "format": "text/vtt",
-   "bytes": 2289,
-   "sha256": "d68500adc1ea42ff951b5516f36c779da5ec21c01ba832c22cfb12570d08adfe"
+   "bytes": 2082,
+   "sha256": "aeac1bfa316d05b685f4bd28f229bac2b8d315aecb938f3850af57df7e9ae1e8"
   },
   {
    "path": "../media/ep127-gujwa-jeong_reel-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
    "format": "image/jpeg",
-   "bytes": 56459,
-   "sha256": "abd8d655ad41baa46b5d078b948f84d06b7210da7641eae522e69afa4b5f75ee"
+   "bytes": 56473,
+   "sha256": "4cd99bd325ca2a11c4a4b153ecebbc60b6e5edc9b0c38bb22778f5a5f57c2163"
   },
   {
    "path": "../media/ep127-gujwa-jeong_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
    "format": "image/jpeg",
-   "bytes": 61324,
-   "sha256": "045033387167c3525a5a918588559d4ffca71e2b2cabeecbbb11885861862b35"
+   "bytes": 61386,
+   "sha256": "92b3e3349761baea03b2ef7260398a0ab610e648ed326d150e74f83d84180a39"
   },
   {
    "path": "README.md",
@@ -231,31 +231,31 @@
    "kind": "exhibit",
    "format": "text/html",
    "bytes": 904100,
-   "sha256": "2694b5adaa1f72fa23d9ee75fce72ab8873703d346e4b6fdfb723a02ed4c34a6"
+   "sha256": "2df4aa48b8cfc68a7b283d0182d1ff72232d93d3593019400cd5b1c41f3ba277"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 434680,
-   "sha256": "c5606fd89faeda30bb3762b5b41269d0552e7df1b5ecc9b5827038d10637eaf1"
+   "bytes": 434681,
+   "sha256": "5be8e6d6ea56ef777424e8ad38831e8eaa5cbc8e670d36c936a1dcfa56453414"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep127-gujwa-jeong_reel.mp4",
    "role": "릴스 영상(9:16)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1803551,
-   "sha256": "cc95e4be800366849d16d0afd646a1a9f0fff5c67eab00d6ee92a868cde77952"
+   "bytes": 1680955,
+   "sha256": "9e55950b8be44975c357126c26feb8e36b4da7fb70864361b62b031df5491a7f"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep127-gujwa-jeong_wide.mp4",
    "role": "가로 영상(16:9)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1869793,
-   "sha256": "296d0b2316dedb0c751b30a9ecbf76441a2986539b599eb04f30198631f9769f"
+   "bytes": 1735820,
+   "sha256": "f1f691a0eac1314daf644556000191ff738c011d84f17c16b969bc2d0a8d60a1"
   },
   {
    "path": "promo.md",
@@ -362,6 +362,32 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 7 · 새로 0 · 빠짐 0",
+   "changed": [
+    "../media/ep127-gujwa-jeong.ko.srt",
+    "../media/ep127-gujwa-jeong.ko.vtt",
+    "../media/ep127-gujwa-jeong_reel-poster.jpg",
+    "../media/ep127-gujwa-jeong_wide-poster.jpg",
+    "README.md",
+    "https://changgi.github.io/archive-tools-next/media/ep127-gujwa-jeong_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep127-gujwa-jeong_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-21",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md",
+    "exhibit.html",
+    "handout.html"
    ]
   }
  ]
