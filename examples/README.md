@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.122)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.131)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.122)
+## 원문으로 읽는 이야기 (EP.17–EP.131)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -142,6 +142,16 @@
 | [**EP.120 서른넷과 서른일곱의 답안지 — 조선 마지막 과거 시대, 한 선비의 '三下'**](jikgak/) | 보령 천궁 경주김씨 직각 김면주 종가 (문중) | 九成臺古韶鳳來 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep120-jikgak_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep120-jikgak_wide.mp4) · [홍보 글](jikgak/promo.md) |
 | [**EP.121 나라가 사라지기 하루 전의 임명장 — 건양 원년에서 융희 4년 8월까지**](hyoheon/) | 김포 전주이씨 효헌 이인철 후손가 (문중) | 建陽元年十一月十七日 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep121-hyoheon_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep121-hyoheon_wide.mp4) · [홍보 글](hyoheon/promo.md) |
 | [**EP.122 "끝까지 백성을 살리려 한 정성" — 굶주린 해에 곡식을 모은 서천 군수와, 백 년 뒤의 홍패**](wolgok-oh/) | 성남 해주오씨 월곡공파 오윤함 (문중) | 宣傳官吳遂雄武科丙科第八人及第出身者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep122-wolgok-oh_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep122-wolgok-oh_wide.mp4) · [홍보 글](wolgok-oh/promo.md) |
+| [**EP.123 "급제한 지 60년" — 제주 애월 김광세가 같은 홍패를 두 번 받은 날**](aewol-kim-yj/) | 제주 애월 김해김씨 김용징 후손가 (문중) | 閑良金光世武科丙科第一百人及第出身者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep123-aewol-kim-yj_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep123-aewol-kim-yj_wide.mp4) · [홍보 글](aewol-kim-yj/promo.md) |
+| [**EP.124 붉은 종이 여섯 장 — 제주 애월 한 집안의 무과 64년**](aewol-kim-hj/) | 제주 애월 김해김씨 김희주 후손가 (문중) | 閑良金鍾輨武科丙科第一百二十八人及第出身者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep124-aewol-kim-hj_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep124-aewol-kim-hj_wide.mp4) · [홍보 글](aewol-kim-hj/promo.md) |
+| [**EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안**](jocheon-kang-ij/) | 제주 조천 곡산강씨 강이진 후손가 (문중) | 兼中軍差定 凡諸軍務 依兵法擧行者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang-ij_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang-ij_wide.mp4) · [홍보 글](jocheon-kang-ij/promo.md) |
+| [**EP.126 "아버지와 아들이 함께 시험을 봐도 되겠습니까" — 1891년 제주 김의정 · 김항유 부자의 과거**](jocheon-kim/) | 제주 조천 김해김씨 김희정 후손가 (문중) | 父幼學義正 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep126-jocheon-kim_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep126-jocheon-kim_wide.mp4) · [홍보 글](jocheon-kim/promo.md) |
+| [**EP.127 "온 고을이 우러러 부러워할 일" — 1825년 진사가 된 제주 아들에게 아버지가 준 밭 두 뙈기**](gujwa-jeong/) | 제주 구좌 동래정씨 정석록 후손가 (문중) | 父成均館直講鄭敞選癸正別代加 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep127-gujwa-jeong_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep127-gujwa-jeong_wide.mp4) · [홍보 글](gujwa-jeong/promo.md) |
+| [**EP.128 열아홉 살 무학에서 마흔일곱 살 부사과까지 — 제주 강세건의 28년, 종이 네 장**](eodo-kang-ij/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 營下待變假率 置簿爲去乎 依例隨行者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep128-eodo-kang-ij_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep128-eodo-kang-ij_wide.mp4) · [홍보 글](eodo-kang-ij/promo.md) |
+| [**EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계**](eodo-kang-sh/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 姜鳳瑞爲朝奉大夫行成均館學諭者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep129-eodo-kang-sh_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep129-eodo-kang-sh_wide.mp4) · [홍보 글](eodo-kang-sh/promo.md) |
+| [**EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계**](jeju-kim-mun/) | 제주 경주김씨 문중회 (문중) | 因本島上秋失稔 募粟補賑 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep130-jeju-kim-mun_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep130-jeju-kim-mun_wide.mp4) · [홍보 글](jeju-kim-mun/promo.md) |
+| [**EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지**](jocheon-kang-ms/) | 제주 조천 곡산강씨 강만식 후손가 (문중) | 馬兵康萬埴武科丙科第三百九十一人及第出身者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep131-jocheon-kang-ms_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep131-jocheon-kang-ms_wide.mp4) · [홍보 글](jocheon-kang-ms/promo.md) |
+| [**EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안**](jocheon-kang/) | 제주 조천 곡산강씨 강이진 후손가 (문중) | 兼中軍差定 凡諸軍務 依兵法擧行者 | [릴스](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang_reel.mp4) · [가로](https://changgi.github.io/archive-tools/examples/media/ep125-jocheon-kang_wide.mp4) · [홍보 글](jocheon-kang/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -169,7 +179,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools/examples/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 123개
+## 예시 (결과물 갤러리) — 132개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -296,6 +306,16 @@
 | [**EP.120 서른넷과 서른일곱의 답안지 — 조선 마지막 과거 시대, 한 선비의 '三下'**](jikgak/) | 보령 천궁 경주김씨 직각 김면주 종가 (문중) | 1885년 3월 13일, 경복궁 근정전의 춘도기 시험. 서른네 살의 김상덕은 「순임금의 남풍가」를 시로 지어… | [전시](jikgak/exhibit.html) · [활동지](jikgak/handout.html) · [카드](jikgak/cards/) · [selection.csv](jikgak/selection.csv) |
 | [**EP.121 나라가 사라지기 하루 전의 임명장 — 건양 원년에서 융희 4년 8월까지**](hyoheon/) | 김포 전주이씨 효헌 이인철 후손가 (문중) | 1896년, 조선이 처음으로 스스로 정한 연호 '건양(建陽)'이 찍힌 임명장이 이인철에게 온다. 14년 뒤인… | [전시](hyoheon/exhibit.html) · [활동지](hyoheon/handout.html) · [카드](hyoheon/cards/) · [selection.csv](hyoheon/selection.csv) |
 | [**EP.122 "끝까지 백성을 살리려 한 정성" — 굶주린 해에 곡식을 모은 서천 군수와, 백 년 뒤의 홍패**](wolgok-oh/) | 성남 해주오씨 월곡공파 오윤함 (문중) | 1698년, 선전관 오수웅은 무과에 병과 제8인으로 급제한다. 16년 뒤 그는 충청도 서천 군수가 되어 흉년… | [전시](wolgok-oh/exhibit.html) · [활동지](wolgok-oh/handout.html) · [카드](wolgok-oh/cards/) · [selection.csv](wolgok-oh/selection.csv) |
+| [**EP.123 "급제한 지 60년" — 제주 애월 김광세가 같은 홍패를 두 번 받은 날**](aewol-kim-yj/) | 제주 애월 김해김씨 김용징 후손가 (문중) | 1765년 봄, 제주 애월의 한량 김광세는 무과에 병과 제100인으로 급제한다. 그리고 60년 뒤인 1825… | [전시](aewol-kim-yj/exhibit.html) · [활동지](aewol-kim-yj/handout.html) · [카드](aewol-kim-yj/cards/) · [selection.csv](aewol-kim-yj/selection.csv) |
+| [**EP.124 붉은 종이 여섯 장 — 제주 애월 한 집안의 무과 64년**](aewol-kim-hj/) | 제주 애월 김해김씨 김희주 후손가 (문중) | 1815년 겨울, 제주 애월의 한량 둘이 같은 무과 시험에 나란히 이름을 올린다. 김종관과 김종복. 21년 … | [전시](aewol-kim-hj/exhibit.html) · [활동지](aewol-kim-hj/handout.html) · [카드](aewol-kim-hj/cards/) · [selection.csv](aewol-kim-hj/selection.csv) |
+| [**EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안**](jocheon-kang-ij/) | 제주 조천 곡산강씨 강이진 후손가 (문중) | 1863년 대정현감 강이진은 중군을 겸하라는 전령을 받는다. 16년 뒤 중군 강재오는 유영장이 되고, 이듬해… | [전시](jocheon-kang-ij/exhibit.html) · [활동지](jocheon-kang-ij/handout.html) · [카드](jocheon-kang-ij/cards/) · [selection.csv](jocheon-kang-ij/selection.csv) |
+| [**EP.126 "아버지와 아들이 함께 시험을 봐도 되겠습니까" — 1891년 제주 김의정 · 김항유 부자의 과거**](jocheon-kim/) | 제주 조천 김해김씨 김희정 후손가 (문중) | 1890년 겨울, 제주의 열여덟 살 김항유가 승보 초시에 이름을 적어 낸다. 이듬해 가을, 그의 아버지 김의… | [전시](jocheon-kim/exhibit.html) · [활동지](jocheon-kim/handout.html) · [카드](jocheon-kim/cards/) · [selection.csv](jocheon-kim/selection.csv) |
+| [**EP.127 "온 고을이 우러러 부러워할 일" — 1825년 진사가 된 제주 아들에게 아버지가 준 밭 두 뙈기**](gujwa-jeong/) | 제주 구좌 동래정씨 정석록 후손가 (문중) | 1743년 정석록은 아버지가 받을 품계를 대신 받는다. 82년 뒤인 1825년 봄, 그의 증손 정익환이 스물… | [전시](gujwa-jeong/exhibit.html) · [활동지](gujwa-jeong/handout.html) · [카드](gujwa-jeong/cards/) · [selection.csv](gujwa-jeong/selection.csv) |
+| [**EP.128 열아홉 살 무학에서 마흔일곱 살 부사과까지 — 제주 강세건의 28년, 종이 네 장**](eodo-kang-ij/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1675년 겨울, 제주의 열아홉 살 무학 강세건은 군영 아래 일을 맡아 따르라는 전령을 받는다. 6년 뒤 호… | [전시](eodo-kang-ij/exhibit.html) · [활동지](eodo-kang-ij/handout.html) · [카드](eodo-kang-ij/cards/) · [selection.csv](eodo-kang-ij/selection.csv) |
+| [**EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계**](eodo-kang-sh/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 1777년 가을, 제주 사람 강봉서는 성균관 학유가 되고 두 달 뒤 학록이 된다. 1791년 은계 찰방일 때… | [전시](eodo-kang-sh/exhibit.html) · [활동지](eodo-kang-sh/handout.html) · [카드](eodo-kang-sh/cards/) · [selection.csv](eodo-kang-sh/selection.csv) |
+| [**EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계**](jeju-kim-mun/) | 제주 경주김씨 문중회 (문중) | 1709년 가을, 제주에 흉년이 든다. 이듬해 봄 제주 목사는 곡식을 모아 진휼하겠다고 임금에게 청해 허락을… | [전시](jeju-kim-mun/exhibit.html) · [활동지](jeju-kim-mun/handout.html) · [카드](jeju-kim-mun/cards/) · [selection.csv](jeju-kim-mun/selection.csv) |
+| [**EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지**](jocheon-kang-ms/) | 제주 조천 곡산강씨 강만식 후손가 (문중) | 1845년, 제주의 기병 강만식은 무과에 병과 제391인으로 급제한다. 7년 뒤 그는 명월진 수군만호가 된다… | [전시](jocheon-kang-ms/exhibit.html) · [활동지](jocheon-kang-ms/handout.html) · [카드](jocheon-kang-ms/cards/) · [selection.csv](jocheon-kang-ms/selection.csv) |
+| [**EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안**](jocheon-kang/) | 제주 조천 곡산강씨 강이진 후손가 (문중) | 1863년 대정현감 강이진은 중군을 겸하라는 전령을 받는다. 16년 뒤 중군 강재오는 유영장이 되고, 이듬해… | [전시](jocheon-kang/exhibit.html) · [활동지](jocheon-kang/handout.html) · [카드](jocheon-kang/cards/) · [selection.csv](jocheon-kang/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -320,7 +340,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 123개
+### 카드뉴스 미리보기 — 132개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -447,8 +467,19 @@
 | EP.120 서른넷과 서른일곱의 답안지 — 조선 마지막 과거 시대, 한 선비의 '三下' | ![](jikgak/cards/00_표지.jpg) | ![](jikgak/cards/01.jpg) | ![](jikgak/cards/02.jpg) |
 | EP.121 나라가 사라지기 하루 전의 임명장 — 건양 원년에서 융희 4년 8월까지 | ![](hyoheon/cards/00_표지.jpg) | ![](hyoheon/cards/01.jpg) | ![](hyoheon/cards/02.jpg) |
 | EP.122 "끝까지 백성을 살리려 한 정성" — 굶주린 해에 곡식을 모은 서천 군수와, 백 년 뒤의 홍패 | ![](wolgok-oh/cards/00_표지.jpg) | ![](wolgok-oh/cards/01.jpg) | ![](wolgok-oh/cards/02.jpg) |
+| EP.123 "급제한 지 60년" — 제주 애월 김광세가 같은 홍패를 두 번 받은 날 | ![](aewol-kim-yj/cards/00_표지.jpg) | ![](aewol-kim-yj/cards/01.jpg) | ![](aewol-kim-yj/cards/02.jpg) |
+| EP.124 붉은 종이 여섯 장 — 제주 애월 한 집안의 무과 64년 | ![](aewol-kim-hj/cards/00_표지.jpg) | ![](aewol-kim-hj/cards/01.jpg) | ![](aewol-kim-hj/cards/02.jpg) |
+| EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안 | ![](jocheon-kang-ij/cards/00_표지.jpg) | ![](jocheon-kang-ij/cards/01.jpg) | ![](jocheon-kang-ij/cards/02.jpg) |
+| EP.126 "아버지와 아들이 함께 시험을 봐도 되겠습니까" — 1891년 제주 김의정 · 김항유 부자의 과거 | ![](jocheon-kim/cards/00_표지.jpg) | ![](jocheon-kim/cards/01.jpg) | ![](jocheon-kim/cards/02.jpg) |
+| EP.127 "온 고을이 우러러 부러워할 일" — 1825년 진사가 된 제주 아들에게 아버지가 준 밭 두 뙈기 | ![](gujwa-jeong/cards/00_표지.jpg) | ![](gujwa-jeong/cards/01.jpg) | ![](gujwa-jeong/cards/02.jpg) |
+| EP.128 열아홉 살 무학에서 마흔일곱 살 부사과까지 — 제주 강세건의 28년, 종이 네 장 | ![](eodo-kang-ij/cards/00_표지.jpg) | ![](eodo-kang-ij/cards/01.jpg) | ![](eodo-kang-ij/cards/02.jpg) |
+| EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계 | ![](eodo-kang-sh/cards/00_표지.jpg) | ![](eodo-kang-sh/cards/01.jpg) | ![](eodo-kang-sh/cards/02.jpg) |
+| EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계 | ![](jeju-kim-mun/cards/00_표지.jpg) | ![](jeju-kim-mun/cards/01.jpg) | ![](jeju-kim-mun/cards/02.jpg) |
+| EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지 | ![](jocheon-kang-ms/cards/00_표지.jpg) | ![](jocheon-kang-ms/cards/01.jpg) | ![](jocheon-kang-ms/cards/02.jpg) |
+| EP.84 사또의 성적표 — 여덟 글자로 매긴 수령 평가 '포폄제목' | ![](jocheon-kang/cards/00_표지.jpg) | ![](jocheon-kang/cards/01.jpg) | ![](jocheon-kang/cards/02.jpg) |
+| EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안 | ![](jocheon-kang/cards/00_표지.jpg) | ![](jocheon-kang/cards/01.jpg) | ![](jocheon-kang/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 123개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 132개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -577,6 +608,16 @@
 | EP.120 서른넷과 서른일곱의 답안지 — 조선 마지막 과거 시대, 한 선비의 '三下' | 1885년 김상덕(金商悳) 시권(試券) — 춘도기 「고유우씨지남풍」 | 1885년 김상덕(金商悳)의 시권 — 과거 시험 답안지. | 1885년 3월 13일, 경복궁 근정전. 서른네 살의 선비가 시제를 받아 든다. 「순임금의 남풍가」. 그는 이렇게 시작한다. "구성대 옛 소악에 봉황이 날아오고(九成臺古韶鳳來)." 시험관은 붓을 들어 크게 두 글자를 적었다. '三下.' 답안지 머리에는 그날의 결과가 남았다. "三下 하나, 유학 김상덕은 회시로 바로 나아가게 하라(單三下幼學金商悳直赴會試)." | 1885년 근정전 춘도기 시험에서 김상덕이 '三下'를 받고 회시 직부 특전을 얻은 시권으로, 시험관과 합격 처분이 함께 적혀 있습니다. |
 | EP.121 나라가 사라지기 하루 전의 임명장 — 건양 원년에서 융희 4년 8월까지 | 1896년 이인철(李寅轍) 관고(官誥) | 1896년 이인철(李寅轍)의 관고. | 1896년 11월, 한 장의 임명장이 온다. 맨 위의 두 글자가 달라져 있다. '교지'가 아니라 '칙명'. 그리고 날짜. "건양 원년 11월 17일(建陽元年十一月十七日)." 중국의 연호가 아닌, 이 나라가 처음 스스로 정한 연호였다. | 1896년 이인철을 중추원 3등 의관(주임관 5등)에 임명한 '건양 원년' 칙명 관고입니다. |
 | EP.122 "끝까지 백성을 살리려 한 정성" — 굶주린 해에 곡식을 모은 서천 군수와, 백 년 뒤의 홍패 | 1698년 오수웅(吳遂雄) 무과 홍패(武科紅牌) | 1698년 오수웅(吳遂雄)의 홍패 — 문과·무과 합격 증서. | 1698년 가을, 붉은 종이 한 장. "선전관 오수웅은 무과 병과 제8인으로 급제하였다(宣傳官吳遂雄武科丙科第八人及第出身者)." 이름 앞의 세 글자, 선전관. 그는 이미 임금 곁에서 일하던 무관이었다. | 1698년 선전관 오수웅이 무과 병과 제8인으로 급제하고 받은 홍패입니다. |
+| EP.123 "급제한 지 60년" — 제주 애월 김광세가 같은 홍패를 두 번 받은 날 | 1765년 김광세(金光世) 무과 홍패(武科紅牌) | 1765년 김광세(金光世)의 홍패 — 문과·무과 합격 증서. | 1765년 봄, 제주 애월. 벼슬 없는 젊은이에게 붉은 종이 한 장이 온다. "한량 김광세는 무과 병과 제100인으로 급제하였다(閑良金光世武科丙科第一百人及第出身者)." 백 번째 이름. 그래도 바다 건너 섬에서 올린 이름이었다. | 1765년 한량 김광세가 무과 병과 제100인으로 급제하고 받은 홍패입니다. |
+| EP.124 붉은 종이 여섯 장 — 제주 애월 한 집안의 무과 64년 | 1815년 김종관(金鍾輨) 무과 홍패(武科紅牌) | 1815년 김종관(金鍾輨)의 홍패 — 문과·무과 합격 증서. | 1815년 겨울, 제주 애월. 붉은 종이 한 장이 온다. "한량 김종관은 무과 병과 제128인으로 급제하였다(閑良金鍾輨武科丙科第一百二十八人及第出身者)." 그런데 같은 달, 같은 집에 한 장이 더 왔다. | 1815년 한량 김종관이 무과 병과 제128인으로 급제하고 받은 홍패입니다. |
+| EP.125 "말 열 필을 바쳐 목장을 채우겠습니다" — 국마장 안에 선산을 얻은 제주 강씨 집안 | 1863년 대정현감 강이진(康履鎭) 중군 차정 전령(傳令) | 1863년 강이진(康履鎭)의 전령 — 관청이 내린 명령서. | 1863년 여름, 제주 대정. 현감 강이진에게 군령 한 장이 온다. "중군을 겸하도록 정하니, 모든 군무를 병법에 따라 거행하라(兼中軍差定 凡諸軍務 依兵法擧行者)." 섬을 지키는 일이, 이 집안의 일이 된다. | 1863년 대정현감 강이진에게 중군을 겸하여 군무를 병법대로 거행하라고 내린 전령입니다. |
+| EP.126 "아버지와 아들이 함께 시험을 봐도 되겠습니까" — 1891년 제주 김의정 · 김항유 부자의 과거 | 1890년 김항유(金恒裕) 제주 승보 초시 사조단자(四祖單子) | 1890년 김항유(金恒裕)의 사조단자 — 사실이나 물목을 적어 올린 문서. | 1890년 겨울, 제주. 열여덟 살 김항유가 시험장에 이름을 적어 낸다. 그 옆줄에 아버지의 이름. "아버지 유학 의정(父幼學義正)." 이 아버지도, 3년 전 같은 시험을 치른 사람이었다. | 1890년 제주 승보 초시에 18세 김항유가 낸, 아버지 · 할아버지 · 증조 · 외조의 이름을 적은 사조단자입니다. |
+| EP.127 "온 고을이 우러러 부러워할 일" — 1825년 진사가 된 제주 아들에게 아버지가 준 밭 두 뙈기 | 1743년 정석록(鄭錫祿) 고신(告身) | 1743년 정석록(鄭錫祿)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1743년 정월. 제주 정씨 집안에 이조의 고신 한 장이 온다. 옆에 작은 글씨. "아버지 성균관 직강 정창선의 별가를 대신 받는다(父成均館直講鄭敞選癸正別代加)." 아버지의 몫을 아들이 받았다. 이 이름은, 82년 뒤 다시 불린다. | 1743년 정석록이 아버지 성균관 직강 정창선의 별가를 대신 받아 통덕랑에 오른 고신입니다. |
+| EP.128 열아홉 살 무학에서 마흔일곱 살 부사과까지 — 제주 강세건의 28년, 종이 네 장 | 1675년 무학 강세건(姜世建) 전령(傳令) | 1675년 강세건(姜世建)의 전령 — 관청이 내린 명령서. | 1675년 겨울, 제주. 열아홉 살 무학 강세건에게 전령 한 장이 온다. "군영 아래 대변 가솔로 장부에 올리니, 전례대로 따르라(營下待變假率 置簿爲去乎 依例隨行者)." 섬을 지키는 사람들의 명단에, 그의 이름이 처음 오른다. | 1675년 제주 목사가 열아홉 살 무학 강세건을 군영의 대변 가솔로 장부에 올리고 전례대로 수행하라고 내린 전령입니다. |
+| EP.129 "속히 역마를 타고 올라오라" — 제주에서 사헌부 장령이 된 강봉서와, 일흔다섯 아버지의 품계 | 1777년 강봉서(姜鳳瑞) 성균관 학유 고신(告身) | 1777년 강봉서(姜鳳瑞)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1777년 가을, 제주 사람 강봉서에게 첫 교지가 온다. "강봉서를 조봉대부 행 성균관 학유로 삼는다(姜鳳瑞爲朝奉大夫行成均館學諭者)." 섬에서 서울의 성균관으로. 그의 벼슬길이 시작된다. | 1777년 강봉서를 조봉대부 행 성균관 학유로 임명한 고신입니다. |
+| EP.130 "곡식을 모아 굶주림을 구한다" — 흉년의 제주에서 쌀 네 섬으로 받은 품계 | 1710년 제주목 입안(立案) — 김명산 납속 통정첩 | 1710년 김명산(金明山)의 입안. | 1709년 가을, 제주에 흉년이 든다. 이듬해 봄 목사가 입안을 쓴다. "이 섬에 지난가을 흉년이 들어, 곡식을 모아 진휼을 돕는다(因本島上秋失稔 募粟補賑)." 김명산은 쌀 네 섬을 내놓는다. 굶주린 이웃의 몫이었다. | 1710년 제주의 흉년에 진휼 곡식 네 섬을 바친 김명산에게 통정대부 첩을 내주었다는 제주 목사의 입안입니다. |
+| EP.131 "해유에 흠이 없다" — 391등 기병의 집안에서 정의 고을 원님이 나오기까지 | 1845년 강만식(康萬埴) 무과 홍패(武科紅牌) | 1845년 강만식(康萬埴)의 홍패 — 문과·무과 합격 증서. | 1845년 봄, 제주의 기병 강만식이 붉은 종이를 받는다. "마병 강만식은 무과 병과 제391인으로 급제하였다(馬兵康萬埴武科丙科第三百九十一人及第出身者)." 391번째. 그래도 이름은 올랐다. | 1845년 마병 강만식이 무과 병과 제391인으로 급제하고 받은 홍패입니다. |
+| EP.84 사또의 성적표 — 여덟 글자로 매긴 수령 평가 '포폄제목' | 1863년 대정현감 강이진(康履鎭) 중군 차정 전령(傳令) | 1863년 강이진(康履鎭)의 전령 — 관청이 내린 명령서. | 1863년 여름, 제주 대정. 현감 강이진에게 군령 한 장이 온다. "중군을 겸하도록 정하니, 모든 군무를 병법에 따라 거행하라(兼中軍差定 凡諸軍務 依兵法擧行者)." 섬을 지키는 일이, 이 집안의 일이 된다. | 1863년 대정현감 강이진에게 중군을 겸하여 군무를 병법대로 거행하라고 내린 전령입니다. |
 | EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | 매도계약서(賣渡契約書) | 매도계약서. | 그리고 해방 뒤, 이 집은 땅을 판다. "매도 대금 80만 환(賣渡代金八拾萬圜整), 계약금 10만 환은 오늘 받고." 갑과 을, 계약금, 위약금. 1607년의 명문과 같은 일을 하는 문서지만, 이제 우리가 아는 계약서의 모습이다. 땅을 사 모으던 집이, 문서로 남긴 300년이다. | 선교장 집안이 강릉 운정리(?)의 논 약 2,500평을 80만 환에 팔면서, 계약금 10만 환과 잔금 70만 환의 지급 조건을 적은 현대식 매도 계약서입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.

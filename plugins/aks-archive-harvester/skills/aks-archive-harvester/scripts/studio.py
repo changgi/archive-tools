@@ -506,11 +506,19 @@ def card(img_path, title, sub, body, foot, out, size=(1080, 1350), ph=None):
     for ln in wrap(d, title, font(56, 'bold'), W - 140)[:2]:
         d.text((70, y), ln, font=font(56, 'bold'), fill=PAPER); y += 70
     if sub: d.text((70, y + 6), sub, font=font(34, 'bold'), fill=GOLD); y += 60
-    lines = wrap(d, body, font(34), W - 140)
-    if len(lines) > 5 and find_quotes(body):  # 글이 넘치면 종이에 적힌 문장을 앞세운다(카드에서 잘리지 않게)
-        q = find_quotes(body)[0]; lines = wrap(d, f'"{q[0]}({q[1]})" — ' + body, font(34), W - 140)
-    for ln in lines[:5]:
-        d.text((70, y + 10), ln, font=font(34), fill=(220, 210, 192)); y += 50
+    bottom = H - 132  # 아래 구분선(H-120) 위까지만 — 넘치면 글자를 줄이고, 그래도 넘치면 끝을 '…'로
+    for fs, lh in ((34, 50), (31, 45), (28, 41)):
+        lines = wrap(d, body, font(fs), W - 140)
+        if y + 10 + len(lines) * lh <= bottom: break
+    keep = max(1, (bottom - y - 10) // lh)
+    if len(lines) > keep and find_quotes(body):  # 그래도 넘치면 종이에 적힌 문장을 앞세운다(인용이 잘리지 않게)
+        q = find_quotes(body)[0]; lines = wrap(d, f'"{q[0]}({q[1]})" — ' + body, font(fs), W - 140)
+    if len(lines) > keep:
+        lines = lines[:keep]; ln = lines[-1]
+        while d.textlength(ln + '…', font=font(fs)) > W - 140 and len(ln) > 1: ln = ln[:-1]
+        lines[-1] = ln + '…'
+    for ln in lines:
+        d.text((70, y + 10), ln, font=font(fs), fill=(220, 210, 192)); y += lh
     d.line((70, H - 120, W - 70, H - 120), fill=(80, 70, 55), width=2)
     ff = font(24)
     for k, ln in enumerate(foot.split(' · 자료: ', 1)[:2]):
@@ -1910,6 +1918,12 @@ def build_record(d, media=None, meta=None, agent=None, creator=None, license_tex
     if not old or any(ov.get(k) != rec['validation'][k] for k in ('date_issues', 'quote_issues', 'uncertain_marks', 'undated')):
         ev.append(dict(date=today, type='validation', agent=rec['validation']['tool'],
                        detail=f'날짜 어긋남 {tot["date"]} · 인용 불일치 {tot["quote"]} · □·(?) {tot["unk"]} · 연도 빈 칸 {tot["noyear"]}'))
+    if old and ev == list(old.get('events') or []):  # 바뀐 것이 없으면 도구 버전도 그대로 — 버전만 올라 기록이 모두 고쳐지지 않게
+        oldtool = {a_['name'] for a_ in old.get('agents', []) if a_['name'].startswith('aks-archive-harvester')}
+        if oldtool:
+            for a_ in rec.get('agents', []):
+                if a_['name'].startswith('aks-archive-harvester'): a_['name'] = next(iter(oldtool))
+            if (old.get('validation') or {}).get('tool'): rec['validation']['tool'] = old['validation']['tool']
     rec['created'] = old.get('created') or today
     rec['modified'] = today if (not old or ev != list(old.get('events') or [])) else old.get('modified', today)
     rec['events'] = ev

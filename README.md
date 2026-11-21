@@ -13,11 +13,11 @@
 | 하려는 일 | 바로 가기 |
 |---|---|
 | 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 101편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
-| 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 417건 · 소장처 122곳 · 1403–1959년 · 판독 한자 20,605자 · 원문 인용 378곳 |
+| 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 464건 · 소장처 130곳 · 1403–1959년 · 판독 한자 23,343자 · 원문 인용 426곳 |
 | 🌏 English | [English overview](https://changgi.github.io/archive-tools/examples/en.html) — what the series is and how to explore it |
 | 📦 데이터 | [전체 데이터 묶음 ZIP](https://changgi.github.io/archive-tools/examples/data.zip) — 판독 · 번역 · 해제 · 노트 · 분석 집계(이미지 없음) |
-| 🔎 찾기 | [전체 검색](https://changgi.github.io/archive-tools/examples/search.html) — 문서 417건의 판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자로 · [문서 유형 사전](https://changgi.github.io/archive-tools/examples/types.html) |
-| 🗂️ 모아 보기 | [종이에 적힌 문장 378곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [인물 찾아보기 174명](https://changgi.github.io/archive-tools/examples/people.html) — 광해군 · 이언적 · 박의장처럼 여러 편에 걸친 인물 · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
+| 🔎 찾기 | [전체 검색](https://changgi.github.io/archive-tools/examples/search.html) — 문서 464건의 판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자로 · [문서 유형 사전](https://changgi.github.io/archive-tools/examples/types.html) |
+| 🗂️ 모아 보기 | [종이에 적힌 문장 426곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [인물 찾아보기 197명](https://changgi.github.io/archive-tools/examples/people.html) — 광해군 · 이언적 · 박의장처럼 여러 편에 걸친 인물 · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
 | ✍️ 함께 고치기 | 갤러리 「원문 읽기」 · 전시 웹페이지의 「판독 고침 제보」 → GitHub 이슈 · [기여 안내](CONTRIBUTING.md) |
 | ✅ 원본과 대조하기 | [검토 현황](https://changgi.github.io/archive-tools/examples/review.html) 「검토 기록하기」에서 대조한 문서에 표시 → `reviews.csv` 내려받기 → 이슈로 보내거나 `studio.py review --from` |
 | 📜 원문 읽기 | 편마다 판독 · 번역 · 해제 · 요약 · "현대어(原文)" 이야기 (갤러리 각 편 「원문 읽기」) |

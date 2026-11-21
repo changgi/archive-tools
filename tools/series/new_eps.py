@@ -23,6 +23,11 @@ def split(t):
 
 def build(path, steps):
     J = json.load(open(path, encoding='utf-8')); M = J['meta']; w_ = os.path.basename(path)[:-5]; work = os.path.join(P.WORK if os.path.exists((P.WORK + '/') + w_) else C, w_)
+    rd = os.path.join(E, M['folder'], 'README.md')  # 폴더 이름이 다른 편과 겹치면 덮어쓰지 않고 멈춤
+    if os.path.exists(rd):
+        m0 = re.match(r'#\s*EP\.(\d+)', open(rd, encoding='utf-8').readline())
+        if m0 and int(m0.group(1)) != int(M['ep']):
+            sys.exit(f"✗ examples/{M['folder']} 는 이미 EP.{m0.group(1)}의 폴더입니다 — meta.folder(와 작업 폴더 이름)를 바꾸세요")
     ed = os.path.join(work, 'edit', 'story')
     if not os.path.exists(ed + '/selection.orig.csv'): shutil.copy(ed + '/selection.csv', ed + '/selection.orig.csv')  # 다시 돌려도 원래 순서 유지
     rows = list(csv.DictReader(open(ed + '/selection.orig.csv', encoding='utf-8-sig')))

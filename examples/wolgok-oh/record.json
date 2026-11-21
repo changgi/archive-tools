@@ -302,6 +302,7 @@
  "relations": {
   "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
   "previous": "hyoheon",
+  "next": "aewol-kim-yj",
   "derived_from": [
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0141%5EL014139%5EL014139F02%5EL014139F0201&dataId=G002%2BKHD%2BKSM-XA.1698.0000-20161231.C0804_002_00002_XXX&itemType=",
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0141%5EL014139%5EL014139F02%5EL014139F0201&dataId=G002%2BKHD%2BKSM-XA.1714.0000-20161231.C0804_002_00064_XXX&itemType=",
