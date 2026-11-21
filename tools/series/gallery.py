@@ -59,7 +59,7 @@ for k, c in sorted(caps.items(), key=lambda x: x[1]['n']):
                   wide=f'media/{k}_wide.mp4', wposter=f'media/{k}_wide-poster.jpg', vtt=f'media/{k}.ko.vtt', srt=f'media/{k}.ko.srt', caption=c['caption']))
 for v in V:
     for f in ('reel', 'rposter', 'vtt', 'wide', 'wposter'):
-        if f in v: assert os.path.exists(R + v[f]), v[f]
+        if f in v: assert os.path.exists(R + v[f]) or os.path.exists(P.media_file(os.path.basename(v[f]))), v[f]  # 영상은 archive-tools-next에 있을 수 있음
     v['dr'] = dur(v['reel']); v['dw'] = dur(v['wide']) if 'wide' in v else None
 
 # 카드뉴스 데이터

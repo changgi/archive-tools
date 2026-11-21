@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.138)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.143)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.138)
+## 원문으로 읽는 이야기 (EP.17–EP.143)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -158,6 +158,11 @@
 | [**EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표**](gyeongju-hojeok/) | 경주 경주이씨 이찬우 (문중) | 幼學盧啓宅年四十七己亥本光山 | [릴스](https://changgi.github.io/archive-tools-next/media/ep136-gyeongju-hojeok_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep136-gyeongju-hojeok_wide.mp4) · [홍보 글](gyeongju-hojeok/promo.md) |
 | [**EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지**](jangseogak-gung/) | 한국학중앙연구원 장서각 (박물관) | 翁主爲永溫翁主者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep137-jangseogak-gung_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep137-jangseogak-gung_wide.mp4) · [홍보 글](jangseogak-gung/promo.md) |
 | [**EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩**](eodo-kang-sh-chacheop/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 不輕察任 | [릴스](https://changgi.github.io/archive-tools-next/media/ep138-eodo-kang-sh-chacheop_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep138-eodo-kang-sh-chacheop_wide.mp4) · [홍보 글](eodo-kang-sh-chacheop/promo.md) |
+| [**EP.139 "이씨를 소훈으로 삼는다" — 효장세자의 어머니가 받은 세 장, 그리고 같은 날의 또 한 장**](jangseogak-jeongbin/) | 한국학중앙연구원 장서각 (박물관) | 李氏爲昭訓者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep139-jangseogak-jeongbin_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep139-jangseogak-jeongbin_wide.mp4) · [홍보 글](jangseogak-jeongbin/promo.md) |
+| [**EP.140 아들의 나이가 다섯 살 늘었다 — 제주 강세건 집안의 준호구 네 장, 42년**](eodo-kang-ij-hojeok/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 率子□□汝興年五癸亥 | [릴스](https://changgi.github.io/archive-tools-next/media/ep140-eodo-kang-ij-hojeok_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep140-eodo-kang-ij-hojeok_wide.mp4) · [홍보 글](eodo-kang-ij-hojeok/promo.md) |
+| [**EP.141 136년 동안 거의 바뀌지 않은 편지 — 제주 강씨 집안의 혼서 네 통**](eodo-kang-ij-honseo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 玆有先人之禮 謹行納幣之儀 | [릴스](https://changgi.github.io/archive-tools-next/media/ep141-eodo-kang-ij-honseo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep141-eodo-kang-ij-honseo_wide.mp4) · [홍보 글](eodo-kang-ij-honseo/promo.md) |
+| [**EP.142 남은 논밭이 하나도 없어서 — 강세건의 두 번의 혼인, 분재기 네 장**](eodo-kang-ij-bunjae/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 長女婿姜世建 成婚別給 | [릴스](https://changgi.github.io/archive-tools-next/media/ep142-eodo-kang-ij-bunjae_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep142-eodo-kang-ij-bunjae_wide.mp4) · [홍보 글](eodo-kang-ij-bunjae/promo.md) |
+| [**EP.143 자식 없는 계모의 제사는 누가 지내나 — 고씨와 의붓 손주들, 분재기 네 장**](eodo-kang-ij-gyemo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 後妻元無子女 | [릴스](https://changgi.github.io/archive-tools-next/media/ep143-eodo-kang-ij-gyemo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep143-eodo-kang-ij-gyemo_wide.mp4) · [홍보 글](eodo-kang-ij-gyemo/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -185,7 +190,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 139개
+## 예시 (결과물 갤러리) — 144개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -328,6 +333,11 @@
 | [**EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표**](gyeongju-hojeok/) | 경주 경주이씨 이찬우 (문중) | 1765년 상주의 호적은 붓으로 한 줄씩 이어 쓴 종이였다. 135년 뒤 대한제국의 호적은 칸이 미리 인쇄된… | [전시](gyeongju-hojeok/exhibit.html) · [활동지](gyeongju-hojeok/handout.html) · [카드](gyeongju-hojeok/cards/) · [selection.csv](gyeongju-hojeok/selection.csv) |
 | [**EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지**](jangseogak-gung/) | 한국학중앙연구원 장서각 (박물관) | 궁궐 안에도 교지가 오갔다. 1827년, 순조의 어린 딸은 '영온옹주'라는 이름을 받는다. 1868년, 궁녀… | [전시](jangseogak-gung/exhibit.html) · [활동지](jangseogak-gung/handout.html) · [카드](jangseogak-gung/cards/) · [selection.csv](jangseogak-gung/selection.csv) |
 | [**EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩**](eodo-kang-sh-chacheop/) | 제주 어도 진주강씨 강수황 후손가 (문중) | 1635년 겨울, 제주 목사는 강수황에게 차첩 한 장을 내린다. 16년 뒤 그는 섬 군대의 왼쪽 부대를 맡는… | [전시](eodo-kang-sh-chacheop/exhibit.html) · [활동지](eodo-kang-sh-chacheop/handout.html) · [카드](eodo-kang-sh-chacheop/cards/) · [selection.csv](eodo-kang-sh-chacheop/selection.csv) |
+| [**EP.139 "이씨를 소훈으로 삼는다" — 효장세자의 어머니가 받은 세 장, 그리고 같은 날의 또 한 장**](jangseogak-jeongbin/) | 한국학중앙연구원 장서각 (박물관) | 1721년 10월 3일, 왕세제가 된 연잉군의 궁에 교지 두 장이 내려온다. 한 장은 '이씨를 소훈으로', … | [전시](jangseogak-jeongbin/exhibit.html) · [활동지](jangseogak-jeongbin/handout.html) · [카드](jangseogak-jeongbin/cards/) · [selection.csv](jangseogak-jeongbin/selection.csv) |
+| [**EP.140 아들의 나이가 다섯 살 늘었다 — 제주 강세건 집안의 준호구 네 장, 42년**](eodo-kang-ij-hojeok/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1687년 호적에서 강세건의 아들 여흥은 다섯 살이다. 18년 뒤 같은 아들은 스물여덟 살로 적힌다. 172… | [전시](eodo-kang-ij-hojeok/exhibit.html) · [활동지](eodo-kang-ij-hojeok/handout.html) · [카드](eodo-kang-ij-hojeok/cards/) · [selection.csv](eodo-kang-ij-hojeok/selection.csv) |
+| [**EP.141 136년 동안 거의 바뀌지 않은 편지 — 제주 강씨 집안의 혼서 네 통**](eodo-kang-ij-honseo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1791년 가을, 김씨 집안이 제주 어도의 '강장의 댁'에 혼서를 보낸다. 136년 뒤인 1927년, 또 다… | [전시](eodo-kang-ij-honseo/exhibit.html) · [활동지](eodo-kang-ij-honseo/handout.html) · [카드](eodo-kang-ij-honseo/cards/) · [selection.csv](eodo-kang-ij-honseo/selection.csv) |
+| [**EP.142 남은 논밭이 하나도 없어서 — 강세건의 두 번의 혼인, 분재기 네 장**](eodo-kang-ij-bunjae/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1677년 봄, 스무 살 강세건은 양씨 집안의 맏사위가 되고 장인에게서 논밭과 소를 받는다. 2년 뒤 아버지… | [전시](eodo-kang-ij-bunjae/exhibit.html) · [활동지](eodo-kang-ij-bunjae/handout.html) · [카드](eodo-kang-ij-bunjae/cards/) · [selection.csv](eodo-kang-ij-bunjae/selection.csv) |
+| [**EP.143 자식 없는 계모의 제사는 누가 지내나 — 고씨와 의붓 손주들, 분재기 네 장**](eodo-kang-ij-gyemo/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1718년, 예순한 살 강세건은 맏손자에게 문서를 남긴다. '뒷아내는 본래 자녀가 없으니' 그 묘와 제사를 … | [전시](eodo-kang-ij-gyemo/exhibit.html) · [활동지](eodo-kang-ij-gyemo/handout.html) · [카드](eodo-kang-ij-gyemo/cards/) · [selection.csv](eodo-kang-ij-gyemo/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -352,7 +362,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 139개
+### 카드뉴스 미리보기 — 144개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -495,8 +505,13 @@
 | EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표 | ![](gyeongju-hojeok/cards/00_표지.jpg) | ![](gyeongju-hojeok/cards/01.jpg) | ![](gyeongju-hojeok/cards/02.jpg) |
 | EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지 | ![](jangseogak-gung/cards/00_표지.jpg) | ![](jangseogak-gung/cards/01.jpg) | ![](jangseogak-gung/cards/02.jpg) |
 | EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩 | ![](eodo-kang-sh-chacheop/cards/00_표지.jpg) | ![](eodo-kang-sh-chacheop/cards/01.jpg) | ![](eodo-kang-sh-chacheop/cards/02.jpg) |
+| EP.139 "이씨를 소훈으로 삼는다" — 효장세자의 어머니가 받은 세 장, 그리고 같은 날의 또 한 장 | ![](jangseogak-jeongbin/cards/00_표지.jpg) | ![](jangseogak-jeongbin/cards/01.jpg) | ![](jangseogak-jeongbin/cards/02.jpg) |
+| EP.140 아들의 나이가 다섯 살 늘었다 — 제주 강세건 집안의 준호구 네 장, 42년 | ![](eodo-kang-ij-hojeok/cards/00_표지.jpg) | ![](eodo-kang-ij-hojeok/cards/01.jpg) | ![](eodo-kang-ij-hojeok/cards/02.jpg) |
+| EP.141 136년 동안 거의 바뀌지 않은 편지 — 제주 강씨 집안의 혼서 네 통 | ![](eodo-kang-ij-honseo/cards/00_표지.jpg) | ![](eodo-kang-ij-honseo/cards/01.jpg) | ![](eodo-kang-ij-honseo/cards/02.jpg) |
+| EP.142 남은 논밭이 하나도 없어서 — 강세건의 두 번의 혼인, 분재기 네 장 | ![](eodo-kang-ij-bunjae/cards/00_표지.jpg) | ![](eodo-kang-ij-bunjae/cards/01.jpg) | ![](eodo-kang-ij-bunjae/cards/02.jpg) |
+| EP.143 자식 없는 계모의 제사는 누가 지내나 — 고씨와 의붓 손주들, 분재기 네 장 | ![](eodo-kang-ij-gyemo/cards/00_표지.jpg) | ![](eodo-kang-ij-gyemo/cards/01.jpg) | ![](eodo-kang-ij-gyemo/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 139개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 144개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -641,6 +656,11 @@
 | EP.136 "직업: 선비"에서 "직업: 농부"로 — 1900년과 1901년, 한 사람의 두 호적표 | 1765년 노계택(盧啓宅) 준호구(準戶口) | 1765년 노계택(盧啓宅)의 준호구 — 관에서 발급한 호적 증명서. | 1765년 정월, 상주. 관청이 호적을 베껴 준다. 칸은 없다. 붓으로 한 줄씩 이어 쓴다. "유학 노계택, 나이 47세, 본관 광산(幼學盧啓宅年四十七己亥本光山)." 아버지, 할아버지, 증조할아버지. 사람은 조상의 이름으로 먼저 설명되었다. | 1765년 상주목이 유학 노계택 부부와 그 사조를 붓으로 이어 써 확인해 준 준호구입니다(아래 떨어져 나감). |
 | EP.137 "엄씨를 상궁으로 삼는다" — 옹주와 왕자, 그리고 궁녀가 받은 궁궐의 교지 | 1827년 영온옹주(永溫翁主) 봉작 교지 | 1827년 영온옹주(永溫翁主)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1827년 여름, 궁궐 안. 이름 없이 '옹주'로만 불리던 어린 딸에게 교지가 온다. "옹주를 영온옹주로 삼는다(翁主爲永溫翁主者)." 길이 따뜻하라는 이름. 그러나 그 아이는 오래 살지 못했다고 전한다. | 1827년 순조의 딸에게 '영온옹주'라는 이름을 내린 봉작 교지입니다. |
 | EP.138 "가볍게 여기지 말고 맡으라" — 제주 강수황이 28년 동안 받은 네 장의 차첩 | 1635년 강수황(姜受璜) 차첩(差帖) | 1635년 강수황(姜受璜)의 차첩 — 하급 관직 임명장. | 1635년 겨울, 제주. 목사가 강수황에게 종이 한 장을 내린다. 섬의 군영에 그의 자리가 생겼다. 마지막 줄에는 당부가 적혔다. "가볍게 여기지 말고 맡아 살피라(不輕察任)." | 1635년 제주 목사가 강수황을 섬 군영의 한 자리에 차정한 차첩으로, 맡긴 자리 이름은 초서라 확실히 읽지 못했습니다. |
+| EP.139 "이씨를 소훈으로 삼는다" — 효장세자의 어머니가 받은 세 장, 그리고 같은 날의 또 한 장 | 1721년 이씨(李氏) 소훈(昭訓) 교지 | 1721년 이씨(李氏)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1721년 가을, 연잉군은 왕세제가 된다. 두 달 뒤, 그의 궁에 교지가 온다. "이씨를 소훈으로 삼는다(李氏爲昭訓者)." 이름은 없다. 성 한 글자와 품계 하나. 그는 이미 두 살 아들의 어머니였다. | 1721년 왕세제궁의 이씨를 내명부 종5품 소훈으로 삼은 교지로, 효장세자의 어머니 정빈 이씨의 첫 품계입니다. |
+| EP.140 아들의 나이가 다섯 살 늘었다 — 제주 강세건 집안의 준호구 네 장, 42년 | 준호구(準戶口)－02 | 1687년 준호구 — 관에서 발급한 호적 증명서. | 1687년 겨울, 제주목이 강세건의 집 호적을 베껴 준다. 서른 살 파총, 스물두 살 아내 고씨. 그리고 "함께 사는 아들 여흥, 다섯 살, 계해생(率子□□汝興年五癸亥)." 이 다섯 살이 나중에 문제가 된다. | 1687년 제주목이 발급한 강세건 호의 준호구로, 서른 살 업무 파총 강세건과 스물두 살 아내 고씨, 다섯 살 아들 여흥이 적혀 있습니다. |
+| EP.141 136년 동안 거의 바뀌지 않은 편지 — 제주 강씨 집안의 혼서 네 통 | 혼서(婚書)－01 | 1791년 혼서. | 1791년 가을, 제주 어도의 '강장의 댁'에 편지 한 통이 들어온다. 김씨 집안의 맏아들 종우와 이 집 딸의 혼인. 편지는 정해진 문장을 따른다. "이에 옛사람의 예가 있어 삼가 납폐의 의식을 행합니다(玆有先人之禮 謹行納幣之儀)." | 1791년 김□빈이 맏아들 종우의 혼인을 위해 제주 '강장의 댁'에 보낸 혼서로, 점을 쳐 길조를 얻었다는 구절이 들어 있습니다. |
+| EP.142 남은 논밭이 하나도 없어서 — 강세건의 두 번의 혼인, 분재기 네 장 | 분재기(分財記)－01 | 1677년 분재기 — 재산 상속을 기록한 문서. | 1677년 봄, 제주의 스무 살 강세건이 양씨 집안의 맏사위가 된다. 장인은 종이 한 장을 써 준다. "맏사위 강세건에게, 혼인하며 따로 준다(長女婿姜世建 成婚別給)." 논밭 몇 뙈기, 그리고 암말. | 1677년 장인 양씨가 맏사위 강세건의 혼인에 논밭과 마소를 떼어 준 별급 문서로, 강세건의 첫 혼인을 보여 줍니다. |
+| EP.143 자식 없는 계모의 제사는 누가 지내나 — 고씨와 의붓 손주들, 분재기 네 장 | 분재기(分財記)－10 | 1718년 분재기 — 재산 상속을 기록한 문서. | 1718년 봄, 예순한 살 강세건이 맏손자 상성을 앉혀 놓고 받아 적게 한다. "뒷아내는 본래 자녀가 없으니(後妻元無子女)." 아들 여흥은 외아들, 제사를 혼자 다 질 수 없다. 그래서 할머니 고씨의 묘와 제삿날은 손자가 맡는다. 할머니가 친정에서 가져온 밭이 그 몫이다. | 1718년 강세건이 자식 없는 둘째 아내 고씨의 묘 관리와 제사를 맏손자 상성에게 맡기며 땅과 노비를 붙여 준 허여문기입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
