@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.146)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.150)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.146)
+## 원문으로 읽는 이야기 (EP.17–EP.150)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -166,6 +166,10 @@
 | [**EP.144 말 목장 안의 무덤 — 제주 강씨 집안이 묘를 지키려 낸 소지 네 장**](eodo-kang-ij-soji/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 一片地上 旣入三墳 則無所餘地 | [릴스](https://changgi.github.io/archive-tools-next/media/ep144-eodo-kang-ij-soji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep144-eodo-kang-ij-soji_wide.mp4) · [홍보 글](eodo-kang-ij-soji/promo.md) |
 | [**EP.145 말 목장을 맡은 아버지, 향청을 맡은 아들 — 강세건 · 강여흥 부자의 차첩 네 장**](eodo-kang-ij-chacheop/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 第七所 | [릴스](https://changgi.github.io/archive-tools-next/media/ep145-eodo-kang-ij-chacheop_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep145-eodo-kang-ij-chacheop_wide.mp4) · [홍보 글](eodo-kang-ij-chacheop/promo.md) |
 | [**EP.146 흉년의 두 달, 땅을 판 네 사람 — 1714년 강세건이 사들인 논밭 문서**](eodo-kang-ij-myeongmun/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 當此凶年 生涯誠難 | [릴스](https://changgi.github.io/archive-tools-next/media/ep146-eodo-kang-ij-myeongmun_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep146-eodo-kang-ij-myeongmun_wide.mp4) · [홍보 글](eodo-kang-ij-myeongmun/promo.md) |
+| [**EP.147 넉 달 동안 열아홉 번 — 1866년 봄, 제주목사가 신우면 면임에게 보낸 전령**](eodo-kang-ij-jeonryeong/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 今月十五日內 收聚上送 | [릴스](https://changgi.github.io/archive-tools-next/media/ep147-eodo-kang-ij-jeonryeong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep147-eodo-kang-ij-jeonryeong_wide.mp4) · [홍보 글](eodo-kang-ij-jeonryeong/promo.md) |
+| [**EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장**](eodo-kang-ij-taekil/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 庚午七月十七日辰時生 | [릴스](https://changgi.github.io/archive-tools-next/media/ep148-eodo-kang-ij-taekil_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep148-eodo-kang-ij-taekil_wide.mp4) · [홍보 글](eodo-kang-ij-taekil/promo.md) |
+| [**EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장**](eodo-kang-ij-jangsa/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 乾化命庚午 | [릴스](https://changgi.github.io/archive-tools-next/media/ep149-eodo-kang-ij-jangsa_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep149-eodo-kang-ij-jangsa_wide.mp4) · [홍보 글](eodo-kang-ij-jangsa/promo.md) |
+| [**EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장**](eodo-kang-ij-manggi/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 姜渭文 爲 | [릴스](https://changgi.github.io/archive-tools-next/media/ep150-eodo-kang-ij-manggi_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep150-eodo-kang-ij-manggi_wide.mp4) · [홍보 글](eodo-kang-ij-manggi/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -193,7 +197,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 147개
+## 예시 (결과물 갤러리) — 151개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -344,6 +348,10 @@
 | [**EP.144 말 목장 안의 무덤 — 제주 강씨 집안이 묘를 지키려 낸 소지 네 장**](eodo-kang-ij-soji/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 제주 어도 강씨 집안의 묘는 '육소장(六所場)', 나라의 말 목장 안에 있었다. 1754년 일흔일곱 살 강여… | [전시](eodo-kang-ij-soji/exhibit.html) · [활동지](eodo-kang-ij-soji/handout.html) · [카드](eodo-kang-ij-soji/cards/) · [selection.csv](eodo-kang-ij-soji/selection.csv) |
 | [**EP.145 말 목장을 맡은 아버지, 향청을 맡은 아들 — 강세건 · 강여흥 부자의 차첩 네 장**](eodo-kang-ij-chacheop/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1705년 천총 강세건은 제주목사에게서 '제칠소' 목장 일을 맡는 차첩을 받는다. 10년 뒤에는 '오소 마감… | [전시](eodo-kang-ij-chacheop/exhibit.html) · [활동지](eodo-kang-ij-chacheop/handout.html) · [카드](eodo-kang-ij-chacheop/cards/) · [selection.csv](eodo-kang-ij-chacheop/selection.csv) |
 | [**EP.146 흉년의 두 달, 땅을 판 네 사람 — 1714년 강세건이 사들인 논밭 문서**](eodo-kang-ij-myeongmun/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1714년 정월부터 2월까지 두 달 사이, 제주 어도의 네 사람이 강세건에게 논밭을 판다. 문서마다 첫 줄이… | [전시](eodo-kang-ij-myeongmun/exhibit.html) · [활동지](eodo-kang-ij-myeongmun/handout.html) · [카드](eodo-kang-ij-myeongmun/cards/) · [selection.csv](eodo-kang-ij-myeongmun/selection.csv) |
+| [**EP.147 넉 달 동안 열아홉 번 — 1866년 봄, 제주목사가 신우면 면임에게 보낸 전령**](eodo-kang-ij-jeonryeong/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 1866년 정월부터 4월까지, 제주목사의 전령이 신우면의 면임에게 잇따라 내려온다. 자료관 목록에 이해의 전… | [전시](eodo-kang-ij-jeonryeong/exhibit.html) · [활동지](eodo-kang-ij-jeonryeong/handout.html) · [카드](eodo-kang-ij-jeonryeong/cards/) · [selection.csv](eodo-kang-ij-jeonryeong/selection.csv) |
+| [**EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장**](eodo-kang-ij-taekil/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 혼인을 앞두면 먼저 신랑의 생년월일시를 적어 보내고, 그것으로 운을 풀고, 신부의 사주와 맞춰 날을 고른다.… | [전시](eodo-kang-ij-taekil/exhibit.html) · [활동지](eodo-kang-ij-taekil/handout.html) · [카드](eodo-kang-ij-taekil/cards/) · [selection.csv](eodo-kang-ij-taekil/selection.csv) |
+| [**EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장**](eodo-kang-ij-jangsa/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 종이마다 첫 줄이 같다. '乾化命 庚午', 세상을 떠난 남자는 경오생. 오른쪽 끝에는 '主 壬辰', 상을 치… | [전시](eodo-kang-ij-jangsa/exhibit.html) · [활동지](eodo-kang-ij-jangsa/handout.html) · [카드](eodo-kang-ij-jangsa/cards/) · [selection.csv](eodo-kang-ij-jangsa/selection.csv) |
+| [**EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장**](eodo-kang-ij-manggi/) | 제주 어도 진주강씨 강익진 후손가 (문중) | 향교와 삼성사의 일을 맡을 사람을 뽑을 때, 유사들은 이름 셋을 적어 올린다. '望'. 위에서 그 가운데 한… | [전시](eodo-kang-ij-manggi/exhibit.html) · [활동지](eodo-kang-ij-manggi/handout.html) · [카드](eodo-kang-ij-manggi/cards/) · [selection.csv](eodo-kang-ij-manggi/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -368,7 +376,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 147개
+### 카드뉴스 미리보기 — 151개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -519,8 +527,12 @@
 | EP.144 말 목장 안의 무덤 — 제주 강씨 집안이 묘를 지키려 낸 소지 네 장 | ![](eodo-kang-ij-soji/cards/00_표지.jpg) | ![](eodo-kang-ij-soji/cards/01.jpg) | ![](eodo-kang-ij-soji/cards/02.jpg) |
 | EP.145 말 목장을 맡은 아버지, 향청을 맡은 아들 — 강세건 · 강여흥 부자의 차첩 네 장 | ![](eodo-kang-ij-chacheop/cards/00_표지.jpg) | ![](eodo-kang-ij-chacheop/cards/01.jpg) | ![](eodo-kang-ij-chacheop/cards/02.jpg) |
 | EP.146 흉년의 두 달, 땅을 판 네 사람 — 1714년 강세건이 사들인 논밭 문서 | ![](eodo-kang-ij-myeongmun/cards/00_표지.jpg) | ![](eodo-kang-ij-myeongmun/cards/01.jpg) | ![](eodo-kang-ij-myeongmun/cards/02.jpg) |
+| EP.147 넉 달 동안 열아홉 번 — 1866년 봄, 제주목사가 신우면 면임에게 보낸 전령 | ![](eodo-kang-ij-jeonryeong/cards/00_표지.jpg) | ![](eodo-kang-ij-jeonryeong/cards/01.jpg) | ![](eodo-kang-ij-jeonryeong/cards/02.jpg) |
+| EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장 | ![](eodo-kang-ij-taekil/cards/00_표지.jpg) | ![](eodo-kang-ij-taekil/cards/01.jpg) | ![](eodo-kang-ij-taekil/cards/02.jpg) |
+| EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장 | ![](eodo-kang-ij-jangsa/cards/00_표지.jpg) | ![](eodo-kang-ij-jangsa/cards/01.jpg) | ![](eodo-kang-ij-jangsa/cards/02.jpg) |
+| EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장 | ![](eodo-kang-ij-manggi/cards/00_표지.jpg) | ![](eodo-kang-ij-manggi/cards/01.jpg) | ![](eodo-kang-ij-manggi/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 147개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 151개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -673,6 +685,10 @@
 | EP.144 말 목장 안의 무덤 — 제주 강씨 집안이 묘를 지키려 낸 소지 네 장 | 소지(所志)－01 | 1754년 소지 — 관에 올린 청원서. | 1754년 봄, 일흔일곱 살의 강여흥이 관아에 종이를 낸다. 집안의 무덤은 '육소장', 나라의 말 목장 안에 있다. "한 조각 땅에 무덤 셋이 들어서 남은 땅이 없다(一片地上 旣入三墳 則無所餘地)." 그런데 남이 자꾸 그 땅을 갈아엎는다. 한 번 막았더니, 이번엔 다른 사람이다. | 1754년 전 별감 강여흥이 무덤 셋이 있는 좁은 묘역을 남이 갈아엎는다며 제주목에 금지를 청한 소지입니다. |
 | EP.145 말 목장을 맡은 아버지, 향청을 맡은 아들 — 강세건 · 강여흥 부자의 차첩 네 장 | 차첩(差帖)－03 | 1705년 차첩 — 하급 관직 임명장. | 1705년, 마흔여덟 살 천총 강세건에게 관아의 종이 한 장이 내려온다. 맨 위 큰 글자 '帖', 그리고 "제칠소(第七所)"라는 세 글자. 제주에는 나라의 말 목장이 열 곳 있었고, 그 일곱째다. | 1705년 제주목사가 천총 강세건에게 제칠소(목장) 관련 직임을 맡긴 차첩입니다. |
 | EP.146 흉년의 두 달, 땅을 판 네 사람 — 1714년 강세건이 사들인 논밭 문서 | 명문(明文)－009 | 1714년 명문 — 토지·노비 등을 사고판 계약 문서. | 1714년 정월 초닷새, 고중혁이 물논 한 마지기를 내놓는다. 이유는 첫 줄에 있다. "이 흉년을 당해 살기가 참으로 어렵다(當此凶年 生涯誠難)." 산 사람은 쉰일곱 살의 강세건. 4년 뒤 이 논은 자식 없는 그의 아내 고씨의 제사 몫이 된다. | 1714년 정월 겸사복 고중혁이 '흉년에 살기 어려워' 물논 한 마지기를 강세건에게 판 명문으로, 이 땅은 뒤에 고씨의 제사 몫이 됩니다. |
+| EP.147 넉 달 동안 열아홉 번 — 1866년 봄, 제주목사가 신우면 면임에게 보낸 전령 | 전령(傳令)－077 | 1866년 전령 — 관청이 내린 명령서. | 1866년 정월 사흘, 새해 첫 전령이 신우면 면임에게 온다. 무엇을 거두는지는 흐린 초서 속에 있지만, 기한만은 또렷하다. "이달 15일 안에 거두어 모아 올려 보내라(今月十五日內 收聚上送)." 열이틀이 남았다. | 1866년 정월 3일 제주목사가 신우면 면임에게 이달 15일 안에 거두어 올려 보내라고 명한 전령입니다. |
+| EP.148 '뒤에 맞은 아내' 세 글자 — 혼인 날을 고른 종이 네 장 | 사성록(四星錄)－06 | 1800년 사성록. | 혼인 이야기는 숫자 몇 개로 시작한다. "경오년 7월 17일 진시생(庚午七月十七日辰時生)." 그 아래로 네 글자씩, 좋은 말이 빽빽하다. "몸을 세워 이름을 날리고, 높은 집안을 드나든다(立身揚名 出入高門)." 혼인을 앞둔 신랑의 운세다. | 경오년 7월 17일 진시에 태어난 신랑의 사주를 '입신양명' 같은 네 글자 구절로 풀이한 사성록입니다. |
+| EP.149 아버지를 묻을 날, 옮길 날 — 경오생 망자와 임진생 상주의 장사택일기 네 장 | 장사택일기(葬事擇日記)－14 | 1903년 장사택일기. | 첫 줄은 늘 같다. "돌아가신 분, 경오생(乾化命庚午)." 그 옆에 작게 "상주, 임진생(主壬辰)." 스물두 살 아래, 아마도 아들. 아래로 날짜가 이어진다. 관을 내갈 시각, 땅을 열 시각. 그리고 마지막 줄. "기축생 · 을축생은 관을 내가고 내릴 때 반드시 피하라(冲 己丑 乙丑生 出柩 下棺 必避)." | 경오생 망자의 안장일(11월)과 출구 · 개토 시각을 고르고, 기축생 · 을축생은 하관 때 피하라고 적은 장사택일기입니다. |
+| EP.150 세 이름 가운데 하나에 찍힌 점 — 제주 강씨 집안의 망기 네 장 | 망기(望記)－01 | 1757년 망기. | 1757년 여름, 종이 한가운데 '望' 한 글자. 그 아래 이름 셋이 나란히 선다. 강위문, 강후종, 김진욱. 그리고 첫 이름 아래에만 글자 하나가 붙는다. "강위문, 이 사람으로(姜渭文 爲)." 셋 가운데 하나가 그렇게 정해진다. | 1757년 유사가 겸제독 후보로 강위문 · 강후종 · 김진욱을 올리고, 강위문이 뽑힌 망기입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
