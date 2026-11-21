@@ -11,5 +11,7 @@ NP = len({x for f in glob.glob((P.REPO + '/examples/*/selection.csv')) for r in 
 t = re.sub(r'인물 찾아보기 \d+명', f'인물 찾아보기 {NP}명', t)
 t = re.sub(r'종이에 적힌 문장 \d+곳', f'종이에 적힌 문장 {S["quotes"]}곳', t)
 t = re.sub(r'문서 \d+건의 판독 · 번역 · 해제 · 이야기 전문', f'문서 {S["docs"]}건의 판독 · 번역 · 해제 · 이야기 전문', t)
+NEP = len([d for d in glob.glob((P.REPO + '/examples/*/selection.csv')) if '/tutorial/' not in d.replace('\\', '/')])
+t = re.sub(r'「고문서 한 장」 \d+편\]', f'「고문서 한 장」 {NEP}편]', t)
 if t != s: open(p, 'w', encoding='utf-8').write(t)
 print('readme', 'updated' if t != s else 'same', new)

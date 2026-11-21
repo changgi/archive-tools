@@ -12,7 +12,7 @@
 
 | 하려는 일 | 바로 가기 |
 |---|---|
-| 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 101편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
+| 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 132편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
 | 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 464건 · 소장처 130곳 · 1403–1959년 · 판독 한자 23,343자 · 원문 인용 426곳 |
 | 🌏 English | [English overview](https://changgi.github.io/archive-tools/examples/en.html) — what the series is and how to explore it |
 | 📦 데이터 | [전체 데이터 묶음 ZIP](https://changgi.github.io/archive-tools/examples/data.zip) — 판독 · 번역 · 해제 · 노트 · 분석 집계(이미지 없음) |
@@ -22,6 +22,7 @@
 | ✅ 원본과 대조하기 | [검토 현황](https://changgi.github.io/archive-tools/examples/review.html) 「검토 기록하기」에서 대조한 문서에 표시 → `reviews.csv` 내려받기 → 이슈로 보내거나 `studio.py review --from` |
 | 📜 원문 읽기 | 편마다 판독 · 번역 · 해제 · 요약 · "현대어(原文)" 이야기 (갤러리 각 편 「원문 읽기」) |
 | 🧑‍🏫 수업 · 🏛️ 전시 | 편마다 활동지 · 전시 웹페이지 · 카드뉴스 · CSV — [전체 결과물 표](https://changgi.github.io/archive-tools/examples/#alltable) · [활용 가이드](https://changgi.github.io/archive-tools/examples/use.html) |
+| 🗃️ 기록 꾸러미 | 편마다 `record.json`(맥락 · 출처 · 파생물 · 고정값 · 작업 이력) · [전체 목록 JSONL](https://changgi.github.io/archive-tools/examples/records.jsonl) · [Dublin Core CSV](https://changgi.github.io/archive-tools/examples/records-dc.csv) · [제작 도구](tools/series/README.md) |
 | ✍️ 기획 · 비하인드 | [기획 노트](https://changgi.github.io/archive-tools/examples/about.html) · 편별 큐레이터 노트 · 비하인드 카드 · 전달 에디팅 |
 | 📢 홍보 | [채널별 홍보 가이드](https://changgi.github.io/archive-tools/examples/promote.html) · 편별 `channels.md` · [시리즈 게시 문구](examples/series/promo.md) |
 | 🛠️ 직접 만들기 | [플러그인 설치](#설치) · [처음부터 끝까지 따라하기](examples/tutorial/README.md) · [완성 사이트](https://changgi.github.io/archive-tools/examples/tutorial/site/index.html) |
@@ -45,6 +46,10 @@
 📜 **원문으로 읽는 이야기 24편 더 (EP.27–EP.50):** 강릉 선교장 · 점필재 · 여헌 장현광 · 하회 소년의 경성 유학 엽서 · 박의장 · 진주 사창 사건 · 수당 이남규 · 옥천사 · 제주 해녀 절목 · 최진립 · 김홍욱 · 오윤겸 · 과거 시험지 · 일주일 뒤의 부름 · 숙종이 보낸 숯 · 하위지의 조카 · 기러기와 장터 · 덕남서원 소나무 · 굶주림의 명문 · 큰물과 투장 · 김해 향안 · "술은 석 잔까지" · 효종의 답장 · 송규렴의 한글 편지 → [보기](https://changgi.github.io/archive-tools/examples/)
 
 📜 **원문으로 읽는 이야기 50편 더 (EP.51–EP.100):** 귀화 일본 장수 사여모 · 유희의 『물명고』 · 제주의 종이 신분증 지패 · 공명첩 · 사또의 성적표 포폄 · 밀부 제34부 · 험천의 김홍익 · 1919년 만일계 · 1592년 안동 의병 일지 · 이완용 서명의 관고 · 농암 이현보의 양로연 · 류성룡 증손녀의 호적 · 몰래 무덤 산송 · 1904년 향교 완문 · 하홍도의 여름 편지 외 — 문중 · 서원 · 향교 · 사찰 · 제주 문서까지 → [보기](https://changgi.github.io/archive-tools/examples/) · 첫 화면 「결과물 한눈에 보기」에서 영상 · 전시 · 활동지 · 카드뉴스 · CSV · 홍보 글로 바로 가기
+
+📜 **원문으로 읽는 이야기 31편 더 (EP.101–EP.131):** 섬마을 훈장의 통정대부 · 해남 김선지의 임진년 고신 · 묵재 이문건의 『양아록』 · 술과 음식의 한글 책 「쥬식방문」 · 단종의 조카가 받은 사패 · 1910년 8월 28일의 마지막 칙명 · 굶주린 해 서천 군수의 유서 · 제주 9편(급제 60년의 회방 홍패 · 말 열 필과 선산 · 아버지와 아들의 같은 시험 · 흉년의 납속 · "해유에 흠이 없다") 외 → [보기](https://changgi.github.io/archive-tools/examples/)
+
+🗃️ **기록 꾸러미 · 제작 도구 공개:** 편마다 맥락 · 출처 · 파생물 · SHA-256 고정값 · 검증 · 검토 · 작업 이력을 담은 `record.json`과 전체 목록([records.jsonl](https://changgi.github.io/archive-tools/examples/records.jsonl) · [Dublin Core CSV](https://changgi.github.io/archive-tools/examples/records-dc.csv)), 푸시마다 고정값 대조(CI) — [설명](plugins/aks-archive-harvester/skills/aks-archive-harvester/references/records.md). 이 시리즈를 만든 스크립트와 원고는 [`tools/series/`](tools/series/README.md)에 그대로 공개해 누구나 다시 만들 수 있습니다.
 
 🧭 **처음부터 끝까지 따라하기 (실제 예제):** 「임금이 보낸 종이 세 장」 — 찾기 → 받기 → 문구 에디팅 → 큐레이터 노트 → 전달 에디팅 → 전시·카드·활동지·비하인드 → 릴스·가로 영상 → 원본 묶음 → 시리즈 사이트까지, 단계마다 자동 초안과 다듬은 결과를 나란히 → [따라하기](examples/tutorial/README.md) · [완성된 사이트](https://changgi.github.io/archive-tools/examples/tutorial/site/index.html)
 

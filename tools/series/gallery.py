@@ -54,7 +54,7 @@ for k, c in sorted(caps.items(), key=lambda x: x[1]['n']):
     ex = next((e for e in EX if e['folder'] == c['folder']), None)
     if not ex: continue
     if not os.path.exists(R + f'media/{k}_reel.mp4'): continue
-    V.append(dict(ep=c['n'], id=k, title=c['title'], sub=f"{ex['who']}", group='set' if c['n'] <= 6 else ('story' if c['n'] <= 16 else ('read' if c['n'] <= 26 else ('read2' if c['n'] <= 50 else 'read3'))), kind=ex['kind'],
+    V.append(dict(ep=c['n'], id=k, title=c['title'], sub=f"{ex['who']}", group='set' if c['n'] <= 6 else ('story' if c['n'] <= 16 else ('read' if c['n'] <= 26 else ('read2' if c['n'] <= 50 else ('read3' if c['n'] <= 100 else 'read4')))), kind=ex['kind'],
                   folder=c['folder'], reel=f'media/{k}_reel.mp4', rposter=f'media/{k}_reel-poster.jpg',
                   wide=f'media/{k}_wide.mp4', wposter=f'media/{k}_wide-poster.jpg', vtt=f'media/{k}.ko.vtt', srt=f'media/{k}.ko.srt', caption=c['caption']))
 for v in V:
@@ -83,7 +83,7 @@ for e in order:
 
 # ---------------------------------------------------------------- 인터랙티브 갤러리 (에피소드 격자 + 상세 보기 창)
 GHB = 'https://github.com/changgi/archive-tools/blob/main/examples/'
-GROUPS = [('intro', '소개'), ('set', '예시 EP.03–06'), ('story', '이야기 EP.07–16'), ('read', '원문으로 읽기 EP.17–26'), ('read2', '원문으로 읽기 EP.27–50'), ('read3', '원문으로 읽기 EP.51–100')]
+GROUPS = [('intro', '소개'), ('set', '예시 EP.03–06'), ('story', '이야기 EP.07–16'), ('read', '원문으로 읽기 EP.17–26'), ('read2', '원문으로 읽기 EP.27–50'), ('read3', '원문으로 읽기 EP.51–100'), ('read4', '원문으로 읽기 EP.101–')]
 EDIT_BY = {e['f']: e['r'] for e in EDITS}
 CARD_BY = {c['f']: c['c'] for c in CARDS}
 VBY = {v['ep']: v for v in V}
@@ -93,7 +93,7 @@ for v in V:
         ITEMS.append(dict(key=f"ep{v['ep']}", ep=v['ep'], t=v['title'], k='소개', who=v['sub'], d=v['sub'], g='intro', cover=v['rposter'], v=v))
 for e in order:
     v = VBY.get(e['ep']) if e['ep'] else None
-    g = v['group'] if v else ('read3' if (e['ep'] or 0) > 50 else 'read2' if (e['ep'] or 0) > 26 else ('read' if (e['ep'] or 0) > 16 else 'set'))
+    g = v['group'] if v else ('read4' if (e['ep'] or 0) > 100 else 'read3' if (e['ep'] or 0) > 50 else 'read2' if (e['ep'] or 0) > 26 else ('read' if (e['ep'] or 0) > 16 else 'set'))
     ITEMS.append(dict(key=f"ep{e['ep']}" if e['ep'] else e['folder'], ep=e['ep'], t=re.sub('<.*?>', '', e['h3']), k=e['kind'], who=re.sub('<.*?>', '', e['who']),
                       d=re.sub('<.*?>', '', e['desc']), g=g if e['ep'] else 'base', f=e['folder'], cover=f"{e['folder']}/cards/" + next((c for c in CARD_BY.get(e['folder'], []) if not c.startswith(('00', '99'))), '00_표지.jpg'), v=v,
                       links=e['links'], cards=CARD_BY.get(e['folder'], []), edits=EDIT_BY.get(e['folder'], [])))
