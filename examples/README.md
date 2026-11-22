@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.157)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.160)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.157)
+## 원문으로 읽는 이야기 (EP.17–EP.160)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -177,6 +177,9 @@
 | [**EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634)**](choi-ijo-gosin2/) | 경주 이조 경주최씨 (문중) | 崔震立爲慶源鎭兵馬僉節制使者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep155-choi-ijo-gosin2_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep155-choi-ijo-gosin2_wide.mp4) · [홍보 글](choi-ijo-gosin2/promo.md) |
 | [**EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장**](choi-ijo-chujeung/) | 경주 이조 경주최씨 (문중) | 贈通訓大夫司僕寺正者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep156-choi-ijo-chujeung_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep156-choi-ijo-chujeung_wide.mp4) · [홍보 글](choi-ijo-chujeung/promo.md) |
 | [**EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장**](choi-ijo-yongjin/) | 경주 이조 경주최씨 (문중) | 侍母金氏 年七十三 | [릴스](https://changgi.github.io/archive-tools-next/media/ep157-choi-ijo-yongjin_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep157-choi-ijo-yongjin_wide.mp4) · [홍보 글](choi-ijo-yongjin/promo.md) |
+| [**EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장**](choi-ijo-sosong/) | 경주 이조 경주최씨 (문중) | 崔班多族之勢 | [릴스](https://changgi.github.io/archive-tools-next/media/ep158-choi-ijo-sosong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep158-choi-ijo-sosong_wide.mp4) · [홍보 글](choi-ijo-sosong/promo.md) |
+| [**EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장**](yeoheon-yuji/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 爾其以駕轎上來 | [릴스](https://changgi.github.io/archive-tools-next/media/ep159-yeoheon-yuji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep159-yeoheon-yuji_wide.mp4) · [홍보 글](yeoheon-yuji/promo.md) |
+| [**EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장**](seongyojang-baeji/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 多有要用處 | [릴스](https://changgi.github.io/archive-tools-next/media/ep160-seongyojang-baeji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep160-seongyojang-baeji_wide.mp4) · [홍보 글](seongyojang-baeji/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -204,7 +207,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 158개
+## 예시 (결과물 갤러리) — 161개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -366,6 +369,9 @@
 | [**EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634)**](choi-ijo-gosin2/) | 경주 이조 경주최씨 (문중) | 마흔일곱의 최진립은 조선의 북쪽 끝, 두만강가 경원으로 간다. 이듬해에는 통정대부 경원도호부사. 예순셋에는 … | [전시](choi-ijo-gosin2/exhibit.html) · [활동지](choi-ijo-gosin2/handout.html) · [카드](choi-ijo-gosin2/cards/) · [selection.csv](choi-ijo-gosin2/selection.csv) |
 | [**EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장**](choi-ijo-chujeung/) | 경주 이조 경주최씨 (문중) | 1756년 7월 17일, 경주최씨 집에 교지 네 장이 한꺼번에 도착한다. 받는 사람은 모두 이미 세상을 떠난… | [전시](choi-ijo-chujeung/exhibit.html) · [활동지](choi-ijo-chujeung/handout.html) · [카드](choi-ijo-chujeung/cards/) · [selection.csv](choi-ijo-chujeung/selection.csv) |
 | [**EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장**](choi-ijo-yongjin/) | 경주 이조 경주최씨 (문중) | 1858년 호적에서 최용진은 예순아홉 살 '유학'이다. 12년 뒤에는 여든하나. 1875년, 여든여섯의 그에… | [전시](choi-ijo-yongjin/exhibit.html) · [활동지](choi-ijo-yongjin/handout.html) · [카드](choi-ijo-yongjin/cards/) · [selection.csv](choi-ijo-yongjin/selection.csv) |
+| [**EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장**](choi-ijo-sosong/) | 경주 이조 경주최씨 (문중) | 대한제국 광무 2년, 경기도 광주 송파에 사는 상인 윤화가 고등재판소에 소장을 낸다. 피고는 경상북도 경주에… | [전시](choi-ijo-sosong/exhibit.html) · [활동지](choi-ijo-sosong/handout.html) · [카드](choi-ijo-sosong/cards/) · [selection.csv](choi-ijo-sosong/selection.csv) |
+| [**EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장**](yeoheon-yuji/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 1623년 봄, 반정으로 왕위에 오른 인조는 경상도 산속의 일흔 살 학자 장현광을 부른다. 가마를 타고 올라… | [전시](yeoheon-yuji/exhibit.html) · [활동지](yeoheon-yuji/handout.html) · [카드](yeoheon-yuji/cards/) · [selection.csv](yeoheon-yuji/selection.csv) |
+| [**EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장**](seongyojang-baeji/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 18세기 강릉, 양반 상전들은 땅을 팔 때 직접 나서지 않았다. 종에게 쪽지 한 장을 써 주었다. '집에 쓸… | [전시](seongyojang-baeji/exhibit.html) · [활동지](seongyojang-baeji/handout.html) · [카드](seongyojang-baeji/cards/) · [selection.csv](seongyojang-baeji/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -390,7 +396,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 158개
+### 카드뉴스 미리보기 — 161개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -552,8 +558,11 @@
 | EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634) | ![](choi-ijo-gosin2/cards/00_표지.jpg) | ![](choi-ijo-gosin2/cards/01.jpg) | ![](choi-ijo-gosin2/cards/02.jpg) |
 | EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장 | ![](choi-ijo-chujeung/cards/00_표지.jpg) | ![](choi-ijo-chujeung/cards/01.jpg) | ![](choi-ijo-chujeung/cards/02.jpg) |
 | EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장 | ![](choi-ijo-yongjin/cards/00_표지.jpg) | ![](choi-ijo-yongjin/cards/01.jpg) | ![](choi-ijo-yongjin/cards/02.jpg) |
+| EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장 | ![](choi-ijo-sosong/cards/00_표지.jpg) | ![](choi-ijo-sosong/cards/01.jpg) | ![](choi-ijo-sosong/cards/02.jpg) |
+| EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장 | ![](yeoheon-yuji/cards/00_표지.jpg) | ![](yeoheon-yuji/cards/01.jpg) | ![](yeoheon-yuji/cards/02.jpg) |
+| EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장 | ![](seongyojang-baeji/cards/00_표지.jpg) | ![](seongyojang-baeji/cards/01.jpg) | ![](seongyojang-baeji/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 158개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 161개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -717,6 +726,9 @@
 | EP.155 두만강 끝에서 경기 바다까지 — 최진립의 마지막 임명장 네 장 (1614–1634) | 1614년 최진립(崔震立) 고신(告身) | 1614년 최진립(崔震立)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1614년 겨울, 마흔일곱의 최진립에게 교지가 온다. 지명이 낯설 만큼 멀다. "최진립을 경원진 병마첨절제사로 삼는다(崔震立爲慶源鎭兵馬僉節制使者)." 경원, 두만강가. 남쪽 끝 경주에서 북쪽 끝으로. | 1614년 최진립을 함경도 국경의 경원진 병마첨절제사로 삼은 교지입니다. |
 | EP.156 한 사람이 오르자 세 대가 함께 — 1756년 7월 17일, 같은 날의 추증교지 네 장 | 1756년 최동윤(崔東尹) 추증교지(追贈敎旨) | 1756년 최동윤(崔東尹)의 추증교지 — 죽은 이에게 관직을 높여 내린 교지. | 1756년 7월 17일, 교지가 한꺼번에 온다. 첫 장의 주인은 오래전 세상을 떠난 사람, 종사랑 최동윤. "통훈대부 사복시정을 추증한다(贈通訓大夫司僕寺正者)." 왼쪽 작은 글씨가 이유를 말한다. 증손자 최경로가 종2품에 올랐기 때문이다. | 1756년 최경로가 종2품에 오르자 그의 증조할아버지 최동윤(종사랑)에게 통훈대부 사복시정을 추증한 교지입니다. |
 | EP.157 아흔 살의 호적 — 경주 이조의 최용진, 21년 동안의 종이 네 장 | 1858년 최용진(崔龍鎭) 호구단자(戶口單子) | 1858년 최용진(崔龍鎭)의 호구단자 — 집안 식구를 관에 신고한 호적 서류. | 1858년 정월, 경주 이조리. 예순아홉 살 최용진이 식구를 적어 낸다. 맨 위에 그 자신, 그 아래 한 줄이 이상하다. "모시는 어머니 김씨, 일흔세 살(侍母金氏 年七十三)." 아들보다 네 살 많은 어머니. 그 아래 아내 서씨, 아들 남수, 며느리 손씨. | 1858년 경주 이조리 최용진(69세 유학) 호의 호구단자로, 어머니 김씨 · 아내 서씨 · 제수 · 아들 남수 · 며느리가 함께 적혀 있습니다. |
+| EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장 | 1898년 고등재판소(高等裁判所) 소장(訴狀)－01 | 1898년 고등재판소(高等裁判所)의 소장. | 1898년, 대한제국. 경주최씨 집안 문서 묶음에 처음 보는 종이가 끼어 있다. 붉은 칸이 인쇄된 '소송지'. 원고는 송파의 상인 윤화, 피고는 이 집안의 전 군수 최경식. 받을 돈은 3만 냥. 그는 적는다. 최씨 양반 집안의 "많은 일족의 세력으로(崔班多族之勢)" 버틴다고. | 1898년 송파 상인 윤화가 경주 전 군수 최경식을 상대로 1889년의 돈 3만 냥을 받아 달라고 고등재판소에 낸 소장입니다. |
+| EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장 | 1623년 장현광(張顯光) 유지(有旨)－01 | 1623년 장현광(張顯光)의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1623년 봄, 반정으로 새 왕이 섰다. 한 달 뒤, 경상도 산속 일흔 살 학자에게 종이가 온다. "그대의 학문과 행실이 선비들의 본보기라 들었다. 가마를 타고 올라오라(爾其以駕轎上來)." 일곱 달 동안 이어질 열 번의 부름, 그 첫 번째다. | 1623년 4월 인조가 승지를 통해 장현광에게 '선비들의 본보기'라며 가마를 타고 올라오라고 부른 유지로, 그해 열 번 부름의 첫 장입니다. |
+| EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장 | 배지(牌旨)－02 | 1741년 배지. | 1741년 겨울, 강릉의 한 양반이 땅을 판다. 그러나 그는 직접 나서지 않는다. 종 계팽에게 쪽지를 써 준다. "쓸 곳이 많아(多有要用處)" 논 스물다섯 마지기를 65냥에 팔아 바치라. 맨 끝에는 '上典 辛', 성 한 글자와 수결뿐이다. | 1741년 상전 신씨가 종 계팽에게 논 스물다섯 마지기를 65냥에 팔아 바치라고 써 준 배지로, 땅을 산 선교장에 남았습니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
