@@ -322,6 +322,7 @@
  "relations": {
   "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
   "previous": "jocheon-kim-soji",
+  "next": "nampyeong-gongmyeong",
   "derived_from": [
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016744%5EL016744F02%5EL016744F0203&dataId=G002%2BKHD%2BKSM-XC.1953.0000-20161223.C0806_002_00025_XXX&itemType=",
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016744%5EL016744F02%5EL016744F0203&dataId=G002%2BKHD%2BKSM-XC.1968.0000-20161223.C0806_002_00031_XXX&itemType=",

@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.167)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.169)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.167)
+## 원문으로 읽는 이야기 (EP.17–EP.169)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -187,6 +187,8 @@
 | [**EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장**](hyoheon-gwageo/) | 김포 전주이씨 효헌 이인철 후손가 (문중) | 二所一等第一人 | [릴스](https://changgi.github.io/archive-tools-next/media/ep165-hyoheon-gwageo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep165-hyoheon-gwageo_wide.mp4) · [홍보 글](hyoheon-gwageo/promo.md) |
 | [**EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지**](jocheon-kim-soji/) | 제주 조천 김해김씨 김희정 후손가 (문중) | 以一介婦人 挺身大呼墻上 追執 | [릴스](https://changgi.github.io/archive-tools-next/media/ep166-jocheon-kim-soji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep166-jocheon-kim-soji_wide.mp4) · [홍보 글](jocheon-kim-soji/promo.md) |
 | [**EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해**](kkotnae-manggi/) | 봉화 꽃내 무안박씨 회이당 박한 종가 (문중) | 幼學 朴萬澤 | [릴스](https://changgi.github.io/archive-tools-next/media/ep167-kkotnae-manggi_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep167-kkotnae-manggi_wide.mp4) · [홍보 글](kkotnae-manggi/promo.md) |
+| [**EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩**](nampyeong-gongmyeong/) | 영암 남평문씨 (문중) | 妻 依法典 | [릴스](https://changgi.github.io/archive-tools-next/media/ep168-nampyeong-gongmyeong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep168-nampyeong-gongmyeong_wide.mp4) · [홍보 글](nampyeong-gongmyeong/promo.md) |
+| [**EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년**](jangsan-jesu/) | 경주 장산서원 (서원) | 鹿脯參條 | [릴스](https://changgi.github.io/archive-tools-next/media/ep169-jangsan-jesu_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep169-jangsan-jesu_wide.mp4) · [홍보 글](jangsan-jesu/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -214,7 +216,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 168개
+## 예시 (결과물 갤러리) — 170개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -386,6 +388,8 @@
 | [**EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장**](hyoheon-gwageo/) | 김포 전주이씨 효헌 이인철 후손가 (문중) | 1884년 가을, 스물여덟 살 유학 이순하는 진사시 초시에서 '이소(二所) 일등 제일인'이 된다. 이듬해 봄… | [전시](hyoheon-gwageo/exhibit.html) · [활동지](hyoheon-gwageo/handout.html) · [카드](hyoheon-gwageo/cards/) · [selection.csv](hyoheon-gwageo/selection.csv) |
 | [**EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지**](jocheon-kim-soji/) | 제주 조천 김해김씨 김희정 후손가 (문중) | 1891년 2월, 제주 조천의 훈장 김의정의 집에 강도 김용수가 들어 사람을 묶는다. 그때 김의정의 며느리 … | [전시](jocheon-kim-soji/exhibit.html) · [활동지](jocheon-kim-soji/handout.html) · [카드](jocheon-kim-soji/cards/) · [selection.csv](jocheon-kim-soji/selection.csv) |
 | [**EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해**](kkotnae-manggi/) | 봉화 꽃내 무안박씨 회이당 박한 종가 (문중) | 1945년 2월, 해방 반년 전, 박만택은 삼계서원 봄 제사의 집례로 이름이 올랐다(EP.91). 나라가 바… | [전시](kkotnae-manggi/exhibit.html) · [활동지](kkotnae-manggi/handout.html) · [카드](kkotnae-manggi/cards/) · [selection.csv](kkotnae-manggi/selection.csv) |
+| [**EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩**](nampyeong-gongmyeong/) | 영암 남평문씨 (문중) | EP.81에서 이름 칸이 비어 있는 임명장 공명첩을 보았다. 같은 집안에 남은 1891년 공명첩을 나란히 펼… | [전시](nampyeong-gongmyeong/exhibit.html) · [활동지](nampyeong-gongmyeong/handout.html) · [카드](nampyeong-gongmyeong/cards/) · [selection.csv](nampyeong-gongmyeong/selection.csv) |
+| [**EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년**](jangsan-jesu/) | 경주 장산서원 (서원) | 1799년 봄, 경주부윤이 보낸 제물 목록의 첫머리는 '장산사(章山祠)'였다. 2년 뒤부터 같은 목록은 '장… | [전시](jangsan-jesu/exhibit.html) · [활동지](jangsan-jesu/handout.html) · [카드](jangsan-jesu/cards/) · [selection.csv](jangsan-jesu/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -410,7 +414,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 168개
+### 카드뉴스 미리보기 — 170개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -582,8 +586,10 @@
 | EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장 | ![](hyoheon-gwageo/cards/00_표지.jpg) | ![](hyoheon-gwageo/cards/01.jpg) | ![](hyoheon-gwageo/cards/02.jpg) |
 | EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지 | ![](jocheon-kim-soji/cards/00_표지.jpg) | ![](jocheon-kim-soji/cards/01.jpg) | ![](jocheon-kim-soji/cards/02.jpg) |
 | EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해 | ![](kkotnae-manggi/cards/00_표지.jpg) | ![](kkotnae-manggi/cards/01.jpg) | ![](kkotnae-manggi/cards/02.jpg) |
+| EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩 | ![](nampyeong-gongmyeong/cards/00_표지.jpg) | ![](nampyeong-gongmyeong/cards/01.jpg) | ![](nampyeong-gongmyeong/cards/02.jpg) |
+| EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년 | ![](jangsan-jesu/cards/00_표지.jpg) | ![](jangsan-jesu/cards/01.jpg) | ![](jangsan-jesu/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 168개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 170개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -757,6 +763,8 @@
 | EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장 | 1884년 이순하(李舜夏) 사마초시(司馬初試) 시권(試券) | 1884년 이순하(李舜夏), 사마초시(司馬初試)의 시권 — 과거 시험 답안지. | 1884년 가을, 스물여덟 살 이순하가 초시 시험장에 앉는다. 문제는 셋. 그중 하나는 '진사는 그대의 재주를 다 드러내기에 모자라다.' 답안지 머리에 적힌 결과. "이소 일등 제일인(二所一等第一人)." 두 시험장 가운데 한 곳의 1등이다. | 1884년 스물여덟 살 이순하가 진사시 초시에 낸 답안지로, 사조 · 시험관 · 문제와 함께 '이소 일등 제일인'이라는 성적이 적혀 있습니다. |
 | EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지 | 소지(所志)－09 | 1891년 소지 — 관에 올린 청원서. | 1891년 2월, 제주 조천. 훈장 김의정의 집에 강도가 든다. 사람이 묶인다. 그때 한 사람이 움직인다. 스승의 며느리 송씨. 제자들은 이렇게 적었다. "한 여인의 몸으로 담 위에서 크게 외치며 뒤쫓았다(以一介婦人 挺身大呼墻上 追執)." 그리고 그 아래, 마흔 명이 넘는 이름이 줄을 선다. | 1891년 2월 김의정의 제자 마흔여 명이 스승 집에 든 강도 김용수를 엄벌하고, 담 위에서 외치며 쫓은 며느리 송씨를 드러내 달라고 제주목사에게 올린 연명 소지입니다. |
 | EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해 | 1953년 박만택(朴萬澤) 망기(望記) | 1953년 박만택(朴萬澤)의 망기. | 1953년 가을, 전쟁이 멈춘 지 두 달. 봉화의 한 마을에 종이 한 장이 온다. 위에 직임, 가운데 큰 글자 하나. '望.' 그 아래 이름. "유학 박만택(幼學 朴萬澤)." 조선의 문서가, 대한민국의 마을에서 다시 쓰인다. | 1953년 9월 박만택을 구양리 사재의 유사로 올린 망기로, 전쟁 직후에도 같은 형식이 쓰였습니다. |
+| EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩 | 1891년 공명첩(空名帖)－2 | 1891년 공명첩. | 1891년, 이름 없는 교지 한 장. "[ ]을 가선대부 동지중추부사 겸 오위장으로 삼는다." 종2품. 이 정도 품계면 법전에 따라 3대 조상까지 벼슬이 내려간다. 그래서 이 종이는 혼자가 아니다. | 1891년 이름 자리를 비워 둔 가선대부 동지중추부사 겸 오위장 공명첩으로, 한 벌의 '본인' 몫입니다. |
+| EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년 | 1799년 경주부윤(慶州府尹) 제수단자(祭需單子) | 1799년 경주부윤(慶州府尹)의 제수단자 — 사실이나 물목을 적어 올린 문서. | 1799년 봄, 경주부윤이 장보기 목록을 보낸다. 첫 줄은 '장산사', 사당이다. 술 빚을 쌀 세 되, 누룩 한 덩이, 그리고 "사슴포 세 가닥(鹿脯參條)." 축문을 쓸 붓 한 자루까지. 이 목록이 앞으로 50년 동안 이 서원에 쌓인다. | 1799년 경주부윤이 '장산사'의 봄 제사에 쓸 제물 열다섯 가지를 적어 보낸 제수단자로, 50년 목록의 출발점입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
