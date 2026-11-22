@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.160)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.163)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.160)
+## 원문으로 읽는 이야기 (EP.17–EP.163)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -180,6 +180,9 @@
 | [**EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장**](choi-ijo-sosong/) | 경주 이조 경주최씨 (문중) | 崔班多族之勢 | [릴스](https://changgi.github.io/archive-tools-next/media/ep158-choi-ijo-sosong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep158-choi-ijo-sosong_wide.mp4) · [홍보 글](choi-ijo-sosong/promo.md) |
 | [**EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장**](yeoheon-yuji/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 爾其以駕轎上來 | [릴스](https://changgi.github.io/archive-tools-next/media/ep159-yeoheon-yuji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep159-yeoheon-yuji_wide.mp4) · [홍보 글](yeoheon-yuji/promo.md) |
 | [**EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장**](seongyojang-baeji/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 多有要用處 | [릴스](https://changgi.github.io/archive-tools-next/media/ep160-seongyojang-baeji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep160-seongyojang-baeji_wide.mp4) · [홍보 글](seongyojang-baeji/promo.md) |
+| [**EP.161 새 원님이 올 때마다 같은 종이 — 김종직 제사에 쓸 송아지, 33년의 발괄**](jeompiljae-balgwal/) | 고령 선산김씨 점필재 김종직 종가 (문중) | 新政之下 敢此仰訴 | [릴스](https://changgi.github.io/archive-tools-next/media/ep161-jeompiljae-balgwal_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep161-jeompiljae-balgwal_wide.mp4) · [홍보 글](jeompiljae-balgwal/promo.md) |
+| [**EP.162 할머니들이 쓴 선물 문서 — 해주정씨 집안의 별급문기 네 장 (1625–1701)**](sareung-byeolgeup/) | 양주 사릉 해주정씨 종가 (문중) | 山所近處乙仍于 汝矣處別給 | [릴스](https://changgi.github.io/archive-tools-next/media/ep162-sareung-byeolgeup_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep162-sareung-byeolgeup_wide.mp4) · [홍보 글](sareung-byeolgeup/promo.md) |
+| [**EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장**](gudang-yuseo/) | 부여 은산 함양박씨 구당 박세영 종가 (문중) | 王若曰 | [릴스](https://changgi.github.io/archive-tools-next/media/ep163-gudang-yuseo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep163-gudang-yuseo_wide.mp4) · [홍보 글](gudang-yuseo/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -207,7 +210,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 161개
+## 예시 (결과물 갤러리) — 164개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -372,6 +375,9 @@
 | [**EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장**](choi-ijo-sosong/) | 경주 이조 경주최씨 (문중) | 대한제국 광무 2년, 경기도 광주 송파에 사는 상인 윤화가 고등재판소에 소장을 낸다. 피고는 경상북도 경주에… | [전시](choi-ijo-sosong/exhibit.html) · [활동지](choi-ijo-sosong/handout.html) · [카드](choi-ijo-sosong/cards/) · [selection.csv](choi-ijo-sosong/selection.csv) |
 | [**EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장**](yeoheon-yuji/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 1623년 봄, 반정으로 왕위에 오른 인조는 경상도 산속의 일흔 살 학자 장현광을 부른다. 가마를 타고 올라… | [전시](yeoheon-yuji/exhibit.html) · [활동지](yeoheon-yuji/handout.html) · [카드](yeoheon-yuji/cards/) · [selection.csv](yeoheon-yuji/selection.csv) |
 | [**EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장**](seongyojang-baeji/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 18세기 강릉, 양반 상전들은 땅을 팔 때 직접 나서지 않았다. 종에게 쪽지 한 장을 써 주었다. '집에 쓸… | [전시](seongyojang-baeji/exhibit.html) · [활동지](seongyojang-baeji/handout.html) · [카드](seongyojang-baeji/cards/) · [selection.csv](seongyojang-baeji/selection.csv) |
+| [**EP.161 새 원님이 올 때마다 같은 종이 — 김종직 제사에 쓸 송아지, 33년의 발괄**](jeompiljae-balgwal/) | 고령 선산김씨 점필재 김종직 종가 (문중) | 조선은 소를 함부로 잡지 못하게 했다. 그러나 점필재 김종직의 제사에는 어린 송아지를 쓰는 오랜 규례가 있었… | [전시](jeompiljae-balgwal/exhibit.html) · [활동지](jeompiljae-balgwal/handout.html) · [카드](jeompiljae-balgwal/cards/) · [selection.csv](jeompiljae-balgwal/selection.csv) |
+| [**EP.162 할머니들이 쓴 선물 문서 — 해주정씨 집안의 별급문기 네 장 (1625–1701)**](sareung-byeolgeup/) | 양주 사릉 해주정씨 종가 (문중) | 1625년, 정경부인 윤씨는 손자 정원석에게 논 쉰 마지기를 준다. 1632년, 할머니 이씨는 혼인한 손녀를… | [전시](sareung-byeolgeup/exhibit.html) · [활동지](sareung-byeolgeup/handout.html) · [카드](sareung-byeolgeup/cards/) · [selection.csv](sareung-byeolgeup/selection.csv) |
+| [**EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장**](gudang-yuseo/) | 부여 은산 함양박씨 구당 박세영 종가 (문중) | 1691년 여름, 황해도 관찰사가 된 박경후는 두 장의 왕명을 받는다. 하나는 길게 그 직책의 무게를 타이르… | [전시](gudang-yuseo/exhibit.html) · [활동지](gudang-yuseo/handout.html) · [카드](gudang-yuseo/cards/) · [selection.csv](gudang-yuseo/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -396,7 +402,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 161개
+### 카드뉴스 미리보기 — 164개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -561,8 +567,11 @@
 | EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장 | ![](choi-ijo-sosong/cards/00_표지.jpg) | ![](choi-ijo-sosong/cards/01.jpg) | ![](choi-ijo-sosong/cards/02.jpg) |
 | EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장 | ![](yeoheon-yuji/cards/00_표지.jpg) | ![](yeoheon-yuji/cards/01.jpg) | ![](yeoheon-yuji/cards/02.jpg) |
 | EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장 | ![](seongyojang-baeji/cards/00_표지.jpg) | ![](seongyojang-baeji/cards/01.jpg) | ![](seongyojang-baeji/cards/02.jpg) |
+| EP.161 새 원님이 올 때마다 같은 종이 — 김종직 제사에 쓸 송아지, 33년의 발괄 | ![](jeompiljae-balgwal/cards/00_표지.jpg) | ![](jeompiljae-balgwal/cards/01.jpg) | ![](jeompiljae-balgwal/cards/02.jpg) |
+| EP.162 할머니들이 쓴 선물 문서 — 해주정씨 집안의 별급문기 네 장 (1625–1701) | ![](sareung-byeolgeup/cards/00_표지.jpg) | ![](sareung-byeolgeup/cards/01.jpg) | ![](sareung-byeolgeup/cards/02.jpg) |
+| EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장 | ![](gudang-yuseo/cards/00_표지.jpg) | ![](gudang-yuseo/cards/01.jpg) | ![](gudang-yuseo/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 161개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 164개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -729,6 +738,9 @@
 | EP.158 서울 상인이 경주 전 군수를 고소하다 — 1898년 고등재판소 소장 네 장 | 1898년 고등재판소(高等裁判所) 소장(訴狀)－01 | 1898년 고등재판소(高等裁判所)의 소장. | 1898년, 대한제국. 경주최씨 집안 문서 묶음에 처음 보는 종이가 끼어 있다. 붉은 칸이 인쇄된 '소송지'. 원고는 송파의 상인 윤화, 피고는 이 집안의 전 군수 최경식. 받을 돈은 3만 냥. 그는 적는다. 최씨 양반 집안의 "많은 일족의 세력으로(崔班多族之勢)" 버틴다고. | 1898년 송파 상인 윤화가 경주 전 군수 최경식을 상대로 1889년의 돈 3만 냥을 받아 달라고 고등재판소에 낸 소장입니다. |
 | EP.159 임금은 일곱 달 동안 열 번 불렀다 — 1623년, 장현광에게 온 유지 네 장 | 1623년 장현광(張顯光) 유지(有旨)－01 | 1623년 장현광(張顯光)의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1623년 봄, 반정으로 새 왕이 섰다. 한 달 뒤, 경상도 산속 일흔 살 학자에게 종이가 온다. "그대의 학문과 행실이 선비들의 본보기라 들었다. 가마를 타고 올라오라(爾其以駕轎上來)." 일곱 달 동안 이어질 열 번의 부름, 그 첫 번째다. | 1623년 4월 인조가 승지를 통해 장현광에게 '선비들의 본보기'라며 가마를 타고 올라오라고 부른 유지로, 그해 열 번 부름의 첫 장입니다. |
 | EP.160 주인은 이름을 쓰지 않았다 — 땅을 팔러 종을 보낸 배지 네 장 | 배지(牌旨)－02 | 1741년 배지. | 1741년 겨울, 강릉의 한 양반이 땅을 판다. 그러나 그는 직접 나서지 않는다. 종 계팽에게 쪽지를 써 준다. "쓸 곳이 많아(多有要用處)" 논 스물다섯 마지기를 65냥에 팔아 바치라. 맨 끝에는 '上典 辛', 성 한 글자와 수결뿐이다. | 1741년 상전 신씨가 종 계팽에게 논 스물다섯 마지기를 65냥에 팔아 바치라고 써 준 배지로, 땅을 산 선교장에 남았습니다. |
+| EP.161 새 원님이 올 때마다 같은 종이 — 김종직 제사에 쓸 송아지, 33년의 발괄 | 발괄(白活)－04 | 1805년 발괄 — 관에 억울함을 호소한 청원서. | 1805년 가을, 고령에 새 원님이 온다. 김종직의 후손 김상도가 종이를 올린다. 선조의 제사에는 송아지를 쓰는 전례가 있다. 하지만 소는 함부로 잡을 수 없다. 그래서 새 원님 앞에서 다시 묻는다. "새 정사 아래 감히 이렇게 우러러 호소합니다(新政之下 敢此仰訴)." | 1805년 김상도가 새 고령 원님에게 선조 김종직의 제사에 송아지를 잡는 전례를 허락해 달라고 올린 발괄입니다. |
+| EP.162 할머니들이 쓴 선물 문서 — 해주정씨 집안의 별급문기 네 장 (1625–1701) | 1625년 조모(祖母) 정경부인(貞敬夫人) 윤씨(尹氏) 별급문기(別給文記) | 1625년 조모(祖母), 정경부인(貞敬夫人)의 별급문기. | 1625년 여름, 정경부인 윤씨가 손자를 부른다. 선산 곁의 논 쉰 마지기. 이유는 하나다. "산소 가까운 곳이므로 너에게 따로 준다(山所近處乙仍于 汝矣處別給)." 재산을 준 사람은 할머니, 붓을 든 사람은 증손자다. | 1625년 정경부인 윤씨가 산소 가까운 논 쉰 마지기를 손자에게 별급하고, 증손이 문서를 받아 적은 별급문기입니다. |
+| EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장 | 1691년 박경후(朴慶後) 교서(敎書) | 1691년 박경후(朴慶後)의 교서. | 1691년 여름, 박경후에게 긴 두루마리가 온다. 첫머리는 왕의 목소리다. "왕은 이렇게 말한다(王若曰)." 예로부터 나라의 문단속을 맡기기는 어려웠다고. 황해도는 백성이 활과 말에 익숙한 요충지다. 그리고 같은 날, 아주 짧은 종이 한 장이 더 온다. | 1691년 박경후를 황해도 관찰사 겸 병마수군절도사로 보내며 그 직책의 무게와 그의 자질을 길게 적은 교서입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
