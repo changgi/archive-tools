@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.169)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.171)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.169)
+## 원문으로 읽는 이야기 (EP.17–EP.171)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -189,6 +189,8 @@
 | [**EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해**](kkotnae-manggi/) | 봉화 꽃내 무안박씨 회이당 박한 종가 (문중) | 幼學 朴萬澤 | [릴스](https://changgi.github.io/archive-tools-next/media/ep167-kkotnae-manggi_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep167-kkotnae-manggi_wide.mp4) · [홍보 글](kkotnae-manggi/promo.md) |
 | [**EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩**](nampyeong-gongmyeong/) | 영암 남평문씨 (문중) | 妻 依法典 | [릴스](https://changgi.github.io/archive-tools-next/media/ep168-nampyeong-gongmyeong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep168-nampyeong-gongmyeong_wide.mp4) · [홍보 글](nampyeong-gongmyeong/promo.md) |
 | [**EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년**](jangsan-jesu/) | 경주 장산서원 (서원) | 鹿脯參條 | [릴스](https://changgi.github.io/archive-tools-next/media/ep169-jangsan-jesu_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep169-jangsan-jesu_wide.mp4) · [홍보 글](jangsan-jesu/promo.md) |
+| [**EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장**](aewol-kim-hj-gamun/) | 제주 애월 김해김씨 김희주 후손가 (문중) | 祖戶長金奉 故 曾祖戶長金禮 故 | [릴스](https://changgi.github.io/archive-tools-next/media/ep170-aewol-kim-hj-gamun_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep170-aewol-kim-hj-gamun_wide.mp4) · [홍보 글](aewol-kim-hj-gamun/promo.md) |
+| [**EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년**](jangheung-im-honseo/) | 아산 선교 장흥임씨 종가 (문중) | 僕之舍弟晶 未有伉儷 | [릴스](https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_wide.mp4) · [홍보 글](jangheung-im-honseo/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -216,7 +218,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 170개
+## 예시 (결과물 갤러리) — 172개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -390,6 +392,8 @@
 | [**EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해**](kkotnae-manggi/) | 봉화 꽃내 무안박씨 회이당 박한 종가 (문중) | 1945년 2월, 해방 반년 전, 박만택은 삼계서원 봄 제사의 집례로 이름이 올랐다(EP.91). 나라가 바… | [전시](kkotnae-manggi/exhibit.html) · [활동지](kkotnae-manggi/handout.html) · [카드](kkotnae-manggi/cards/) · [selection.csv](kkotnae-manggi/selection.csv) |
 | [**EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩**](nampyeong-gongmyeong/) | 영암 남평문씨 (문중) | EP.81에서 이름 칸이 비어 있는 임명장 공명첩을 보았다. 같은 집안에 남은 1891년 공명첩을 나란히 펼… | [전시](nampyeong-gongmyeong/exhibit.html) · [활동지](nampyeong-gongmyeong/handout.html) · [카드](nampyeong-gongmyeong/cards/) · [selection.csv](nampyeong-gongmyeong/selection.csv) |
 | [**EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년**](jangsan-jesu/) | 경주 장산서원 (서원) | 1799년 봄, 경주부윤이 보낸 제물 목록의 첫머리는 '장산사(章山祠)'였다. 2년 뒤부터 같은 목록은 '장… | [전시](jangsan-jesu/exhibit.html) · [활동지](jangsan-jesu/handout.html) · [카드](jangsan-jesu/cards/) · [selection.csv](jangsan-jesu/selection.csv) |
+| [**EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장**](aewol-kim-hj-gamun/) | 제주 애월 김해김씨 김희주 후손가 (문중) | 이 집안에 남은 가장 오래된 종이는 자료관 목록 1515년의 호적 조각이다. 할아버지도 증조할아버지도 '호장… | [전시](aewol-kim-hj-gamun/exhibit.html) · [활동지](aewol-kim-hj-gamun/handout.html) · [카드](aewol-kim-hj-gamun/cards/) · [selection.csv](aewol-kim-hj-gamun/selection.csv) |
+| [**EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년**](jangheung-im-honseo/) | 아산 선교 장흥임씨 종가 (문중) | 1709년 가을, 임성은 아우 임정의 혼인을 위해 정생원 댁에 혼서를 쓴다. 1767년 임재대는 아들을, 1… | [전시](jangheung-im-honseo/exhibit.html) · [활동지](jangheung-im-honseo/handout.html) · [카드](jangheung-im-honseo/cards/) · [selection.csv](jangheung-im-honseo/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -414,7 +418,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 170개
+### 카드뉴스 미리보기 — 172개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -588,8 +592,10 @@
 | EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해 | ![](kkotnae-manggi/cards/00_표지.jpg) | ![](kkotnae-manggi/cards/01.jpg) | ![](kkotnae-manggi/cards/02.jpg) |
 | EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩 | ![](nampyeong-gongmyeong/cards/00_표지.jpg) | ![](nampyeong-gongmyeong/cards/01.jpg) | ![](nampyeong-gongmyeong/cards/02.jpg) |
 | EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년 | ![](jangsan-jesu/cards/00_표지.jpg) | ![](jangsan-jesu/cards/01.jpg) | ![](jangsan-jesu/cards/02.jpg) |
+| EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장 | ![](aewol-kim-hj-gamun/cards/00_표지.jpg) | ![](aewol-kim-hj-gamun/cards/01.jpg) | ![](aewol-kim-hj-gamun/cards/02.jpg) |
+| EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년 | ![](jangheung-im-honseo/cards/00_표지.jpg) | ![](jangheung-im-honseo/cards/01.jpg) | ![](jangheung-im-honseo/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 170개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 172개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -765,6 +771,8 @@
 | EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해 | 1953년 박만택(朴萬澤) 망기(望記) | 1953년 박만택(朴萬澤)의 망기. | 1953년 가을, 전쟁이 멈춘 지 두 달. 봉화의 한 마을에 종이 한 장이 온다. 위에 직임, 가운데 큰 글자 하나. '望.' 그 아래 이름. "유학 박만택(幼學 朴萬澤)." 조선의 문서가, 대한민국의 마을에서 다시 쓰인다. | 1953년 9월 박만택을 구양리 사재의 유사로 올린 망기로, 전쟁 직후에도 같은 형식이 쓰였습니다. |
 | EP.168 이름만 비워 둔 가족 세트 — 1891년, 본인 · 아내 · 아버지 · 증조까지 한 묶음의 공명첩 | 1891년 공명첩(空名帖)－2 | 1891년 공명첩. | 1891년, 이름 없는 교지 한 장. "[ ]을 가선대부 동지중추부사 겸 오위장으로 삼는다." 종2품. 이 정도 품계면 법전에 따라 3대 조상까지 벼슬이 내려간다. 그래서 이 종이는 혼자가 아니다. | 1891년 이름 자리를 비워 둔 가선대부 동지중추부사 겸 오위장 공명첩으로, 한 벌의 '본인' 몫입니다. |
 | EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년 | 1799년 경주부윤(慶州府尹) 제수단자(祭需單子) | 1799년 경주부윤(慶州府尹)의 제수단자 — 사실이나 물목을 적어 올린 문서. | 1799년 봄, 경주부윤이 장보기 목록을 보낸다. 첫 줄은 '장산사', 사당이다. 술 빚을 쌀 세 되, 누룩 한 덩이, 그리고 "사슴포 세 가닥(鹿脯參條)." 축문을 쓸 붓 한 자루까지. 이 목록이 앞으로 50년 동안 이 서원에 쌓인다. | 1799년 경주부윤이 '장산사'의 봄 제사에 쓸 제물 열다섯 가지를 적어 보낸 제수단자로, 50년 목록의 출발점입니다. |
+| EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장 | 호적(戶籍) | 1515년 호적. | 이 집안의 가장 오래된 종이는 찢어진 조각이다. 자료관은 1515년으로 적었다. 작은 글씨 사이로 같은 두 글자가 거듭 보인다. "할아버지 호장 김봉, 증조 호장 김례(祖戶長金奉 故 曾祖戶長金禮 故)." 호장, 고을의 향리. 이 집안은 거기서 시작했다. | 자료관 목록 1515년의 호적 조각으로, 조상 칸에 '호장' · '천호'가 거듭 적혀 이 집안의 출발이 제주의 향리층이었음을 보여 줍니다. |
+| EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년 | 1709년 임성(任晟) 혼서(婚書) | 1709년 임성(任晟)의 혼서. | 1709년 늦가을, 임성이 붓을 든다. 장가가는 사람은 자기가 아니라 아우다. "저의 아우 정이 아직 짝이 없었는데(僕之舍弟晶 未有伉儷)." 그리고 정해진 문장이 이어진다. "옛사람의 예가 있어 삼가 납폐의 의식을 행합니다(玆有先人之禮 謹行納幣之儀)." 형이 혼주가 된 혼인이다. | 1709년 임성이 아우 정의 혼인을 위해 정생원 댁에 보낸 혼서로, 혼주가 형입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
