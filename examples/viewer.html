@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>고문서 한 장 — 연속 보기 (IIIF 갤러리 뷰어)</title>
+<meta name="description" content="「고문서 한 장」의 모든 문서를 한 줄로 이어 보고, 확대해 읽습니다. 편마다 IIIF 매니페스트를 함께 제공합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316130f'/%3E%3Crect x='14' y='10' width='36' height='44' rx='3' fill='%23efe3c8'/%3E%3Cpath d='M21 20h22M21 28h22M21 36h16' stroke='%23c4964a' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#16130f;--pan:#1f1a14;--line:#3a3225;--gold:#c4964a;--paper:#efe6d4;--dim:#b9ad96;--side:290px}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--paper);font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;line-height:1.75}
+a{color:var(--gold)}button,select,input{font:inherit;color:inherit}
+.sk{position:absolute;left:-999px}.sk:focus{left:10px;top:10px;z-index:99;background:#000;padding:6px 10px}
+header{position:sticky;top:0;z-index:30;background:rgba(22,19,15,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:9px 18px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+header h1{font-family:'Noto Serif KR',serif;font-size:18px;margin:0 8px 0 0;white-space:nowrap}header h1 a{color:var(--paper);text-decoration:none}header h1 small{color:var(--gold);font-family:inherit;font-size:12px;letter-spacing:.12em;margin-left:6px}
+.ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex:1}
+#q{flex:1 1 200px;min-width:150px;background:#0f0d0a;border:1px solid #4a3e2c;border-radius:30px;padding:6px 14px}
+.seg{display:inline-flex;border:1px solid #4a3e2c;border-radius:30px;overflow:hidden}.seg button{background:none;border:0;padding:5px 12px;cursor:pointer;font-size:14px;color:var(--dim)}.seg button[aria-pressed=true]{background:var(--gold);color:#16130f;font-weight:700}
+select{background:#0f0d0a;border:1px solid #4a3e2c;border-radius:30px;padding:5px 10px;font-size:14px}
+#cnt{font-size:13px;color:var(--dim);white-space:nowrap}
+#tocb{display:none;background:#231d15;border:1px solid #4a3e2c;border-radius:30px;padding:5px 12px;cursor:pointer}
+.wrap{display:flex}
+aside{position:sticky;top:57px;height:calc(100vh - 57px);width:var(--side);flex:none;overflow-y:auto;border-right:1px solid var(--line);padding:10px 0;scrollbar-width:thin;scrollbar-color:#4a3e2c transparent}
+aside a{display:flex;gap:8px;padding:5px 14px;text-decoration:none;color:var(--dim);font-size:13.5px;line-height:1.45;border-left:3px solid transparent}
+aside a b{color:var(--gold);font-weight:600;min-width:52px;font-size:12px;padding-top:1px}aside a:hover{background:#211b14;color:var(--paper)}aside a.on{border-color:var(--gold);background:#231d15;color:var(--paper)}
+main{flex:1;min-width:0;padding:0 2vw 20vh}
+.eph{margin:44px 0 14px;padding:16px 4px 10px;border-bottom:1px solid var(--line)}
+.eph .k{color:var(--gold);font-size:12.5px;letter-spacing:.14em}.eph h2{font-family:'Noto Serif KR',serif;font-size:clamp(20px,2.4vw,28px);margin:.15em 0 .25em;line-height:1.35}
+.eph .lk{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}.eph .lk span{color:var(--dim)}
+.doc{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,380px);gap:22px;margin:18px 0 34px;content-visibility:auto;contain-intrinsic-size:auto 900px}
+.fig{margin:0;background:#0d0c0a;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:center;align-items:center;overflow:hidden;cursor:zoom-in;position:relative}
+.fig img{display:block;max-width:100%;max-height:86vh;width:auto;height:auto}
+.fig .z{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.65);border-radius:20px;padding:2px 10px;font-size:12.5px;color:var(--paper);opacity:.85}
+.txt{font-size:15px;align-self:start;position:sticky;top:70px;max-height:calc(100vh - 90px);overflow:auto;padding-right:4px;scrollbar-width:thin;scrollbar-color:#4a3e2c transparent}
+.txt .n{color:var(--gold);font-size:12.5px;letter-spacing:.08em}.txt h3{font-family:'Noto Serif KR',serif;font-size:19px;margin:.1em 0 .4em;line-height:1.4}
+.txt .sm{color:#e8dcc4}.txt details{margin:.6em 0;border-top:1px solid var(--line);padding-top:.4em}.txt summary{cursor:pointer;color:var(--gold);font-size:14px}
+.txt .src{font-family:'Noto Serif KR','Batang',serif;white-space:pre-wrap;font-size:15.5px;line-height:1.9;color:#efe3c8}.txt .tr{color:#d9cfbb}
+.txt .ft{font-size:12.5px;color:var(--dim);margin-top:.6em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding-top:20px}
+.grid button{background:var(--pan);border:1px solid var(--line);border-radius:10px;padding:0;cursor:zoom-in;text-align:left;overflow:hidden;display:flex;flex-direction:column}
+.grid img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;display:block;background:#0d0c0a}
+.grid span{padding:6px 8px;font-size:12.5px;line-height:1.4;color:var(--dim)}.grid span b{display:block;color:var(--paper);font-weight:500}
+.grid .gh{grid-column:1/-1;margin:22px 0 0;padding-bottom:4px;border-bottom:1px solid var(--line);font-size:14px;color:var(--gold);font-weight:600}.grid .gh small{color:var(--dim);font-weight:400;margin-left:8px}
+#zinfo .txt{position:static;max-height:none;overflow:visible}
+.empty{padding:20vh 0;text-align:center;color:var(--dim)}
+footer{border-top:1px solid var(--line);margin:40px 0 0;padding:20px 4px;font-size:13px;color:var(--dim)}
+mark{background:#6b5426;color:#fff;border-radius:3px}
+/* 확대 보기 */
+#zv{position:fixed;inset:0;z-index:60;background:#0a0907;display:none}#zv.on{display:block}
+#stage{position:absolute;inset:0;overflow:hidden;touch-action:none;cursor:grab}#stage.drag{cursor:grabbing}
+#stage img{position:absolute;left:0;top:0;transform-origin:0 0;user-select:none;-webkit-user-drag:none;max-width:none}
+#zbar{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;gap:6px;background:rgba(22,19,15,.9);border:1px solid var(--line);border-radius:40px;padding:6px 8px;z-index:3}
+#zbar button{white-space:nowrap;background:#231d15;border:1px solid #4a3e2c;border-radius:30px;min-width:40px;height:38px;padding:0 12px;cursor:pointer;font-size:15px}#zbar button:hover{border-color:var(--gold)}
+#ztop{position:absolute;left:0;right:0;top:0;padding:12px 18px;background:linear-gradient(rgba(10,9,7,.95),rgba(10,9,7,0));display:flex;gap:14px;align-items:flex-start;z-index:3;pointer-events:none}
+#ztop>*{pointer-events:auto}#ztit{flex:1;font-size:14.5px;line-height:1.5}#ztit b{font-family:'Noto Serif KR',serif;font-size:17px}#ztit small{color:var(--gold)}
+#zinfo{position:absolute;right:0;top:0;bottom:0;width:min(420px,92vw);background:rgba(22,19,15,.97);border-left:1px solid var(--line);padding:70px 20px 90px;overflow:auto;z-index:2;display:none}#zv.info #zinfo{display:block}
+#zclose{background:#231d15;border:1px solid #4a3e2c;border-radius:30px;padding:5px 14px;cursor:pointer}
+#zpct{min-width:58px;text-align:center;font-size:13px;color:var(--dim);align-self:center}
+.navz{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(22,19,15,.75);border:1px solid var(--line);border-radius:50%;width:48px;height:48px;font-size:22px;cursor:pointer}#zprev{left:14px}#znext{right:14px}#zv.info #znext{right:calc(min(420px,92vw) + 14px)}
+@media (max-width:980px){.doc{grid-template-columns:1fr}.txt{position:static;max-height:none}}
+@media (max-width:760px){html{scroll-padding-top:10px}header{position:relative;backdrop-filter:none;-webkit-backdrop-filter:none}header h1{font-size:16px}.ctl{gap:6px}#q{flex-basis:100%;order:-1}.seg button{padding:4px 10px;font-size:13px}select{font-size:13px;padding:4px 8px}#tocb{position:fixed;left:12px;bottom:14px;z-index:55;box-shadow:0 4px 14px rgba(0,0,0,.5)}aside{position:fixed;left:0;top:0;height:100vh;z-index:50;background:var(--bg);transform:translateX(-100%);transition:transform .2s;width:84vw;padding-top:60px}aside.open{transform:none}#tocb{display:inline-block}header{padding:8px 10px}header h1 small{display:none}main{padding:0 12px 20vh}.fig img{max-height:none}#zbar button{min-width:36px;padding:0 9px}}
+</style></head><body><!--SKIP--><a class="skip" href="#main">본문 바로가기</a><style>.skip{position:absolute;left:-9999px;top:0;z-index:99;background:#c4964a;color:#16130f;padding:8px 14px;font:700 15px sans-serif;border-radius:0 0 8px 0;text-decoration:none}.skip:focus{left:0}:focus-visible{outline:2px solid #c4964a;outline-offset:2px}</style><!--/SKIP-->
+<a class="sk" href="#main">본문으로 건너뛰기</a>
+<header>
+ <h1><a href="index.html" title="갤러리로 돌아가기">고문서 한 장</a><small>연속 보기 · IIIF</small></h1>
+ <div class="ctl">
+  <button id="tocb" aria-controls="toc" aria-expanded="false">목차</button>
+  <input id="q" type="search" placeholder="찾기 — 문서명 · 소장처 · 원문 한자 · 번역 (예: 호구, 乘馹, 노비)" aria-label="문서 찾기">
+  <span class="seg" role="group" aria-label="보기 방식"><button data-m="cont" aria-pressed="true">이어 보기</button><button data-m="grid" aria-pressed="false">한눈에</button></span>
+  <select id="sort" aria-label="순서"><option value="ep">편 순서</option><option value="year">연도 순서</option></select>
+  <select id="kind" aria-label="소장처 갈래"><option value="">모든 소장처</option></select>
+  <span id="cnt" aria-live="polite"></span>
+ </div>
+</header>
+<div class="wrap">
+ <aside id="toc" aria-label="편 목차"></aside>
+ <main id="main"><div id="list"><p class="empty">불러오는 중…</p></div>
+ <footer>
+  <p><b>이미지</b> — 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). 각 전시 웹페이지에 실린 것과 같은 이미지입니다. 다시 쓰려면 자료관(031-730-8873 · 8876)을 통해 소장처의 동의를 받아야 하며, 문제가 있으면 내립니다.</p>
+  <p><b>판독 · 번역</b> — 초안입니다. 원본과 대조한 사람만 검토를 표시합니다. 이 시리즈가 새로 만든 텍스트는 CC BY 4.0, 코드는 MIT.</p>
+  <p><b>IIIF</b> — 편마다 Presentation 3.0 매니페스트가 있습니다. 전체 묶음: <a id="collink" href="#">collection.json</a> · Mirador · Universal Viewer 같은 IIIF 뷰어에서 그대로 열립니다.</p>
+  <p>엮은이 Song Chang-gi · <a href="mailto:chgsong@naver.com">chgsong@naver.com</a> · <a href="https://github.com/changgi">github.com/changgi</a> · <a href="index.html">갤러리로</a></p>
+ </footer></main>
+</div>
+<div id="zv" role="dialog" aria-modal="true" aria-label="확대 보기">
+ <div id="stage"><img id="zimg" alt=""></div>
+ <div id="ztop"><div id="ztit"></div><button id="zclose" aria-label="닫기 (Esc)">닫기 ✕</button></div>
+ <button class="navz" id="zprev" aria-label="이전 문서 (←)">‹</button><button class="navz" id="znext" aria-label="다음 문서 (→)">›</button>
+ <div id="zinfo"></div>
+ <div id="zbar"><button id="zout" aria-label="축소 (-)">－</button><span id="zpct">100%</span><button id="zin" aria-label="확대 (+)">＋</button><button id="zfit" aria-label="화면에 맞춤 (0)">맞춤</button><button id="zrot" aria-label="90도 돌리기 (R)">⟳</button><button id="zinf" aria-label="원문 · 번역 보기 (I)">글</button></div>
+</div>
+<script>
+(()=>{
+const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const SITE='https://changgi.github.io/archive-tools/examples/';
+let D, BASE, ALL=[], VIEW=[], mode='cont', sort='ep', kind='', q='';
+const prm=new URLSearchParams(location.search);
+fetch('viewer-data.json').then(r=>r.json()).then(j=>{D=j;BASE=prm.get('base')||j.base;init()}).catch(e=>{$('#list').innerHTML='<p class="empty">목록을 불러오지 못했습니다 — '+esc(e)+'</p>'});
+const yr=d=>{const m=String(d.y||'').match(/\d{3,4}/);return m?+m[0]:99999};
+const img=(e,d)=>`${BASE}${e.f}/${String(d.n).padStart(2,'0')}.jpg`, thumb=(e,d)=>`${BASE}${e.f}/thumb/${String(d.n).padStart(2,'0')}.jpg`;
+const man=e=>`${BASE}${e.f}/manifest.json`, epl=e=>e.ep!=null?'EP.'+e.ep:'기획 예시';
+const mirador=u=>'https://projectmirador.org/embed/?iiif-content='+encodeURIComponent(u), uv=u=>'https://uv-v4.netlify.app/#?manifest='+encodeURIComponent(u);
+function init(){
+  $('#collink').href=BASE+'collection.json';
+  D.eps.forEach(e=>e.d.forEach(d=>{d.e=e;d.id=e.f+'/'+d.n;d.hay=(e.t+' '+e.c+' '+epl(e)+' '+d.t+' '+d.y+' '+d.ty+' '+d.src+' '+d.tr+' '+d.sm).toLowerCase();ALL.push(d)}));
+  [...new Set(D.eps.map(e=>e.k))].sort().forEach(k=>$('#kind').insertAdjacentHTML('beforeend',`<option>${esc(k)}</option>`));
+  document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
+  $('#sort').onchange=e=>{sort=e.target.value;render()}; $('#kind').onchange=e=>{kind=e.target.value;render()};
+  let t;$('#q').oninput=e=>{clearTimeout(t);t=setTimeout(()=>{q=e.target.value.trim().toLowerCase();render()},220)};
+  $('#tocb').onclick=()=>{const a=$('#toc').classList.toggle('open');$('#tocb').setAttribute('aria-expanded',a)};
+  if(prm.get('q')){q=prm.get('q').toLowerCase();$('#q').value=prm.get('q')}
+  render(); go(decodeURIComponent(location.hash.slice(1)));
+}
+function hl(s){s=esc(s);if(!q)return s;const k=esc(q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return s.replace(new RegExp(k,'gi'),m=>'<mark>'+m+'</mark>')}
+function render(){
+  VIEW=ALL.filter(d=>(!kind||d.e.k===kind)&&(!q||q.split(/\s+/).every(w=>d.hay.includes(w))));
+  if(sort==='year')VIEW=[...VIEW].sort((a,b)=>yr(a)-yr(b)||(a.e.ep??9999)-(b.e.ep??9999)||a.n-b.n);
+  const neps=new Set(VIEW.map(d=>d.e.f)).size;
+  $('#cnt').textContent=`편 ${neps} · 문서 ${VIEW.length}건`;
+  if(!VIEW.length){$('#list').innerHTML='<p class="empty">맞는 문서가 없습니다.</p>';$('#toc').innerHTML='';return}
+  let h='',toc='',last=null,lastC=null;
+  VIEW.forEach((d,i)=>{
+    const e=d.e, grp=sort==='year'?(yr(d)<99999?Math.floor(yr(d)/50)*50:'미상'):e.f;
+    if(grp!==last){last=grp;
+      if(sort==='year'){const lab=grp==='미상'?'연도 미상':`${grp}–${grp+49}년`;toc+=`<a href="#y-${grp}" data-k="y-${grp}"><b>${grp==='미상'?'—':grp}</b>${lab}</a>`;if(mode==='cont')h+=`<section class="eph" id="y-${grp}"><div class="k">연도 순서</div><h2>${lab}</h2></section>`;else h+=`<h2 class="gh" id="y-${grp}">${lab}</h2>`}
+      else{toc+=`<a href="#${esc(e.f)}" data-k="${esc(e.f)}"><b>${epl(e)}</b>${esc(e.t.split(' — ')[0])}</a>`;
+        if(mode==='cont')h+=`<section class="eph" id="${esc(e.f)}"><div class="k">${epl(e)} · ${esc(e.k)} · ${esc(e.c)}</div><h2>${hl(e.t)}</h2><div class="lk"><a href="${esc(e.f)}/exhibit.html">전시 웹페이지</a><a href="${man(e)}">IIIF 매니페스트</a><a href="${mirador(man(e))}" target="_blank" rel="noopener">Mirador에서 열기</a><a href="${uv(man(e))}" target="_blank" rel="noopener">Universal Viewer</a><span>문서 ${e.d.length}건</span></div></section>`;else h+=`<h2 class="gh" id="${esc(e.f)}">${epl(e)} ${esc(e.t.split(' — ')[0])}<small>${esc(e.c)}</small></h2>`}}
+    if(mode==='grid')h+=`<button data-i="${i}" id="g-${esc(d.id)}"><img loading="lazy" src="${thumb(e,d)}" width="${d.tw}" height="${d.th}" alt="${esc(d.t)}"><span><b>${hl(d.t)}</b>${esc(d.y||'연도 미상')} · ${epl(e)}</span></button>`;
+    if(mode==='cont')h+=`<article class="doc" id="d-${esc(d.id)}" data-i="${i}"><figure class="fig" data-i="${i}" tabindex="0" role="button" aria-label="${esc(d.t)} 확대해 보기"><img loading="lazy" decoding="async" src="${img(e,d)}" width="${d.w}" height="${d.h}" alt="${esc(d.t)} (${esc(d.y)}) 원본 이미지"><span class="z">눌러서 확대</span></figure>${txt(d)}</article>`;
+  });
+  $('#list').innerHTML=mode==='grid'?'<div class="grid">'+h+'</div>':h;$('#toc').innerHTML=toc;
+  document.querySelectorAll('[data-i]').forEach(el=>{if(el.matches('.fig,.grid button')){el.onclick=()=>zopen(+el.dataset.i);el.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();zopen(+el.dataset.i)}}}});
+  $('#toc').querySelectorAll('a').forEach(a=>a.onclick=()=>{$('#toc').classList.remove('open')});
+  spy();
+}
+function txt(d,full){const e=d.e;return `<div class="txt"><div class="n">${epl(e)} · ${d.n}/${e.d.length} · ${esc(d.ty)}</div><h3>${hl(d.t)}</h3><div class="ft" style="margin:0 0 .5em">${esc(d.y||'연도 미상')} · ${esc(e.c)}</div>${d.sm?`<p class="sm">${hl(d.sm)}</p>`:''}${d.tr?`<details ${full||q?'open':''}><summary>번역</summary><div class="tr">${hl(d.tr)}</div></details>`:''}${d.src?`<details ${full||q?'open':''}><summary>원문 · 판독</summary><div class="src">${hl(d.src)}</div></details>`:''}<div class="ft">${sort==='year'&&!full?`<a href="#${esc(e.f)}" onclick="event.preventDefault();document.getElementById('sort').value='ep';document.getElementById('sort').onchange({target:{value:'ep'}});location.hash='${esc(e.f)}'">이 편 전체 보기</a> · `:''}<a href="${esc(e.f)}/exhibit.html">전시 웹페이지</a>${d.v?` · <a href="${esc(d.v)}" target="_blank" rel="noopener">자료관 원본 뷰어</a>`:''} · 판독 · 번역 초안(미검토)</div></div>`}
+let io;function spy(){if(io)io.disconnect();if(!('IntersectionObserver'in window))return;
+  io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const k=en.target.id;$('#toc').querySelectorAll('a').forEach(a=>{const on=a.dataset.k===k;a.classList.toggle('on',on);if(on)a.scrollIntoView({block:'nearest'})})}}),{rootMargin:'-10% 0px -80% 0px'});
+  document.querySelectorAll('.eph,.gh').forEach(s=>io.observe(s))}
+function go(h){if(!h)return;const el=document.getElementById(h)||document.getElementById('d-'+h);if(el)setTimeout(()=>el.scrollIntoView(),50);const i=VIEW.findIndex(d=>d.id===h);if(i>=0&&prm.get('zoom'))zopen(i)}
+window.addEventListener('hashchange',()=>go(decodeURIComponent(location.hash.slice(1))));
+// 본문에서 j/k로 문서 넘기기
+document.addEventListener('keydown',ev=>{if($('#zv').classList.contains('on')||ev.target.matches('input,select,textarea')||mode!=='cont')return;
+  if(ev.key==='j'||ev.key==='k'){const ds=[...document.querySelectorAll('.doc')];const y=70;let i=ds.findIndex(d=>d.getBoundingClientRect().top>y+5);if(i<0)i=ds.length;const t=ev.key==='j'?ds[i]:ds[Math.max(0,i-2)];if(t)t.scrollIntoView({behavior:'smooth'})}});
+
+/* ---- 확대 보기: 휠 · 끌기 · 두 손가락 · 두 번 누르기 ---- */
+const st=$('#stage'),zi=$('#zimg');let cur=-1,S=1,X=0,Y=0,ROT=0,fitS=1,W=0,H=0,ret=null;
+function apply(){zi.style.transform=`translate(${X}px,${Y}px) scale(${S}) rotate(${ROT}deg)`;$('#zpct').textContent=Math.round(S*100)+'%'}
+function dims(){const r=ROT%180!==0;return r?[H,W]:[W,H]}
+function fit(){const[w,h]=dims(),vw=st.clientWidth-($('#zv').classList.contains('info')&&innerWidth>760?Math.min(420,innerWidth*.92):0),vh=st.clientHeight;fitS=Math.min((vw-40)/w,(vh-140)/h,4);S=fitS;center(vw,vh)}
+function center(vw,vh){const[w,h]=dims();X=(vw-w*S)/2;Y=(vh-h*S)/2+10;if(ROT===90)X+=w*S;else if(ROT===180){X+=w*S;Y+=h*S}else if(ROT===270)Y+=h*S;apply()}
+function zoomAt(f,cx,cy){const ns=Math.min(Math.max(S*f,fitS*.5),8);X=cx-(cx-X)*(ns/S);Y=cy-(cy-Y)*(ns/S);S=ns;apply()}
+function zopen(i){if(i<0||i>=VIEW.length)return;cur=i;const d=VIEW[i],e=d.e;W=d.w;H=d.h;ROT=0;
+  if(!$('#zv').classList.contains('on')){ret=document.activeElement;$('#zv').classList.add('on');document.body.style.overflow='hidden';if(innerWidth>1100)$('#zv').classList.add('info')}
+  zi.src=thumb(e,d);zi.style.width=W+'px';zi.style.height=H+'px';const full=new Image();full.onload=()=>{if(cur===i)zi.src=full.src};full.src=img(e,d);
+  zi.alt=d.t;$('#ztit').innerHTML=`<small>${epl(e)} · ${d.n}/${e.d.length} · 전체 ${i+1}/${VIEW.length}</small><br><b>${esc(d.t)}</b> · ${esc(d.y||'연도 미상')}`;
+  $('#zinfo').innerHTML=txt(d,true)+`<p class="ft"><a href="${man(e)}">IIIF 매니페스트</a> · <a href="${mirador(man(e))}" target="_blank" rel="noopener">Mirador</a></p>`;
+  $('#zprev').disabled=i===0;$('#znext').disabled=i===VIEW.length-1;fit();$('#zclose').focus();
+  history.replaceState(null,'','#'+d.id);
+  [VIEW[i+1],VIEW[i-1]].forEach(n=>{if(n)new Image().src=img(n.e,n)});}
+function zclose(){$('#zv').classList.remove('on');document.body.style.overflow='';const d=VIEW[cur];if(d&&mode==='cont'){const el=document.getElementById('d-'+d.id);if(el)el.scrollIntoView({block:'start'})}else if(d){const el=document.getElementById('g-'+d.id);if(el)el.scrollIntoView({block:'center'})}if(ret)ret.focus()}
+$('#zclose').onclick=zclose;$('#zprev').onclick=()=>zopen(cur-1);$('#znext').onclick=()=>zopen(cur+1);
+$('#zin').onclick=()=>zoomAt(1.4,st.clientWidth/2,st.clientHeight/2);$('#zout').onclick=()=>zoomAt(1/1.4,st.clientWidth/2,st.clientHeight/2);
+$('#zfit').onclick=fit;$('#zrot').onclick=()=>{ROT=(ROT+90)%360;fit()};$('#zinf').onclick=()=>{$('#zv').classList.toggle('info');fit()};
+st.addEventListener('wheel',ev=>{ev.preventDefault();zoomAt(Math.exp(-ev.deltaY*0.0015),ev.clientX,ev.clientY)},{passive:false});
+const pts=new Map();let last=null,pd=0,moved=false,tapT=0;
+st.addEventListener('pointerdown',ev=>{st.setPointerCapture(ev.pointerId);pts.set(ev.pointerId,[ev.clientX,ev.clientY]);moved=false;st.classList.add('drag');if(pts.size===2){const[a,b]=[...pts.values()];pd=Math.hypot(a[0]-b[0],a[1]-b[1])}last=[ev.clientX,ev.clientY]});
+st.addEventListener('pointermove',ev=>{if(!pts.has(ev.pointerId))return;pts.set(ev.pointerId,[ev.clientX,ev.clientY]);
+  if(pts.size===2){const[a,b]=[...pts.values()],d=Math.hypot(a[0]-b[0],a[1]-b[1]);if(pd)zoomAt(d/pd,(a[0]+b[0])/2,(a[1]+b[1])/2);pd=d;moved=true}
+  else if(last){const dx=ev.clientX-last[0],dy=ev.clientY-last[1];if(Math.abs(dx)+Math.abs(dy)>2)moved=true;X+=dx;Y+=dy;last=[ev.clientX,ev.clientY];apply()}});
+const up=ev=>{pts.delete(ev.pointerId);if(pts.size<2)pd=0;if(!pts.size){st.classList.remove('drag');last=null;
+  if(!moved){const t=Date.now();if(t-tapT<300){S>fitS*1.05?fit():zoomAt(2.5,ev.clientX,ev.clientY);tapT=0}else tapT=t}}else{const p=[...pts.values()][0];last=p}};
+st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
+addEventListener('resize',()=>{if($('#zv').classList.contains('on'))fit()});
+document.addEventListener('keydown',ev=>{if(!$('#zv').classList.contains('on'))return;const k=ev.key;
+  if(k==='Escape')zclose();else if(k==='ArrowRight'||k==='PageDown')zopen(cur+1);else if(k==='ArrowLeft'||k==='PageUp')zopen(cur-1);
+  else if(k==='+'||k==='=')$('#zin').click();else if(k==='-')$('#zout').click();else if(k==='0')fit();else if(k==='r'||k==='R')$('#zrot').click();else if(k==='i'||k==='I')$('#zinf').click();
+  else if(k==='ArrowUp'){Y+=80;apply()}else if(k==='ArrowDown'){Y-=80;apply()}else if(k==='Tab'){const f=[...$('#zv').querySelectorAll('button:not([disabled]),a')];const i=f.indexOf(document.activeElement);if(ev.shiftKey&&i<=0||!ev.shiftKey&&i===f.length-1){ev.preventDefault();f[ev.shiftKey?f.length-1:0].focus()}return}else return;ev.preventDefault()});
+})();
+</script>
+</body></html>
