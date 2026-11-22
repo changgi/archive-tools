@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.165)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.167)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.165)
+## 원문으로 읽는 이야기 (EP.17–EP.167)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -185,6 +185,8 @@
 | [**EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장**](gudang-yuseo/) | 부여 은산 함양박씨 구당 박세영 종가 (문중) | 王若曰 | [릴스](https://changgi.github.io/archive-tools-next/media/ep163-gudang-yuseo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep163-gudang-yuseo_wide.mp4) · [홍보 글](gudang-yuseo/promo.md) |
 | [**EP.164 이름과 나이로만 적힌 사람들 — 왕자 숭선군에게 내린 사패교지 세 장과 시호**](sungseon-sapae/) | 공주 전주이씨 숭선군파 종가 (문중) | 特賜賞 可傳永世者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep164-sungseon-sapae_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep164-sungseon-sapae_wide.mp4) · [홍보 글](sungseon-sapae/promo.md) |
 | [**EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장**](hyoheon-gwageo/) | 김포 전주이씨 효헌 이인철 후손가 (문중) | 二所一等第一人 | [릴스](https://changgi.github.io/archive-tools-next/media/ep165-hyoheon-gwageo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep165-hyoheon-gwageo_wide.mp4) · [홍보 글](hyoheon-gwageo/promo.md) |
+| [**EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지**](jocheon-kim-soji/) | 제주 조천 김해김씨 김희정 후손가 (문중) | 以一介婦人 挺身大呼墻上 追執 | [릴스](https://changgi.github.io/archive-tools-next/media/ep166-jocheon-kim-soji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep166-jocheon-kim-soji_wide.mp4) · [홍보 글](jocheon-kim-soji/promo.md) |
+| [**EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해**](kkotnae-manggi/) | 봉화 꽃내 무안박씨 회이당 박한 종가 (문중) | 幼學 朴萬澤 | [릴스](https://changgi.github.io/archive-tools-next/media/ep167-kkotnae-manggi_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep167-kkotnae-manggi_wide.mp4) · [홍보 글](kkotnae-manggi/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -212,7 +214,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 166개
+## 예시 (결과물 갤러리) — 168개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -382,6 +384,8 @@
 | [**EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장**](gudang-yuseo/) | 부여 은산 함양박씨 구당 박세영 종가 (문중) | 1691년 여름, 황해도 관찰사가 된 박경후는 두 장의 왕명을 받는다. 하나는 길게 그 직책의 무게를 타이르… | [전시](gudang-yuseo/exhibit.html) · [활동지](gudang-yuseo/handout.html) · [카드](gudang-yuseo/cards/) · [selection.csv](gudang-yuseo/selection.csv) |
 | [**EP.164 이름과 나이로만 적힌 사람들 — 왕자 숭선군에게 내린 사패교지 세 장과 시호**](sungseon-sapae/) | 공주 전주이씨 숭선군파 종가 (문중) | 1669년 7월 7일, 인조의 아들 숭선군 이징에게 교지가 내려온다. 양주 군기시의 여종 예이, 풍기 사섬시… | [전시](sungseon-sapae/exhibit.html) · [활동지](sungseon-sapae/handout.html) · [카드](sungseon-sapae/cards/) · [selection.csv](sungseon-sapae/selection.csv) |
 | [**EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장**](hyoheon-gwageo/) | 김포 전주이씨 효헌 이인철 후손가 (문중) | 1884년 가을, 스물여덟 살 유학 이순하는 진사시 초시에서 '이소(二所) 일등 제일인'이 된다. 이듬해 봄… | [전시](hyoheon-gwageo/exhibit.html) · [활동지](hyoheon-gwageo/handout.html) · [카드](hyoheon-gwageo/cards/) · [selection.csv](hyoheon-gwageo/selection.csv) |
+| [**EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지**](jocheon-kim-soji/) | 제주 조천 김해김씨 김희정 후손가 (문중) | 1891년 2월, 제주 조천의 훈장 김의정의 집에 강도 김용수가 들어 사람을 묶는다. 그때 김의정의 며느리 … | [전시](jocheon-kim-soji/exhibit.html) · [활동지](jocheon-kim-soji/handout.html) · [카드](jocheon-kim-soji/cards/) · [selection.csv](jocheon-kim-soji/selection.csv) |
+| [**EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해**](kkotnae-manggi/) | 봉화 꽃내 무안박씨 회이당 박한 종가 (문중) | 1945년 2월, 해방 반년 전, 박만택은 삼계서원 봄 제사의 집례로 이름이 올랐다(EP.91). 나라가 바… | [전시](kkotnae-manggi/exhibit.html) · [활동지](kkotnae-manggi/handout.html) · [카드](kkotnae-manggi/cards/) · [selection.csv](kkotnae-manggi/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -406,7 +410,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 166개
+### 카드뉴스 미리보기 — 168개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -576,8 +580,10 @@
 | EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장 | ![](gudang-yuseo/cards/00_표지.jpg) | ![](gudang-yuseo/cards/01.jpg) | ![](gudang-yuseo/cards/02.jpg) |
 | EP.164 이름과 나이로만 적힌 사람들 — 왕자 숭선군에게 내린 사패교지 세 장과 시호 | ![](sungseon-sapae/cards/00_표지.jpg) | ![](sungseon-sapae/cards/01.jpg) | ![](sungseon-sapae/cards/02.jpg) |
 | EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장 | ![](hyoheon-gwageo/cards/00_표지.jpg) | ![](hyoheon-gwageo/cards/01.jpg) | ![](hyoheon-gwageo/cards/02.jpg) |
+| EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지 | ![](jocheon-kim-soji/cards/00_표지.jpg) | ![](jocheon-kim-soji/cards/01.jpg) | ![](jocheon-kim-soji/cards/02.jpg) |
+| EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해 | ![](kkotnae-manggi/cards/00_표지.jpg) | ![](kkotnae-manggi/cards/01.jpg) | ![](kkotnae-manggi/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 166개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 168개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -749,6 +755,8 @@
 | EP.163 왕과 반쪽씩 나눠 가진 병부 — 박경후가 받은 교서와 밀부 유서 네 장 | 1691년 박경후(朴慶後) 교서(敎書) | 1691년 박경후(朴慶後)의 교서. | 1691년 여름, 박경후에게 긴 두루마리가 온다. 첫머리는 왕의 목소리다. "왕은 이렇게 말한다(王若曰)." 예로부터 나라의 문단속을 맡기기는 어려웠다고. 황해도는 백성이 활과 말에 익숙한 요충지다. 그리고 같은 날, 아주 짧은 종이 한 장이 더 온다. | 1691년 박경후를 황해도 관찰사 겸 병마수군절도사로 보내며 그 직책의 무게와 그의 자질을 길게 적은 교서입니다. |
 | EP.164 이름과 나이로만 적힌 사람들 — 왕자 숭선군에게 내린 사패교지 세 장과 시호 | 1669년 이징(李澂) 사패교지(賜牌敎旨) | 1669년 이징(李澂)의 사패교지 — 국왕이 관직·작위 등을 내린 문서. | 1669년 칠석, 인조의 아들 숭선군에게 교지가 온다. 첫 줄 뒤로 이름이 줄지어 선다. 양주 군기시 여종 예이, 갑신생. 풍기 사섬시 여종 정매, 신묘생. 의성 사재감 사내종 석준, 임오생 … 열두 사람. 마지막 줄. "특별히 내려 주니, 영원히 대대로 전하라(特賜賞 可傳永世者)." | 1669년 7월 7일 숭선군 이징에게 양주 · 풍기 · 의성 · 춘천의 관청 노비 열두 사람을 '영원히 대대로' 내린 사패교지입니다. |
 | EP.165 스물여덟에서 서른다섯까지 — 이순하가 과거의 계단을 오른 종이 네 장 | 1884년 이순하(李舜夏) 사마초시(司馬初試) 시권(試券) | 1884년 이순하(李舜夏), 사마초시(司馬初試)의 시권 — 과거 시험 답안지. | 1884년 가을, 스물여덟 살 이순하가 초시 시험장에 앉는다. 문제는 셋. 그중 하나는 '진사는 그대의 재주를 다 드러내기에 모자라다.' 답안지 머리에 적힌 결과. "이소 일등 제일인(二所一等第一人)." 두 시험장 가운데 한 곳의 1등이다. | 1884년 스물여덟 살 이순하가 진사시 초시에 낸 답안지로, 사조 · 시험관 · 문제와 함께 '이소 일등 제일인'이라는 성적이 적혀 있습니다. |
+| EP.166 스승의 집에 든 강도, 담 위에서 소리친 며느리 — 1891년 제주 제자 마흔 명의 연명 소지 | 소지(所志)－09 | 1891년 소지 — 관에 올린 청원서. | 1891년 2월, 제주 조천. 훈장 김의정의 집에 강도가 든다. 사람이 묶인다. 그때 한 사람이 움직인다. 스승의 며느리 송씨. 제자들은 이렇게 적었다. "한 여인의 몸으로 담 위에서 크게 외치며 뒤쫓았다(以一介婦人 挺身大呼墻上 追執)." 그리고 그 아래, 마흔 명이 넘는 이름이 줄을 선다. | 1891년 2월 김의정의 제자 마흔여 명이 스승 집에 든 강도 김용수를 엄벌하고, 담 위에서 외치며 쫓은 며느리 송씨를 드러내 달라고 제주목사에게 올린 연명 소지입니다. |
+| EP.167 1974년에도 '望' 한 글자 — 박만택이 받은 망기, 서른 해 | 1953년 박만택(朴萬澤) 망기(望記) | 1953년 박만택(朴萬澤)의 망기. | 1953년 가을, 전쟁이 멈춘 지 두 달. 봉화의 한 마을에 종이 한 장이 온다. 위에 직임, 가운데 큰 글자 하나. '望.' 그 아래 이름. "유학 박만택(幼學 朴萬澤)." 조선의 문서가, 대한민국의 마을에서 다시 쓰인다. | 1953년 9월 박만택을 구양리 사재의 유사로 올린 망기로, 전쟁 직후에도 같은 형식이 쓰였습니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
