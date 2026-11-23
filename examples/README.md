@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.171)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.176)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.171)
+## 원문으로 읽는 이야기 (EP.17–EP.176)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -191,6 +191,11 @@
 | [**EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년**](jangsan-jesu/) | 경주 장산서원 (서원) | 鹿脯參條 | [릴스](https://changgi.github.io/archive-tools-next/media/ep169-jangsan-jesu_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep169-jangsan-jesu_wide.mp4) · [홍보 글](jangsan-jesu/promo.md) |
 | [**EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장**](aewol-kim-hj-gamun/) | 제주 애월 김해김씨 김희주 후손가 (문중) | 祖戶長金奉 故 曾祖戶長金禮 故 | [릴스](https://changgi.github.io/archive-tools-next/media/ep170-aewol-kim-hj-gamun_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep170-aewol-kim-hj-gamun_wide.mp4) · [홍보 글](aewol-kim-hj-gamun/promo.md) |
 | [**EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년**](jangheung-im-honseo/) | 아산 선교 장흥임씨 종가 (문중) | 僕之舍弟晶 未有伉儷 | [릴스](https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_wide.mp4) · [홍보 글](jangheung-im-honseo/promo.md) |
+| [**EP.172 후추 세 되, 화살 한 벌 — 압록강 가 창성부사 임욱이 받은 종이들**](jangheung-im-imuk/) | 아산 선교 장흥임씨 종가 (문중) | 通德郞任勗武科丙科第二十九人及第出身者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep172-jangheung-im-imuk_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep172-jangheung-im-imuk_wide.mp4) · [홍보 글](jangheung-im-imuk/promo.md) |
+| [**EP.173 삽자루에 묶인 자손 — 1887년, 6대조 무덤 앞 '스무 걸음'을 두고 벌인 산송**](jangheung-im-sansong/) | 아산 선교 장흥임씨 종가 (문중) | 二十餘步之地 | [릴스](https://changgi.github.io/archive-tools-next/media/ep173-jangheung-im-sansong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep173-jangheung-im-sansong_wide.mp4) · [홍보 글](jangheung-im-sansong/promo.md) |
+| [**EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다**](yeonan-kim-yuji/) | 영광 연안김씨 종가 (문중) | 藝文館檢閱金煊 開拆 | [릴스](https://changgi.github.io/archive-tools-next/media/ep174-yeonan-kim-yuji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep174-yeonan-kim-yuji_wide.mp4) · [홍보 글](yeonan-kim-yuji/promo.md) |
+| [**EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장**](yeonan-kim-mapyo/) | 영광 연안김씨 종가 (문중) | 金煊兒馬壹匹 賜給事 | [릴스](https://changgi.github.io/archive-tools-next/media/ep175-yeonan-kim-mapyo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep175-yeonan-kim-mapyo_wide.mp4) · [홍보 글](yeonan-kim-mapyo/promo.md) |
+| [**EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지**](gyeongju-lee-cw-munjip/) | 경주 경주이씨 이찬우 (문중) | 理當躬晉拜呈 | [릴스](https://changgi.github.io/archive-tools-next/media/ep176-gyeongju-lee-cw-munjip_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep176-gyeongju-lee-cw-munjip_wide.mp4) · [홍보 글](gyeongju-lee-cw-munjip/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -218,7 +223,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 172개
+## 예시 (결과물 갤러리) — 177개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -394,6 +399,11 @@
 | [**EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년**](jangsan-jesu/) | 경주 장산서원 (서원) | 1799년 봄, 경주부윤이 보낸 제물 목록의 첫머리는 '장산사(章山祠)'였다. 2년 뒤부터 같은 목록은 '장… | [전시](jangsan-jesu/exhibit.html) · [활동지](jangsan-jesu/handout.html) · [카드](jangsan-jesu/cards/) · [selection.csv](jangsan-jesu/selection.csv) |
 | [**EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장**](aewol-kim-hj-gamun/) | 제주 애월 김해김씨 김희주 후손가 (문중) | 이 집안에 남은 가장 오래된 종이는 자료관 목록 1515년의 호적 조각이다. 할아버지도 증조할아버지도 '호장… | [전시](aewol-kim-hj-gamun/exhibit.html) · [활동지](aewol-kim-hj-gamun/handout.html) · [카드](aewol-kim-hj-gamun/cards/) · [selection.csv](aewol-kim-hj-gamun/selection.csv) |
 | [**EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년**](jangheung-im-honseo/) | 아산 선교 장흥임씨 종가 (문중) | 1709년 가을, 임성은 아우 임정의 혼인을 위해 정생원 댁에 혼서를 쓴다. 1767년 임재대는 아들을, 1… | [전시](jangheung-im-honseo/exhibit.html) · [활동지](jangheung-im-honseo/handout.html) · [카드](jangheung-im-honseo/cards/) · [selection.csv](jangheung-im-honseo/selection.csv) |
+| [**EP.172 후추 세 되, 화살 한 벌 — 압록강 가 창성부사 임욱이 받은 종이들**](jangheung-im-imuk/) | 아산 선교 장흥임씨 종가 (문중) | 1705년 무과에 병과 29등으로 급제한 임욱은 스물다섯 해 뒤 압록강 가 고을 창성의 부사가 되었다. 임금… | [전시](jangheung-im-imuk/exhibit.html) · [활동지](jangheung-im-imuk/handout.html) · [카드](jangheung-im-imuk/cards/) · [selection.csv](jangheung-im-imuk/selection.csv) |
+| [**EP.173 삽자루에 묶인 자손 — 1887년, 6대조 무덤 앞 '스무 걸음'을 두고 벌인 산송**](jangheung-im-sansong/) | 아산 선교 장흥임씨 종가 (문중) | 1887년 봄, 아산에 사는 임영근은 경기도 양근의 선산에서 6대조 판서공 무덤 바로 앞에 남의 무덤이 몰래… | [전시](jangheung-im-sansong/exhibit.html) · [활동지](jangheung-im-sansong/handout.html) · [카드](jangheung-im-sansong/cards/) · [selection.csv](jangheung-im-sansong/selection.csv) |
+| [**EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다**](yeonan-kim-yuji/) | 영광 연안김씨 종가 (문중) | 1763년 섣달, 전라도 영광에 있던 김훤에게 승정원의 봉투가 왔다. 겉에는 '예문관 검열 김훤, 열어 보라… | [전시](yeonan-kim-yuji/exhibit.html) · [활동지](yeonan-kim-yuji/handout.html) · [카드](yeonan-kim-yuji/cards/) · [selection.csv](yeonan-kim-yuji/selection.csv) |
+| [**EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장**](yeonan-kim-mapyo/) | 영광 연안김씨 종가 (문중) | EP.174에서 '서둘러 역마를 타고 올라오라'는 부름을 네 번 받은 김훤은, 1772년 봄 서울에서 석 달… | [전시](yeonan-kim-mapyo/exhibit.html) · [활동지](yeonan-kim-mapyo/handout.html) · [카드](yeonan-kim-mapyo/cards/) · [selection.csv](yeonan-kim-mapyo/selection.csv) |
+| [**EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지**](gyeongju-lee-cw-munjip/) | 경주 경주이씨 이찬우 (문중) | 경주의 이찬우가 남긴 서가에는 책과 함께 얇은 편지 몇 장이 끼워져 있었다. 저마다 할아버지 · 큰할아버지 … | [전시](gyeongju-lee-cw-munjip/exhibit.html) · [활동지](gyeongju-lee-cw-munjip/handout.html) · [카드](gyeongju-lee-cw-munjip/cards/) · [selection.csv](gyeongju-lee-cw-munjip/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -418,7 +428,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 172개
+### 카드뉴스 미리보기 — 177개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -594,8 +604,13 @@
 | EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년 | ![](jangsan-jesu/cards/00_표지.jpg) | ![](jangsan-jesu/cards/01.jpg) | ![](jangsan-jesu/cards/02.jpg) |
 | EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장 | ![](aewol-kim-hj-gamun/cards/00_표지.jpg) | ![](aewol-kim-hj-gamun/cards/01.jpg) | ![](aewol-kim-hj-gamun/cards/02.jpg) |
 | EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년 | ![](jangheung-im-honseo/cards/00_표지.jpg) | ![](jangheung-im-honseo/cards/01.jpg) | ![](jangheung-im-honseo/cards/02.jpg) |
+| EP.172 후추 세 되, 화살 한 벌 — 압록강 가 창성부사 임욱이 받은 종이들 | ![](jangheung-im-imuk/cards/00_표지.jpg) | ![](jangheung-im-imuk/cards/01.jpg) | ![](jangheung-im-imuk/cards/02.jpg) |
+| EP.173 삽자루에 묶인 자손 — 1887년, 6대조 무덤 앞 '스무 걸음'을 두고 벌인 산송 | ![](jangheung-im-sansong/cards/00_표지.jpg) | ![](jangheung-im-sansong/cards/01.jpg) | ![](jangheung-im-sansong/cards/02.jpg) |
+| EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다 | ![](yeonan-kim-yuji/cards/00_표지.jpg) | ![](yeonan-kim-yuji/cards/01.jpg) | ![](yeonan-kim-yuji/cards/02.jpg) |
+| EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장 | ![](yeonan-kim-mapyo/cards/00_표지.jpg) | ![](yeonan-kim-mapyo/cards/01.jpg) | ![](yeonan-kim-mapyo/cards/02.jpg) |
+| EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지 | ![](gyeongju-lee-cw-munjip/cards/00_표지.jpg) | ![](gyeongju-lee-cw-munjip/cards/01.jpg) | ![](gyeongju-lee-cw-munjip/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 172개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 177개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -773,6 +788,11 @@
 | EP.169 사당이 서원이 되고, 장보기 목록이 길어졌다 — 경주부윤의 제수단자 50년 | 1799년 경주부윤(慶州府尹) 제수단자(祭需單子) | 1799년 경주부윤(慶州府尹)의 제수단자 — 사실이나 물목을 적어 올린 문서. | 1799년 봄, 경주부윤이 장보기 목록을 보낸다. 첫 줄은 '장산사', 사당이다. 술 빚을 쌀 세 되, 누룩 한 덩이, 그리고 "사슴포 세 가닥(鹿脯參條)." 축문을 쓸 붓 한 자루까지. 이 목록이 앞으로 50년 동안 이 서원에 쌓인다. | 1799년 경주부윤이 '장산사'의 봄 제사에 쓸 제물 열다섯 가지를 적어 보낸 제수단자로, 50년 목록의 출발점입니다. |
 | EP.170 호장의 집에서 부사의 집으로 — 제주 김해김씨 380년, 종이 네 장 | 호적(戶籍) | 1515년 호적. | 이 집안의 가장 오래된 종이는 찢어진 조각이다. 자료관은 1515년으로 적었다. 작은 글씨 사이로 같은 두 글자가 거듭 보인다. "할아버지 호장 김봉, 증조 호장 김례(祖戶長金奉 故 曾祖戶長金禮 故)." 호장, 고을의 향리. 이 집안은 거기서 시작했다. | 자료관 목록 1515년의 호적 조각으로, 조상 칸에 '호장' · '천호'가 거듭 적혀 이 집안의 출발이 제주의 향리층이었음을 보여 줍니다. |
 | EP.171 아우의 혼인, 아들의 혼인, 조카의 혼인 — 장흥임씨가 쓴 혼서 206년 | 1709년 임성(任晟) 혼서(婚書) | 1709년 임성(任晟)의 혼서. | 1709년 늦가을, 임성이 붓을 든다. 장가가는 사람은 자기가 아니라 아우다. "저의 아우 정이 아직 짝이 없었는데(僕之舍弟晶 未有伉儷)." 그리고 정해진 문장이 이어진다. "옛사람의 예가 있어 삼가 납폐의 의식을 행합니다(玆有先人之禮 謹行納幣之儀)." 형이 혼주가 된 혼인이다. | 1709년 임성이 아우 정의 혼인을 위해 정생원 댁에 보낸 혼서로, 혼주가 형입니다. |
+| EP.172 후추 세 되, 화살 한 벌 — 압록강 가 창성부사 임욱이 받은 종이들 | 1705년 임욱(任勗) 무과 홍패(武科紅牌) | 1705년 임욱(任勗)의 홍패 — 문과·무과 합격 증서. | 1705년 겨울, 붉은 종이 한 장. "통덕랑 임욱을 무과 병과 제29인으로 급제 출신시킨다(通德郞任勗武科丙科第二十九人及第出身者)." 스물아홉 번째. 앞에 선 사람이 많다. 그래도 이 종이로 그는 무관의 길에 들어선다. | 1705년 임욱이 무과 병과 제29인으로 급제한 홍패로, 그의 무관 경력의 출발점입니다. |
+| EP.173 삽자루에 묶인 자손 — 1887년, 6대조 무덤 앞 '스무 걸음'을 두고 벌인 산송 | 1887년 충청도(忠淸道) 아산(牙山) 주교거(舟橋居) 임영근(任永根) 단자(單子) | 1887년 충청도(忠淸道), 아산(牙山)의 단자 — 사실이나 물목을 적어 올린 문서. | 1887년 봄, 아산에 사는 임영근에게 소식이 온다. 먼 고을 선산에, 남의 무덤이 들어섰다. 그것도 6대조 판서공의 무덤 바로 앞. "스무 걸음 남짓한 곳(二十餘步之地)". 지키던 묘지기는 늙은이였다. "늙은이를 때리고 거리낌 없이 억지로 묻었습니다(毆打老漢無難勒葬)." 그는 고을 수령에게 단자를 쓴다. | 1887년 4월 임영근이 6대조 판서공 무덤 앞 스무 걸음 남짓한 곳에 김억이가 몰래 묘를 썼다며 고을 수령에게 파 가게 해 달라고 올린 단자입니다. |
+| EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다 | 유지(有旨)－1 | 1763년 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1763년 섣달, 영광. 봉투 겉에 이름이 적혀 있다. "예문관 검열 김훤, 열어 보라(藝文館檢閱金煊 開拆)." 안에는 짧은 한 줄. "지금 너를 예문관 검열로 삼으니(今以爾爲藝文館檢閱)", 그리고 "서둘러 역마를 타고 올라오라(爾其斯速乘馹上來事)". 서울까지는 천 리 길이다. | 1763년 12월 김훤을 예문관 검열로 삼고 서둘러 역마를 타고 올라오라고 부른 승정원 유지입니다. |
+| EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장 | 급마첩(給馬帖)－1 | 1772년 급마첩. | 1772년 봄, 궁중 잔치. 김훤은 의식의 순서를 이끄는 상례다. 잔치가 끝나자 쪽지 한 장이 온다. "김훤에게 아마 한 필을 내려 준다(金煊兒馬壹匹 賜給事)." 말은 오지 않았다. 대신 적혀 있다. "뒷날 내어 줄 때 쓸 첩자(後日題給次帖子)." | 1772년 2월 진찬 때 상례를 맡은 김훤에게 어린 말 한 필을 내린다고 사복시가 써 준 첩자입니다. |
+| EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지 | 1923년 김동진(金東鎭) 간찰(簡札) | 1923년 김동진(金東鎭)의 간찰 — 편지. | 계해년 여름, 책 한 권이 우편으로 온다. 증조부의 글을 겨우 몇 편 모아 펴냈다는 소식. 그리고 사과. "마땅히 몸소 찾아가 올려야 하나(理當躬晉拜呈)", 몸이 바빠 "감히 우편으로 보냅니다(玆敢郵送)". 책은 우체부가 날랐지만, 인사는 붓글씨로 했다. | 계해년 김동진이 증조부 만산부군의 유고를 펴내 우편으로 보내며, 찾아뵙지 못한 것과 실린 글의 순서가 어긋났을 것을 사과한 인쇄 편지입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
