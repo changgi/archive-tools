@@ -26,6 +26,17 @@ def put(path, data):
 def L(s): return {'ko': [s]}
 def MV(k, v): return {'label': L(k), 'value': L(v)}
 
+# 편마다 릴스 · 가로 영상(archive-tools-next/media) — 갤러리 목록(index.html의 IT)에서 주소 · 길이를 읽는다
+_IT = json.loads(re.search(r'const IT\s*=\s*(\[.*?\]);\s*\n', open(R + 'index.html', encoding='utf-8').read(), re.S).group(1))
+VID = {i['f']: i for i in _IT if i.get('f') and i.get('reel')}
+def vids(f):
+    """[(라벨, 주소, 가로, 세로, 길이(초), 포스터, 자막)] — 릴스(세로 1080×1920) · 가로 영상(1920×1080)"""
+    i = VID.get(f)
+    if not i: return []
+    out = [('릴스 (세로 영상)', i['reel'], 1080, 1920, float(i.get('dr') or 0), i.get('rp'), i.get('vtt'))]
+    if i.get('wide'): out.append(('가로 영상', i['wide'], 1920, 1080, float(i.get('dw') or i.get('dr') or 0), i.get('wp'), i.get('vtt')))
+    return out
+nvid = 0
 eps, coll_items, nimg, nchg, nbytes = [], [], 0, 0, 0
 for rec in sorted(glob.glob(R + '*/record.json')):
     f = rec.split('/')[-2]
@@ -60,6 +71,15 @@ for rec in sorted(glob.glob(R + '*/record.json')):
                 'body': {'id': f'{BASE}{f}/{i:02d}.jpg', 'type': 'Image', 'format': 'image/jpeg', 'width': w, 'height': h}}]}]})
         docs.append({'n': i, 't': name, 'y': year, 'ty': row.get('문서유형', ''), 'w': w, 'h': h, 'tw': th.width, 'th': th.height,
                      'src': row.get('원문', '') or row.get('판독', ''), 'tr': row.get('번역', ''), 'sm': row.get('요약', ''), 'v': row.get('뷰어링크', '')})
+    for j, (vl, vu, vw, vh, vd, vp, vt) in enumerate(vids(f), 1):  # 영상 캔버스 — IIIF Presentation 3.0 Video(길이 duration)
+        cid = f'{BASE}{f}/canvas/v{j}'
+        cv = {'id': cid, 'type': 'Canvas', 'label': L(vl), 'width': vw, 'height': vh, 'duration': round(vd, 1) or 60,
+              'items': [{'id': cid + '/page', 'type': 'AnnotationPage', 'items': [{'id': cid + '/page/video', 'type': 'Annotation', 'motivation': 'painting', 'target': cid,
+                  'body': {'id': vu, 'type': 'Video', 'format': 'video/mp4', 'width': vw, 'height': vh, 'duration': round(vd, 1) or 60}}]}]}
+        if vp: cv['thumbnail'] = [{'id': SITE + vp, 'type': 'Image', 'format': 'image/jpeg'}]
+        if vt: cv['annotations'] = [{'id': cid + '/subtitles', 'type': 'AnnotationPage', 'items': [{'id': cid + '/subtitles/ko', 'type': 'Annotation', 'motivation': 'supplementing', 'target': cid,
+                  'body': {'id': SITE + vt, 'type': 'Text', 'format': 'text/vtt', 'language': 'ko', 'label': L('한국어 자막')}}]}]
+        canvases.append(cv); nvid += 1
     title = r.get('title', f)
     label = f'EP.{ep} {title}' if ep else title
     man = {'@context': 'http://iiif.io/api/presentation/3/context.json', 'id': murl, 'type': 'Manifest', 'label': L(label),
@@ -75,15 +95,17 @@ for rec in sorted(glob.glob(R + '*/record.json')):
         'items': canvases}
     nchg += put(f'{OUT}/{f}/manifest.json', json.dumps(man, ensure_ascii=False, indent=1).encode())
     coll_items.append((ep if ep is not None else 10**6, {'id': murl, 'type': 'Manifest', 'label': L(label), 'thumbnail': man['thumbnail']}))
-    eps.append({'ep': ep, 'f': f, 't': title, 'c': ctx.get('holder') or ctx.get('collection', ''), 'k': KIND.get(f, '문중'), 'd': docs})
+    vi = VID.get(f)
+    eps.append({'ep': ep, 'f': f, 't': title, 'c': ctx.get('holder') or ctx.get('collection', ''), 'k': KIND.get(f, '문중'), 'd': docs,
+                **({'v': {k: vi[k] for k in ('reel', 'rp', 'wide', 'wp', 'vtt', 'dr', 'dw') if vi.get(k)}} if vi else {})})
 
 coll_items.sort(key=lambda x: x[0])
 coll = {'@context': 'http://iiif.io/api/presentation/3/context.json', 'id': BASE + 'collection.json', 'type': 'Collection',
-        'label': L('고문서 한 장 — 전체 편'), 'summary': L(f'편 {len(eps)}개 · 문서 {nimg}건. 이미지는 각 전시 웹페이지에 실린 것과 같습니다.'),
+        'label': L('고문서 한 장 — 전체 편'), 'summary': L(f'편 {len(eps)}개 · 문서 {nimg}건 · 영상 {nvid}개(릴스 · 가로). 이미지는 각 전시 웹페이지에 실린 것과 같습니다.'),
         'requiredStatement': MV('출처 · 권리', f'고문서 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). 다시 쓰려면 자료관을 통한 소장처 동의가 필요하며, 문제가 있으면 내립니다. 엮은이: {CREDIT}'),
         'items': [x[1] for x in coll_items]}
 nchg += put(f'{OUT}/collection.json', json.dumps(coll, ensure_ascii=False, indent=1).encode())
 eps.sort(key=lambda e: (e['ep'] is None, e['ep'] or 0, e['f']))  # EP.1–EP.200 차례로, 편 번호 없는 기획 예시 3편은 맨 뒤
 data = json.dumps({'base': BASE, 'eps': eps}, ensure_ascii=False, separators=(',', ':')).encode()
 nchg += put(R + 'viewer-data.json', data)
-print(f'■ IIIF: 편 {len(eps)}개 · 문서 {nimg}건 · 이미지 {nbytes/1e6:.0f}MB · 바뀐 파일 {nchg}개 · viewer-data {len(data)/1e6:.1f}MB → {BASE}collection.json')
+print(f'■ IIIF: 편 {len(eps)}개 · 문서 {nimg}건 · 영상 캔버스 {nvid}개 · 이미지 {nbytes/1e6:.0f}MB · 바뀐 파일 {nchg}개 · viewer-data {len(data)/1e6:.1f}MB → {BASE}collection.json')

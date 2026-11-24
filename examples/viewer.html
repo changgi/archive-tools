@@ -54,6 +54,26 @@ mark{background:#6b5426;color:#fff;border-radius:3px}
 #zclose{background:#231d15;border:1px solid #4a3e2c;border-radius:30px;padding:5px 14px;cursor:pointer}
 #zpct{min-width:58px;text-align:center;font-size:13px;color:var(--dim);align-self:center}
 .navz{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(22,19,15,.75);border:1px solid var(--line);border-radius:50%;width:48px;height:48px;font-size:22px;cursor:pointer}#zprev{left:14px}#znext{right:14px}#zv.info #znext{right:calc(min(420px,92vw) + 14px)}
+.vrow{display:flex;gap:14px;align-items:center;margin:14px 0 4px;flex-wrap:wrap}
+.vcard{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0d0c0a;cursor:pointer;padding:0;flex:none}
+.vcard img{display:block;width:112px;height:199px;object-fit:cover}.vcard.w img{width:240px;height:135px}
+.vcard i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:30px;color:#fff;background:linear-gradient(transparent 55%,rgba(0,0,0,.7));text-shadow:0 2px 8px #000}
+.vcard span{position:absolute;left:6px;right:6px;bottom:5px;font-size:12px;color:#efe4cc;text-align:left;line-height:1.3}
+.vrow .vt{font-size:13.5px;color:var(--dim);max-width:420px}.vrow .vt b{color:var(--paper);display:block;font-size:14.5px;margin-bottom:2px}
+.vrow .vt button{margin:6px 6px 0 0;background:#231d15;border:1px solid #4a3e2c;border-radius:20px;padding:4px 12px;cursor:pointer;font-size:13px}
+.grid .gvb{position:relative}.grid .gvb img{aspect-ratio:9/16;object-position:50% 50%}.grid .gvb em{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.65);border-radius:12px;padding:1px 8px;font-size:12px;font-style:normal;color:#fff}
+.vlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;padding-top:18px}.vlist .vcard img{width:100%;height:auto;aspect-ratio:9/16}
+.vlist .vcard span{font-size:12.5px}.vbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:22px 0 4px}.vbar button{background:#3a2f1c;border:1px solid var(--gold);color:var(--gold);border-radius:24px;padding:7px 16px;cursor:pointer;font-size:14.5px}.vbar span{color:var(--dim);font-size:13.5px}
+/* 영상 보기 */
+#vv{position:fixed;inset:0;z-index:70;background:#0a0907;display:none;grid-template-columns:minmax(0,1fr) 320px}#vv.on{display:grid}
+#vv .pl{position:relative;display:flex;flex-direction:column;min-height:0}#vtop{display:flex;gap:10px;align-items:flex-start;padding:12px 16px}#vtit{flex:1;font-size:14px;line-height:1.5}#vtit b{font-family:'Noto Serif KR',serif;font-size:17px}#vtit small{color:var(--gold)}
+#vbox{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 12px}#vvid{max-width:100%;max-height:100%;background:#000;border-radius:8px}
+#vctl{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px}#vctl button,#vctl a,#vtop button{white-space:nowrap;background:#231d15;border:1px solid #4a3e2c;border-radius:30px;padding:6px 13px;cursor:pointer;font-size:14px;color:var(--paper);text-decoration:none}
+#vctl button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}#vctl label{font-size:13.5px;color:var(--dim);display:flex;align-items:center;gap:5px}
+#vside{border-left:1px solid var(--line);overflow:auto;background:#16130f;padding:10px 0}#vside h4{margin:4px 14px 8px;font-size:13.5px;color:var(--gold)}
+#vside button{display:flex;gap:9px;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;padding:6px 12px;cursor:pointer;font-size:13px;line-height:1.4;color:var(--dim)}
+#vside button img{width:40px;height:71px;object-fit:cover;border-radius:4px;flex:none;background:#0d0c0a}#vside button b{color:var(--gold);font-weight:600;display:block;font-size:12px}#vside button.on{border-color:var(--gold);background:#231d15;color:var(--paper)}
+@media (max-width:860px){#vv.on{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 34vh}#vside{border-left:0;border-top:1px solid var(--line)}}
 @media (max-width:980px){.doc{grid-template-columns:1fr}.txt{position:static;max-height:none}}
 @media (max-width:760px){html{scroll-padding-top:10px}header{position:relative;backdrop-filter:none;-webkit-backdrop-filter:none}header h1{font-size:16px}.ctl{gap:6px}#q{flex-basis:100%;order:-1}.seg button{padding:4px 10px;font-size:13px}select{font-size:13px;padding:4px 8px}#tocb{position:fixed;left:12px;bottom:14px;z-index:55;box-shadow:0 4px 14px rgba(0,0,0,.5)}aside{position:fixed;left:0;top:0;height:100vh;z-index:50;background:var(--bg);transform:translateX(-100%);transition:transform .2s;width:84vw;padding-top:60px}aside.open{transform:none}#tocb{display:inline-block}header{padding:8px 10px}header h1 small{display:none}main{padding:0 12px 20vh}.fig img{max-height:none}#zbar button{min-width:36px;padding:0 9px}}
 </style></head><body><!--SKIP--><a class="skip" href="#main">본문 바로가기</a><style>.skip{position:absolute;left:-9999px;top:0;z-index:99;background:#c4964a;color:#16130f;padding:8px 14px;font:700 15px sans-serif;border-radius:0 0 8px 0;text-decoration:none}.skip:focus{left:0}:focus-visible{outline:2px solid #c4964a;outline-offset:2px}</style><!--/SKIP-->
@@ -63,7 +83,7 @@ mark{background:#6b5426;color:#fff;border-radius:3px}
  <div class="ctl">
   <button id="tocb" aria-controls="toc" aria-expanded="false">목차</button>
   <input id="q" type="search" placeholder="찾기 — 문서명 · 소장처 · 원문 한자 · 번역 (예: 호구, 乘馹, 노비)" aria-label="문서 찾기">
-  <span class="seg" role="group" aria-label="보기 방식"><button data-m="cont" aria-pressed="true">이어 보기</button><button data-m="grid" aria-pressed="false">한눈에</button></span>
+  <span class="seg" role="group" aria-label="보기 방식"><button data-m="cont" aria-pressed="true">이어 보기</button><button data-m="grid" aria-pressed="false">한눈에</button><button data-m="vid" aria-pressed="false">영상</button></span>
   <select id="sort" aria-label="순서"><option value="ep">편 순서</option><option value="year">연도 순서</option></select>
   <select id="kind" aria-label="소장처 갈래"><option value="">모든 소장처</option></select>
   <span id="cnt" aria-live="polite"></span>
@@ -76,6 +96,7 @@ mark{background:#6b5426;color:#fff;border-radius:3px}
  <footer>
   <p><b>이미지</b> — 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). 각 전시 웹페이지에 실린 것과 같은 이미지입니다. 다시 쓰려면 자료관(031-730-8873 · 8876)을 통해 소장처의 동의를 받아야 하며, 문제가 있으면 내립니다.</p>
   <p><b>판독 · 번역</b> — 초안입니다. 원본과 대조한 사람만 검토를 표시합니다. 이 시리즈가 새로 만든 텍스트는 CC BY 4.0, 코드는 MIT.</p>
+  <p><b>영상</b> — 편마다 릴스(세로)와 가로 영상이 있습니다. 위의 「영상」에서 이어서 보거나, 각 편 머리의 ▶ 릴스 · 확대 보기의 ▶ 영상(V)으로 엽니다. IIIF 매니페스트에도 영상 캔버스로 들어 있습니다.</p>
   <p><b>IIIF</b> — 편마다 Presentation 3.0 매니페스트가 있습니다. 전체 묶음: <a id="collink" href="#">collection.json</a> · Mirador · Universal Viewer 같은 IIIF 뷰어에서 그대로 열립니다.</p>
   <p>엮은이 Song Chang-gi · <a href="mailto:chgsong@naver.com">chgsong@naver.com</a> · <a href="https://github.com/changgi">github.com/changgi</a> · <a href="index.html">갤러리로</a></p>
  </footer></main>
@@ -85,13 +106,22 @@ mark{background:#6b5426;color:#fff;border-radius:3px}
  <div id="ztop"><div id="ztit"></div><button id="zclose" aria-label="닫기 (Esc)">닫기 ✕</button></div>
  <button class="navz" id="zprev" aria-label="이전 문서 (←)">‹</button><button class="navz" id="znext" aria-label="다음 문서 (→)">›</button>
  <div id="zinfo"></div>
- <div id="zbar"><button id="zout" aria-label="축소 (-)">－</button><span id="zpct">100%</span><button id="zin" aria-label="확대 (+)">＋</button><button id="zfit" aria-label="화면에 맞춤 (0)">맞춤</button><button id="zrot" aria-label="90도 돌리기 (R)">⟳</button><button id="zinf" aria-label="원문 · 번역 보기 (I)">글</button></div>
+ <div id="zbar"><button id="zout" aria-label="축소 (-)">－</button><span id="zpct">100%</span><button id="zin" aria-label="확대 (+)">＋</button><button id="zfit" aria-label="화면에 맞춤 (0)">맞춤</button><button id="zrot" aria-label="90도 돌리기 (R)">⟳</button><button id="zinf" aria-label="원문 · 번역 보기 (I)">글</button><button id="zvid" aria-label="이 편 영상 보기 (V)">▶ 영상</button></div>
+</div>
+<div id="vv" role="dialog" aria-modal="true" aria-label="영상 보기">
+ <div class="pl"><div id="vtop"><div id="vtit"></div><button id="vclose" aria-label="닫기 (Esc)">닫기 ✕</button></div>
+ <div id="vbox"><video id="vvid" controls playsinline preload="metadata"></video></div>
+ <div id="vctl"><button id="vprev" aria-label="이전 편 영상 (←)">◀ 이전 편</button><button id="vreel" aria-pressed="true">세로 릴스</button><button id="vwide" aria-pressed="false">가로 영상</button><button id="vnext" aria-label="다음 편 영상 (→)">다음 편 ▶</button>
+ <label><input type="checkbox" id="vauto" checked> 이어서 재생</label><button id="vdocs">이 편 문서 보기</button><a id="vex" href="#">전시 웹페이지</a></div></div>
+ <div id="vside" aria-label="영상 목록"></div>
 </div>
 <script>
 (()=>{
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const SITE='https://changgi.github.io/archive-tools/examples/';
-let D, BASE, ALL=[], VIEW=[], mode='cont', sort='ep', kind='', q='';
+let D, BASE, ALL=[], VIEW=[], VEPS=[], mode='cont', sort='ep', kind='', q='';
+const dur=n=>n?`${Math.floor(n/60)}:${String(Math.round(n%60)).padStart(2,'0')}`:'';
+const vcard=(e,j)=>`<button class="vcard" data-j="${j}" aria-label="${esc(epl(e))} 릴스 보기"><img loading="lazy" src="${esc(e.v.rp)}" alt=""><i>▶</i><span><b>${epl(e)}</b> ${esc(e.t.split(' — ')[0])}</span></button>`;
 const prm=new URLSearchParams(location.search);
 fetch('viewer-data.json').then(r=>r.json()).then(j=>{D=j;BASE=prm.get('base')||j.base;init()}).catch(e=>{$('#list').innerHTML='<p class="empty">목록을 불러오지 못했습니다 — '+esc(e)+'</p>'});
 const yr=d=>{const m=String(d.y||'').match(/\d{3,4}/);return m?+m[0]:99999};
@@ -112,30 +142,37 @@ function init(){
 function hl(s){s=esc(s);if(!q)return s;const k=esc(q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return s.replace(new RegExp(k,'gi'),m=>'<mark>'+m+'</mark>')}
 function render(){
   VIEW=ALL.filter(d=>(!kind||d.e.k===kind)&&(!q||q.split(/\s+/).every(w=>d.hay.includes(w))));
+  VEPS=[];{const seen=new Set();VIEW.forEach(d=>{if(d.e.v&&!seen.has(d.e.f)){seen.add(d.e.f);VEPS.push(d.e)}})}
+  if(mode==='vid')VEPS=[...VEPS].sort((a,b)=>sort==='year'?(Math.min(...a.d.map(yr))-Math.min(...b.d.map(yr))||(a.ep??9999)-(b.ep??9999)):0);
   if(sort==='year')VIEW=[...VIEW].sort((a,b)=>yr(a)-yr(b)||(a.e.ep??9999)-(b.e.ep??9999)||a.n-b.n);
   const neps=new Set(VIEW.map(d=>d.e.f)).size;
   $('#cnt').textContent=`편 ${neps} · 문서 ${VIEW.length}건`;
   if(!VIEW.length){$('#list').innerHTML='<p class="empty">맞는 문서가 없습니다.</p>';$('#toc').innerHTML='';return}
+  if(mode==='vid'){$('#cnt').textContent=`영상 ${VEPS.length}편`;
+    $('#list').innerHTML=`<div class="vbar"><button id="vall">▶ 처음부터 이어 보기</button><span>릴스 ${VEPS.length}편을 ${sort==='year'?'연도':'편'} 순서로 이어서 재생합니다 · 찾기 · 소장처로 고른 것만</span></div><div class="vlist">${VEPS.map((e,j)=>vcard(e,j)).join('')}</div>`;
+    $('#toc').innerHTML=VEPS.map((e,j)=>`<a href="#v-${esc(e.f)}" data-j="${j}"><b>${epl(e)}</b>${esc(e.t.split(' — ')[0])}</a>`).join('');
+    $('#vall').onclick=()=>vopen(0);$('#list').querySelectorAll('.vcard').forEach(b=>b.onclick=()=>vopen(+b.dataset.j));$('#toc').querySelectorAll('a').forEach(a=>a.onclick=ev=>{ev.preventDefault();$('#toc').classList.remove('open');vopen(+a.dataset.j)});return}
   let h='',toc='',last=null,lastC=null;
   VIEW.forEach((d,i)=>{
     const e=d.e, grp=sort==='year'?(yr(d)<99999?Math.floor(yr(d)/50)*50:'미상'):e.f;
     if(grp!==last){last=grp;
       if(sort==='year'){const lab=grp==='미상'?'연도 미상':`${grp}–${grp+49}년`;toc+=`<a href="#y-${grp}" data-k="y-${grp}"><b>${grp==='미상'?'—':grp}</b>${lab}</a>`;if(mode==='cont')h+=`<section class="eph" id="y-${grp}"><div class="k">연도 순서</div><h2>${lab}</h2></section>`;else h+=`<h2 class="gh" id="y-${grp}">${lab}</h2>`}
       else{toc+=`<a href="#${esc(e.f)}" data-k="${esc(e.f)}"><b>${epl(e)}</b>${esc(e.t.split(' — ')[0])}</a>`;
-        if(mode==='cont')h+=`<section class="eph" id="${esc(e.f)}"><div class="k">${epl(e)} · ${esc(e.k)} · ${esc(e.c)}</div><h2>${hl(e.t)}</h2><div class="lk"><a href="${esc(e.f)}/exhibit.html">전시 웹페이지</a><a href="${man(e)}">IIIF 매니페스트</a><a href="${mirador(man(e))}" target="_blank" rel="noopener">Mirador에서 열기</a><a href="${uv(man(e))}" target="_blank" rel="noopener">Universal Viewer</a><span>문서 ${e.d.length}건</span></div></section>`;else h+=`<h2 class="gh" id="${esc(e.f)}">${epl(e)} ${esc(e.t.split(' — ')[0])}<small>${esc(e.c)}</small></h2>`}}
+        if(mode==='cont')h+=`<section class="eph" id="${esc(e.f)}"><div class="k">${epl(e)} · ${esc(e.k)} · ${esc(e.c)}</div><h2>${hl(e.t)}</h2><div class="lk"><a href="${esc(e.f)}/exhibit.html">전시 웹페이지</a><a href="${man(e)}">IIIF 매니페스트</a><a href="${mirador(man(e))}" target="_blank" rel="noopener">Mirador에서 열기</a><a href="${uv(man(e))}" target="_blank" rel="noopener">Universal Viewer</a><span>문서 ${e.d.length}건</span></div></section>`;else h+=`<h2 class="gh" id="${esc(e.f)}">${epl(e)} ${esc(e.t.split(' — ')[0])}<small>${esc(e.c)}</small></h2>`;if(e.v&&mode==='cont'){const j2=VEPS.indexOf(e);h+=`<div class="vrow"><button class="vcard" data-j="${j2}" aria-label="${esc(epl(e))} 릴스 보기"><img loading="lazy" src="${esc(e.v.rp)}" alt=""><i>▶</i><span>릴스 ${dur(e.v.dr)}</span></button><div class="vt"><b>${epl(e)} 영상</b>이 편의 문서를 1분 남짓으로 읽어 주는 릴스와 가로 영상입니다. 자막이 영상에 들어 있습니다.<br><button data-j="${j2}" data-w="0">▶ 릴스</button>${e.v.wide?`<button data-j="${j2}" data-w="1">▶ 가로 영상</button>`:''}<button data-j="${j2}" data-w="0" data-all="1">여기서부터 이어 보기</button></div></div>`}if(e.v&&mode==='grid'&&sort==='ep'){const j2=VEPS.indexOf(e);h+=`<button class="gvb vcard" data-j="${j2}"><img loading="lazy" src="${esc(e.v.rp)}" alt="${esc(epl(e))} 릴스"><em>▶ 릴스</em><span><b>${esc(e.t.split(' — ')[0])}</b>${epl(e)} · ${dur(e.v.dr)}</span></button>`}}}
     if(mode==='grid')h+=`<button data-i="${i}" id="g-${esc(d.id)}"><img loading="lazy" src="${thumb(e,d)}" width="${d.tw}" height="${d.th}" alt="${esc(d.t)}"><span><b>${hl(d.t)}</b>${esc(d.y||'연도 미상')} · ${epl(e)}</span></button>`;
     if(mode==='cont')h+=`<article class="doc" id="d-${esc(d.id)}" data-i="${i}"><figure class="fig" data-i="${i}" tabindex="0" role="button" aria-label="${esc(d.t)} 확대해 보기"><img loading="lazy" decoding="async" src="${img(e,d)}" width="${d.w}" height="${d.h}" alt="${esc(d.t)} (${esc(d.y)}) 원본 이미지"><span class="z">눌러서 확대</span></figure>${txt(d)}</article>`;
   });
   $('#list').innerHTML=mode==='grid'?'<div class="grid">'+h+'</div>':h;$('#toc').innerHTML=toc;
   document.querySelectorAll('[data-i]').forEach(el=>{if(el.matches('.fig,.grid button')){el.onclick=()=>zopen(+el.dataset.i);el.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();zopen(+el.dataset.i)}}}});
   $('#toc').querySelectorAll('a').forEach(a=>a.onclick=()=>{$('#toc').classList.remove('open')});
+  $('#list').querySelectorAll('.vcard,.vrow .vt button').forEach(b=>b.onclick=()=>{vauto=b.dataset.all?true:vauto;vopen(+b.dataset.j,b.dataset.w==='1')});
   spy();
 }
 function txt(d,full){const e=d.e;return `<div class="txt"><div class="n">${epl(e)} · ${d.n}/${e.d.length} · ${esc(d.ty)}</div><h3>${hl(d.t)}</h3><div class="ft" style="margin:0 0 .5em">${esc(d.y||'연도 미상')} · ${esc(e.c)}</div>${d.sm?`<p class="sm">${hl(d.sm)}</p>`:''}${d.tr?`<details ${full||q?'open':''}><summary>번역</summary><div class="tr">${hl(d.tr)}</div></details>`:''}${d.src?`<details ${full||q?'open':''}><summary>원문 · 판독</summary><div class="src">${hl(d.src)}</div></details>`:''}<div class="ft">${sort==='year'&&!full?`<a href="#${esc(e.f)}" onclick="event.preventDefault();document.getElementById('sort').value='ep';document.getElementById('sort').onchange({target:{value:'ep'}});location.hash='${esc(e.f)}'">이 편 전체 보기</a> · `:''}<a href="${esc(e.f)}/exhibit.html">전시 웹페이지</a>${d.v?` · <a href="${esc(d.v)}" target="_blank" rel="noopener">자료관 원본 뷰어</a>`:''} · 판독 · 번역 초안(미검토)</div></div>`}
 let io;function spy(){if(io)io.disconnect();if(!('IntersectionObserver'in window))return;
   io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const k=en.target.id;$('#toc').querySelectorAll('a').forEach(a=>{const on=a.dataset.k===k;a.classList.toggle('on',on);if(on)a.scrollIntoView({block:'nearest'})})}}),{rootMargin:'-10% 0px -80% 0px'});
   document.querySelectorAll('.eph,.gh').forEach(s=>io.observe(s))}
-function go(h){if(!h)return;const el=document.getElementById(h)||document.getElementById('d-'+h);if(el)setTimeout(()=>el.scrollIntoView(),50);const i=VIEW.findIndex(d=>d.id===h);if(i>=0&&prm.get('zoom'))zopen(i)}
+function go(h){if(!h)return;if(h.startsWith('v-')){const e=D.eps.find(x=>x.f===h.slice(2));if(e&&e.v){let j=VEPS.indexOf(e);if(j<0){VEPS=[e];j=0}vopen(j)}return}const el=document.getElementById(h)||document.getElementById('d-'+h);if(el)setTimeout(()=>el.scrollIntoView(),50);const i=VIEW.findIndex(d=>d.id===h);if(i>=0&&prm.get('zoom'))zopen(i)}
 window.addEventListener('hashchange',()=>go(decodeURIComponent(location.hash.slice(1))));
 // 본문에서 j/k로 문서 넘기기
 document.addEventListener('keydown',ev=>{if($('#zv').classList.contains('on')||ev.target.matches('input,select,textarea')||mode!=='cont')return;
@@ -152,14 +189,15 @@ function zopen(i){if(i<0||i>=VIEW.length)return;cur=i;const d=VIEW[i],e=d.e;W=d.
   if(!$('#zv').classList.contains('on')){ret=document.activeElement;$('#zv').classList.add('on');document.body.style.overflow='hidden';if(innerWidth>1100)$('#zv').classList.add('info')}
   zi.src=thumb(e,d);zi.style.width=W+'px';zi.style.height=H+'px';const full=new Image();full.onload=()=>{if(cur===i)zi.src=full.src};full.src=img(e,d);
   zi.alt=d.t;$('#ztit').innerHTML=`<small>${epl(e)} · ${d.n}/${e.d.length} · 전체 ${i+1}/${VIEW.length}</small><br><b>${esc(d.t)}</b> · ${esc(d.y||'연도 미상')}`;
-  $('#zinfo').innerHTML=txt(d,true)+`<p class="ft"><a href="${man(e)}">IIIF 매니페스트</a> · <a href="${mirador(man(e))}" target="_blank" rel="noopener">Mirador</a></p>`;
+  $('#zinfo').innerHTML=(e.v?`<p><button class="zvb" style="background:#3a2f1c;border:1px solid #c4964a;color:#c4964a;border-radius:20px;padding:5px 14px;cursor:pointer">▶ 이 편 릴스 보기 (${dur(e.v.dr)})</button></p>`:'')+txt(d,true)+`<p class="ft"><a href="${man(e)}">IIIF 매니페스트</a> · <a href="${mirador(man(e))}" target="_blank" rel="noopener">Mirador</a></p>`;
+  const zb=$('#zinfo .zvb');if(zb)zb.onclick=()=>{const j=VEPS.indexOf(e);zclose();vopen(j>=0?j:0)};$('#zvid').hidden=!e.v;
   $('#zprev').disabled=i===0;$('#znext').disabled=i===VIEW.length-1;fit();$('#zclose').focus();
   history.replaceState(null,'','#'+d.id);
   [VIEW[i+1],VIEW[i-1]].forEach(n=>{if(n)new Image().src=img(n.e,n)});}
 function zclose(){$('#zv').classList.remove('on');document.body.style.overflow='';const d=VIEW[cur];if(d&&mode==='cont'){const el=document.getElementById('d-'+d.id);if(el)el.scrollIntoView({block:'start'})}else if(d){const el=document.getElementById('g-'+d.id);if(el)el.scrollIntoView({block:'center'})}if(ret)ret.focus()}
 $('#zclose').onclick=zclose;$('#zprev').onclick=()=>zopen(cur-1);$('#znext').onclick=()=>zopen(cur+1);
 $('#zin').onclick=()=>zoomAt(1.4,st.clientWidth/2,st.clientHeight/2);$('#zout').onclick=()=>zoomAt(1/1.4,st.clientWidth/2,st.clientHeight/2);
-$('#zfit').onclick=fit;$('#zrot').onclick=()=>{ROT=(ROT+90)%360;fit()};$('#zinf').onclick=()=>{$('#zv').classList.toggle('info');fit()};
+$('#zfit').onclick=fit;$('#zvid').onclick=()=>{const e=VIEW[cur].e,j=VEPS.indexOf(e);if(!e.v)return;zclose();vopen(j>=0?j:0)};$('#zrot').onclick=()=>{ROT=(ROT+90)%360;fit()};$('#zinf').onclick=()=>{$('#zv').classList.toggle('info');fit()};
 st.addEventListener('wheel',ev=>{ev.preventDefault();zoomAt(Math.exp(-ev.deltaY*0.0015),ev.clientX,ev.clientY)},{passive:false});
 const pts=new Map();let last=null,pd=0,moved=false,tapT=0;
 st.addEventListener('pointerdown',ev=>{st.setPointerCapture(ev.pointerId);pts.set(ev.pointerId,[ev.clientX,ev.clientY]);moved=false;st.classList.add('drag');if(pts.size===2){const[a,b]=[...pts.values()];pd=Math.hypot(a[0]-b[0],a[1]-b[1])}last=[ev.clientX,ev.clientY]});
@@ -172,8 +210,26 @@ st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
 addEventListener('resize',()=>{if($('#zv').classList.contains('on'))fit()});
 document.addEventListener('keydown',ev=>{if(!$('#zv').classList.contains('on'))return;const k=ev.key;
   if(k==='Escape')zclose();else if(k==='ArrowRight'||k==='PageDown')zopen(cur+1);else if(k==='ArrowLeft'||k==='PageUp')zopen(cur-1);
-  else if(k==='+'||k==='=')$('#zin').click();else if(k==='-')$('#zout').click();else if(k==='0')fit();else if(k==='r'||k==='R')$('#zrot').click();else if(k==='i'||k==='I')$('#zinf').click();
+  else if(k==='+'||k==='=')$('#zin').click();else if(k==='-')$('#zout').click();else if(k==='0')fit();else if(k==='r'||k==='R')$('#zrot').click();else if(k==='i'||k==='I')$('#zinf').click();else if((k==='v'||k==='V')&&!$('#zvid').hidden)$('#zvid').click();
   else if(k==='ArrowUp'){Y+=80;apply()}else if(k==='ArrowDown'){Y-=80;apply()}else if(k==='Tab'){const f=[...$('#zv').querySelectorAll('button:not([disabled]),a')];const i=f.indexOf(document.activeElement);if(ev.shiftKey&&i<=0||!ev.shiftKey&&i===f.length-1){ev.preventDefault();f[ev.shiftKey?f.length-1:0].focus()}return}else return;ev.preventDefault()});
+/* ---- 영상 보기: 릴스 · 가로 영상, 이어서 재생 ---- */
+const vv=$('#vv'),vid=$('#vvid');let vj=-1,vwide=false,vauto=true,vret=null;
+function vopen(j,wide){if(!VEPS.length)return;vj=Math.max(0,Math.min(j,VEPS.length-1));if(wide!==undefined)vwide=!!wide;const e=VEPS[vj];if(vwide&&!e.v.wide)vwide=false;
+  if(!vv.classList.contains('on')){vret=document.activeElement;vv.classList.add('on');document.body.style.overflow='hidden';$('#vauto').checked=vauto}
+  vid.innerHTML='';vid.src=vwide?e.v.wide:e.v.reel;vid.poster=vwide?(e.v.wp||''):(e.v.rp||'');
+  if(e.v.vtt){const t=document.createElement('track');t.kind='subtitles';t.srclang='ko';t.label='한국어';t.src=e.v.vtt;t.default=false;  /* 자막은 영상에 이미 들어 있음 — 화면 낭독 · 검색용으로만 */vid.appendChild(t)}
+  vid.play().catch(()=>{});
+  $('#vtit').innerHTML=`<small>${epl(e)} · ${esc(e.k)} · 영상 ${vj+1}/${VEPS.length}</small><br><b>${esc(e.t)}</b> · ${esc(e.c)}`;
+  $('#vreel').setAttribute('aria-pressed',!vwide);$('#vwide').setAttribute('aria-pressed',vwide);$('#vwide').disabled=!e.v.wide;$('#vprev').disabled=vj===0;$('#vnext').disabled=vj===VEPS.length-1;$('#vex').href=e.f+'/exhibit.html';
+  $('#vside').innerHTML=`<h4>영상 ${VEPS.length}편 — 누르면 그 편부터</h4>`+VEPS.map((x,k)=>`<button data-k="${k}" class="${k===vj?'on':''}"><img loading="lazy" src="${esc(x.v.rp)}" alt=""><span><b>${epl(x)} · ${dur(x.v.dr)}</b>${esc(x.t.split(' — ')[0])}</span></button>`).join('');
+  $('#vside').querySelectorAll('button').forEach(b=>b.onclick=()=>vopen(+b.dataset.k));const on=$('#vside .on');if(on)on.scrollIntoView({block:'nearest'});
+  history.replaceState(null,'','#v-'+e.f)}
+function vclose(){vid.pause();vid.removeAttribute('src');vid.load();vv.classList.remove('on');document.body.style.overflow='';history.replaceState(null,'',location.pathname+location.search);if(vret)vret.focus()}
+vid.addEventListener('ended',()=>{if(vauto&&vj<VEPS.length-1)vopen(vj+1)});
+$('#vclose').onclick=vclose;$('#vprev').onclick=()=>vopen(vj-1);$('#vnext').onclick=()=>vopen(vj+1);
+$('#vreel').onclick=()=>vopen(vj,false);$('#vwide').onclick=()=>vopen(vj,true);$('#vauto').onchange=ev=>{vauto=ev.target.checked};
+$('#vdocs').onclick=()=>{const e=VEPS[vj];vclose();if(mode!=='cont'){mode='cont';document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.m==='cont'));render()}const el=document.getElementById(e.f);if(el)el.scrollIntoView()};
+document.addEventListener('keydown',ev=>{if(!vv.classList.contains('on'))return;if(ev.key==='Escape'){vclose();ev.preventDefault()}else if(ev.key==='ArrowRight'&&ev.target!==vid){vopen(vj+1);ev.preventDefault()}else if(ev.key==='ArrowLeft'&&ev.target!==vid){vopen(vj-1);ev.preventDefault()}});
 })();
 </script>
 </body></html>
