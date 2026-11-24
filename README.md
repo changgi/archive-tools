@@ -49,6 +49,8 @@
 
 📜 **원문으로 읽는 이야기 38편 더 (EP.101–EP.138):** 섬마을 훈장의 통정대부 · 해남 김선지의 임진년 고신 · 묵재 이문건의 『양아록』 · 술과 음식의 한글 책 「쥬식방문」 · 단종의 조카가 받은 사패 · 1910년 8월 28일의 마지막 칙명 · 굶주린 해 서천 군수의 유서 · 제주 9편(급제 60년의 회방 홍패 · 말 열 필과 선산 · 아버지와 아들의 같은 시험 · 흉년의 납속 · "해유에 흠이 없다") · 장서각의 왕실 문서(왕자 시절 영조의 교지 · 정조의 암행어사 봉서와 "밥을 먹다가 수저를 멈추었다" · 궁녀 엄씨의 교지) · 경주 이씨 집안의 혼서와 대한제국 호적표 외 → [보기](https://changgi.github.io/archive-tools/examples/)
 
+📜 **원문으로 읽는 이야기 61편 더 (EP.139–EP.199) — 「고문서 한 장」 200편 완성:** 효장세자 어머니 이씨의 교지 · 제주 강씨 집안의 준호구 · 혼서 · 분재기 · 망기 · 최진립의 고신과 추증 · 1887년 산송과 산도 · 김훤을 부른 유지와 말 하사 첩자 · 1905년 고원의 고목 · 경무감옥서의 붉은 서식 · 예조 계후입안 · 강릉 민유산림약도 · 1919년 선산 청원서 · 같은 날 두 아내의 교지 · 시호가 정해지기까지 · 중종반정 전후의 이조정랑 · 특승당상 외 → [200편 한 페이지](https://changgi.github.io/archive-tools/examples/200.html) · [연속 보기 · IIIF 뷰어](https://changgi.github.io/archive-tools/examples/viewer.html)
+
 🗃️ **기록 꾸러미 · 제작 도구 공개:** 편마다 맥락 · 출처 · 파생물 · SHA-256 고정값 · 검증 · 검토 · 작업 이력을 담은 `record.json`과 전체 목록([records.jsonl](https://changgi.github.io/archive-tools/examples/records.jsonl) · [Dublin Core CSV](https://changgi.github.io/archive-tools/examples/records-dc.csv)), 푸시마다 고정값 대조(CI) — [설명](plugins/aks-archive-harvester/skills/aks-archive-harvester/references/records.md). 이 시리즈를 만든 스크립트와 원고는 [`tools/series/`](tools/series/README.md)에 그대로 공개해 누구나 다시 만들 수 있습니다.
 
 🧭 **처음부터 끝까지 따라하기 (실제 예제):** 「임금이 보낸 종이 세 장」 — 찾기 → 받기 → 문구 에디팅 → 큐레이터 노트 → 전달 에디팅 → 전시·카드·활동지·비하인드 → 릴스·가로 영상 → 원본 묶음 → 시리즈 사이트까지, 단계마다 자동 초안과 다듬은 결과를 나란히 → [따라하기](examples/tutorial/README.md) · [완성된 사이트](https://changgi.github.io/archive-tools/examples/tutorial/site/index.html)

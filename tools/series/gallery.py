@@ -237,7 +237,7 @@ table.ed{min-width:820px;font-size:14px}table.ed td{line-height:1.6}table.ed th{
 head2 = head.replace('.grid{', '.grid0{').rstrip() + CSS
 latest = max((i for i in ITEMS if i.get('wide')), key=lambda i: i['ep'])
 e_ = html.escape
-nav = '''<nav class="topnav" aria-label="바로 가기"><b>ARCHIVE TOOLS</b><a href="#map">한눈에 보기</a><a href="search.html">전체 검색</a><a href="viewer.html">연속 보기</a><a href="analysis.html">통합 분석</a><a href="#why">만든 이유</a><a href="#series">비하인드</a><a href="#outputs">결과물 바로가기</a><a href="#browse">에피소드</a><a href="#compare">소장처 비교</a><a href="#try">직접 해 보기</a><a href="tutorial/site/index.html">따라하기 예제</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="https://github.com/changgi/archive-tools">GitHub</a><a href="en.html" lang="en" hreflang="en">English</a></nav>'''
+nav = '''<nav class="topnav" aria-label="바로 가기"><b>ARCHIVE TOOLS</b><a href="#map">한눈에 보기</a><a href="search.html">전체 검색</a><a href="viewer.html">연속 보기</a><a href="200.html">200편</a><a href="analysis.html">통합 분석</a><a href="#why">만든 이유</a><a href="#series">비하인드</a><a href="#outputs">결과물 바로가기</a><a href="#browse">에피소드</a><a href="#compare">소장처 비교</a><a href="#try">직접 해 보기</a><a href="tutorial/site/index.html">따라하기 예제</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="https://github.com/changgi/archive-tools">GitHub</a><a href="en.html" lang="en" hreflang="en">English</a></nav>'''
 NEP = len([i for i in ITEMS if i.get('f')]); NDOC = sum(len(i.get('edits', [])) for i in ITEMS); NCARD = sum(len(i.get('cards', [])) for i in ITEMS)
 NBH = len(glob.glob(R + '*/behind/*.jpg'))
 NREV = sum(1 for f in glob.glob(R + '*/selection.csv') for r in csv.DictReader(open(f, encoding='utf-8-sig')) if (r.get('검토') or '').strip())
@@ -274,6 +274,7 @@ body = f'''{nav}
     </ul></section>
     <section><h3>📜 읽기</h3><ul>
       <li><button class="lk" type="button" data-open="{latest['key']}" data-tab="r">원문 전문 판독 · 번역 · 해제 · 요약</button><em>{NDOC}건</em><span>한자 위 한글 독음, □ 못 읽은 글자 · (?) 불확실 표시</span></li>
+      <li><a href="200.html">200편 한 페이지</a><em>200편</em><span>200편 썸네일 모자이크 · 세기 · 유형 · 지역 분포 · 주제별로 다시 보기</span></li>
       <li><a href="viewer.html">연속 보기 · IIIF 뷰어</a><em>{NDOC}건</em><span>모든 문서를 한 줄로 이어 보고 눌러서 확대 · 편 순서 / 연도 순서 · Mirador에서 열리는 IIIF 매니페스트</span></li>
       <li><a href="search.html">전체 검색</a><em>{ANS['docs']}건</em><span>판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자 하나로 (예: 乘馹 · 노비 · 편지)</span></li>
       <li><a href="types.html">문서 유형 사전</a><span>고신 · 홍패 · 준호구 · 명문 … 문서마다 읽는 법 · 건수 · 시대 · 예</span></li>
