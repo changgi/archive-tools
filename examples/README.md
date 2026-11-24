@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.188)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.199)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.188)
+## 원문으로 읽는 이야기 (EP.17–EP.199)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -208,6 +208,17 @@
 | [**EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825**](cheonsang-samaa/) | 안동 천전 의성김씨 천상각파 (문중) | 幼學金澈進士二等第二十二人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep186-cheonsang-samaa_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep186-cheonsang-samaa_wide.mp4) · [홍보 글](cheonsang-samaa/promo.md) |
 | [**EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737**](cheonsang-seongtak/) | 안동 천전 의성김씨 천상각파 (문중) | 今以爾爲司諫院正言 | [릴스](https://changgi.github.io/archive-tools-next/media/ep187-cheonsang-seongtak_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep187-cheonsang-seongtak_wide.mp4) · [홍보 글](cheonsang-seongtak/promo.md) |
 | [**EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774**](cheonsang-buin/) | 안동 천전 의성김씨 천상각파 (문중) | 淑夫人李氏贈貞夫人者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep188-cheonsang-buin_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep188-cheonsang-buin_wide.mp4) · [홍보 글](cheonsang-buin/promo.md) |
+| [**EP.189 흰 종이 다음 붉은 종이 — 천전 의성김씨의 문과 홍패, 1613 · 1660 · 1690 · 1809**](cheonsang-hongpae/) | 안동 천전 의성김씨 천상각파 (문중) | 生員金是柱文科丙科第八人及第出身者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep189-cheonsang-hongpae_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep189-cheonsang-hongpae_wide.mp4) · [홍보 글](cheonsang-hongpae/promo.md) |
+| [**EP.190 세 개의 이름 가운데 하나 — 1854년, '증 우의정 황공'의 시호 '민익(敏翼)'이 정해지기까지**](changwon-hwang-siho/) | 강화·부여 창원황씨 (문중) | 敏翼 | [릴스](https://changgi.github.io/archive-tools-next/media/ep190-changwon-hwang-siho_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep190-changwon-hwang-siho_wide.mp4) · [홍보 글](changwon-hwang-siho/promo.md) |
+| [**EP.191 문과의 집에서 무과로 — 성산이씨 양계 종가의 백패 · 홍패, 1651–1784**](yanggye-hongbaek/) | 김천 성산이씨 양계 이하 종가 (문중) | 幼學李𩡘生員二等 … 入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep191-yanggye-hongbaek_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep191-yanggye-hongbaek_wide.mp4) · [홍보 글](yanggye-hongbaek/promo.md) |
+| [**EP.192 영의정에서 우의정으로 — 황신이 받은 두 번의 추증, 1617년과 1623년**](changwon-hwang-hwangsin/) | 강화·부여 창원황씨 (문중) | 前縣監黃愼爲承議郞世子侍講院司書者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep192-changwon-hwang-hwangsin_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep192-changwon-hwang-hwangsin_wide.mp4) · [홍보 글](changwon-hwang-hwangsin/promo.md) |
+| [**EP.193 남원에서 서울까지, 열 해 동안 — 최연을 부른 유지 네 장, 1624–1633**](sangnyeong-choi-yuji/) | 남원·구례 삭녕최씨 (문중) | 今以爾爲弘文館副修撰 | [릴스](https://changgi.github.io/archive-tools-next/media/ep193-sangnyeong-choi-yuji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep193-sangnyeong-choi-yuji_wide.mp4) · [홍보 글](sangnyeong-choi-yuji/promo.md) |
+| [**EP.194 연호가 사라진 교지 — 최연의 아내 양씨, 1634년 '崇禎'과 1638년 '戊寅'**](sangnyeong-choi-yangssi/) | 남원·구례 삭녕최씨 (문중) | 幼學崔葕進士三等第五十一人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep194-sangnyeong-choi-yangssi_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep194-sangnyeong-choi-yangssi_wide.mp4) · [홍보 글](sangnyeong-choi-yangssi/promo.md) |
+| [**EP.195 같은 '봉교'로 세 번, 그리고 열아홉 해 — 최치옹을 부른 유지, 1661–1682**](sangnyeong-choi-chiong/) | 남원·구례 삭녕최씨 (문중) | 今以爾爲藝文館檢閱 | [릴스](https://changgi.github.io/archive-tools-next/media/ep195-sangnyeong-choi-chiong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep195-sangnyeong-choi-chiong_wide.mp4) · [홍보 글](sangnyeong-choi-chiong/promo.md) |
+| [**EP.196 연산군에서 중종으로 — 이조 낭관 김석필의 임명장 네 장, 1505–1507**](buan-kim-seokpil/) | 부안 우반 부안김씨 (문중) | 金錫弼爲宣務郞守吏曹佐郞者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep196-buan-kim-seokpil_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep196-buan-kim-seokpil_wide.mp4) · [홍보 글](buan-kim-seokpil/promo.md) |
+| [**EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606**](buan-kim-hongwon/) | 부안 우반 부안김씨 (문중) | 幼學金弘遠進士三等第五十七人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep197-buan-kim-hongwon_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep197-buan-kim-hongwon_wide.mp4) · [홍보 글](buan-kim-hongwon/promo.md) |
+| [**EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660**](buan-kim-myeongyeol/) | 부안 우반 부안김씨 (문중) | 幼學金命說文科丙科第十三人及第出身者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep198-buan-kim-myeongyeol_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep198-buan-kim-myeongyeol_wide.mp4) · [홍보 글](buan-kim-myeongyeol/promo.md) |
+| [**EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783**](sangnyeong-choi-baekhong/) | 남원·구례 삭녕최씨 (문중) | 幼學崔尙重進士三等第六十三人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_wide.mp4) · [홍보 글](sangnyeong-choi-baekhong/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -235,7 +246,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 189개
+## 예시 (결과물 갤러리) — 200개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -428,6 +439,17 @@
 | [**EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825**](cheonsang-samaa/) | 안동 천전 의성김씨 천상각파 (문중) | '교지. 유학 아무개를 진사(생원) 몇 등 제 몇 인으로 입격시킨다.' 1603년 김철, 1687년 김창석,… | [전시](cheonsang-samaa/exhibit.html) · [활동지](cheonsang-samaa/handout.html) · [카드](cheonsang-samaa/cards/) · [selection.csv](cheonsang-samaa/selection.csv) |
 | [**EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737**](cheonsang-seongtak/) | 안동 천전 의성김씨 천상각파 (문중) | 1735년 문과에 급제한 김성탁은 안동에 있었다. 그해 11월, 승정원이 '사간원 정언으로 삼으니 서둘러 역… | [전시](cheonsang-seongtak/exhibit.html) · [활동지](cheonsang-seongtak/handout.html) · [카드](cheonsang-seongtak/cards/) · [selection.csv](cheonsang-seongtak/selection.csv) |
 | [**EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774**](cheonsang-buin/) | 안동 천전 의성김씨 천상각파 (문중) | 교지 한가운데에는 '숙부인 이씨', '의인 채씨', '숙부인 윤씨', '유인 이씨'라고만 적혔다. 이름은 없… | [전시](cheonsang-buin/exhibit.html) · [활동지](cheonsang-buin/handout.html) · [카드](cheonsang-buin/cards/) · [selection.csv](cheonsang-buin/selection.csv) |
+| [**EP.189 흰 종이 다음 붉은 종이 — 천전 의성김씨의 문과 홍패, 1613 · 1660 · 1690 · 1809**](cheonsang-hongpae/) | 안동 천전 의성김씨 천상각파 (문중) | 백패를 받은 사람의 이름 앞에는 '유학'이 붙었다. 홍패를 받은 사람의 이름 앞에는 '생원' · '진사'가 … | [전시](cheonsang-hongpae/exhibit.html) · [활동지](cheonsang-hongpae/handout.html) · [카드](cheonsang-hongpae/cards/) · [selection.csv](cheonsang-hongpae/selection.csv) |
+| [**EP.190 세 개의 이름 가운데 하나 — 1854년, '증 우의정 황공'의 시호 '민익(敏翼)'이 정해지기까지**](changwon-hwang-siho/) | 강화·부여 창원황씨 (문중) | 세상을 떠난 공신에게 나라가 이름을 지어 줄 때, 후보는 셋이었다. 민익(敏翼), 민숙(敏肅), 익헌(翼獻)… | [전시](changwon-hwang-siho/exhibit.html) · [활동지](changwon-hwang-siho/handout.html) · [카드](changwon-hwang-siho/cards/) · [selection.csv](changwon-hwang-siho/selection.csv) |
+| [**EP.191 문과의 집에서 무과로 — 성산이씨 양계 종가의 백패 · 홍패, 1651–1784**](yanggye-hongbaek/) | 김천 성산이씨 양계 이하 종가 (문중) | 1651년 '유학 이하'는 생원시에 붙었고, 3년 뒤 '생원 이하'로 문과에 급제했다. 양계(陽溪) 이하의 … | [전시](yanggye-hongbaek/exhibit.html) · [활동지](yanggye-hongbaek/handout.html) · [카드](yanggye-hongbaek/cards/) · [selection.csv](yanggye-hongbaek/selection.csv) |
+| [**EP.192 영의정에서 우의정으로 — 황신이 받은 두 번의 추증, 1617년과 1623년**](changwon-hwang-hwangsin/) | 강화·부여 창원황씨 (문중) | 1592년 7월, 전쟁 석 달째에 전 현감 황신은 세자시강원 사서가 되었다. 1597년 정유재란의 여름에는 … | [전시](changwon-hwang-hwangsin/exhibit.html) · [활동지](changwon-hwang-hwangsin/handout.html) · [카드](changwon-hwang-hwangsin/cards/) · [selection.csv](changwon-hwang-hwangsin/selection.csv) |
+| [**EP.193 남원에서 서울까지, 열 해 동안 — 최연을 부른 유지 네 장, 1624–1633**](sangnyeong-choi-yuji/) | 남원·구례 삭녕최씨 (문중) | 1603년 문과에 급제한 남원의 최연에게는, 그 뒤 승정원의 봉투가 몇 해에 한 번씩 왔다. 1624년 홍문… | [전시](sangnyeong-choi-yuji/exhibit.html) · [활동지](sangnyeong-choi-yuji/handout.html) · [카드](sangnyeong-choi-yuji/cards/) · [selection.csv](sangnyeong-choi-yuji/selection.csv) |
+| [**EP.194 연호가 사라진 교지 — 최연의 아내 양씨, 1634년 '崇禎'과 1638년 '戊寅'**](sangnyeong-choi-yangssi/) | 남원·구례 삭녕최씨 (문중) | 1634년 9월, 남원 최연의 아내 양씨는 숙부인이 되었다. 교지 끝에는 명나라 연호 '숭정 7년'이 적혔다… | [전시](sangnyeong-choi-yangssi/exhibit.html) · [활동지](sangnyeong-choi-yangssi/handout.html) · [카드](sangnyeong-choi-yangssi/cards/) · [selection.csv](sangnyeong-choi-yangssi/selection.csv) |
+| [**EP.195 같은 '봉교'로 세 번, 그리고 열아홉 해 — 최치옹을 부른 유지, 1661–1682**](sangnyeong-choi-chiong/) | 남원·구례 삭녕최씨 (문중) | 1661년 10월, 남원의 최치옹은 예문관 검열이 되었다. 이듬해 7월에는 봉교. 1663년 7월에 또 봉교… | [전시](sangnyeong-choi-chiong/exhibit.html) · [활동지](sangnyeong-choi-chiong/handout.html) · [카드](sangnyeong-choi-chiong/cards/) · [selection.csv](sangnyeong-choi-chiong/selection.csv) |
+| [**EP.196 연산군에서 중종으로 — 이조 낭관 김석필의 임명장 네 장, 1505–1507**](buan-kim-seokpil/) | 부안 우반 부안김씨 (문중) | 1505년 4월, 예문관 봉교 김석필은 이조 좌랑이 되었다. 연산군 11년이었다. 이듬해 2월 이조 정랑. … | [전시](buan-kim-seokpil/exhibit.html) · [활동지](buan-kim-seokpil/handout.html) · [카드](buan-kim-seokpil/cards/) · [selection.csv](buan-kim-seokpil/selection.csv) |
+| [**EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606**](buan-kim-hongwon/) | 부안 우반 부안김씨 (문중) | 1588년 부안의 김홍원은 진사시에 붙었다. 4년 뒤 전쟁이 일어났다. 1598년 3월, 그에게 온 교지에는… | [전시](buan-kim-hongwon/exhibit.html) · [활동지](buan-kim-hongwon/handout.html) · [카드](buan-kim-hongwon/cards/) · [selection.csv](buan-kim-hongwon/selection.csv) |
+| [**EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660**](buan-kim-myeongyeol/) | 부안 우반 부안김씨 (문중) | 진사 김홍원은 전쟁 중 특진으로 당상관이 되어 목사까지 지냈다(EP.197). 그 집안의 김명열은 1651년… | [전시](buan-kim-myeongyeol/exhibit.html) · [활동지](buan-kim-myeongyeol/handout.html) · [카드](buan-kim-myeongyeol/cards/) · [selection.csv](buan-kim-myeongyeol/selection.csv) |
+| [**EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783**](sangnyeong-choi-baekhong/) | 남원·구례 삭녕최씨 (문중) | 1576년 2월, 남원의 최상중은 진사시에 63등으로 붙었다. 13년 뒤 '진사 최상중'은 문과 홍패를 받았… | [전시](sangnyeong-choi-baekhong/exhibit.html) · [활동지](sangnyeong-choi-baekhong/handout.html) · [카드](sangnyeong-choi-baekhong/cards/) · [selection.csv](sangnyeong-choi-baekhong/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -452,7 +474,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 189개
+### 카드뉴스 미리보기 — 200개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -645,8 +667,19 @@
 | EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825 | ![](cheonsang-samaa/cards/00_표지.jpg) | ![](cheonsang-samaa/cards/01.jpg) | ![](cheonsang-samaa/cards/02.jpg) |
 | EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737 | ![](cheonsang-seongtak/cards/00_표지.jpg) | ![](cheonsang-seongtak/cards/01.jpg) | ![](cheonsang-seongtak/cards/02.jpg) |
 | EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774 | ![](cheonsang-buin/cards/00_표지.jpg) | ![](cheonsang-buin/cards/01.jpg) | ![](cheonsang-buin/cards/02.jpg) |
+| EP.189 흰 종이 다음 붉은 종이 — 천전 의성김씨의 문과 홍패, 1613 · 1660 · 1690 · 1809 | ![](cheonsang-hongpae/cards/00_표지.jpg) | ![](cheonsang-hongpae/cards/01.jpg) | ![](cheonsang-hongpae/cards/02.jpg) |
+| EP.190 세 개의 이름 가운데 하나 — 1854년, '증 우의정 황공'의 시호 '민익(敏翼)'이 정해지기까지 | ![](changwon-hwang-siho/cards/00_표지.jpg) | ![](changwon-hwang-siho/cards/01.jpg) | ![](changwon-hwang-siho/cards/02.jpg) |
+| EP.191 문과의 집에서 무과로 — 성산이씨 양계 종가의 백패 · 홍패, 1651–1784 | ![](yanggye-hongbaek/cards/00_표지.jpg) | ![](yanggye-hongbaek/cards/01.jpg) | ![](yanggye-hongbaek/cards/02.jpg) |
+| EP.192 영의정에서 우의정으로 — 황신이 받은 두 번의 추증, 1617년과 1623년 | ![](changwon-hwang-hwangsin/cards/00_표지.jpg) | ![](changwon-hwang-hwangsin/cards/01.jpg) | ![](changwon-hwang-hwangsin/cards/02.jpg) |
+| EP.193 남원에서 서울까지, 열 해 동안 — 최연을 부른 유지 네 장, 1624–1633 | ![](sangnyeong-choi-yuji/cards/00_표지.jpg) | ![](sangnyeong-choi-yuji/cards/01.jpg) | ![](sangnyeong-choi-yuji/cards/02.jpg) |
+| EP.194 연호가 사라진 교지 — 최연의 아내 양씨, 1634년 '崇禎'과 1638년 '戊寅' | ![](sangnyeong-choi-yangssi/cards/00_표지.jpg) | ![](sangnyeong-choi-yangssi/cards/01.jpg) | ![](sangnyeong-choi-yangssi/cards/02.jpg) |
+| EP.195 같은 '봉교'로 세 번, 그리고 열아홉 해 — 최치옹을 부른 유지, 1661–1682 | ![](sangnyeong-choi-chiong/cards/00_표지.jpg) | ![](sangnyeong-choi-chiong/cards/01.jpg) | ![](sangnyeong-choi-chiong/cards/02.jpg) |
+| EP.196 연산군에서 중종으로 — 이조 낭관 김석필의 임명장 네 장, 1505–1507 | ![](buan-kim-seokpil/cards/00_표지.jpg) | ![](buan-kim-seokpil/cards/01.jpg) | ![](buan-kim-seokpil/cards/02.jpg) |
+| EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606 | ![](buan-kim-hongwon/cards/00_표지.jpg) | ![](buan-kim-hongwon/cards/01.jpg) | ![](buan-kim-hongwon/cards/02.jpg) |
+| EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660 | ![](buan-kim-myeongyeol/cards/00_표지.jpg) | ![](buan-kim-myeongyeol/cards/01.jpg) | ![](buan-kim-myeongyeol/cards/02.jpg) |
+| EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783 | ![](sangnyeong-choi-baekhong/cards/00_표지.jpg) | ![](sangnyeong-choi-baekhong/cards/01.jpg) | ![](sangnyeong-choi-baekhong/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 189개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 200개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -841,6 +874,17 @@
 | EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825 | 1603년 김철(金澈) 진사 백패(進士白牌) | 1603년 김철(金澈)의 백패 — 소과(생원·진사시) 합격 증서. | 1603년 가을. 전쟁이 끝난 지 다섯 해. 안동 천전에 흰 종이 한 장이 온다. "유학 김철을 진사 2등 제22인으로 입격시킨다(幼學金澈進士二等第二十二人入格者)." 연호는 명나라의 만력. | 1603년 김철이 진사시 2등 제22인으로 입격하고 받은 백패입니다. |
 | EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737 | 1735년 김성탁(金聖鐸) 유지(有旨)－1 | 1735년 김성탁(金聖鐸)의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1735년 겨울, 안동. 그해 문과에 붙은 선비에게 봉투가 온다. "지금 너를 사간원 정언으로 삼으니(今以爾爲司諫院正言)", 그리고 늘 같은 한 줄. "서둘러 역마를 타고 올라오라(爾其斯速乘馹上來事)." | 1735년 11월 김성탁을 사간원 정언으로 삼아 서둘러 올라오라고 부른 유지입니다. |
 | EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774 | 1649년 이씨(李氏) 추증교지(追贈敎旨) | 1649년 이씨(李氏)의 추증교지 — 죽은 이에게 관직을 높여 내린 교지. | 1649년 겨울. 교지 한가운데 큰 글씨. "숙부인 이씨에게 정부인을 추증한다(淑夫人李氏贈貞夫人者)." 이름은 없다. 성 한 글자와 칭호뿐. 왼쪽 작은 글씨가 이유를 댄다. "김용의 아내이므로(金涌妻)", "남편의 직에 따른다(從夫職)." | 1649년 김용의 아내 이씨에게, 남편의 추증 품계에 따라 정부인을 추증한 교지입니다. |
+| EP.189 흰 종이 다음 붉은 종이 — 천전 의성김씨의 문과 홍패, 1613 · 1660 · 1690 · 1809 | 1613년 김시주(金是柱) 문과 홍패(文科紅牌) | 1613년 김시주(金是柱)의 홍패 — 문과·무과 합격 증서. | 1613년 가을. 붉은 종이 한 장. "생원 김시주를 문과 병과 제8인으로 급제 출신시킨다(生員金是柱文科丙科第八人及第出身者)." 이름 앞에 '생원'이 붙었다. 네 해 전, 그는 생원시 장원이었다. 흰 종이 다음, 붉은 종이. | 1613년 생원 김시주가 문과 병과 제8인으로 급제하고 받은 홍패로, 4년 전 그는 생원시 장원이었습니다. |
+| EP.190 세 개의 이름 가운데 하나 — 1854년, '증 우의정 황공'의 시호 '민익(敏翼)'이 정해지기까지 | 시호망단자(諡號望單子)－1 | 시호망단자 — 사실이나 물목을 적어 올린 문서. | 세상을 떠난 공신에게, 나라가 마지막 이름을 지어 준다. 후보는 셋. "민익(敏翼)", "민숙(敏肅)", "익헌(翼獻)". 글자마다 뜻이 붙어 있다. "일에 응해 공이 있으면 민(應事有功曰敏)", "생각이 깊고 멀면 익(思慮深遠曰翼)". | 증 우의정 황공의 시호 후보 민익 · 민숙 · 익헌을 시법 뜻풀이와 함께 올린 시호망단자입니다. |
+| EP.191 문과의 집에서 무과로 — 성산이씨 양계 종가의 백패 · 홍패, 1651–1784 | 1651년 이하(李𩡘) 생원 백패(生員白牌) | 1651년 백패 — 소과(생원·진사시) 합격 증서. | 1651년, 김천. 흰 종이 한 장. "유학 이하를 생원 2등으로 입격시킨다(幼學李𩡘生員二等 … 入格者)." 종이는 군데군데 떨어져 나갔다. 그래도 이름은 남았다. | 1651년 유학 이하가 생원시 2등으로 입격하고 받은 백패입니다. |
+| EP.192 영의정에서 우의정으로 — 황신이 받은 두 번의 추증, 1617년과 1623년 | 1592년 황신(黃愼) 고신(告身) | 1592년 황신(黃愼)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1592년 여름. 전쟁이 일어난 지 석 달. 나라가 무너지는 가운데 종이 한 장이 온다. "전 현감 황신을 승의랑 세자시강원 사서로 삼는다(前縣監黃愼爲承議郞世子侍講院司書者)." 세자를 곁에서 모시는 자리. 그 세자가 뒤의 광해군이다. | 1592년 7월 임진왜란 중 전 현감 황신을 세자시강원 사서로 삼은 이조의 교첩입니다. |
+| EP.193 남원에서 서울까지, 열 해 동안 — 최연을 부른 유지 네 장, 1624–1633 | 1624년 최연(崔葕) 유지(有旨) | 1624년 최연(崔葕)의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1624년 겨울, 남원. 승정원의 봉투가 온다. "지금 너를 홍문관 부수찬으로 삼는다(今以爾爲弘文館副修撰)." 그리고 이유 한 줄. "경연에 입번할 일이 급하니(經筵入番事緊)". 임금의 공부 자리가 비었다. | 1624년 11월 경연 입번이 급하다며 최연을 홍문관 부수찬으로 삼아 서둘러 올라오라고 부른 유지입니다. |
+| EP.194 연호가 사라진 교지 — 최연의 아내 양씨, 1634년 '崇禎'과 1638년 '戊寅' | 1603년 최연(崔葕) 진사 백패(進士白牌) | 1603년 최연(崔葕)의 백패 — 소과(생원·진사시) 합격 증서. | 1603년 가을, 남원. 흰 종이. "유학 최연을 진사 3등 제51인으로 입격시킨다(幼學崔葕進士三等第五十一人入格者)." 같은 해, 그는 붉은 종이도 받았다. 날짜 칸에는 명나라의 연호, 만력. | 1603년 최연이 진사시 3등 제51인으로 입격하고 받은 백패로, 같은 해 그는 문과에도 급제했습니다. |
+| EP.195 같은 '봉교'로 세 번, 그리고 열아홉 해 — 최치옹을 부른 유지, 1661–1682 | 1661년 최치옹(崔致翁) 유지(有旨) | 1661년 최치옹(崔致翁)의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1661년 가을, 남원. 봉투가 온다. "지금 너를 예문관 검열로 삼으니(今以爾爲藝文館檢閱)". 임금 곁에서 역사를 적는 자리, 한림이다. 그리고 늘 같은 한 줄. "서둘러 역마를 타고 올라오라." | 1661년 10월 최치옹을 예문관 검열로 삼아 서둘러 올라오라고 부른 유지입니다. |
+| EP.196 연산군에서 중종으로 — 이조 낭관 김석필의 임명장 네 장, 1505–1507 | 1505년 김석필(金錫弼) 고신(告身)－1 | 1505년 김석필(金錫弼)의 고신 — 국왕이 관직·품계를 내린 임명장. | 1505년 봄. 연산군 11년. 이조가 왕명을 받들어 쓴다. "김석필을 선무랑 수 이조좌랑으로 삼는다(金錫弼爲宣務郞守吏曹佐郞者)." 사람을 쓰고 내치는 일을 맡는 자리다. 날짜 칸에는 홍치 18년. | 1505년 4월 연산군 대에 예문관 봉교 김석필을 이조좌랑으로 삼은 이조의 교첩입니다. |
+| EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606 | 1588년 김홍원(金弘遠) 진사 백패(進士白牌) | 1588년 김홍원(金弘遠)의 백패 — 소과(생원·진사시) 합격 증서. | 1588년 봄, 부안. 흰 종이 한 장. "유학 김홍원을 진사 3등 제57인으로 입격시킨다(幼學金弘遠進士三等第五十七人入格者)." 선비의 자격. 네 해 뒤, 전쟁이 온다. | 1588년 김홍원이 진사시 3등 제57인으로 입격하고 받은 백패입니다. |
+| EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660 | 1651년 김명열(金命說) 문과 홍패(文科紅牌) | 1651년 홍패 — 문과·무과 합격 증서. | 1651년 겨울, 부안. 붉은 종이 한 장. "유학 김명열을 문과 병과 제13인으로 급제 출신시킨다(幼學金命說文科丙科第十三人及第出身者)." 이 집안에 문과 홍패가 온 것은 백오십 년 만이다. | 1651년 유학 김명열이 문과 병과 제13인으로 급제하고 받은 홍패입니다. |
+| EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783 | 1576년 최상중(崔尙重) 진사 백패(進士白牌) | 1576년 최상중(崔尙重)의 백패 — 소과(생원·진사시) 합격 증서. | 1576년 봄, 남원. 흰 종이 한 장. "유학 최상중을 진사 3등 제63인으로 입격시킨다(幼學崔尙重進士三等第六十三人入格者)." 일흔 명 가운데 예순세 번째. 그래도 그 이름은 붙었다. | 1576년 최상중이 진사시 3등 제63인으로 입격하고 받은 백패입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 

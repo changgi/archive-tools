@@ -322,6 +322,7 @@
  "relations": {
   "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
   "previous": "cheonsang-seongtak",
+  "next": "cheonsang-hongpae",
   "derived_from": [
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0201&dataId=G002%2BAKS%2BKSM-XA.1649.1111-20101008.B005j_005_00056_XXX&itemType=",
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0201&dataId=G002%2BAKS%2BKSM-XA.1679.1111-20101008.B005x_005_00222_XXX&itemType=",
