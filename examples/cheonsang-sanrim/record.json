@@ -1,0 +1,336 @@
+{
+ "schema": "aks-record/1.0",
+ "identifier": "gomunseo-hanjang/cheonsang-sanrim",
+ "title": "이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장",
+ "episode": "EP.184",
+ "language": "ko",
+ "context": {
+  "series": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
+  "collection": "안동 천전 의성김씨 천상각파",
+  "holder": "안동 천전 의성김씨 천상각파",
+  "source_archive": "한국학중앙연구원 한국고문서자료관 (archive.aks.ac.kr)",
+  "purpose": "1908년 삼림법은 산 주인에게 면적과 약도를 신고하게 했다 — 측량 기술도 지번도 없던 골짜기에서, 사람들은 경계 바깥에 이웃의 이름을 적는 것으로 '내 산'의 테두리를 증명했다.",
+  "process": [
+   "수집",
+   "선별",
+   "판독 · 번역 · 해제",
+   "문구 에디팅",
+   "전달 에디팅",
+   "산출물",
+   "검증",
+   "사람 검토"
+  ]
+ },
+ "agents": [
+  {
+   "name": "Song Chang-gi (chgsong@naver.com, github.com/changgi)",
+   "role": "기획 · 책임 편집",
+   "type": "person"
+  },
+  {
+   "name": "Claude (Anthropic) — 판독 · 번역 · 해제 · 이야기 초안, 산출물 제작",
+   "role": "판독 · 번역 · 해제 초안, 편집 보조",
+   "type": "software"
+  },
+  {
+   "name": "aks-archive-harvester 1.9.2",
+   "role": "수집 · 산출물 생성 · 검증 도구",
+   "type": "software"
+  }
+ ],
+ "sources": [
+  {
+   "order": "1",
+   "identifier": "G002+AKS+KSM-XG.0000.0000-20101008.B005a_006_00179_XXX",
+   "title": "민유산림약도(民有山林略圖)－2",
+   "type": "민유산림약도",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00179_XXX&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "2",
+   "identifier": "G002+AKS+KSM-XG.0000.0000-20101008.B005a_006_00180_XXX",
+   "title": "민유산림약도(民有山林略圖)－3",
+   "type": "민유산림약도",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00180_XXX&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "3",
+   "identifier": "G002+AKS+KSM-XG.0000.0000-20101008.B005a_006_00184_XXX",
+   "title": "민유산림약도(民有山林略圖)－7",
+   "type": "민유산림약도",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00184_XXX&itemType=",
+   "review": "미검토"
+  },
+  {
+   "order": "4",
+   "identifier": "G002+AKS+KSM-XG.0000.0000-20101008.B005a_006_00181_XXX",
+   "title": "민유산림약도(民有山林略圖)－4",
+   "type": "민유산림약도",
+   "page": "001.jpg",
+   "source_url": "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00181_XXX&itemType=",
+   "review": "미검토"
+  }
+ ],
+ "derivatives": [
+  {
+   "path": "../media/ep184-cheonsang-sanrim.ko.srt",
+   "role": "자막(SRT)",
+   "kind": "caption",
+   "format": "application/x-subrip",
+   "bytes": 2598,
+   "sha256": "5220844aad04aba8cce6cb851568727d3baf8f9ec6b29d79e215a3118c360db0"
+  },
+  {
+   "path": "../media/ep184-cheonsang-sanrim.ko.vtt",
+   "role": "자막(WebVTT)",
+   "kind": "caption",
+   "format": "text/vtt",
+   "bytes": 2606,
+   "sha256": "a7e6975c2ff53b128cbf7e226ce288b8b202b6ca5850e8cbcad5aec594a871bd"
+  },
+  {
+   "path": "../media/ep184-cheonsang-sanrim_reel-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 44477,
+   "sha256": "3f9ee0adf3d839a8c6a0411ae388cf8de1a759061d54eb15ee22fa8b90f84d72"
+  },
+  {
+   "path": "../media/ep184-cheonsang-sanrim_wide-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 45473,
+   "sha256": "d6c522971ee6753be0cdefda56579678959663ea6ec300607eb5827593077494"
+  },
+  {
+   "path": "README.md",
+   "role": "편 설명(판독 · 번역 · 해제 전문)",
+   "kind": "text",
+   "format": "text/markdown",
+   "bytes": 14740,
+   "sha256": "1021a642d8b0af22a7ac34e3a9ee1404bc09630b6ae209d8dbfe1dc90628bc47"
+  },
+  {
+   "path": "behind/b1_전하고싶은것.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 158042,
+   "sha256": "7bd86d3f185cac2aca3787c06cc0eb775409e63dc8a0b59b628ec1fca1e74a17"
+  },
+  {
+   "path": "behind/b2_만들며있었던일.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 132705,
+   "sha256": "64bc8a84808e7b689a0431ece51cce2088cedd6e848b3fce5c0cdf5011e4c02a"
+  },
+  {
+   "path": "behind/b3_남겨둔질문.jpg",
+   "role": "비하인드 카드",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 95534,
+   "sha256": "c9c5cc1c6ac2b78e808008b20ec8b2c4317d80d0c534473542572f19a908946d"
+  },
+  {
+   "path": "cards/00_표지.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 177204,
+   "sha256": "864ee9e36db6f559a92cc6bda491f2ba0e1805519929d7e9384bb4f7b8fb0b2d"
+  },
+  {
+   "path": "cards/01.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 165912,
+   "sha256": "af3c12ef724d402d153e1e1e83462733dd0cba471ccd39ac3015bdf6bf7d05ad"
+  },
+  {
+   "path": "cards/02.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 171666,
+   "sha256": "4709010c89b5c33afe639cc4298e803cc2a460312ebcdd82f609d53deadecc5d"
+  },
+  {
+   "path": "cards/03.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 175975,
+   "sha256": "302481a7070f05f290986d0771902d435e158d04918132349b4d42ff1ff2b8fe"
+  },
+  {
+   "path": "cards/04.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 175804,
+   "sha256": "abddfe1c9268b114506f277beb8caa118e9b9b29530488581e0bbdd0e12bcada"
+  },
+  {
+   "path": "cards/99_마무리.jpg",
+   "role": "카드뉴스",
+   "kind": "card",
+   "format": "image/jpeg",
+   "bytes": 49684,
+   "sha256": "70054859271d115faa8ec3b2f333af6408ee60b2062954321073031c2049b571"
+  },
+  {
+   "path": "channels.md",
+   "role": "채널별 홍보안",
+   "kind": "promotion",
+   "format": "text/markdown",
+   "bytes": 8161,
+   "sha256": "86023256cd6fbe09345469e676901a0a16337e981a1d29eb5153a60794803cd6"
+  },
+  {
+   "path": "curator.md",
+   "role": "큐레이터 노트",
+   "kind": "note",
+   "format": "text/markdown",
+   "bytes": 1874,
+   "sha256": "ea3f350e768c7b4b97423f46ad778cee84590dde052ef331a145ee887de34e34"
+  },
+  {
+   "path": "delivery.md",
+   "role": "전달 에디팅",
+   "kind": "note",
+   "format": "text/markdown",
+   "bytes": 2321,
+   "sha256": "f38ca9d275de9aae18a479c6fcbf0416ddc6bf5cbf0837a11fe790821f1fb26c"
+  },
+  {
+   "path": "exhibit.html",
+   "role": "온라인 전시",
+   "kind": "exhibit",
+   "format": "text/html",
+   "bytes": 1031546,
+   "sha256": "9b42a462218af8068267469e116af2453b0e690c2c771712dcde67573ed9895d"
+  },
+  {
+   "path": "handout.html",
+   "role": "수업 활동지",
+   "kind": "education",
+   "format": "text/html",
+   "bytes": 422209,
+   "sha256": "4b490b62aaf2c6753a3b25ed195c93f71a463760c54d102cfc0715f4aeed259c"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep184-cheonsang-sanrim_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1779659,
+   "sha256": "51f77cb61339451d193c47ecbc8a0bad864bbb9653ca500126a31dd9c3f50521"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep184-cheonsang-sanrim_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1822996,
+   "sha256": "3cc8419854c608337394af500111352476784e1e51eb35c0d0e4bfafba3be726"
+  },
+  {
+   "path": "promo.md",
+   "role": "홍보 글",
+   "kind": "promotion",
+   "format": "text/markdown",
+   "bytes": 5226,
+   "sha256": "090724be214dda393b0eb4cea2066f798adca8a67bead677ed2ea98252bacf57"
+  },
+  {
+   "path": "proof.html",
+   "role": "검토지(원본 대조용)",
+   "kind": "review",
+   "format": "text/html",
+   "bytes": 9755,
+   "sha256": "ea8e1b1ba1dd5d2ec03036c6869d673d9c846af3813199870092d74a529e6153"
+  },
+  {
+   "path": "selection.csv",
+   "role": "판독번역표",
+   "kind": "data",
+   "format": "text/csv",
+   "bytes": 9945,
+   "sha256": "c6087c14fdcdbb6e89d714d053f08ce56ede92d59b7bfda763f2e5098daed20a"
+  },
+  {
+   "path": "sns.txt",
+   "role": "SNS 글",
+   "kind": "promotion",
+   "format": "text/plain",
+   "bytes": 1495,
+   "sha256": "2c8e2f36f845573d9eb2236a47c53e55a6a366768f2cfa92845454b7f7cf1866"
+  },
+  {
+   "path": "theme.json",
+   "role": "테마 정보",
+   "kind": "data",
+   "format": "application/json",
+   "bytes": 127,
+   "sha256": "0a18ac3a8c8542f20914038d00e13e1c9e32f8ee3400beb424380024b9a303b6"
+  }
+ ],
+ "validation": {
+  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
+  "documents": 4,
+  "quotes": 4,
+  "uncertain_marks": 7,
+  "date_issues": 0,
+  "date_issues_acknowledged": 0,
+  "quote_issues": 0,
+  "undated": 4,
+  "details": []
+ },
+ "review": {
+  "reviewed": 0,
+  "total": 4,
+  "status": "미검토 (판독 · 번역은 초안)",
+  "rule": "원본과 대조한 사람만 검토 칸을 채운다 — 도구와 AI는 검토를 표시하지 않는다"
+ },
+ "rights": {
+  "images": "고문서 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). 다시 쓰려면 자료관을 통한 소장처 동의가 필요하며, 문제가 있으면 내립니다.",
+  "text": "CC BY 4.0 (이 시리즈가 새로 만든 텍스트) · MIT (코드)"
+ },
+ "relations": {
+  "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
+  "previous": "cheonsang-gyehu",
+  "derived_from": [
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00179_XXX&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00180_XXX&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00181_XXX&itemType=",
+   "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00184_XXX&itemType="
+  ]
+ },
+ "created": "2026-11-24",
+ "modified": "2026-11-24",
+ "events": [
+  {
+   "date": "2026-11-24",
+   "type": "creation",
+   "agent": "Song Chang-gi (chgsong@naver.com, github.com/changgi), Claude (Anthropic) — 판독 · 번역 · 해제 · 이야기 초안, 산출물 제작, aks-archive-harvester 1.9.2",
+   "detail": "기록 꾸러미 생성 — 문서 4건 · 파생물 26개"
+  },
+  {
+   "date": "2026-11-24",
+   "type": "validation",
+   "agent": "studio.py record (aks-archive-harvester 1.9.2)",
+   "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 7 · 연도 빈 칸 4"
+  }
+ ]
+}

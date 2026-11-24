@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.180)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.184)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.180)
+## 원문으로 읽는 이야기 (EP.17–EP.184)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -200,6 +200,10 @@
 | [**EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲'**](wolgok-oh-ugw/) | 성남 해주오씨 월곡공파 오윤함 (문중) | 副司勇吳慶德武科丙科第二十二人及第出身者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep178-wolgok-oh-ugw_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep178-wolgok-oh-ugw_wide.mp4) · [홍보 글](wolgok-oh-ugw/promo.md) |
 | [**EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지**](gujwa-jeong-chacheop/) | 제주 구좌 동래정씨 정석록 후손가 (문중) | 幼學鄭錫祿 | [릴스](https://changgi.github.io/archive-tools-next/media/ep179-gujwa-jeong-chacheop_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep179-gujwa-jeong-chacheop_wide.mp4) · [홍보 글](gujwa-jeong-chacheop/promo.md) |
 | [**EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919**](chunghyo-bak-imya/) | 영덕 도곡 무안박씨 충효당 박선 종가 (문중) | 地籍報告 | [릴스](https://changgi.github.io/archive-tools-next/media/ep180-chunghyo-bak-imya_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep180-chunghyo-bak-imya_wide.mp4) · [홍보 글](chunghyo-bak-imya/promo.md) |
+| [**EP.181 "내일은 영감 당번이십니다" — 1905년, 아전이 써 올린 쪽지 네 장**](yeonan-kim-gomok/) | 영광 연안김씨 종가 (문중) | 令監敎是明日當次番是白只 | [릴스](https://changgi.github.io/archive-tools-next/media/ep181-yeonan-kim-gomok_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep181-yeonan-kim-gomok_wide.mp4) · [홍보 글](yeonan-kim-gomok/promo.md) |
+| [**EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送'**](gyeongseongdang-gamok/) | 안산 부곡 진주류씨 경성당 (문중) | 法部罪人 金興俊 | [릴스](https://changgi.github.io/archive-tools-next/media/ep182-gyeongseongdang-gamok_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep182-gyeongseongdang-gamok_wide.mp4) · [홍보 글](gyeongseongdang-gamok/promo.md) |
+| [**EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759**](cheonsang-gyehu/) | 안동 천전 의성김씨 천상각파 (문중) | 矣身嫡妾俱無子 | [릴스](https://changgi.github.io/archive-tools-next/media/ep183-cheonsang-gyehu_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep183-cheonsang-gyehu_wide.mp4) · [홍보 글](cheonsang-gyehu/promo.md) |
+| [**EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장**](cheonsang-sanrim/) | 안동 천전 의성김씨 천상각파 (문중) | 面積參町玖反玖畝六步 | [릴스](https://changgi.github.io/archive-tools-next/media/ep184-cheonsang-sanrim_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep184-cheonsang-sanrim_wide.mp4) · [홍보 글](cheonsang-sanrim/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -227,7 +231,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 181개
+## 예시 (결과물 갤러리) — 185개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -412,6 +416,10 @@
 | [**EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲'**](wolgok-oh-ugw/) | 성남 해주오씨 월곡공파 오윤함 (문중) | 1802년 무과에 병과 22등으로 급제한 오경덕은 1814년 여름 절충장군 첨지중추부사가 되었다. 정3품 당… | [전시](wolgok-oh-ugw/exhibit.html) · [활동지](wolgok-oh-ugw/handout.html) · [카드](wolgok-oh-ugw/cards/) · [selection.csv](wolgok-oh-ugw/selection.csv) |
 | [**EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지**](gujwa-jeong-chacheop/) | 제주 구좌 동래정씨 정석록 후손가 (문중) | EP.127에서 1743년 통덕랑이 된 정석록을 보았다. 그의 집에는 그 뒤 132년 동안 제주목사가 보낸 … | [전시](gujwa-jeong-chacheop/exhibit.html) · [활동지](gujwa-jeong-chacheop/handout.html) · [카드](gujwa-jeong-chacheop/cards/) · [selection.csv](gujwa-jeong-chacheop/selection.csv) |
 | [**EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919**](chunghyo-bak-imya/) | 영덕 도곡 무안박씨 충효당 박선 종가 (문중) | 1911년 정월, 영해의 박재호는 집 뒷산을 '내 땅'이라고 새 법에 따라 신고했다. 1913년에는 또 다른… | [전시](chunghyo-bak-imya/exhibit.html) · [활동지](chunghyo-bak-imya/handout.html) · [카드](chunghyo-bak-imya/cards/) · [selection.csv](chunghyo-bak-imya/selection.csv) |
+| [**EP.181 "내일은 영감 당번이십니다" — 1905년, 아전이 써 올린 쪽지 네 장**](yeonan-kim-gomok/) | 영광 연안김씨 종가 (문중) | 1905년 여름, 서울. 대한제국의 한 관원에게 하급 직원 '고원(雇員)'이 손바닥만 한 쪽지를 써 올렸다.… | [전시](yeonan-kim-gomok/exhibit.html) · [활동지](yeonan-kim-gomok/handout.html) · [카드](yeonan-kim-gomok/cards/) · [selection.csv](yeonan-kim-gomok/selection.csv) |
+| [**EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送'**](gyeongseongdang-gamok/) | 안산 부곡 진주류씨 경성당 (문중) | 붉은 잉크로 찍은 서식 한 장. '경무감옥서', '광무 ○년 ○월 ○일 수도(囚徒)', '법부 죄인', 그리… | [전시](gyeongseongdang-gamok/exhibit.html) · [활동지](gyeongseongdang-gamok/handout.html) · [카드](gyeongseongdang-gamok/cards/) · [selection.csv](gyeongseongdang-gamok/selection.csv) |
+| [**EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759**](cheonsang-gyehu/) | 안동 천전 의성김씨 천상각파 (문중) | 아들이 없으면 같은 성씨의 조카를 들였다. 그러나 '들였다'는 것은 예조의 입안이 있어야 끝났다. 1642년… | [전시](cheonsang-gyehu/exhibit.html) · [활동지](cheonsang-gyehu/handout.html) · [카드](cheonsang-gyehu/cards/) · [selection.csv](cheonsang-gyehu/selection.csv) |
+| [**EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장**](cheonsang-sanrim/) | 안동 천전 의성김씨 천상각파 (문중) | 강릉군 구정면 어단리 어단평. 같은 골짜기에 산을 가진 사람들이 같은 종이, 같은 서식으로 '민유산림약도'를… | [전시](cheonsang-sanrim/exhibit.html) · [활동지](cheonsang-sanrim/handout.html) · [카드](cheonsang-sanrim/cards/) · [selection.csv](cheonsang-sanrim/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -436,7 +444,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 181개
+### 카드뉴스 미리보기 — 185개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -621,8 +629,12 @@
 | EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲' | ![](wolgok-oh-ugw/cards/00_표지.jpg) | ![](wolgok-oh-ugw/cards/01.jpg) | ![](wolgok-oh-ugw/cards/02.jpg) |
 | EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지 | ![](gujwa-jeong-chacheop/cards/00_표지.jpg) | ![](gujwa-jeong-chacheop/cards/01.jpg) | ![](gujwa-jeong-chacheop/cards/02.jpg) |
 | EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919 | ![](chunghyo-bak-imya/cards/00_표지.jpg) | ![](chunghyo-bak-imya/cards/01.jpg) | ![](chunghyo-bak-imya/cards/02.jpg) |
+| EP.181 "내일은 영감 당번이십니다" — 1905년, 아전이 써 올린 쪽지 네 장 | ![](yeonan-kim-gomok/cards/00_표지.jpg) | ![](yeonan-kim-gomok/cards/01.jpg) | ![](yeonan-kim-gomok/cards/02.jpg) |
+| EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送' | ![](gyeongseongdang-gamok/cards/00_표지.jpg) | ![](gyeongseongdang-gamok/cards/01.jpg) | ![](gyeongseongdang-gamok/cards/02.jpg) |
+| EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759 | ![](cheonsang-gyehu/cards/00_표지.jpg) | ![](cheonsang-gyehu/cards/01.jpg) | ![](cheonsang-gyehu/cards/02.jpg) |
+| EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장 | ![](cheonsang-sanrim/cards/00_표지.jpg) | ![](cheonsang-sanrim/cards/01.jpg) | ![](cheonsang-sanrim/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 181개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 185개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -809,6 +821,10 @@
 | EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲' | 1802년 오경덕(吳慶德) 무과 홍패(武科紅牌) | 1802년 오경덕(吳慶德)의 홍패 — 문과·무과 합격 증서. | 1802년 봄, 주황빛으로 바랜 종이. "부사용 오경덕을 무과 병과 제22인으로 급제 출신시킨다(副司勇吳慶德武科丙科第二十二人及第出身者)." 그의 집안에는 백 년 전 무과 홍패가 이미 한 장 있다. 이제 두 장이다. | 1802년 부사용 오경덕이 무과 병과 제22인으로 급제한 홍패입니다. |
 | EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지 | 차첩(差帖)－01 | 1766년 차첩 — 하급 관직 임명장. | 1766년 여름, 제주. 목사가 쪽지 한 장을 내린다. 받는 사람은 "유학 정석록(幼學鄭錫祿)". 맡기는 자리는 향청의 별감. 그리고 한가운데 한 줄. "가볍지 않게 살펴 맡을 일(不輕察任向事)." | 1766년 제주목사(겸방어사)가 유학 정석록을 향청의 별감으로 임명한 차첩입니다. |
 | EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919 | 지적보고(地籍報告)－1 | 1911년 지적보고. | 1911년 정월, 영해. 박재호가 처음 보는 서식을 채운다. 제목은 "지적 보고(地籍報告)". 집 뒤 산기슭, 면적 두 정 남짓. 그리고 마지막 줄. "위 소유지를 삼림법 제19조에 따라 이에 보고함(右所有地를森林法第十九條에依하야玆에報告홈)." 백 년을 지켜 온 산이, 이제는 '보고'해야 내 것이 된다. | 1911년 1월 박재호가 1908년 삼림법 제19조에 따라 영해군의 자기 산 두 곳의 면적을 농상공부장관에게 신고한 지적보고입니다. |
+| EP.181 "내일은 영감 당번이십니다" — 1905년, 아전이 써 올린 쪽지 네 장 | 고목(告目)－07 | 1905년 고목 — 하급 관리가 상관에게 올린 보고 편지. | 1905년 여름, 서울. 손바닥만 한 종이에 하급 직원이 쓴다. "영감께서 내일 당번이시므로(令監敎是明日當次番是白只)". 끝에는 정해진 말 한마디. "아뢸 일(告課事)." 그리고 자기 이름, 고원 이정의. | 1905년 7월 24일 고원 이정의가 영감에게 내일이 당번임을 알린 고목입니다. |
+| EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送' | 1904년 경무감옥서(警務監獄署) 김영선(金英善) 죄인상송장(罪人上送狀)－5 | 1904년 경무감옥서(警務監獄署), 김영선(金英善)의 죄인상송장. | 1904년 가을, 서울. 붉게 찍힌 서식 한 장. 빈칸에 붓이 지나간다. 날짜, "법부 죄인 김흥준(法部罪人 金興俊)". 그리고 맨 아래 한 글자. "嚴". 인쇄된 두 글자와 이어 읽으면, "엄히 가둘 일(嚴囚事)". | 1904년 10월 29일 경무감옥서장 김영선 명의로 법부 죄인 김흥준을 엄히 가두라고 쓴 인쇄 서식입니다. |
+| EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759 | 1642년 김웅흠(金熊歆) 계후입안(繼後立案) | 1642년 김웅흠(金熊歆)의 계후입안. | 1642년 봄, 안동. 김시구가 예조에 글을 낸다. "저는 정실과 첩 모두에게 아들이 없어(矣身嫡妾俱無子)". 6촌 아우의 다섯째 아들을 들이고 싶다. 두 집의 아버지가 함께 서명하고, 친척들이 증언한다. 예조는 법전을 펼친다. 그리고 임금이 답한다. "그리하라(依允)." | 1642년 예조가 김시구의 신청에 따라 6촌 아우 김시온의 다섯째 아들 김웅흠을 그의 후사로 증명한 계후입안으로, 양가 아버지가 함께 신청한 기본형입니다. |
+| EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장 | 민유산림약도(民有山林略圖)－2 | 민유산림약도. | 강릉의 한 골짜기, 어단평. 이주용이 종이에 붉은 선을 긋는다. 네모도 동그라미도 아닌, 산의 모양 그대로. "면적 3정 9반 9무 6보(面積參町玖反玖畝六步)." 그런데 선 바깥에는 산 이름이 없다. 대신 이웃의 이름이 있다. "동주 산림", "조을환 산림". | 강릉 어단평 이주용의 산(3정 9반 9무 6보)을 그린 민유산림약도로, 경계 바깥에 이웃 김동주 · 조을환의 산림을 적었습니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
