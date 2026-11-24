@@ -11,4 +11,5 @@ python3 "$S/studio.py" audit --in "$REPO/examples" --exclude tutorial --fail-on 
 python3 "$CODE/record_build.py"
 echo "· iiif_build (record.json 다음)"; python3 "$CODE/iiif_build.py" | tail -1
 echo "· milestone_build"; python3 "$CODE/milestone_build.py" | tail -1
+echo "· museum_build"; python3 "$CODE/museum_build.py" | tail -1
 python3 "$REPO/tools/check_links.py" --all | tail -1

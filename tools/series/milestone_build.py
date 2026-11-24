@@ -106,7 +106,7 @@ ul.voices{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(a
 <div class="k">ARCHIVE TOOLS · 고문서 한 장</div>
 <h1>200편</h1>
 <p class="lead">한 편에 문서 네 장 남짓. 한국학중앙연구원 한국고문서자료관에 공개된 각 소장처의 문서를 한 장씩 원문으로 읽고, 번역하고, 해제하고, 그 종이에 적힌 문장으로 이야기를 만들었습니다. 그렇게 쌓인 200편을 이 한 페이지에 모았습니다.</p>
-<nav class="top"><a href="index.html">갤러리</a><a href="viewer.html">연속 보기 · IIIF</a><a href="search.html">전체 검색</a><a href="timeline.html">전체 연표</a><a href="analysis.html">통합 분석</a><a href="types.html">문서 유형 사전</a><a href="about.html">기획 노트</a></nav>
+<nav class="top"><a href="index.html">갤러리</a><a href="viewer.html">연속 보기 · IIIF</a><a href="museum.html">가상 전시관</a><a href="search.html">전체 검색</a><a href="timeline.html">전체 연표</a><a href="analysis.html">통합 분석</a><a href="types.html">문서 유형 사전</a><a href="about.html">기획 노트</a></nav>
 <div class="nums">{''.join(f'<div class="num"><b>{v:,}</b><span>{esc(u)}</span></div>' for v, u in nums)}</div>
 <h2>200편 기념 영상</h2>
 <div class="vids"><figure><video controls playsinline preload="none" poster="media/promo-reel-200-poster.jpg" src="{P.NEXT_URL}promo-reel-200.mp4"><track kind="subtitles" srclang="ko" label="한국어" src="media/promo-reel-200.ko.vtt" default></video><figcaption>릴스 9:16 · 48초 · <a href="{P.NEXT_URL}promo-reel-200.mp4" download>내려받기</a></figcaption></figure>
