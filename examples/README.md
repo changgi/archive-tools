@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.176)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.180)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.176)
+## 원문으로 읽는 이야기 (EP.17–EP.180)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -196,6 +196,10 @@
 | [**EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다**](yeonan-kim-yuji/) | 영광 연안김씨 종가 (문중) | 藝文館檢閱金煊 開拆 | [릴스](https://changgi.github.io/archive-tools-next/media/ep174-yeonan-kim-yuji_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep174-yeonan-kim-yuji_wide.mp4) · [홍보 글](yeonan-kim-yuji/promo.md) |
 | [**EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장**](yeonan-kim-mapyo/) | 영광 연안김씨 종가 (문중) | 金煊兒馬壹匹 賜給事 | [릴스](https://changgi.github.io/archive-tools-next/media/ep175-yeonan-kim-mapyo_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep175-yeonan-kim-mapyo_wide.mp4) · [홍보 글](yeonan-kim-mapyo/promo.md) |
 | [**EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지**](gyeongju-lee-cw-munjip/) | 경주 경주이씨 이찬우 (문중) | 理當躬晉拜呈 | [릴스](https://changgi.github.io/archive-tools-next/media/ep176-gyeongju-lee-cw-munjip_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep176-gyeongju-lee-cw-munjip_wide.mp4) · [홍보 글](gyeongju-lee-cw-munjip/promo.md) |
+| [**EP.177 열두 해에 여덟 살 먹은 여종 — 경주 대일리 서씨 형제의 호적단자, 1870–1888**](gyeongju-lee-cw-hojeok/) | 경주 경주이씨 이찬우 (문중) | 幼學徐在坤年三十五丙申 | [릴스](https://changgi.github.io/archive-tools-next/media/ep177-gyeongju-lee-cw-hojeok_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep177-gyeongju-lee-cw-hojeok_wide.mp4) · [홍보 글](gyeongju-lee-cw-hojeok/promo.md) |
+| [**EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲'**](wolgok-oh-ugw/) | 성남 해주오씨 월곡공파 오윤함 (문중) | 副司勇吳慶德武科丙科第二十二人及第出身者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep178-wolgok-oh-ugw_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep178-wolgok-oh-ugw_wide.mp4) · [홍보 글](wolgok-oh-ugw/promo.md) |
+| [**EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지**](gujwa-jeong-chacheop/) | 제주 구좌 동래정씨 정석록 후손가 (문중) | 幼學鄭錫祿 | [릴스](https://changgi.github.io/archive-tools-next/media/ep179-gujwa-jeong-chacheop_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep179-gujwa-jeong-chacheop_wide.mp4) · [홍보 글](gujwa-jeong-chacheop/promo.md) |
+| [**EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919**](chunghyo-bak-imya/) | 영덕 도곡 무안박씨 충효당 박선 종가 (문중) | 地籍報告 | [릴스](https://changgi.github.io/archive-tools-next/media/ep180-chunghyo-bak-imya_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep180-chunghyo-bak-imya_wide.mp4) · [홍보 글](chunghyo-bak-imya/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -223,7 +227,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 177개
+## 예시 (결과물 갤러리) — 181개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -404,6 +408,10 @@
 | [**EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다**](yeonan-kim-yuji/) | 영광 연안김씨 종가 (문중) | 1763년 섣달, 전라도 영광에 있던 김훤에게 승정원의 봉투가 왔다. 겉에는 '예문관 검열 김훤, 열어 보라… | [전시](yeonan-kim-yuji/exhibit.html) · [활동지](yeonan-kim-yuji/handout.html) · [카드](yeonan-kim-yuji/cards/) · [selection.csv](yeonan-kim-yuji/selection.csv) |
 | [**EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장**](yeonan-kim-mapyo/) | 영광 연안김씨 종가 (문중) | EP.174에서 '서둘러 역마를 타고 올라오라'는 부름을 네 번 받은 김훤은, 1772년 봄 서울에서 석 달… | [전시](yeonan-kim-mapyo/exhibit.html) · [활동지](yeonan-kim-mapyo/handout.html) · [카드](yeonan-kim-mapyo/cards/) · [selection.csv](yeonan-kim-mapyo/selection.csv) |
 | [**EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지**](gyeongju-lee-cw-munjip/) | 경주 경주이씨 이찬우 (문중) | 경주의 이찬우가 남긴 서가에는 책과 함께 얇은 편지 몇 장이 끼워져 있었다. 저마다 할아버지 · 큰할아버지 … | [전시](gyeongju-lee-cw-munjip/exhibit.html) · [활동지](gyeongju-lee-cw-munjip/handout.html) · [카드](gyeongju-lee-cw-munjip/cards/) · [selection.csv](gyeongju-lee-cw-munjip/selection.csv) |
+| [**EP.177 열두 해에 여덟 살 먹은 여종 — 경주 대일리 서씨 형제의 호적단자, 1870–1888**](gyeongju-lee-cw-hojeok/) | 경주 경주이씨 이찬우 (문중) | 경주부 내동면 대일리에 서학중의 두 아들이 살았다. 동생 서재곤이 1870년 · 1876년 · 1882년에,… | [전시](gyeongju-lee-cw-hojeok/exhibit.html) · [활동지](gyeongju-lee-cw-hojeok/handout.html) · [카드](gyeongju-lee-cw-hojeok/cards/) · [selection.csv](gyeongju-lee-cw-hojeok/selection.csv) |
+| [**EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲'**](wolgok-oh-ugw/) | 성남 해주오씨 월곡공파 오윤함 (문중) | 1802년 무과에 병과 22등으로 급제한 오경덕은 1814년 여름 절충장군 첨지중추부사가 되었다. 정3품 당… | [전시](wolgok-oh-ugw/exhibit.html) · [활동지](wolgok-oh-ugw/handout.html) · [카드](wolgok-oh-ugw/cards/) · [selection.csv](wolgok-oh-ugw/selection.csv) |
+| [**EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지**](gujwa-jeong-chacheop/) | 제주 구좌 동래정씨 정석록 후손가 (문중) | EP.127에서 1743년 통덕랑이 된 정석록을 보았다. 그의 집에는 그 뒤 132년 동안 제주목사가 보낸 … | [전시](gujwa-jeong-chacheop/exhibit.html) · [활동지](gujwa-jeong-chacheop/handout.html) · [카드](gujwa-jeong-chacheop/cards/) · [selection.csv](gujwa-jeong-chacheop/selection.csv) |
+| [**EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919**](chunghyo-bak-imya/) | 영덕 도곡 무안박씨 충효당 박선 종가 (문중) | 1911년 정월, 영해의 박재호는 집 뒷산을 '내 땅'이라고 새 법에 따라 신고했다. 1913년에는 또 다른… | [전시](chunghyo-bak-imya/exhibit.html) · [활동지](chunghyo-bak-imya/handout.html) · [카드](chunghyo-bak-imya/cards/) · [selection.csv](chunghyo-bak-imya/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -428,7 +436,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 177개
+### 카드뉴스 미리보기 — 181개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -609,8 +617,12 @@
 | EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다 | ![](yeonan-kim-yuji/cards/00_표지.jpg) | ![](yeonan-kim-yuji/cards/01.jpg) | ![](yeonan-kim-yuji/cards/02.jpg) |
 | EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장 | ![](yeonan-kim-mapyo/cards/00_표지.jpg) | ![](yeonan-kim-mapyo/cards/01.jpg) | ![](yeonan-kim-mapyo/cards/02.jpg) |
 | EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지 | ![](gyeongju-lee-cw-munjip/cards/00_표지.jpg) | ![](gyeongju-lee-cw-munjip/cards/01.jpg) | ![](gyeongju-lee-cw-munjip/cards/02.jpg) |
+| EP.177 열두 해에 여덟 살 먹은 여종 — 경주 대일리 서씨 형제의 호적단자, 1870–1888 | ![](gyeongju-lee-cw-hojeok/cards/00_표지.jpg) | ![](gyeongju-lee-cw-hojeok/cards/01.jpg) | ![](gyeongju-lee-cw-hojeok/cards/02.jpg) |
+| EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲' | ![](wolgok-oh-ugw/cards/00_표지.jpg) | ![](wolgok-oh-ugw/cards/01.jpg) | ![](wolgok-oh-ugw/cards/02.jpg) |
+| EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지 | ![](gujwa-jeong-chacheop/cards/00_표지.jpg) | ![](gujwa-jeong-chacheop/cards/01.jpg) | ![](gujwa-jeong-chacheop/cards/02.jpg) |
+| EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919 | ![](chunghyo-bak-imya/cards/00_표지.jpg) | ![](chunghyo-bak-imya/cards/01.jpg) | ![](chunghyo-bak-imya/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 177개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 181개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -793,6 +805,10 @@
 | EP.174 "서둘러 역마를 타고 올라오라" — 1763–1768년, 김훤에게 같은 문장이 네 번 왔다 | 유지(有旨)－1 | 1763년 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1763년 섣달, 영광. 봉투 겉에 이름이 적혀 있다. "예문관 검열 김훤, 열어 보라(藝文館檢閱金煊 開拆)." 안에는 짧은 한 줄. "지금 너를 예문관 검열로 삼으니(今以爾爲藝文館檢閱)", 그리고 "서둘러 역마를 타고 올라오라(爾其斯速乘馹上來事)". 서울까지는 천 리 길이다. | 1763년 12월 김훤을 예문관 검열로 삼고 서둘러 역마를 타고 올라오라고 부른 승정원 유지입니다. |
 | EP.175 말 한 필을 내린다는 쪽지 — 1772년 김훤의 '사마 첩자' 석 장, 그리고 1906년 한 장 | 급마첩(給馬帖)－1 | 1772년 급마첩. | 1772년 봄, 궁중 잔치. 김훤은 의식의 순서를 이끄는 상례다. 잔치가 끝나자 쪽지 한 장이 온다. "김훤에게 아마 한 필을 내려 준다(金煊兒馬壹匹 賜給事)." 말은 오지 않았다. 대신 적혀 있다. "뒷날 내어 줄 때 쓸 첩자(後日題給次帖子)." | 1772년 2월 진찬 때 상례를 맡은 김훤에게 어린 말 한 필을 내린다고 사복시가 써 준 첩자입니다. |
 | EP.176 "찾아뵙지 못하고 우편으로 보냅니다" — 문집을 부치며 쓴 편지 네 통, 2000년까지 | 1923년 김동진(金東鎭) 간찰(簡札) | 1923년 김동진(金東鎭)의 간찰 — 편지. | 계해년 여름, 책 한 권이 우편으로 온다. 증조부의 글을 겨우 몇 편 모아 펴냈다는 소식. 그리고 사과. "마땅히 몸소 찾아가 올려야 하나(理當躬晉拜呈)", 몸이 바빠 "감히 우편으로 보냅니다(玆敢郵送)". 책은 우체부가 날랐지만, 인사는 붓글씨로 했다. | 계해년 김동진이 증조부 만산부군의 유고를 펴내 우편으로 보내며, 찾아뵙지 못한 것과 실린 글의 순서가 어긋났을 것을 사과한 인쇄 편지입니다. |
+| EP.177 열두 해에 여덟 살 먹은 여종 — 경주 대일리 서씨 형제의 호적단자, 1870–1888 | 경오년 서재곤(徐在坤) 준호구(準戶口) | 1870년 서재곤(徐在坤)의 준호구 — 관에서 발급한 호적 증명서. | 1870년 정월, 경주 대일리. 서재곤이 붓을 든다. "유학 서재곤, 나이 35, 병신생(幼學徐在坤年三十五丙申)." 아버지 · 할아버지 · 증조 · 외조. 아내는 김씨, 서른여덟. 그리고 맨 끝줄. "여종 수월, 나이 18(婢守月年十八)." | 1870년 경주 대일리 서재곤(35세)이 아내 김씨(38세)와 여종 수월(18세)을 적어 낸 호적단자입니다. |
+| EP.178 같은 날 두 아내에게 — 1814년 11월 26일, 오경덕의 강씨에게는 '贈', 윤씨에게는 '爲' | 1802년 오경덕(吳慶德) 무과 홍패(武科紅牌) | 1802년 오경덕(吳慶德)의 홍패 — 문과·무과 합격 증서. | 1802년 봄, 주황빛으로 바랜 종이. "부사용 오경덕을 무과 병과 제22인으로 급제 출신시킨다(副司勇吳慶德武科丙科第二十二人及第出身者)." 그의 집안에는 백 년 전 무과 홍패가 이미 한 장 있다. 이제 두 장이다. | 1802년 부사용 오경덕이 무과 병과 제22인으로 급제한 홍패입니다. |
+| EP.179 "가볍지 않게 맡으라" — 제주목사가 한 집안에 보낸 차첩, 1766년부터 1898년까지 | 차첩(差帖)－01 | 1766년 차첩 — 하급 관직 임명장. | 1766년 여름, 제주. 목사가 쪽지 한 장을 내린다. 받는 사람은 "유학 정석록(幼學鄭錫祿)". 맡기는 자리는 향청의 별감. 그리고 한가운데 한 줄. "가볍지 않게 살펴 맡을 일(不輕察任向事)." | 1766년 제주목사(겸방어사)가 유학 정석록을 향청의 별감으로 임명한 차첩입니다. |
+| EP.180 선산을 되돌려 달라 — 박재호의 산림 서류 네 장, 1911–1919 | 지적보고(地籍報告)－1 | 1911년 지적보고. | 1911년 정월, 영해. 박재호가 처음 보는 서식을 채운다. 제목은 "지적 보고(地籍報告)". 집 뒤 산기슭, 면적 두 정 남짓. 그리고 마지막 줄. "위 소유지를 삼림법 제19조에 따라 이에 보고함(右所有地를森林法第十九條에依하야玆에報告홈)." 백 년을 지켜 온 산이, 이제는 '보고'해야 내 것이 된다. | 1911년 1월 박재호가 1908년 삼림법 제19조에 따라 영해군의 자기 산 두 곳의 면적을 농상공부장관에게 신고한 지적보고입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
