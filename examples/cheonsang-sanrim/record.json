@@ -310,6 +310,7 @@
  "relations": {
   "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
   "previous": "cheonsang-gyehu",
+  "next": "cheonsang-baekpae",
   "derived_from": [
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00179_XXX&itemType=",
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0167%5EL016707%5EL016707F02%5EL016707F0207&dataId=G002%2BAKS%2BKSM-XG.0000.0000-20101008.B005a_006_00180_XXX&itemType=",

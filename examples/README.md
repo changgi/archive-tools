@@ -28,9 +28,9 @@
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.184)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.03–EP.188)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.184)
+## 원문으로 읽는 이야기 (EP.17–EP.188)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -204,6 +204,10 @@
 | [**EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送'**](gyeongseongdang-gamok/) | 안산 부곡 진주류씨 경성당 (문중) | 法部罪人 金興俊 | [릴스](https://changgi.github.io/archive-tools-next/media/ep182-gyeongseongdang-gamok_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep182-gyeongseongdang-gamok_wide.mp4) · [홍보 글](gyeongseongdang-gamok/promo.md) |
 | [**EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759**](cheonsang-gyehu/) | 안동 천전 의성김씨 천상각파 (문중) | 矣身嫡妾俱無子 | [릴스](https://changgi.github.io/archive-tools-next/media/ep183-cheonsang-gyehu_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep183-cheonsang-gyehu_wide.mp4) · [홍보 글](cheonsang-gyehu/promo.md) |
 | [**EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장**](cheonsang-sanrim/) | 안동 천전 의성김씨 천상각파 (문중) | 面積參町玖反玖畝六步 | [릴스](https://changgi.github.io/archive-tools-next/media/ep184-cheonsang-sanrim_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep184-cheonsang-sanrim_wide.mp4) · [홍보 글](cheonsang-sanrim/promo.md) |
+| [**EP.185 아들 덕에, 증손 덕에 — 김진의 집안에 내려온 종이 네 장, 1564–1679**](cheonsang-baekpae/) | 안동 천전 의성김씨 천상각파 (문중) | 幼學金明一生員三等 … 入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep185-cheonsang-baekpae_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep185-cheonsang-baekpae_wide.mp4) · [홍보 글](cheonsang-baekpae/promo.md) |
+| [**EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825**](cheonsang-samaa/) | 안동 천전 의성김씨 천상각파 (문중) | 幼學金澈進士二等第二十二人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep186-cheonsang-samaa_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep186-cheonsang-samaa_wide.mp4) · [홍보 글](cheonsang-samaa/promo.md) |
+| [**EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737**](cheonsang-seongtak/) | 안동 천전 의성김씨 천상각파 (문중) | 今以爾爲司諫院正言 | [릴스](https://changgi.github.io/archive-tools-next/media/ep187-cheonsang-seongtak_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep187-cheonsang-seongtak_wide.mp4) · [홍보 글](cheonsang-seongtak/promo.md) |
+| [**EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774**](cheonsang-buin/) | 안동 천전 의성김씨 천상각파 (문중) | 淑夫人李氏贈貞夫人者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep188-cheonsang-buin_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep188-cheonsang-buin_wide.mp4) · [홍보 글](cheonsang-buin/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -231,7 +235,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 185개
+## 예시 (결과물 갤러리) — 189개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -420,6 +424,10 @@
 | [**EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送'**](gyeongseongdang-gamok/) | 안산 부곡 진주류씨 경성당 (문중) | 붉은 잉크로 찍은 서식 한 장. '경무감옥서', '광무 ○년 ○월 ○일 수도(囚徒)', '법부 죄인', 그리… | [전시](gyeongseongdang-gamok/exhibit.html) · [활동지](gyeongseongdang-gamok/handout.html) · [카드](gyeongseongdang-gamok/cards/) · [selection.csv](gyeongseongdang-gamok/selection.csv) |
 | [**EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759**](cheonsang-gyehu/) | 안동 천전 의성김씨 천상각파 (문중) | 아들이 없으면 같은 성씨의 조카를 들였다. 그러나 '들였다'는 것은 예조의 입안이 있어야 끝났다. 1642년… | [전시](cheonsang-gyehu/exhibit.html) · [활동지](cheonsang-gyehu/handout.html) · [카드](cheonsang-gyehu/cards/) · [selection.csv](cheonsang-gyehu/selection.csv) |
 | [**EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장**](cheonsang-sanrim/) | 안동 천전 의성김씨 천상각파 (문중) | 강릉군 구정면 어단리 어단평. 같은 골짜기에 산을 가진 사람들이 같은 종이, 같은 서식으로 '민유산림약도'를… | [전시](cheonsang-sanrim/exhibit.html) · [활동지](cheonsang-sanrim/handout.html) · [카드](cheonsang-sanrim/cards/) · [selection.csv](cheonsang-sanrim/selection.csv) |
+| [**EP.185 아들 덕에, 증손 덕에 — 김진의 집안에 내려온 종이 네 장, 1564–1679**](cheonsang-baekpae/) | 안동 천전 의성김씨 천상각파 (문중) | 1564년 7월, 안동 천전의 김명일은 생원시에, 아우 김복일은 진사시에 붙었다. 두 장의 백패가 같은 달에… | [전시](cheonsang-baekpae/exhibit.html) · [활동지](cheonsang-baekpae/handout.html) · [카드](cheonsang-baekpae/cards/) · [selection.csv](cheonsang-baekpae/selection.csv) |
+| [**EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825**](cheonsang-samaa/) | 안동 천전 의성김씨 천상각파 (문중) | '교지. 유학 아무개를 진사(생원) 몇 등 제 몇 인으로 입격시킨다.' 1603년 김철, 1687년 김창석,… | [전시](cheonsang-samaa/exhibit.html) · [활동지](cheonsang-samaa/handout.html) · [카드](cheonsang-samaa/cards/) · [selection.csv](cheonsang-samaa/selection.csv) |
+| [**EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737**](cheonsang-seongtak/) | 안동 천전 의성김씨 천상각파 (문중) | 1735년 문과에 급제한 김성탁은 안동에 있었다. 그해 11월, 승정원이 '사간원 정언으로 삼으니 서둘러 역… | [전시](cheonsang-seongtak/exhibit.html) · [활동지](cheonsang-seongtak/handout.html) · [카드](cheonsang-seongtak/cards/) · [selection.csv](cheonsang-seongtak/selection.csv) |
+| [**EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774**](cheonsang-buin/) | 안동 천전 의성김씨 천상각파 (문중) | 교지 한가운데에는 '숙부인 이씨', '의인 채씨', '숙부인 윤씨', '유인 이씨'라고만 적혔다. 이름은 없… | [전시](cheonsang-buin/exhibit.html) · [활동지](cheonsang-buin/handout.html) · [카드](cheonsang-buin/cards/) · [selection.csv](cheonsang-buin/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -444,7 +452,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 185개
+### 카드뉴스 미리보기 — 189개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -633,8 +641,12 @@
 | EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送' | ![](gyeongseongdang-gamok/cards/00_표지.jpg) | ![](gyeongseongdang-gamok/cards/01.jpg) | ![](gyeongseongdang-gamok/cards/02.jpg) |
 | EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759 | ![](cheonsang-gyehu/cards/00_표지.jpg) | ![](cheonsang-gyehu/cards/01.jpg) | ![](cheonsang-gyehu/cards/02.jpg) |
 | EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장 | ![](cheonsang-sanrim/cards/00_표지.jpg) | ![](cheonsang-sanrim/cards/01.jpg) | ![](cheonsang-sanrim/cards/02.jpg) |
+| EP.185 아들 덕에, 증손 덕에 — 김진의 집안에 내려온 종이 네 장, 1564–1679 | ![](cheonsang-baekpae/cards/00_표지.jpg) | ![](cheonsang-baekpae/cards/01.jpg) | ![](cheonsang-baekpae/cards/02.jpg) |
+| EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825 | ![](cheonsang-samaa/cards/00_표지.jpg) | ![](cheonsang-samaa/cards/01.jpg) | ![](cheonsang-samaa/cards/02.jpg) |
+| EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737 | ![](cheonsang-seongtak/cards/00_표지.jpg) | ![](cheonsang-seongtak/cards/01.jpg) | ![](cheonsang-seongtak/cards/02.jpg) |
+| EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774 | ![](cheonsang-buin/cards/00_표지.jpg) | ![](cheonsang-buin/cards/01.jpg) | ![](cheonsang-buin/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 185개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 189개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -825,6 +837,10 @@
 | EP.182 한 글자로 갈린 하루 — 1904–1905년 경무감옥서의 붉은 서식, '嚴'과 '上送' | 1904년 경무감옥서(警務監獄署) 김영선(金英善) 죄인상송장(罪人上送狀)－5 | 1904년 경무감옥서(警務監獄署), 김영선(金英善)의 죄인상송장. | 1904년 가을, 서울. 붉게 찍힌 서식 한 장. 빈칸에 붓이 지나간다. 날짜, "법부 죄인 김흥준(法部罪人 金興俊)". 그리고 맨 아래 한 글자. "嚴". 인쇄된 두 글자와 이어 읽으면, "엄히 가둘 일(嚴囚事)". | 1904년 10월 29일 경무감옥서장 김영선 명의로 법부 죄인 김흥준을 엄히 가두라고 쓴 인쇄 서식입니다. |
 | EP.183 "주는 사람은 있는데 받을 사람이 없다" — 예조 계후입안 네 장, 1642–1759 | 1642년 김웅흠(金熊歆) 계후입안(繼後立案) | 1642년 김웅흠(金熊歆)의 계후입안. | 1642년 봄, 안동. 김시구가 예조에 글을 낸다. "저는 정실과 첩 모두에게 아들이 없어(矣身嫡妾俱無子)". 6촌 아우의 다섯째 아들을 들이고 싶다. 두 집의 아버지가 함께 서명하고, 친척들이 증언한다. 예조는 법전을 펼친다. 그리고 임금이 답한다. "그리하라(依允)." | 1642년 예조가 김시구의 신청에 따라 6촌 아우 김시온의 다섯째 아들 김웅흠을 그의 후사로 증명한 계후입안으로, 양가 아버지가 함께 신청한 기본형입니다. |
 | EP.184 이웃의 이름으로 그린 경계 — 강릉 어단평 민유산림약도 네 장 | 민유산림약도(民有山林略圖)－2 | 민유산림약도. | 강릉의 한 골짜기, 어단평. 이주용이 종이에 붉은 선을 긋는다. 네모도 동그라미도 아닌, 산의 모양 그대로. "면적 3정 9반 9무 6보(面積參町玖反玖畝六步)." 그런데 선 바깥에는 산 이름이 없다. 대신 이웃의 이름이 있다. "동주 산림", "조을환 산림". | 강릉 어단평 이주용의 산(3정 9반 9무 6보)을 그린 민유산림약도로, 경계 바깥에 이웃 김동주 · 조을환의 산림을 적었습니다. |
+| EP.185 아들 덕에, 증손 덕에 — 김진의 집안에 내려온 종이 네 장, 1564–1679 | 1564년 김명일(金明一) 생원 백패(生員白牌) | 1564년 김명일(金明一)의 백패 — 소과(생원·진사시) 합격 증서. | 1564년 여름, 안동 천전. 흰 종이 한 장이 온다. "유학 김명일을 생원 3등으로 입격시킨다(幼學金明一生員三等 … 入格者)." 같은 달, 이 집에는 한 장이 더 온다. | 1564년 7월 김명일이 생원시 3등으로 입격하고 받은 백패입니다. |
+| EP.186 222년 동안 같은 문장 — 한 집안의 백패, 1603 · 1687 · 1765 · 1825 | 1603년 김철(金澈) 진사 백패(進士白牌) | 1603년 김철(金澈)의 백패 — 소과(생원·진사시) 합격 증서. | 1603년 가을. 전쟁이 끝난 지 다섯 해. 안동 천전에 흰 종이 한 장이 온다. "유학 김철을 진사 2등 제22인으로 입격시킨다(幼學金澈進士二等第二十二人入格者)." 연호는 명나라의 만력. | 1603년 김철이 진사시 2등 제22인으로 입격하고 받은 백패입니다. |
+| EP.187 한 달 사이 두 번 '정언' — 김성탁을 부른 유지 네 장, 1735–1737 | 1735년 김성탁(金聖鐸) 유지(有旨)－1 | 1735년 김성탁(金聖鐸)의 유지 — 승정원이 국왕의 뜻을 전한 문서. | 1735년 겨울, 안동. 그해 문과에 붙은 선비에게 봉투가 온다. "지금 너를 사간원 정언으로 삼으니(今以爾爲司諫院正言)", 그리고 늘 같은 한 줄. "서둘러 역마를 타고 올라오라(爾其斯速乘馹上來事)." | 1735년 11월 김성탁을 사간원 정언으로 삼아 서둘러 올라오라고 부른 유지입니다. |
+| EP.188 이름 대신 성(姓)만 남은 교지 — 천전 의성김씨 집안의 부인 네 사람, 1649–1774 | 1649년 이씨(李氏) 추증교지(追贈敎旨) | 1649년 이씨(李氏)의 추증교지 — 죽은 이에게 관직을 높여 내린 교지. | 1649년 겨울. 교지 한가운데 큰 글씨. "숙부인 이씨에게 정부인을 추증한다(淑夫人李氏贈貞夫人者)." 이름은 없다. 성 한 글자와 칭호뿐. 왼쪽 작은 글씨가 이유를 댄다. "김용의 아내이므로(金涌妻)", "남편의 직에 따른다(從夫職)." | 1649년 김용의 아내 이씨에게, 남편의 추증 품계에 따라 정부인을 추증한 교지입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 
