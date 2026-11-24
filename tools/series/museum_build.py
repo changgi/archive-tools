@@ -1,4 +1,5 @@
 # 「고문서 한 장」 가상 전시관 — examples/museum.html (three.js, 걸어 다니며 보는 3D 전시실)
+#   두 관을 토글로 바꾼다: 문서관(편마다 첫 문서 액자) ↔ 영상관(편마다 릴스 스크린, 앞에 서면 재생 · 자동 관람). 같은 자리에 걸려 있어 바꿔도 서 있던 편 앞 그대로.
 #   세기별로 방을 나누고(15–16 · 17 · 18 · 19 · 20세기 · 때를 모르는 종이), 편마다 첫 문서를 액자로 건다.
 #   방마다 스크린 하나 — 그 방의 릴스를 차례로 이어 재생. 액자를 누르면 확대 · 판독 · 번역 · 릴스 · 전시 웹페이지.
 #   읽는 것: examples/viewer-data.json(편 · 문서 · 썸네일 크기) + examples/index.html의 IT(영상 주소). 다시 돌려도 같은 결과.
@@ -29,7 +30,7 @@ for e in sorted([e for e in V['eps'] if e.get('ep')], key=lambda e: e['ep']):
     d0 = e['d'][0]
     rooms[k]['eps'].append(dict(ep=e['ep'], f=e['f'], t=e['t'], c=e.get('c', ''), k=e.get('k', ''), n=len(e['d']),
                                 tw=d0.get('tw') or 300, th=d0.get('th') or 360, y=(f"{min(ys)}" if ys and min(ys) == max(ys) else (f"{min(ys)}–{max(ys)}" if ys else '')),
-                                reel=it.get('reel', ''), rp=it.get('rp', ''), vtt=it.get('vtt', '')))
+                                reel=it.get('reel', ''), rp=it.get('rp', ''), vtt=it.get('vtt', ''), dr=it.get('dr') or 0))
 for r in rooms:
     ty = collections.Counter(d.get('ty') or '' for e in V['eps'] if e.get('ep') and any(x['f'] == e['f'] for x in r['eps']) for d in e['d'])
     ys = [y for x in r['eps'] for y in years(next(e for e in V['eps'] if e['f'] == x['f']))]
@@ -53,6 +54,7 @@ PAGE = r'''<!DOCTYPE html>
 #c{position:fixed;inset:0;width:100vw;height:100vh;display:block;touch-action:none;cursor:grab}#c.drag{cursor:grabbing}
 .hud{position:fixed;left:0;right:0;top:0;display:flex;gap:10px;align-items:center;padding:10px 14px;background:linear-gradient(#16130fee,#16130f00);pointer-events:none;z-index:5}
 .hud *{pointer-events:auto}.hud a,.hud button{white-space:nowrap;color:var(--ink);background:#231d15cc;border:1px solid var(--line);border-radius:20px;padding:6px 12px;font-size:13.5px;text-decoration:none;cursor:pointer;font-family:inherit}
+.hud .hall{border-color:var(--gold)!important;color:var(--gold)!important}.hud button[aria-pressed=true]#bTour{border-color:var(--gold);color:var(--gold)}
 .hud .t{font-weight:700;font-size:15px;margin-right:auto;pointer-events:none}.hud .t em{color:var(--gold);font-style:normal;font-weight:400;margin-left:8px;font-size:13px}
 .prog{position:fixed;left:14px;right:14px;top:52px;height:3px;background:#ffffff14;border-radius:3px;z-index:5;pointer-events:none}.prog i{display:block;height:100%;width:0;background:var(--gold);border-radius:3px}
 .pad{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:5}
@@ -89,8 +91,8 @@ PAGE = r'''<!DOCTYPE html>
 </style></head><body>
 <canvas id="c" aria-label="가상 전시관 3D 화면 — 액자를 누르면 문서 정보가 열립니다"></canvas>
 <div id="load"><b>고문서 한 장 — 가상 전시관</b><span>전시실을 짓는 중…</span><noscript><span>이 전시관은 JavaScript와 WebGL이 필요합니다. <a href="viewer.html" style="color:#c4964a">연속 보기 뷰어</a>로 보세요.</span></noscript></div>
-<div class="hud"><span class="t">고문서 한 장 — 가상 전시관<em id="room">로비</em></span>
-<button id="bList" type="button">목록</button><button id="bSnd" type="button" aria-pressed="false">🔇 소리</button><button id="bHelp" type="button">조작법</button>
+<div class="hud"><span class="t">고문서 한 장 — <span id="hallName">문서관</span><em id="room">로비</em></span>
+<button id="bHall" type="button" class="hall" aria-pressed="false">🎞 영상관으로</button><button id="bTour" type="button" aria-pressed="false" hidden>▶ 자동 관람</button><button id="bList" type="button">목록</button><button id="bSnd" type="button" aria-pressed="false">🔇 소리</button><button id="bHelp" type="button">조작법</button>
 <a class="hide-s" href="viewer.html">연속 보기</a><a href="index.html">← 갤러리</a></div>
 <div class="prog"><i id="pg"></i></div>
 <div class="tip" id="tip">끌어서 둘러보기 · W/↑ 앞으로 · ▶ 다음 작품 · 액자를 누르면 원문</div>
@@ -101,7 +103,8 @@ PAGE = r'''<!DOCTYPE html>
 <div id="help" role="dialog" aria-modal="true"><div><h2>조작법</h2>
 <b>둘러보기</b> — 화면을 끌기(마우스 · 손가락)<br><b>걷기</b> — <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 또는 방향키 · 아래 ▲▼ 버튼을 누르고 있기 · <kbd>Shift</kbd> 빠르게<br>
 <b>작품 사이 이동</b> — ◀ / 다음 작품 ▶ (또는 <kbd>Q</kbd> <kbd>E</kbd>) — 다음 액자 앞으로 데려다 줍니다<br><b>자세히 보기</b> — 액자를 누르기 · <kbd>Enter</kbd> 지금 앞에 있는 액자 열기 · <kbd>Esc</kbd> 닫기<br>
-<b>릴스</b> — 방마다 왼쪽 스크린에서 그 방의 릴스가 차례로 이어집니다. 스크린을 누르면 그 편이 열리고, 위의 「소리」로 소리를 켭니다.<br>
+<b>문서관 ↔ 영상관</b> — 위의 「🎞 영상관으로」 / 「📜 문서관으로」로 바꿉니다. 같은 자리에 같은 편이 걸려 있어, 바꿔도 보던 편 앞에 그대로 섭니다. 영상관에서는 액자 대신 그 편의 릴스 스크린이 걸려 있고, 앞에 서면 재생됩니다. 「▶ 자동 관람」을 켜면 한 편이 끝날 때마다 다음 스크린으로 데려다 줍니다.<br>
+<b>릴스(문서관)</b> — 방마다 왼쪽 스크린에서 그 방의 릴스가 차례로 이어집니다. 스크린을 누르면 그 편이 열리고, 위의 「소리」로 소리를 켭니다.<br>
 <b>목록</b> — 편 번호 · 제목으로 찾아 바로 그 액자 앞으로 갑니다. 주소 끝에 <kbd>#ep200</kbd>처럼 붙여도 됩니다.<br>
 <span style="color:#a99d86;font-size:13px">세기는 각 편 첫 문서 기준이 아니라 편 안의 가장 이른 연도로 나눴습니다. 고문서 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁) — 다시 쓰려면 자료관을 통한 소장처 동의가 필요하며, 문제가 있으면 내립니다. 엮은이: Song Chang-gi (chgsong@naver.com, github.com/changgi)</span><br>
 <button type="button" id="hX">전시실로 들어가기</button></div></div>
@@ -161,7 +164,7 @@ function panel(x,z,side,w,h,draw){const t=ctex(Math.round(w*220),Math.round(h*22
 // 로비
 panel(-SX+.03,-3.2,-1,3.6,2.4,(g,w,h)=>{g.fillStyle='#1d1812';g.fillRect(0,0,w,h);g.fillStyle='#c4964a';g.font=`26px ${FONT}`;g.fillText('ARCHIVE TOOLS · 「고문서 한 장」',40,64);
   g.fillStyle='#efe4cc';g.font=`700 72px ${SERIF}`;g.fillText('고문서 한 장',40,160);g.font=`700 44px ${SERIF}`;g.fillText('가상 전시관',40,224);
-  g.fillStyle='#cfc3aa';g.font=`26px ${FONT}`;wrap(g,`EP.1부터 EP.${EPS.length?Math.max(...EPS.map(e=>e.ep)):200}까지 ${EPS.length}편, 문서 ${D.rooms.reduce((a,r)=>a+r.docs,0)}건. 편마다 첫 문서 한 장을 세기별 방에 걸었습니다. 액자를 누르면 원문 판독과 번역, 그 편의 릴스가 열립니다.`,40,300,w-80,40,5)});
+  g.fillStyle='#cfc3aa';g.font=`26px ${FONT}`;wrap(g,`EP.1부터 EP.${EPS.length?Math.max(...EPS.map(e=>e.ep)):200}까지 ${EPS.length}편, 문서 ${D.rooms.reduce((a,r)=>a+r.docs,0)}건. 문서관에는 편마다 첫 문서 한 장을, 영상관에는 그 편의 릴스를 같은 자리에 걸었습니다. 위의 버튼으로 두 관을 오갑니다.`,40,300,w-80,40,5)});
 panel(SX-.03,-3.2,1,3.6,2.4,(g,w,h)=>{g.fillStyle='#1d1812';g.fillRect(0,0,w,h);g.fillStyle='#e9cf9c';g.font=`700 40px ${SERIF}`;g.fillText('전시실 안내',40,76);g.font=`28px ${FONT}`;
   ROOMS.forEach((r,i)=>{g.fillStyle='#efe4cc';g.fillText(r.name,40,140+i*52);g.fillStyle='#a99d86';g.fillText(`${r.eps.length}편 · 문서 ${r.docs}건`,330,140+i*52)});
   g.fillStyle='#a99d86';g.font=`22px ${FONT}`;g.fillText('끌어서 둘러보기 · ▲ 걷기 · 다음 작품 ▶ · 액자 누르기',40,h-36)});
@@ -181,12 +184,13 @@ ROOMS.forEach(r=>{r.screen=screen(r.z0-ENT/2,r.eps.filter(e=>e.reel),r.name)});
 // 방 소개 패널(오른쪽 벽, 입구)
 ROOMS.forEach(r=>panel(SX-.03,r.z0-ENT/2,1,3.2,2.1,(g,w,h)=>{g.fillStyle='#1d1812';g.fillRect(0,0,w,h);g.fillStyle='#e9cf9c';g.font=`700 64px ${SERIF}`;g.fillText(r.name,40,100);
   g.fillStyle='#efe4cc';g.font=`30px ${FONT}`;g.fillText(`${r.eps.length}편 · 문서 ${r.docs}건${r.span?' · '+r.span+'년':''}`,40,160);g.fillStyle='#b9ab90';g.font=`26px ${FONT}`;
-  wrap(g,'많이 나온 문서: '+(r.types.join(' · ')||'—'),40,220,w-80,38,2);wrap(g,`EP.${r.eps[0].ep}부터 — 왼쪽 스크린에서 이 방의 릴스가 차례로 이어집니다.`,40,320,w-80,38,2)}));
+  wrap(g,'많이 나온 문서: '+(r.types.join(' · ')||'—'),40,220,w-80,38,2);wrap(g,`EP.${r.eps[0].ep}부터 · 문서관: 왼쪽 스크린에서 이 방의 릴스가 이어집니다 · 영상관: 스크린 앞에 서면 그 편 릴스가 재생됩니다.`,40,300,w-80,36,3)}));
 let curScreen=null;
-function playOn(o){if(curScreen&&curScreen!==o){curScreen.scr.material.map=curScreen.idle;curScreen.scr.material.needsUpdate=true}
+function playOn(o){if(HALL==='vid'&&o!==lobbyScr){if(curScreen===lobbyScr){curScreen.scr.material.map=curScreen.idle;curScreen.scr.material.needsUpdate=true;curScreen=null;if(!ACT)VID.pause()}return}
+  if(curScreen&&curScreen!==o){curScreen.scr.material.map=curScreen.idle;curScreen.scr.material.needsUpdate=true}
   curScreen=o;if(!o||!o.list.length){VID.pause();return}const e=o.list[o.k%o.list.length];if(VID.dataset.src!==e.reel){VID.dataset.src=e.reel;VID.src=e.reel;VID.load()}
   VID.play().then(()=>{o.scr.material.map=vtex;o.scr.material.needsUpdate=true}).catch(()=>{});capDraw(o,(e.ep?`EP.${e.ep} · `:'')+(e.t||'').split(' — ')[0])}
-VID.addEventListener('ended',()=>{if(curScreen){curScreen.k++;playOn(curScreen)}});
+VID.addEventListener('ended',()=>{if(HALL==='vid'&&ACT){if(TOUR){go(1)}else{VID.currentTime=0;VID.play().catch(()=>{})}return}if(curScreen){curScreen.k++;playOn(curScreen)}});
 // ---------- 액자 ----------
 const FRAMES=[]; const frameM=new THREE.MeshLambertMaterial({color:0x6b4e2a}); const matM=new THREE.MeshLambertMaterial({color:0xe9e0cc});
 const ph=ctex(64,64,(g)=>{g.fillStyle='#2c251c';g.fillRect(0,0,64,64)});
@@ -197,17 +201,49 @@ EPS.forEach(e=>{const a=e.tw/e.th;let w=2.3,h=w/a;if(h>2.1){h=2.1;w=h*a}const g=
   const pl=new THREE.Mesh(new THREE.PlaneGeometry(1.5,.42),new THREE.MeshBasicMaterial({map:ph}));pl.position.set(0,-h/2-.48,.01);g.add(pl);
   g.position.set(e.side*(SX-.05),2.05,e.z);g.rotation.y=e.side<0?Math.PI/2:-Math.PI/2;SC.add(g);
   im.userData.ep=e;fr.userData.ep=e;pl.userData.ep=e;Object.assign(e,{g,im,pl,loaded:0});FRAMES.push(im,fr,pl)});
+// 영상관 스크린(편마다, 같은 자리) — 포스터를 걸어 두고, 앞에 선 한 편만 재생
+const bezelM=new THREE.MeshLambertMaterial({color:0x0c0b0a}); const VFR=[];
+const vposeT=ctex(64,64,(g)=>{g.fillStyle='#0a0908';g.fillRect(0,0,64,64)});
+EPS.forEach(e=>{if(!e.reel)return;const h=2.5,w=h*9/16,g=new THREE.Group();
+  const bz=new THREE.Mesh(new THREE.BoxGeometry(w+.16,h+.16,.08),bezelM);g.add(bz);
+  const sc=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:vposeT}));sc.position.z=.045;g.add(sc);
+  const pool=new THREE.Mesh(new THREE.PlaneGeometry(w+2.6,h+2.2),poolM);pool.position.set(0,.15,-.01);g.add(pool);
+  const pl=new THREE.Mesh(new THREE.PlaneGeometry(1.5,.42),new THREE.MeshBasicMaterial({map:ph}));pl.position.set(0,-h/2-.4,.01);g.add(pl);
+  g.position.set(e.side*(SX-.05),2.0,e.z);g.rotation.y=e.side<0?Math.PI/2:-Math.PI/2;g.visible=false;SC.add(g);
+  sc.userData.ep=e;bz.userData.ep=e;pl.userData.ep=e;Object.assign(e,{vg:g,vsc:sc,vpl:pl,vloaded:0});VFR.push(sc,bz,pl)});
 const TL=new THREE.TextureLoader(); TL.setCrossOrigin('anonymous');
-function plaque(e){return ctex(480,134,(g,w,h)=>{g.fillStyle='#e9e0cc';g.fillRect(0,0,w,h);g.fillStyle='#7a5a2c';g.font=`700 26px ${FONT}`;g.fillText(`EP.${e.ep}${e.y?' · '+e.y:''}`,18,38);
-  g.fillStyle='#2a2117';g.font=`600 24px ${FONT}`;wrap(g,e.t.split(' — ')[0],18,74,w-36,30,2)})}
-function updLoads(){const cz=CAM.position.z;for(const e of EPS){const d=Math.abs(e.z-cz);
+const mmss=n=>n?`${Math.floor(n/60)}:${String(Math.round(n%60)).padStart(2,'0')}`:'';
+function plaque(e,v){return ctex(480,134,(g,w,h)=>{g.fillStyle=v?'#1d1812':'#e9e0cc';g.fillRect(0,0,w,h);if(v){g.strokeStyle='#c4964a';g.lineWidth=3;g.strokeRect(3,3,w-6,h-6)}g.fillStyle=v?'#c4964a':'#7a5a2c';g.font=`700 26px ${FONT}`;g.fillText(v?`EP.${e.ep} · 릴스 ${mmss(e.dr)}`:`EP.${e.ep}${e.y?' · '+e.y:''}`,18,38);
+  g.fillStyle=v?'#efe4cc':'#2a2117';g.font=`600 24px ${FONT}`;wrap(g,e.t.split(' — ')[0],18,74,w-36,30,2)})}
+function updLoads(){if(HALL==='vid')return updVLoads();const cz=CAM.position.z;for(const e of EPS){const d=Math.abs(e.z-cz);
   if(d<30&&!e.loaded){e.loaded=1;TL.load(`${D.base}${e.f}/thumb/01.jpg`,t=>{t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;if(e.loaded){e.im.material.map=t;e.im.material.needsUpdate=true;e.tex=t}else t.dispose()},undefined,()=>{});
     e.ptex=plaque(e);e.pl.material.map=e.ptex;e.pl.material.needsUpdate=true}
   else if(d>48&&e.loaded){e.loaded=0;if(e.tex){e.tex.dispose();e.tex=null}if(e.ptex){e.ptex.dispose();e.ptex=null}e.im.material.map=ph;e.pl.material.map=ph;e.im.material.needsUpdate=e.pl.material.needsUpdate=true}}}
+function updVLoads(){const cz=CAM.position.z;for(const e of EPS){if(!e.vg)continue;const d=Math.abs(e.z-cz);
+  if(d<30&&!e.vloaded){e.vloaded=1;TL.load(e.rp,t=>{t.colorSpace=THREE.SRGBColorSpace;if(e.vloaded){e.vtex0=t;if(ACT!==e){e.vsc.material.map=t;e.vsc.material.needsUpdate=true}}else t.dispose()},undefined,()=>{});
+    e.vptex=plaque(e,true);e.vpl.material.map=e.vptex;e.vpl.material.needsUpdate=true}
+  else if(d>48&&e.vloaded){e.vloaded=0;if(e.vtex0){e.vtex0.dispose();e.vtex0=null}if(e.vptex){e.vptex.dispose();e.vptex=null}e.vsc.material.map=vposeT;e.vpl.material.map=ph;e.vsc.material.needsUpdate=e.vpl.material.needsUpdate=true}}}
+// ---------- 문서관 ↔ 영상관 ----------
+let HALL='doc',ACT=null,TOUR=false;
+const THEME={doc:{wall:0x3a3128,bg:0x15120e,lamp:0xffe2b0},vid:{wall:0x1f2226,bg:0x0c0d10,lamp:0xbfd4ff}};
+function setHall(h,keep){HALL=h;const v=h==='vid';EPS.forEach(e=>{e.g.visible=!v||!e.vg;if(e.vg)e.vg.visible=v});
+  SCREENS.forEach(o=>{if(o!==lobbyScr)o.scr.parent.visible=!v});const T=THEME[h];wallM.color.setHex(T.wall);SC.background.setHex(T.bg);SC.fog.color.setHex(T.bg);lampM.color.setHex(T.lamp);
+  $('hallName').textContent=v?'영상관':'문서관';$('bHall').textContent=v?'📜 문서관으로':'🎞 영상관으로';$('bHall').setAttribute('aria-pressed',v);$('bTour').hidden=!v;
+  setAct(null);if(!v)setTour(false);lastRoom=-2;
+  const u=new URL(location.href);if(v)u.searchParams.set('hall','video');else u.searchParams.delete('hall');history.replaceState(null,'',u.pathname+u.search+u.hash);updLoads()}
+function setAct(e){if(ACT===e)return;if(ACT){ACT.vsc.material.map=ACT.vtex0||vposeT;ACT.vsc.material.needsUpdate=true}ACT=e;
+  if(!e){if(HALL==='vid'&&curScreen!==lobbyScr)VID.pause();return}
+  curScreen=null;VID.dataset.src=e.reel;VID.src=e.reel;VID.load();VID.play().then(()=>{if(ACT===e){e.vsc.material.map=vtex;e.vsc.material.needsUpdate=true}}).catch(()=>{});$('room').textContent=`EP.${e.ep} 재생 중`}
+const FWD=new THREE.Vector3();
+function pickAct(){if(HALL!=='vid'||ov.classList.contains('on'))return;const p=CAM.position;CAM.getWorldDirection(FWD);let best=null,bd=6;
+  for(const e of EPS){if(!e.vg||Math.abs(e.z-p.z)>6)continue;const dx=e.side*(SX-.05)-p.x,dz=e.z-p.z,d=Math.hypot(dx,dz);if(d<bd&&(dx*FWD.x+dz*FWD.z)/d>.55){bd=d;best=e}}
+  if(best||!ACT||Math.abs(ACT.z-p.z)>7)setAct(best)}
+function setTour(on){TOUR=on;$('bTour').setAttribute('aria-pressed',on);$('bTour').textContent=on?'⏸ 자동 관람':'▶ 자동 관람';if(on){if(!ACT)go(1)}}
+$('bHall').onclick=()=>setHall(HALL==='vid'?'doc':'vid');$('bTour').onclick=()=>setTour(!TOUR);
 // ---------- 움직임 ----------
 let yaw=0,pitch=0,tween=null;const keys={};let hold=0;
 addEventListener('keydown',ev=>{if(ov.classList.contains('on')||ev.target.tagName==='INPUT'){if(ev.key==='Escape')closeOv();if(ov.classList.contains('on')&&ev.key==='ArrowRight')stepOv(1);if(ov.classList.contains('on')&&ev.key==='ArrowLeft')stepOv(-1);return}
-  keys[ev.code]=1;if(ev.code==='KeyE'||ev.code==='Period')go(1);if(ev.code==='KeyQ'||ev.code==='Comma')go(-1);if(ev.code==='Enter'){const e=near();if(e)openOv(e)}if(ev.key==='Escape'){$('ls').classList.remove('on');$('help').classList.remove('on')}});
+  keys[ev.code]=1;if(ev.code==='KeyE'||ev.code==='Period')go(1);if(ev.code==='KeyQ'||ev.code==='Comma')go(-1);if(ev.code==='Enter'){const e=near();if(e)openOv(e,HALL==='vid')}if(ev.code==='KeyV')setHall(HALL==='vid'?'doc':'vid');if(ev.key==='Escape'){$('ls').classList.remove('on');$('help').classList.remove('on')}});
 addEventListener('keyup',ev=>{keys[ev.code]=0});
 let drag=null,moved=0;
 cv.addEventListener('pointerdown',ev=>{drag={x:ev.clientX,y:ev.clientY,id:ev.pointerId};moved=0;cv.setPointerCapture(ev.pointerId);cv.classList.add('drag')});
@@ -215,8 +251,8 @@ cv.addEventListener('pointermove',ev=>{if(!drag||drag.id!==ev.pointerId)return;c
   const k=ev.pointerType==='touch'?.0055:.0035;yaw+=dx*k;pitch=Math.max(-1.1,Math.min(1.1,pitch+dy*k));tween=null});
 cv.addEventListener('pointerup',ev=>{cv.classList.remove('drag');if(drag&&moved<8)pick(ev);drag=null});
 const RC=new THREE.Raycaster(),MV=new THREE.Vector2();
-function pick(ev){MV.set(ev.clientX/innerWidth*2-1,-(ev.clientY/innerHeight)*2+1);RC.setFromCamera(MV,CAM);const hits=RC.intersectObjects([...FRAMES,...SCREENS.map(s=>s.scr)],false);
-  for(const h of hits){if(h.distance>16)break;if(h.object.userData.ep){openOv(h.object.userData.ep);return}if(h.object.userData.screen){const o=h.object.userData.screen,e=o.list[o.k%o.list.length];
+function pick(ev){MV.set(ev.clientX/innerWidth*2-1,-(ev.clientY/innerHeight)*2+1);RC.setFromCamera(MV,CAM);const hits=RC.intersectObjects(HALL==='vid'?[...VFR,lobbyScr.scr]:[...FRAMES,...SCREENS.map(s=>s.scr)],false);
+  for(const h of hits){if(h.distance>16)break;if(h.object.userData.ep){openOv(h.object.userData.ep,HALL==='vid');return}if(h.object.userData.screen){const o=h.object.userData.screen,e=o.list[o.k%o.list.length];
     if(e&&e.ep){openOv(EPS.find(x=>x.ep===e.ep),true)}else{setSnd(true);playOn(o)}return}}}
 function holdBtn(id,dir){const b=$(id);const on=ev=>{ev.preventDefault();hold=dir;tween=null},off=()=>{hold=0};b.addEventListener('pointerdown',on);['pointerup','pointerleave','pointercancel'].forEach(t=>b.addEventListener(t,off))}
 holdBtn('bFwd',1);holdBtn('bBack',-1);$('bNext').onclick=()=>go(1);$('bPrev').onclick=()=>go(-1);
@@ -236,10 +272,10 @@ function loop(){const dt=Math.min(CL.getDelta(),.05);const p=CAM.position;
     if(f||s){const sp=(keys.ShiftLeft||keys.ShiftRight?9:4.2)*dt;const nx=p.x+(-Math.sin(yaw)*f+Math.cos(yaw)*s)*sp,nz=p.z+(-Math.cos(yaw)*f-Math.sin(yaw)*s)*sp;
       const cx=Math.max(-SX+.7,Math.min(SX-.7,nx));if(!crosses(p.z,nz,cx))p.z=Math.max(ZEND-.3,Math.min(LOBBY.z0+.3,nz));p.x=cx}}
   CAM.rotation.set(pitch,yaw,0);const ri=roomAt(p.z);
-  if(ri!==lastRoom){lastRoom=ri;$('room').textContent=ri<0?'로비':`${ROOMS[ri].name} · ${ROOMS[ri].eps.length}편`;playOn(ri<0?lobbyScr:ROOMS[ri].screen)}
+  if(ri!==lastRoom&&!(HALL==='vid'&&ACT)){lastRoom=ri;$('room').textContent=ri<0?'로비':`${ROOMS[ri].name} · ${ROOMS[ri].eps.length}편`;playOn(ri<0?lobbyScr:ROOMS[ri].screen)}
   $('pg').style.width=Math.max(0,Math.min(100,(LOBBY.z0-p.z)/(LOBBY.z0-ZEND)*100))+'%';
   if((tipT+=dt)>9)$('tip').style.opacity=0;
-  if(((CL.elapsedTime*4)|0)%2===0)updLoads();R.render(SC,CAM);requestAnimationFrame(loop)}
+  if(((CL.elapsedTime*4)|0)%2===0){updLoads();pickAct()}R.render(SC,CAM);requestAnimationFrame(loop)}
 function fit(){CAM.aspect=innerWidth/innerHeight;CAM.fov=CAM.aspect<.8?76:62;CAM.updateProjectionMatrix();R.setSize(innerWidth,innerHeight)}
 addEventListener('resize',fit);fit();
 // ---------- 소리 ----------
@@ -248,12 +284,12 @@ $('bSnd').onclick=()=>setSnd(VID.muted);
 // ---------- 자세히 보기 ----------
 const ov=$('ov');let VD=null,curE=null,curD=0,ovVid=null;
 fetch('viewer-data.json').then(r=>r.json()).then(j=>{VD={};j.eps.forEach(e=>VD[e.f]=e.d);if(curE)renderOv()}).catch(()=>{});
-function openOv(e,reel){if(!e)return;curE=e;curD=0;ov.classList.add('on');VID.pause();history.replaceState(null,'','#ep'+e.ep);renderOv(reel);flyTo(standFor(e))}
-function closeOv(){ov.classList.remove('on');if(ovVid){ovVid.pause();ovVid=null}$('ovIm').innerHTML='';if(curScreen)VID.play().catch(()=>{})}
+function openOv(e,reel){if(!e)return;curE=e;curD=0;ov.classList.add('on');VID.pause();if(HALL==='vid'){setAct(null);setTour(false)}history.replaceState(null,'','#ep'+e.ep);renderOv(reel);flyTo(standFor(e))}
+function closeOv(){ov.classList.remove('on');if(ovVid){ovVid.pause();ovVid=null}$('ovIm').innerHTML='';if(curScreen&&HALL!=='vid')VID.play().catch(()=>{})}
 function stepOv(k){const i=curE.i+k;if(i>=0&&i<EPS.length)openOv(EPS[i])}
 $('oX').onclick=closeOv;$('oPrev').onclick=()=>stepOv(-1);$('oNext').onclick=()=>stepOv(1);
 function renderOv(reel){const e=curE,ds=VD&&VD[e.f]||[],d=ds[curD]||{};if(ovVid){ovVid.pause();ovVid=null}
-  if(reel&&e.reel){$('ovIm').innerHTML=`<video controls autoplay playsinline src="${esc(e.reel)}" poster="${esc(e.rp)}">${e.vtt?`<track kind="subtitles" srclang="ko" label="한국어" src="${esc(e.vtt)}" default>`:''}</video>`;ovVid=$('ovIm').querySelector('video')}
+  if(reel&&e.reel){$('ovIm').innerHTML=`<video controls autoplay playsinline src="${esc(e.reel)}" poster="${esc(e.rp)}">${e.vtt?`<track kind="subtitles" srclang="ko" label="한국어" src="${esc(e.vtt)}">`:''}</video>`;ovVid=$('ovIm').querySelector('video')}
   else{$('ovIm').innerHTML=`<img alt="${esc(d.t||e.t)}" src="${esc(`${D.base}${e.f}/${String(curD+1).padStart(2,'0')}.jpg`)}">`+(ds.length>1?`<div class="tabs">${ds.map((x,i)=>`<button type="button" class="${i===curD?'on':''}" data-i="${i}">${i+1}. ${esc((x.y?x.y+' ':'')+(x.ty||''))}</button>`).join('')}</div>`:'');
     $('ovIm').querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{curD=+b.dataset.i;renderOv()});const img=$('ovIm').querySelector('img');let z=1;img.ondblclick=()=>{z=z>1?1:2.2;img.style.transform=`scale(${z})`}}
   const man=`${D.base}${e.f}/manifest.json`;
@@ -272,8 +308,9 @@ $('bHelp').onclick=()=>$('help').classList.add('on');$('hX').onclick=()=>{$('hel
 // ---------- 시작 ----------
 function fromHash(){const m=location.hash.match(/^#ep(\d+)$/);if(!m)return false;const e=EPS.find(x=>x.ep===+m[1]);if(!e)return false;const s=standFor(e);CAM.position.set(s.x,1.62,s.z);yaw=s.yaw;return true}
 addEventListener('hashchange',()=>{const m=location.hash.match(/^#ep(\d+)$/);if(m){const e=EPS.find(x=>x.ep===+m[1]);if(e)flyTo(standFor(e))}});
+if(new URLSearchParams(location.search).get('hall')==='video')setHall('vid');
 const jumped=fromHash();updLoads();$('load').remove();let seen=false;try{seen=!!sessionStorage.getItem('museum-help');sessionStorage.setItem('museum-help','1')}catch(e){}if(!jumped&&!seen)$('help').classList.add('on');
-window.__museum={room:i=>{const r=ROOMS[i];CAM.position.set(0,1.62,r.z0-ENT/2);yaw=Math.PI/2;pitch=0;tween=null},video:()=>({src:VID.dataset.src,paused:VID.paused,t:VID.currentTime,muted:VID.muted})};  // 점검용
+window.__museum={hall:h=>setHall(h),act:()=>ACT&&ACT.ep,room:i=>{const r=ROOMS[i];CAM.position.set(0,1.62,r.z0-ENT/2);yaw=Math.PI/2;pitch=0;tween=null},video:()=>({src:VID.dataset.src,paused:VID.paused,t:VID.currentTime,muted:VID.muted})};  // 점검용
 loop();
 </script></body></html>
 '''

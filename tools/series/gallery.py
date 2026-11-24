@@ -276,7 +276,7 @@ body = f'''{nav}
     <section><h3>📜 읽기</h3><ul>
       <li><button class="lk" type="button" data-open="{latest['key']}" data-tab="r">원문 전문 판독 · 번역 · 해제 · 요약</button><em>{NDOC}건</em><span>한자 위 한글 독음, □ 못 읽은 글자 · (?) 불확실 표시</span></li>
       <li><a href="200.html">200편 한 페이지</a><em>200편</em><span>200편 썸네일 모자이크 · 세기 · 유형 · 지역 분포 · 주제별로 다시 보기</span></li>
-      <li><a href="museum.html">가상 전시관 (3D)</a><em>{NEP}편</em><span>세기별 전시실을 걸어 다니며 액자를 누르면 원문 · 번역 · 릴스 · 방마다 릴스 이어 재생</span></li>
+      <li><a href="museum.html">가상 전시관 (3D)</a><em>{NEP}편</em><span>세기별 전시실을 걸어 다니기 · 문서관(첫 문서 액자) ↔ 영상관(편마다 릴스 스크린, 자동 관람) 토글 · 누르면 원문 · 번역</span></li>
       <li><a href="viewer.html">연속 보기 · IIIF 뷰어</a><em>{NDOC}건</em><span>모든 문서를 한 줄로 이어 보고 눌러서 확대 · 편 순서 / 연도 순서 · Mirador에서 열리는 IIIF 매니페스트</span></li>
       <li><a href="search.html">전체 검색</a><em>{ANS['docs']}건</em><span>판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자 하나로 (예: 乘馹 · 노비 · 편지)</span></li>
       <li><a href="types.html">문서 유형 사전</a><span>고신 · 홍패 · 준호구 · 명문 … 문서마다 읽는 법 · 건수 · 시대 · 예</span></li>
