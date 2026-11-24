@@ -22,15 +22,15 @@
 
 ## 홍보 영상
 
-| EP.1 흩어진 기록을, 다시 이야기로 (83초) | EP.2 만든 것 보기 (48초) |
+| 소개 1 · 흩어진 기록을, 다시 이야기로 (83초) | 소개 2 · 만든 것 보기 (48초) |
 |---|---|
-| [![EP.1](media/promo-reel-poster.jpg)](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) | [![EP.2](media/promo-reel-ep2-poster.jpg)](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) |
+| [![소개 1](media/promo-reel-poster.jpg)](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) | [![소개 2](media/promo-reel-ep2-poster.jpg)](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) |
 | 1862년 송영로의 임명장 한 장에서 시작해 ① 수집 ② 큐레이션 ③ 에디팅 ④ 매개 ⑤ 패키징까지 | 말 한마디로 만든 전시 웹페이지·카드뉴스·활동지, 에디팅 전후, 두 집안 비교 |
 | [`promo-reel.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [자막](media/promo-reel.ko.srt) | [`promo-reel-ep2.mp4`](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · [자막](media/promo-reel-ep2.ko.srt) |
 
-릴스 게시 문구(「고문서 한 장」 EP.03–EP.199)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
+릴스 게시 문구(「고문서 한 장」 EP.01–EP.200)는 [media/reels-captions.md](media/reels-captions.md)에 모았고, 각 폴더 `promo.md`에도 있습니다.
 
-## 원문으로 읽는 이야기 (EP.17–EP.199)
+## 원문으로 읽는 이야기 (EP.17–EP.200)
 
 문서를 한 줄씩 전문 판독하고(한자 위 한글 독음), 현대어로 해석한 뒤, **문서에 실제로 적힌 문장을 인용해** 이야기를 이었습니다. 영상에도 원문 구절과 독음·뜻이 함께 나옵니다.
 
@@ -46,6 +46,8 @@
 | [**EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안**](hwangyunseok/) | 고창 흥덕 평해황씨 이재 황윤석 종가 (문중) | 後所生幷永永許給 | [릴스](https://changgi.github.io/archive-tools-next/media/ep24-hwangyunseok_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep24-hwangyunseok_wide.mp4) · [홍보 글](hwangyunseok/promo.md) |
 | [**EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년**](geochang-hyanggyo/) | 거창 거창향교 (향교) | 風雨漏瀉 榱桷推朽 | [릴스](https://changgi.github.io/archive-tools-next/media/ep25-geochang_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep25-geochang_wide.mp4) · [홍보 글](geochang-hyanggyo/promo.md) |
 | [**EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들**](queen-min-letters-2/) | 국립고궁박물관 (박물관) | 福壽 | [릴스](https://changgi.github.io/archive-tools-next/media/ep26-gogung_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep26-gogung_wide.mp4) · [홍보 글](queen-min-letters-2/promo.md) |
+| [**EP.1 개국, 건양, 광무 — 세 해 동안 연호가 세 번 바뀐 임명장, 법부주사 유원성 1895–1906**](gyeongseongdang-gwango/) | 안산 부곡 진주류씨 경성당 (문중) | 柳遠聲任法部主事 | [릴스](https://changgi.github.io/archive-tools-next/media/ep1-gyeongseongdang-gwango_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep1-gyeongseongdang-gwango_wide.mp4) · [홍보 글](gyeongseongdang-gwango/promo.md) |
+| [**EP.2 향로, 대야, 도마, 그리고 상여 — 법부주사 유원성이 받은 제사 당번표, 1900–1904**](gyeongseongdang-chajeong/) | 안산 부곡 진주류씨 경성당 (문중) | 眞殿第五室御眞移奉 | [릴스](https://changgi.github.io/archive-tools-next/media/ep2-gyeongseongdang-chajeong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep2-gyeongseongdang-chajeong_wide.mp4) · [홍보 글](gyeongseongdang-chajeong/promo.md) |
 | [**EP.27 계약서로 쌓은 집, 강릉 선교장 300년**](seongyojang/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 矣身貧寒所致 | [릴스](https://changgi.github.io/archive-tools-next/media/ep27-seongyojang_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep27-seongyojang_wide.mp4) · [홍보 글](seongyojang/promo.md) |
 | [**EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가**](jeompiljae/) | 고령 선산김씨 점필재 김종직 종가 (문중) | 進士二等第十六人入格 | [릴스](https://changgi.github.io/archive-tools-next/media/ep28-jeompiljae_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep28-jeompiljae_wide.mp4) · [홍보 글](jeompiljae/promo.md) |
 | [**EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남**](yeoheon/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 此乃眞事業也 | [릴스](https://changgi.github.io/archive-tools-next/media/ep29-yeoheon_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep29-yeoheon_wide.mp4) · [홍보 글](yeoheon/promo.md) |
@@ -219,6 +221,7 @@
 | [**EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606**](buan-kim-hongwon/) | 부안 우반 부안김씨 (문중) | 幼學金弘遠進士三等第五十七人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep197-buan-kim-hongwon_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep197-buan-kim-hongwon_wide.mp4) · [홍보 글](buan-kim-hongwon/promo.md) |
 | [**EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660**](buan-kim-myeongyeol/) | 부안 우반 부안김씨 (문중) | 幼學金命說文科丙科第十三人及第出身者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep198-buan-kim-myeongyeol_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep198-buan-kim-myeongyeol_wide.mp4) · [홍보 글](buan-kim-myeongyeol/promo.md) |
 | [**EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783**](sangnyeong-choi-baekhong/) | 남원·구례 삭녕최씨 (문중) | 幼學崔尙重進士三等第六十三人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_wide.mp4) · [홍보 글](sangnyeong-choi-baekhong/promo.md) |
+| [**EP.200 떠나려는 군수, 붙잡는 백성 — 개천군수 유원성의 종이 네 장, 1874–1907**](gyeongseongdang-gaecheon/) | 안산 부곡 진주류씨 경성당 (문중) | 幼學柳遠聲生員三等第六十一人入格者 | [릴스](https://changgi.github.io/archive-tools-next/media/ep200-gyeongseongdang-gaecheon_reel.mp4) · [가로](https://changgi.github.io/archive-tools-next/media/ep200-gyeongseongdang-gaecheon_wide.mp4) · [홍보 글](gyeongseongdang-gaecheon/promo.md) |
 
 ## 이야기가 있는 기록 (EP.7–EP.16)
 
@@ -246,7 +249,7 @@
 | EP.5 함양 남계서원 | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep5-namgye_wide.mp4) | [promo.md](namgye-seowon/promo.md) |
 | EP.6 명성황후기념관 | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_reel.mp4) | [보기](https://changgi.github.io/archive-tools-next/media/ep6-myeongseong_wide.mp4) | [promo.md](myeongseong-letters/promo.md) |
 
-## 예시 (결과물 갤러리) — 200개
+## 예시 (결과물 갤러리) — 203개
 
 | 예시 | 소장처 | 내용 | 결과물 |
 |---|---|---|---|
@@ -277,6 +280,8 @@
 | [**EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안**](hwangyunseok/) | 고창 흥덕 평해황씨 이재 황윤석 종가 (문중) | "흉년이 거듭되어 살림이 거덜 나" 밭을 판 농민의 명문, 둘째 아들에게 여종을 준 어머니, 그리고 실학자 황윤석이 옛 전서로 쓴 혼서 | [전시](hwangyunseok/exhibit.html) · [활동지](hwangyunseok/handout.html) · [카드](hwangyunseok/cards/) · [selection.csv](hwangyunseok/selection.csv) |
 | [**EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년**](geochang-hyanggyo/) | 거창 거창향교 (향교) | 전쟁 뒤 무너진 문을 고친 1636년의 기록, 젊은 선비를 기르는 양현재, 문루의 건립 연혁, 그리고 일제강점기의 중수 의연록 | [전시](geochang-hyanggyo/exhibit.html) · [활동지](geochang-hyanggyo/handout.html) · [카드](geochang-hyanggyo/cards/) · [selection.csv](geochang-hyanggyo/selection.csv) |
 | [**EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들**](queen-min-letters-2/) | 국립고궁박물관 (박물관) | 매화와 새, 대나무, 바둑판이 찍힌 편지지 | [전시](queen-min-letters-2/exhibit.html) · [활동지](queen-min-letters-2/handout.html) · [카드](queen-min-letters-2/cards/) · [selection.csv](queen-min-letters-2/selection.csv) |
+| [**EP.1 개국, 건양, 광무 — 세 해 동안 연호가 세 번 바뀐 임명장, 법부주사 유원성 1895–1906**](gyeongseongdang-gwango/) | 안산 부곡 진주류씨 경성당 (문중) | 1895년 9월, 유원성은 법부주사가 되었다. 임명장의 날짜 칸에는 '개국 504년'. 이듬해 9월, 한 등… | [전시](gyeongseongdang-gwango/exhibit.html) · [활동지](gyeongseongdang-gwango/handout.html) · [카드](gyeongseongdang-gwango/cards/) · [selection.csv](gyeongseongdang-gwango/selection.csv) |
+| [**EP.2 향로, 대야, 도마, 그리고 상여 — 법부주사 유원성이 받은 제사 당번표, 1900–1904**](gyeongseongdang-chajeong/) | 안산 부곡 진주류씨 경성당 (문중) | 법부주사 유원성의 서랍에는 손바닥만 한 종이가 스무 장 넘게 쌓였다. 보낸 곳은 모두 장례원. 1900년에는… | [전시](gyeongseongdang-chajeong/exhibit.html) · [활동지](gyeongseongdang-chajeong/handout.html) · [카드](gyeongseongdang-chajeong/cards/) · [selection.csv](gyeongseongdang-chajeong/selection.csv) |
 | [**EP.27 계약서로 쌓은 집, 강릉 선교장 300년**](seongyojang/) | 강릉 전주이씨 선교장 효령대군 후손가 (문중) | 480장의 땅 문서를 남긴 만석꾼의 집 — 1607년 무명 여덟 필로 산 논에서 일제강점기 은행 저당, 해방… | [전시](seongyojang/exhibit.html) · [활동지](seongyojang/handout.html) · [카드](seongyojang/cards/) · [selection.csv](seongyojang/selection.csv) |
 | [**EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가**](jeompiljae/) | 고령 선산김씨 점필재 김종직 종가 (문중) | 무오사화로 무덤까지 파헤쳐진 점필재 김종직 — 그 집안에 남은 진사 합격증, '문충'이라는 시호, 산지기 임… | [전시](jeompiljae/exhibit.html) · [활동지](jeompiljae/handout.html) · [카드](jeompiljae/cards/) · [selection.csv](jeompiljae/selection.csv) |
 | [**EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남**](yeoheon/) | 구미 옥산 인동장씨 여헌 장현광 종가 (문중) | 임금이 열 번 넘게 부른 산림의 학자, 그 부름에 답한 것은 종 애남의 소지였다 — 전쟁 중의 편지, 정묘호… | [전시](yeoheon/exhibit.html) · [활동지](yeoheon/handout.html) · [카드](yeoheon/cards/) · [selection.csv](yeoheon/selection.csv) |
@@ -450,6 +455,7 @@
 | [**EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606**](buan-kim-hongwon/) | 부안 우반 부안김씨 (문중) | 1588년 부안의 김홍원은 진사시에 붙었다. 4년 뒤 전쟁이 일어났다. 1598년 3월, 그에게 온 교지에는… | [전시](buan-kim-hongwon/exhibit.html) · [활동지](buan-kim-hongwon/handout.html) · [카드](buan-kim-hongwon/cards/) · [selection.csv](buan-kim-hongwon/selection.csv) |
 | [**EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660**](buan-kim-myeongyeol/) | 부안 우반 부안김씨 (문중) | 진사 김홍원은 전쟁 중 특진으로 당상관이 되어 목사까지 지냈다(EP.197). 그 집안의 김명열은 1651년… | [전시](buan-kim-myeongyeol/exhibit.html) · [활동지](buan-kim-myeongyeol/handout.html) · [카드](buan-kim-myeongyeol/cards/) · [selection.csv](buan-kim-myeongyeol/selection.csv) |
 | [**EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783**](sangnyeong-choi-baekhong/) | 남원·구례 삭녕최씨 (문중) | 1576년 2월, 남원의 최상중은 진사시에 63등으로 붙었다. 13년 뒤 '진사 최상중'은 문과 홍패를 받았… | [전시](sangnyeong-choi-baekhong/exhibit.html) · [활동지](sangnyeong-choi-baekhong/handout.html) · [카드](sangnyeong-choi-baekhong/cards/) · [selection.csv](sangnyeong-choi-baekhong/selection.csv) |
+| [**EP.200 떠나려는 군수, 붙잡는 백성 — 개천군수 유원성의 종이 네 장, 1874–1907**](gyeongseongdang-gaecheon/) | 안산 부곡 진주류씨 경성당 (문중) | 1874년, 스무 줄도 안 되는 흰 종이 한 장이 유원성의 이름을 처음 나라의 문서에 올렸다. 서른두 해 뒤… | [전시](gyeongseongdang-gaecheon/exhibit.html) · [활동지](gyeongseongdang-gaecheon/handout.html) · [카드](gyeongseongdang-gaecheon/cards/) · [selection.csv](gyeongseongdang-gaecheon/selection.csv) |
 | [**소장처 비교**](compare/) | 16곳 4,934건 | 대량 유사 연구 | ⑤ 비교 리포트(그래프) |
 
 각 예시 폴더에는 다음이 들어 있습니다.
@@ -474,7 +480,7 @@
 
 모두 문서명과 이미지에 근거한 **초안**이며, 결과물에 "초안" 표시가 붙습니다. 원문을 확인한 줄의 `검토` 칸에 `확인`을 넣으면 표시가 사라집니다.
 
-### 카드뉴스 미리보기 — 200개
+### 카드뉴스 미리보기 — 203개
 
 | 예시 | 표지 | 문서 카드 1 | 문서 카드 2 |
 |---|---|---|---|
@@ -505,6 +511,8 @@
 | EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안 | ![](hwangyunseok/cards/00_표지.jpg) | ![](hwangyunseok/cards/01.jpg) | ![](hwangyunseok/cards/02.jpg) |
 | EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년 | ![](geochang-hyanggyo/cards/00_표지.jpg) | ![](geochang-hyanggyo/cards/01.jpg) | ![](geochang-hyanggyo/cards/02.jpg) |
 | EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | ![](queen-min-letters-2/cards/00_표지.jpg) | ![](queen-min-letters-2/cards/01.jpg) | ![](queen-min-letters-2/cards/02.jpg) |
+| EP.1 개국, 건양, 광무 — 세 해 동안 연호가 세 번 바뀐 임명장, 법부주사 유원성 1895–1906 | ![](gyeongseongdang-gwango/cards/00_표지.jpg) | ![](gyeongseongdang-gwango/cards/01.jpg) | ![](gyeongseongdang-gwango/cards/02.jpg) |
+| EP.2 향로, 대야, 도마, 그리고 상여 — 법부주사 유원성이 받은 제사 당번표, 1900–1904 | ![](gyeongseongdang-chajeong/cards/00_표지.jpg) | ![](gyeongseongdang-chajeong/cards/01.jpg) | ![](gyeongseongdang-chajeong/cards/02.jpg) |
 | EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | ![](seongyojang/cards/00_표지.jpg) | ![](seongyojang/cards/01.jpg) | ![](seongyojang/cards/02.jpg) |
 | EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가 | ![](jeompiljae/cards/00_표지.jpg) | ![](jeompiljae/cards/01.jpg) | ![](jeompiljae/cards/02.jpg) |
 | EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남 | ![](yeoheon/cards/00_표지.jpg) | ![](yeoheon/cards/01.jpg) | ![](yeoheon/cards/02.jpg) |
@@ -678,8 +686,9 @@
 | EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606 | ![](buan-kim-hongwon/cards/00_표지.jpg) | ![](buan-kim-hongwon/cards/01.jpg) | ![](buan-kim-hongwon/cards/02.jpg) |
 | EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660 | ![](buan-kim-myeongyeol/cards/00_표지.jpg) | ![](buan-kim-myeongyeol/cards/01.jpg) | ![](buan-kim-myeongyeol/cards/02.jpg) |
 | EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783 | ![](sangnyeong-choi-baekhong/cards/00_표지.jpg) | ![](sangnyeong-choi-baekhong/cards/01.jpg) | ![](sangnyeong-choi-baekhong/cards/02.jpg) |
+| EP.200 떠나려는 군수, 붙잡는 백성 — 개천군수 유원성의 종이 네 장, 1874–1907 | ![](gyeongseongdang-gaecheon/cards/00_표지.jpg) | ![](gyeongseongdang-gaecheon/cards/01.jpg) | ![](gyeongseongdang-gaecheon/cards/02.jpg) |
 
-### 문구 에디팅 전과 후 — 200개 (예시마다 첫 문서)
+### 문구 에디팅 전과 후 — 203개 (예시마다 첫 문서)
 
 같은 문서가 자동 초안 → 에디팅 → 읽기 도움을 거치며 어떻게 바뀌는지 보여 줍니다. 모든 문서의 전후는 [갤러리](https://changgi.github.io/archive-tools/examples/#editing)와 각 폴더 `selection.csv`에서 볼 수 있습니다.
 
@@ -712,6 +721,8 @@
 | EP.24 흉년에 판 밭, 전서로 쓴 혼서 — 이재 황윤석 집안 | 1686년 모(母) 이씨(李氏) 분재기(分財記) | 1686년 이씨의 분재기 — 재산 상속을 기록한 문서. | 1686년 겨울, 한 어머니가 둘째 아들에게 문서를 써 준다. 큰아들에게 이미 몫을 주었으니 둘째에게도 주지 않을 수 없다는 것이다. "뒤에 낳을 자식까지 아울러 영원히 준다(後所生幷永永許給)." 증인과 붓을 잡은 사람은 남편 쪽 친척들이었다. | 어머니가 큰아들에게 이미 재산을 따로 준 만큼, 어렵게 자라 가정을 꾸린 둘째 아들에게도 여종 한 명과 그 자식을 영원히 물려준다는 문서입니다. |
 | EP.25 고을의 학교를 다시 세운 사람들 — 거창향교 300년 | 1636년 서재신문 중수기(西齋神門重修記) | 1636년 중수기. | 1636년 봄, 거창향교의 선비들이 공사 기록을 남긴다. "세월이 오래되어 비바람에 새고, 서까래가 썩고 기와가 무너져(風雨漏瀉 榱桷推朽) 고을의 선비들이 탄식했다." 새로 온 원님과 선비들이 힘을 모아 학교의 문을 다시 세웠다. 그해 겨울, 병자호란이 일어난다. | 비바람에 썩고 무너진 향교의 서재와 문을 두고 선비들이 오래 안타까워하던 중, 새로 온 현감이 수리를 의논했고, 나라의 상중에도 제사 비용을 아껴 고쳐 냈다는 기록입니다. |
 | EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | 1886년 명성황후가 민영소에게 보낸 편지 | 1886년 편지 — 편지. | 1886년, 왕비가 조카에게 편지를 쓴다. 봉투에는 초록 글씨로 '복과 장수(福壽)'가 찍혀 있고, 편지지에는 매화 가지에 앉은 새가 눌러 찍혀 있다. 첫 줄은 늘 같다. "글시 보고 야간 잘 잇던 일 든든ᄒᆞ며(편지 보고 밤사이 잘 지낸 일 든든하며)." | 늘 그렇듯 '편지 보고 든든하다, 임금과 세자는 평안하시다, 나는 그대로다'라는 안부로 시작해, 날씨와 몇 가지 일을 짧게 묻는 편지입니다. '福壽'라고 찍힌 봉투와 매화·새 무늬 편지지가 함께 남았습니다. |
+| EP.1 개국, 건양, 광무 — 세 해 동안 연호가 세 번 바뀐 임명장, 법부주사 유원성 1895–1906 | 1895년 유원성(柳遠聲) 관고(官誥) | 1895년 유원성(柳遠聲)의 관고. | 1895년 가을. 흰 종이 한 장. "유원성을 법부주사에 임명한다(柳遠聲任法部主事)." 날짜 칸에는 '개국 오백사 년'. 조선이 세워진 해부터 센 숫자다. | 1895년 유원성을 법부주사 · 판임관 7등에 임명한 관고로, 날짜가 '개국 504년'으로 적혔습니다. |
+| EP.2 향로, 대야, 도마, 그리고 상여 — 법부주사 유원성이 받은 제사 당번표, 1900–1904 | 1900년 유원성(柳遠聲) 차첩(差帖)－1 | 1900년 유원성(柳遠聲)의 차첩 — 하급 관직 임명장. | 1900년 봄. 손바닥만 한 종이 한 장. "진전 제5실 어진을 옮겨 모실 때(眞殿第五室御眞移奉)". 그 아래 맡은 일. "향로를 받드는 차비(捧香爐差備)". 법을 다루던 관원의 손에, 향로가 쥐어진다. | 1900년 진전 어진을 옮겨 모실 때 향로를 받들라고 법부주사 유원성을 차정한 장례원 차첩입니다. |
 | EP.27 계약서로 쌓은 집, 강릉 선교장 300년 | 매도계약서(賣渡契約書) | 1959년 매도계약서. | 그리고 해방 뒤, 이 집은 땅을 판다. "매도 대금 80만 환(賣渡代金八拾萬圜整), 계약금 10만 환은 오늘 받고." 갑과 을, 계약금, 위약금. 1607년의 명문과 같은 일을 하는 문서지만, 이제 우리가 아는 계약서의 모습이다. 땅을 사 모으던 집이, 문서로 남긴 300년이다. | 선교장 집안이 강릉 운정리(?)의 논 약 2,500평을 80만 환에 팔면서, 계약금 10만 환과 잔금 70만 환의 지급 조건을 적은 현대식 매도 계약서입니다. |
 | EP.28 무덤까지 화를 입은 스승, 그 뒤의 300년 — 점필재 김종직 종가 | 1568년 김뉴(金紐) 진사 백패(進士白牌) | 1568년 김뉴의 백패 — 소과(생원·진사시) 합격 증서. | 1498년 무오사화. 세상을 떠난 지 6년 된 김종직의 무덤이 파헤쳐진다. 70년 뒤, 그 집안에 흰 종이 한 장이 온다. "유학 김뉴, 진사 2등 제16인 합격(進士二等第十六人入格)." 집안이 다시 과거장에 나선 것이다. | 점필재 집안의 김뉴가 진사시에 2등 16번째로 합격했음을 증명하는 흰 종이의 합격증입니다. |
 | EP.29 "상전께서 병이 깊어 올라가지 못합니다" — 여헌 장현광과 종 애남 | 1597년 여헌선생수찰(旅軒先生手札) | 1597년 여헌선생수찰. | 전쟁이 아직 끝나지 않은 봄, 젊은 학자 장현광이 산속의 벗에게 편지를 쓴다. "고요하고 한가한 가운데 책을 읽고, 몸과 집안의 법도를 세우는 것, 이것이 참된 사업입니다(此乃眞事業也)." 그는 평생 그 말대로 살았다. | 전쟁 중 산속에 사는 벗에게 봄 경치와 안부를 묻고, '고요한 가운데 책을 읽고 몸과 집안의 법도를 세우는 것이 참된 사업'이라고 권한 편지입니다. |
@@ -885,6 +896,7 @@
 | EP.197 '특별히 당상에 올린다' — 전쟁 중의 진사 김홍원, 1588–1606 | 1588년 김홍원(金弘遠) 진사 백패(進士白牌) | 1588년 김홍원(金弘遠)의 백패 — 소과(생원·진사시) 합격 증서. | 1588년 봄, 부안. 흰 종이 한 장. "유학 김홍원을 진사 3등 제57인으로 입격시킨다(幼學金弘遠進士三等第五十七人入格者)." 선비의 자격. 네 해 뒤, 전쟁이 온다. | 1588년 김홍원이 진사시 3등 제57인으로 입격하고 받은 백패입니다. |
 | EP.198 할아버지의 목사 자리에서 손자의 현감 자리까지 — 김명열의 홍패와 고신, 1651–1660 | 1651년 김명열(金命說) 문과 홍패(文科紅牌) | 1651년 홍패 — 문과·무과 합격 증서. | 1651년 겨울, 부안. 붉은 종이 한 장. "유학 김명열을 문과 병과 제13인으로 급제 출신시킨다(幼學金命說文科丙科第十三人及第出身者)." 이 집안에 문과 홍패가 온 것은 백오십 년 만이다. | 1651년 유학 김명열이 문과 병과 제13인으로 급제하고 받은 홍패입니다. |
 | EP.199 흰 종이 한 장에서 시작한 207년 — 삭녕최씨의 백패와 홍패, 1576–1783 | 1576년 최상중(崔尙重) 진사 백패(進士白牌) | 1576년 최상중(崔尙重)의 백패 — 소과(생원·진사시) 합격 증서. | 1576년 봄, 남원. 흰 종이 한 장. "유학 최상중을 진사 3등 제63인으로 입격시킨다(幼學崔尙重進士三等第六十三人入格者)." 일흔 명 가운데 예순세 번째. 그래도 그 이름은 붙었다. | 1576년 최상중이 진사시 3등 제63인으로 입격하고 받은 백패입니다. |
+| EP.200 떠나려는 군수, 붙잡는 백성 — 개천군수 유원성의 종이 네 장, 1874–1907 | 1874년 유원성(柳遠聲) 생원 백패(生員白牌) | 1874년 유원성(柳遠聲)의 백패 — 소과(생원·진사시) 합격 증서. | 1874년 여름. 흰 종이 한 장. "유학 유원성을 생원 3등 제61인으로 입격시킨다(幼學柳遠聲生員三等第六十一人入格者)." 벼슬 없는 선비의 이름이, 처음 나라의 종이에 올랐다. | 1874년 유원성이 생원시 3등 제61인으로 입격하고 받은 백패로, 그의 이름이 처음 나라 문서에 오른 종이입니다. |
 
 `검토` 칸을 비워 두면 모든 결과물에 **"초안 — 원문 확인 전"** 표시가 붙습니다. 원문을 확인한 줄에만 `확인`을 넣으면 그 표시가 사라집니다.
 

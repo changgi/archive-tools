@@ -74,7 +74,7 @@ for rec in sorted(glob.glob(R + '*/record.json')):
         'thumbnail': canvases[0]['thumbnail'] if canvases else [],
         'items': canvases}
     nchg += put(f'{OUT}/{f}/manifest.json', json.dumps(man, ensure_ascii=False, indent=1).encode())
-    coll_items.append((ep if ep is not None else -1, {'id': murl, 'type': 'Manifest', 'label': L(label), 'thumbnail': man['thumbnail']}))
+    coll_items.append((ep if ep is not None else 10**6, {'id': murl, 'type': 'Manifest', 'label': L(label), 'thumbnail': man['thumbnail']}))
     eps.append({'ep': ep, 'f': f, 't': title, 'c': ctx.get('holder') or ctx.get('collection', ''), 'k': KIND.get(f, '문중'), 'd': docs})
 
 coll_items.sort(key=lambda x: x[0])
@@ -83,7 +83,7 @@ coll = {'@context': 'http://iiif.io/api/presentation/3/context.json', 'id': BASE
         'requiredStatement': MV('출처 · 권리', f'고문서 이미지: 한국학중앙연구원 한국고문서자료관 소장 · 제공(각 소장처 기탁). 다시 쓰려면 자료관을 통한 소장처 동의가 필요하며, 문제가 있으면 내립니다. 엮은이: {CREDIT}'),
         'items': [x[1] for x in coll_items]}
 nchg += put(f'{OUT}/collection.json', json.dumps(coll, ensure_ascii=False, indent=1).encode())
-eps.sort(key=lambda e: (e['ep'] is not None, e['ep'] or 0, e['f']))  # 기획 예시(편 번호 없음) 3편을 맨 앞에 — 1편부터 차례로
+eps.sort(key=lambda e: (e['ep'] is None, e['ep'] or 0, e['f']))  # EP.1–EP.200 차례로, 편 번호 없는 기획 예시 3편은 맨 뒤
 data = json.dumps({'base': BASE, 'eps': eps}, ensure_ascii=False, separators=(',', ':')).encode()
 nchg += put(R + 'viewer-data.json', data)
 print(f'■ IIIF: 편 {len(eps)}개 · 문서 {nimg}건 · 이미지 {nbytes/1e6:.0f}MB · 바뀐 파일 {nchg}개 · viewer-data {len(data)/1e6:.1f}MB → {BASE}collection.json')

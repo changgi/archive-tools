@@ -13,11 +13,11 @@
 | 하려는 일 | 바로 가기 |
 |---|---|
 | 👀 구경하기 | [갤러리 첫 화면](https://changgi.github.io/archive-tools/examples/) · [「고문서 한 장」 200편](https://changgi.github.io/archive-tools/examples/#browse) · [1분 소개 릴스](https://changgi.github.io/archive-tools/examples/#series) |
-| 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 736건 · 소장처 133곳 · 1403–2000년 · 판독 한자 43,838자 · 원문 인용 748곳 |
+| 📊 전체를 한 장에 | [**통합 분석**](https://changgi.github.io/archive-tools/examples/analysis.html) — 문서 726건 · 소장처 131곳 · 1403–2000년 · 판독 한자 44,093자 · 원문 인용 763곳 |
 | 🌏 English | [English overview](https://changgi.github.io/archive-tools/examples/en.html) — what the series is and how to explore it |
 | 📦 데이터 | [전체 데이터 묶음 ZIP](https://changgi.github.io/archive-tools/examples/data.zip) — 판독 · 번역 · 해제 · 노트 · 분석 집계(이미지 없음) |
-| 🔎 찾기 | [전체 검색](https://changgi.github.io/archive-tools/examples/search.html) — 문서 736건의 판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자로 · [문서 유형 사전](https://changgi.github.io/archive-tools/examples/types.html) |
-| 🗂️ 모아 보기 | [종이에 적힌 문장 748곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [인물 찾아보기 256명](https://changgi.github.io/archive-tools/examples/people.html) — 광해군 · 이언적 · 박의장처럼 여러 편에 걸친 인물 · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
+| 🔎 찾기 | [전체 검색](https://changgi.github.io/archive-tools/examples/search.html) — 문서 726건의 판독 · 번역 · 해제 · 이야기 전문에서 낱말 · 한자로 · [문서 유형 사전](https://changgi.github.io/archive-tools/examples/types.html) |
+| 🗂️ 모아 보기 | [종이에 적힌 문장 763곳](https://changgi.github.io/archive-tools/examples/quotes.html) · [전체 연표](https://changgi.github.io/archive-tools/examples/timeline.html) · [인물 찾아보기 258명](https://changgi.github.io/archive-tools/examples/people.html) — 광해군 · 이언적 · 박의장처럼 여러 편에 걸친 인물 · [남겨 둔 질문 카드(인쇄용)](https://changgi.github.io/archive-tools/examples/questions.html) |
 | ✍️ 함께 고치기 | 갤러리 「원문 읽기」 · 전시 웹페이지의 「판독 고침 제보」 → GitHub 이슈 · [기여 안내](CONTRIBUTING.md) |
 | ✅ 원본과 대조하기 | [검토 현황](https://changgi.github.io/archive-tools/examples/review.html) 「검토 기록하기」에서 대조한 문서에 표시 → `reviews.csv` 내려받기 → 이슈로 보내거나 `studio.py review --from` |
 | 📜 원문 읽기 | 편마다 판독 · 번역 · 해제 · 요약 · "현대어(原文)" 이야기 (갤러리 각 편 「원문 읽기」) |
@@ -49,6 +49,8 @@
 
 📜 **원문으로 읽는 이야기 38편 더 (EP.101–EP.138):** 섬마을 훈장의 통정대부 · 해남 김선지의 임진년 고신 · 묵재 이문건의 『양아록』 · 술과 음식의 한글 책 「쥬식방문」 · 단종의 조카가 받은 사패 · 1910년 8월 28일의 마지막 칙명 · 굶주린 해 서천 군수의 유서 · 제주 9편(급제 60년의 회방 홍패 · 말 열 필과 선산 · 아버지와 아들의 같은 시험 · 흉년의 납속 · "해유에 흠이 없다") · 장서각의 왕실 문서(왕자 시절 영조의 교지 · 정조의 암행어사 봉서와 "밥을 먹다가 수저를 멈추었다" · 궁녀 엄씨의 교지) · 경주 이씨 집안의 혼서와 대한제국 호적표 외 → [보기](https://changgi.github.io/archive-tools/examples/)
 
+📜 **EP.1 · EP.2 · EP.200 — 처음과 끝을 한 사람으로:** 시리즈 번호를 EP.1–EP.200으로 맞췄습니다. 법부주사 유원성이 1895–1906년 받은 임명장(연호가 개국 · 건양 · 광무로 바뀐 세 장과 개천군수 칙명), 장례원이 보낸 제사 차첩(향로 · 대야 · 도마 · 상여), 그리고 1907년 개천 군민이 떠난 군수를 붙잡으려 올린 원류소. 소개 영상 두 편과 편 번호 전에 만든 기획 예시 세 편은 번호 없이 갤러리에 그대로 있습니다.
+
 📜 **원문으로 읽는 이야기 61편 더 (EP.139–EP.199) — 「고문서 한 장」 200편 완성:** 효장세자 어머니 이씨의 교지 · 제주 강씨 집안의 준호구 · 혼서 · 분재기 · 망기 · 최진립의 고신과 추증 · 1887년 산송과 산도 · 김훤을 부른 유지와 말 하사 첩자 · 1905년 고원의 고목 · 경무감옥서의 붉은 서식 · 예조 계후입안 · 강릉 민유산림약도 · 1919년 선산 청원서 · 같은 날 두 아내의 교지 · 시호가 정해지기까지 · 중종반정 전후의 이조정랑 · 특승당상 외 → [200편 한 페이지](https://changgi.github.io/archive-tools/examples/200.html) · [연속 보기 · IIIF 뷰어](https://changgi.github.io/archive-tools/examples/viewer.html)
 
 🗃️ **기록 꾸러미 · 제작 도구 공개:** 편마다 맥락 · 출처 · 파생물 · SHA-256 고정값 · 검증 · 검토 · 작업 이력을 담은 `record.json`과 전체 목록([records.jsonl](https://changgi.github.io/archive-tools/examples/records.jsonl) · [Dublin Core CSV](https://changgi.github.io/archive-tools/examples/records-dc.csv)), 푸시마다 고정값 대조(CI) — [설명](plugins/aks-archive-harvester/skills/aks-archive-harvester/references/records.md). 이 시리즈를 만든 스크립트와 원고는 [`tools/series/`](tools/series/README.md)에 그대로 공개해 누구나 다시 만들 수 있습니다.
@@ -65,7 +67,7 @@
 
 명령을 하나씩 따라 하는 예제는 [`examples/tutorial/README.md`](examples/tutorial/README.md)(전 과정)와 [`examples/README.md`](examples/README.md)에 있습니다.
 
-🎬 **홍보 영상:** [EP.1 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [EP.2 만든 것 보기(48초)](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · EP.3–EP.6 예시 세트 영상은 [예시 README](examples/README.md#예시-세트-영상-ep3ep6) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)
+🎬 **홍보 영상:** [소개 1 · 흩어진 기록을, 다시 이야기로(83초)](https://changgi.github.io/archive-tools-next/media/promo-reel.mp4) · [소개 2 · 만든 것 보기(48초)](https://changgi.github.io/archive-tools-next/media/promo-reel-ep2.mp4) · EP.3–EP.6 예시 세트 영상은 [예시 README](examples/README.md#예시-세트-영상-ep3ep6) · 이미지 출처: 한국학중앙연구원 한국고문서자료관(이미지 재사용은 자료관 문의, 소장처 동의 필요)
 
 ## 설치
 

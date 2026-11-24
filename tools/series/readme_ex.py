@@ -41,7 +41,7 @@ s = ins(s, '| EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | ![](que
 s = ins(s, '| EP.26 꽃 편지지에 쓴 왕비의 마지막 편지들 | 1886년 명성황후가 민영소에게 보낸 편지', rows_ed)
 last = J[-1]['meta']['ep'] if J else 26; n = 27 + len(J)
 s = re.sub(r'원문으로 읽는 이야기 \(EP\.17–EP\.\d+\)', f'원문으로 읽는 이야기 (EP.17–EP.{last})', s)
-s = re.sub(r'EP\.03–EP\.\d+\)는', f'EP.03–EP.{last})는', s)
+s = re.sub(r'EP\.0[13]–EP\.\d+\)는', f'EP.{J[0]["meta"]["ep"]:02d}–EP.{last})는', s)
 s = re.sub(r'예시 \(결과물 갤러리\) — \d+개', f'예시 (결과물 갤러리) — {n}개', s)
 s = re.sub(r'카드뉴스 미리보기 — \d+개', f'카드뉴스 미리보기 — {n}개', s)
 s = re.sub(r'(?:문구 )?에디팅 전과 후 — \d+개', f'문구 에디팅 전과 후 — {n}개', s)

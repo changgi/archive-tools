@@ -245,7 +245,7 @@ if __name__ == '__main__':
             assert s2 != s or c in s, p
             open(p, 'w', encoding='utf-8').write(s2)
     json.dump(out, open((P.DATA + '/captions.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-    md = f'# 릴스 홍보 문구 — 「고문서 한 장」 EP.03–EP.{max(v["n"] for v in out.values())}\n\n' + '\n\n'.join(f"## EP.{v['n']:02d} {v['title']}\n\n```\n{v['caption']}\n```" for v in out.values()) + '\n'
+    md = f'# 릴스 홍보 문구 — 「고문서 한 장」 EP.{min(v["n"] for v in out.values()):02d}–EP.{max(v["n"] for v in out.values())}\n\n' + '\n\n'.join(f"## EP.{v['n']:02d} {v['title']}\n\n```\n{v['caption']}\n```" for v in sorted(out.values(), key=lambda v: v['n'])) + '\n'
     open('/mnt/user-data/outputs/릴스_홍보문구_EP03-100.md', 'w', encoding='utf-8').write(md)
     open(R + 'media/reels-captions.md', 'w', encoding='utf-8').write(md)
     print(len(out), max(len(v['caption']) for v in out.values()))

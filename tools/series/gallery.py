@@ -46,9 +46,9 @@ def dur(p):
     return round(float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', P.media_file(os.path.basename(p)) if p.endswith('.mp4') else R + p])))
 
 # ---- 영상 슬라이드 ----
-V = [dict(ep=1, id='promo-reel', title='흩어진 기록을, 다시 이야기로', sub='임명장 한 장에서 시작해 ① 수집부터 ⑤ 패키징까지', group='intro',
+V = [dict(ep=None, n=1, id='promo-reel', title='흩어진 기록을, 다시 이야기로', sub='임명장 한 장에서 시작해 ① 수집부터 ⑤ 패키징까지', group='intro',
           reel='media/promo-reel.mp4', rposter='media/promo-reel-poster.jpg', vtt='media/promo-reel.ko.vtt', srt='media/promo-reel.ko.srt'),
-     dict(ep=2, id='promo-reel-ep2', title='만든 것 보기', sub='말 한마디로 만든 전시·카드뉴스·활동지, 에디팅 전후, 두 집안 비교', group='intro',
+     dict(ep=None, n=2, id='promo-reel-ep2', title='만든 것 보기', sub='말 한마디로 만든 전시·카드뉴스·활동지, 에디팅 전후, 두 집안 비교', group='intro',
           reel='media/promo-reel-ep2.mp4', rposter='media/promo-reel-ep2-poster.jpg', vtt='media/promo-reel-ep2.ko.vtt', srt='media/promo-reel-ep2.ko.srt')]
 for k, c in sorted(caps.items(), key=lambda x: x[1]['n']):
     ex = next((e for e in EX if e['folder'] == c['folder']), None)
@@ -65,7 +65,7 @@ for v in V:
 # 카드뉴스 데이터
 import csv
 EDITS = []
-for e in sorted([e for e in EX if not e['ep']], key=lambda e: e['folder']) + sorted([e for e in EX if e['ep']], key=lambda e: e['ep']):
+for e in sorted([e for e in EX if e['ep']], key=lambda e: e['ep']) + sorted([e for e in EX if not e['ep']], key=lambda e: e['folder']):  # EP.1–EP.200, 그다음 기획 예시
     rows = list(csv.DictReader(open(R + e['folder'] + '/selection.csv', encoding='utf-8-sig')))
     out = []
     for r in rows:
@@ -74,7 +74,7 @@ for e in sorted([e for e in EX if not e['ep']], key=lambda e: e['folder']) + sor
         out.append(dict(n=r['순서'], d=r['문서명'], b=before, a=r['이야기'] or r['캡션'], h=r.get('해제', ''), y=r.get('요약', '')))
     EDITS.append(dict(f=e['folder'], t=(f"EP.{e['ep']} " if e['ep'] else '') + re.sub('<.*?>', '', e['h3']), r=out))
 CARDS = []
-order = [e for e in EX if not e['ep']] + sorted([e for e in EX if e['ep']], key=lambda e: e['ep'])
+order = sorted([e for e in EX if e['ep']], key=lambda e: e['ep']) + [e for e in EX if not e['ep']]  # 기획 예시는 맨 뒤
 for e in order:
     fs = sorted(f for f in os.listdir(R + e['folder'] + '/cards') if f.endswith('.jpg'))
     fs = [f for f in fs if f.startswith('00')] + [f for f in fs if not f.startswith(('00', '99'))] + [f for f in fs if f.startswith('99')]
@@ -83,14 +83,14 @@ for e in order:
 
 # ---------------------------------------------------------------- 인터랙티브 갤러리 (에피소드 격자 + 상세 보기 창)
 GHB = 'https://github.com/changgi/archive-tools/blob/main/examples/'
-GROUPS = [('intro', '소개'), ('set', '예시 EP.03–06'), ('story', '이야기 EP.07–16'), ('read', '원문으로 읽기 EP.17–26'), ('read2', '원문으로 읽기 EP.27–50'), ('read3', '원문으로 읽기 EP.51–100'), ('read4', '원문으로 읽기 EP.101–')]
+GROUPS = [('intro', '소개'), ('set', '예시 EP.01–06'), ('story', '이야기 EP.07–16'), ('read', '원문으로 읽기 EP.17–26'), ('read2', '원문으로 읽기 EP.27–50'), ('read3', '원문으로 읽기 EP.51–100'), ('read4', '원문으로 읽기 EP.101–')]
 EDIT_BY = {e['f']: e['r'] for e in EDITS}
 CARD_BY = {c['f']: c['c'] for c in CARDS}
-VBY = {v['ep']: v for v in V}
+VBY = {v['ep']: v for v in V if v['ep']}  # 소개 영상(편 번호 없음)은 빼고 — EP.1·EP.2는 문서 편
 ITEMS = []
 for v in V:
     if v['group'] == 'intro':
-        ITEMS.append(dict(key=f"ep{v['ep']}", ep=v['ep'], t=v['title'], k='소개', who=v['sub'], d=v['sub'], g='intro', cover=v['rposter'], v=v))
+        ITEMS.append(dict(key=f"intro{v['n']}", ep=None, t=v['title'], k='소개', who=v['sub'], d=v['sub'], g='intro', cover=v['rposter'], v=v))
 for e in order:
     v = VBY.get(e['ep']) if e['ep'] else None
     g = v['group'] if v else ('read4' if (e['ep'] or 0) > 100 else 'read3' if (e['ep'] or 0) > 50 else 'read2' if (e['ep'] or 0) > 26 else ('read' if (e['ep'] or 0) > 16 else 'set'))
@@ -235,10 +235,11 @@ table.ed{min-width:820px;font-size:14px}table.ed td{line-height:1.6}table.ed th{
 @media (prefers-reduced-motion:reduce){html,.cdtrack{scroll-behavior:auto}.ep,.ep img{transition:none}}
 '''
 head2 = head.replace('.grid{', '.grid0{').rstrip() + CSS
-latest = max((i for i in ITEMS if i.get('wide')), key=lambda i: i['ep'])
+latest = max((i for i in ITEMS if i.get('wide')), key=lambda i: i['ep'] or 0)
 e_ = html.escape
 nav = '''<nav class="topnav" aria-label="바로 가기"><b>ARCHIVE TOOLS</b><a href="#map">한눈에 보기</a><a href="search.html">전체 검색</a><a href="viewer.html">연속 보기</a><a href="200.html">200편</a><a href="analysis.html">통합 분석</a><a href="#why">만든 이유</a><a href="#series">비하인드</a><a href="#outputs">결과물 바로가기</a><a href="#browse">에피소드</a><a href="#compare">소장처 비교</a><a href="#try">직접 해 보기</a><a href="tutorial/site/index.html">따라하기 예제</a><a href="about.html">기획 노트</a><a href="promote.html">홍보 가이드</a><a href="use.html">활용 가이드</a><a href="https://github.com/changgi/archive-tools">GitHub</a><a href="en.html" lang="en" hreflang="en">English</a></nav>'''
-NEP = len([i for i in ITEMS if i.get('f')]); NDOC = sum(len(i.get('edits', [])) for i in ITEMS); NCARD = sum(len(i.get('cards', [])) for i in ITEMS)
+NEP = len([i for i in ITEMS if i.get('f') and i.get('ep')]);  # 「고문서 한 장」 EP.1–EP.200 (기획 예시 3편은 따로)
+NDOC = sum(len(i.get('edits', [])) for i in ITEMS if i.get('ep')); NCARD = sum(len(i.get('cards', [])) for i in ITEMS if i.get('ep'))
 NBH = len(glob.glob(R + '*/behind/*.jpg'))
 NREV = sum(1 for f in glob.glob(R + '*/selection.csv') for r in csv.DictReader(open(f, encoding='utf-8-sig')) if (r.get('검토') or '').strip())
 import sys as _s; _s.path.insert(0, (P.REPO + '/plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts')); import analysis as _AN
@@ -355,7 +356,7 @@ body = f'''{nav}
   <div class="tools">
     <input type="search" id="q" placeholder="검색 — 제목 · 소장처 · 인물 · 문서 · 원문 이야기" aria-label="에피소드 검색"><a class="btn" id="fts" href="search.html">원문 전문에서 찾기 →</a>
     <div class="chips" id="kinds" role="group" aria-label="소장처 유형"><button class="chip" type="button" data-k="" aria-pressed="true">전체<small>{len(ITEMS)}</small></button>{"".join(f'<button class="chip" type="button" data-k="{k}" aria-pressed="false">{k}<small>{kcount[k]}</small></button>' for k in KINDS if kcount[k])}</div>
-    <select id="grp" aria-label="묶음"><option value="">모든 묶음</option>{"".join(f'<option value="{g}">{t} ({gcount[g]})</option>' for g, t in GROUPS if gcount[g])}<option value="base">기본 예시 (영상 없음)</option></select>
+    <select id="grp" aria-label="묶음"><option value="">모든 묶음</option>{"".join(f'<option value="{g}">{t} ({gcount[g]})</option>' for g, t in GROUPS if gcount[g])}<option value="base">기획 예시 (편 번호 없음 · 영상 없음)</option></select>
     <select id="sort" aria-label="정렬"><option value="new">최신 편부터</option><option value="old">첫 편부터</option></select>
     <label class="ck"><input type="checkbox" id="onlyv"> 영상 있는 것만</label>
     <span class="count" id="cnt"></span>

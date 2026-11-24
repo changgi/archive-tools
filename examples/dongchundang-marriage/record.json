@@ -341,6 +341,7 @@
  },
  "relations": {
   "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
+  "previous": "gyeongseongdang-gaecheon",
   "next": "dongchundang-songjungil",
   "derived_from": [
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0130%5EL013001%5EL013001F02%5EL013001F0204&dataId=G002%2BAKS%2BKSM-XD.1681.3023-20101008.B058a_083_00241_XXX&itemType=",

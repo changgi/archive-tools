@@ -39,18 +39,29 @@ QU = [  # (편 폴더, 문서 번호, 현대어, 원문, 편)
     ('cheonsang-gyehu', 4, '주는 사람은 있는데 받을 사람이 없어', '與者有之而受者無人', 'EP.183 · 1759'),
 ]
 D, C, Y0, Y1, H = A['docs'], A['colls'], A['span'][0], A['span'][1], A['reading']['hanja']
+def kn(n):
+    """숫자 → 한자어 수 읽기(만 단위까지) — tts용"""
+    D1 = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구']
+    def four(x):
+        o = ''
+        for v, u in ((1000, '천'), (100, '백'), (10, '십'), (1, '')):
+            q = x // v % 10
+            if q: o += ('' if q == 1 and u else D1[q]) + u
+        return o
+    if n == 0: return '영'
+    m, r = divmod(n, 10000)
+    return ((four(m) if m > 1 else '') + '만 ' if m else '') + four(r)
 LINES = [
     dict(scene='title', text='옛 문서 한 장을, 원문으로 읽었습니다.', tts='옛 문서 한 장을, 원문으로 읽었습니다.'),
     dict(scene='mosaic', text='그렇게 200편.', tts='그렇게, 이백 편.'),
-    dict(scene='mosaic', text=f'문중과 서원, 향교와 사찰 — 소장처 {C}곳.', tts='문중과 서원, 향교와 사찰. 소장처 백서른세 곳.'),
-    dict(scene='nums', text=f'문서 {D}건, {Y0}년부터 {Y1}년까지.', tts='문서 칠백삼십육 건. 천사백삼 년부터, 이천 년까지.'),
-    dict(scene='nums', text=f'읽은 한자 {H:,}자.', tts='읽은 한자, 사만 삼천팔백삼십팔 자.'),
+    dict(scene='mosaic', text=f'문중과 서원, 향교와 사찰 — 소장처 {C}곳.', tts=f'문중과 서원, 향교와 사찰. 소장처 {kn(C)} 곳.'),
+    dict(scene='nums', text=f'문서 {D}건, {Y0}년부터 {Y1}년까지.', tts=f'문서 {kn(D)} 건. {kn(Y0)} 년부터, {kn(Y1)} 년까지.'),
+    dict(scene='nums', text=f'읽은 한자 {H:,}자.', tts=f'읽은 한자, {kn(H)} 자.'),
 ] + [dict(scene='theme', key=i, text=t, tts=s) for i, (t, s, _) in enumerate(TH)] + [
     dict(scene='quote', key=i, text=f'"{q[2]}"', tts=q[2] + '.') for i, q in enumerate(QU)] + [
     dict(scene='end', text='못 읽은 글자는 □로, 모르는 것은 모른다고 남겼습니다.', tts='못 읽은 글자는 네모로, 모르는 것은, 모른다고 남겼습니다.'),
     dict(scene='end', text='다음 종이는, 어느 집 서랍에서 나올까요?', tts='다음 종이는, 어느 집 서랍에서 나올까요?'),
 ]
-assert H == 43838 and D == 736 and C == 133, '숫자가 바뀌면 tts 읽기도 고칠 것'
 
 def tts_all():
     import certifi
@@ -84,7 +95,7 @@ TL[0]['lines'] = [(a + .6, b + .6, x, i) for a, b, x, i in TL[0]['lines']]
 TL[-1]['dur'] += 3.2; TOTAL = TL[-1]['start'] + TL[-1]['dur']
 
 # ---- 이미지
-EPS = VD['eps']
+EPS = sorted([e for e in VD['eps'] if e.get('ep')], key=lambda e: e['ep'])  # EP.1–EP.200
 def thumb(f, n=1): return Image.open(f'{IIIF}/{f}/thumb/{n:02d}.jpg').convert('RGB')
 def full(f, n=1): return Image.open(f'{IIIF}/{f}/{n:02d}.jpg').convert('RGB')
 THUMBS = [thumb(e['f']) for e in EPS]

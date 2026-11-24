@@ -94,48 +94,48 @@
    "role": "자막(SRT)",
    "kind": "caption",
    "format": "application/x-subrip",
-   "bytes": 2237,
-   "sha256": "b12663a0df9bfeb5799a20e6c7999b2062964effb7c29395b1b8b08bfaba9ce3"
+   "bytes": 2147,
+   "sha256": "9d9c1a01248247b27f59c24c1b5adab10bbc73a626786dc809d1a412fa752f61"
   },
   {
    "path": "../media/ep199-sangnyeong-choi-baekhong.ko.vtt",
    "role": "자막(WebVTT)",
    "kind": "caption",
    "format": "text/vtt",
-   "bytes": 2245,
-   "sha256": "e9bdf2c928449830444c697b7eed77acc56a280972a6d9ea08bd3d8cd1839f4a"
+   "bytes": 2155,
+   "sha256": "9e0c4ebed268083e27186b7663f3f24c247467aecdff0a3182d014334c6d859a"
   },
   {
    "path": "../media/ep199-sangnyeong-choi-baekhong_reel-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
    "format": "image/jpeg",
-   "bytes": 53789,
-   "sha256": "099e4e0ab36ad39490406348c78d4a1092f94222e9a8998b045df5214fbd5fbf"
+   "bytes": 53792,
+   "sha256": "8e4982b4130105fba3897c3b23be1cb684aaa66121a4367480e7094164532bc3"
   },
   {
    "path": "../media/ep199-sangnyeong-choi-baekhong_wide-poster.jpg",
    "role": "영상 포스터",
    "kind": "image",
    "format": "image/jpeg",
-   "bytes": 45152,
-   "sha256": "5aef010ad2dea023f5d6683a041b721278fab69c364be3cc26335600a6c6f8bc"
+   "bytes": 45160,
+   "sha256": "8407e6904505ea411d4da883ffb92054498070ddaa36f336cd83291ebbce7fc5"
   },
   {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 12391,
-   "sha256": "f6d1dba8a0b73928ea01889fe4e25b5f298cf4d0a5e83f79aa5cfd0a232250bd"
+   "bytes": 12366,
+   "sha256": "cb10745cc5e880e204eee26358dbf005646679787d41d767b6295f0f6f952b66"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
    "role": "비하인드 카드",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 167709,
-   "sha256": "aaa6b719d55d24b4f8774b59ce0caf26222ca7b83f6652b20609a33863caa3a5"
+   "bytes": 176931,
+   "sha256": "39cf76a9d5f664e7c5b107ed813442fd15eaf1cd970cda153cb7f1dff4f7ac24"
   },
   {
    "path": "behind/b2_만들며있었던일.jpg",
@@ -150,8 +150,8 @@
    "role": "비하인드 카드",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 98019,
-   "sha256": "00893ad043e8131564f41f7b8a2b8d458543df5f7d0af725a8578721cc87dbdc"
+   "bytes": 103772,
+   "sha256": "0b11e3a8e88f79fbf3c1264b4837185f51a46b584f68391f092489e167d1e820"
   },
   {
    "path": "cards/00_표지.jpg",
@@ -190,8 +190,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 135203,
-   "sha256": "e9d57f5c5d9bd6c894e7aac760bcff1e6302f61afc5bbb3e72d04f13d9e6129d"
+   "bytes": 133502,
+   "sha256": "d5bbaff46fd83770ec4e38f6597bf030e6fa7340c733bcc6ec3b83894bc7eedc"
   },
   {
    "path": "cards/99_마무리.jpg",
@@ -206,64 +206,64 @@
    "role": "채널별 홍보안",
    "kind": "promotion",
    "format": "text/markdown",
-   "bytes": 8524,
-   "sha256": "c7d2002f3202535cdfb37680b34523e762e4eb2aff8ef1c31e43fe9cd085afd7"
+   "bytes": 8560,
+   "sha256": "32a3b5ff62a496d53c4d03238498ebfc73189c96d0d627578353359fcd7ad8d6"
   },
   {
    "path": "curator.md",
    "role": "큐레이터 노트",
    "kind": "note",
    "format": "text/markdown",
-   "bytes": 1777,
-   "sha256": "a12e47f9343e44836c2f32d4c2e80b8de64708845aaa53b4e0ca8ba662ed2682"
+   "bytes": 1789,
+   "sha256": "51f3e6c5fbb401bee3924d3f825297f9e73c0f3346acf659cb98a3052cbdbdae"
   },
   {
    "path": "delivery.md",
    "role": "전달 에디팅",
    "kind": "note",
    "format": "text/markdown",
-   "bytes": 2601,
-   "sha256": "7d40d1e5b1c94e104d80c95bc5775987fbbf27d9aa373fabb29716bd45307b1e"
+   "bytes": 2620,
+   "sha256": "204cb302b54c5c11216a4a0d64ba9c13b532ffbfd23a10e8cb90969e5f4fd0fe"
   },
   {
    "path": "exhibit.html",
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 949991,
-   "sha256": "ab350bb4b1d0a28532d125409a0c7c934239cb3f609cf8a1cf7040b5c32bea82"
+   "bytes": 949966,
+   "sha256": "389627880249c5081348d97482430549ccd8f91a7344fdee224e768de9b8e03c"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 445834,
-   "sha256": "189a41acafa86ee1012c6a63efa669a5f5d4d70977b7cd1f4d686e3cd14d8d1d"
+   "bytes": 445846,
+   "sha256": "9d72c30988bf63d8b3418c82a3110fe5bef3254a04b6618f236bb9eb469f55ce"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_reel.mp4",
    "role": "릴스 영상(9:16)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1723997,
-   "sha256": "66d88453af81e8e80dc4ec9af6a9739c4b8cc87c47487596b494f19c7c76b06d"
+   "bytes": 1718939,
+   "sha256": "0173ed8290fea7342bf0dc68812fa36e5fa34e0c116b39c21dd2c2569f8245e0"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_wide.mp4",
    "role": "가로 영상(16:9)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1780724,
-   "sha256": "1c2927c43acb9d808e2954ccf11999844cd4c5bbe91b1f868c917874a1635ac8"
+   "bytes": 1770587,
+   "sha256": "7ed64deff241120dec611fef17d47ab7fb3c59809baa0034a78c73408ec78049"
   },
   {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
    "format": "text/markdown",
-   "bytes": 5070,
-   "sha256": "231782690f0fef087d4b1ebe5a169a0d7027e93eb60acf1760175ea3fd745d85"
+   "bytes": 5310,
+   "sha256": "40136057225afde42738f08ee67769ea2b3b31d9f3365ccb9f5b8528befa4479"
   },
   {
    "path": "proof.html",
@@ -278,8 +278,8 @@
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 6824,
-   "sha256": "c4631af619c9726c113a19694555bd73db2eeb6e6d1bfb26fbb1099b5552625a"
+   "bytes": 6768,
+   "sha256": "6f712103ac31cad4198f33c905aa4be2ed9e93b2cc87f88ac863e3a194b57838"
   },
   {
    "path": "sns.txt",
@@ -287,7 +287,7 @@
    "kind": "promotion",
    "format": "text/plain",
    "bytes": 1413,
-   "sha256": "e9d7f7a26a91038f4fce6741dba0a0243a4706f8f94df781e608157842e26a3e"
+   "sha256": "e0517462830446c6a414d63f466f1dd28aeca4fd059503a0cab98c1a4394af1a"
   },
   {
    "path": "theme.json",
@@ -322,6 +322,7 @@
  "relations": {
   "is_part_of": "「고문서 한 장」 — 원문으로 읽는 옛 문서 이야기",
   "previous": "buan-kim-myeongyeol",
+  "next": "gyeongseongdang-gaecheon",
   "derived_from": [
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0147%5EL014722%5EL014722F02%5EL014722F0201&dataId=G002%2BAKS%2BKSM-XA.1576.1111-20101008.B049a_072_00017_XXX&itemType=",
    "https://archive.aks.ac.kr/viewer/viewer.do#imgnode.do?itemId=book&gubun=booktree&depth=6&upPath=01%5E0147%5EL014722%5EL014722F02%5EL014722F0201&dataId=G002%2BAKS%2BKSM-XA.1589.1111-20101008.B049a_072_00014_XXX&itemType=",
@@ -343,6 +344,32 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.2)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 0 · 연도 빈 칸 0"
+  },
+  {
+   "date": "2026-11-24",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 18 · 새로 0 · 빠짐 0",
+   "changed": [
+    "../media/ep199-sangnyeong-choi-baekhong.ko.srt",
+    "../media/ep199-sangnyeong-choi-baekhong.ko.vtt",
+    "../media/ep199-sangnyeong-choi-baekhong_reel-poster.jpg",
+    "../media/ep199-sangnyeong-choi-baekhong_wide-poster.jpg",
+    "README.md",
+    "behind/b1_전하고싶은것.jpg",
+    "behind/b3_남겨둔질문.jpg",
+    "cards/04.jpg",
+    "channels.md",
+    "curator.md",
+    "delivery.md",
+    "exhibit.html",
+    "handout.html",
+    "https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep199-sangnyeong-choi-baekhong_wide.mp4",
+    "promo.md",
+    "selection.csv",
+    "sns.txt"
+   ]
   }
  ]
 }

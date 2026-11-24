@@ -7,7 +7,7 @@ R = P.REPO + '/examples/'
 A = json.load(open(R + 'analysis-data.json', encoding='utf-8'))
 V = json.load(open(R + 'viewer-data.json', encoding='utf-8'))
 BASE = V['base']
-EPS = [e for e in V['eps']]
+EPS = sorted([e for e in V['eps'] if e.get('ep')], key=lambda e: e['ep'])  # EP.1–EP.200 (기획 예시는 갤러리에만)
 esc = html.escape
 
 def yrs(e):
@@ -59,7 +59,7 @@ for k, e in enumerate(EPS, 1):
     yr = (f"{min(ys)}" if min(ys) == max(ys) else f"{min(ys)}–{max(ys)}") if ys else ''
     mosaic.append(f'<a class="tile" href="{esc(e["f"])}/exhibit.html" title="{esc(epl(e))} {esc(e["t"])}">'
                   f'<img loading="lazy" src="{BASE}{esc(e["f"])}/thumb/01.jpg" width="{d0.get("tw", 270)}" height="{d0.get("th", 360)}" alt="">'
-                  f'<span><b>{k}편 · {esc(epl(e))}</b>{esc(short(e["t"]))}<em>{esc(yr)}</em></span></a>')
+                  f'<span><b>{esc(epl(e))}</b>{esc(short(e["t"]))}<em>{esc(yr)}</em></span></a>')
 
 themes = []
 for name, sub, rx in THEMES:
@@ -112,7 +112,7 @@ ul.voices{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(a
 <div class="vids"><figure><video controls playsinline preload="none" poster="media/promo-reel-200-poster.jpg" src="{P.NEXT_URL}promo-reel-200.mp4"><track kind="subtitles" srclang="ko" label="한국어" src="media/promo-reel-200.ko.vtt" default></video><figcaption>릴스 9:16 · 48초 · <a href="{P.NEXT_URL}promo-reel-200.mp4" download>내려받기</a></figcaption></figure>
 <figure><video controls playsinline preload="none" src="{P.NEXT_URL}promo-reel-200-wide.mp4"><track kind="subtitles" srclang="ko" label="한국어" src="media/promo-reel-200.ko.vtt" default></video><figcaption>가로 16:9 · <a href="{P.NEXT_URL}promo-reel-200-wide.mp4" download>내려받기</a> · <a href="media/promo-reel-200.ko.srt">자막 SRT</a></figcaption></figure></div>
 <h2>200편, 한눈에</h2>
-<p class="note" style="color:var(--dim);font-size:14px">1편부터 200편까지 만든 차례대로 놓았습니다. 앞의 세 편은 편 번호를 붙이기 전에 만든 기획 예시이고, 그다음이 EP.3부터 EP.199까지입니다(EP.1 · EP.2는 시리즈 소개 영상). 썸네일을 누르면 그 편의 전시 웹페이지가 열립니다.</p>
+<p class="note" style="color:var(--dim);font-size:14px">EP.1부터 EP.200까지 편 번호 차례대로 놓았습니다. EP.1 · EP.2 · EP.200은 한 사람 — 법부주사에서 개천군수가 된 유원성의 종이로 시리즈의 처음과 끝을 묶었습니다. 편 번호를 붙이기 전에 만든 기획 예시 세 편은 갤러리의 「기획 예시」에 따로 있습니다. 썸네일을 누르면 그 편의 전시 웹페이지가 열립니다.</p>
 <div class="mosaic">{''.join(mosaic)}</div>
 <h2>무엇을 읽었나</h2>
 <div class="two">
