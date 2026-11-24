@@ -53,13 +53,13 @@ nums = [(A['eps'], '편'), (A['docs'], '건의 문서'), (A['colls'], '곳의 �
         (S['hanja'], '자 판독 한자'), (S.get('quotes_checked', 0), '곳 원문 인용')]
 
 mosaic = []
-for e in EPS:
+for k, e in enumerate(EPS, 1):
     d0 = e['d'][0]
     ys = yrs(e)
     yr = (f"{min(ys)}" if min(ys) == max(ys) else f"{min(ys)}–{max(ys)}") if ys else ''
     mosaic.append(f'<a class="tile" href="{esc(e["f"])}/exhibit.html" title="{esc(epl(e))} {esc(e["t"])}">'
                   f'<img loading="lazy" src="{BASE}{esc(e["f"])}/thumb/01.jpg" width="{d0.get("tw", 270)}" height="{d0.get("th", 360)}" alt="">'
-                  f'<span><b>{esc(epl(e))}</b>{esc(short(e["t"]))}<em>{esc(yr)}</em></span></a>')
+                  f'<span><b>{k}편 · {esc(epl(e))}</b>{esc(short(e["t"]))}<em>{esc(yr)}</em></span></a>')
 
 themes = []
 for name, sub, rx in THEMES:
@@ -100,6 +100,7 @@ details{{background:var(--pan);border:1px solid var(--line);border-radius:12px;m
 summary b{{font-family:'Noto Serif KR',serif;font-size:18px}}summary em{{font-style:normal;color:var(--gold);font-size:14px}}summary span{{color:var(--dim);font-size:14px}}
 .eplist{{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}}.eplist a{{font-size:13px;background:#231d15;border:1px solid #4a3e2c;border-radius:20px;padding:1px 10px;text-decoration:none}}
 ul.voices{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}}ul.voices li{{background:var(--pan);border-left:3px solid var(--gold);border-radius:8px;padding:12px 14px;font-size:15px;color:#e8dcc4}}ul.voices small{{display:block;color:var(--gold);font-size:12px;margin-bottom:4px}}
+.vids{{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:18px;align-items:start}}.vids video{{width:100%;border-radius:12px;background:#000;display:block}}.vids figure{{margin:0}}figcaption{{font-size:13px;color:var(--dim);margin-top:6px}}@media(max-width:760px){{.vids{{grid-template-columns:1fr}}}}
 .note p{{color:#d9cfbb;max-width:50em}}footer{{border-top:1px solid var(--line);margin-top:4em;padding-top:1.2em;font-size:13px;color:var(--dim)}}
 </style></head><body><main>
 <div class="k">ARCHIVE TOOLS · 고문서 한 장</div>
@@ -107,8 +108,11 @@ ul.voices{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(a
 <p class="lead">한 편에 문서 네 장 남짓. 한국학중앙연구원 한국고문서자료관에 공개된 각 소장처의 문서를 한 장씩 원문으로 읽고, 번역하고, 해제하고, 그 종이에 적힌 문장으로 이야기를 만들었습니다. 그렇게 쌓인 200편을 이 한 페이지에 모았습니다.</p>
 <nav class="top"><a href="index.html">갤러리</a><a href="viewer.html">연속 보기 · IIIF</a><a href="search.html">전체 검색</a><a href="timeline.html">전체 연표</a><a href="analysis.html">통합 분석</a><a href="types.html">문서 유형 사전</a><a href="about.html">기획 노트</a></nav>
 <div class="nums">{''.join(f'<div class="num"><b>{v:,}</b><span>{esc(u)}</span></div>' for v, u in nums)}</div>
+<h2>200편 기념 영상</h2>
+<div class="vids"><figure><video controls playsinline preload="none" poster="media/promo-reel-200-poster.jpg" src="{P.NEXT_URL}promo-reel-200.mp4"><track kind="subtitles" srclang="ko" label="한국어" src="media/promo-reel-200.ko.vtt" default></video><figcaption>릴스 9:16 · 48초 · <a href="{P.NEXT_URL}promo-reel-200.mp4" download>내려받기</a></figcaption></figure>
+<figure><video controls playsinline preload="none" src="{P.NEXT_URL}promo-reel-200-wide.mp4"><track kind="subtitles" srclang="ko" label="한국어" src="media/promo-reel-200.ko.vtt" default></video><figcaption>가로 16:9 · <a href="{P.NEXT_URL}promo-reel-200-wide.mp4" download>내려받기</a> · <a href="media/promo-reel-200.ko.srt">자막 SRT</a></figcaption></figure></div>
 <h2>200편, 한눈에</h2>
-<p class="note" style="color:var(--dim);font-size:14px">썸네일을 누르면 그 편의 전시 웹페이지가 열립니다. 이미지는 각 전시 웹페이지에 실린 것과 같습니다.</p>
+<p class="note" style="color:var(--dim);font-size:14px">1편부터 200편까지 만든 차례대로 놓았습니다. 앞의 세 편은 편 번호를 붙이기 전에 만든 기획 예시이고, 그다음이 EP.3부터 EP.199까지입니다(EP.1 · EP.2는 시리즈 소개 영상). 썸네일을 누르면 그 편의 전시 웹페이지가 열립니다.</p>
 <div class="mosaic">{''.join(mosaic)}</div>
 <h2>무엇을 읽었나</h2>
 <div class="two">
