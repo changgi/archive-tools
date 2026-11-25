@@ -107,38 +107,6 @@
  ],
  "derivatives": [
   {
-   "path": "../media/ep7-royal-letters.ko.srt",
-   "role": "자막(SRT)",
-   "kind": "caption",
-   "format": "application/x-subrip",
-   "bytes": 1118,
-   "sha256": "bb12051ec53d70b653caf0515d75ea963d379f3dd3590b9dc24cdf5758c9c0e9"
-  },
-  {
-   "path": "../media/ep7-royal-letters.ko.vtt",
-   "role": "자막(WebVTT)",
-   "kind": "caption",
-   "format": "text/vtt",
-   "bytes": 1126,
-   "sha256": "1281932276ac95c860ea9b9dbced9561a2135005e7d19bef77acbaa4d0fbf042"
-  },
-  {
-   "path": "../media/ep7-royal-letters_reel-poster.jpg",
-   "role": "영상 포스터",
-   "kind": "image",
-   "format": "image/jpeg",
-   "bytes": 49402,
-   "sha256": "462841059e860f30b845224969d691185c0e9895e3c533c0d4a9680057fda48a"
-  },
-  {
-   "path": "../media/ep7-royal-letters_wide-poster.jpg",
-   "role": "영상 포스터",
-   "kind": "image",
-   "format": "image/jpeg",
-   "bytes": 43339,
-   "sha256": "c03c43653141a172899c022bf3090c008697b9216b22491368938567794ef993"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
@@ -271,8 +239,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1179649,
-   "sha256": "61e1a79b2803bc42df2dd98231c997a231cc374a5c301cb3f42f456eb4dd6893"
+   "bytes": 1182478,
+   "sha256": "3de89ad08f06ece03d374f7416d63e653e9477a077afd140e03eea655f56c5c2"
   },
   {
    "path": "handout.html",
@@ -281,22 +249,6 @@
    "format": "text/html",
    "bytes": 531522,
    "sha256": "c2d2a554a9f58559700143c3795bd4161d3b627b5b82fed44f2f4c70880261a1"
-  },
-  {
-   "path": "https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1167357,
-   "sha256": "831dd22f44a081ad9190391a05f636108b3141e5eb3aea938604aca86608b74a"
-  },
-  {
-   "path": "https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1197141,
-   "sha256": "12cbf32df4a1abf503fc89e4e5ec22a32dc2853243327a1b66eaaae8583168d5"
   },
   {
    "path": "promo.md",
@@ -311,16 +263,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 273353,
-   "sha256": "d292b24828249cb4c4f4e34825d9a5a359ec5462b6ecc6e79808c5b8afdbf213"
+   "bytes": 276890,
+   "sha256": "55a5d819298e42f85b5898b34239462c4646315ba56f12b756fd38c5416acafe"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 13781,
-   "sha256": "ca1522dbd32cb7b2cf31421c0b7c4c5946c005aad803ba793e37d98e381bbd65"
+   "bytes": 16067,
+   "sha256": "821cfac045df2706a320e63702d10cb415b8ab53671a3ee3ca769059eac8c731"
   },
   {
    "path": "sns.txt",
@@ -375,7 +327,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -406,6 +358,23 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 6",
+   "changed": [
+    "exhibit.html",
+    "proof.html",
+    "selection.csv",
+    "../media/ep7-royal-letters.ko.srt",
+    "../media/ep7-royal-letters.ko.vtt",
+    "../media/ep7-royal-letters_reel-poster.jpg",
+    "../media/ep7-royal-letters_wide-poster.jpg",
+    "https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep7-royal-letters_wide.mp4"
    ]
   }
  ]

@@ -260,8 +260,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 3160209,
-   "sha256": "5f00bd21c15da1f0bb3db92c45b04c3f2d3f1b45afaab3d5b33b06c1c1156ba9"
+   "bytes": 3162015,
+   "sha256": "da8814f03ba3332805c81c0f84216353ee96031032cc0c30cc34581e17e2abcc"
   },
   {
    "path": "handout.html",
@@ -284,16 +284,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 273836,
-   "sha256": "d2dda0e67b9c946ec73d18f82708f5c6bd63afc4101717f04afcae04e20fa10a"
+   "bytes": 277267,
+   "sha256": "a9b4cc1749cb94f0618ac7fe094855be8224df6c9a171ee4e209af547aef8203"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 13112,
-   "sha256": "70135f235f9eb13e7ff758f832036f818f6130cbb0181334425764135c9069d8"
+   "bytes": 14844,
+   "sha256": "447354b4e055084ca78f5a782231919c3348d96b54447192c15368b3825e6f1f"
   },
   {
    "path": "sns.txt",
@@ -316,12 +316,18 @@
   "tool": "studio.py record (aks-archive-harvester 1.9.2)",
   "documents": 8,
   "quotes": 8,
-  "uncertain_marks": 0,
+  "uncertain_marks": 1,
   "date_issues": 0,
   "date_issues_acknowledged": 0,
-  "quote_issues": 0,
+  "quote_issues": 1,
   "undated": 5,
-  "details": []
+  "details": [
+   {
+    "doc": "7",
+    "quote": "글시 보고 밤ᄉᆞ이 잘 잇던 일 든든ᄒᆞ며",
+    "issue": "「글시 보고 밤ᄉᆞ이 잘 잇던 일 든든ᄒᆞ며」 — 원문 · 판독에 그대로 없음(앞뒤 9/17자만 이어짐: 사이에 빠진 글자가 있으면 「…」로 표시)"
+   }
+  ]
  },
  "review": {
   "reviewed": 0,
@@ -349,7 +355,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -371,6 +377,23 @@
    "changed": [
     "README.md"
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html",
+    "proof.html",
+    "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "validation",
+   "agent": "studio.py record (aks-archive-harvester 1.9.2)",
+   "detail": "날짜 어긋남 0 · 인용 불일치 1 · □·(?) 1 · 연도 빈 칸 5"
   }
  ]
 }

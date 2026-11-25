@@ -114,38 +114,6 @@
  ],
  "derivatives": [
   {
-   "path": "../media/ep9-jeongon.ko.srt",
-   "role": "자막(SRT)",
-   "kind": "caption",
-   "format": "application/x-subrip",
-   "bytes": 1130,
-   "sha256": "5da4de645bf5ec872860d0c97bdefba75d08d32f9e2784622a028f99830875b3"
-  },
-  {
-   "path": "../media/ep9-jeongon.ko.vtt",
-   "role": "자막(WebVTT)",
-   "kind": "caption",
-   "format": "text/vtt",
-   "bytes": 1138,
-   "sha256": "1df9b393fb133b72ea10f1e3cafca17ee0a4d7d8ca6e1feb28de4922429766ee"
-  },
-  {
-   "path": "../media/ep9-jeongon_reel-poster.jpg",
-   "role": "영상 포스터",
-   "kind": "image",
-   "format": "image/jpeg",
-   "bytes": 67503,
-   "sha256": "44f22ca603f8d1643e034232d840cc89a30ec31a4a9bc1a891d651ac5393a973"
-  },
-  {
-   "path": "../media/ep9-jeongon_wide-poster.jpg",
-   "role": "영상 포스터",
-   "kind": "image",
-   "format": "image/jpeg",
-   "bytes": 68780,
-   "sha256": "0256f4bf5f3e998970803d9acfae1b16f9a494f993f2537b802ba5d7bb33d662"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
@@ -270,8 +238,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 2025404,
-   "sha256": "415df5267e35429e67cc8fcb4ecbdf2459f282c82256288d324f103a402274e6"
+   "bytes": 2036348,
+   "sha256": "f190eb2b9b8516811f7dfb990246a4a965078a1b8778054908d658012fef9405"
   },
   {
    "path": "handout.html",
@@ -280,22 +248,6 @@
    "format": "text/html",
    "bytes": 936112,
    "sha256": "95f0c8114810f81be604cb024657f50ae42b8133d94617821209642e6b944125"
-  },
-  {
-   "path": "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1383508,
-   "sha256": "39ddcb3e025c7033e0952f62d250741b146ef51ea88e54d722eb73a275e92b85"
-  },
-  {
-   "path": "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1358428,
-   "sha256": "ee23e98444e411b5c12c94188fe54e51d6bf957e3c9c0350e4bffcc4bf9abd7c"
   },
   {
    "path": "promo.md",
@@ -310,16 +262,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 11641,
-   "sha256": "a59620622b25529337d39db091c4a037ebcefae4413460552c7f6fe84edd06f5"
+   "bytes": 15839,
+   "sha256": "11d94b1c458f628db266f9376dce4298316ae11ae24acbe80b254fba3d291483"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 11375,
-   "sha256": "8e89899ff267a8cfb62bd6cf3be2fe968897090ea290ed47b7fd47cbf74355e8"
+   "bytes": 14706,
+   "sha256": "f3048ab46b2aeb6b219dddf6582ce59fec0015c73e87effc38a381bbc876d2d5"
   },
   {
    "path": "sns.txt",
@@ -373,7 +325,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -404,6 +356,23 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 6",
+   "changed": [
+    "exhibit.html",
+    "proof.html",
+    "selection.csv",
+    "../media/ep9-jeongon.ko.srt",
+    "../media/ep9-jeongon.ko.vtt",
+    "../media/ep9-jeongon_reel-poster.jpg",
+    "../media/ep9-jeongon_wide-poster.jpg",
+    "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_wide.mp4"
    ]
   }
  ]

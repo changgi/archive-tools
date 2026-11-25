@@ -134,38 +134,6 @@
  ],
  "derivatives": [
   {
-   "path": "../media/ep10-gujora.ko.srt",
-   "role": "자막(SRT)",
-   "kind": "caption",
-   "format": "application/x-subrip",
-   "bytes": 1114,
-   "sha256": "f1a22d21114c24e4a364ffe3b01b57e9bc87e780d9accb82ca8945e5ba60cb24"
-  },
-  {
-   "path": "../media/ep10-gujora.ko.vtt",
-   "role": "자막(WebVTT)",
-   "kind": "caption",
-   "format": "text/vtt",
-   "bytes": 1122,
-   "sha256": "2cbdc09fea68c4e630bfece70fd39109ef8c1b9b53d2282217b77b0c60dbfd23"
-  },
-  {
-   "path": "../media/ep10-gujora_reel-poster.jpg",
-   "role": "영상 포스터",
-   "kind": "image",
-   "format": "image/jpeg",
-   "bytes": 54490,
-   "sha256": "dcf61ef3914659c84ba23c594c84b1fa20723ba3437f54282e47ceb75442e453"
-  },
-  {
-   "path": "../media/ep10-gujora_wide-poster.jpg",
-   "role": "영상 포스터",
-   "kind": "image",
-   "format": "image/jpeg",
-   "bytes": 52862,
-   "sha256": "e421b17d0b4d00b5d66a092ffd15ae39565b93511169ae2cc9d5f9c9acf4bf5c"
-  },
-  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
@@ -306,8 +274,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1920939,
-   "sha256": "a954675641523f801ad3e34176668fc13ca326ab91f689ba1676dcc1df728f9f"
+   "bytes": 1946268,
+   "sha256": "50818c0fb4f4a31dd8aa451a0bee60705eebbfb4abac7f0b3cd02ae3d3828cb2"
   },
   {
    "path": "handout.html",
@@ -316,22 +284,6 @@
    "format": "text/html",
    "bytes": 916002,
    "sha256": "d69581f60f3b805ff8911e769fdbb0eaf3454f55dfc4657acaa61155e004f821"
-  },
-  {
-   "path": "https://changgi.github.io/archive-tools-next/media/ep10-gujora_reel.mp4",
-   "role": "릴스 영상(9:16)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1287844,
-   "sha256": "247d14de4a8d7b37cc445e2c28adb9220b89e1009d2b353f088881a1d65ae6e1"
-  },
-  {
-   "path": "https://changgi.github.io/archive-tools-next/media/ep10-gujora_wide.mp4",
-   "role": "가로 영상(16:9)",
-   "kind": "video",
-   "format": "video/mp4",
-   "bytes": 1348170,
-   "sha256": "7f56294850517530b114af586222f90ef9b2b11b5b7bb291989308d4c851e6f5"
   },
   {
    "path": "promo.md",
@@ -346,16 +298,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 16711,
-   "sha256": "59131430504e63461d417ba212afc91728d394e3d18c6da09a8c32c4304ab972"
+   "bytes": 24952,
+   "sha256": "73a55b6c3fbf3fe474a759bc468684ff49ae3b4334079c14aba1b25759577fac"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 17517,
-   "sha256": "3e412e5b319fbb5ee533e53041042357e3d9ff2be8ea5392fed51e5670928084"
+   "bytes": 24565,
+   "sha256": "a8462939d63d75dbebdc04227e74893d112c8d6de566310ad321996486367104"
   },
   {
    "path": "sns.txt",
@@ -411,7 +363,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -442,6 +394,23 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 6",
+   "changed": [
+    "exhibit.html",
+    "proof.html",
+    "selection.csv",
+    "../media/ep10-gujora.ko.srt",
+    "../media/ep10-gujora.ko.vtt",
+    "../media/ep10-gujora_reel-poster.jpg",
+    "../media/ep10-gujora_wide-poster.jpg",
+    "https://changgi.github.io/archive-tools-next/media/ep10-gujora_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep10-gujora_wide.mp4"
    ]
   }
  ]
