@@ -2,6 +2,8 @@
 
 > 📊 **통합 분석** — 101편 · 문서 355건 전체를 한 장에(시대 · 문서 유형 · 지역 · 정서 · 판독 · 원문 인용 · 남겨 둔 질문): [analysis.html](https://changgi.github.io/archive-tools/examples/analysis.html) · 데이터 [JSON](analysis-data.json) · [편별 CSV](analysis-episodes.csv) · 갤러리 첫 화면 「한눈에 보기」
 >
+> 🔍 **원문 대조 편집기** — 원본 사진 옆에 판독 · 번역 · 해제를 놓고, 원본의 한 줄마다 판독 한 줄을 짝지어 보며 그 자리에서 고칩니다: [compare.html](https://changgi.github.io/archive-tools/examples/compare.html) (편을 고르거나 `#폴더이름`). 고친 내용은 JSON으로 내보내 `studio.py fix --from 파일.json --in examples --apply`로 반영 — 이전 · 이후 · 근거가 편마다 `corrections.csv`에 남습니다.
+>
 > 🗂️ **모아 보기** — [전체 검색](search.html) · [문서 유형 사전](types.html) · [종이에 적힌 문장](quotes.html) · [전체 연표](timeline.html) · [남겨 둔 질문 카드](questions.html) · 문서마다 「판독 고침 제보」(GitHub 이슈)
 >
 > ✍️ **기획 노트** — 이 시리즈를 만든 이유 · 고른 기준 · 히스토리: [about.html](https://changgi.github.io/archive-tools/examples/about.html) · [CURATOR-NOTE.md](CURATOR-NOTE.md). 편마다의 큐레이터 노트는 각 폴더의 `curator.md`.

@@ -137,6 +137,7 @@ The archive states that image use needs the collection owner's consent through i
 **More editing tools** — read `references/editing-tools.md` when you need them:
 - `studio.py delivery` — redraft 전달 에디팅 after 문구 에디팅 (climax = strongest quoted line; keeps what a person wrote unless `--force`).
 - `studio.py fix` — apply a 「판독 고침 제보」 (GitHub issue or the user's rereading) after previewing; logs `corrections.csv`, shown as 「함께 고친 곳」.
+- `studio.py compare` — 원문 대조 편집기: the original image beside 판독 · 번역 · 해제, each line of the original paired with a line of 원문 (bands on the image), edits exported as JSON and applied with `studio.py fix --from <json> --in <folder> --apply` (corrections.csv · align.json). See `references/editing-tools.md`.
 - `studio.py proof` / `review` — a printable proof sheet (image beside 판독 · 번역 · quoted lines, check boxes and a correction box, one A4 per unreviewed document), then mark documents a person has checked. Never mark 검토 yourself: it records a human's comparison with the original.
 - `studio.py page` — swap a cover-like representative page; old-Hangul font subset added automatically to pages that need it.
 

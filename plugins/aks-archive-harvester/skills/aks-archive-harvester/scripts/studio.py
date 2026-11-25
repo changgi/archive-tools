@@ -1277,6 +1277,9 @@ def parse_issue(body):
 def cmd_fix(a):
     """판독 고침 반영 — selection.csv의 한 칸을 고치고 corrections.csv에 이전·이후·근거를 남긴다"""
     import datetime
+    if a.from_:
+        return fix_from(a.from_, a.in_ or ([os.path.join(a.work, 'edit', a.theme)] if a.work and a.theme else ['.']), apply=a.apply)
+    if not (a.work and a.theme): sys.exit('--work · --theme (또는 --from 편집기.json --in 폴더)을 주세요.')
     ed = os.path.join(a.work, 'edit', a.theme); p = os.path.join(ed, 'selection.csv')
     if not os.path.exists(p): sys.exit(f'{p}이(가) 없습니다.')
     rows = list(csv.DictReader(open(p, encoding='utf-8-sig'))); cols = list(rows[0].keys()) if rows else []
@@ -1327,6 +1330,139 @@ def cmd_fix(a):
     with open(os.path.join(ed, 'corrections.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
         w = csv.DictWriter(fh, fieldnames=CORR_COLS); w.writeheader(); w.writerows(log)
     print(f'\n→ 반영했습니다. 고친 기록 {len(log)}건: {ed}/corrections.csv · 결과물에 넣으려면 mediate(· promo · video)를 다시 실행하세요.')
+
+
+def fix_from(path, roots, apply=False, by=None):
+    """원문 대조 편집기에서 내보낸 corrections JSON → 자료ID로 맞춰 roots 아래 selection.csv에 한꺼번에 반영.
+    칸마다 corrections.csv에 이전 · 이후 · 근거 · 제보(검토자)를 남기고, 줄맞춤은 align.json에, 검토 표시는 검토자가 직접 한 것만 옮긴다.
+    이전 값이 지금 selection.csv와 다르면(그사이 다른 고침이 있었으면) 덮어쓰지 않고 건너뛴다."""
+    import datetime
+    j = json.load(open(path, encoding='utf-8'))
+    items, align, revs = j.get('고침') or [], j.get('줄맞춤') or {}, j.get('검토') or []
+    if not (items or align or revs): sys.exit(f'{path}에 고친 내용이 없습니다.')
+    files = sorted({f for root in roots for f in ([root] if root.endswith('.csv') else glob.glob(os.path.join(root, '**', 'selection.csv'), recursive=True))})
+    where = {}  # 자료ID → [(파일, 순서)]
+    for f in files:
+        for r in csv.DictReader(open(f, encoding='utf-8-sig')):
+            if r.get('자료ID'): where.setdefault(r['자료ID'].strip(), []).append((f, str(r.get('순서'))))
+    def locate(it):
+        hits = where.get((it.get('자료ID') or '').strip(), [])
+        if len(hits) > 1 and it.get('편'): hits = [h for h in hits if os.path.basename(os.path.dirname(h[0])) == it['편']] or hits
+        if not hits and it.get('편'):  # 자료ID가 없으면 편 폴더 이름 + 순서
+            hits = [(f, str(it.get('순서'))) for f in files if os.path.basename(os.path.dirname(f)) == it['편']]
+        return hits
+    plan, skip = {}, []
+    for it in items:
+        if it.get('칸') not in FIELDS or it.get('칸') == '검토': skip.append((it, '고칠 수 없는 칸')); continue
+        hits = locate(it)
+        if not hits: skip.append((it, '그 자료ID · 편을 찾지 못함')); continue
+        for f, n in hits: plan.setdefault(f, []).append((n, it))
+    total = 0
+    for f, lst in plan.items():
+        rows = list(csv.DictReader(open(f, encoding='utf-8-sig'))); cols = list(rows[0].keys()); ed = os.path.dirname(f)
+        log = read_corrections(ed); hit = 0
+        for n, it in lst:
+            r = next((x for x in rows if str(x.get('순서')) == n), None)
+            if r is None: skip.append((it, f'{f}에 순서 {n} 없음')); continue
+            fld, old, newv = it['칸'], r.get(it['칸']) or '', it.get('이후') or ''
+            if old == newv: continue
+            if (it.get('이전') or '') != old: skip.append((it, f'{os.path.basename(ed)} {n}번 {fld}: 내보낸 뒤 selection.csv가 바뀜 — 편집기에서 다시 열어 고치세요')); continue
+            k = next((i for i, (x, y) in enumerate(zip(old, newv)) if x != y), min(len(old), len(newv))); st = max(0, k - 10)
+            print(f"  {os.path.basename(ed)} · {n}. {r.get('문서명', '')[:20]} · {fld}: …{old[st:k + 16]!r} → …{newv[st:k + 16]!r}")
+            r[fld] = newv; hit += 1
+            log.append({'날짜': datetime.date.today().isoformat(), '순서': n, '자료ID': r.get('자료ID', ''), '문서명': r.get('문서명', ''), '칸': fld, '이전': old, '이후': newv,
+                        '근거': it.get('근거') or '', '제보': '대조 편집기' + (f" · {it.get('검토자') or by}" if (it.get('검토자') or by) else '')})
+        total += hit
+        if hit and apply:
+            with open(f, 'w', newline='', encoding='utf-8-sig') as fh:
+                w = csv.DictWriter(fh, fieldnames=cols); w.writeheader(); w.writerows(rows)
+            with open(os.path.join(ed, 'corrections.csv'), 'w', newline='', encoding='utf-8-sig') as fh:
+                w = csv.DictWriter(fh, fieldnames=CORR_COLS); w.writeheader(); w.writerows(log)
+    nal = 0
+    for key, a in align.items():
+        hits = locate({'자료ID': key if '#' not in key else '', '편': a.get('편'), '순서': a.get('순서')})
+        for f, n in hits:
+            ap = os.path.join(os.path.dirname(f), 'align.json')
+            cur = json.load(open(ap, encoding='utf-8')) if os.path.exists(ap) else {}
+            cur[key if '#' not in key else n] = {'방향': a.get('방향', 'v'), '줄자리': a.get('줄자리', []), '짝': a.get('짝', {})}; nal += 1
+            if apply: json.dump(cur, open(ap, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    nrev = 0
+    if revs:
+        rec = {}
+        for r in revs:
+            if r.get('검토자'): rec[(r.get('자료ID') or '').strip()] = f"{r['검토자']} {r.get('날짜', '')}".strip()
+        for f in files:
+            rows = list(csv.DictReader(open(f, encoding='utf-8-sig'))); hit = 0
+            for r in rows:
+                st = rec.get((r.get('자료ID') or '').strip())
+                if st and r.get('검토') != st: r['검토'] = st; hit += 1; print(f"  {os.path.basename(os.path.dirname(f))} · {r['순서']}. {r['문서명'][:20]} → 검토: {st}")
+            nrev += hit
+            if hit and apply:
+                with open(f, 'w', newline='', encoding='utf-8-sig') as fh:
+                    w = csv.DictWriter(fh, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+    for it, why in skip: print(f"  ⚠ 건너뜀 — {it.get('편', '')} {it.get('순서', '')} {it.get('칸', '')}: {why}")
+    print(f"\n{'반영했습니다' if apply else '(미리 보기 — 반영하려면 --apply)'}: 고친 칸 {total} · 줄맞춤 {nal} · 검토 표시 {nrev} · 건너뜀 {len(skip)}"
+          + (' · 결과물(전시 웹페이지 · 손에 드는 판 · 검토지)에 넣으려면 mediate(· promo · proof)를 다시 실행하세요.' if apply and total else ''))
+
+
+COMPARE_FIELDS = ('판독', '원문', '번역', '해제', '요약', '이야기', '캡션', '연도', '문서유형', '인물')
+
+
+def compare_page(mode, data=None, font_url=None, font=False):
+    """원문 대조 편집기 페이지(assets/compare.html)를 채움. mode: embedded(사진까지 한 파일) · folder(편 폴더를 열어 씀) · site(공유판)"""
+    fp = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'assets', 'compare.html')
+    page = open(fp, encoding='utf-8').read().replace('__MODE__', mode)
+    if data is not None:
+        page = page.replace('<script id="data" type="application/json">null</script>',
+                            '<script id="data" type="application/json">' + json.dumps(data, ensure_ascii=False).replace('<', '\\u003c') + '</script>')
+    css = oldhangul_css('\u1100\u119e' if font or data is None else json.dumps(data, ensure_ascii=False), font_url)  # 옛한글이 있으면 글꼴 조각(편을 열어 쓰는 판은 늘)
+    return page.replace('<!--OLDHANGUL-->', css)
+
+
+def compare_doc(r, img='', align=None):
+    al = (align or {}).get(r.get('자료ID') or '\0') or (align or {}).get(str(r.get('순서')))
+    return {'align': al} | {'n': str(r.get('순서')), 'id': r.get('자료ID', ''), 'name': r.get('문서명', ''), 'year': r.get('연도', ''), 'viewer': r.get('뷰어링크', ''),
+            'review': r.get('검토', ''), 'f': {k: r.get(k) or '' for k in COMPARE_FIELDS}, 'img': img}
+
+
+def cmd_compare(a):
+    """원문 대조 편집기 — 원본 사진 옆에 판독을 한 줄씩 짝지어 보고 고치는 페이지. 고친 내용은 JSON으로 내보내 fix --from 으로 반영"""
+    if a.folder_page:
+        root = os.path.dirname(os.path.abspath(a.folder_page)); idx = []
+        for sp_ in sorted(glob.glob(os.path.join(root, '*', 'selection.csv'))):
+            d = os.path.dirname(sp_); key = os.path.basename(d); t, ep = key, ''
+            if os.path.exists(os.path.join(d, 'theme.json')): t = json.load(open(os.path.join(d, 'theme.json'), encoding='utf-8')).get('title', key)
+            if os.path.exists(os.path.join(d, 'record.json')): ep = json.load(open(os.path.join(d, 'record.json'), encoding='utf-8')).get('episode', '')
+            idx.append({'key': key, 'title': t, 'ep': ep})
+        num = lambda x: int(re.sub(r'\D', '', x['ep']) or 9999)
+        idx.sort(key=lambda x: (num(x), x['key']))
+        page = compare_page('folder', {'index': idx}, font=True)
+        open(a.folder_page, 'w', encoding='utf-8').write(page)
+        print(f'  편 목록 {len(idx)}편 (웹에서 열면 고르기만 하면 됨 · 주소 끝 #폴더이름 으로 바로 열기)')
+        print(f'→ {a.folder_page}  (편 폴더를 열어 쓰는 대조 편집기 · 사진은 그 편의 exhibit.html에서 읽음)'); return
+    if a.example:
+        ed = a.example.rstrip('/'); sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
+        ex = open(os.path.join(ed, 'exhibit.html'), encoding='utf-8').read() if os.path.exists(os.path.join(ed, 'exhibit.html')) else ''
+        imgs = [(re.search(r'src="(data:image/[a-z]+;base64,[^"]+)"', seg) or [None, ''])[1] for seg in ex.split('<section class="panel">')[1:]]
+        key = os.path.basename(ed); out = a.out or f'compare-{key}.html'
+    else:
+        if not (a.work and a.theme): sys.exit('--work · --theme (또는 --example 편폴더 · --folder-page 파일)을 주세요.')
+        ed = os.path.join(a.work, 'edit', a.theme); sel = list(csv.DictReader(open(os.path.join(ed, 'selection.csv'), encoding='utf-8-sig')))
+        imgs = []
+        for r in sel:
+            orig = os.path.join(a.work, r.get('원본경로') or '')
+            src = orig if r.get('원본경로') and os.path.exists(orig) else os.path.join(ed, r.get('이미지') or '')
+            imgs.append(b64(src, a.max_px) if (r.get('원본경로') or r.get('이미지')) and os.path.exists(src) else '')
+        key = a.theme; out = a.out or os.path.join(ed, 'compare.html')
+    title = key
+    tj = os.path.join(ed, 'theme.json')
+    if os.path.exists(tj): title = json.load(open(tj, encoding='utf-8')).get('title', key)
+    apath = os.path.join(ed, 'align.json'); al = json.load(open(apath, encoding='utf-8')) if os.path.exists(apath) else {}
+    docs = [compare_doc(r, imgs[i] if i < len(imgs) else '', al) for i, r in enumerate(sel)]
+    if imgs and len(imgs) != len(sel): print(f'  ※ 사진 {len(imgs)}장 · 문서 {len(sel)}건 — 짝이 맞지 않습니다.')
+    open(out, 'w', encoding='utf-8').write(compare_page('embedded', {'key': key, 'title': title, 'docs': docs}))
+    print(f'→ {out}  문서 {len(docs)}건 · 사진 {sum(1 for x in imgs if x)}장 (한 파일 · 인터넷 없이 열림)\n'
+          f'  고친 뒤 「고친 내용 내보내기」로 받은 JSON을: studio.py fix --from 그파일.json --in {os.path.dirname(ed) or "."} --apply')
 
 
 def corrections_html(log):
@@ -2017,11 +2153,16 @@ def main():
     dl = sp.add_parser('delivery', help='전달 에디팅 초안 다시 만들기(문구 에디팅 뒤) → edit/<테마>/delivery.md'); dl.add_argument('--work', required=True); dl.add_argument('--theme', required=True)
     dl.add_argument('--key', help='절정으로 쓸 구절(이야기 속 인용 가운데 이 말이 든 것)'); dl.add_argument('--force', action='store_true')
     fx = sp.add_parser('fix', help='판독 고침 반영: selection.csv 한 칸을 고치고 corrections.csv에 이전·이후·근거 기록 (GitHub 제보 읽기 가능)')
-    fx.add_argument('--work', required=True); fx.add_argument('--theme', required=True); fx.add_argument('--n', help='문서 순서')
+    fx.add_argument('--work'); fx.add_argument('--theme'); fx.add_argument('--n', help='문서 순서')
+    fx.add_argument('--from', dest='from_', help='원문 대조 편집기에서 내보낸 JSON — 자료ID로 맞춰 여러 칸 · 여러 편을 한꺼번에'); fx.add_argument('--in', dest='in_', nargs='+', help='--from: selection.csv를 찾을 폴더(들)')
     fx.add_argument('--field', help='고칠 칸: ' + ' · '.join(FIELDS)); fx.add_argument('--text', help='새 내용(칸 전체, 또는 --replace-part 와 함께 바꿀 구절)')
     fx.add_argument('--replace-part', help='칸 전체가 아니라 이 구절만 --text 로 바꾸기'); fx.add_argument('--note', help='근거 · 메모')
     fx.add_argument('--issue', type=int, help='GitHub 이슈 번호(「판독 고침 제보」 양식을 읽음)'); fx.add_argument('--repo', help='아이디/저장소')
     fx.add_argument('--apply', action='store_true', help='실제로 반영(없으면 미리 보기)'); fx.add_argument('--list', action='store_true', help='고친 기록 보기')
+    cp = sp.add_parser('compare', help='원문 대조 편집기: 원본 사진 옆에 판독을 한 줄씩 짝지어 보고 고침 → edit/<테마>/compare.html (고친 내용은 JSON → fix --from)')
+    cp.add_argument('--work'); cp.add_argument('--theme'); cp.add_argument('--example', help='이미 낸 편 폴더(selection.csv · exhibit.html)로 만들기')
+    cp.add_argument('--folder-page', help='편 폴더를 열어 쓰는 편집기 한 장(사진을 넣지 않음)을 이 경로에')
+    cp.add_argument('--out'); cp.add_argument('--max-px', type=int, default=1400, help='사진 긴 변 최대(기본 1400, 상한 IMG_MAX)')
     pf = sp.add_parser('proof', help='검토지(인쇄용): 사진 옆에 판독 · 번역 · 인용을 놓고 대조 표시 → edit/<테마>/proof.html')
     pf.add_argument('--work', required=True); pf.add_argument('--theme', required=True); pf.add_argument('--all', action='store_true', help='검토 표시된 문서까지 모두'); pf.add_argument('--link', action='store_true', help='사진을 페이지에 넣지 않고 images/를 가리킴(가볍게 · 같은 폴더에서 열기)')
     rv = sp.add_parser('review', help='검토 표시: 원문 대조를 마친 문서의 검토 칸에 이름 · 날짜')
@@ -2053,7 +2194,7 @@ def main():
     a = ap.parse_args()
     if a.cmd == 'edit' and not a.theme and not a.all and not any([a.person, a.types, a.years, a.query]):
         sys.exit('--theme 또는 --person/--types/--years/--query 중 하나는 필요합니다.')
-    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'years': cmd_years, 'audit': cmd_audit, 'fix': cmd_fix, 'proof': cmd_proof, 'review': cmd_review, 'record': cmd_record}[a.cmd](a)
+    {'themes': cmd_themes, 'edit': cmd_edit, 'mediate': cmd_mediate, 'promo': cmd_promo, 'zoom': cmd_zoom, 'report': cmd_report, 'originals': cmd_originals, 'delivery': cmd_delivery, 'page': cmd_page, 'check': cmd_check, 'years': cmd_years, 'audit': cmd_audit, 'fix': cmd_fix, 'compare': cmd_compare, 'proof': cmd_proof, 'review': cmd_review, 'record': cmd_record}[a.cmd](a)
 
 
 if __name__ == '__main__':

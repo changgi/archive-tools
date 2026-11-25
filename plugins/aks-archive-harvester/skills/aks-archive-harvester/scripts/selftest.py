@@ -207,6 +207,14 @@ def main():
     run('studio.py fix (미리 보기)', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친']) 
     run('studio.py fix --apply', [S('studio.py'), 'fix', '--work', W, '--theme', 't', '--n', '1', '--field', '번역', '--replace-part', '시험용', '--text', '고친', '--note', '시험', '--apply'], ['W/edit/t/corrections.csv'])
     run('studio.py proof', [S('studio.py'), 'proof', '--work', W, '--theme', 't'], ['W/edit/t/proof.html'])
+    run('studio.py compare', [S('studio.py'), 'compare', '--work', W, '--theme', 't'], ['W/edit/t/compare.html'])
+    try:  # 대조 편집기에서 내보낸 것과 같은 꼴의 JSON → fix --from (원문 한 줄 · 줄맞춤)
+        sp_ = os.path.join(root, W, 'edit', 't', 'selection.csv'); r0 = list(csv.DictReader(open(sp_, encoding='utf-8-sig')))[0]
+        cj = {'고침': [{'편': 't', '자료ID': r0['자료ID'], '순서': r0['순서'], '문서명': r0['문서명'], '칸': '원문', '이전': r0.get('원문') or '', '이후': (r0.get('원문') or '') + '\n□(?)', '근거': '시험', '검토자': '시험'}],
+              '줄맞춤': {r0['자료ID']: {'편': 't', '순서': r0['순서'], '방향': 'v', '줄자리': [0.9, 0.5], '짝': {'0': '시험'}}}, '검토': []}
+        json.dump(cj, open(os.path.join(root, 'corr.json'), 'w', encoding='utf-8'), ensure_ascii=False)
+    except Exception as e: res.append(('corrections JSON 만들기', False, '', str(e)))
+    run('studio.py fix --from (대조 편집기)', [S('studio.py'), 'fix', '--from', 'corr.json', '--in', W, '--apply'], ['W/edit/t/align.json'])
     run('studio.py review', [S('studio.py'), 'review', '--work', W, '--theme', 't', '--n', '1', '--by', '시험'])
     try:
         sp_ = os.path.join(root, W, 'edit', 't', 'selection.csv'); rr = list(csv.DictReader(open(sp_, encoding='utf-8-sig')))

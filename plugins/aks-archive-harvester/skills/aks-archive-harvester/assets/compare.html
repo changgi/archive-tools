@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko" data-mode="__MODE__">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>원문 대조 편집기</title>
+<style>
+/* VOICE  차분한 작업대 — 사진과 글을 나란히 놓고 한 줄씩 맞춰 보는 곳
+   IDEA   교정지: 원본 사진 위에 줄 띠를 긋고, 옆의 판독 한 줄과 짝을 맞춤
+   PICTURE 원본 사진(줄 띠가 얹힌)이 화면 왼쪽 절반
+   COLOUR 흰 종이 · 먹색 글 · 시리즈의 금빛(#b0843a) 하나 · □는 붉게, (?)는 노랗게
+   LAYOUT 위 띠(편 · 검토자 · 내보내기) / 왼쪽 문서 목록 / 사진 / 줄과 칸 */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#15171a);--panel:light-dark(#f4f4f2,#1d2024);--line:light-dark(#dcdad4,#33373d);--ink:light-dark(#16181b,#ecebe7);--mute:light-dark(#5d6168,#a3a7ad);--gold:light-dark(#9a6f22,#d6a855);--gold2:light-dark(#f3e6cb,#3a301e);--red:light-dark(#c0392b,#ff7a6b);--redbg:light-dark(#fde3df,#4a2420);--yel:light-dark(#fff1a8,#4d4416);--ins:light-dark(#d9f2dd,#1f3d26);--del:light-dark(#fbdad6,#4a2420)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;overflow:hidden;display:flex;flex-direction:column}
+button,select,input,textarea{font:inherit;color:inherit}
+button{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 11px;min-height:36px;cursor:pointer}
+button:hover{border-color:var(--gold)}button.on{background:var(--gold);color:#fff;border-color:var(--gold)}
+button.main{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:700}
+input,select,textarea{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:16px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.serif{font-family:'Noto Serif KR','Nanum Myeongjo','Batang',serif}
+#top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:8px 14px;border-bottom:1px solid var(--line);background:var(--bg)}
+#top .brand{display:flex;flex-direction:column;line-height:1.25;margin-right:auto}
+#top .brand b{font-size:17px}#top .brand span{font-size:13px;color:var(--mute)}
+#who{width:9em}#sync{font-size:13px;color:var(--mute)}
+#pick{display:inline-flex;align-items:center;gap:6px;border:1px dashed var(--gold);border-radius:6px;padding:6px 10px;cursor:pointer;font-size:14px}
+#pick input{display:none}
+#app{display:grid;grid-template-columns:200px minmax(0,1.05fr) minmax(0,1fr);flex:1;min-height:0}#ep{max-width:min(26em,100%)}
+#docs{overflow:auto;border-right:1px solid var(--line);background:var(--panel);padding:6px}
+#docs button{display:block;width:100%;text-align:left;background:none;border:0;border-radius:6px;padding:7px 8px;font-size:14px;line-height:1.35}
+#docs button[aria-current=true]{background:var(--gold2)}
+#docs small{display:block;color:var(--mute);font-size:12.5px}
+.tag{display:inline-block;font-size:11.5px;border-radius:9px;padding:0 6px;margin:2px 3px 0 0;background:var(--line)}
+.tag.u{background:var(--redbg);color:var(--red)}.tag.e{background:var(--gold);color:#fff}.tag.ok{background:var(--ins)}
+#viewer{position:relative;display:flex;flex-direction:column;border-right:1px solid var(--line)}
+#vp{position:relative;flex:1;overflow:hidden;background:light-dark(#e9e7e2,#0e0f11);cursor:grab;touch-action:none}
+#vp.align{cursor:crosshair}
+#stage{position:absolute;left:0;top:0;transform-origin:0 0}
+#stage img{display:block;user-select:none;-webkit-user-drag:none}
+#ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.vbar{display:flex;flex-wrap:wrap;gap:6px;padding:7px 8px;border-top:1px solid var(--line);align-items:center;font-size:14px}
+.vbar a{color:var(--gold);margin-left:auto}.credit{flex-basis:100%;font-size:12px;color:var(--mute);line-height:1.4}
+#hint{position:absolute;left:10px;top:10px;background:#000b;color:#fff;font-size:13px;padding:5px 9px;border-radius:6px;pointer-events:none}
+#noimg{position:absolute;inset:0;display:grid;place-items:center;color:var(--mute);text-align:center;padding:20px}
+#text{overflow:auto;padding:12px 16px 60px}
+h2{font-size:19px;margin:0 0 2px;line-height:1.3}
+.meta{font-size:13px;color:var(--mute);margin-bottom:10px;word-break:break-all}
+.sec{display:flex;align-items:center;gap:8px;margin:14px 0 6px}
+.sec h3{font-size:15px;margin:0;color:var(--gold)}.sec span{font-size:13px;color:var(--mute)}.sec button{margin-left:auto;min-height:30px;padding:3px 9px;font-size:13px}
+#lines{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:8px}
+#lines li{display:grid;grid-template-columns:2.2em minmax(0,1fr);gap:4px;padding:6px 8px;border-top:1px solid var(--line);cursor:pointer}
+#lines li:first-child{border-top:0}
+#lines li.sel{background:var(--gold2)}
+#lines .no{color:var(--mute);font-size:12.5px;padding-top:4px;text-align:right}
+#lines .t{font-size:19px;line-height:1.6;word-break:break-all}
+#lines .pair{font-size:13.5px;color:var(--mute);margin-top:2px}
+#lines.vert{display:flex;flex-direction:row-reverse;overflow-x:auto;max-height:62vh;align-items:stretch}
+#lines.vert li{writing-mode:vertical-rl;display:block;border-top:0;border-left:1px solid var(--line);padding:8px 5px;min-height:14em}
+#lines.vert li:first-child{border-left:0}
+#lines.vert .no{text-align:left;padding:0 0 6px}
+#lines.vert .pair{display:none}
+#lines.vert .g{display:inline-block;writing-mode:horizontal-tb;width:1.25em;text-align:center;line-height:1.3}#lines.vert .g.sp{height:.5em}#lines.vert .g mark.q{font-size:.62em;letter-spacing:-.05em}
+#lines textarea{width:100%;font-size:19px;line-height:1.6;resize:vertical}
+mark.u{background:var(--redbg);color:var(--red);font-weight:700;border-radius:3px;padding:0 1px}
+mark.q{background:var(--yel);color:inherit;border-radius:3px}
+.gap{color:var(--mute)}
+.chg{box-shadow:inset 3px 0 0 var(--gold)}
+#lineedit{margin-top:8px;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);display:grid;gap:6px}
+#lineedit label{font-size:13px;color:var(--mute)}
+#lineedit .row{display:flex;gap:6px;flex-wrap:wrap}
+#lineedit textarea{width:100%;font-size:18px}
+#checks{font-size:14px;border-radius:8px;padding:8px 10px;background:var(--panel);margin-top:12px}
+#checks p{margin:3px 0}.warn{color:var(--red)}
+details.f{border:1px solid var(--line);border-radius:8px;margin:6px 0;background:var(--bg)}
+details.f summary{padding:8px 10px;cursor:pointer;display:flex;gap:8px;align-items:center;font-weight:700;font-size:14.5px}
+details.f summary small{font-weight:400;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+details.f .body{padding:0 10px 10px}
+details.f textarea{width:100%;min-height:5.5em;resize:vertical;line-height:1.6}
+.diff{font-size:13.5px;margin-top:4px;padding:6px 8px;border-radius:6px;background:var(--panel);word-break:break-all}
+.diff del{background:var(--del);text-decoration:line-through}.diff ins{background:var(--ins);text-decoration:none}
+.fbtn{display:flex;gap:6px;margin-top:4px}.fbtn button{min-height:30px;padding:2px 9px;font-size:13px}
+#why{width:100%;min-height:3.2em}
+.done{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:15px}
+.done input{width:20px;height:20px}
+#hist{font-size:13px;color:var(--mute);margin-top:10px}
+#hist li{margin:2px 0}
+#toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw}
+#toast.show{opacity:1}
+#out{position:fixed;inset:0;background:#0008;display:none;place-items:center;z-index:9}
+#out.show{display:grid}
+#out .box{background:var(--bg);border-radius:10px;padding:16px;width:min(760px,94vw);max-height:90vh;display:flex;flex-direction:column;gap:8px}
+#out textarea{flex:1;min-height:40vh;font:12.5px/1.45 ui-monospace,Menlo,Consolas,monospace}
+#out .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+#welcome{grid-column:1/-1;padding:40px max(5vw,16px);overflow:auto}
+#welcome h1{font-size:30px;line-height:1.15;margin:0 0 10px}
+#welcome ol{line-height:1.9}
+@media(max-width:900px){body{overflow:auto;display:block}#app{grid-template-columns:minmax(0,1fr);height:auto}#docs{max-height:30vh;border-right:0}#viewer{height:62vh;border-right:0}#text{overflow:visible}}
+@media(prefers-reduced-motion:reduce){#toast{transition:none}}
+</style>
+<!--OLDHANGUL-->
+</head>
+<body>
+<header id="top">
+  <div class="brand"><b>원문 대조 편집기</b><span id="eptitle">원본 사진과 판독을 한 줄씩 맞춰 보고 고칩니다</span></div>
+  <select id="ep" hidden aria-label="편 고르기"></select>
+  <label id="pick" hidden>편 폴더 열기<input type="file" id="pickf" webkitdirectory multiple></label>
+  <input id="who" placeholder="검토자 이름" aria-label="검토자 이름">
+  <span id="sync"></span>
+  <button id="imp" type="button">불러오기</button><input type="file" id="impf" accept=".json,application/json" hidden>
+  <button id="exp" class="main" type="button">고친 내용 내보내기</button>
+</header>
+<div id="app">
+  <div id="welcome">
+    <h1>원본과 판독을 한 줄씩 맞춰 봅니다</h1>
+    <p>고문서 사진 옆에 판독 · 번역 · 해제를 나란히 놓고, 원본의 한 줄(세로 행)마다 판독 한 줄을 짝지어 봅니다. 틀린 곳은 그 자리에서 고치고, 고친 내용은 이전 · 이후 · 근거와 함께 남습니다.</p>
+    <ol>
+      <li>위에서 <b>편을 고르거나</b>(웹에서 열었을 때), 내려받은 저장소라면 <b>편 폴더 열기</b>로 <code>examples/</code> 아래 한 편의 폴더(selection.csv와 exhibit.html이 든 곳)를 고릅니다.</li>
+      <li>왼쪽에서 문서를 고르고, 오른쪽 줄을 누르면 사진에 그 줄의 띠가 켜집니다. <b>줄 맞추기</b>를 켜고 사진에서 그 줄의 자리를 누르면 띠가 그리로 옮겨 갑니다.</li>
+      <li>줄을 두 번 누르거나 아래 상자에서 고칩니다. □(못 읽은 글자)는 붉게, (?)(불확실)는 노랗게 보입니다.</li>
+      <li>다 고쳤으면 <b>고친 내용 내보내기</b> → <code>studio.py fix --from 파일.json --in examples --apply</code>로 저장소에 반영합니다.</li>
+    </ol>
+    <p id="wmsg"></p>
+  </div>
+</div>
+<div id="out" role="dialog" aria-modal="true" aria-labelledby="outh"><div class="box">
+  <b id="outh">고친 내용</b><span id="outsum" style="font-size:14px;color:var(--mute)"></span>
+  <textarea id="outt" readonly></textarea>
+  <div class="row"><button id="outcopy" type="button">복사</button><button id="outdl" type="button" class="main">파일로 저장</button><button id="outx" type="button">닫기</button></div>
+</div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<!--SITE-->
+<script id="data" type="application/json">null</script>
+<script>
+{
+const MODE = document.documentElement.dataset.mode;
+const FIELDS = ['판독','원문','번역','해제','요약','이야기','캡션','연도','문서유형','인물'];
+const OPEN = new Set(['번역','해제']);
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const today = () => new Date().toISOString().slice(0, 10);
+let toastT;
+const toast = m => { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2600); };
+
+/* ---------- 상태 ---------- */
+const S = { ep: null, eps: [], docs: [], i: 0, line: 0, edits: {}, align: false, vert: false, img: null, view: { s: 1, x: 0, y: 0 }, lastSel: '' , remote: null };
+// edits[epKey][n] = {f:{칸:새 값}, anchors:[], dir:'v'|'h', pairs:{줄:번역 구절}, why:'', done:false, who:'', at:''}
+const E = (d = S.docs[S.i]) => { const k = S.ep.key; (S.edits[k] ||= {}); return (S.edits[k][d.n] ||= { f: {}, anchors: [], dir: 'v', pairs: {}, why: '', done: false }); };
+const peek = d => (S.edits[S.ep.key] || {})[d.n];
+const cur = (d, f) => { const e = peek(d); return e && f in e.f ? e.f[f] : (d.f[f] ?? ''); };
+const lineField = d => (d.f['원문'] || !d.f['판독']) ? '원문' : '판독';
+const linesOf = d => cur(d, lineField(d)).split('\n');
+const changed = d => { const e = peek(d); return e ? Object.keys(e.f).filter(f => e.f[f] !== (d.f[f] ?? '')) : []; };
+
+/* ---------- 확인(□ · (?) · 인용) — studio.py와 같은 규칙 ---------- */
+const ORIG = /[㐀-䶿一-鿿豈-﫿ᄀ-ᇿꥠ-꥿ힰ-퟿ㆍᆞ]/;
+const qnorm = t => (t || '').normalize('NFC').replaceAll('(?)', '').replace(/[\s　·,.、。○\-—()（）\[\]「」『』"'?!:;/]/g, '');
+function findQuotes(text) {
+  const out = [];
+  for (const m of (text || '').matchAll(/"([^"]{2,240}?)"/g)) {
+    const inner = m[1];
+    for (const p of inner.matchAll(/\(([^()]+)\)/g)) {
+      const rest = (inner.slice(0, p.index) + inner.slice(p.index + p[0].length)).replace(/\([^()]*\)/g, '').replace(/^[ ,.]+|[ ,.]+$/g, '');
+      if (ORIG.test(p[1])) { if (rest.length >= 2) { out.push(p[1].trim()); break; } }
+      else if (ORIG.test(rest) && /[가-힣]/.test(p[1]) && p[1].length >= 4) { out.push(rest); break; }
+    }
+  }
+  return out;
+}
+function quoteIssues(d) {
+  const src = qnorm(cur(d, '원문') + '|' + cur(d, '판독') + '|' + d.name).replaceAll('□', '');
+  const bad = [];
+  for (const q of findQuotes(cur(d, '이야기'))) for (const seg of q.split(/…|\.\.\./)) {
+    const g = qnorm(seg).replaceAll('□', ''); if (g.length >= 2 && !src.includes(g)) bad.push(seg.trim());
+  }
+  return bad;
+}
+const unk = t => ({ u: (t.match(/□/g) || []).length, q: (t.match(/\(\?\)/g) || []).length });
+const SEG = typeof Intl !== 'undefined' && Intl.Segmenter ? new Intl.Segmenter('ko', { granularity: 'grapheme' }) : null;
+const hiV = t => (t || '').split(/(\(\?\))/).map(part => part === '(?)' ? '<span class="g"><mark class="q">(?)</mark></span>'
+  : (SEG ? [...SEG.segment(part)].map(x => x.segment) : [...part]).map(g => g === '□' ? '<span class="g"><mark class="u">□</mark></span>' : g === ' ' ? '<span class="g sp"> </span>' : `<span class="g">${esc(g)}</span>`).join('')).join('');
+const hi = t => esc(t).replace(/□+/g, m => `<mark class="u">${m}</mark>`).replace(/\(\?\)/g, '<mark class="q">(?)</mark>').replace(/…/g, '<span class="gap">…</span>');
+
+/* ---------- CSV · 폴더 읽기 ---------- */
+function parseCSV(text) {
+  text = text.replace(/^﻿/, ''); const rows = []; let row = [], f = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true; else if (c === ',') { row.push(f); f = ''; }
+    else if (c === '\n' || c === '\r') { if (c === '\r' && text[i + 1] === '\n') i++; row.push(f); rows.push(row); row = []; f = ''; }
+    else f += c;
+  }
+  if (f || row.length) { row.push(f); rows.push(row); }
+  const head = rows.shift() || [];
+  return rows.filter(r => r.length > 1).map(r => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ''])));
+}
+const toDoc = (r, img) => ({ n: String(r['순서']), id: r['자료ID'] || '', name: r['문서명'] || '', year: r['연도'] || '', viewer: r['뷰어링크'] || '', review: r['검토'] || '',
+  f: Object.fromEntries(FIELDS.map(k => [k, r[k] ?? ''])), img: img || '' });
+async function buildFrom(key, get) { // get(파일 이름) → 글 또는 null
+  const csvText = await get('selection.csv'); if (!csvText) { toast('selection.csv를 읽지 못했습니다.'); return; }
+  const rows = parseCSV(csvText);
+  let imgs = []; const h = await get('exhibit.html');
+  if (h) imgs = h.split('<section class="panel">').slice(1).map(p => (p.match(/src="(data:image\/[a-z]+;base64,[^"]+)"/) || [])[1] || '');
+  let title = key, al = {};
+  try { const t = await get('theme.json'); if (t) title = JSON.parse(t).title || key; } catch (e) {}
+  try { const t = await get('align.json'); if (t) al = JSON.parse(t); } catch (e) {}
+  const docs = rows.map((r, i) => Object.assign(toDoc(r, imgs[i] || ''), { align: al[r['자료ID']] || al[String(r['순서'])] || null }));
+  if (imgs.length && imgs.length !== rows.length) toast(`사진 ${imgs.length}장 · 문서 ${rows.length}건 — 짝이 맞지 않으니 사진을 꼭 확인하세요.`);
+  loadEp({ key, title, docs });
+}
+async function openFolder(files) {
+  const byName = {}; for (const f of files) if (!byName[f.name] || f.webkitRelativePath.split('/').length < byName[f.name].webkitRelativePath.split('/').length) byName[f.name] = f;
+  if (!byName['selection.csv']) { toast('그 폴더에 selection.csv가 없습니다.'); return; }
+  const key = (byName['selection.csv'].webkitRelativePath || 'episode/').split('/').slice(-2, -1)[0] || 'episode';
+  await buildFrom(key, async n => byName[n] ? byName[n].text() : null);
+}
+async function fetchEp(key) {
+  $('#eptitle').textContent = '여는 중…';
+  const get = async n => { try { const r = await fetch(`${encodeURIComponent(key)}/${n}`); return r.ok ? await r.text() : null; } catch (e) { return null; } };
+  const t = await get('selection.csv');
+  if (!t) { $('#eptitle').textContent = '이 화면에서는 편을 바로 읽지 못합니다 — 「편 폴더 열기」로 폴더를 고르세요.'; toast('편 파일을 읽지 못했습니다. 내려받은 저장소라면 「편 폴더 열기」를 쓰세요.'); return; }
+  await buildFrom(key, n => n === 'selection.csv' ? t : get(n));
+  try { history.replaceState(null, '', '#' + key); } catch (e) {}
+}
+
+/* ---------- 저장(내 브라우저 · 공유판은 db) ---------- */
+const LS = 'compare:';
+function saveLocal() { try { localStorage.setItem(LS + S.ep.key, JSON.stringify(S.edits[S.ep.key] || {})); localStorage.setItem(LS + 'who', $('#who').value); } catch (e) {} }
+function loadLocal(k) { try { return JSON.parse(localStorage.getItem(LS + k) || 'null'); } catch (e) { return null; } }
+let saveT;
+function touch(d = S.docs[S.i]) {
+  const e = E(d); e.at = new Date().toISOString(); e.who = $('#who').value.trim();
+  saveLocal(); clearTimeout(saveT); saveT = setTimeout(() => S.remote && S.remote.push(d), 1200);
+}
+
+/* ---------- 편 불러오기 ---------- */
+function loadEp(ep) {
+  S.ep = ep; S.docs = ep.docs; S.i = 0; S.line = 0;
+  if (!S.edits[ep.key]) S.edits[ep.key] = loadLocal(ep.key) || {};
+  for (const d of ep.docs) if (d.align && !S.edits[ep.key][d.n]) // 저장소에 남은 줄맞춤(align.json)을 바탕으로
+    S.edits[ep.key][d.n] = { f: {}, anchors: d.align['줄자리'] || [], dir: d.align['방향'] || 'v', pairs: d.align['짝'] || {}, why: '', done: false };
+  $('#eptitle').textContent = ep.title + ` · 문서 ${ep.docs.length}건`;
+  document.title = '대조 — ' + ep.title;
+  buildApp(); renderDocs(); pick(0);
+  S.remote && S.remote.watch(ep.key);
+}
+function buildApp() {
+  $('#app').innerHTML = `<nav id="docs" aria-label="문서 목록"></nav>
+  <section id="viewer" aria-label="원본 사진"><div id="vp"><div id="stage"><img id="img" alt=""><svg id="ov"></svg></div><div id="noimg" hidden></div><div id="hint" hidden></div></div>
+  <div class="vbar"><button id="fit" type="button">맞춤</button><button id="zin" type="button" aria-label="확대">＋</button><button id="zout" type="button" aria-label="축소">－</button>
+  <button id="alg" type="button">줄 맞추기</button><select id="dir" aria-label="줄 방향"><option value="v">세로줄 · 오른쪽부터</option><option value="h">가로줄 · 위부터</option></select>
+  <button id="even" type="button">자리 다시 어림</button><a id="vlink" target="_blank" rel="noopener">원본 뷰어 ↗</a><small class="credit">사진: 한국학중앙연구원 한국고문서자료관 소장 · 제공. 다시 쓰려면 소장처 동의가 필요합니다(자료관 031-730-8873 · 8876). 게재에 문제가 있으면 알려 주세요 — 바로 내리겠습니다.</small></div></section>
+  <section id="text"></section>`;
+  bindViewer();
+}
+function renderDocs() {
+  $('#docs').innerHTML = S.docs.map((d, i) => {
+    const t = cur(d, lineField(d)), k = unk(t), c = changed(d).length, e = peek(d), qi = quoteIssues(d).length;
+    return `<button type="button" data-i="${i}" aria-current="${i === S.i}">${esc(d.n)}. ${esc(d.name)}<small>${esc(d.year)}</small>`
+      + (k.u ? `<span class="tag u">□ ${k.u}</span>` : '') + (k.q ? `<span class="tag u">(?) ${k.q}</span>` : '') + (qi ? `<span class="tag u">인용 ${qi}</span>` : '')
+      + (c ? `<span class="tag e">고침 ${c}</span>` : '') + ((e && e.done) || d.review ? `<span class="tag ok">검토</span>` : '') + `</button>`;
+  }).join('');
+}
+function pick(i) {
+  S.i = i; S.line = 0; const d = S.docs[i];
+  document.querySelectorAll('#docs button').forEach(b => b.setAttribute('aria-current', b.dataset.i == i));
+  const img = $('#img'), no = $('#noimg');
+  if (d.img) { no.hidden = true; img.hidden = false; img.onload = () => { fit(); drawBands(); }; img.src = d.img; }
+  else { img.hidden = true; img.removeAttribute('src'); no.hidden = false; no.textContent = '이 문서의 사진이 들어 있지 않습니다. 오른쪽 아래 「원본 뷰어」로 자료관 사진을 열어 대조하세요.'; $('#ov').innerHTML = ''; }
+  const v = $('#vlink'); if (/^https:\/\//.test(d.viewer)) { v.href = d.viewer; v.hidden = false; } else v.hidden = true;
+  $('#dir').value = (peek(d) || {}).dir || 'v';
+  renderText();
+}
+
+/* ---------- 줄 띠(사진 위) ---------- */
+function anchors(d) {
+  const n = linesOf(d).length, e = peek(d) || {}, dir = e.dir || 'v';
+  const a = Array.from({ length: n }, (_, i) => (e.anchors || [])[i] ?? null);
+  const lo = 0.04, hi2 = 0.96, even = i => dir === 'v' ? hi2 - (hi2 - lo) * (n === 1 ? 0.5 : i / (n - 1)) : lo + (hi2 - lo) * (n === 1 ? 0.5 : i / (n - 1));
+  const known = a.map((x, i) => x == null ? -1 : i).filter(i => i >= 0);
+  if (!known.length) { const g = guess(d, n, dir); return g || a.map((_, i) => even(i)); }
+  return a.map((x, i) => {
+    if (x != null) return x;
+    const p = known.filter(k => k < i).pop(), q = known.find(k => k > i);
+    if (p != null && q != null) return a[p] + (a[q] - a[p]) * (i - p) / (q - p);
+    const edge = dir === 'v' ? (p != null ? lo : hi2) : (p != null ? hi2 : lo);
+    if (p != null) return a[p] + (edge - a[p]) * (i - p) / (n - p);
+    return edge + (a[q] - edge) * (i + 1) / (q + 1);
+  });
+}
+function guess(d, n, dir) { // 먹 자국의 세로(가로) 분포로 줄 자리를 어림 — 사람이 「줄 맞추기」로 바로잡는 출발점
+  const img = $('#img'); if (!d.img || !img.naturalWidth || img.getAttribute('src') !== d.img) return null;
+  const key = dir + n; d._g ||= {}; if (key in d._g) return d._g[key];
+  try {
+    const sc = Math.min(1, 500 / Math.max(img.naturalWidth, img.naturalHeight)), w = Math.round(img.naturalWidth * sc), h = Math.round(img.naturalHeight * sc);
+    const c = document.createElement('canvas'); c.width = w; c.height = h; const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(img, 0, 0, w, h);
+    const px = x.getImageData(0, 0, w, h).data, L = dir === 'v' ? w : h, prof = new Float32Array(L);
+    let sum = 0; const lum = new Float32Array(w * h);
+    for (let i = 0; i < w * h; i++) { const r = px[i * 4], g = px[i * 4 + 1], b = px[i * 4 + 2]; lum[i] = (r * 0.3 + g * 0.59 + b * 0.11) - Math.max(0, r - (g + b) / 2) * 0.8; sum += lum[i]; } // 붉은 도장은 덜 셈
+    const mean = sum / (w * h), m0 = Math.round((dir === 'v' ? h : w) * 0.03);
+    for (let yy = 0; yy < h; yy++) for (let xx = 0; xx < w; xx++) { const v = mean - 25 - lum[yy * w + xx]; if (v > 0) { const along = dir === 'v' ? yy : xx, lim = dir === 'v' ? h : w; if (along > m0 && along < lim - m0) prof[dir === 'v' ? xx : yy] += v; } }
+    const rad = Math.max(1, Math.round(L / Math.max(n, 1) / 6)), sm = prof.map((_, i) => { let t = 0, k = 0; for (let j = Math.max(0, i - rad); j <= Math.min(L - 1, i + rad); j++) { t += prof[j]; k++; } return t / k; });
+    const mx = Math.max(...sm); if (!(mx > 0)) return d._g[key] = null;
+    let lo = sm.findIndex(v => v > mx * 0.12), hi = L - 1 - [...sm].reverse().findIndex(v => v > mx * 0.12);
+    const span = Math.max(1, hi - lo), sup = span / Math.max(n, 1) * 0.55, used = new Uint8Array(L), pk = [];
+    const order = [...sm.keys()].filter(i => i >= lo && i <= hi).sort((a, b) => sm[b] - sm[a]);
+    for (const i of order) { if (pk.length >= n) break; if (used[i] || sm[i] < mx * 0.15) continue; pk.push(i); for (let j = Math.max(0, Math.floor(i - sup)); j <= Math.min(L - 1, Math.ceil(i + sup)); j++) used[j] = 1; }
+    let out;
+    if (pk.length === n) out = pk.sort((a, b) => a - b).map(i => (i + 0.5) / L);
+    else out = Array.from({ length: n }, (_, i) => (lo + (n === 1 ? span / 2 : span * i / (n - 1))) / L);
+    if (dir === 'v') out.reverse();
+    return d._g[key] = out.map(v => +v.toFixed(4));
+  } catch (e) { return d._g[key] = null; }
+}
+function drawBands() {
+  const d = S.docs[S.i], img = $('#img'); if (!d || !d.img || !img.naturalWidth) return;
+  const W = img.naturalWidth, H = img.naturalHeight, a = anchors(d), dir = (peek(d) || {}).dir || 'v', n = a.length;
+  const ov = $('#ov'); ov.setAttribute('viewBox', `0 0 ${W} ${H}`); ov.style.width = W + 'px'; ov.style.height = H + 'px';
+  const gap = i => Math.min(...[a[i - 1], a[i + 1]].filter(x => x != null).map(x => Math.abs(x - a[i])), 0.9 / Math.max(n, 1));
+  const fs = Math.max(14, Math.min(W, H) / 40) / S.view.s ** 0.3;
+  ov.innerHTML = a.map((x, i) => {
+    const w = gap(i) * 0.86, sel = i === S.line, op = sel ? 0.30 : 0.10, st = sel ? `stroke="#b0843a" stroke-width="${3 / S.view.s}"` : '';
+    const r = dir === 'v' ? `<rect x="${(x - w / 2) * W}" y="0" width="${w * W}" height="${H}" fill="#d6a855" fill-opacity="${op}" ${st}/>` : `<rect x="0" y="${(x - w / 2) * H}" width="${W}" height="${w * H}" fill="#d6a855" fill-opacity="${op}" ${st}/>`;
+    const tx = dir === 'v' ? `x="${x * W}" y="${fs * 1.2}" text-anchor="middle"` : `x="${fs * 0.4}" y="${x * H + fs * 0.35}"`;
+    return r + `<text ${tx} font-size="${fs}" font-weight="700" fill="${sel ? '#fff' : '#b0843a'}" stroke="#000" stroke-opacity=".55" stroke-width="${fs / 8}" paint-order="stroke">${i + 1}</text>`;
+  }).join('');
+}
+function apply() { $('#stage').style.transform = `translate(${S.view.x}px,${S.view.y}px) scale(${S.view.s})`; drawBands(); }
+function fit() {
+  const img = $('#img'), vp = $('#vp'); if (!img.naturalWidth) return;
+  const s = Math.min(vp.clientWidth / img.naturalWidth, vp.clientHeight / img.naturalHeight) * 0.98;
+  S.view = { s, x: (vp.clientWidth - img.naturalWidth * s) / 2, y: (vp.clientHeight - img.naturalHeight * s) / 2 }; apply();
+}
+function zoom(k, cx, cy) {
+  const vp = $('#vp'); cx ??= vp.clientWidth / 2; cy ??= vp.clientHeight / 2;
+  const s = Math.max(0.05, Math.min(12, S.view.s * k)), r = s / S.view.s;
+  S.view = { s, x: cx - (cx - S.view.x) * r, y: cy - (cy - S.view.y) * r }; apply();
+}
+function showLine(i) { // 고른 줄이 화면 밖이면 그쪽으로 옮김
+  const d = S.docs[S.i], img = $('#img'); if (!d.img || !img.naturalWidth) return;
+  const a = anchors(d)[i], dir = (peek(d) || {}).dir || 'v', vp = $('#vp');
+  if (dir === 'v') { const px = S.view.x + a * img.naturalWidth * S.view.s; if (px < 30 || px > vp.clientWidth - 30) { S.view.x += vp.clientWidth / 2 - px; apply(); } }
+  else { const py = S.view.y + a * img.naturalHeight * S.view.s; if (py < 30 || py > vp.clientHeight - 30) { S.view.y += vp.clientHeight / 2 - py; apply(); } }
+}
+function bindViewer() {
+  const vp = $('#vp'); let drag = null;
+  vp.addEventListener('wheel', ev => { ev.preventDefault(); const r = vp.getBoundingClientRect(); zoom(ev.deltaY < 0 ? 1.15 : 1 / 1.15, ev.clientX - r.left, ev.clientY - r.top); }, { passive: false });
+  vp.addEventListener('pointerdown', ev => { drag = { x: ev.clientX, y: ev.clientY, vx: S.view.x, vy: S.view.y, moved: false }; vp.setPointerCapture(ev.pointerId); });
+  vp.addEventListener('pointermove', ev => { if (!drag) return; const dx = ev.clientX - drag.x, dy = ev.clientY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 4) drag.moved = true; if (drag.moved) { S.view.x = drag.vx + dx; S.view.y = drag.vy + dy; apply(); } });
+  vp.addEventListener('pointerup', ev => {
+    const was = drag; drag = null; if (!was || was.moved) return;
+    const d = S.docs[S.i], img = $('#img'); if (!d.img || !img.naturalWidth) return;
+    const r = vp.getBoundingClientRect(), dir = (peek(d) || {}).dir || 'v';
+    const nx = (ev.clientX - r.left - S.view.x) / S.view.s / img.naturalWidth, ny = (ev.clientY - r.top - S.view.y) / S.view.s / img.naturalHeight;
+    if (nx < 0 || nx > 1 || ny < 0 || ny > 1) return;
+    const v = dir === 'v' ? nx : ny;
+    if (S.align) {
+      const e = E(d); e.anchors = anchors(d).map((x, i) => (e.anchors || [])[i] ?? +x.toFixed(4)); e.anchors[S.line] = +v.toFixed(4); touch(d);
+      const n = linesOf(d).length; if (S.line < n - 1) S.line++; else { S.align = false; $('#alg').classList.remove('on'); vp.classList.remove('align'); toast('모든 줄의 자리를 맞췄습니다.'); }
+      renderLines(); drawBands(); hint();
+    } else {
+      const a = anchors(d); let best = 0; a.forEach((x, i) => { if (Math.abs(x - v) < Math.abs(a[best] - v)) best = i; });
+      selLine(best, false);
+    }
+  });
+  $('#fit').onclick = fit; $('#zin').onclick = () => zoom(1.3); $('#zout').onclick = () => zoom(1 / 1.3);
+  $('#alg').onclick = () => { S.align = !S.align; $('#alg').classList.toggle('on', S.align); vp.classList.toggle('align', S.align); hint(); };
+  $('#dir').onchange = ev => { const d = S.docs[S.i], e = E(d); e.dir = ev.target.value; e.anchors = []; touch(d); drawBands(); };
+  $('#even').onclick = () => { const d = S.docs[S.i]; E(d).anchors = []; touch(d); drawBands(); toast('먹 자국을 보고 줄 자리를 다시 어림했습니다 — 어긋난 줄은 「줄 맞추기」로 옮기세요.'); };
+  new ResizeObserver(() => { if (S.docs[S.i] && S.docs[S.i].img) fit(); }).observe(vp);
+}
+function hint() { const h = $('#hint'); h.hidden = !S.align; h.textContent = `줄 맞추기: 사진에서 ${S.line + 1}번째 줄의 자리를 누르세요 (끄려면 「줄 맞추기」)`; }
+
+/* ---------- 글 쪽 ---------- */
+function renderText() {
+  const d = S.docs[S.i], e = peek(d) || {};
+  $('#text').innerHTML = `<h2>${esc(d.n)}. ${esc(d.name)}</h2><div class="meta">${esc(d.year)} · ${esc(d.id)}${d.review ? ' · 검토: ' + esc(d.review) : ''}</div>
+  <div class="sec"><h3>${lineField(d)} — 줄마다</h3><span id="lcount"></span><button type="button" id="vert" class="${S.vert ? 'on' : ''}">${S.vert ? '가로로 보기' : '세로로 보기'}</button></div>
+  <ol id="lines" class="serif"></ol>
+  <div id="lineedit"></div>
+  <div id="checks"></div>
+  <div class="sec"><h3>칸별로 고치기</h3><span>바꾼 칸은 금빛 줄이 붙습니다</span></div>
+  <div id="fields"></div>
+  <div class="sec"><h3>근거</h3><span>무엇을 보고 고쳤는지(사진 쪽 · 줄 · 참고 자료)</span></div>
+  <textarea id="why" placeholder="예: 원본 3쪽 5행, 日 아래 力 — 勗로 읽힘">${esc(e.why || '')}</textarea>
+  <label class="done"><input type="checkbox" id="done" ${e.done ? 'checked' : ''}> 이 문서를 원본과 처음부터 끝까지 대조했습니다(검토 표시)</label>
+  <ul id="hist"></ul>`;
+  $('#vert').onclick = () => { S.vert = !S.vert; renderText(); };
+  $('#why').oninput = ev => { E(d).why = ev.target.value; touch(d); };
+  $('#done').onchange = ev => { if (ev.target.checked && !$('#who').value.trim()) { ev.target.checked = false; toast('검토 표시를 하려면 위에 검토자 이름을 적으세요.'); $('#who').focus(); return; } E(d).done = ev.target.checked; touch(d); renderDocs(); };
+  renderLines(); renderFields(); renderChecks(); S.remote && S.remote.hist(d);
+}
+function renderLines() {
+  const d = S.docs[S.i], L = linesOf(d), orig = (d.f[lineField(d)] || '').split('\n'), e = peek(d) || {};
+  $('#lcount').textContent = `${L.length}줄`;
+  const ol = $('#lines'); ol.classList.toggle('vert', S.vert);
+  ol.innerHTML = L.map((t, i) => `<li data-i="${i}" class="${i === S.line ? 'sel' : ''} ${t !== orig[i] ? 'chg' : ''}"><span class="no">${i + 1}</span><div><div class="t">${(S.vert ? hiV(t) : hi(t)) || '<span class="gap">(빈 줄)</span>'}</div>${(e.pairs || {})[i] ? `<div class="pair">↳ ${esc(e.pairs[i])}</div>` : ''}</div></li>`).join('');
+  ol.onclick = ev => { const li = ev.target.closest('li'); if (li) selLine(+li.dataset.i, true); };
+  ol.ondblclick = ev => { const li = ev.target.closest('li'); if (li) { selLine(+li.dataset.i, true); $('#lt').focus(); } };
+  renderLineEdit();
+}
+function selLine(i, fromText) {
+  S.line = i; document.querySelectorAll('#lines li').forEach(li => li.classList.toggle('sel', +li.dataset.i === i));
+  drawBands(); if (fromText) showLine(i); else document.querySelector(`#lines li[data-i="${i}"]`)?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  renderLineEdit(); hint();
+}
+function renderLineEdit() {
+  const d = S.docs[S.i], L = linesOf(d), i = Math.min(S.line, L.length - 1), e = peek(d) || {}, box = $('#lineedit');
+  box.innerHTML = `<label for="lt">${i + 1}번째 줄 고치기 — 줄을 나누려면 줄바꿈(Shift+Enter), 반영은 Enter</label>
+  <textarea id="lt" class="serif" rows="2">${esc(L[i])}</textarea>
+  <div class="row"><button type="button" id="ltok" class="main">이 줄 반영</button><button type="button" id="ltjoin">다음 줄과 합치기</button><button type="button" id="ltu">□ 넣기</button><button type="button" id="ltq">(?) 넣기</button></div>
+  <label for="lp">이 줄의 번역 구절(짝) — 아래 번역 칸에서 구절을 고른 뒤 「고른 구절 잇기」</label>
+  <div class="row"><input id="lp" style="flex:1" value="${esc((e.pairs || {})[i] || '')}"><button type="button" id="lpget">고른 구절 잇기</button></div>`;
+  const ta = $('#lt');
+  const commit = () => setLine(i, ta.value);
+  $('#ltok').onclick = commit;
+  ta.onkeydown = ev => { if (ev.key === 'Enter' && !ev.shiftKey && !ev.isComposing) { ev.preventDefault(); commit(); } };
+  $('#ltjoin').onclick = () => { const L2 = linesOf(d); if (i >= L2.length - 1) return; L2.splice(i, 2, L2[i] + ' ' + L2[i + 1]); setField(d, lineField(d), L2.join('\n')); renderAll(); };
+  const ins = s => { const a = ta.selectionStart, b = ta.selectionEnd; ta.setRangeText(s, a, b, 'end'); ta.focus(); };
+  $('#ltu').onclick = () => ins('□'); $('#ltq').onclick = () => ins('(?)');
+  $('#lp').oninput = ev => { const e2 = E(d); e2.pairs = e2.pairs || {}; if (ev.target.value) e2.pairs[i] = ev.target.value; else delete e2.pairs[i]; touch(d); renderLinesOnly(); };
+  $('#lpget').onclick = () => { if (!S.lastSel) { toast('번역 칸에서 이 줄에 해당하는 구절을 먼저 끌어 고르세요.'); return; } $('#lp').value = S.lastSel; $('#lp').dispatchEvent(new Event('input')); };
+}
+function renderLinesOnly() { const k = S.line; const lt = $('#lt')?.value; renderLines(); S.line = k; if (lt != null && $('#lt')) $('#lt').value = lt; }
+function setLine(i, val) {
+  const d = S.docs[S.i], L = linesOf(d), old = L[i], f = lineField(d);
+  if (val === old) return;
+  const nv = val.split('\n'); L.splice(i, 1, ...nv); setField(d, f, L.join('\n'));
+  if (f === '원문' && nv.length === 1) { // 판독에도 같은 줄이 그대로 있으면 함께
+    const o = old.trim(), p = cur(d, '판독');
+    if (o.length >= 2 && p.includes(o) && o !== val.trim()) { setField(d, '판독', p.replace(o, val.trim())); toast('판독 칸의 같은 구절도 함께 고쳤습니다.'); }
+  }
+  if (nv.length > 1) { const e = E(d); if (e.anchors && e.anchors.length) { e.anchors.splice(i + 1, 0, ...Array(nv.length - 1).fill(null)); } }
+  renderAll();
+}
+function setField(d, f, v) { const e = E(d); if (v === (d.f[f] ?? '')) delete e.f[f]; else e.f[f] = v; touch(d); }
+function renderAll() { renderLines(); renderFields(); renderChecks(); renderDocs(); drawBands(); }
+function diffHtml(a, b) {
+  let p = 0; while (p < a.length && p < b.length && a[p] === b[p]) p++;
+  let s = 0; while (s < a.length - p && s < b.length - p && a[a.length - 1 - s] === b[b.length - 1 - s]) s++;
+  const ctx = 24;
+  return (p > ctx ? '…' : '') + esc(a.slice(Math.max(0, p - ctx), p)) + `<del>${esc(a.slice(p, a.length - s))}</del><ins>${esc(b.slice(p, b.length - s))}</ins>` + esc(b.slice(b.length - s, b.length - s + ctx)) + (s > ctx ? '…' : '');
+}
+function renderFields() {
+  const d = S.docs[S.i], ch = new Set(changed(d));
+  $('#fields').innerHTML = FIELDS.map(f => {
+    const v = cur(d, f), o = d.f[f] ?? '';
+    return `<details class="f ${ch.has(f) ? 'chg' : ''}" data-f="${f}" ${OPEN.has(f) || ch.has(f) ? 'open' : ''}><summary>${f}${ch.has(f) ? ' <span class="tag e">고침</span>' : ''}<small>${esc(v.slice(0, 80))}</small></summary>
+    <div class="body"><textarea class="${f === '원문' || f === '판독' ? 'serif' : ''}" data-f="${f}" rows="${Math.min(14, Math.max(3, Math.ceil(v.length / 46) + (v.match(/\n/g) || []).length))}">${esc(v)}</textarea>
+    ${ch.has(f) ? `<div class="diff">${diffHtml(o, v)}</div><div class="fbtn"><button type="button" data-undo="${f}">원래대로</button></div>` : ''}</div></details>`;
+  }).join('');
+  document.querySelectorAll('#fields textarea').forEach(ta => {
+    ta.addEventListener('change', () => { setField(d, ta.dataset.f, ta.value); renderAll(); });
+    ta.addEventListener('input', () => setField(d, ta.dataset.f, ta.value));
+    if (ta.dataset.f === '번역') { const keep = () => { const s = ta.value.slice(ta.selectionStart, ta.selectionEnd).trim(); if (s) S.lastSel = s; }; ta.addEventListener('select', keep); ta.addEventListener('mouseup', keep); ta.addEventListener('keyup', keep); }
+  });
+  document.querySelectorAll('[data-undo]').forEach(b => b.onclick = () => { const e = E(d); delete e.f[b.dataset.undo]; touch(d); renderAll(); });
+}
+function renderChecks() {
+  const d = S.docs[S.i], t = cur(d, lineField(d)), k = unk(t), qi = quoteIssues(d), q = findQuotes(cur(d, '이야기'));
+  $('#checks').innerHTML = `<p>${k.u || k.q ? `<span class="warn">못 읽은 글자 □ ${k.u} · 불확실 (?) ${k.q}</span> — 사진에서 그 자리를 다시 보세요.` : '□ · (?) 없음'}</p>
+  <p>${q.length ? (qi.length ? `<span class="warn">이야기 속 인용 가운데 원문 · 판독에 그대로 없는 구절: ${qi.map(s => '「' + esc(s) + '」').join(' ')}</span>` : `이야기 속 인용 ${q.length}곳이 원문 · 판독에 그대로 있습니다.`) : '이야기에 원문 인용 없음'}</p>`;
+}
+
+/* ---------- 내보내기 · 불러오기 ---------- */
+function exportJSON() {
+  const who = $('#who').value.trim(), items = [], align = {}, reviewed = [];
+  for (const ep of S.eps.length ? S.eps : [S.ep]) {
+    const ed = S.edits[ep.key] || {}; const docs = ep.docs || [];
+    for (const d of docs) {
+      const e = ed[d.n]; if (!e) continue;
+      for (const f of FIELDS) if (f in e.f && e.f[f] !== (d.f[f] ?? '')) items.push({ 편: ep.key, 자료ID: d.id, 순서: d.n, 문서명: d.name, 칸: f, 이전: d.f[f] ?? '', 이후: e.f[f], 근거: e.why || '', 검토자: e.who || who });
+      const hasA = (e.anchors || []).some(x => x != null), hasP = Object.keys(e.pairs || {}).length;
+      if (hasA || hasP) align[d.id || ep.key + '#' + d.n] = { 편: ep.key, 순서: d.n, 방향: e.dir || 'v', 줄자리: hasA ? anchors(d).map(x => +x.toFixed(4)) : [], 짝: e.pairs || {} };
+      if (e.done && (e.who || who)) reviewed.push({ 편: ep.key, 자료ID: d.id, 순서: d.n, 검토자: e.who || who, 날짜: (e.at || '').slice(0, 10) || today() });
+    }
+  }
+  return { 도구: '원문 대조 편집기', 판: 1, 내보낸날: today(), 검토자: who, 고침: items, 줄맞춤: align, 검토: reviewed };
+}
+function showOut() {
+  if (!S.ep) { toast('먼저 편을 여세요.'); return; }
+  const j = exportJSON(), txt = JSON.stringify(j, null, 1);
+  $('#outsum').textContent = `고친 칸 ${j.고침.length} · 줄 맞춤 ${Object.keys(j.줄맞춤).length} · 검토 표시 ${j.검토.length}` + (MODE === 'site' ? ' — 공유판은 고친 내용이 이미 함께 저장됩니다. 이 파일은 따로 보관할 때만.' : ' — 저장한 파일을 저장소 관리자에게 보내거나 studio.py fix --from 으로 반영하세요.');
+  $('#outt').value = txt; $('#out').classList.add('show'); $('#outx').focus();
+}
+$('#exp').onclick = showOut;
+$('#outx').onclick = () => $('#out').classList.remove('show');
+$('#out').onclick = ev => { if (ev.target.id === 'out') $('#out').classList.remove('show'); };
+document.addEventListener('keydown', ev => { if (ev.key === 'Escape') $('#out').classList.remove('show'); });
+$('#outcopy').onclick = async () => { try { await navigator.clipboard.writeText($('#outt').value); toast('복사했습니다.'); } catch (e) { $('#outt').select(); toast('복사가 막혔습니다 — 글을 골라 두었으니 Ctrl+C 하세요.'); } };
+$('#outdl').onclick = () => {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([$('#outt').value], { type: 'application/json' }));
+  a.download = `corrections-${(S.ep && S.ep.key) || 'all'}-${today()}.json`; document.body.append(a); a.click(); a.remove();
+  if (MODE === 'site') toast('이 화면에서 파일 저장이 막히면 「복사」를 쓰세요.');
+};
+$('#imp').onclick = () => $('#impf').click();
+$('#impf').onchange = async ev => {
+  const f = ev.target.files[0]; if (!f) return;
+  try {
+    const j = JSON.parse(await f.text()); let n = 0;
+    for (const it of j.고침 || []) {
+      const ep = (S.eps.find(x => x.key === it.편) || (S.ep && S.ep.key === it.편 ? S.ep : null)) || S.ep; if (!ep || !ep.docs) continue;
+      const d = ep.docs.find(x => (it.자료ID && x.id === it.자료ID) || x.n === String(it.순서)); if (!d) continue;
+      const k = ep.key; (S.edits[k] ||= {}); const e = (S.edits[k][d.n] ||= { f: {}, anchors: [], dir: 'v', pairs: {}, why: '', done: false });
+      e.f[it.칸] = it.이후; if (it.근거) e.why = it.근거; n++;
+    }
+    for (const a of Object.values(j.줄맞춤 || {})) {
+      const ep = S.eps.find(x => x.key === a.편) || S.ep; if (!ep || !ep.docs) continue; const d = ep.docs.find(x => x.n === String(a.순서)); if (!d) continue;
+      const k = ep.key; (S.edits[k] ||= {}); const e = (S.edits[k][d.n] ||= { f: {}, anchors: [], dir: 'v', pairs: {}, why: '', done: false });
+      e.dir = a.방향 || 'v'; e.anchors = a.줄자리 || []; e.pairs = a.짝 || {};
+    }
+    if (S.ep) { saveLocal(); renderDocs(); renderText(); drawBands(); }
+    toast(`고친 칸 ${n}건을 불러왔습니다.`);
+  } catch (e) { toast('읽을 수 없는 파일입니다: ' + e.message); }
+  ev.target.value = '';
+};
+try { $('#who').value = localStorage.getItem(LS + 'who') || ''; } catch (e) {}
+$('#who').onchange = () => { saveLocal(); S.remote && S.remote.me(); };
+document.addEventListener('keydown', ev => {
+  if (!S.ep || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  const n = linesOf(S.docs[S.i]).length;
+  if (ev.key === 'ArrowDown' || ev.key === 'j') { ev.preventDefault(); selLine(Math.min(n - 1, S.line + 1), true); }
+  else if (ev.key === 'ArrowUp' || ev.key === 'k') { ev.preventDefault(); selLine(Math.max(0, S.line - 1), true); }
+  else if (ev.key === 'PageDown') { ev.preventDefault(); if (S.i < S.docs.length - 1) pick(S.i + 1); }
+  else if (ev.key === 'PageUp') { ev.preventDefault(); if (S.i > 0) pick(S.i - 1); }
+  else if (ev.key === 'Enter') { ev.preventDefault(); $('#lt')?.focus(); }
+});
+document.addEventListener('click', ev => { const b = ev.target.closest('#docs button'); if (b) pick(+b.dataset.i); });
+
+/* ---------- 시작 ---------- */
+const DATA = JSON.parse(document.getElementById('data').textContent || 'null');
+if (MODE === 'embedded' && DATA) { S.eps = [DATA]; loadEp(DATA); }
+else if (MODE === 'folder') {
+  $('#pick').hidden = false;
+  const idx = (DATA && DATA.index) || [];
+  if (idx.length) {
+    const sel = $('#ep'); sel.hidden = false;
+    sel.innerHTML = '<option value="">편 고르기…</option>' + idx.map(x => `<option value="${esc(x.key)}">${esc(x.ep ? x.ep + ' · ' : '')}${esc(x.title)}</option>`).join('');
+    sel.onchange = () => sel.value && fetchEp(sel.value);
+    const h = decodeURIComponent(location.hash.slice(1)); if (h && idx.some(x => x.key === h)) { sel.value = h; fetchEp(h); }
+  }
+  $('#pickf').onchange = ev => { if (ev.target.files.length) openFolder([...ev.target.files]); };
+}
+else if (MODE === 'site') { window.__compareSite && window.__compareSite({ S, loadEp, E, peek, cur, renderDocs, renderText, drawBands, toast, esc, today }); }
+}
+</script>
+</body>
+</html>

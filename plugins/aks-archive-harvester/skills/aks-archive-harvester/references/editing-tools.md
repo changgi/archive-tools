@@ -21,6 +21,20 @@ python3 studio.py fix --work WORK --theme <id> --list
 
 **Representative page — `studio.py page`.** The first page of a document is sometimes a cover, a wrapper or the outside of a rolled scroll. `edit` already skips pages that are dark, or much smaller and emptier than the document's other pages, and `check` flags a representative page that still looks like one. `python3 studio.py page --work WORK --theme <id> --n <selection 번호> --page 002.jpg` swaps `images/NN.jpg` and the 원본경로 column to another page of the same document; re-run `mediate` and `video.py` afterwards.
 
+**Side-by-side comparison — `studio.py compare` (원문 대조 편집기).** A page that puts the original image beside 판독 · 번역 · 해제 and pairs each line of the original (a vertical column, or a row) with one line of 원문, so a person can find and fix misreadings where they sit:
+
+```bash
+python3 studio.py compare --work WORK --theme <id>                 # edit/<id>/compare.html — 사진까지 한 파일(인터넷 없이)
+python3 studio.py compare --example examples/<편> --out x.html     # 이미 낸 편(사진은 exhibit.html에서)
+python3 studio.py compare --folder-page examples/compare.html      # 편 폴더를 열어 쓰는 한 장(사진을 넣지 않음)
+python3 studio.py fix --from corrections-<편>-<날짜>.json --in examples [--apply]   # 편집기에서 내보낸 고침을 자료ID로 맞춰 한꺼번에
+```
+
+- Each 원문 line gets a band on the image — first placed from the ink profile of the photo (columns right-to-left for vertical writing, rows top-down for horizontal; evenly if that fails). 「줄 맞추기」 then a click on the image moves that line's band there and steps to the next line; clicking the image elsewhere selects the nearest line. □ shows red, (?) yellow; 「세로로 보기」 lays the lines out right-to-left like the original.
+- A line edit also fixes the same passage in 판독 when it appears there unchanged. Every other field (번역 · 해제 · 요약 · 이야기 · 캡션 · 연도 · 문서유형 · 인물) is editable with a diff against the repository text; one 「근거」 per document; a line can be paired with the 번역 phrase it corresponds to.
+- 「고친 내용 내보내기」 writes JSON (편 · 자료ID · 칸 · 이전 · 이후 · 근거 · 검토자, plus 줄맞춤 and 검토). `fix --from` previews by default; with `--apply` it writes selection.csv, appends each change to corrections.csv (제보 = 「대조 편집기 · 검토자」), keeps line positions and pairs in `align.json` beside selection.csv (the next `compare` starts from them), and copies 검토 only for documents the reviewer ticked with their name. A change whose 이전 no longer matches selection.csv (someone fixed it meanwhile) is skipped, not overwritten. Rebuild outputs afterwards (mediate · promo · proof).
+- Edits stay in the reviewer's browser until exported (localStorage, per episode); 「불러오기」 restores an exported file.
+
 **Proof and review — `studio.py proof` · `studio.py review` (검토지 · 검토 표시).**
 
 ```bash
