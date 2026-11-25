@@ -190,8 +190,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 620044,
-   "sha256": "c882670c5579203af5e0a67a001063ca0b9457041b3fc685d32a848504771588"
+   "bytes": 620065,
+   "sha256": "f205c8dd356f5a4bd3400c528c954728b0531ae4728b6d0473f9bc47cb18add2"
   },
   {
    "path": "handout.html",
@@ -238,8 +238,8 @@
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 13415,
-   "sha256": "4515919e9061356059c9dda55e3361a42f0d4f75b719599fd5f2e473d197a14b"
+   "bytes": 13436,
+   "sha256": "03dd21912419c1b91b363ab3f6f8280dd9c1c780e4f48e200475379efe4f12ab"
   },
   {
    "path": "sns.txt",
@@ -330,6 +330,16 @@
    "changed": [
     "exhibit.html",
     "proof.html",
+    "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 2 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html",
     "selection.csv"
    ]
   }
