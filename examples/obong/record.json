@@ -82,16 +82,16 @@
    "role": "자막(SRT)",
    "kind": "caption",
    "format": "application/x-subrip",
-   "bytes": 1596,
-   "sha256": "b10aefe3202103f1555c262d7d1ea6671135dddb9cab33c95cb3438702717d61"
+   "bytes": 1590,
+   "sha256": "87c26d9bae3b110feec6bf4f53b2c44020a23fe7eaba4db159bab2cf25723cb9"
   },
   {
    "path": "../media/ep69-obong.ko.vtt",
    "role": "자막(WebVTT)",
    "kind": "caption",
    "format": "text/vtt",
-   "bytes": 1604,
-   "sha256": "e05163631e65676b7980b9243d6304c4b513be377741d9a394904a36c34b7b21"
+   "bytes": 1598,
+   "sha256": "344f82fcf6b468161191b1197e8d72ea8f3f214ad4df242fd82a96c5c38f39aa"
   },
   {
    "path": "../media/ep69-obong_reel-poster.jpg",
@@ -226,16 +226,16 @@
    "role": "릴스 영상(9:16)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1655377,
-   "sha256": "77efa708a68eed70f57afcc59eafd5f3d144a60fd63bf31291c2e3eea8ca516d"
+   "bytes": 2461800,
+   "sha256": "0e2b282737fa769c206e8ac7595a9618e1b9a3f7cb253b31b71c35d33fd6fa0e"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep69-obong_wide.mp4",
    "role": "가로 영상(16:9)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1723968,
-   "sha256": "0971adb7bf35af885dd138dccfd5387eefe2787cb294e4dd3d30dff9c6939117"
+   "bytes": 2618951,
+   "sha256": "7da2e53dd1d77edaac833d65447a695f0459922f8bcc8143893c3822151d357f"
   },
   {
    "path": "promo.md",
@@ -398,6 +398,18 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "cards/02.jpg"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 4 · 새로 0 · 빠짐 0 — 교서 인용 閭里獲安으로 영상·자막 다시 만듦",
+   "changed": [
+    "../media/ep69-obong.ko.srt",
+    "../media/ep69-obong.ko.vtt",
+    "https://changgi.github.io/archive-tools-next/media/ep69-obong_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep69-obong_wide.mp4"
    ]
   }
  ]
