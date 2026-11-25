@@ -226,16 +226,16 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1212161,
-   "sha256": "67832b0be6312feaf5ca08af22c58a2a6015c4af55a2179a3d6034be470f97bd"
+   "bytes": 1212230,
+   "sha256": "1563fe14852d4d1d4b54afff985964b94e3601076a5598c072360293dbc8d402"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 582986,
-   "sha256": "47ab80d0d5343ca862d035fbec1b5220a8d26d70ee65cac113aa2d1df26f6a41"
+   "bytes": 583053,
+   "sha256": "3bd0b5b84832674f2c2bd13cb395d70a5390d0b7e4328ee290af6298241c4cd8"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep141-eodo-kang-ij-honseo_reel.mp4",
@@ -274,8 +274,8 @@
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 10552,
-   "sha256": "c0e2ecf1cb775890ea0527b8f59d4e3aa54afe6715d08d71faaa9d2079259214"
+   "bytes": 10621,
+   "sha256": "2ef9b9baa0d75cbf3156108db5742727e06fb97bcdfd81c659777612e2b4b4e7"
   },
   {
    "path": "sns.txt",
@@ -347,6 +347,17 @@
    "agent": "aks-archive-harvester 1.9.2",
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
+    "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html",
+    "handout.html",
     "selection.csv"
    ]
   }

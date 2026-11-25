@@ -230,16 +230,16 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1203381,
-   "sha256": "85fe5ec19daa738021bd996e46355400f2af227d6676956933dc4698035c9f1a"
+   "bytes": 1206606,
+   "sha256": "c4cdca27e9ad8dc677d5a77b0a1c073b536bb8821e793a6601ddaede4972132d"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 573731,
-   "sha256": "645e5e387357d0a931f5d28906f56d00b8c170d14277be6c7b6cdd3ce7ce16d0"
+   "bytes": 576953,
+   "sha256": "3dba6897139cba7d002106601e38d1855f14d5be85897894916483c36fc42122"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep165-hyoheon-gwageo_reel.mp4",
@@ -270,16 +270,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 10416,
-   "sha256": "c73e2d6a1f071cfe2777622c2717c0b51ec9ca98a79d9956ab3e4fda046da241"
+   "bytes": 10846,
+   "sha256": "5f227b94d5b07939723797aa4b51cbfc620f5dabb28da46e3146dde59e8b532b"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 10519,
-   "sha256": "7ba9c1dbf92f123e0ab743b9cbb7169e139ca2fbce018db5668d9023b44d80a8"
+   "bytes": 11057,
+   "sha256": "65be6b2ace3b71dc8ce395c676ee61ec9d589d84098f3531a7b4fd9d14349e5a"
   },
   {
    "path": "sns.txt",
@@ -351,6 +351,18 @@
    "agent": "aks-archive-harvester 1.9.2",
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
+    "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 4 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html",
+    "handout.html",
+    "proof.html",
     "selection.csv"
    ]
   }
