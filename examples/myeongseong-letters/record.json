@@ -172,8 +172,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 178220,
-   "sha256": "fd13c89debb6ee03d9b13bbb4245d39998f0d7005eeb4239aa9fc160f3fe7ab7"
+   "bytes": 176983,
+   "sha256": "f587c1052401566afc140e3fead48a605eb9a710eee31f7996efebafd32a5637"
   },
   {
    "path": "cards/03.jpg",
@@ -188,8 +188,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 169495,
-   "sha256": "ee3f0dc5944bb04ce493b3c2951a9cdeec7f3e03763243d3dfb90f9baa2d01d8"
+   "bytes": 163327,
+   "sha256": "39b6481c03813ec4259a85c957c7ce712fe46ee3f2339d2a05676ece00188e5f"
   },
   {
    "path": "cards/05.jpg",
@@ -220,8 +220,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 205165,
-   "sha256": "8ac2ed8424379bd58b8d6e59b90d792542afd723f327fe883ed5ada36b634b90"
+   "bytes": 205372,
+   "sha256": "23aa830328117b0c2384cb71dc5bb38b6d80c2c41c18436849a4a2fea1f4ddf7"
   },
   {
    "path": "cards/99_마무리.jpg",
@@ -260,16 +260,16 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 3162539,
-   "sha256": "8fd4c2d06788266f495d03d7d04da337a2b3f668073cd3b5c7447dff47174538"
+   "bytes": 3162681,
+   "sha256": "717ca3b98e8fcbb07abb980fbdcb27dbbd0a3383eaa64eca1f42c8b6d44e517a"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 1235771,
-   "sha256": "de1b74ae309d1c7a3a58e40e022306235e4d3b8cc8e94abc381cedc0b578a1cc"
+   "bytes": 1235774,
+   "sha256": "1a7a8286e7d8fdeed59c3a401744f5bd9fd67b00cb5c56179f123a39d12bce61"
   },
   {
    "path": "promo.md",
@@ -284,24 +284,24 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 277593,
-   "sha256": "e2533f748719532ba580fdcd6f9ccb399f16c418332955f8334fd6d2459fbb1b"
+   "bytes": 277759,
+   "sha256": "eb0baba74ed92f725a3bb60e84057673f83557ad0557bd3da86238c193b5e86e"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 15340,
-   "sha256": "2f97efb856fd14e07674458f76e8a1010afa6824e5e211df6765e77f7296556b"
+   "bytes": 15479,
+   "sha256": "64447ae1f22895ca55b0da174614203daff3a5f44360b2d4e0932bab7c7e5496"
   },
   {
    "path": "sns.txt",
    "role": "SNS 글",
    "kind": "promotion",
    "format": "text/plain",
-   "bytes": 1253,
-   "sha256": "a8d963d6d936337f689525c3134a4e329fe2c94b62ec4ec889202c68bef2e1ca"
+   "bytes": 1223,
+   "sha256": "69cde7d4ada42ad04db65f169c74af38faeea99af70bd2b7ea3e28f1cd4ee0db"
   },
   {
    "path": "theme.json",
@@ -411,6 +411,22 @@
     "handout.html",
     "proof.html",
     "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 8 · 새로 0 · 빠짐 0",
+   "changed": [
+    "cards/02.jpg",
+    "cards/04.jpg",
+    "cards/08.jpg",
+    "exhibit.html",
+    "handout.html",
+    "proof.html",
+    "selection.csv",
+    "sns.txt"
    ]
   }
  ]
