@@ -190,8 +190,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 525757,
-   "sha256": "33515f68c671e432ed57b394ba5d9a5b67dfed6b64048075cf41b742b6e9c520"
+   "bytes": 534389,
+   "sha256": "dc8e4a7edab19eed5d937e1099a76c7b45c5cd1034c8194d1d6e440d0ae1a73c"
   },
   {
    "path": "handout.html",
@@ -230,16 +230,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 8378,
-   "sha256": "3947ed768938e562888623219b3628ffa108124fb73b5667d2370482976a6b6f"
+   "bytes": 11435,
+   "sha256": "66e4c94e10878702e43ae39c85238e2a5cc1c5fd4b28405e933947a37ef0a6a3"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 8003,
-   "sha256": "48e02d992eac10dcdc0692c37a170b57494d9ec94917501eb76be842b6021b0f"
+   "bytes": 10417,
+   "sha256": "aec43a7e2b6ead44498b8c829f8b796be8a6094e65ebd46d506021c98b554023"
   },
   {
    "path": "sns.txt",
@@ -289,7 +289,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -320,6 +320,17 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html",
+    "proof.html",
+    "selection.csv"
    ]
   }
  ]
