@@ -162,8 +162,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 275562,
-   "sha256": "d167d3d3a027517e84b029eae687d56c6114d8435f6e03a41520e389e0571083"
+   "bytes": 302704,
+   "sha256": "33d941aaa74b4e76cf337963e1bceef24d3f53e028b27edf7e4733e8294302b8"
   },
   {
    "path": "cards/03.jpg",
@@ -389,6 +389,15 @@
     "exhibit.html",
     "proof.html",
     "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "cards/02.jpg"
    ]
   }
  ]
