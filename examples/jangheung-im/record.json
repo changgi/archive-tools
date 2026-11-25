@@ -71,7 +71,7 @@
    "kind": "caption",
    "format": "application/x-subrip",
    "bytes": 1526,
-   "sha256": "29cbec047a84a5b198c5c917e95f665a786b73d80f8e88148bc2c816bc32915d"
+   "sha256": "b6308f14cb96135e40a46976e16a0c9c7a1c6ba7308cf54c620a9b3e66696ad2"
   },
   {
    "path": "../media/ep63-jangheung-im.ko.vtt",
@@ -79,7 +79,7 @@
    "kind": "caption",
    "format": "text/vtt",
    "bytes": 1534,
-   "sha256": "be808b8f3617e39c5eb54e1c9b304093f1416cb3d1d6840c4af0767bbaf2e10f"
+   "sha256": "745798b85d7da717bb1c268dd12f7c45555aa12e0bd43bff3a521ae10efa07cb"
   },
   {
    "path": "../media/ep63-jangheung-im_reel-poster.jpg",
@@ -103,7 +103,7 @@
    "kind": "text",
    "format": "text/markdown",
    "bytes": 9004,
-   "sha256": "9187e10ad82198bbbb6640d0420a88c9a61fac83529221cdd01b573d872a73ab"
+   "sha256": "e0831b9dd2b1a99cf24313f26536c097e2dde53298692bd6b807906fb718ac74"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -142,8 +142,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 164051,
-   "sha256": "8286a8a5544ea58fea48794d4cae5f9bc12d44ca84e0bded3a643867be6afc4f"
+   "bytes": 184713,
+   "sha256": "6c4b9d530b72195e7e4b600a67c5542e397eed4771730c0d91ded2de80b4835b"
   },
   {
    "path": "cards/02.jpg",
@@ -191,7 +191,7 @@
    "kind": "exhibit",
    "format": "text/html",
    "bytes": 388873,
-   "sha256": "57712f49289732157d5ddd7eb94d331cf5c1abbe4b43b11abb7fc55052379365"
+   "sha256": "c4e3f193fb1aa553358271aac33295e74f1a43ab3d8a55c12a9148fdd31906a7"
   },
   {
    "path": "handout.html",
@@ -199,23 +199,23 @@
    "kind": "education",
    "format": "text/html",
    "bytes": 189290,
-   "sha256": "5d29ee06b563da0949b525781be37954926dabce65ceccd0e2495dfe96547e67"
+   "sha256": "61369b1b0541ce44b21f0e8884e233efb6e2978a8108fdde241e44166ea78163"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep63-jangheung-im_reel.mp4",
    "role": "릴스 영상(9:16)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1433552,
-   "sha256": "bdf2962f530539ef2e4a640a3d6d45697f1dd5f45b5d4accd612a62095d851a3"
+   "bytes": 1999885,
+   "sha256": "1ba9452bc77c5d8e1dca6ff33aa83563ac5aa3d19fc496241f0ad5ac1514638f"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep63-jangheung-im_wide.mp4",
    "role": "가로 영상(16:9)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1442528,
-   "sha256": "e388f21ded9d99dc636e621fc80ff853b7274e8c649dc39327e014a041732b5c"
+   "bytes": 2032430,
+   "sha256": "11d96945644cbf8994b7d0525bc27cd4e7ef958f51582d6b17ef2bfbdc837127"
   },
   {
    "path": "promo.md",
@@ -223,23 +223,23 @@
    "kind": "promotion",
    "format": "text/markdown",
    "bytes": 4102,
-   "sha256": "ecf6904bd0b77e524961681021567757b1d66c39a8b25a75435c9542537a5ef5"
+   "sha256": "adcd4f71eab8b63b9674c438cd5b40361c0446f73ee2c44c7cc26d92588a0e92"
   },
   {
    "path": "proof.html",
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 5900,
-   "sha256": "b3a982f41421bb0efc5425967ba20ba50fa98bd7eb8184da8dfbe2af17b9f087"
+   "bytes": 6668,
+   "sha256": "a0de3b56997689942d0e870db36627c9374ac4beb78d57889a5a422dc7a3e344"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 5387,
-   "sha256": "a6ab6b1d251b9878283183b0617fbfd919dee1753b176a284492f906439d3b5f"
+   "bytes": 5384,
+   "sha256": "5d30ae7cea04df07f59511093c0fd04956ed7961913504358e89b8a251875938"
   },
   {
    "path": "sns.txt",
@@ -289,7 +289,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -320,6 +320,25 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 11 · 새로 0 · 빠짐 0",
+   "changed": [
+    "../media/ep63-jangheung-im.ko.srt",
+    "../media/ep63-jangheung-im.ko.vtt",
+    "README.md",
+    "cards/01.jpg",
+    "exhibit.html",
+    "handout.html",
+    "https://changgi.github.io/archive-tools-next/media/ep63-jangheung-im_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep63-jangheung-im_wide.mp4",
+    "promo.md",
+    "proof.html",
+    "selection.csv"
    ]
   }
  ]

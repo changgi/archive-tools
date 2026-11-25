@@ -95,7 +95,7 @@
    "kind": "caption",
    "format": "application/x-subrip",
    "bytes": 2556,
-   "sha256": "cc612fa76e958320454cb58ff5afa5bb1312f3aa8cf2f04794f6e518a7bcdd85"
+   "sha256": "a5a980e904840c238ac47aca94a18efc357bd8fa22e551a2037f46361ec51ee1"
   },
   {
    "path": "../media/ep171-jangheung-im-honseo.ko.vtt",
@@ -103,7 +103,7 @@
    "kind": "caption",
    "format": "text/vtt",
    "bytes": 2564,
-   "sha256": "0b578a85031adabe7860f44da39848584a49d0dae4387d89b477acd953cc52bc"
+   "sha256": "8cf7a610241e48525344d89b506762f11d98f63919bc9614b0387e7fd7165f76"
   },
   {
    "path": "../media/ep171-jangheung-im-honseo_reel-poster.jpg",
@@ -126,8 +126,8 @@
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 14930,
-   "sha256": "75ed827164074c29dc9ade424ba05715e8f8c6aee8a107be10f0ee9b4f150c4b"
+   "bytes": 14978,
+   "sha256": "12541105d8a77e8c75aeb25cfc94861224d105893bf32fd3a3e74e9dfb03fe22"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -166,8 +166,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 160756,
-   "sha256": "7b0eba457b4d2c11266ad0d7a9cf254962a75f1ee90c339dd4677aa757d092ab"
+   "bytes": 180727,
+   "sha256": "ca915972aa489a6c22280e6a9ec7b16906f5dc788b5cfa3e9a952e28408659b9"
   },
   {
    "path": "cards/02.jpg",
@@ -207,15 +207,15 @@
    "kind": "promotion",
    "format": "text/markdown",
    "bytes": 8159,
-   "sha256": "7fdd1524dc45376986a9c0e53fb9508a5a596a2b8cfac2df372ed2f976513113"
+   "sha256": "429dbddafe4c2c18021ad429e12c43a2d412cb10897fe75a9e7e1932a7cedb90"
   },
   {
    "path": "curator.md",
    "role": "큐레이터 노트",
    "kind": "note",
    "format": "text/markdown",
-   "bytes": 1747,
-   "sha256": "772a16e065ede0cac5d65fb9c6c00ccd4623139f736ca7cfa10ebe5eac34122b"
+   "bytes": 1795,
+   "sha256": "30551ce7e1fbf57070b4b188705ddb8068598dc2ac0354c73a22bea17de9e247"
   },
   {
    "path": "delivery.md",
@@ -230,8 +230,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 811530,
-   "sha256": "9eab3b3e075ccecd367cab6c51238c5788bcd689644a0c663b7f21373c1a212b"
+   "bytes": 811578,
+   "sha256": "fc17f2baad206da945606c056b8fc5641788fdc87cc8938ee632d9ac51ca07dd"
   },
   {
    "path": "handout.html",
@@ -239,23 +239,23 @@
    "kind": "education",
    "format": "text/html",
    "bytes": 389241,
-   "sha256": "ed311a7342786c8279974662eee892cad680166310cd1c24d521127218d83037"
+   "sha256": "75dd8210bc4848a269c7e9bd6e6ec1cb12b1faac3258164f5d50a9f859a7c8da"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_reel.mp4",
    "role": "릴스 영상(9:16)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 1935974,
-   "sha256": "7a6c9e91c2b5adb759b779326a8c0822992d109013f7327cb9db72d8ab5ded33"
+   "bytes": 2681242,
+   "sha256": "e0a3e81904ac9b262f7fb8c09bd032ce6d7745f14085e1758044798c8ab8fb33"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_wide.mp4",
    "role": "가로 영상(16:9)",
    "kind": "video",
    "format": "video/mp4",
-   "bytes": 2002719,
-   "sha256": "ac27457b73de322be185ac5092362908f89bd4eda5d2675cca971d49883d37bc"
+   "bytes": 2779548,
+   "sha256": "c1676ab2296d356eddc1919663bd4d8d558c27a4e9ca1a865f9f8ba044c0e4fc"
   },
   {
    "path": "promo.md",
@@ -263,7 +263,7 @@
    "kind": "promotion",
    "format": "text/markdown",
    "bytes": 5056,
-   "sha256": "70828dd7acdfeb90d7c1c1a244e8ba9542618eb72b9cca0d24b9fb138dfb0fca"
+   "sha256": "7693c9a41971774173e75a6ed4619400f4115d3822e8a4901355ebcb63dcb1a6"
   },
   {
    "path": "proof.html",
@@ -271,15 +271,15 @@
    "kind": "review",
    "format": "text/html",
    "bytes": 10616,
-   "sha256": "694e55027952d6012543505878f6164914b4d0b712ae0e95386bb5822d85ce65"
+   "sha256": "0ca7de2ebc2adeb10331c04fa1edb053a8cbfacb1cdfc1295803eb7ca38eb4d4"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 10134,
-   "sha256": "87c575d252f7200f5a930c970e9811702cfd10d2df4746a00d7d7512fbeef3a7"
+   "bytes": 10129,
+   "sha256": "6412b4087ff684f6542b03091978dac944acae827e7fbf33e920379af2097c75"
   },
   {
    "path": "sns.txt",
@@ -351,6 +351,27 @@
    "agent": "aks-archive-harvester 1.9.2",
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
+    "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 13 · 새로 0 · 빠짐 0",
+   "changed": [
+    "../media/ep171-jangheung-im-honseo.ko.srt",
+    "../media/ep171-jangheung-im-honseo.ko.vtt",
+    "README.md",
+    "cards/01.jpg",
+    "channels.md",
+    "curator.md",
+    "exhibit.html",
+    "handout.html",
+    "https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_reel.mp4",
+    "https://changgi.github.io/archive-tools-next/media/ep171-jangheung-im-honseo_wide.mp4",
+    "promo.md",
+    "proof.html",
     "selection.csv"
    ]
   }
