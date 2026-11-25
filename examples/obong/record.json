@@ -33,7 +33,7 @@
    "type": "software"
   },
   {
-   "name": "aks-archive-harvester 1.9.2",
+   "name": "aks-archive-harvester 1.9.3",
    "role": "수집 · 산출물 생성 · 검증 도구",
    "type": "software"
   }
@@ -210,8 +210,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1123023,
-   "sha256": "8ee948ff205c91ee744d6dffd6524f5378f1acc1983152f49c5bb275acf348ec"
+   "bytes": 1123405,
+   "sha256": "92db05d0926be848602947a535ad1d081f5db15d944f5a1800715590757d2ed8"
   },
   {
    "path": "handout.html",
@@ -279,7 +279,7 @@
   }
  ],
  "validation": {
-  "tool": "studio.py record (aks-archive-harvester 1.9.2)",
+  "tool": "studio.py record (aks-archive-harvester 1.9.3)",
   "documents": 3,
   "quotes": 3,
   "uncertain_marks": 0,
@@ -425,6 +425,15 @@
     "handout.html",
     "proof.html",
     "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.3",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html"
    ]
   }
  ]

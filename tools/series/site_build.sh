@@ -3,7 +3,7 @@
 set -e
 CODE="$(cd "$(dirname "$0")" && pwd)"; REPO="${SERIES_REPO:-$(cd "$CODE/../.." && pwd)}"
 S="$REPO/plugins/aks-archive-harvester/skills/aks-archive-harvester/scripts"
-for s in gallery readme_ex analysis_build about_build share_apply seo_apply a11y_apply a11y_all en_build readme_stats; do
+for s in gallery readme_ex analysis_build about_build share_apply seo_apply a11y_apply a11y_all compare_link en_build readme_stats; do
   echo "· $s"; python3 "$CODE/$s.py" | tail -1
 done
 echo "· media_offload"; python3 "$CODE/media_offload.py"

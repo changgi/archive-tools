@@ -204,7 +204,7 @@ async function buildFrom(key, get) { // get(파일 이름) → 글 또는 null
   const csvText = await get('selection.csv'); if (!csvText) { toast('selection.csv를 읽지 못했습니다.'); return; }
   const rows = parseCSV(csvText);
   let imgs = []; const h = await get('exhibit.html');
-  if (h) imgs = h.split('<section class="panel">').slice(1).map(p => (p.match(/src="(data:image\/[a-z]+;base64,[^"]+)"/) || [])[1] || '');
+  if (h) imgs = h.split('<section class="panel">').slice(1).map(p => (p.match(/src=["](data:image\/[a-z]+;base64,[^"]+)["]/) || [])[1] || '');
   let title = key, al = {};
   try { const t = await get('theme.json'); if (t) title = JSON.parse(t).title || key; } catch (e) {}
   try { const t = await get('align.json'); if (t) al = JSON.parse(t); } catch (e) {}

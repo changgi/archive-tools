@@ -3,6 +3,7 @@
 ## aks-archive-harvester 1.9.3 (2026-11-25)
 - **원문 대조 편집기 `studio.py compare`**: 원본 사진 옆에 판독 · 번역 · 해제를 놓고, 원본의 한 줄(세로 행 · 가로 줄)마다 원문 한 줄을 짝지어 봄. 사진 위 줄 띠(처음엔 먹 자국 분포로 어림해 놓고 「줄 맞추기」로 한 줄씩 자리를 잡음), □는 붉게 · (?)는 노랗게, 「세로로 보기」는 원본처럼 오른쪽부터. 줄을 고치면 판독의 같은 구절도 함께, 나머지 칸은 원래 글과의 차이를 보이며 고침, 문서마다 근거 한 칸, 줄마다 번역 구절 짝. 인용 대조 · □ · (?) 수는 고치는 대로 다시 셈. `--work/--theme`(사진까지 한 파일) · `--example 편폴더` · `--folder-page`(편을 골라 여는 한 장 — 예시 [compare.html](https://changgi.github.io/archive-tools/examples/compare.html))
 - **`studio.py fix --from 편집기.json --in 폴더 [--apply]`**: 편집기에서 내보낸 고침을 자료ID로 맞춰 여러 칸 · 여러 편을 한꺼번에. 칸마다 `corrections.csv`에 이전 · 이후 · 근거 · 제보(「대조 편집기 · 검토자」), 줄 자리 · 짝은 `align.json`(다음 편집기가 이어받음), 검토 표시는 검토자가 이름을 적고 직접 표시한 문서만. 내보낸 뒤 selection.csv가 바뀐 칸은 덮어쓰지 않고 건너뜀
+- 예시: 전시 웹페이지 203편의 문서마다 「원문 대조 ↗」(→ `examples/compare.html#폴더`). 여러 검토자가 함께 고치는 공유판(claude.ai 아티팩트)을 만드는 `tools/series/compare_site.py`와 고친 내용을 모아 오는 `pull_edits.py`
 - `selftest`: 대조 편집기 · fix --from — 33단계
 
 ## aks-archive-harvester 1.9.2 (2026-11-21)

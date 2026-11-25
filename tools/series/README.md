@@ -77,3 +77,9 @@ python3 tools/series/record_build.py --verify   # 대조만 — CI도 같은 대
 - 자료관 서버에 부담을 주지 않도록 내려받기 동시 요청 수는 기본값을 그대로 둡니다.
 
 만든 사람: Song Chang-gi · chgsong@naver.com · https://github.com/changgi
+
+## 원문 대조 편집기
+
+- `compare_link.py` — `examples/compare.html`(편 고르기판)을 다시 만들고, 편마다 전시 웹페이지의 문서 설명 줄에 「원문 대조 ↗」를 붙임(`site_build.sh`에 포함, 여러 번 돌려도 같은 결과).
+- `compare_site.py` · `compare_site.js` — 여러 검토자가 함께 고치는 공유판(claude.ai 아티팩트)의 파일을 `state/compare_site/`에 만듦: `index.html` · `data.json`(모든 편 글) · `p/<번호>.json`(편마다 사진 묶음 — 아티팩트 한 판은 파일 512개까지). 고친 내용은 아티팩트 db의 `edits`(문서마다 지금 상태) · `log`(칸마다 누가 · 언제 · 무엇을 · 왜)에 모임. 사진은 소장처 동의 조건이므로 공유 범위는 저장소 주인이 정함.
+- `pull_edits.py edits.json > corrections-shared.json` — db의 `edits` 목록을 `studio.py fix --from` 용 JSON으로. 이어서 `studio.py fix --from corrections-shared.json --in examples`(미리 보기) → `--apply` → `site_build.sh`.
