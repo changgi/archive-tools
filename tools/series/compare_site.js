@@ -10,7 +10,7 @@ window.__compareSite = A => {
   $('#outdl').hidden = true; // 이 화면은 파일 저장을 막음 — 「복사」로
   // 편 고르기
   const sel = $('#ep'); sel.hidden = false;
-  sel.innerHTML = '<option value="">편 고르기…</option>' + DATA.index.map(x => `<option value="${esc(x.key)}">${esc(x.ep ? x.ep + ' · ' : '')}${esc(x.title)} (${x.n})</option>`).join('');
+  sel.innerHTML = window.__epOptions(DATA.index);
   async function open(key) {
     $('#eptitle').textContent = '여는 중…';
     try {

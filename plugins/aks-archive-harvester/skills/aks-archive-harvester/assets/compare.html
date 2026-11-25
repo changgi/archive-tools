@@ -184,6 +184,18 @@ const hiV = t => (t || '').split(/(\(\?\))/).map(part => part === '(?)' ? '<span
   : (SEG ? [...SEG.segment(part)].map(x => x.segment) : [...part]).map(g => g === '□' ? '<span class="g"><mark class="u">□</mark></span>' : g === ' ' ? '<span class="g sp"> </span>' : `<span class="g">${esc(g)}</span>`).join('')).join('');
 const hi = t => esc(t).replace(/□+/g, m => `<mark class="u">${m}</mark>`).replace(/\(\?\)/g, '<mark class="q">(?)</mark>').replace(/…/g, '<span class="gap">…</span>');
 
+/* ---------- 편 고르기 목록: 손볼 곳 많은 편을 위에 ---------- */
+function epOptions(idx) {
+  const lab = x => `${x.ep ? x.ep + ' · ' : ''}${x.title}` + (x.n != null ? ` — 문서 ${x.n}` : '') + (x.u ? ` · □${x.u}` : '') + (x.q ? ` · (?)${x.q}` : '') + (x.x ? ` · 인용${x.x}` : '') + (x.n && x.r === x.n ? ' · 검토 끝' : '');
+  const opt = x => `<option value="${esc(x.key)}">${esc(lab(x))}</option>`;
+  const need = idx.filter(x => (x.u || 0) + (x.q || 0) + (x.x || 0) > 0).sort((a, b) => ((b.u || 0) + 2 * (b.q || 0) + 5 * (b.x || 0)) - ((a.u || 0) + 2 * (a.q || 0) + 5 * (a.x || 0)));
+  const done = idx.filter(x => x.n && x.r === x.n).length;
+  return `<option value="">편 고르기… (${idx.length}편 · 검토 끝 ${done})</option>`
+    + (need.length ? `<optgroup label="손볼 곳이 많은 편부터 (□ · (?) · 인용)">${need.slice(0, 30).map(opt).join('')}</optgroup>` : '')
+    + `<optgroup label="회차순 전체">${idx.map(opt).join('')}</optgroup>`;
+}
+window.__epOptions = epOptions;
+
 /* ---------- CSV · 폴더 읽기 ---------- */
 function parseCSV(text) {
   text = text.replace(/^﻿/, ''); const rows = []; let row = [], f = '', q = false;
@@ -539,7 +551,7 @@ else if (MODE === 'folder') {
   const idx = (DATA && DATA.index) || [];
   if (idx.length) {
     const sel = $('#ep'); sel.hidden = false;
-    sel.innerHTML = '<option value="">편 고르기…</option>' + idx.map(x => `<option value="${esc(x.key)}">${esc(x.ep ? x.ep + ' · ' : '')}${esc(x.title)}</option>`).join('');
+    sel.innerHTML = epOptions(idx);
     sel.onchange = () => sel.value && fetchEp(sel.value);
     const h = decodeURIComponent(location.hash.slice(1)); if (h && idx.some(x => x.key === h)) { sel.value = h; fetchEp(h); }
   }

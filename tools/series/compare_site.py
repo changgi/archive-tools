@@ -15,7 +15,9 @@ for sp in sorted(glob.glob(EX + '/*/selection.csv')):
     d = os.path.dirname(sp); key = os.path.basename(d)
     rows = list(csv.DictReader(open(sp, encoding='utf-8-sig')))
     title = json.load(open(d + '/theme.json', encoding='utf-8')).get('title', key) if os.path.exists(d + '/theme.json') else key
-    ep = json.load(open(d + '/record.json', encoding='utf-8')).get('episode', '') if os.path.exists(d + '/record.json') else ''
+    rj = json.load(open(d + '/record.json', encoding='utf-8')) if os.path.exists(d + '/record.json') else {}
+    ep = rj.get('episode', '')
+    if title == key: title = rj.get('title') or key
     ex = open(d + '/exhibit.html', encoding='utf-8').read() if os.path.exists(d + '/exhibit.html') else ''
     imgs = [(re.search(r'src="data:image/[a-z]+;base64,([^"]+)"', seg) or [None, ''])[1] for seg in ex.split('<section class="panel">')[1:]]
     al = json.load(open(d + '/align.json', encoding='utf-8')) if os.path.exists(d + '/align.json') else {}
@@ -28,7 +30,7 @@ for sp in sorted(glob.glob(EX + '/*/selection.csv')):
         docs.append(doc)
     os.makedirs(OUT + '/p', exist_ok=True); json.dump(pack, open(f'{OUT}/p/{len(idx)}.json', 'w'), separators=(',', ':'))
     ALL[key] = {'key': key, 'title': title, 'pk': len(idx), 'docs': docs}
-    idx.append({'key': key, 'title': title, 'ep': ep, 'n': len(docs)})
+    idx.append({'key': key, 'title': title, 'ep': ep} | ST.compare_counts(rows))
 json.dump(ALL, open(OUT + '/data.json', 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 num = lambda x: int(re.sub(r'\D', '', x['ep']) or 9999)
 idx.sort(key=lambda x: (num(x), x['key']))

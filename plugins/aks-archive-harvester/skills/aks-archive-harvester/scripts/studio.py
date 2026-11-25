@@ -1419,6 +1419,13 @@ def compare_page(mode, data=None, font_url=None, font=False):
     return page.replace('<!--OLDHANGUL-->', css)
 
 
+def compare_counts(sel):
+    """편 고르기 목록에 붙일 수: 문서 n · 못 읽은 글자 u(□) · 불확실 q((?)) · 인용 어긋남 x · 검토 표시 r"""
+    t = lambda r: r.get('원문') or r.get('판독') or ''
+    return {'n': len(sel), 'u': sum(t(r).count('□') for r in sel), 'q': sum(t(r).count('(?)') for r in sel),
+            'x': sum(len(quote_issues(r)) for r in sel), 'r': sum(1 for r in sel if r.get('검토'))}
+
+
 def compare_doc(r, img='', align=None):
     al = (align or {}).get(r.get('자료ID') or '\0') or (align or {}).get(str(r.get('순서')))
     return {'align': al} | {'n': str(r.get('순서')), 'id': r.get('자료ID', ''), 'name': r.get('문서명', ''), 'year': r.get('연도', ''), 'viewer': r.get('뷰어링크', ''),
@@ -1432,8 +1439,10 @@ def cmd_compare(a):
         for sp_ in sorted(glob.glob(os.path.join(root, '*', 'selection.csv'))):
             d = os.path.dirname(sp_); key = os.path.basename(d); t, ep = key, ''
             if os.path.exists(os.path.join(d, 'theme.json')): t = json.load(open(os.path.join(d, 'theme.json'), encoding='utf-8')).get('title', key)
-            if os.path.exists(os.path.join(d, 'record.json')): ep = json.load(open(os.path.join(d, 'record.json'), encoding='utf-8')).get('episode', '')
-            idx.append({'key': key, 'title': t, 'ep': ep})
+            if os.path.exists(os.path.join(d, 'record.json')):
+                rj = json.load(open(os.path.join(d, 'record.json'), encoding='utf-8')); ep = rj.get('episode', '')
+                if t == key: t = rj.get('title') or key
+            idx.append({'key': key, 'title': t, 'ep': ep} | compare_counts(list(csv.DictReader(open(sp_, encoding='utf-8-sig')))))
         num = lambda x: int(re.sub(r'\D', '', x['ep']) or 9999)
         idx.sort(key=lambda x: (num(x), x['key']))
         page = compare_page('folder', {'index': idx}, font=True)
