@@ -9,7 +9,7 @@
   "collection": "의성 아주신씨 오봉 신지제 가문",
   "holder": "의성 아주신씨 오봉 신지제 가문",
   "source_archive": "한국학중앙연구원 한국고문서자료관 (archive.aks.ac.kr)",
-  "purpose": "'마을이 다시 편안해지고 북소리가 울리지 않았다' — 좋은 다스림의 기준은 평온이었다는 것.",
+  "purpose": "'마을이 편안함을 얻고 북소리가 울리지 않았다' — 좋은 다스림의 기준은 평온이었다는 것.",
   "process": [
    "수집",
    "선별",
@@ -122,8 +122,8 @@
    "role": "비하인드 카드",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 135647,
-   "sha256": "a5ae3806ef51a84ce633e525de53dae13f4eb995aad17b572e32a081d681aded"
+   "bytes": 135596,
+   "sha256": "5175e46a02a0ca6c6785802ea49f0ed8614f8a6a3c747404807a22fc0613841d"
   },
   {
    "path": "behind/b2_만들며있었던일.jpg",
@@ -186,16 +186,16 @@
    "role": "채널별 홍보안",
    "kind": "promotion",
    "format": "text/markdown",
-   "bytes": 7258,
-   "sha256": "631435493a7491089ac4839dc8d9d4f05c909bdd6721bd23f4189b0d444f5813"
+   "bytes": 7243,
+   "sha256": "11ecc759540f64e24aeb0770f844ba316d0f5ddd129d72a0e2a75b96ebadc1a3"
   },
   {
    "path": "curator.md",
    "role": "큐레이터 노트",
    "kind": "note",
    "format": "text/markdown",
-   "bytes": 803,
-   "sha256": "3b52b5a64650def091fbcfb967e8a264c0785b23883badce0b4444e35a1157d4"
+   "bytes": 800,
+   "sha256": "931434fab512353455fa04b035cc418c98fccea89f52fb29e7691200bfde0f4d"
   },
   {
    "path": "delivery.md",
@@ -210,16 +210,16 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1123154,
-   "sha256": "9c70a4f8373db026d9e7d07dee077fd857fff615aca662f8d8db8152c508ffa8"
+   "bytes": 1123023,
+   "sha256": "8ee948ff205c91ee744d6dffd6524f5378f1acc1983152f49c5bb275acf348ec"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 519535,
-   "sha256": "5df4a8d1d59f5b2ce1ba1af155ff606bc11ca87aaff27c1197961d33da6de900"
+   "bytes": 519520,
+   "sha256": "4a5ac3df980e6c0be60c4ea2a7ef57fae4d867e3580f158ebb71795d9f18010b"
   },
   {
    "path": "https://changgi.github.io/archive-tools-next/media/ep69-obong_reel.mp4",
@@ -250,16 +250,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 9454,
-   "sha256": "958d90679b82004ad8419f7cdccc6608f8a5ca943e8fd4226722f7b8e51ac00f"
+   "bytes": 9323,
+   "sha256": "d76109250c561fe85f500675c4354433ce5fdb3f9f19ee258ea2be2458467129"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 7634,
-   "sha256": "2574b77596e4a83af45a94295fa68cb27d87d41624a97ef176e47af5223fe360"
+   "bytes": 7503,
+   "sha256": "6c16a4ea9b6809270156a8670d7b3bf0cd6c58a62fcc33bafe8bfbe24b5c2b4a"
   },
   {
    "path": "sns.txt",
@@ -410,6 +410,21 @@
     "../media/ep69-obong.ko.vtt",
     "https://changgi.github.io/archive-tools-next/media/ep69-obong_reel.mp4",
     "https://changgi.github.io/archive-tools-next/media/ep69-obong_wide.mp4"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 7 · 새로 0 · 빠짐 0",
+   "changed": [
+    "behind/b1_전하고싶은것.jpg",
+    "channels.md",
+    "curator.md",
+    "exhibit.html",
+    "handout.html",
+    "proof.html",
+    "selection.csv"
    ]
   }
  ]
