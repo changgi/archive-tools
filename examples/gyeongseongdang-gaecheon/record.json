@@ -126,8 +126,8 @@
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
    "format": "text/markdown",
-   "bytes": 20397,
-   "sha256": "56b27a73924aa288681d18225f68f578439bb1e6bf4c45b4f7f0b81d23c92da4"
+   "bytes": 20386,
+   "sha256": "e1c62f904a6d141ea9ef8b6afdb9f02f7dd61a24cd2fbedf601ec7d3f9b5ed9d"
   },
   {
    "path": "behind/b1_전하고싶은것.jpg",
@@ -158,8 +158,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 169896,
-   "sha256": "5a079f2af10383a3d796ab0ff0bd750bf8b5027c64e3f73d316d5129cf301435"
+   "bytes": 226137,
+   "sha256": "80cf7c6e8d6f0faf91f092efe8f574cf70e936348d6b5ef9c8d8631ec79e93c6"
   },
   {
    "path": "cards/01.jpg",
@@ -230,8 +230,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1444079,
-   "sha256": "086dc90c5ecc29978f9752bde1fd962924605535298fe78e7786449ef432cafc"
+   "bytes": 1444068,
+   "sha256": "2e92102eed7edc8b779e4f2700d554690c1bb41eddbd493bb848d77ababa5daa"
   },
   {
    "path": "handout.html",
@@ -262,8 +262,8 @@
    "role": "홍보 글",
    "kind": "promotion",
    "format": "text/markdown",
-   "bytes": 5957,
-   "sha256": "760617d2d99bb0d473a53c2a524ce1c985f62603c1ae7ae3948841489472356b"
+   "bytes": 5935,
+   "sha256": "bd6cc84a0310eecfa564187be12f7e4d28ea9fd87fba31665ec0ff735cb400d4"
   },
   {
    "path": "proof.html",
@@ -286,8 +286,8 @@
    "role": "SNS 글",
    "kind": "promotion",
    "format": "text/plain",
-   "bytes": 1635,
-   "sha256": "2e8ef59b7f99fe2253ef95f491cc3a7edae880f2c6a96d5ce0a3e39fa9f88638"
+   "bytes": 1624,
+   "sha256": "a394c6dae99e57e2aaa893f84bc65dddfbce60202d30e5b6b4998d6bd27d58d0"
   },
   {
    "path": "theme.json",
@@ -352,6 +352,19 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 5 · 새로 0 · 빠짐 0",
+   "changed": [
+    "README.md",
+    "cards/00_표지.jpg",
+    "exhibit.html",
+    "promo.md",
+    "sns.txt"
    ]
   }
  ]

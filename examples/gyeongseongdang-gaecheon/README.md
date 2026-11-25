@@ -1,6 +1,6 @@
 # EP.200 떠나려는 군수, 붙잡는 백성 — 개천군수 유원성의 종이 네 장, 1874–1907
 
-안산 부곡 진주류씨 경성당 (문중) · 1874년, 스무 줄도 안 되는 흰 종이 한 장이 유원성의 이름을 처음 나라의 문서에 올렸다. 서른두 해 뒤 그는 평안남도 개천의 군수가 되어 푸줏간 세금 백육십팔 냥을 관찰사에게 올려 보냈다. 이듬해 2월, 그는 물과 흙이 맞지 않아 병이 들었다며 내부대신에게 물러나게 해 달라고 썼다. 그리고 4월, 개천 사람들이 내부대신에게 다시 글을 올렸다. '자식이 부모를 잃었으니 하늘을 부르짖는다.' 「고문서 한 장」의 이백 번째 이야기는, 한 고을이 떠난 군수를 붙잡으려 쓴 종이에서 마무리된다
+안산 부곡 진주류씨 경성당 (문중) · 1874년, 네 줄뿐인 흰 종이 한 장이 유원성의 이름을 처음 나라의 문서에 올렸다. 서른두 해 뒤 그는 평안남도 개천의 군수가 되어 푸줏간 세금 백육십팔 냥을 관찰사에게 올려 보냈다. 이듬해 2월, 그는 물과 흙이 맞지 않아 병이 들었다며 내부대신에게 물러나게 해 달라고 썼다. 그리고 4월, 개천 사람들이 내부대신에게 다시 글을 올렸다. '자식이 부모를 잃었으니 하늘을 부르짖는다.' 「고문서 한 장」의 이백 번째 이야기는, 한 고을이 떠난 군수를 붙잡으려 쓴 종이에서 마무리된다
 
 - 🌐 [전시 웹페이지](https://changgi.github.io/archive-tools/examples/gyeongseongdang-gaecheon/exhibit.html) (한자 위 한글 독음 · 원문 해석) · [수업 활동지](https://changgi.github.io/archive-tools/examples/gyeongseongdang-gaecheon/handout.html)
 - 🎬 영상: [릴스 9:16](https://changgi.github.io/archive-tools-next/media/ep200-gyeongseongdang-gaecheon_reel.mp4) · [가로 16:9](https://changgi.github.io/archive-tools-next/media/ep200-gyeongseongdang-gaecheon_wide.mp4) · 홍보 글: [`promo.md`](promo.md)
