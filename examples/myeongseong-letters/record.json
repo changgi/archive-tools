@@ -212,8 +212,8 @@
    "role": "카드뉴스",
    "kind": "card",
    "format": "image/jpeg",
-   "bytes": 190171,
-   "sha256": "2d1569819616ae254bf435a5c7051ee61ad747bfd4e1f8f231bc3ba6cd60f498"
+   "bytes": 186694,
+   "sha256": "18f4668502baba5c9be40ac423b07553a102627546e9c576dd39ffebbd7373a9"
   },
   {
    "path": "cards/08.jpg",
@@ -260,16 +260,16 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 3162602,
-   "sha256": "bd350beff3634a103f532b271ea3369e7140ef13a81ee3c4bddf672300a89b4f"
+   "bytes": 3162539,
+   "sha256": "8fd4c2d06788266f495d03d7d04da337a2b3f668073cd3b5c7447dff47174538"
   },
   {
    "path": "handout.html",
    "role": "수업 활동지",
    "kind": "education",
    "format": "text/html",
-   "bytes": 1235819,
-   "sha256": "d7f9e708a80122398eca71752363be23d0a204b5d5cb0016f78103179191430b"
+   "bytes": 1235771,
+   "sha256": "de1b74ae309d1c7a3a58e40e022306235e4d3b8cc8e94abc381cedc0b578a1cc"
   },
   {
    "path": "promo.md",
@@ -284,16 +284,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 277617,
-   "sha256": "acc49c57cb054e13aa5957485c1f9dcce79174041f02b78220d8a5a59284c402"
+   "bytes": 277593,
+   "sha256": "e2533f748719532ba580fdcd6f9ccb399f16c418332955f8334fd6d2459fbb1b"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 15403,
-   "sha256": "3cf8ec2e4dba14bc763f2873bdb6af18d92e1a9545964fee940ed6aec732ecba"
+   "bytes": 15340,
+   "sha256": "2f97efb856fd14e07674458f76e8a1010afa6824e5e211df6765e77f7296556b"
   },
   {
    "path": "sns.txt",
@@ -396,6 +396,19 @@
    "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
    "changed": [
     "exhibit.html",
+    "proof.html",
+    "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 5 · 새로 0 · 빠짐 0",
+   "changed": [
+    "cards/07.jpg",
+    "exhibit.html",
+    "handout.html",
     "proof.html",
     "selection.csv"
    ]
