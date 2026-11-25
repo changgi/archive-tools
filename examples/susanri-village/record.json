@@ -271,8 +271,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 1496322,
-   "sha256": "37e079e8d55560cea746ca86fc359d8ad1a847827f058a73e52c63878038da3d"
+   "bytes": 1504626,
+   "sha256": "acc74ae111f98293487b1901e2a61d8bbb304641975084ded7c40b1893b536a9"
   },
   {
    "path": "handout.html",
@@ -295,16 +295,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 22195,
-   "sha256": "40e59a65370f45aecd1adf95222ddc9b46927186c34b4eafb3bad768ed698590"
+   "bytes": 24558,
+   "sha256": "9016cbae7176b8bdd7909d6ae5cb7b79c737931c3ca943873e3acb246f4d495a"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 21128,
-   "sha256": "cb6754159691526cd85e7faf5cf0a0563fdd448af81a78d1bb01c5399c6841ed"
+   "bytes": 23533,
+   "sha256": "8e95842505837a798b39689674a04272219a6fe794f8396c53c0be0726c43d71"
   },
   {
    "path": "sns.txt",
@@ -399,6 +399,17 @@
    "type": "validation",
    "agent": "studio.py record (aks-archive-harvester 1.9.2)",
    "detail": "날짜 어긋남 0 · 인용 불일치 0 · □·(?) 3 · 연도 빈 칸 1"
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html",
+    "proof.html",
+    "selection.csv"
+   ]
   }
  ]
 }
