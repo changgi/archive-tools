@@ -286,8 +286,8 @@
    "role": "온라인 전시",
    "kind": "exhibit",
    "format": "text/html",
-   "bytes": 2172673,
-   "sha256": "61d05a78eef898da2fad7bbf51d2aef63df98f31bcdeca04c8d990dc8b368696"
+   "bytes": 2197322,
+   "sha256": "5c66c97a9883f23b3ba1f431f99f1acbcd4d4e538982dba259d667a1851557e2"
   },
   {
    "path": "handout.html",
@@ -326,16 +326,16 @@
    "role": "검토지(원본 대조용)",
    "kind": "review",
    "format": "text/html",
-   "bytes": 18138,
-   "sha256": "a01b819dd444dbd90bba7264a3eb4173093912de6ebd26158fcb44be9fdcb2c2"
+   "bytes": 24726,
+   "sha256": "3d4bc284e1760f9fe5d8a93f512fa697b42d5cfea84e1604233aa81642ba05f9"
   },
   {
    "path": "selection.csv",
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 17363,
-   "sha256": "31bcd4871095501d413fd6e0e3349350a7ba45d8a5f02171ab472a87d3cffeac"
+   "bytes": 24234,
+   "sha256": "158c85c03a53f202da6d589813109332e8297fbb7d3b83fd932a5557f9e5beef"
   },
   {
    "path": "sns.txt",
@@ -359,11 +359,18 @@
   "documents": 7,
   "quotes": 3,
   "uncertain_marks": 2,
-  "date_issues": 0,
+  "date_issues": 1,
   "date_issues_acknowledged": 0,
   "quote_issues": 0,
   "undated": 0,
-  "details": []
+  "details": [
+   {
+    "doc": "1",
+    "field": "번역",
+    "issue": "「만력 38년 경신」 — 1610년의 간지는 庚戌(경술)",
+    "acknowledged": false
+   }
+  ]
  },
  "review": {
   "reviewed": 0,
@@ -390,7 +397,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -422,6 +429,23 @@
    "changed": [
     "README.md"
    ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
+   "changed": [
+    "exhibit.html",
+    "proof.html",
+    "selection.csv"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "validation",
+   "agent": "studio.py record (aks-archive-harvester 1.9.2)",
+   "detail": "날짜 어긋남 1 · 인용 불일치 0 · □·(?) 2 · 연도 빈 칸 0"
   }
  ]
 }

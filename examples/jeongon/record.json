@@ -114,6 +114,38 @@
  ],
  "derivatives": [
   {
+   "path": "../media/ep9-jeongon.ko.srt",
+   "role": "자막(SRT)",
+   "kind": "caption",
+   "format": "application/x-subrip",
+   "bytes": 1130,
+   "sha256": "5da4de645bf5ec872860d0c97bdefba75d08d32f9e2784622a028f99830875b3"
+  },
+  {
+   "path": "../media/ep9-jeongon.ko.vtt",
+   "role": "자막(WebVTT)",
+   "kind": "caption",
+   "format": "text/vtt",
+   "bytes": 1138,
+   "sha256": "1df9b393fb133b72ea10f1e3cafca17ee0a4d7d8ca6e1feb28de4922429766ee"
+  },
+  {
+   "path": "../media/ep9-jeongon_reel-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 67503,
+   "sha256": "44f22ca603f8d1643e034232d840cc89a30ec31a4a9bc1a891d651ac5393a973"
+  },
+  {
+   "path": "../media/ep9-jeongon_wide-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 68780,
+   "sha256": "0256f4bf5f3e998970803d9acfae1b16f9a494f993f2537b802ba5d7bb33d662"
+  },
+  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
@@ -250,6 +282,22 @@
    "sha256": "95f0c8114810f81be604cb024657f50ae42b8133d94617821209642e6b944125"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1383508,
+   "sha256": "39ddcb3e025c7033e0952f62d250741b146ef51ea88e54d722eb73a275e92b85"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1358428,
+   "sha256": "ee23e98444e411b5c12c94188fe54e51d6bf957e3c9c0350e4bffcc4bf9abd7c"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -362,17 +410,11 @@
    "date": "2026-11-25",
    "type": "modification",
    "agent": "aks-archive-harvester 1.9.2",
-   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 6",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
    "changed": [
     "exhibit.html",
     "proof.html",
-    "selection.csv",
-    "../media/ep9-jeongon.ko.srt",
-    "../media/ep9-jeongon.ko.vtt",
-    "../media/ep9-jeongon_reel-poster.jpg",
-    "../media/ep9-jeongon_wide-poster.jpg",
-    "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_reel.mp4",
-    "https://changgi.github.io/archive-tools-next/media/ep9-jeongon_wide.mp4"
+    "selection.csv"
    ]
   }
  ]

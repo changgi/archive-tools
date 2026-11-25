@@ -218,8 +218,8 @@
    "role": "판독번역표",
    "kind": "data",
    "format": "text/csv",
-   "bytes": 6236,
-   "sha256": "1a3e15646387c45668dc4292d9c579e3667957141e6e878ac21e95bc2aeb2983"
+   "bytes": 6276,
+   "sha256": "d46c432f1a91ff1ffabce5dd779b71d1a61699bfc35a361a875b70efbf030329"
   },
   {
    "path": "sns.txt",
@@ -268,7 +268,7 @@
   ]
  },
  "created": "2026-11-21",
- "modified": "2026-11-21",
+ "modified": "2026-11-25",
  "events": [
   {
    "date": "2026-11-21",
@@ -299,6 +299,15 @@
    "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
    "changed": [
     "README.md"
+   ]
+  },
+  {
+   "date": "2026-11-25",
+   "type": "modification",
+   "agent": "aks-archive-harvester 1.9.2",
+   "detail": "파생물 바뀜 1 · 새로 0 · 빠짐 0",
+   "changed": [
+    "selection.csv"
    ]
   }
  ]

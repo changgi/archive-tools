@@ -134,6 +134,38 @@
  ],
  "derivatives": [
   {
+   "path": "../media/ep10-gujora.ko.srt",
+   "role": "자막(SRT)",
+   "kind": "caption",
+   "format": "application/x-subrip",
+   "bytes": 1114,
+   "sha256": "f1a22d21114c24e4a364ffe3b01b57e9bc87e780d9accb82ca8945e5ba60cb24"
+  },
+  {
+   "path": "../media/ep10-gujora.ko.vtt",
+   "role": "자막(WebVTT)",
+   "kind": "caption",
+   "format": "text/vtt",
+   "bytes": 1122,
+   "sha256": "2cbdc09fea68c4e630bfece70fd39109ef8c1b9b53d2282217b77b0c60dbfd23"
+  },
+  {
+   "path": "../media/ep10-gujora_reel-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 54490,
+   "sha256": "dcf61ef3914659c84ba23c594c84b1fa20723ba3437f54282e47ceb75442e453"
+  },
+  {
+   "path": "../media/ep10-gujora_wide-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 52862,
+   "sha256": "e421b17d0b4d00b5d66a092ffd15ae39565b93511169ae2cc9d5f9c9acf4bf5c"
+  },
+  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
@@ -286,6 +318,22 @@
    "sha256": "d69581f60f3b805ff8911e769fdbb0eaf3454f55dfc4657acaa61155e004f821"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep10-gujora_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1287844,
+   "sha256": "247d14de4a8d7b37cc445e2c28adb9220b89e1009d2b353f088881a1d65ae6e1"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep10-gujora_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1348170,
+   "sha256": "7f56294850517530b114af586222f90ef9b2b11b5b7bb291989308d4c851e6f5"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -400,17 +448,11 @@
    "date": "2026-11-25",
    "type": "modification",
    "agent": "aks-archive-harvester 1.9.2",
-   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 6",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
    "changed": [
     "exhibit.html",
     "proof.html",
-    "selection.csv",
-    "../media/ep10-gujora.ko.srt",
-    "../media/ep10-gujora.ko.vtt",
-    "../media/ep10-gujora_reel-poster.jpg",
-    "../media/ep10-gujora_wide-poster.jpg",
-    "https://changgi.github.io/archive-tools-next/media/ep10-gujora_reel.mp4",
-    "https://changgi.github.io/archive-tools-next/media/ep10-gujora_wide.mp4"
+    "selection.csv"
    ]
   }
  ]

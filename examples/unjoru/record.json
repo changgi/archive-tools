@@ -126,6 +126,38 @@
  ],
  "derivatives": [
   {
+   "path": "../media/ep8-unjoru.ko.srt",
+   "role": "자막(SRT)",
+   "kind": "caption",
+   "format": "application/x-subrip",
+   "bytes": 1060,
+   "sha256": "a8443004812f4199ebf4ea220daa7c6073ca24a9c8d010c1991cb0d9b760868c"
+  },
+  {
+   "path": "../media/ep8-unjoru.ko.vtt",
+   "role": "자막(WebVTT)",
+   "kind": "caption",
+   "format": "text/vtt",
+   "bytes": 1068,
+   "sha256": "3d633a114d62268d89eea87fd8f9036b249d8c05ff726854cf5a9e41e8e16043"
+  },
+  {
+   "path": "../media/ep8-unjoru_reel-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 59611,
+   "sha256": "e878016912d9ab25279409850e8ff1edfacb295f4697e6fd9e785400c35f1425"
+  },
+  {
+   "path": "../media/ep8-unjoru_wide-poster.jpg",
+   "role": "영상 포스터",
+   "kind": "image",
+   "format": "image/jpeg",
+   "bytes": 58185,
+   "sha256": "aba0e08683057e7c94d4ea809ac7da498317221a85505a06065d603da8eba220"
+  },
+  {
    "path": "README.md",
    "role": "편 설명(판독 · 번역 · 해제 전문)",
    "kind": "text",
@@ -270,6 +302,22 @@
    "sha256": "0856ed0c19a1bec8996428ead9dee94f5e41d499f7c9d532dd626e878f114ee5"
   },
   {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep8-unjoru_reel.mp4",
+   "role": "릴스 영상(9:16)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1312745,
+   "sha256": "8af1d4b5fb8067db72196d48609c16753b90f94e0d6e7b7c98c6b0db3e21255b"
+  },
+  {
+   "path": "https://changgi.github.io/archive-tools-next/media/ep8-unjoru_wide.mp4",
+   "role": "가로 영상(16:9)",
+   "kind": "video",
+   "format": "video/mp4",
+   "bytes": 1346220,
+   "sha256": "475e45fd44cf71ba4a6f001861c4dafeaf4409a65a4de6c7925431301bb5c0e5"
+  },
+  {
    "path": "promo.md",
    "role": "홍보 글",
    "kind": "promotion",
@@ -383,17 +431,11 @@
    "date": "2026-11-25",
    "type": "modification",
    "agent": "aks-archive-harvester 1.9.2",
-   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 6",
+   "detail": "파생물 바뀜 3 · 새로 0 · 빠짐 0",
    "changed": [
     "exhibit.html",
     "proof.html",
-    "selection.csv",
-    "../media/ep8-unjoru.ko.srt",
-    "../media/ep8-unjoru.ko.vtt",
-    "../media/ep8-unjoru_reel-poster.jpg",
-    "../media/ep8-unjoru_wide-poster.jpg",
-    "https://changgi.github.io/archive-tools-next/media/ep8-unjoru_reel.mp4",
-    "https://changgi.github.io/archive-tools-next/media/ep8-unjoru_wide.mp4"
+    "selection.csv"
    ]
   },
   {
