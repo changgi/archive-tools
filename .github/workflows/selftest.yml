@@ -5,7 +5,14 @@ on:
   push:
     paths: ['plugins/**', 'tools/**', 'dist/**', 'CHANGELOG.md', '.claude-plugin/**', '.github/workflows/selftest.yml', 'examples/**/*.html', 'examples/**/record.json', 'examples/**/checksums.sha256']
   pull_request:
+    # push와 같은 조건 — 문서만 고친 PR까지 6 job(3 OS × 2 판)을 돌리지 않게
+    paths: ['plugins/**', 'tools/**', 'dist/**', 'CHANGELOG.md', '.claude-plugin/**', '.github/workflows/selftest.yml', 'examples/**/*.html', 'examples/**/record.json', 'examples/**/checksums.sha256']
   workflow_dispatch:
+
+# 같은 브랜치에 연달아 올리면 앞 실행은 취소 — 겹쳐 도는 실행이 30일 동안 49번 중 22번이었습니다
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   plugin:
@@ -14,6 +21,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         python: ['3.10', '3.13']
+        exclude:
+          - os: macos-latest   # macOS 는 최신 파이썬 한 판만(세 OS 모두 그대로 검사)
+            python: '3.10'
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
