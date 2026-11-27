@@ -91,6 +91,19 @@ def episode(ep, title, coll, ed, kind='', cards=0, videos=(), dur=None, link='')
 
 
 # ---------------------------------------------------------------- 그림 조각
+def hm_cell(n, mx, label):
+    """유형 × 세기 표의 한 칸 — 금색이 짙을수록 많다.
+    글자색(#f3ead8 밝은 크림 · #16130f 검정)은 배경과 WCAG AA(4.5:1)를 늘 넘도록 배경 불투명도를 두 구간으로 나눈다.
+    금색을 카드 바탕(#1b1712)에 얹으면 0.60~0.76 사이에서는 밝은 글자도 검은 글자도 4.5:1에 못 미치므로 그 구간을 건너뛴다
+    (실측: 0.59에서 4.75:1 · 0.78에서 4.70:1)."""
+    r = n / mx
+    if r <= 0.5:
+        a, ink = 0.18 + 0.82 * r, '#f3ead8'
+    else:
+        a, ink = 0.78 + 0.22 * (r - 0.5) / 0.5, '#16130f'
+    return f'<td style="background:rgba(196,150,74,{a:.2f});color:{ink}" title="{label}: {n}건">{n}</td>'
+
+
 def hbars(items, total=None, unit='건', top=None, link=None):
     items = items[:top] if top else items
     if not items: return '<p class="mute">자료 없음</p>'
@@ -240,7 +253,7 @@ def build(eps, title, kinds_label='소장처 종류'):
         mx = max(cell.values()) if cell else 1
         hm = '<div class="tw" style="border:0" tabindex="0" role="region" aria-label="유형 × 세기 표"><table class="hm"><tr><td></td>' + ''.join(f'<th>{c}</th>' for c in centuries) + '</tr>' + ''.join(
             f'<tr><th class="r">{h(t)}</th>' + ''.join(
-                (f'<td style="background:rgba(196,150,74,{0.18 + 0.82 * cell[(t, c)] / mx:.2f});color:{"#16130f" if cell[(t, c)] / mx > 0.45 else "#f3ead8"}" title="{h(t)} · {c}: {cell[(t, c)]}건">{cell[(t, c)]}</td>' if cell[(t, c)] else f'<td class="z" style="background:#231d15" title="{h(t)} · {c}: 0건">0</td>') for c in centuries) + '</tr>' for t in tt) + '</table></div>'
+                (hm_cell(cell[(t, c)], mx, f"{h(t)} · {c}") if cell[(t, c)] else f'<td class="z" style="background:#231d15" title="{h(t)} · {c}: 0건">0</td>') for c in centuries) + '</tr>' for t in tt) + '</table></div>'
     out.append('<h2 id="a-type">어떤 문서인가</h2><div class="two">'
                f'<div class="card"><h3>문서 유형 (상위 15)</h3><p class="q">전체 {len(T)}가지 · 막대에 마우스를 올리면 비율</p>{hbars(T.most_common(), len(docs), top=15)}{tv(T.most_common(), ("유형", "문서 수"))}</div>'
                f'<div class="card"><h3>유형 × 세기</h3><p class="q">많이 나온 유형 10가지가 어느 세기에 몰려 있는지 — 진할수록 많음</p>{hm or "<p class=mute>자료 없음</p>"}</div></div>')

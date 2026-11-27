@@ -6,7 +6,7 @@ authors:
   - family-names: Song
     given-names: Chang-gi
     email: chgsong@naver.com
-version: 1.9.3
+version: 1.9.4
 date-released: 2026-11-25
 url: "https://changgi.github.io/archive-tools/examples/"
 repository-code: "https://github.com/changgi/archive-tools"

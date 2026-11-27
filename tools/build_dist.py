@@ -5,6 +5,7 @@
   python3 tools/build_dist.py --check    # 지금 dist가 소스와 같은지 확인(다르면 종료 코드 1)
 
 같은 소스면 늘 같은 바이트가 나오도록(파일 순서 · 날짜 고정) 만들어, 고칠 때마다 패치 · 저장소가 불필요하게 커지지 않게 합니다.
+--check 는 zip 안에 든 파일의 내용으로 대조합니다. 압축 결과는 zlib 판(PC · 실행기)에 따라 달라져서, 내용이 같아도 바이트가 다를 수 있습니다.
 """
 import io, os, sys, zipfile
 
@@ -39,6 +40,16 @@ def build(base, rels):
     return bio.getvalue()
 
 
+def same_entries(p, data):
+    """압축 바이트는 달라도 zip 안에 든 파일(이름 · 내용)이 같으면 같은 배포물 — 압축 결과는 zlib 판에 따라 달라진다."""
+    try:
+        have, want = zipfile.ZipFile(p), zipfile.ZipFile(io.BytesIO(data))
+        if have.namelist() != want.namelist(): return False
+        return all(have.read(n) == want.read(n) for n in have.namelist())
+    except (zipfile.BadZipFile, OSError):
+        return False
+
+
 def main():
     targets = {
         'aks-archive-harvester.plugin': build(PLUG, ['skills', '.claude-plugin', 'README.md']),
@@ -49,7 +60,11 @@ def main():
     for name, data in targets.items():
         p = os.path.join(dist, name)
         if '--check' in sys.argv:
-            if not os.path.exists(p) or open(p, 'rb').read() != data: bad.append(name)
+            if not os.path.exists(p): bad.append(name); continue
+            if open(p, 'rb').read() == data: continue
+            if same_entries(p, data):
+                print(f'· dist/{name} — 압축 바이트만 다릅니다(압축 라이브러리 판 차이 · 내용은 같음)'); continue
+            bad.append(name)
         else:
             open(p, 'wb').write(data); print(f'→ dist/{name}  {len(data) / 1024:.0f}KB')
     if '--check' in sys.argv:
