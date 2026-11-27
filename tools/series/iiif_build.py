@@ -4,7 +4,7 @@
 #   examples/viewer-data.json (examples/viewer.html이 읽는 목록)
 #   이미지 권리: 소장처 · 자료관 것 — 라이선스를 정하지 않고(rights 없음) requiredStatement로 출처 · 동의 · 내림을 적는다
 import _paths as P
-import re, json, os, csv, glob, base64, io, hashlib
+import re, json, os, csv, glob, base64, io
 from PIL import Image
 
 R = P.REPO + '/examples/'

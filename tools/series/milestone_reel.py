@@ -5,7 +5,7 @@ usage: milestone_reel.py [reel|wide|both] [--preview]
   결과: $SERIES_DATA/out/promo-reel-200_{reel,wide}.mp4 (원본) → archive-tools-next/media 에 복사
 """
 import _paths as P
-import json, os, subprocess, sys, asyncio, shutil
+import json, os, subprocess, sys, asyncio
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
