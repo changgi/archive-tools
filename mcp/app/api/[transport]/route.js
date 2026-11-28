@@ -95,11 +95,11 @@ const handler = createMcpHandler(
 
     // ── 1. 큐레이션 검색 ──────────────────────────────────────────────
     server.tool('curation_search',
-      '「고문서 한 장」 큐레이션 데이터셋(200편 · 문서 726건 — 판독 · 번역 · 해제 · 이야기 전문)에서 낱말 · 한자 · 인물 · 문서유형 · 연대로 찾는다. 조선시대 고문서(고신 · 교지 · 홍패 · 호구단자 · 명문 · 편지 …)를 원문과 함께 읽고 싶을 때 첫 도구. 결과의 id로 curation_item을 부르면 판독·번역 전문이 나온다. 예: query="유관순", query="혼인 납폐서", type="홍패", year_from=1800.',
+      '「고문서 한 장」 큐레이션 데이터셋(200편 · 문서 726건 — 판독 · 번역 · 해제 · 이야기 전문)에서 낱말 · 한자 · 인물 · 문서유형 · 연대로 찾는다. 조선시대 고문서(고신 · 교지 · 홍패 · 호구단자 · 명문 · 편지 …)를 원문과 함께 읽고 싶을 때 첫 도구. 결과의 id로 curation_item을 부르면 판독·번역 전문이 나온다. 예: query="이언적", query="혼인 납폐서", type="홍패", year_from=1800.',
       {
         query: z.string().default('').describe('찾을 낱말 — 한국어 · 한자 · 이름 · 문서명 일부. 여러 낱말이면 모두 들어간 문서를 먼저 찾고, 없으면 하나라도 들어간 문서를 보여 준다. 비우면 필터만 적용'),
         type: z.string().default('').describe('문서유형 (예: 고신, 교지, 홍패, 호구단자, 명문, 분재기, 편지, 유서)'),
-        person: z.string().default('').describe('인물 이름 (예: 유관순, 송준길)'),
+        person: z.string().default('').describe('인물 이름 (예: 이언적, 최진립)'),
         year_from: z.number().int().min(1000).max(2100).optional().describe('시작 연도'),
         year_to: z.number().int().min(1000).max(2100).optional().describe('끝 연도'),
         episode: z.string().default('').describe('편 번호 또는 폴더 이름 (예: "17", "EP.17", "dongnakdang")'),
@@ -194,7 +194,7 @@ const handler = createMcpHandler(
     server.tool('curation_people',
       '큐레이션에 나오는 인물 258명 찾아보기 — 이름으로 찾으면 그 사람이 적힌 문서와 편을 보여 준다(여러 편에 걸친 인물 포함). 문서에 적힌 이름만 세며, 같은 이름이 같은 사람인지는 문서로 확인해야 한다.',
       {
-        query: z.string().default('').describe('이름 일부 (예: "유관순", "송준길", "이씨")'),
+        query: z.string().default('').describe('이름 일부 (예: "이언적", "최진립", "김씨")'),
         limit: z.number().int().min(1).max(60).default(15),
       },
       async ({ query, limit }) => {
