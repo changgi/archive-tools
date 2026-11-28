@@ -1,0 +1,86 @@
+name: mcp
+
+# 원격 MCP 서버(mcp/) 전용 CI — 데이터셋 재현성 · 정적 검증 · 빌드 · 로컬 엔드포인트 실측.
+# 기존 selftest(플러그인)와 분리해 두어, 어느 한쪽이 다른 쪽을 막지 않는다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'mcp/**'
+      - '.github/workflows/mcp-verify.yml'
+  pull_request:
+    paths:
+      - 'mcp/**'
+      - '.github/workflows/mcp-verify.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: mcp-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: mcp/package-lock.json
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 데이터셋을 저장소 산출물에서 다시 만들어 같은 바이트인지
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pillow
+          before=$(sha256sum mcp/data/curation.json | cut -d' ' -f1)
+          python3 mcp/scripts/build_dataset.py
+          after=$(sha256sum mcp/data/curation.json | cut -d' ' -f1)
+          echo "데이터셋 sha256 $after"
+          git diff --exit-code -- mcp/data/curation.json mcp/data/glossary.json \
+            || { echo "::error::mcp/data 가 examples 산출물과 다릅니다"; exit 1; }
+          test "$before" = "$after"
+
+      - name: 정적 검증 (수치 일치 · 참조 무결성 · 도구 12종 · 정직 UA)
+        run: node mcp/scripts/ci-verify.mjs
+
+      - name: 의존성 설치
+        working-directory: mcp
+        run: npm ci --no-audit --no-fund
+
+      - name: 빌드
+        working-directory: mcp
+        run: npx next build
+
+      - name: 로컬 서버 기동
+        run: |
+          set -euo pipefail
+          cd mcp
+          npx next start -p 3111 > /tmp/next.log 2>&1 &
+          for i in $(seq 1 30); do
+            curl -sS -o /dev/null -m 5 http://127.0.0.1:3111/ && break
+            sleep 2
+          done
+
+      - name: 엔드포인트 실측 — initialize · tools/list · 도구 호출 · 재실행 바이트 일치 (정적 데이터)
+        run: python3 mcp/scripts/verify_endpoint.py --url http://127.0.0.1:3111/api/mcp --repeat 3 --skip-live
+
+      - name: 자료관 실시간 호출 점검 (archive.aks.ac.kr — 사이트 상태에 따라 실패할 수 있어 막지 않음)
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request
+          req = urllib.request.Request('http://127.0.0.1:3111/api/mcp',
+              data=json.dumps({'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call',
+                               'params': {'name': 'health', 'arguments': {'probe': True}}}).encode(),
+              headers={'Content-Type': 'application/json', 'Accept': 'application/json, text/event-stream'})
+          body = urllib.request.urlopen(req, timeout=90).read().decode()
+          msg = json.loads(body) if body.strip().startswith('{') else [json.loads(l[5:]) for b in body.split('\n\n') for l in b.splitlines() if l.startswith('data:')][-1]
+          print('\n'.join(c.get('text', '') for c in msg['result']['content']))
+          PY
