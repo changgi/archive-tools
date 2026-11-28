@@ -69,13 +69,15 @@ jobs:
           printf '%s\n' "$out"
           url=$(printf '%s\n' "$out" | grep -Eo 'https://[^[:space:]]+' | tail -1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
-          echo "### 배포 완료 — ${url:-unknown} (커밋 ${GITHUB_SHA::7}, prebuilt)" >> "$GITHUB_STEP_SUMMARY"
+          echo "### 배포 완료 — https://$VERCEL_PROJECT.vercel.app (커밋 ${GITHUB_SHA::7}, prebuilt)" >> "$GITHUB_STEP_SUMMARY"
+          echo "배포 URL(보호됨): ${url:-unknown}" >> "$GITHUB_STEP_SUMMARY"
 
+      # Deployment Protection(Vercel Authentication)은 배포별 URL(*-hash.vercel.app)에만 걸리고
+      # 프로덕션 도메인은 공개다. 그래서 실측은 배포 URL이 아니라 프로덕션 앨리어스로 한다.
       - name: 배포 후 실측 (initialize · tools/list · 도구 호출 · 재실행 일치)
         run: |
           set -uo pipefail
-          base="${{ steps.deploy.outputs.url }}"
-          base="${base:-https://$VERCEL_PROJECT.vercel.app}"
+          base="https://$VERCEL_PROJECT.vercel.app"
           for i in $(seq 1 12); do
             curl -sS -o /dev/null -m 20 -X POST "$base/api/mcp" -H 'Content-Type: application/json' \
               -H 'Accept: application/json, text/event-stream' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' && break
