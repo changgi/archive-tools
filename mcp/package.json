@@ -1,0 +1,24 @@
+{
+  "name": "archive-tools-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "archive-tools 원격 MCP 서버 — 한국고문서자료관 실시간 탐색(aks_*) + 「고문서 한 장」 200편·726건 큐레이션 데이터(curation_*)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "dataset": "python3 scripts/build_dataset.py",
+    "verify": "node scripts/ci-verify.mjs"
+  },
+  "dependencies": {
+    "mcp-handler": "1.1.0",
+    "next": "15.5.29",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "3.24.1"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
