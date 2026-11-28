@@ -95,8 +95,43 @@ $ node mcp/scripts/client-check.mjs
 클라이언트 점검 전부 통과
 ```
 
-## 5. 아직 확인하지 못한 것
+## 5. 운영(Vercel) 배포 실측 — 2026-11-28
 
-- **운영(Vercel) 배포**: 워크플로(`mcp/ci/deploy-prebuilt.yml`)와 `VERCEL_TOKEN` secret이 저장소에 들어간 뒤 배포됩니다.
-  배포되면 같은 `verify_endpoint.py`를 운영 URL로 돌려 이 문서에 덧붙입니다.
-- Vercel icn1에서 archive.aks.ac.kr 응답 시간(로컬은 12.9초) — 배포 후 `health(probe=true)`로 확인 예정.
+- 운영 주소: `https://archive-tools-mcp.vercel.app/api/mcp` (public, 인증 없음)
+- 프로젝트: `changgis-projects-22902153/archive-tools-mcp` · 배포: `vercel deploy --prebuilt --prod` (GitHub Actions 러너 빌드)
+- 첫 배포 run [46148701112](https://github.com/changgi/archive-tools/actions/runs/46148701112) → 실측 스텝이 **배포별 URL**을 찔러 401 (Deployment Protection) → 워크플로가 프로덕션 앨리어스를 보도록 고침(커밋 `6db0242`)
+- 재배포 run [46148967573](https://github.com/changgi/archive-tools/actions/runs/46148967573) — **success**, 배포 직후 실측 **17/17 PASS**
+- `mcp` CI run [46148922999](https://github.com/changgi/archive-tools/actions/runs/46148922999) — success (데이터셋 재생성 바이트 일치 · 정적 21 · 빌드 · 로컬 실측)
+
+```
+$ python3 mcp/scripts/verify_endpoint.py --url https://archive-tools-mcp.vercel.app/api/mcp --repeat 5
+initialize            protocol=2025-06-18 · stateless(세션 헤더 없음)          PASS
+tools/list            12종 · readOnly/idempotent/openWorld                     PASS
+… (19개 호출 전부)                                                              PASS
+aks_manifest("경주 옥산 여주이씨 독락당", limit=10, pages=3)   3786B · 4.30s    PASS
+RESULT: PASS — 19/19건 · 같은 질의 5회 실행 바이트 일치(해시 1개)
+```
+
+```
+$ node mcp/scripts/client-check.mjs https://archive-tools-mcp.vercel.app/api/mcp
+  ✓ initialize — mcp-typescript server on vercel/0.1.0
+  ✓ capabilities — tools=true
+  ✓ tools/list 12종
+  ✓ curation_search 1430B · 162ms      ✓ curation_item 2879B · 158ms
+  ✓ curation_episode 1436B · 157ms     ✓ curation_people 415B · 158ms
+  ✓ curation_timeline 399B · 156ms     ✓ curation_quotes 822B · 157ms
+  ✓ doc_type 434B · 296ms              ✓ curation_stats 1704B · 160ms
+  ✓ aks_catalog 1021B · 153ms          ✓ health 757B · 165ms
+  ✓ 같은 질의 두 번 → 같은 응답
+
+클라이언트 점검 전부 통과   (14/14)
+```
+
+- 함수 실행 리전: 서울 `icn1` (응답 헤더 `x-vercel-id: pdx1::icn1::…`). 같은 `aks_manifest`가 로컬 **12.9초 → 운영 4.3초**.
+- Vercel 프로젝트 설정: Ignored Build Step = `Don’t build anything`(`exit 0`) · Functions CPU = `Standard`(1 vCPU · 2 GB) · Fluid compute 사용 · 빌드는 GitHub 러너에서만 하므로 Vercel 빌드 CPU를 쓰지 않습니다.
+- **Deployment Protection**: 팀 기본값이 Vercel Authentication(Standard Protection)이라 `*-<hash>.vercel.app` 배포 URL은 로그인해야 열립니다. 프로덕션 도메인은 공개이므로 이 서버는 그대로 쓸 수 있고, 자동 점검도 앨리어스를 봅니다. 배포 URL을 외부에 안내할 때는 401이 나옵니다.
+
+## 6. 아직 확인하지 못한 것
+
+- Vercel 대시보드에서 별도 커스텀 도메인 연결은 하지 않았습니다(필요 없으면 그대로).
+- `aks_*` 실시간 도구는 archive.aks.ac.kr 상태에 따라 느려지거나 실패할 수 있습니다(응답에 그대로 표시).
