@@ -11,6 +11,7 @@ Claude 플러그인(`plugins/aks-archive-harvester`)은 그대로입니다.
 | 도구 | **12종** — 전부 `readOnlyHint` · `idempotentHint` · `openWorldHint: true` |
 | 응답 | 24KB 이내 · 같은 입력 → 같은 바이트(정렬 고정 · 시각 값 없음) |
 | 실행 리전 | 서울(icn1) — 국내 공공 사이트 정상 접근용 |
+| 실측 기록 | [VERIFICATION.md](VERIFICATION.md) — 데이터 재생성 바이트 일치 · 정적 21건 · 엔드포인트 19건 · MCP 클라이언트 14건 |
 
 ## 도구
 
