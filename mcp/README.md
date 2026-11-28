@@ -52,6 +52,7 @@ python3 scripts/build_dataset.py     # 데이터셋 재생성(같은 저장소 �
 node scripts/ci-verify.mjs           # 정적 검증 21건
 npx next build && npx next start -p 3111
 python3 scripts/verify_endpoint.py --url http://127.0.0.1:3111/api/mcp --repeat 3
+node scripts/client-check.mjs         # 실제 MCP 클라이언트(SDK)로 붙어 도구 12종 호출
 ```
 
 CI는 `mcp/ci/mcp-verify.yml`(데이터 재생성 대조 · 정적 21건 · 빌드 · 엔드포인트 실측)입니다.
